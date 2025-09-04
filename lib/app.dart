@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -18,6 +20,15 @@ class App extends StatelessWidget {
       darkTheme: dark,
       routerConfig: appRouter,
       locale: const Locale('zh'),
+      scrollBehavior: const MaterialScrollBehavior().copyWith(
+        dragDevices: {
+          PointerDeviceKind.touch,
+          PointerDeviceKind.mouse,
+          PointerDeviceKind.trackpad,
+          PointerDeviceKind.stylus,
+          PointerDeviceKind.unknown,
+        },
+      ),
       supportedLocales: L10n.supportedLocales,
       localizationsDelegates: const [
         ...L10n.localizationsDelegates,

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import './responseModel.dart';
+import 'response_model.dart';
 
 class ApiClient {
   final Dio dio;

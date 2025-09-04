@@ -24,7 +24,7 @@ class AppDb extends _$AppDb {
   late List<int> r6Units; // 所有 6 星角色列表
   late (int, int) maxUniqueEquipLv; // 最大的专一2等级
 
-  AppDb(File sqliteFile) : super(NativeDatabase(sqliteFile));
+  AppDb(String sqliteFile) : super(NativeDatabase(File(sqliteFile)));
 
   Future<void> init() async {
     exCharacter = await getExUnitsList();
@@ -56,15 +56,22 @@ class AppDb extends _$AppDb {
     final u = unitProfile; // 表 getter：unit_profile
     final d = unitData; // 表 getter：unit_data
     final a = actualUnitBackground; // 表 getter：actual_unit_background
-    final limitTypeExpr = CaseWhenExpression(
-      cases: [
-        CaseWhen(d.isLimited.equals(0), then: Constant(1)),
-        CaseWhen(d.isLimited.equals(1) & d.rarity.equals(3), then: Constant(2)),
-        CaseWhen(d.isLimited.equals(1) & d.rarity.equals(1), then: Constant(3)),
-        CaseWhen(d.isLimited.equals(1), then: Constant(4)),
-      ],
-      orElse: const Constant(null),
-    );
+    final limitTypeExpr =
+        CaseWhenExpression(
+          cases: [
+            CaseWhen(d.isLimited.equals(0), then: Constant(1)),
+            CaseWhen(
+              d.isLimited.equals(1) & d.rarity.equals(3),
+              then: Constant(2),
+            ),
+            CaseWhen(
+              d.isLimited.equals(1) & d.rarity.equals(1),
+              then: Constant(3),
+            ),
+            CaseWhen(d.isLimited.equals(1), then: Constant(4)),
+          ],
+          orElse: const Constant(null),
+        ).cast<int>();
     final join =
         selectOnly(u)
           ..addColumns([
@@ -96,10 +103,7 @@ class AppDb extends _$AppDb {
             leftOuterJoin(d, d.unitId.equalsExp(u.unitId)),
             leftOuterJoin(
               a,
-              // Python: (unit_id // 100) 相等；简化：两边同除 100，比较值
-              (a.unitId.cast<int>() / Constant(100)).equalsExp(
-                (d.unitId.cast<int>() / Constant(100)),
-              ),
+              ((a.unitId - d.unitId).abs().isSmallerThan(Constant(100))),
             ),
           ])
           ..where(d.unitId.equals(unitId))
@@ -131,7 +135,7 @@ class AppDb extends _$AppDb {
       unitStartTime: row.read(d.startTime) ?? '2015/04/01',
       actualName: row.read(a.unitName) ?? '',
       cutin1Star6: row.read(d.cutin1Star6),
-      limitType: row.read(limitTypeExpr as Expression<int>),
+      limitType: row.read(limitTypeExpr),
     );
 
     if (kannaIDs.contains(info.unitId)) {

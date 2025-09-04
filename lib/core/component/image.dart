@@ -20,7 +20,12 @@ class CachedImage extends StatelessWidget {
     this.borderRadius,
   });
 
-  Future<Color> getDominantColor() async {
+  static final Map<String, (Color, Color)> _cache = {};
+
+  Future<(Color, Color)> getDominantColor() async {
+    if (_cache.containsKey(url)) {
+      return _cache[url]!;
+    }
     try {
       final provider = CachedNetworkImageProvider(
         url,
@@ -30,9 +35,13 @@ class CachedImage extends StatelessWidget {
         provider,
         size: Size(width, height),
       );
-      return palette.dominantColor?.color ?? Colors.transparent;
+      _cache[url] = (
+        palette.dominantColor?.color ?? Colors.transparent,
+        palette.vibrantColor?.color ?? Colors.transparent,
+      );
+      return _cache[url]!;
     } catch (_) {
-      return Colors.transparent;
+      return (Colors.transparent, Colors.transparent);
     }
   }
 

@@ -14,6 +14,10 @@ final Dio dio = Dio(
   ),
 );
 
+int longUnitId2Short(int longId) {
+  return longId ~/ 100;
+}
+
 // TODO: 大文件分块解压
 Future<void> decompress({
   required String brPath,

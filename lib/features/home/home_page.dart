@@ -1,17 +1,30 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:kanna_note/core/component/unit_card.dart';
+import 'package:kanna_note/core/db/database.dart';
+import 'package:kanna_note/core/db/model.dart';
 import 'package:kanna_note/core/network/download.dart';
 import '../../constants.dart';
-import 'package:go_router/go_router.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   double? _progress;
+  AppDb db = AppDb(FilePath.db(Area.cn));
+  final showUnit = [170101, 170201, 100101, 100201, 100301, 100401];
+
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(() async {
+      await db.init();
+    });
+  }
 
   Future<void> _startUpdate() async {
     setState(() {
@@ -28,23 +41,73 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _progress = null;
     });
+    db = AppDb(FilePath.db(Area.cn));
+    await db.init();
+  }
+
+  Future<List<UnitInfo>> _loadUnits() async {
+    List<UnitInfo> units = [];
+    for (var id in showUnit) {
+      var info = await db.getUnitInfo(id);
+      if (info != null) {
+        units.add(info);
+      }
+    }
+    print(units.map((e) => e.unitId).toList());
+    return units;
   }
 
   @override
   Widget build(BuildContext context) {
+    final mediaWidth = MediaQuery.of(context).size.width;
+    final cardWidth = min(max(486.0, mediaWidth * 0.33), mediaWidth);
+    final cardHeight = cardWidth * 792 / 1408;
     return Scaffold(
-      appBar: AppBar(title: const Text('Kanna Note')),
-      body: Center(
+      appBar: AppBar(title: const Text('MisoraNote')),
+      body: Align(
+        alignment: Alignment.topLeft,
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Home (Phase 0 Scaffold)'),
-            const SizedBox(height: 12),
-            FilledButton(
-              onPressed: () => context.go(AppRoutes.settings),
-              child: const Text('Go Settings'),
+            AppBar(title: const Text('角色')),
+            FutureBuilder(
+              future: _loadUnits(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const CircularProgressIndicator();
+                } else if (snapshot.hasError) {
+                  return Text(
+                    'Error: ${snapshot.error} ${snapshot.stackTrace}',
+                  );
+                } else if (snapshot.hasData) {
+                  final units = snapshot.data!;
+                  return SizedBox(
+                    height: cardHeight,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      physics: const BouncingScrollPhysics(),
+                      cacheExtent: cardWidth,
+                      itemCount: units.length,
+                      separatorBuilder: (_, __) => const SizedBox(width: 12),
+                      itemBuilder: (context, i) {
+                        final unit = units[i];
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: UnitCard(
+                            unitInfo: unit,
+                            isR6: db.r6Units.contains(unit.unitId),
+                            size: (cardWidth, cardHeight),
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                } else {
+                  return const Text('No data');
+                }
+              },
             ),
-            const SizedBox(height: 12),
             FilledButton(
               onPressed: _progress == null ? _startUpdate : null,
               child: const Text('更新数据库'),
