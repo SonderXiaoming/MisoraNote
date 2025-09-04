@@ -1,10 +1,12 @@
-import 'dart:math';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:kanna_note/core/component/unit_card.dart';
+import 'package:kanna_note/app.dart';
+import 'package:kanna_note/core/component/image.dart';
 import 'package:kanna_note/core/db/database.dart';
 import 'package:kanna_note/core/db/model.dart';
 import 'package:kanna_note/core/network/download.dart';
+import 'package:kanna_note/core/utils/app_router.dart';
 import '../../constants.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,14 +17,22 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   double? _progress;
-  AppDb db = AppDb(FilePath.db(Area.cn));
-  final showUnit = [170101, 170201, 100101, 100201, 100301, 100401];
-
+  late UnitInfo unitInfo;
+  AppDb? db;
+  late CachedImage cachedImage;
   @override
   void initState() {
     super.initState();
+    db = AppDb(File(FilePath.db(Area.cn)));
     Future.microtask(() async {
-      await db.init();
+      await db?.init();
+      unitInfo = (await db?.getUnitInfo(170101))!;
+      cachedImage = CachedImage(
+        url: FetchUrl.fullcardUrl(1701, 3),
+        width: 486,
+        height: 486 / 1.4,
+        borderRadius: BorderRadius.circular(8),
+      );
     });
   }
 
@@ -69,45 +79,20 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AppBar(title: const Text('角色')),
-            FutureBuilder(
-              future: _loadUnits(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const CircularProgressIndicator();
-                } else if (snapshot.hasError) {
-                  return Text(
-                    'Error: ${snapshot.error} ${snapshot.stackTrace}',
-                  );
-                } else if (snapshot.hasData) {
-                  final units = snapshot.data!;
-                  return SizedBox(
-                    height: cardHeight,
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      physics: const BouncingScrollPhysics(),
-                      cacheExtent: cardWidth,
-                      itemCount: units.length,
-                      separatorBuilder: (_, __) => const SizedBox(width: 12),
-                      itemBuilder: (context, i) {
-                        final unit = units[i];
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8),
-                          child: UnitCard(
-                            unitInfo: unit,
-                            isR6: db.r6Units.contains(unit.unitId),
-                            size: (cardWidth, cardHeight),
-                          ),
-                        );
-                      },
+            const Text('Home (Phase 0 Scaffold)'),
+            const SizedBox(height: 12),
+            FilledButton(
+              onPressed:
+                  () => context.go(
+                    AppRoutes.unitDetail,
+                    extra: UnitPageExtra(
+                      unitInfo: unitInfo,
+                      cachedImage: cachedImage,
                     ),
-                  );
-                } else {
-                  return const Text('No data');
-                }
-              },
+                  ),
+              child: const Text('Go Settings'),
             ),
+            const SizedBox(height: 12),
             FilledButton(
               onPressed: _progress == null ? _startUpdate : null,
               child: const Text('更新数据库'),

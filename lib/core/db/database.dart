@@ -58,20 +58,21 @@ class AppDb extends _$AppDb {
     final a = actualUnitBackground; // 表 getter：actual_unit_background
     final limitTypeExpr =
         CaseWhenExpression(
-          cases: [
-            CaseWhen(d.isLimited.equals(0), then: Constant(1)),
-            CaseWhen(
-              d.isLimited.equals(1) & d.rarity.equals(3),
-              then: Constant(2),
-            ),
-            CaseWhen(
-              d.isLimited.equals(1) & d.rarity.equals(1),
-              then: Constant(3),
-            ),
-            CaseWhen(d.isLimited.equals(1), then: Constant(4)),
-          ],
-          orElse: const Constant(null),
-        ).cast<int>();
+              cases: [
+                CaseWhen(d.isLimited.equals(0), then: Constant(1)),
+                CaseWhen(
+                  d.isLimited.equals(1) & d.rarity.equals(3),
+                  then: Constant(2),
+                ),
+                CaseWhen(
+                  d.isLimited.equals(1) & d.rarity.equals(1),
+                  then: Constant(3),
+                ),
+                CaseWhen(d.isLimited.equals(1), then: Constant(4)),
+              ],
+              orElse: const Constant(0),
+            )
+            as Expression<int>;
     final join =
         selectOnly(u)
           ..addColumns([

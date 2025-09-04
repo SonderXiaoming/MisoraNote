@@ -43,6 +43,7 @@ class AppRoutes {
   static const splash = '/';
   static const home = '/home';
   static const settings = '/settings';
+  static const unitDetail = '/unitDetail';
 }
 
 class CustomColors {
