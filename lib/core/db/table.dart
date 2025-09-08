@@ -154,3 +154,201 @@ class Rarity6QuestData extends Table {
 
   TextColumn get waveBgm => text().named('wave_bgm')();
 }
+
+class SkillData extends Table {
+  @override
+  String get tableName => 'skill_data';
+  @override
+  Set<Column> get primaryKey => {skillId};
+
+  IntColumn get skillId => integer().named('skill_id')();
+  TextColumn get name => text().named('name')();
+  IntColumn get skillType => integer().named('skill_type')();
+  IntColumn get skillAreaWidth => integer().named('skill_area_width')();
+  RealColumn get skillCastTime => real().named('skill_cast_time')();
+  RealColumn get bossUbCoolTime =>
+      real().named('boss_ub_cool_time').nullable()();
+  IntColumn get action1 => integer().named('action_1')();
+  IntColumn get action2 => integer().named('action_2')();
+  IntColumn get action3 => integer().named('action_3')();
+  IntColumn get action4 => integer().named('action_4')();
+  IntColumn get action5 => integer().named('action_5')();
+  IntColumn get action6 => integer().named('action_6')();
+  IntColumn get action7 => integer().named('action_7')();
+  IntColumn get action8 => integer().named('action_8')();
+  IntColumn get action9 => integer().named('action_9')();
+  IntColumn get action10 => integer().named('action_10')();
+
+  IntColumn get actionDepend1 => integer().named('depend_action_1')();
+  IntColumn get actionDepend2 => integer().named('depend_action_2')();
+  IntColumn get actionDepend3 => integer().named('depend_action_3')();
+  IntColumn get actionDepend4 => integer().named('depend_action_4')();
+  IntColumn get actionDepend5 => integer().named('depend_action_5')();
+  IntColumn get actionDepend6 => integer().named('depend_action_6')();
+  IntColumn get actionDepend7 => integer().named('depend_action_7')();
+  IntColumn get actionDepend8 => integer().named('depend_action_8')();
+  IntColumn get actionDepend9 => integer().named('depend_action_9')();
+  IntColumn get actionDepend10 => integer().named('depend_action_10')();
+
+  TextColumn get description => text().named('description').nullable()();
+  IntColumn get iconType => integer().named('icon_type').nullable()();
+}
+
+class UnitSkillData extends Table {
+  @override
+  String get tableName => "unit_skill_data";
+  @override
+  Set<Column> get primaryKey => {unitId};
+  IntColumn get unitId => integer().named("unit_id")();
+
+  IntColumn get unionBurst => integer().named("union_burst")();
+  IntColumn get spUnionBurst => integer().named("sp_union_burst")();
+  IntColumn get unionBurstEvolution =>
+      integer().named("union_burst_evolution").nullable()();
+  // 主技能 (Main Skills)
+  IntColumn get mainSkill1 => integer().named("main_skill_1")();
+  IntColumn get mainSkill2 => integer().named("main_skill_2")();
+  IntColumn get mainSkill3 => integer().named("main_skill_3")();
+  IntColumn get mainSkill4 => integer().named("main_skill_4")();
+  IntColumn get mainSkill5 => integer().named("main_skill_5")();
+  IntColumn get mainSkill6 => integer().named("main_skill_6")();
+  IntColumn get mainSkill7 => integer().named("main_skill_7")();
+  IntColumn get mainSkill8 => integer().named("main_skill_8")();
+  IntColumn get mainSkill9 => integer().named("main_skill_9")();
+  IntColumn get mainSkill10 => integer().named("main_skill_10")();
+  // 主技能进化 (Main Skill Evolutions)
+  IntColumn get mainSkillEvolution1 =>
+      integer().named("main_skill_evolution_1").nullable()();
+  IntColumn get mainSkillEvolution2 =>
+      integer().named("main_skill_evolution_2").nullable()();
+  // EX 技能 (EX Skills)
+  IntColumn get exSkill1 => integer().named("ex_skill_1")();
+  IntColumn get exSkill2 => integer().named("ex_skill_2")();
+  IntColumn get exSkill3 => integer().named("ex_skill_3")();
+  IntColumn get exSkill4 => integer().named("ex_skill_4")();
+  IntColumn get exSkill5 => integer().named("ex_skill_5")();
+  // EX 技能进化 (EX Skill Evolutions)
+  IntColumn get exSkillEvolution1 =>
+      integer().named("ex_skill_evolution_1").nullable()();
+  IntColumn get exSkillEvolution2 =>
+      integer().named("ex_skill_evolution_2").nullable()();
+  IntColumn get exSkillEvolution3 =>
+      integer().named("ex_skill_evolution_3").nullable()();
+  IntColumn get exSkillEvolution4 =>
+      integer().named("ex_skill_evolution_4").nullable()();
+  IntColumn get exSkillEvolution5 =>
+      integer().named("ex_skill_evolution_5").nullable()();
+  // SP 技能 (Special Skills)
+  IntColumn get spSkill1 => integer().named("sp_skill_1")();
+  IntColumn get spSkill2 => integer().named("sp_skill_2")();
+  IntColumn get spSkill3 => integer().named("sp_skill_3")();
+  IntColumn get spSkill4 => integer().named("sp_skill_4")();
+  IntColumn get spSkill5 => integer().named("sp_skill_5")();
+  // SP 技能进化 (Special Skill Evolutions)
+  IntColumn get spSkillEvolution1 =>
+      integer().named("sp_skill_evolution_1").nullable()();
+  IntColumn get spSkillEvolution2 =>
+      integer().named("sp_skill_evolution_2").nullable()();
+}
+
+class SkillAction extends Table {
+  @override
+  String get tableName => "skill_action";
+  @override
+  Set<Column> get primaryKey => {actionId};
+
+  IntColumn get actionId => integer().named("action_id")();
+  IntColumn get classId => integer().named("class_id")();
+  IntColumn get actionType => integer().named("action_type")();
+  IntColumn get actionDetail1 => integer().named("action_detail_1")();
+  IntColumn get actionDetail2 => integer().named("action_detail_2")();
+  IntColumn get actionDetail3 => integer().named("action_detail_3")();
+
+  RealColumn get actionValue1 => real().named("action_value_1")();
+  RealColumn get actionValue2 => real().named("action_value_2")();
+  RealColumn get actionValue3 => real().named("action_value_3")();
+  RealColumn get actionValue4 => real().named("action_value_4")();
+  RealColumn get actionValue5 => real().named("action_value_5")();
+  RealColumn get actionValue6 => real().named("action_value_6")();
+  RealColumn get actionValue7 => real().named("action_value_7")();
+
+  IntColumn get targetAssignment => integer().named("target_assignment")();
+  IntColumn get targetArea => integer().named("target_area")();
+  IntColumn get targetRange => integer().named("target_range")();
+  IntColumn get targetType => integer().named("target_type")();
+  IntColumn get targetNumber => integer().named("target_number")();
+  IntColumn get targetCount => integer().named("target_count")();
+
+  TextColumn get description => text().named("description").nullable()();
+  TextColumn get levelUpDisp => text().named("level_up_disp").nullable()();
+}
+
+class AilmentData extends Table {
+  @override
+  String get tableName => "ailment_data";
+  @override
+  Set<Column> get primaryKey => {ailmentId};
+
+  IntColumn get ailmentId => integer().named("ailment_id")();
+  IntColumn get ailmentAction => integer().named("ailment_action")();
+  IntColumn get ailmentDetail1 => integer().named("ailment_detail_1")();
+  TextColumn get ailmentName => text().named("ailment_name").nullable()();
+}
+
+class UnitAttackPattern extends Table {
+  @override
+  String get tableName => "unit_attack_pattern";
+  @override
+  Set<Column> get primaryKey => {patternId};
+
+  IntColumn get patternId => integer().named("pattern_id")();
+  IntColumn get unitId => integer().named("unit_id")();
+  IntColumn get loopStart => integer().named("loop_start").nullable()();
+  IntColumn get loopEnd => integer().named("loop_end").nullable()();
+
+  IntColumn get atkPattern1 => integer().named("atk_pattern_1").nullable()();
+  IntColumn get atkPattern2 => integer().named("atk_pattern_2").nullable()();
+  IntColumn get atkPattern3 => integer().named("atk_pattern_3").nullable()();
+  IntColumn get atkPattern4 => integer().named("atk_pattern_4").nullable()();
+  IntColumn get atkPattern5 => integer().named("atk_pattern_5").nullable()();
+  IntColumn get atkPattern6 => integer().named("atk_pattern_6").nullable()();
+  IntColumn get atkPattern7 => integer().named("atk_pattern_7").nullable()();
+  IntColumn get atkPattern8 => integer().named("atk_pattern_8").nullable()();
+  IntColumn get atkPattern9 => integer().named("atk_pattern_9").nullable()();
+  IntColumn get atkPattern10 => integer().named("atk_pattern_10").nullable()();
+  IntColumn get atkPattern11 => integer().named("atk_pattern_11").nullable()();
+  IntColumn get atkPattern12 => integer().named("atk_pattern_12").nullable()();
+  IntColumn get atkPattern13 => integer().named("atk_pattern_13").nullable()();
+  IntColumn get atkPattern14 => integer().named("atk_pattern_14").nullable()();
+  IntColumn get atkPattern15 => integer().named("atk_pattern_15").nullable()();
+  IntColumn get atkPattern16 => integer().named("atk_pattern_16").nullable()();
+  IntColumn get atkPattern17 => integer().named("atk_pattern_17").nullable()();
+  IntColumn get atkPattern18 => integer().named("atk_pattern_18").nullable()();
+  IntColumn get atkPattern19 => integer().named("atk_pattern_19").nullable()();
+  IntColumn get atkPattern20 => integer().named("atk_pattern_20").nullable()();
+}
+
+class SpSkillLabelData extends Table {
+  @override
+  String get tableName => "sp_skill_label";
+  @override
+  Set<Column> get primaryKey => {unitId};
+
+  IntColumn get unitId => integer().named("unit_id")();
+  TextColumn get normalLabelText =>
+      text().named("normal_label_text").nullable()();
+  TextColumn get spLabelText => text().named("sp_label_text").nullable()();
+}
+
+class UnitSkillDataRF extends Table {
+  @override
+  String get tableName => "unit_skill_data_rf";
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named("id")();
+  IntColumn get skillId => integer().named("skill_id")();
+  IntColumn get rfSkillId => integer().named("rf_skill_id")();
+  IntColumn get minLv => integer().named("min_lv")();
+  IntColumn get maxLv => integer().named("max_lv")();
+}

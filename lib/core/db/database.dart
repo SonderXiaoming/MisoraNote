@@ -17,6 +17,13 @@ final kannaIDs = [170101, 170201];
     UniqueEquipmentEnhanceData,
     ActualUnitBackground,
     Rarity6QuestData,
+    SkillData,
+    UnitSkillData,
+    SkillAction,
+    AilmentData,
+    UnitAttackPattern,
+    SpSkillLabelData,
+    UnitSkillDataRF,
   ],
 )
 class AppDb extends _$AppDb {
@@ -166,5 +173,82 @@ class AppDb extends _$AppDb {
     final maxValue = row?.read(maxExpr);
 
     return maxValue ?? 1;
+  }
+
+  Future<UnitSkillDataData?> getUnitSkills(int unitId) =>
+      (select(unitSkillData)
+        ..where((t) => t.unitId.equals(unitId))).getSingleOrNull();
+
+  Future<SkillDataData?> getSkill(int skillId) =>
+      (select(skillData)
+        ..where((t) => t.skillId.equals(skillId))).getSingleOrNull();
+
+  Future<List<SkillActionInfo>> getSkillActions(
+    List<int> actionIds, {
+    bool isRfSkill = true,
+    bool isOtherRfSkill = true,
+  }) async {
+    if (actionIds.isEmpty) return [];
+    final query =
+        select(skillAction).join([
+            leftOuterJoin(
+              ailmentData,
+              (skillAction.actionType.equalsExp(ailmentData.ailmentAction) &
+                  ((skillAction.actionDetail1.equalsExp(
+                        ailmentData.ailmentDetail1,
+                      )) |
+                      ailmentData.ailmentDetail1.equals(-1))),
+            ),
+          ])
+          ..where(skillAction.actionId.isIn(actionIds))
+          ..addColumns([ailmentData.ailmentName]);
+
+    final result = await query.get();
+
+    return result.map((row) {
+      final sa = row.readTable(skillAction);
+      return SkillActionInfo(
+        actionId: sa.actionId,
+        classId: sa.classId,
+        actionType: sa.actionType,
+        actionDetail1: sa.actionDetail1,
+        actionDetail2: sa.actionDetail2,
+        actionDetail3: sa.actionDetail3,
+        actionValue1: sa.actionValue1,
+        actionValue2: sa.actionValue2,
+        actionValue3: sa.actionValue3,
+        actionValue4: sa.actionValue4,
+        actionValue5: sa.actionValue5,
+        actionValue6: sa.actionValue6,
+        actionValue7: sa.actionValue7,
+        targetAssignment: sa.targetAssignment,
+        targetArea: sa.targetArea,
+        targetRange: sa.targetRange,
+        targetType: sa.targetType,
+        targetNumber: sa.targetNumber,
+        targetCount: sa.targetCount,
+        ailmentName: row.read(ailmentData.ailmentName) ?? '',
+        isRfSkill: isRfSkill,
+        isOtherRfSkill: isOtherRfSkill,
+        description: sa.description,
+        levelUpDisp: sa.levelUpDisp,
+      );
+    }).toList();
+  }
+
+  Future<List<UnitAttackPatternData>> getAttackPattern(int unitId) async {
+    final query = select(unitAttackPattern)
+      ..where((t) => t.unitId.equals(unitId));
+    return query.get();
+  }
+
+  Future<SpSkillLabelDataData?> getSpSkillLabel(int unitId) =>
+      (select(spSkillLabelData)
+        ..where((t) => t.unitId.equals(unitId))).getSingleOrNull();
+
+  Future<UnitSkillDataRFData?> getRfSkillId(int skillId) async {
+    final query = select(unitSkillDataRF)
+      ..where((t) => t.skillId.equals(skillId));
+    return query.getSingleOrNull();
   }
 }

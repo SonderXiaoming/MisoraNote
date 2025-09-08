@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kanna_note/core/component/image.dart';
-import 'package:kanna_note/core/component/shape.dart';
+import 'package:kanna_note/features/component/image.dart';
+import 'package:kanna_note/features/component/shape.dart';
 import 'package:kanna_note/core/db/model.dart';
 import 'package:kanna_note/constants.dart';
+import 'package:kanna_note/core/router/page_extra.dart';
 import 'package:kanna_note/core/utils/util.dart';
 
 class UnitCard extends StatefulWidget {
@@ -19,23 +20,25 @@ class UnitCard extends StatefulWidget {
 
   @override
   State<UnitCard> createState() => _UnitCardState();
+
+  String get imageUrl {
+    return FetchUrl.fullcardUrl(
+      longUnitId2Short(unitInfo.unitId),
+      isR6 ? 6 : 3,
+    );
+  }
 }
 
 class _UnitCardState extends State<UnitCard> {
   late final CachedImage unitImage;
-  late final String imageUrl;
   Color colorDomain = Colors.transparent;
   Color colorVibrant = Colors.transparent;
 
   @override
   void initState() {
     super.initState();
-    imageUrl = FetchUrl.fullcardUrl(
-      longUnitId2Short(widget.unitInfo.unitId),
-      widget.isR6 ? 6 : 3,
-    );
     unitImage = CachedImage(
-      url: imageUrl,
+      url: widget.imageUrl,
       width: widget.size.$1,
       height: widget.size.$2,
       borderRadius: BorderRadius.circular(8),
@@ -61,7 +64,10 @@ class _UnitCardState extends State<UnitCard> {
     );
     return GestureDetector(
       onTap: () {
-        context.push('/unit/${widget.unitInfo.unitId}', extra: widget.unitInfo);
+        context.go(
+          AppRoutes.unitDetail,
+          extra: UnitPageExtra(unitInfo: widget.unitInfo, card: widget),
+        );
       },
       child: Card(
         elevation: 4,
@@ -74,9 +80,6 @@ class _UnitCardState extends State<UnitCard> {
             children: [
               unitImage,
               Positioned(
-                right: 0,
-                top: 0,
-                bottom: 0,
                 child: ClipPath(
                   clipper: TrapezoidClipper(),
                   child: Container(
@@ -145,7 +148,7 @@ class _UnitCardState extends State<UnitCard> {
               ),
               Positioned(
                 right: widget.size.$1 * 0.03,
-                top: widget.size.$2 * 0.8,
+                bottom: 8,
                 child: Text(
                   widget.unitInfo.unitStartTime.split(" ").first,
                   style: textStyle.copyWith(

@@ -5492,6 +5492,7072 @@ class Rarity6QuestDataCompanion extends UpdateCompanion<Rarity6QuestDataData> {
   }
 }
 
+class $SkillDataTable extends SkillData
+    with TableInfo<$SkillDataTable, SkillDataData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $SkillDataTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _skillIdMeta = const VerificationMeta(
+    'skillId',
+  );
+  @override
+  late final GeneratedColumn<int> skillId = GeneratedColumn<int>(
+    'skill_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _skillTypeMeta = const VerificationMeta(
+    'skillType',
+  );
+  @override
+  late final GeneratedColumn<int> skillType = GeneratedColumn<int>(
+    'skill_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _skillAreaWidthMeta = const VerificationMeta(
+    'skillAreaWidth',
+  );
+  @override
+  late final GeneratedColumn<int> skillAreaWidth = GeneratedColumn<int>(
+    'skill_area_width',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _skillCastTimeMeta = const VerificationMeta(
+    'skillCastTime',
+  );
+  @override
+  late final GeneratedColumn<double> skillCastTime = GeneratedColumn<double>(
+    'skill_cast_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _bossUbCoolTimeMeta = const VerificationMeta(
+    'bossUbCoolTime',
+  );
+  @override
+  late final GeneratedColumn<double> bossUbCoolTime = GeneratedColumn<double>(
+    'boss_ub_cool_time',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _action1Meta = const VerificationMeta(
+    'action1',
+  );
+  @override
+  late final GeneratedColumn<int> action1 = GeneratedColumn<int>(
+    'action_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _action2Meta = const VerificationMeta(
+    'action2',
+  );
+  @override
+  late final GeneratedColumn<int> action2 = GeneratedColumn<int>(
+    'action_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _action3Meta = const VerificationMeta(
+    'action3',
+  );
+  @override
+  late final GeneratedColumn<int> action3 = GeneratedColumn<int>(
+    'action_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _action4Meta = const VerificationMeta(
+    'action4',
+  );
+  @override
+  late final GeneratedColumn<int> action4 = GeneratedColumn<int>(
+    'action_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _action5Meta = const VerificationMeta(
+    'action5',
+  );
+  @override
+  late final GeneratedColumn<int> action5 = GeneratedColumn<int>(
+    'action_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _action6Meta = const VerificationMeta(
+    'action6',
+  );
+  @override
+  late final GeneratedColumn<int> action6 = GeneratedColumn<int>(
+    'action_6',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _action7Meta = const VerificationMeta(
+    'action7',
+  );
+  @override
+  late final GeneratedColumn<int> action7 = GeneratedColumn<int>(
+    'action_7',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _action8Meta = const VerificationMeta(
+    'action8',
+  );
+  @override
+  late final GeneratedColumn<int> action8 = GeneratedColumn<int>(
+    'action_8',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _action9Meta = const VerificationMeta(
+    'action9',
+  );
+  @override
+  late final GeneratedColumn<int> action9 = GeneratedColumn<int>(
+    'action_9',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _action10Meta = const VerificationMeta(
+    'action10',
+  );
+  @override
+  late final GeneratedColumn<int> action10 = GeneratedColumn<int>(
+    'action_10',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionDepend1Meta = const VerificationMeta(
+    'actionDepend1',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend1 = GeneratedColumn<int>(
+    'depend_action_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionDepend2Meta = const VerificationMeta(
+    'actionDepend2',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend2 = GeneratedColumn<int>(
+    'depend_action_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionDepend3Meta = const VerificationMeta(
+    'actionDepend3',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend3 = GeneratedColumn<int>(
+    'depend_action_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionDepend4Meta = const VerificationMeta(
+    'actionDepend4',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend4 = GeneratedColumn<int>(
+    'depend_action_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionDepend5Meta = const VerificationMeta(
+    'actionDepend5',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend5 = GeneratedColumn<int>(
+    'depend_action_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionDepend6Meta = const VerificationMeta(
+    'actionDepend6',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend6 = GeneratedColumn<int>(
+    'depend_action_6',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionDepend7Meta = const VerificationMeta(
+    'actionDepend7',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend7 = GeneratedColumn<int>(
+    'depend_action_7',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionDepend8Meta = const VerificationMeta(
+    'actionDepend8',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend8 = GeneratedColumn<int>(
+    'depend_action_8',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionDepend9Meta = const VerificationMeta(
+    'actionDepend9',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend9 = GeneratedColumn<int>(
+    'depend_action_9',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionDepend10Meta = const VerificationMeta(
+    'actionDepend10',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend10 = GeneratedColumn<int>(
+    'depend_action_10',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _descriptionMeta = const VerificationMeta(
+    'description',
+  );
+  @override
+  late final GeneratedColumn<String> description = GeneratedColumn<String>(
+    'description',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _iconTypeMeta = const VerificationMeta(
+    'iconType',
+  );
+  @override
+  late final GeneratedColumn<int> iconType = GeneratedColumn<int>(
+    'icon_type',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    skillId,
+    name,
+    skillType,
+    skillAreaWidth,
+    skillCastTime,
+    bossUbCoolTime,
+    action1,
+    action2,
+    action3,
+    action4,
+    action5,
+    action6,
+    action7,
+    action8,
+    action9,
+    action10,
+    actionDepend1,
+    actionDepend2,
+    actionDepend3,
+    actionDepend4,
+    actionDepend5,
+    actionDepend6,
+    actionDepend7,
+    actionDepend8,
+    actionDepend9,
+    actionDepend10,
+    description,
+    iconType,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'skill_data';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<SkillDataData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('skill_id')) {
+      context.handle(
+        _skillIdMeta,
+        skillId.isAcceptableOrUnknown(data['skill_id']!, _skillIdMeta),
+      );
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('skill_type')) {
+      context.handle(
+        _skillTypeMeta,
+        skillType.isAcceptableOrUnknown(data['skill_type']!, _skillTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_skillTypeMeta);
+    }
+    if (data.containsKey('skill_area_width')) {
+      context.handle(
+        _skillAreaWidthMeta,
+        skillAreaWidth.isAcceptableOrUnknown(
+          data['skill_area_width']!,
+          _skillAreaWidthMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_skillAreaWidthMeta);
+    }
+    if (data.containsKey('skill_cast_time')) {
+      context.handle(
+        _skillCastTimeMeta,
+        skillCastTime.isAcceptableOrUnknown(
+          data['skill_cast_time']!,
+          _skillCastTimeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_skillCastTimeMeta);
+    }
+    if (data.containsKey('boss_ub_cool_time')) {
+      context.handle(
+        _bossUbCoolTimeMeta,
+        bossUbCoolTime.isAcceptableOrUnknown(
+          data['boss_ub_cool_time']!,
+          _bossUbCoolTimeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('action_1')) {
+      context.handle(
+        _action1Meta,
+        action1.isAcceptableOrUnknown(data['action_1']!, _action1Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_action1Meta);
+    }
+    if (data.containsKey('action_2')) {
+      context.handle(
+        _action2Meta,
+        action2.isAcceptableOrUnknown(data['action_2']!, _action2Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_action2Meta);
+    }
+    if (data.containsKey('action_3')) {
+      context.handle(
+        _action3Meta,
+        action3.isAcceptableOrUnknown(data['action_3']!, _action3Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_action3Meta);
+    }
+    if (data.containsKey('action_4')) {
+      context.handle(
+        _action4Meta,
+        action4.isAcceptableOrUnknown(data['action_4']!, _action4Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_action4Meta);
+    }
+    if (data.containsKey('action_5')) {
+      context.handle(
+        _action5Meta,
+        action5.isAcceptableOrUnknown(data['action_5']!, _action5Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_action5Meta);
+    }
+    if (data.containsKey('action_6')) {
+      context.handle(
+        _action6Meta,
+        action6.isAcceptableOrUnknown(data['action_6']!, _action6Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_action6Meta);
+    }
+    if (data.containsKey('action_7')) {
+      context.handle(
+        _action7Meta,
+        action7.isAcceptableOrUnknown(data['action_7']!, _action7Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_action7Meta);
+    }
+    if (data.containsKey('action_8')) {
+      context.handle(
+        _action8Meta,
+        action8.isAcceptableOrUnknown(data['action_8']!, _action8Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_action8Meta);
+    }
+    if (data.containsKey('action_9')) {
+      context.handle(
+        _action9Meta,
+        action9.isAcceptableOrUnknown(data['action_9']!, _action9Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_action9Meta);
+    }
+    if (data.containsKey('action_10')) {
+      context.handle(
+        _action10Meta,
+        action10.isAcceptableOrUnknown(data['action_10']!, _action10Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_action10Meta);
+    }
+    if (data.containsKey('depend_action_1')) {
+      context.handle(
+        _actionDepend1Meta,
+        actionDepend1.isAcceptableOrUnknown(
+          data['depend_action_1']!,
+          _actionDepend1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionDepend1Meta);
+    }
+    if (data.containsKey('depend_action_2')) {
+      context.handle(
+        _actionDepend2Meta,
+        actionDepend2.isAcceptableOrUnknown(
+          data['depend_action_2']!,
+          _actionDepend2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionDepend2Meta);
+    }
+    if (data.containsKey('depend_action_3')) {
+      context.handle(
+        _actionDepend3Meta,
+        actionDepend3.isAcceptableOrUnknown(
+          data['depend_action_3']!,
+          _actionDepend3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionDepend3Meta);
+    }
+    if (data.containsKey('depend_action_4')) {
+      context.handle(
+        _actionDepend4Meta,
+        actionDepend4.isAcceptableOrUnknown(
+          data['depend_action_4']!,
+          _actionDepend4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionDepend4Meta);
+    }
+    if (data.containsKey('depend_action_5')) {
+      context.handle(
+        _actionDepend5Meta,
+        actionDepend5.isAcceptableOrUnknown(
+          data['depend_action_5']!,
+          _actionDepend5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionDepend5Meta);
+    }
+    if (data.containsKey('depend_action_6')) {
+      context.handle(
+        _actionDepend6Meta,
+        actionDepend6.isAcceptableOrUnknown(
+          data['depend_action_6']!,
+          _actionDepend6Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionDepend6Meta);
+    }
+    if (data.containsKey('depend_action_7')) {
+      context.handle(
+        _actionDepend7Meta,
+        actionDepend7.isAcceptableOrUnknown(
+          data['depend_action_7']!,
+          _actionDepend7Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionDepend7Meta);
+    }
+    if (data.containsKey('depend_action_8')) {
+      context.handle(
+        _actionDepend8Meta,
+        actionDepend8.isAcceptableOrUnknown(
+          data['depend_action_8']!,
+          _actionDepend8Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionDepend8Meta);
+    }
+    if (data.containsKey('depend_action_9')) {
+      context.handle(
+        _actionDepend9Meta,
+        actionDepend9.isAcceptableOrUnknown(
+          data['depend_action_9']!,
+          _actionDepend9Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionDepend9Meta);
+    }
+    if (data.containsKey('depend_action_10')) {
+      context.handle(
+        _actionDepend10Meta,
+        actionDepend10.isAcceptableOrUnknown(
+          data['depend_action_10']!,
+          _actionDepend10Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionDepend10Meta);
+    }
+    if (data.containsKey('description')) {
+      context.handle(
+        _descriptionMeta,
+        description.isAcceptableOrUnknown(
+          data['description']!,
+          _descriptionMeta,
+        ),
+      );
+    }
+    if (data.containsKey('icon_type')) {
+      context.handle(
+        _iconTypeMeta,
+        iconType.isAcceptableOrUnknown(data['icon_type']!, _iconTypeMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {skillId};
+  @override
+  SkillDataData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return SkillDataData(
+      skillId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}skill_id'],
+          )!,
+      name:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.string,
+            data['${effectivePrefix}name'],
+          )!,
+      skillType:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}skill_type'],
+          )!,
+      skillAreaWidth:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}skill_area_width'],
+          )!,
+      skillCastTime:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}skill_cast_time'],
+          )!,
+      bossUbCoolTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}boss_ub_cool_time'],
+      ),
+      action1:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_1'],
+          )!,
+      action2:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_2'],
+          )!,
+      action3:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_3'],
+          )!,
+      action4:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_4'],
+          )!,
+      action5:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_5'],
+          )!,
+      action6:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_6'],
+          )!,
+      action7:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_7'],
+          )!,
+      action8:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_8'],
+          )!,
+      action9:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_9'],
+          )!,
+      action10:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_10'],
+          )!,
+      actionDepend1:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}depend_action_1'],
+          )!,
+      actionDepend2:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}depend_action_2'],
+          )!,
+      actionDepend3:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}depend_action_3'],
+          )!,
+      actionDepend4:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}depend_action_4'],
+          )!,
+      actionDepend5:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}depend_action_5'],
+          )!,
+      actionDepend6:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}depend_action_6'],
+          )!,
+      actionDepend7:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}depend_action_7'],
+          )!,
+      actionDepend8:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}depend_action_8'],
+          )!,
+      actionDepend9:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}depend_action_9'],
+          )!,
+      actionDepend10:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}depend_action_10'],
+          )!,
+      description: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}description'],
+      ),
+      iconType: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}icon_type'],
+      ),
+    );
+  }
+
+  @override
+  $SkillDataTable createAlias(String alias) {
+    return $SkillDataTable(attachedDatabase, alias);
+  }
+}
+
+class SkillDataData extends DataClass implements Insertable<SkillDataData> {
+  final int skillId;
+  final String name;
+  final int skillType;
+  final int skillAreaWidth;
+  final double skillCastTime;
+  final double? bossUbCoolTime;
+  final int action1;
+  final int action2;
+  final int action3;
+  final int action4;
+  final int action5;
+  final int action6;
+  final int action7;
+  final int action8;
+  final int action9;
+  final int action10;
+  final int actionDepend1;
+  final int actionDepend2;
+  final int actionDepend3;
+  final int actionDepend4;
+  final int actionDepend5;
+  final int actionDepend6;
+  final int actionDepend7;
+  final int actionDepend8;
+  final int actionDepend9;
+  final int actionDepend10;
+  final String? description;
+  final int? iconType;
+  const SkillDataData({
+    required this.skillId,
+    required this.name,
+    required this.skillType,
+    required this.skillAreaWidth,
+    required this.skillCastTime,
+    this.bossUbCoolTime,
+    required this.action1,
+    required this.action2,
+    required this.action3,
+    required this.action4,
+    required this.action5,
+    required this.action6,
+    required this.action7,
+    required this.action8,
+    required this.action9,
+    required this.action10,
+    required this.actionDepend1,
+    required this.actionDepend2,
+    required this.actionDepend3,
+    required this.actionDepend4,
+    required this.actionDepend5,
+    required this.actionDepend6,
+    required this.actionDepend7,
+    required this.actionDepend8,
+    required this.actionDepend9,
+    required this.actionDepend10,
+    this.description,
+    this.iconType,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['skill_id'] = Variable<int>(skillId);
+    map['name'] = Variable<String>(name);
+    map['skill_type'] = Variable<int>(skillType);
+    map['skill_area_width'] = Variable<int>(skillAreaWidth);
+    map['skill_cast_time'] = Variable<double>(skillCastTime);
+    if (!nullToAbsent || bossUbCoolTime != null) {
+      map['boss_ub_cool_time'] = Variable<double>(bossUbCoolTime);
+    }
+    map['action_1'] = Variable<int>(action1);
+    map['action_2'] = Variable<int>(action2);
+    map['action_3'] = Variable<int>(action3);
+    map['action_4'] = Variable<int>(action4);
+    map['action_5'] = Variable<int>(action5);
+    map['action_6'] = Variable<int>(action6);
+    map['action_7'] = Variable<int>(action7);
+    map['action_8'] = Variable<int>(action8);
+    map['action_9'] = Variable<int>(action9);
+    map['action_10'] = Variable<int>(action10);
+    map['depend_action_1'] = Variable<int>(actionDepend1);
+    map['depend_action_2'] = Variable<int>(actionDepend2);
+    map['depend_action_3'] = Variable<int>(actionDepend3);
+    map['depend_action_4'] = Variable<int>(actionDepend4);
+    map['depend_action_5'] = Variable<int>(actionDepend5);
+    map['depend_action_6'] = Variable<int>(actionDepend6);
+    map['depend_action_7'] = Variable<int>(actionDepend7);
+    map['depend_action_8'] = Variable<int>(actionDepend8);
+    map['depend_action_9'] = Variable<int>(actionDepend9);
+    map['depend_action_10'] = Variable<int>(actionDepend10);
+    if (!nullToAbsent || description != null) {
+      map['description'] = Variable<String>(description);
+    }
+    if (!nullToAbsent || iconType != null) {
+      map['icon_type'] = Variable<int>(iconType);
+    }
+    return map;
+  }
+
+  SkillDataCompanion toCompanion(bool nullToAbsent) {
+    return SkillDataCompanion(
+      skillId: Value(skillId),
+      name: Value(name),
+      skillType: Value(skillType),
+      skillAreaWidth: Value(skillAreaWidth),
+      skillCastTime: Value(skillCastTime),
+      bossUbCoolTime:
+          bossUbCoolTime == null && nullToAbsent
+              ? const Value.absent()
+              : Value(bossUbCoolTime),
+      action1: Value(action1),
+      action2: Value(action2),
+      action3: Value(action3),
+      action4: Value(action4),
+      action5: Value(action5),
+      action6: Value(action6),
+      action7: Value(action7),
+      action8: Value(action8),
+      action9: Value(action9),
+      action10: Value(action10),
+      actionDepend1: Value(actionDepend1),
+      actionDepend2: Value(actionDepend2),
+      actionDepend3: Value(actionDepend3),
+      actionDepend4: Value(actionDepend4),
+      actionDepend5: Value(actionDepend5),
+      actionDepend6: Value(actionDepend6),
+      actionDepend7: Value(actionDepend7),
+      actionDepend8: Value(actionDepend8),
+      actionDepend9: Value(actionDepend9),
+      actionDepend10: Value(actionDepend10),
+      description:
+          description == null && nullToAbsent
+              ? const Value.absent()
+              : Value(description),
+      iconType:
+          iconType == null && nullToAbsent
+              ? const Value.absent()
+              : Value(iconType),
+    );
+  }
+
+  factory SkillDataData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return SkillDataData(
+      skillId: serializer.fromJson<int>(json['skillId']),
+      name: serializer.fromJson<String>(json['name']),
+      skillType: serializer.fromJson<int>(json['skillType']),
+      skillAreaWidth: serializer.fromJson<int>(json['skillAreaWidth']),
+      skillCastTime: serializer.fromJson<double>(json['skillCastTime']),
+      bossUbCoolTime: serializer.fromJson<double?>(json['bossUbCoolTime']),
+      action1: serializer.fromJson<int>(json['action1']),
+      action2: serializer.fromJson<int>(json['action2']),
+      action3: serializer.fromJson<int>(json['action3']),
+      action4: serializer.fromJson<int>(json['action4']),
+      action5: serializer.fromJson<int>(json['action5']),
+      action6: serializer.fromJson<int>(json['action6']),
+      action7: serializer.fromJson<int>(json['action7']),
+      action8: serializer.fromJson<int>(json['action8']),
+      action9: serializer.fromJson<int>(json['action9']),
+      action10: serializer.fromJson<int>(json['action10']),
+      actionDepend1: serializer.fromJson<int>(json['actionDepend1']),
+      actionDepend2: serializer.fromJson<int>(json['actionDepend2']),
+      actionDepend3: serializer.fromJson<int>(json['actionDepend3']),
+      actionDepend4: serializer.fromJson<int>(json['actionDepend4']),
+      actionDepend5: serializer.fromJson<int>(json['actionDepend5']),
+      actionDepend6: serializer.fromJson<int>(json['actionDepend6']),
+      actionDepend7: serializer.fromJson<int>(json['actionDepend7']),
+      actionDepend8: serializer.fromJson<int>(json['actionDepend8']),
+      actionDepend9: serializer.fromJson<int>(json['actionDepend9']),
+      actionDepend10: serializer.fromJson<int>(json['actionDepend10']),
+      description: serializer.fromJson<String?>(json['description']),
+      iconType: serializer.fromJson<int?>(json['iconType']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'skillId': serializer.toJson<int>(skillId),
+      'name': serializer.toJson<String>(name),
+      'skillType': serializer.toJson<int>(skillType),
+      'skillAreaWidth': serializer.toJson<int>(skillAreaWidth),
+      'skillCastTime': serializer.toJson<double>(skillCastTime),
+      'bossUbCoolTime': serializer.toJson<double?>(bossUbCoolTime),
+      'action1': serializer.toJson<int>(action1),
+      'action2': serializer.toJson<int>(action2),
+      'action3': serializer.toJson<int>(action3),
+      'action4': serializer.toJson<int>(action4),
+      'action5': serializer.toJson<int>(action5),
+      'action6': serializer.toJson<int>(action6),
+      'action7': serializer.toJson<int>(action7),
+      'action8': serializer.toJson<int>(action8),
+      'action9': serializer.toJson<int>(action9),
+      'action10': serializer.toJson<int>(action10),
+      'actionDepend1': serializer.toJson<int>(actionDepend1),
+      'actionDepend2': serializer.toJson<int>(actionDepend2),
+      'actionDepend3': serializer.toJson<int>(actionDepend3),
+      'actionDepend4': serializer.toJson<int>(actionDepend4),
+      'actionDepend5': serializer.toJson<int>(actionDepend5),
+      'actionDepend6': serializer.toJson<int>(actionDepend6),
+      'actionDepend7': serializer.toJson<int>(actionDepend7),
+      'actionDepend8': serializer.toJson<int>(actionDepend8),
+      'actionDepend9': serializer.toJson<int>(actionDepend9),
+      'actionDepend10': serializer.toJson<int>(actionDepend10),
+      'description': serializer.toJson<String?>(description),
+      'iconType': serializer.toJson<int?>(iconType),
+    };
+  }
+
+  SkillDataData copyWith({
+    int? skillId,
+    String? name,
+    int? skillType,
+    int? skillAreaWidth,
+    double? skillCastTime,
+    Value<double?> bossUbCoolTime = const Value.absent(),
+    int? action1,
+    int? action2,
+    int? action3,
+    int? action4,
+    int? action5,
+    int? action6,
+    int? action7,
+    int? action8,
+    int? action9,
+    int? action10,
+    int? actionDepend1,
+    int? actionDepend2,
+    int? actionDepend3,
+    int? actionDepend4,
+    int? actionDepend5,
+    int? actionDepend6,
+    int? actionDepend7,
+    int? actionDepend8,
+    int? actionDepend9,
+    int? actionDepend10,
+    Value<String?> description = const Value.absent(),
+    Value<int?> iconType = const Value.absent(),
+  }) => SkillDataData(
+    skillId: skillId ?? this.skillId,
+    name: name ?? this.name,
+    skillType: skillType ?? this.skillType,
+    skillAreaWidth: skillAreaWidth ?? this.skillAreaWidth,
+    skillCastTime: skillCastTime ?? this.skillCastTime,
+    bossUbCoolTime:
+        bossUbCoolTime.present ? bossUbCoolTime.value : this.bossUbCoolTime,
+    action1: action1 ?? this.action1,
+    action2: action2 ?? this.action2,
+    action3: action3 ?? this.action3,
+    action4: action4 ?? this.action4,
+    action5: action5 ?? this.action5,
+    action6: action6 ?? this.action6,
+    action7: action7 ?? this.action7,
+    action8: action8 ?? this.action8,
+    action9: action9 ?? this.action9,
+    action10: action10 ?? this.action10,
+    actionDepend1: actionDepend1 ?? this.actionDepend1,
+    actionDepend2: actionDepend2 ?? this.actionDepend2,
+    actionDepend3: actionDepend3 ?? this.actionDepend3,
+    actionDepend4: actionDepend4 ?? this.actionDepend4,
+    actionDepend5: actionDepend5 ?? this.actionDepend5,
+    actionDepend6: actionDepend6 ?? this.actionDepend6,
+    actionDepend7: actionDepend7 ?? this.actionDepend7,
+    actionDepend8: actionDepend8 ?? this.actionDepend8,
+    actionDepend9: actionDepend9 ?? this.actionDepend9,
+    actionDepend10: actionDepend10 ?? this.actionDepend10,
+    description: description.present ? description.value : this.description,
+    iconType: iconType.present ? iconType.value : this.iconType,
+  );
+  SkillDataData copyWithCompanion(SkillDataCompanion data) {
+    return SkillDataData(
+      skillId: data.skillId.present ? data.skillId.value : this.skillId,
+      name: data.name.present ? data.name.value : this.name,
+      skillType: data.skillType.present ? data.skillType.value : this.skillType,
+      skillAreaWidth:
+          data.skillAreaWidth.present
+              ? data.skillAreaWidth.value
+              : this.skillAreaWidth,
+      skillCastTime:
+          data.skillCastTime.present
+              ? data.skillCastTime.value
+              : this.skillCastTime,
+      bossUbCoolTime:
+          data.bossUbCoolTime.present
+              ? data.bossUbCoolTime.value
+              : this.bossUbCoolTime,
+      action1: data.action1.present ? data.action1.value : this.action1,
+      action2: data.action2.present ? data.action2.value : this.action2,
+      action3: data.action3.present ? data.action3.value : this.action3,
+      action4: data.action4.present ? data.action4.value : this.action4,
+      action5: data.action5.present ? data.action5.value : this.action5,
+      action6: data.action6.present ? data.action6.value : this.action6,
+      action7: data.action7.present ? data.action7.value : this.action7,
+      action8: data.action8.present ? data.action8.value : this.action8,
+      action9: data.action9.present ? data.action9.value : this.action9,
+      action10: data.action10.present ? data.action10.value : this.action10,
+      actionDepend1:
+          data.actionDepend1.present
+              ? data.actionDepend1.value
+              : this.actionDepend1,
+      actionDepend2:
+          data.actionDepend2.present
+              ? data.actionDepend2.value
+              : this.actionDepend2,
+      actionDepend3:
+          data.actionDepend3.present
+              ? data.actionDepend3.value
+              : this.actionDepend3,
+      actionDepend4:
+          data.actionDepend4.present
+              ? data.actionDepend4.value
+              : this.actionDepend4,
+      actionDepend5:
+          data.actionDepend5.present
+              ? data.actionDepend5.value
+              : this.actionDepend5,
+      actionDepend6:
+          data.actionDepend6.present
+              ? data.actionDepend6.value
+              : this.actionDepend6,
+      actionDepend7:
+          data.actionDepend7.present
+              ? data.actionDepend7.value
+              : this.actionDepend7,
+      actionDepend8:
+          data.actionDepend8.present
+              ? data.actionDepend8.value
+              : this.actionDepend8,
+      actionDepend9:
+          data.actionDepend9.present
+              ? data.actionDepend9.value
+              : this.actionDepend9,
+      actionDepend10:
+          data.actionDepend10.present
+              ? data.actionDepend10.value
+              : this.actionDepend10,
+      description:
+          data.description.present ? data.description.value : this.description,
+      iconType: data.iconType.present ? data.iconType.value : this.iconType,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SkillDataData(')
+          ..write('skillId: $skillId, ')
+          ..write('name: $name, ')
+          ..write('skillType: $skillType, ')
+          ..write('skillAreaWidth: $skillAreaWidth, ')
+          ..write('skillCastTime: $skillCastTime, ')
+          ..write('bossUbCoolTime: $bossUbCoolTime, ')
+          ..write('action1: $action1, ')
+          ..write('action2: $action2, ')
+          ..write('action3: $action3, ')
+          ..write('action4: $action4, ')
+          ..write('action5: $action5, ')
+          ..write('action6: $action6, ')
+          ..write('action7: $action7, ')
+          ..write('action8: $action8, ')
+          ..write('action9: $action9, ')
+          ..write('action10: $action10, ')
+          ..write('actionDepend1: $actionDepend1, ')
+          ..write('actionDepend2: $actionDepend2, ')
+          ..write('actionDepend3: $actionDepend3, ')
+          ..write('actionDepend4: $actionDepend4, ')
+          ..write('actionDepend5: $actionDepend5, ')
+          ..write('actionDepend6: $actionDepend6, ')
+          ..write('actionDepend7: $actionDepend7, ')
+          ..write('actionDepend8: $actionDepend8, ')
+          ..write('actionDepend9: $actionDepend9, ')
+          ..write('actionDepend10: $actionDepend10, ')
+          ..write('description: $description, ')
+          ..write('iconType: $iconType')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    skillId,
+    name,
+    skillType,
+    skillAreaWidth,
+    skillCastTime,
+    bossUbCoolTime,
+    action1,
+    action2,
+    action3,
+    action4,
+    action5,
+    action6,
+    action7,
+    action8,
+    action9,
+    action10,
+    actionDepend1,
+    actionDepend2,
+    actionDepend3,
+    actionDepend4,
+    actionDepend5,
+    actionDepend6,
+    actionDepend7,
+    actionDepend8,
+    actionDepend9,
+    actionDepend10,
+    description,
+    iconType,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is SkillDataData &&
+          other.skillId == this.skillId &&
+          other.name == this.name &&
+          other.skillType == this.skillType &&
+          other.skillAreaWidth == this.skillAreaWidth &&
+          other.skillCastTime == this.skillCastTime &&
+          other.bossUbCoolTime == this.bossUbCoolTime &&
+          other.action1 == this.action1 &&
+          other.action2 == this.action2 &&
+          other.action3 == this.action3 &&
+          other.action4 == this.action4 &&
+          other.action5 == this.action5 &&
+          other.action6 == this.action6 &&
+          other.action7 == this.action7 &&
+          other.action8 == this.action8 &&
+          other.action9 == this.action9 &&
+          other.action10 == this.action10 &&
+          other.actionDepend1 == this.actionDepend1 &&
+          other.actionDepend2 == this.actionDepend2 &&
+          other.actionDepend3 == this.actionDepend3 &&
+          other.actionDepend4 == this.actionDepend4 &&
+          other.actionDepend5 == this.actionDepend5 &&
+          other.actionDepend6 == this.actionDepend6 &&
+          other.actionDepend7 == this.actionDepend7 &&
+          other.actionDepend8 == this.actionDepend8 &&
+          other.actionDepend9 == this.actionDepend9 &&
+          other.actionDepend10 == this.actionDepend10 &&
+          other.description == this.description &&
+          other.iconType == this.iconType);
+}
+
+class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
+  final Value<int> skillId;
+  final Value<String> name;
+  final Value<int> skillType;
+  final Value<int> skillAreaWidth;
+  final Value<double> skillCastTime;
+  final Value<double?> bossUbCoolTime;
+  final Value<int> action1;
+  final Value<int> action2;
+  final Value<int> action3;
+  final Value<int> action4;
+  final Value<int> action5;
+  final Value<int> action6;
+  final Value<int> action7;
+  final Value<int> action8;
+  final Value<int> action9;
+  final Value<int> action10;
+  final Value<int> actionDepend1;
+  final Value<int> actionDepend2;
+  final Value<int> actionDepend3;
+  final Value<int> actionDepend4;
+  final Value<int> actionDepend5;
+  final Value<int> actionDepend6;
+  final Value<int> actionDepend7;
+  final Value<int> actionDepend8;
+  final Value<int> actionDepend9;
+  final Value<int> actionDepend10;
+  final Value<String?> description;
+  final Value<int?> iconType;
+  const SkillDataCompanion({
+    this.skillId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.skillType = const Value.absent(),
+    this.skillAreaWidth = const Value.absent(),
+    this.skillCastTime = const Value.absent(),
+    this.bossUbCoolTime = const Value.absent(),
+    this.action1 = const Value.absent(),
+    this.action2 = const Value.absent(),
+    this.action3 = const Value.absent(),
+    this.action4 = const Value.absent(),
+    this.action5 = const Value.absent(),
+    this.action6 = const Value.absent(),
+    this.action7 = const Value.absent(),
+    this.action8 = const Value.absent(),
+    this.action9 = const Value.absent(),
+    this.action10 = const Value.absent(),
+    this.actionDepend1 = const Value.absent(),
+    this.actionDepend2 = const Value.absent(),
+    this.actionDepend3 = const Value.absent(),
+    this.actionDepend4 = const Value.absent(),
+    this.actionDepend5 = const Value.absent(),
+    this.actionDepend6 = const Value.absent(),
+    this.actionDepend7 = const Value.absent(),
+    this.actionDepend8 = const Value.absent(),
+    this.actionDepend9 = const Value.absent(),
+    this.actionDepend10 = const Value.absent(),
+    this.description = const Value.absent(),
+    this.iconType = const Value.absent(),
+  });
+  SkillDataCompanion.insert({
+    this.skillId = const Value.absent(),
+    required String name,
+    required int skillType,
+    required int skillAreaWidth,
+    required double skillCastTime,
+    this.bossUbCoolTime = const Value.absent(),
+    required int action1,
+    required int action2,
+    required int action3,
+    required int action4,
+    required int action5,
+    required int action6,
+    required int action7,
+    required int action8,
+    required int action9,
+    required int action10,
+    required int actionDepend1,
+    required int actionDepend2,
+    required int actionDepend3,
+    required int actionDepend4,
+    required int actionDepend5,
+    required int actionDepend6,
+    required int actionDepend7,
+    required int actionDepend8,
+    required int actionDepend9,
+    required int actionDepend10,
+    this.description = const Value.absent(),
+    this.iconType = const Value.absent(),
+  }) : name = Value(name),
+       skillType = Value(skillType),
+       skillAreaWidth = Value(skillAreaWidth),
+       skillCastTime = Value(skillCastTime),
+       action1 = Value(action1),
+       action2 = Value(action2),
+       action3 = Value(action3),
+       action4 = Value(action4),
+       action5 = Value(action5),
+       action6 = Value(action6),
+       action7 = Value(action7),
+       action8 = Value(action8),
+       action9 = Value(action9),
+       action10 = Value(action10),
+       actionDepend1 = Value(actionDepend1),
+       actionDepend2 = Value(actionDepend2),
+       actionDepend3 = Value(actionDepend3),
+       actionDepend4 = Value(actionDepend4),
+       actionDepend5 = Value(actionDepend5),
+       actionDepend6 = Value(actionDepend6),
+       actionDepend7 = Value(actionDepend7),
+       actionDepend8 = Value(actionDepend8),
+       actionDepend9 = Value(actionDepend9),
+       actionDepend10 = Value(actionDepend10);
+  static Insertable<SkillDataData> custom({
+    Expression<int>? skillId,
+    Expression<String>? name,
+    Expression<int>? skillType,
+    Expression<int>? skillAreaWidth,
+    Expression<double>? skillCastTime,
+    Expression<double>? bossUbCoolTime,
+    Expression<int>? action1,
+    Expression<int>? action2,
+    Expression<int>? action3,
+    Expression<int>? action4,
+    Expression<int>? action5,
+    Expression<int>? action6,
+    Expression<int>? action7,
+    Expression<int>? action8,
+    Expression<int>? action9,
+    Expression<int>? action10,
+    Expression<int>? actionDepend1,
+    Expression<int>? actionDepend2,
+    Expression<int>? actionDepend3,
+    Expression<int>? actionDepend4,
+    Expression<int>? actionDepend5,
+    Expression<int>? actionDepend6,
+    Expression<int>? actionDepend7,
+    Expression<int>? actionDepend8,
+    Expression<int>? actionDepend9,
+    Expression<int>? actionDepend10,
+    Expression<String>? description,
+    Expression<int>? iconType,
+  }) {
+    return RawValuesInsertable({
+      if (skillId != null) 'skill_id': skillId,
+      if (name != null) 'name': name,
+      if (skillType != null) 'skill_type': skillType,
+      if (skillAreaWidth != null) 'skill_area_width': skillAreaWidth,
+      if (skillCastTime != null) 'skill_cast_time': skillCastTime,
+      if (bossUbCoolTime != null) 'boss_ub_cool_time': bossUbCoolTime,
+      if (action1 != null) 'action_1': action1,
+      if (action2 != null) 'action_2': action2,
+      if (action3 != null) 'action_3': action3,
+      if (action4 != null) 'action_4': action4,
+      if (action5 != null) 'action_5': action5,
+      if (action6 != null) 'action_6': action6,
+      if (action7 != null) 'action_7': action7,
+      if (action8 != null) 'action_8': action8,
+      if (action9 != null) 'action_9': action9,
+      if (action10 != null) 'action_10': action10,
+      if (actionDepend1 != null) 'depend_action_1': actionDepend1,
+      if (actionDepend2 != null) 'depend_action_2': actionDepend2,
+      if (actionDepend3 != null) 'depend_action_3': actionDepend3,
+      if (actionDepend4 != null) 'depend_action_4': actionDepend4,
+      if (actionDepend5 != null) 'depend_action_5': actionDepend5,
+      if (actionDepend6 != null) 'depend_action_6': actionDepend6,
+      if (actionDepend7 != null) 'depend_action_7': actionDepend7,
+      if (actionDepend8 != null) 'depend_action_8': actionDepend8,
+      if (actionDepend9 != null) 'depend_action_9': actionDepend9,
+      if (actionDepend10 != null) 'depend_action_10': actionDepend10,
+      if (description != null) 'description': description,
+      if (iconType != null) 'icon_type': iconType,
+    });
+  }
+
+  SkillDataCompanion copyWith({
+    Value<int>? skillId,
+    Value<String>? name,
+    Value<int>? skillType,
+    Value<int>? skillAreaWidth,
+    Value<double>? skillCastTime,
+    Value<double?>? bossUbCoolTime,
+    Value<int>? action1,
+    Value<int>? action2,
+    Value<int>? action3,
+    Value<int>? action4,
+    Value<int>? action5,
+    Value<int>? action6,
+    Value<int>? action7,
+    Value<int>? action8,
+    Value<int>? action9,
+    Value<int>? action10,
+    Value<int>? actionDepend1,
+    Value<int>? actionDepend2,
+    Value<int>? actionDepend3,
+    Value<int>? actionDepend4,
+    Value<int>? actionDepend5,
+    Value<int>? actionDepend6,
+    Value<int>? actionDepend7,
+    Value<int>? actionDepend8,
+    Value<int>? actionDepend9,
+    Value<int>? actionDepend10,
+    Value<String?>? description,
+    Value<int?>? iconType,
+  }) {
+    return SkillDataCompanion(
+      skillId: skillId ?? this.skillId,
+      name: name ?? this.name,
+      skillType: skillType ?? this.skillType,
+      skillAreaWidth: skillAreaWidth ?? this.skillAreaWidth,
+      skillCastTime: skillCastTime ?? this.skillCastTime,
+      bossUbCoolTime: bossUbCoolTime ?? this.bossUbCoolTime,
+      action1: action1 ?? this.action1,
+      action2: action2 ?? this.action2,
+      action3: action3 ?? this.action3,
+      action4: action4 ?? this.action4,
+      action5: action5 ?? this.action5,
+      action6: action6 ?? this.action6,
+      action7: action7 ?? this.action7,
+      action8: action8 ?? this.action8,
+      action9: action9 ?? this.action9,
+      action10: action10 ?? this.action10,
+      actionDepend1: actionDepend1 ?? this.actionDepend1,
+      actionDepend2: actionDepend2 ?? this.actionDepend2,
+      actionDepend3: actionDepend3 ?? this.actionDepend3,
+      actionDepend4: actionDepend4 ?? this.actionDepend4,
+      actionDepend5: actionDepend5 ?? this.actionDepend5,
+      actionDepend6: actionDepend6 ?? this.actionDepend6,
+      actionDepend7: actionDepend7 ?? this.actionDepend7,
+      actionDepend8: actionDepend8 ?? this.actionDepend8,
+      actionDepend9: actionDepend9 ?? this.actionDepend9,
+      actionDepend10: actionDepend10 ?? this.actionDepend10,
+      description: description ?? this.description,
+      iconType: iconType ?? this.iconType,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (skillId.present) {
+      map['skill_id'] = Variable<int>(skillId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (skillType.present) {
+      map['skill_type'] = Variable<int>(skillType.value);
+    }
+    if (skillAreaWidth.present) {
+      map['skill_area_width'] = Variable<int>(skillAreaWidth.value);
+    }
+    if (skillCastTime.present) {
+      map['skill_cast_time'] = Variable<double>(skillCastTime.value);
+    }
+    if (bossUbCoolTime.present) {
+      map['boss_ub_cool_time'] = Variable<double>(bossUbCoolTime.value);
+    }
+    if (action1.present) {
+      map['action_1'] = Variable<int>(action1.value);
+    }
+    if (action2.present) {
+      map['action_2'] = Variable<int>(action2.value);
+    }
+    if (action3.present) {
+      map['action_3'] = Variable<int>(action3.value);
+    }
+    if (action4.present) {
+      map['action_4'] = Variable<int>(action4.value);
+    }
+    if (action5.present) {
+      map['action_5'] = Variable<int>(action5.value);
+    }
+    if (action6.present) {
+      map['action_6'] = Variable<int>(action6.value);
+    }
+    if (action7.present) {
+      map['action_7'] = Variable<int>(action7.value);
+    }
+    if (action8.present) {
+      map['action_8'] = Variable<int>(action8.value);
+    }
+    if (action9.present) {
+      map['action_9'] = Variable<int>(action9.value);
+    }
+    if (action10.present) {
+      map['action_10'] = Variable<int>(action10.value);
+    }
+    if (actionDepend1.present) {
+      map['depend_action_1'] = Variable<int>(actionDepend1.value);
+    }
+    if (actionDepend2.present) {
+      map['depend_action_2'] = Variable<int>(actionDepend2.value);
+    }
+    if (actionDepend3.present) {
+      map['depend_action_3'] = Variable<int>(actionDepend3.value);
+    }
+    if (actionDepend4.present) {
+      map['depend_action_4'] = Variable<int>(actionDepend4.value);
+    }
+    if (actionDepend5.present) {
+      map['depend_action_5'] = Variable<int>(actionDepend5.value);
+    }
+    if (actionDepend6.present) {
+      map['depend_action_6'] = Variable<int>(actionDepend6.value);
+    }
+    if (actionDepend7.present) {
+      map['depend_action_7'] = Variable<int>(actionDepend7.value);
+    }
+    if (actionDepend8.present) {
+      map['depend_action_8'] = Variable<int>(actionDepend8.value);
+    }
+    if (actionDepend9.present) {
+      map['depend_action_9'] = Variable<int>(actionDepend9.value);
+    }
+    if (actionDepend10.present) {
+      map['depend_action_10'] = Variable<int>(actionDepend10.value);
+    }
+    if (description.present) {
+      map['description'] = Variable<String>(description.value);
+    }
+    if (iconType.present) {
+      map['icon_type'] = Variable<int>(iconType.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SkillDataCompanion(')
+          ..write('skillId: $skillId, ')
+          ..write('name: $name, ')
+          ..write('skillType: $skillType, ')
+          ..write('skillAreaWidth: $skillAreaWidth, ')
+          ..write('skillCastTime: $skillCastTime, ')
+          ..write('bossUbCoolTime: $bossUbCoolTime, ')
+          ..write('action1: $action1, ')
+          ..write('action2: $action2, ')
+          ..write('action3: $action3, ')
+          ..write('action4: $action4, ')
+          ..write('action5: $action5, ')
+          ..write('action6: $action6, ')
+          ..write('action7: $action7, ')
+          ..write('action8: $action8, ')
+          ..write('action9: $action9, ')
+          ..write('action10: $action10, ')
+          ..write('actionDepend1: $actionDepend1, ')
+          ..write('actionDepend2: $actionDepend2, ')
+          ..write('actionDepend3: $actionDepend3, ')
+          ..write('actionDepend4: $actionDepend4, ')
+          ..write('actionDepend5: $actionDepend5, ')
+          ..write('actionDepend6: $actionDepend6, ')
+          ..write('actionDepend7: $actionDepend7, ')
+          ..write('actionDepend8: $actionDepend8, ')
+          ..write('actionDepend9: $actionDepend9, ')
+          ..write('actionDepend10: $actionDepend10, ')
+          ..write('description: $description, ')
+          ..write('iconType: $iconType')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $UnitSkillDataTable extends UnitSkillData
+    with TableInfo<$UnitSkillDataTable, UnitSkillDataData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UnitSkillDataTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unionBurstMeta = const VerificationMeta(
+    'unionBurst',
+  );
+  @override
+  late final GeneratedColumn<int> unionBurst = GeneratedColumn<int>(
+    'union_burst',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _spUnionBurstMeta = const VerificationMeta(
+    'spUnionBurst',
+  );
+  @override
+  late final GeneratedColumn<int> spUnionBurst = GeneratedColumn<int>(
+    'sp_union_burst',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _unionBurstEvolutionMeta =
+      const VerificationMeta('unionBurstEvolution');
+  @override
+  late final GeneratedColumn<int> unionBurstEvolution = GeneratedColumn<int>(
+    'union_burst_evolution',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _mainSkill1Meta = const VerificationMeta(
+    'mainSkill1',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkill1 = GeneratedColumn<int>(
+    'main_skill_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkill2Meta = const VerificationMeta(
+    'mainSkill2',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkill2 = GeneratedColumn<int>(
+    'main_skill_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkill3Meta = const VerificationMeta(
+    'mainSkill3',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkill3 = GeneratedColumn<int>(
+    'main_skill_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkill4Meta = const VerificationMeta(
+    'mainSkill4',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkill4 = GeneratedColumn<int>(
+    'main_skill_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkill5Meta = const VerificationMeta(
+    'mainSkill5',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkill5 = GeneratedColumn<int>(
+    'main_skill_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkill6Meta = const VerificationMeta(
+    'mainSkill6',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkill6 = GeneratedColumn<int>(
+    'main_skill_6',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkill7Meta = const VerificationMeta(
+    'mainSkill7',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkill7 = GeneratedColumn<int>(
+    'main_skill_7',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkill8Meta = const VerificationMeta(
+    'mainSkill8',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkill8 = GeneratedColumn<int>(
+    'main_skill_8',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkill9Meta = const VerificationMeta(
+    'mainSkill9',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkill9 = GeneratedColumn<int>(
+    'main_skill_9',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkill10Meta = const VerificationMeta(
+    'mainSkill10',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkill10 = GeneratedColumn<int>(
+    'main_skill_10',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillEvolution1Meta =
+      const VerificationMeta('mainSkillEvolution1');
+  @override
+  late final GeneratedColumn<int> mainSkillEvolution1 = GeneratedColumn<int>(
+    'main_skill_evolution_1',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _mainSkillEvolution2Meta =
+      const VerificationMeta('mainSkillEvolution2');
+  @override
+  late final GeneratedColumn<int> mainSkillEvolution2 = GeneratedColumn<int>(
+    'main_skill_evolution_2',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _exSkill1Meta = const VerificationMeta(
+    'exSkill1',
+  );
+  @override
+  late final GeneratedColumn<int> exSkill1 = GeneratedColumn<int>(
+    'ex_skill_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkill2Meta = const VerificationMeta(
+    'exSkill2',
+  );
+  @override
+  late final GeneratedColumn<int> exSkill2 = GeneratedColumn<int>(
+    'ex_skill_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkill3Meta = const VerificationMeta(
+    'exSkill3',
+  );
+  @override
+  late final GeneratedColumn<int> exSkill3 = GeneratedColumn<int>(
+    'ex_skill_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkill4Meta = const VerificationMeta(
+    'exSkill4',
+  );
+  @override
+  late final GeneratedColumn<int> exSkill4 = GeneratedColumn<int>(
+    'ex_skill_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkill5Meta = const VerificationMeta(
+    'exSkill5',
+  );
+  @override
+  late final GeneratedColumn<int> exSkill5 = GeneratedColumn<int>(
+    'ex_skill_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillEvolution1Meta = const VerificationMeta(
+    'exSkillEvolution1',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillEvolution1 = GeneratedColumn<int>(
+    'ex_skill_evolution_1',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _exSkillEvolution2Meta = const VerificationMeta(
+    'exSkillEvolution2',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillEvolution2 = GeneratedColumn<int>(
+    'ex_skill_evolution_2',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _exSkillEvolution3Meta = const VerificationMeta(
+    'exSkillEvolution3',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillEvolution3 = GeneratedColumn<int>(
+    'ex_skill_evolution_3',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _exSkillEvolution4Meta = const VerificationMeta(
+    'exSkillEvolution4',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillEvolution4 = GeneratedColumn<int>(
+    'ex_skill_evolution_4',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _exSkillEvolution5Meta = const VerificationMeta(
+    'exSkillEvolution5',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillEvolution5 = GeneratedColumn<int>(
+    'ex_skill_evolution_5',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _spSkill1Meta = const VerificationMeta(
+    'spSkill1',
+  );
+  @override
+  late final GeneratedColumn<int> spSkill1 = GeneratedColumn<int>(
+    'sp_skill_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _spSkill2Meta = const VerificationMeta(
+    'spSkill2',
+  );
+  @override
+  late final GeneratedColumn<int> spSkill2 = GeneratedColumn<int>(
+    'sp_skill_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _spSkill3Meta = const VerificationMeta(
+    'spSkill3',
+  );
+  @override
+  late final GeneratedColumn<int> spSkill3 = GeneratedColumn<int>(
+    'sp_skill_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _spSkill4Meta = const VerificationMeta(
+    'spSkill4',
+  );
+  @override
+  late final GeneratedColumn<int> spSkill4 = GeneratedColumn<int>(
+    'sp_skill_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _spSkill5Meta = const VerificationMeta(
+    'spSkill5',
+  );
+  @override
+  late final GeneratedColumn<int> spSkill5 = GeneratedColumn<int>(
+    'sp_skill_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _spSkillEvolution1Meta = const VerificationMeta(
+    'spSkillEvolution1',
+  );
+  @override
+  late final GeneratedColumn<int> spSkillEvolution1 = GeneratedColumn<int>(
+    'sp_skill_evolution_1',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _spSkillEvolution2Meta = const VerificationMeta(
+    'spSkillEvolution2',
+  );
+  @override
+  late final GeneratedColumn<int> spSkillEvolution2 = GeneratedColumn<int>(
+    'sp_skill_evolution_2',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    unitId,
+    unionBurst,
+    spUnionBurst,
+    unionBurstEvolution,
+    mainSkill1,
+    mainSkill2,
+    mainSkill3,
+    mainSkill4,
+    mainSkill5,
+    mainSkill6,
+    mainSkill7,
+    mainSkill8,
+    mainSkill9,
+    mainSkill10,
+    mainSkillEvolution1,
+    mainSkillEvolution2,
+    exSkill1,
+    exSkill2,
+    exSkill3,
+    exSkill4,
+    exSkill5,
+    exSkillEvolution1,
+    exSkillEvolution2,
+    exSkillEvolution3,
+    exSkillEvolution4,
+    exSkillEvolution5,
+    spSkill1,
+    spSkill2,
+    spSkill3,
+    spSkill4,
+    spSkill5,
+    spSkillEvolution1,
+    spSkillEvolution2,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'unit_skill_data';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UnitSkillDataData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    }
+    if (data.containsKey('union_burst')) {
+      context.handle(
+        _unionBurstMeta,
+        unionBurst.isAcceptableOrUnknown(data['union_burst']!, _unionBurstMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unionBurstMeta);
+    }
+    if (data.containsKey('sp_union_burst')) {
+      context.handle(
+        _spUnionBurstMeta,
+        spUnionBurst.isAcceptableOrUnknown(
+          data['sp_union_burst']!,
+          _spUnionBurstMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_spUnionBurstMeta);
+    }
+    if (data.containsKey('union_burst_evolution')) {
+      context.handle(
+        _unionBurstEvolutionMeta,
+        unionBurstEvolution.isAcceptableOrUnknown(
+          data['union_burst_evolution']!,
+          _unionBurstEvolutionMeta,
+        ),
+      );
+    }
+    if (data.containsKey('main_skill_1')) {
+      context.handle(
+        _mainSkill1Meta,
+        mainSkill1.isAcceptableOrUnknown(
+          data['main_skill_1']!,
+          _mainSkill1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkill1Meta);
+    }
+    if (data.containsKey('main_skill_2')) {
+      context.handle(
+        _mainSkill2Meta,
+        mainSkill2.isAcceptableOrUnknown(
+          data['main_skill_2']!,
+          _mainSkill2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkill2Meta);
+    }
+    if (data.containsKey('main_skill_3')) {
+      context.handle(
+        _mainSkill3Meta,
+        mainSkill3.isAcceptableOrUnknown(
+          data['main_skill_3']!,
+          _mainSkill3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkill3Meta);
+    }
+    if (data.containsKey('main_skill_4')) {
+      context.handle(
+        _mainSkill4Meta,
+        mainSkill4.isAcceptableOrUnknown(
+          data['main_skill_4']!,
+          _mainSkill4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkill4Meta);
+    }
+    if (data.containsKey('main_skill_5')) {
+      context.handle(
+        _mainSkill5Meta,
+        mainSkill5.isAcceptableOrUnknown(
+          data['main_skill_5']!,
+          _mainSkill5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkill5Meta);
+    }
+    if (data.containsKey('main_skill_6')) {
+      context.handle(
+        _mainSkill6Meta,
+        mainSkill6.isAcceptableOrUnknown(
+          data['main_skill_6']!,
+          _mainSkill6Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkill6Meta);
+    }
+    if (data.containsKey('main_skill_7')) {
+      context.handle(
+        _mainSkill7Meta,
+        mainSkill7.isAcceptableOrUnknown(
+          data['main_skill_7']!,
+          _mainSkill7Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkill7Meta);
+    }
+    if (data.containsKey('main_skill_8')) {
+      context.handle(
+        _mainSkill8Meta,
+        mainSkill8.isAcceptableOrUnknown(
+          data['main_skill_8']!,
+          _mainSkill8Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkill8Meta);
+    }
+    if (data.containsKey('main_skill_9')) {
+      context.handle(
+        _mainSkill9Meta,
+        mainSkill9.isAcceptableOrUnknown(
+          data['main_skill_9']!,
+          _mainSkill9Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkill9Meta);
+    }
+    if (data.containsKey('main_skill_10')) {
+      context.handle(
+        _mainSkill10Meta,
+        mainSkill10.isAcceptableOrUnknown(
+          data['main_skill_10']!,
+          _mainSkill10Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkill10Meta);
+    }
+    if (data.containsKey('main_skill_evolution_1')) {
+      context.handle(
+        _mainSkillEvolution1Meta,
+        mainSkillEvolution1.isAcceptableOrUnknown(
+          data['main_skill_evolution_1']!,
+          _mainSkillEvolution1Meta,
+        ),
+      );
+    }
+    if (data.containsKey('main_skill_evolution_2')) {
+      context.handle(
+        _mainSkillEvolution2Meta,
+        mainSkillEvolution2.isAcceptableOrUnknown(
+          data['main_skill_evolution_2']!,
+          _mainSkillEvolution2Meta,
+        ),
+      );
+    }
+    if (data.containsKey('ex_skill_1')) {
+      context.handle(
+        _exSkill1Meta,
+        exSkill1.isAcceptableOrUnknown(data['ex_skill_1']!, _exSkill1Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkill1Meta);
+    }
+    if (data.containsKey('ex_skill_2')) {
+      context.handle(
+        _exSkill2Meta,
+        exSkill2.isAcceptableOrUnknown(data['ex_skill_2']!, _exSkill2Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkill2Meta);
+    }
+    if (data.containsKey('ex_skill_3')) {
+      context.handle(
+        _exSkill3Meta,
+        exSkill3.isAcceptableOrUnknown(data['ex_skill_3']!, _exSkill3Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkill3Meta);
+    }
+    if (data.containsKey('ex_skill_4')) {
+      context.handle(
+        _exSkill4Meta,
+        exSkill4.isAcceptableOrUnknown(data['ex_skill_4']!, _exSkill4Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkill4Meta);
+    }
+    if (data.containsKey('ex_skill_5')) {
+      context.handle(
+        _exSkill5Meta,
+        exSkill5.isAcceptableOrUnknown(data['ex_skill_5']!, _exSkill5Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkill5Meta);
+    }
+    if (data.containsKey('ex_skill_evolution_1')) {
+      context.handle(
+        _exSkillEvolution1Meta,
+        exSkillEvolution1.isAcceptableOrUnknown(
+          data['ex_skill_evolution_1']!,
+          _exSkillEvolution1Meta,
+        ),
+      );
+    }
+    if (data.containsKey('ex_skill_evolution_2')) {
+      context.handle(
+        _exSkillEvolution2Meta,
+        exSkillEvolution2.isAcceptableOrUnknown(
+          data['ex_skill_evolution_2']!,
+          _exSkillEvolution2Meta,
+        ),
+      );
+    }
+    if (data.containsKey('ex_skill_evolution_3')) {
+      context.handle(
+        _exSkillEvolution3Meta,
+        exSkillEvolution3.isAcceptableOrUnknown(
+          data['ex_skill_evolution_3']!,
+          _exSkillEvolution3Meta,
+        ),
+      );
+    }
+    if (data.containsKey('ex_skill_evolution_4')) {
+      context.handle(
+        _exSkillEvolution4Meta,
+        exSkillEvolution4.isAcceptableOrUnknown(
+          data['ex_skill_evolution_4']!,
+          _exSkillEvolution4Meta,
+        ),
+      );
+    }
+    if (data.containsKey('ex_skill_evolution_5')) {
+      context.handle(
+        _exSkillEvolution5Meta,
+        exSkillEvolution5.isAcceptableOrUnknown(
+          data['ex_skill_evolution_5']!,
+          _exSkillEvolution5Meta,
+        ),
+      );
+    }
+    if (data.containsKey('sp_skill_1')) {
+      context.handle(
+        _spSkill1Meta,
+        spSkill1.isAcceptableOrUnknown(data['sp_skill_1']!, _spSkill1Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_spSkill1Meta);
+    }
+    if (data.containsKey('sp_skill_2')) {
+      context.handle(
+        _spSkill2Meta,
+        spSkill2.isAcceptableOrUnknown(data['sp_skill_2']!, _spSkill2Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_spSkill2Meta);
+    }
+    if (data.containsKey('sp_skill_3')) {
+      context.handle(
+        _spSkill3Meta,
+        spSkill3.isAcceptableOrUnknown(data['sp_skill_3']!, _spSkill3Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_spSkill3Meta);
+    }
+    if (data.containsKey('sp_skill_4')) {
+      context.handle(
+        _spSkill4Meta,
+        spSkill4.isAcceptableOrUnknown(data['sp_skill_4']!, _spSkill4Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_spSkill4Meta);
+    }
+    if (data.containsKey('sp_skill_5')) {
+      context.handle(
+        _spSkill5Meta,
+        spSkill5.isAcceptableOrUnknown(data['sp_skill_5']!, _spSkill5Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_spSkill5Meta);
+    }
+    if (data.containsKey('sp_skill_evolution_1')) {
+      context.handle(
+        _spSkillEvolution1Meta,
+        spSkillEvolution1.isAcceptableOrUnknown(
+          data['sp_skill_evolution_1']!,
+          _spSkillEvolution1Meta,
+        ),
+      );
+    }
+    if (data.containsKey('sp_skill_evolution_2')) {
+      context.handle(
+        _spSkillEvolution2Meta,
+        spSkillEvolution2.isAcceptableOrUnknown(
+          data['sp_skill_evolution_2']!,
+          _spSkillEvolution2Meta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {unitId};
+  @override
+  UnitSkillDataData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UnitSkillDataData(
+      unitId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}unit_id'],
+          )!,
+      unionBurst:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}union_burst'],
+          )!,
+      spUnionBurst:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}sp_union_burst'],
+          )!,
+      unionBurstEvolution: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}union_burst_evolution'],
+      ),
+      mainSkill1:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}main_skill_1'],
+          )!,
+      mainSkill2:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}main_skill_2'],
+          )!,
+      mainSkill3:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}main_skill_3'],
+          )!,
+      mainSkill4:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}main_skill_4'],
+          )!,
+      mainSkill5:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}main_skill_5'],
+          )!,
+      mainSkill6:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}main_skill_6'],
+          )!,
+      mainSkill7:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}main_skill_7'],
+          )!,
+      mainSkill8:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}main_skill_8'],
+          )!,
+      mainSkill9:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}main_skill_9'],
+          )!,
+      mainSkill10:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}main_skill_10'],
+          )!,
+      mainSkillEvolution1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_evolution_1'],
+      ),
+      mainSkillEvolution2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_evolution_2'],
+      ),
+      exSkill1:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}ex_skill_1'],
+          )!,
+      exSkill2:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}ex_skill_2'],
+          )!,
+      exSkill3:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}ex_skill_3'],
+          )!,
+      exSkill4:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}ex_skill_4'],
+          )!,
+      exSkill5:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}ex_skill_5'],
+          )!,
+      exSkillEvolution1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_evolution_1'],
+      ),
+      exSkillEvolution2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_evolution_2'],
+      ),
+      exSkillEvolution3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_evolution_3'],
+      ),
+      exSkillEvolution4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_evolution_4'],
+      ),
+      exSkillEvolution5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_evolution_5'],
+      ),
+      spSkill1:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}sp_skill_1'],
+          )!,
+      spSkill2:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}sp_skill_2'],
+          )!,
+      spSkill3:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}sp_skill_3'],
+          )!,
+      spSkill4:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}sp_skill_4'],
+          )!,
+      spSkill5:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}sp_skill_5'],
+          )!,
+      spSkillEvolution1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}sp_skill_evolution_1'],
+      ),
+      spSkillEvolution2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}sp_skill_evolution_2'],
+      ),
+    );
+  }
+
+  @override
+  $UnitSkillDataTable createAlias(String alias) {
+    return $UnitSkillDataTable(attachedDatabase, alias);
+  }
+}
+
+class UnitSkillDataData extends DataClass
+    implements Insertable<UnitSkillDataData> {
+  final int unitId;
+  final int unionBurst;
+  final int spUnionBurst;
+  final int? unionBurstEvolution;
+  final int mainSkill1;
+  final int mainSkill2;
+  final int mainSkill3;
+  final int mainSkill4;
+  final int mainSkill5;
+  final int mainSkill6;
+  final int mainSkill7;
+  final int mainSkill8;
+  final int mainSkill9;
+  final int mainSkill10;
+  final int? mainSkillEvolution1;
+  final int? mainSkillEvolution2;
+  final int exSkill1;
+  final int exSkill2;
+  final int exSkill3;
+  final int exSkill4;
+  final int exSkill5;
+  final int? exSkillEvolution1;
+  final int? exSkillEvolution2;
+  final int? exSkillEvolution3;
+  final int? exSkillEvolution4;
+  final int? exSkillEvolution5;
+  final int spSkill1;
+  final int spSkill2;
+  final int spSkill3;
+  final int spSkill4;
+  final int spSkill5;
+  final int? spSkillEvolution1;
+  final int? spSkillEvolution2;
+  const UnitSkillDataData({
+    required this.unitId,
+    required this.unionBurst,
+    required this.spUnionBurst,
+    this.unionBurstEvolution,
+    required this.mainSkill1,
+    required this.mainSkill2,
+    required this.mainSkill3,
+    required this.mainSkill4,
+    required this.mainSkill5,
+    required this.mainSkill6,
+    required this.mainSkill7,
+    required this.mainSkill8,
+    required this.mainSkill9,
+    required this.mainSkill10,
+    this.mainSkillEvolution1,
+    this.mainSkillEvolution2,
+    required this.exSkill1,
+    required this.exSkill2,
+    required this.exSkill3,
+    required this.exSkill4,
+    required this.exSkill5,
+    this.exSkillEvolution1,
+    this.exSkillEvolution2,
+    this.exSkillEvolution3,
+    this.exSkillEvolution4,
+    this.exSkillEvolution5,
+    required this.spSkill1,
+    required this.spSkill2,
+    required this.spSkill3,
+    required this.spSkill4,
+    required this.spSkill5,
+    this.spSkillEvolution1,
+    this.spSkillEvolution2,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['unit_id'] = Variable<int>(unitId);
+    map['union_burst'] = Variable<int>(unionBurst);
+    map['sp_union_burst'] = Variable<int>(spUnionBurst);
+    if (!nullToAbsent || unionBurstEvolution != null) {
+      map['union_burst_evolution'] = Variable<int>(unionBurstEvolution);
+    }
+    map['main_skill_1'] = Variable<int>(mainSkill1);
+    map['main_skill_2'] = Variable<int>(mainSkill2);
+    map['main_skill_3'] = Variable<int>(mainSkill3);
+    map['main_skill_4'] = Variable<int>(mainSkill4);
+    map['main_skill_5'] = Variable<int>(mainSkill5);
+    map['main_skill_6'] = Variable<int>(mainSkill6);
+    map['main_skill_7'] = Variable<int>(mainSkill7);
+    map['main_skill_8'] = Variable<int>(mainSkill8);
+    map['main_skill_9'] = Variable<int>(mainSkill9);
+    map['main_skill_10'] = Variable<int>(mainSkill10);
+    if (!nullToAbsent || mainSkillEvolution1 != null) {
+      map['main_skill_evolution_1'] = Variable<int>(mainSkillEvolution1);
+    }
+    if (!nullToAbsent || mainSkillEvolution2 != null) {
+      map['main_skill_evolution_2'] = Variable<int>(mainSkillEvolution2);
+    }
+    map['ex_skill_1'] = Variable<int>(exSkill1);
+    map['ex_skill_2'] = Variable<int>(exSkill2);
+    map['ex_skill_3'] = Variable<int>(exSkill3);
+    map['ex_skill_4'] = Variable<int>(exSkill4);
+    map['ex_skill_5'] = Variable<int>(exSkill5);
+    if (!nullToAbsent || exSkillEvolution1 != null) {
+      map['ex_skill_evolution_1'] = Variable<int>(exSkillEvolution1);
+    }
+    if (!nullToAbsent || exSkillEvolution2 != null) {
+      map['ex_skill_evolution_2'] = Variable<int>(exSkillEvolution2);
+    }
+    if (!nullToAbsent || exSkillEvolution3 != null) {
+      map['ex_skill_evolution_3'] = Variable<int>(exSkillEvolution3);
+    }
+    if (!nullToAbsent || exSkillEvolution4 != null) {
+      map['ex_skill_evolution_4'] = Variable<int>(exSkillEvolution4);
+    }
+    if (!nullToAbsent || exSkillEvolution5 != null) {
+      map['ex_skill_evolution_5'] = Variable<int>(exSkillEvolution5);
+    }
+    map['sp_skill_1'] = Variable<int>(spSkill1);
+    map['sp_skill_2'] = Variable<int>(spSkill2);
+    map['sp_skill_3'] = Variable<int>(spSkill3);
+    map['sp_skill_4'] = Variable<int>(spSkill4);
+    map['sp_skill_5'] = Variable<int>(spSkill5);
+    if (!nullToAbsent || spSkillEvolution1 != null) {
+      map['sp_skill_evolution_1'] = Variable<int>(spSkillEvolution1);
+    }
+    if (!nullToAbsent || spSkillEvolution2 != null) {
+      map['sp_skill_evolution_2'] = Variable<int>(spSkillEvolution2);
+    }
+    return map;
+  }
+
+  UnitSkillDataCompanion toCompanion(bool nullToAbsent) {
+    return UnitSkillDataCompanion(
+      unitId: Value(unitId),
+      unionBurst: Value(unionBurst),
+      spUnionBurst: Value(spUnionBurst),
+      unionBurstEvolution:
+          unionBurstEvolution == null && nullToAbsent
+              ? const Value.absent()
+              : Value(unionBurstEvolution),
+      mainSkill1: Value(mainSkill1),
+      mainSkill2: Value(mainSkill2),
+      mainSkill3: Value(mainSkill3),
+      mainSkill4: Value(mainSkill4),
+      mainSkill5: Value(mainSkill5),
+      mainSkill6: Value(mainSkill6),
+      mainSkill7: Value(mainSkill7),
+      mainSkill8: Value(mainSkill8),
+      mainSkill9: Value(mainSkill9),
+      mainSkill10: Value(mainSkill10),
+      mainSkillEvolution1:
+          mainSkillEvolution1 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(mainSkillEvolution1),
+      mainSkillEvolution2:
+          mainSkillEvolution2 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(mainSkillEvolution2),
+      exSkill1: Value(exSkill1),
+      exSkill2: Value(exSkill2),
+      exSkill3: Value(exSkill3),
+      exSkill4: Value(exSkill4),
+      exSkill5: Value(exSkill5),
+      exSkillEvolution1:
+          exSkillEvolution1 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(exSkillEvolution1),
+      exSkillEvolution2:
+          exSkillEvolution2 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(exSkillEvolution2),
+      exSkillEvolution3:
+          exSkillEvolution3 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(exSkillEvolution3),
+      exSkillEvolution4:
+          exSkillEvolution4 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(exSkillEvolution4),
+      exSkillEvolution5:
+          exSkillEvolution5 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(exSkillEvolution5),
+      spSkill1: Value(spSkill1),
+      spSkill2: Value(spSkill2),
+      spSkill3: Value(spSkill3),
+      spSkill4: Value(spSkill4),
+      spSkill5: Value(spSkill5),
+      spSkillEvolution1:
+          spSkillEvolution1 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(spSkillEvolution1),
+      spSkillEvolution2:
+          spSkillEvolution2 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(spSkillEvolution2),
+    );
+  }
+
+  factory UnitSkillDataData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UnitSkillDataData(
+      unitId: serializer.fromJson<int>(json['unitId']),
+      unionBurst: serializer.fromJson<int>(json['unionBurst']),
+      spUnionBurst: serializer.fromJson<int>(json['spUnionBurst']),
+      unionBurstEvolution: serializer.fromJson<int?>(
+        json['unionBurstEvolution'],
+      ),
+      mainSkill1: serializer.fromJson<int>(json['mainSkill1']),
+      mainSkill2: serializer.fromJson<int>(json['mainSkill2']),
+      mainSkill3: serializer.fromJson<int>(json['mainSkill3']),
+      mainSkill4: serializer.fromJson<int>(json['mainSkill4']),
+      mainSkill5: serializer.fromJson<int>(json['mainSkill5']),
+      mainSkill6: serializer.fromJson<int>(json['mainSkill6']),
+      mainSkill7: serializer.fromJson<int>(json['mainSkill7']),
+      mainSkill8: serializer.fromJson<int>(json['mainSkill8']),
+      mainSkill9: serializer.fromJson<int>(json['mainSkill9']),
+      mainSkill10: serializer.fromJson<int>(json['mainSkill10']),
+      mainSkillEvolution1: serializer.fromJson<int?>(
+        json['mainSkillEvolution1'],
+      ),
+      mainSkillEvolution2: serializer.fromJson<int?>(
+        json['mainSkillEvolution2'],
+      ),
+      exSkill1: serializer.fromJson<int>(json['exSkill1']),
+      exSkill2: serializer.fromJson<int>(json['exSkill2']),
+      exSkill3: serializer.fromJson<int>(json['exSkill3']),
+      exSkill4: serializer.fromJson<int>(json['exSkill4']),
+      exSkill5: serializer.fromJson<int>(json['exSkill5']),
+      exSkillEvolution1: serializer.fromJson<int?>(json['exSkillEvolution1']),
+      exSkillEvolution2: serializer.fromJson<int?>(json['exSkillEvolution2']),
+      exSkillEvolution3: serializer.fromJson<int?>(json['exSkillEvolution3']),
+      exSkillEvolution4: serializer.fromJson<int?>(json['exSkillEvolution4']),
+      exSkillEvolution5: serializer.fromJson<int?>(json['exSkillEvolution5']),
+      spSkill1: serializer.fromJson<int>(json['spSkill1']),
+      spSkill2: serializer.fromJson<int>(json['spSkill2']),
+      spSkill3: serializer.fromJson<int>(json['spSkill3']),
+      spSkill4: serializer.fromJson<int>(json['spSkill4']),
+      spSkill5: serializer.fromJson<int>(json['spSkill5']),
+      spSkillEvolution1: serializer.fromJson<int?>(json['spSkillEvolution1']),
+      spSkillEvolution2: serializer.fromJson<int?>(json['spSkillEvolution2']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'unitId': serializer.toJson<int>(unitId),
+      'unionBurst': serializer.toJson<int>(unionBurst),
+      'spUnionBurst': serializer.toJson<int>(spUnionBurst),
+      'unionBurstEvolution': serializer.toJson<int?>(unionBurstEvolution),
+      'mainSkill1': serializer.toJson<int>(mainSkill1),
+      'mainSkill2': serializer.toJson<int>(mainSkill2),
+      'mainSkill3': serializer.toJson<int>(mainSkill3),
+      'mainSkill4': serializer.toJson<int>(mainSkill4),
+      'mainSkill5': serializer.toJson<int>(mainSkill5),
+      'mainSkill6': serializer.toJson<int>(mainSkill6),
+      'mainSkill7': serializer.toJson<int>(mainSkill7),
+      'mainSkill8': serializer.toJson<int>(mainSkill8),
+      'mainSkill9': serializer.toJson<int>(mainSkill9),
+      'mainSkill10': serializer.toJson<int>(mainSkill10),
+      'mainSkillEvolution1': serializer.toJson<int?>(mainSkillEvolution1),
+      'mainSkillEvolution2': serializer.toJson<int?>(mainSkillEvolution2),
+      'exSkill1': serializer.toJson<int>(exSkill1),
+      'exSkill2': serializer.toJson<int>(exSkill2),
+      'exSkill3': serializer.toJson<int>(exSkill3),
+      'exSkill4': serializer.toJson<int>(exSkill4),
+      'exSkill5': serializer.toJson<int>(exSkill5),
+      'exSkillEvolution1': serializer.toJson<int?>(exSkillEvolution1),
+      'exSkillEvolution2': serializer.toJson<int?>(exSkillEvolution2),
+      'exSkillEvolution3': serializer.toJson<int?>(exSkillEvolution3),
+      'exSkillEvolution4': serializer.toJson<int?>(exSkillEvolution4),
+      'exSkillEvolution5': serializer.toJson<int?>(exSkillEvolution5),
+      'spSkill1': serializer.toJson<int>(spSkill1),
+      'spSkill2': serializer.toJson<int>(spSkill2),
+      'spSkill3': serializer.toJson<int>(spSkill3),
+      'spSkill4': serializer.toJson<int>(spSkill4),
+      'spSkill5': serializer.toJson<int>(spSkill5),
+      'spSkillEvolution1': serializer.toJson<int?>(spSkillEvolution1),
+      'spSkillEvolution2': serializer.toJson<int?>(spSkillEvolution2),
+    };
+  }
+
+  UnitSkillDataData copyWith({
+    int? unitId,
+    int? unionBurst,
+    int? spUnionBurst,
+    Value<int?> unionBurstEvolution = const Value.absent(),
+    int? mainSkill1,
+    int? mainSkill2,
+    int? mainSkill3,
+    int? mainSkill4,
+    int? mainSkill5,
+    int? mainSkill6,
+    int? mainSkill7,
+    int? mainSkill8,
+    int? mainSkill9,
+    int? mainSkill10,
+    Value<int?> mainSkillEvolution1 = const Value.absent(),
+    Value<int?> mainSkillEvolution2 = const Value.absent(),
+    int? exSkill1,
+    int? exSkill2,
+    int? exSkill3,
+    int? exSkill4,
+    int? exSkill5,
+    Value<int?> exSkillEvolution1 = const Value.absent(),
+    Value<int?> exSkillEvolution2 = const Value.absent(),
+    Value<int?> exSkillEvolution3 = const Value.absent(),
+    Value<int?> exSkillEvolution4 = const Value.absent(),
+    Value<int?> exSkillEvolution5 = const Value.absent(),
+    int? spSkill1,
+    int? spSkill2,
+    int? spSkill3,
+    int? spSkill4,
+    int? spSkill5,
+    Value<int?> spSkillEvolution1 = const Value.absent(),
+    Value<int?> spSkillEvolution2 = const Value.absent(),
+  }) => UnitSkillDataData(
+    unitId: unitId ?? this.unitId,
+    unionBurst: unionBurst ?? this.unionBurst,
+    spUnionBurst: spUnionBurst ?? this.spUnionBurst,
+    unionBurstEvolution:
+        unionBurstEvolution.present
+            ? unionBurstEvolution.value
+            : this.unionBurstEvolution,
+    mainSkill1: mainSkill1 ?? this.mainSkill1,
+    mainSkill2: mainSkill2 ?? this.mainSkill2,
+    mainSkill3: mainSkill3 ?? this.mainSkill3,
+    mainSkill4: mainSkill4 ?? this.mainSkill4,
+    mainSkill5: mainSkill5 ?? this.mainSkill5,
+    mainSkill6: mainSkill6 ?? this.mainSkill6,
+    mainSkill7: mainSkill7 ?? this.mainSkill7,
+    mainSkill8: mainSkill8 ?? this.mainSkill8,
+    mainSkill9: mainSkill9 ?? this.mainSkill9,
+    mainSkill10: mainSkill10 ?? this.mainSkill10,
+    mainSkillEvolution1:
+        mainSkillEvolution1.present
+            ? mainSkillEvolution1.value
+            : this.mainSkillEvolution1,
+    mainSkillEvolution2:
+        mainSkillEvolution2.present
+            ? mainSkillEvolution2.value
+            : this.mainSkillEvolution2,
+    exSkill1: exSkill1 ?? this.exSkill1,
+    exSkill2: exSkill2 ?? this.exSkill2,
+    exSkill3: exSkill3 ?? this.exSkill3,
+    exSkill4: exSkill4 ?? this.exSkill4,
+    exSkill5: exSkill5 ?? this.exSkill5,
+    exSkillEvolution1:
+        exSkillEvolution1.present
+            ? exSkillEvolution1.value
+            : this.exSkillEvolution1,
+    exSkillEvolution2:
+        exSkillEvolution2.present
+            ? exSkillEvolution2.value
+            : this.exSkillEvolution2,
+    exSkillEvolution3:
+        exSkillEvolution3.present
+            ? exSkillEvolution3.value
+            : this.exSkillEvolution3,
+    exSkillEvolution4:
+        exSkillEvolution4.present
+            ? exSkillEvolution4.value
+            : this.exSkillEvolution4,
+    exSkillEvolution5:
+        exSkillEvolution5.present
+            ? exSkillEvolution5.value
+            : this.exSkillEvolution5,
+    spSkill1: spSkill1 ?? this.spSkill1,
+    spSkill2: spSkill2 ?? this.spSkill2,
+    spSkill3: spSkill3 ?? this.spSkill3,
+    spSkill4: spSkill4 ?? this.spSkill4,
+    spSkill5: spSkill5 ?? this.spSkill5,
+    spSkillEvolution1:
+        spSkillEvolution1.present
+            ? spSkillEvolution1.value
+            : this.spSkillEvolution1,
+    spSkillEvolution2:
+        spSkillEvolution2.present
+            ? spSkillEvolution2.value
+            : this.spSkillEvolution2,
+  );
+  UnitSkillDataData copyWithCompanion(UnitSkillDataCompanion data) {
+    return UnitSkillDataData(
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      unionBurst:
+          data.unionBurst.present ? data.unionBurst.value : this.unionBurst,
+      spUnionBurst:
+          data.spUnionBurst.present
+              ? data.spUnionBurst.value
+              : this.spUnionBurst,
+      unionBurstEvolution:
+          data.unionBurstEvolution.present
+              ? data.unionBurstEvolution.value
+              : this.unionBurstEvolution,
+      mainSkill1:
+          data.mainSkill1.present ? data.mainSkill1.value : this.mainSkill1,
+      mainSkill2:
+          data.mainSkill2.present ? data.mainSkill2.value : this.mainSkill2,
+      mainSkill3:
+          data.mainSkill3.present ? data.mainSkill3.value : this.mainSkill3,
+      mainSkill4:
+          data.mainSkill4.present ? data.mainSkill4.value : this.mainSkill4,
+      mainSkill5:
+          data.mainSkill5.present ? data.mainSkill5.value : this.mainSkill5,
+      mainSkill6:
+          data.mainSkill6.present ? data.mainSkill6.value : this.mainSkill6,
+      mainSkill7:
+          data.mainSkill7.present ? data.mainSkill7.value : this.mainSkill7,
+      mainSkill8:
+          data.mainSkill8.present ? data.mainSkill8.value : this.mainSkill8,
+      mainSkill9:
+          data.mainSkill9.present ? data.mainSkill9.value : this.mainSkill9,
+      mainSkill10:
+          data.mainSkill10.present ? data.mainSkill10.value : this.mainSkill10,
+      mainSkillEvolution1:
+          data.mainSkillEvolution1.present
+              ? data.mainSkillEvolution1.value
+              : this.mainSkillEvolution1,
+      mainSkillEvolution2:
+          data.mainSkillEvolution2.present
+              ? data.mainSkillEvolution2.value
+              : this.mainSkillEvolution2,
+      exSkill1: data.exSkill1.present ? data.exSkill1.value : this.exSkill1,
+      exSkill2: data.exSkill2.present ? data.exSkill2.value : this.exSkill2,
+      exSkill3: data.exSkill3.present ? data.exSkill3.value : this.exSkill3,
+      exSkill4: data.exSkill4.present ? data.exSkill4.value : this.exSkill4,
+      exSkill5: data.exSkill5.present ? data.exSkill5.value : this.exSkill5,
+      exSkillEvolution1:
+          data.exSkillEvolution1.present
+              ? data.exSkillEvolution1.value
+              : this.exSkillEvolution1,
+      exSkillEvolution2:
+          data.exSkillEvolution2.present
+              ? data.exSkillEvolution2.value
+              : this.exSkillEvolution2,
+      exSkillEvolution3:
+          data.exSkillEvolution3.present
+              ? data.exSkillEvolution3.value
+              : this.exSkillEvolution3,
+      exSkillEvolution4:
+          data.exSkillEvolution4.present
+              ? data.exSkillEvolution4.value
+              : this.exSkillEvolution4,
+      exSkillEvolution5:
+          data.exSkillEvolution5.present
+              ? data.exSkillEvolution5.value
+              : this.exSkillEvolution5,
+      spSkill1: data.spSkill1.present ? data.spSkill1.value : this.spSkill1,
+      spSkill2: data.spSkill2.present ? data.spSkill2.value : this.spSkill2,
+      spSkill3: data.spSkill3.present ? data.spSkill3.value : this.spSkill3,
+      spSkill4: data.spSkill4.present ? data.spSkill4.value : this.spSkill4,
+      spSkill5: data.spSkill5.present ? data.spSkill5.value : this.spSkill5,
+      spSkillEvolution1:
+          data.spSkillEvolution1.present
+              ? data.spSkillEvolution1.value
+              : this.spSkillEvolution1,
+      spSkillEvolution2:
+          data.spSkillEvolution2.present
+              ? data.spSkillEvolution2.value
+              : this.spSkillEvolution2,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitSkillDataData(')
+          ..write('unitId: $unitId, ')
+          ..write('unionBurst: $unionBurst, ')
+          ..write('spUnionBurst: $spUnionBurst, ')
+          ..write('unionBurstEvolution: $unionBurstEvolution, ')
+          ..write('mainSkill1: $mainSkill1, ')
+          ..write('mainSkill2: $mainSkill2, ')
+          ..write('mainSkill3: $mainSkill3, ')
+          ..write('mainSkill4: $mainSkill4, ')
+          ..write('mainSkill5: $mainSkill5, ')
+          ..write('mainSkill6: $mainSkill6, ')
+          ..write('mainSkill7: $mainSkill7, ')
+          ..write('mainSkill8: $mainSkill8, ')
+          ..write('mainSkill9: $mainSkill9, ')
+          ..write('mainSkill10: $mainSkill10, ')
+          ..write('mainSkillEvolution1: $mainSkillEvolution1, ')
+          ..write('mainSkillEvolution2: $mainSkillEvolution2, ')
+          ..write('exSkill1: $exSkill1, ')
+          ..write('exSkill2: $exSkill2, ')
+          ..write('exSkill3: $exSkill3, ')
+          ..write('exSkill4: $exSkill4, ')
+          ..write('exSkill5: $exSkill5, ')
+          ..write('exSkillEvolution1: $exSkillEvolution1, ')
+          ..write('exSkillEvolution2: $exSkillEvolution2, ')
+          ..write('exSkillEvolution3: $exSkillEvolution3, ')
+          ..write('exSkillEvolution4: $exSkillEvolution4, ')
+          ..write('exSkillEvolution5: $exSkillEvolution5, ')
+          ..write('spSkill1: $spSkill1, ')
+          ..write('spSkill2: $spSkill2, ')
+          ..write('spSkill3: $spSkill3, ')
+          ..write('spSkill4: $spSkill4, ')
+          ..write('spSkill5: $spSkill5, ')
+          ..write('spSkillEvolution1: $spSkillEvolution1, ')
+          ..write('spSkillEvolution2: $spSkillEvolution2')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    unitId,
+    unionBurst,
+    spUnionBurst,
+    unionBurstEvolution,
+    mainSkill1,
+    mainSkill2,
+    mainSkill3,
+    mainSkill4,
+    mainSkill5,
+    mainSkill6,
+    mainSkill7,
+    mainSkill8,
+    mainSkill9,
+    mainSkill10,
+    mainSkillEvolution1,
+    mainSkillEvolution2,
+    exSkill1,
+    exSkill2,
+    exSkill3,
+    exSkill4,
+    exSkill5,
+    exSkillEvolution1,
+    exSkillEvolution2,
+    exSkillEvolution3,
+    exSkillEvolution4,
+    exSkillEvolution5,
+    spSkill1,
+    spSkill2,
+    spSkill3,
+    spSkill4,
+    spSkill5,
+    spSkillEvolution1,
+    spSkillEvolution2,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UnitSkillDataData &&
+          other.unitId == this.unitId &&
+          other.unionBurst == this.unionBurst &&
+          other.spUnionBurst == this.spUnionBurst &&
+          other.unionBurstEvolution == this.unionBurstEvolution &&
+          other.mainSkill1 == this.mainSkill1 &&
+          other.mainSkill2 == this.mainSkill2 &&
+          other.mainSkill3 == this.mainSkill3 &&
+          other.mainSkill4 == this.mainSkill4 &&
+          other.mainSkill5 == this.mainSkill5 &&
+          other.mainSkill6 == this.mainSkill6 &&
+          other.mainSkill7 == this.mainSkill7 &&
+          other.mainSkill8 == this.mainSkill8 &&
+          other.mainSkill9 == this.mainSkill9 &&
+          other.mainSkill10 == this.mainSkill10 &&
+          other.mainSkillEvolution1 == this.mainSkillEvolution1 &&
+          other.mainSkillEvolution2 == this.mainSkillEvolution2 &&
+          other.exSkill1 == this.exSkill1 &&
+          other.exSkill2 == this.exSkill2 &&
+          other.exSkill3 == this.exSkill3 &&
+          other.exSkill4 == this.exSkill4 &&
+          other.exSkill5 == this.exSkill5 &&
+          other.exSkillEvolution1 == this.exSkillEvolution1 &&
+          other.exSkillEvolution2 == this.exSkillEvolution2 &&
+          other.exSkillEvolution3 == this.exSkillEvolution3 &&
+          other.exSkillEvolution4 == this.exSkillEvolution4 &&
+          other.exSkillEvolution5 == this.exSkillEvolution5 &&
+          other.spSkill1 == this.spSkill1 &&
+          other.spSkill2 == this.spSkill2 &&
+          other.spSkill3 == this.spSkill3 &&
+          other.spSkill4 == this.spSkill4 &&
+          other.spSkill5 == this.spSkill5 &&
+          other.spSkillEvolution1 == this.spSkillEvolution1 &&
+          other.spSkillEvolution2 == this.spSkillEvolution2);
+}
+
+class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
+  final Value<int> unitId;
+  final Value<int> unionBurst;
+  final Value<int> spUnionBurst;
+  final Value<int?> unionBurstEvolution;
+  final Value<int> mainSkill1;
+  final Value<int> mainSkill2;
+  final Value<int> mainSkill3;
+  final Value<int> mainSkill4;
+  final Value<int> mainSkill5;
+  final Value<int> mainSkill6;
+  final Value<int> mainSkill7;
+  final Value<int> mainSkill8;
+  final Value<int> mainSkill9;
+  final Value<int> mainSkill10;
+  final Value<int?> mainSkillEvolution1;
+  final Value<int?> mainSkillEvolution2;
+  final Value<int> exSkill1;
+  final Value<int> exSkill2;
+  final Value<int> exSkill3;
+  final Value<int> exSkill4;
+  final Value<int> exSkill5;
+  final Value<int?> exSkillEvolution1;
+  final Value<int?> exSkillEvolution2;
+  final Value<int?> exSkillEvolution3;
+  final Value<int?> exSkillEvolution4;
+  final Value<int?> exSkillEvolution5;
+  final Value<int> spSkill1;
+  final Value<int> spSkill2;
+  final Value<int> spSkill3;
+  final Value<int> spSkill4;
+  final Value<int> spSkill5;
+  final Value<int?> spSkillEvolution1;
+  final Value<int?> spSkillEvolution2;
+  const UnitSkillDataCompanion({
+    this.unitId = const Value.absent(),
+    this.unionBurst = const Value.absent(),
+    this.spUnionBurst = const Value.absent(),
+    this.unionBurstEvolution = const Value.absent(),
+    this.mainSkill1 = const Value.absent(),
+    this.mainSkill2 = const Value.absent(),
+    this.mainSkill3 = const Value.absent(),
+    this.mainSkill4 = const Value.absent(),
+    this.mainSkill5 = const Value.absent(),
+    this.mainSkill6 = const Value.absent(),
+    this.mainSkill7 = const Value.absent(),
+    this.mainSkill8 = const Value.absent(),
+    this.mainSkill9 = const Value.absent(),
+    this.mainSkill10 = const Value.absent(),
+    this.mainSkillEvolution1 = const Value.absent(),
+    this.mainSkillEvolution2 = const Value.absent(),
+    this.exSkill1 = const Value.absent(),
+    this.exSkill2 = const Value.absent(),
+    this.exSkill3 = const Value.absent(),
+    this.exSkill4 = const Value.absent(),
+    this.exSkill5 = const Value.absent(),
+    this.exSkillEvolution1 = const Value.absent(),
+    this.exSkillEvolution2 = const Value.absent(),
+    this.exSkillEvolution3 = const Value.absent(),
+    this.exSkillEvolution4 = const Value.absent(),
+    this.exSkillEvolution5 = const Value.absent(),
+    this.spSkill1 = const Value.absent(),
+    this.spSkill2 = const Value.absent(),
+    this.spSkill3 = const Value.absent(),
+    this.spSkill4 = const Value.absent(),
+    this.spSkill5 = const Value.absent(),
+    this.spSkillEvolution1 = const Value.absent(),
+    this.spSkillEvolution2 = const Value.absent(),
+  });
+  UnitSkillDataCompanion.insert({
+    this.unitId = const Value.absent(),
+    required int unionBurst,
+    required int spUnionBurst,
+    this.unionBurstEvolution = const Value.absent(),
+    required int mainSkill1,
+    required int mainSkill2,
+    required int mainSkill3,
+    required int mainSkill4,
+    required int mainSkill5,
+    required int mainSkill6,
+    required int mainSkill7,
+    required int mainSkill8,
+    required int mainSkill9,
+    required int mainSkill10,
+    this.mainSkillEvolution1 = const Value.absent(),
+    this.mainSkillEvolution2 = const Value.absent(),
+    required int exSkill1,
+    required int exSkill2,
+    required int exSkill3,
+    required int exSkill4,
+    required int exSkill5,
+    this.exSkillEvolution1 = const Value.absent(),
+    this.exSkillEvolution2 = const Value.absent(),
+    this.exSkillEvolution3 = const Value.absent(),
+    this.exSkillEvolution4 = const Value.absent(),
+    this.exSkillEvolution5 = const Value.absent(),
+    required int spSkill1,
+    required int spSkill2,
+    required int spSkill3,
+    required int spSkill4,
+    required int spSkill5,
+    this.spSkillEvolution1 = const Value.absent(),
+    this.spSkillEvolution2 = const Value.absent(),
+  }) : unionBurst = Value(unionBurst),
+       spUnionBurst = Value(spUnionBurst),
+       mainSkill1 = Value(mainSkill1),
+       mainSkill2 = Value(mainSkill2),
+       mainSkill3 = Value(mainSkill3),
+       mainSkill4 = Value(mainSkill4),
+       mainSkill5 = Value(mainSkill5),
+       mainSkill6 = Value(mainSkill6),
+       mainSkill7 = Value(mainSkill7),
+       mainSkill8 = Value(mainSkill8),
+       mainSkill9 = Value(mainSkill9),
+       mainSkill10 = Value(mainSkill10),
+       exSkill1 = Value(exSkill1),
+       exSkill2 = Value(exSkill2),
+       exSkill3 = Value(exSkill3),
+       exSkill4 = Value(exSkill4),
+       exSkill5 = Value(exSkill5),
+       spSkill1 = Value(spSkill1),
+       spSkill2 = Value(spSkill2),
+       spSkill3 = Value(spSkill3),
+       spSkill4 = Value(spSkill4),
+       spSkill5 = Value(spSkill5);
+  static Insertable<UnitSkillDataData> custom({
+    Expression<int>? unitId,
+    Expression<int>? unionBurst,
+    Expression<int>? spUnionBurst,
+    Expression<int>? unionBurstEvolution,
+    Expression<int>? mainSkill1,
+    Expression<int>? mainSkill2,
+    Expression<int>? mainSkill3,
+    Expression<int>? mainSkill4,
+    Expression<int>? mainSkill5,
+    Expression<int>? mainSkill6,
+    Expression<int>? mainSkill7,
+    Expression<int>? mainSkill8,
+    Expression<int>? mainSkill9,
+    Expression<int>? mainSkill10,
+    Expression<int>? mainSkillEvolution1,
+    Expression<int>? mainSkillEvolution2,
+    Expression<int>? exSkill1,
+    Expression<int>? exSkill2,
+    Expression<int>? exSkill3,
+    Expression<int>? exSkill4,
+    Expression<int>? exSkill5,
+    Expression<int>? exSkillEvolution1,
+    Expression<int>? exSkillEvolution2,
+    Expression<int>? exSkillEvolution3,
+    Expression<int>? exSkillEvolution4,
+    Expression<int>? exSkillEvolution5,
+    Expression<int>? spSkill1,
+    Expression<int>? spSkill2,
+    Expression<int>? spSkill3,
+    Expression<int>? spSkill4,
+    Expression<int>? spSkill5,
+    Expression<int>? spSkillEvolution1,
+    Expression<int>? spSkillEvolution2,
+  }) {
+    return RawValuesInsertable({
+      if (unitId != null) 'unit_id': unitId,
+      if (unionBurst != null) 'union_burst': unionBurst,
+      if (spUnionBurst != null) 'sp_union_burst': spUnionBurst,
+      if (unionBurstEvolution != null)
+        'union_burst_evolution': unionBurstEvolution,
+      if (mainSkill1 != null) 'main_skill_1': mainSkill1,
+      if (mainSkill2 != null) 'main_skill_2': mainSkill2,
+      if (mainSkill3 != null) 'main_skill_3': mainSkill3,
+      if (mainSkill4 != null) 'main_skill_4': mainSkill4,
+      if (mainSkill5 != null) 'main_skill_5': mainSkill5,
+      if (mainSkill6 != null) 'main_skill_6': mainSkill6,
+      if (mainSkill7 != null) 'main_skill_7': mainSkill7,
+      if (mainSkill8 != null) 'main_skill_8': mainSkill8,
+      if (mainSkill9 != null) 'main_skill_9': mainSkill9,
+      if (mainSkill10 != null) 'main_skill_10': mainSkill10,
+      if (mainSkillEvolution1 != null)
+        'main_skill_evolution_1': mainSkillEvolution1,
+      if (mainSkillEvolution2 != null)
+        'main_skill_evolution_2': mainSkillEvolution2,
+      if (exSkill1 != null) 'ex_skill_1': exSkill1,
+      if (exSkill2 != null) 'ex_skill_2': exSkill2,
+      if (exSkill3 != null) 'ex_skill_3': exSkill3,
+      if (exSkill4 != null) 'ex_skill_4': exSkill4,
+      if (exSkill5 != null) 'ex_skill_5': exSkill5,
+      if (exSkillEvolution1 != null) 'ex_skill_evolution_1': exSkillEvolution1,
+      if (exSkillEvolution2 != null) 'ex_skill_evolution_2': exSkillEvolution2,
+      if (exSkillEvolution3 != null) 'ex_skill_evolution_3': exSkillEvolution3,
+      if (exSkillEvolution4 != null) 'ex_skill_evolution_4': exSkillEvolution4,
+      if (exSkillEvolution5 != null) 'ex_skill_evolution_5': exSkillEvolution5,
+      if (spSkill1 != null) 'sp_skill_1': spSkill1,
+      if (spSkill2 != null) 'sp_skill_2': spSkill2,
+      if (spSkill3 != null) 'sp_skill_3': spSkill3,
+      if (spSkill4 != null) 'sp_skill_4': spSkill4,
+      if (spSkill5 != null) 'sp_skill_5': spSkill5,
+      if (spSkillEvolution1 != null) 'sp_skill_evolution_1': spSkillEvolution1,
+      if (spSkillEvolution2 != null) 'sp_skill_evolution_2': spSkillEvolution2,
+    });
+  }
+
+  UnitSkillDataCompanion copyWith({
+    Value<int>? unitId,
+    Value<int>? unionBurst,
+    Value<int>? spUnionBurst,
+    Value<int?>? unionBurstEvolution,
+    Value<int>? mainSkill1,
+    Value<int>? mainSkill2,
+    Value<int>? mainSkill3,
+    Value<int>? mainSkill4,
+    Value<int>? mainSkill5,
+    Value<int>? mainSkill6,
+    Value<int>? mainSkill7,
+    Value<int>? mainSkill8,
+    Value<int>? mainSkill9,
+    Value<int>? mainSkill10,
+    Value<int?>? mainSkillEvolution1,
+    Value<int?>? mainSkillEvolution2,
+    Value<int>? exSkill1,
+    Value<int>? exSkill2,
+    Value<int>? exSkill3,
+    Value<int>? exSkill4,
+    Value<int>? exSkill5,
+    Value<int?>? exSkillEvolution1,
+    Value<int?>? exSkillEvolution2,
+    Value<int?>? exSkillEvolution3,
+    Value<int?>? exSkillEvolution4,
+    Value<int?>? exSkillEvolution5,
+    Value<int>? spSkill1,
+    Value<int>? spSkill2,
+    Value<int>? spSkill3,
+    Value<int>? spSkill4,
+    Value<int>? spSkill5,
+    Value<int?>? spSkillEvolution1,
+    Value<int?>? spSkillEvolution2,
+  }) {
+    return UnitSkillDataCompanion(
+      unitId: unitId ?? this.unitId,
+      unionBurst: unionBurst ?? this.unionBurst,
+      spUnionBurst: spUnionBurst ?? this.spUnionBurst,
+      unionBurstEvolution: unionBurstEvolution ?? this.unionBurstEvolution,
+      mainSkill1: mainSkill1 ?? this.mainSkill1,
+      mainSkill2: mainSkill2 ?? this.mainSkill2,
+      mainSkill3: mainSkill3 ?? this.mainSkill3,
+      mainSkill4: mainSkill4 ?? this.mainSkill4,
+      mainSkill5: mainSkill5 ?? this.mainSkill5,
+      mainSkill6: mainSkill6 ?? this.mainSkill6,
+      mainSkill7: mainSkill7 ?? this.mainSkill7,
+      mainSkill8: mainSkill8 ?? this.mainSkill8,
+      mainSkill9: mainSkill9 ?? this.mainSkill9,
+      mainSkill10: mainSkill10 ?? this.mainSkill10,
+      mainSkillEvolution1: mainSkillEvolution1 ?? this.mainSkillEvolution1,
+      mainSkillEvolution2: mainSkillEvolution2 ?? this.mainSkillEvolution2,
+      exSkill1: exSkill1 ?? this.exSkill1,
+      exSkill2: exSkill2 ?? this.exSkill2,
+      exSkill3: exSkill3 ?? this.exSkill3,
+      exSkill4: exSkill4 ?? this.exSkill4,
+      exSkill5: exSkill5 ?? this.exSkill5,
+      exSkillEvolution1: exSkillEvolution1 ?? this.exSkillEvolution1,
+      exSkillEvolution2: exSkillEvolution2 ?? this.exSkillEvolution2,
+      exSkillEvolution3: exSkillEvolution3 ?? this.exSkillEvolution3,
+      exSkillEvolution4: exSkillEvolution4 ?? this.exSkillEvolution4,
+      exSkillEvolution5: exSkillEvolution5 ?? this.exSkillEvolution5,
+      spSkill1: spSkill1 ?? this.spSkill1,
+      spSkill2: spSkill2 ?? this.spSkill2,
+      spSkill3: spSkill3 ?? this.spSkill3,
+      spSkill4: spSkill4 ?? this.spSkill4,
+      spSkill5: spSkill5 ?? this.spSkill5,
+      spSkillEvolution1: spSkillEvolution1 ?? this.spSkillEvolution1,
+      spSkillEvolution2: spSkillEvolution2 ?? this.spSkillEvolution2,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (unionBurst.present) {
+      map['union_burst'] = Variable<int>(unionBurst.value);
+    }
+    if (spUnionBurst.present) {
+      map['sp_union_burst'] = Variable<int>(spUnionBurst.value);
+    }
+    if (unionBurstEvolution.present) {
+      map['union_burst_evolution'] = Variable<int>(unionBurstEvolution.value);
+    }
+    if (mainSkill1.present) {
+      map['main_skill_1'] = Variable<int>(mainSkill1.value);
+    }
+    if (mainSkill2.present) {
+      map['main_skill_2'] = Variable<int>(mainSkill2.value);
+    }
+    if (mainSkill3.present) {
+      map['main_skill_3'] = Variable<int>(mainSkill3.value);
+    }
+    if (mainSkill4.present) {
+      map['main_skill_4'] = Variable<int>(mainSkill4.value);
+    }
+    if (mainSkill5.present) {
+      map['main_skill_5'] = Variable<int>(mainSkill5.value);
+    }
+    if (mainSkill6.present) {
+      map['main_skill_6'] = Variable<int>(mainSkill6.value);
+    }
+    if (mainSkill7.present) {
+      map['main_skill_7'] = Variable<int>(mainSkill7.value);
+    }
+    if (mainSkill8.present) {
+      map['main_skill_8'] = Variable<int>(mainSkill8.value);
+    }
+    if (mainSkill9.present) {
+      map['main_skill_9'] = Variable<int>(mainSkill9.value);
+    }
+    if (mainSkill10.present) {
+      map['main_skill_10'] = Variable<int>(mainSkill10.value);
+    }
+    if (mainSkillEvolution1.present) {
+      map['main_skill_evolution_1'] = Variable<int>(mainSkillEvolution1.value);
+    }
+    if (mainSkillEvolution2.present) {
+      map['main_skill_evolution_2'] = Variable<int>(mainSkillEvolution2.value);
+    }
+    if (exSkill1.present) {
+      map['ex_skill_1'] = Variable<int>(exSkill1.value);
+    }
+    if (exSkill2.present) {
+      map['ex_skill_2'] = Variable<int>(exSkill2.value);
+    }
+    if (exSkill3.present) {
+      map['ex_skill_3'] = Variable<int>(exSkill3.value);
+    }
+    if (exSkill4.present) {
+      map['ex_skill_4'] = Variable<int>(exSkill4.value);
+    }
+    if (exSkill5.present) {
+      map['ex_skill_5'] = Variable<int>(exSkill5.value);
+    }
+    if (exSkillEvolution1.present) {
+      map['ex_skill_evolution_1'] = Variable<int>(exSkillEvolution1.value);
+    }
+    if (exSkillEvolution2.present) {
+      map['ex_skill_evolution_2'] = Variable<int>(exSkillEvolution2.value);
+    }
+    if (exSkillEvolution3.present) {
+      map['ex_skill_evolution_3'] = Variable<int>(exSkillEvolution3.value);
+    }
+    if (exSkillEvolution4.present) {
+      map['ex_skill_evolution_4'] = Variable<int>(exSkillEvolution4.value);
+    }
+    if (exSkillEvolution5.present) {
+      map['ex_skill_evolution_5'] = Variable<int>(exSkillEvolution5.value);
+    }
+    if (spSkill1.present) {
+      map['sp_skill_1'] = Variable<int>(spSkill1.value);
+    }
+    if (spSkill2.present) {
+      map['sp_skill_2'] = Variable<int>(spSkill2.value);
+    }
+    if (spSkill3.present) {
+      map['sp_skill_3'] = Variable<int>(spSkill3.value);
+    }
+    if (spSkill4.present) {
+      map['sp_skill_4'] = Variable<int>(spSkill4.value);
+    }
+    if (spSkill5.present) {
+      map['sp_skill_5'] = Variable<int>(spSkill5.value);
+    }
+    if (spSkillEvolution1.present) {
+      map['sp_skill_evolution_1'] = Variable<int>(spSkillEvolution1.value);
+    }
+    if (spSkillEvolution2.present) {
+      map['sp_skill_evolution_2'] = Variable<int>(spSkillEvolution2.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitSkillDataCompanion(')
+          ..write('unitId: $unitId, ')
+          ..write('unionBurst: $unionBurst, ')
+          ..write('spUnionBurst: $spUnionBurst, ')
+          ..write('unionBurstEvolution: $unionBurstEvolution, ')
+          ..write('mainSkill1: $mainSkill1, ')
+          ..write('mainSkill2: $mainSkill2, ')
+          ..write('mainSkill3: $mainSkill3, ')
+          ..write('mainSkill4: $mainSkill4, ')
+          ..write('mainSkill5: $mainSkill5, ')
+          ..write('mainSkill6: $mainSkill6, ')
+          ..write('mainSkill7: $mainSkill7, ')
+          ..write('mainSkill8: $mainSkill8, ')
+          ..write('mainSkill9: $mainSkill9, ')
+          ..write('mainSkill10: $mainSkill10, ')
+          ..write('mainSkillEvolution1: $mainSkillEvolution1, ')
+          ..write('mainSkillEvolution2: $mainSkillEvolution2, ')
+          ..write('exSkill1: $exSkill1, ')
+          ..write('exSkill2: $exSkill2, ')
+          ..write('exSkill3: $exSkill3, ')
+          ..write('exSkill4: $exSkill4, ')
+          ..write('exSkill5: $exSkill5, ')
+          ..write('exSkillEvolution1: $exSkillEvolution1, ')
+          ..write('exSkillEvolution2: $exSkillEvolution2, ')
+          ..write('exSkillEvolution3: $exSkillEvolution3, ')
+          ..write('exSkillEvolution4: $exSkillEvolution4, ')
+          ..write('exSkillEvolution5: $exSkillEvolution5, ')
+          ..write('spSkill1: $spSkill1, ')
+          ..write('spSkill2: $spSkill2, ')
+          ..write('spSkill3: $spSkill3, ')
+          ..write('spSkill4: $spSkill4, ')
+          ..write('spSkill5: $spSkill5, ')
+          ..write('spSkillEvolution1: $spSkillEvolution1, ')
+          ..write('spSkillEvolution2: $spSkillEvolution2')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $SkillActionTable extends SkillAction
+    with TableInfo<$SkillActionTable, SkillActionData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $SkillActionTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _actionIdMeta = const VerificationMeta(
+    'actionId',
+  );
+  @override
+  late final GeneratedColumn<int> actionId = GeneratedColumn<int>(
+    'action_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _classIdMeta = const VerificationMeta(
+    'classId',
+  );
+  @override
+  late final GeneratedColumn<int> classId = GeneratedColumn<int>(
+    'class_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionTypeMeta = const VerificationMeta(
+    'actionType',
+  );
+  @override
+  late final GeneratedColumn<int> actionType = GeneratedColumn<int>(
+    'action_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionDetail1Meta = const VerificationMeta(
+    'actionDetail1',
+  );
+  @override
+  late final GeneratedColumn<int> actionDetail1 = GeneratedColumn<int>(
+    'action_detail_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionDetail2Meta = const VerificationMeta(
+    'actionDetail2',
+  );
+  @override
+  late final GeneratedColumn<int> actionDetail2 = GeneratedColumn<int>(
+    'action_detail_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionDetail3Meta = const VerificationMeta(
+    'actionDetail3',
+  );
+  @override
+  late final GeneratedColumn<int> actionDetail3 = GeneratedColumn<int>(
+    'action_detail_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionValue1Meta = const VerificationMeta(
+    'actionValue1',
+  );
+  @override
+  late final GeneratedColumn<double> actionValue1 = GeneratedColumn<double>(
+    'action_value_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionValue2Meta = const VerificationMeta(
+    'actionValue2',
+  );
+  @override
+  late final GeneratedColumn<double> actionValue2 = GeneratedColumn<double>(
+    'action_value_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionValue3Meta = const VerificationMeta(
+    'actionValue3',
+  );
+  @override
+  late final GeneratedColumn<double> actionValue3 = GeneratedColumn<double>(
+    'action_value_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionValue4Meta = const VerificationMeta(
+    'actionValue4',
+  );
+  @override
+  late final GeneratedColumn<double> actionValue4 = GeneratedColumn<double>(
+    'action_value_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionValue5Meta = const VerificationMeta(
+    'actionValue5',
+  );
+  @override
+  late final GeneratedColumn<double> actionValue5 = GeneratedColumn<double>(
+    'action_value_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionValue6Meta = const VerificationMeta(
+    'actionValue6',
+  );
+  @override
+  late final GeneratedColumn<double> actionValue6 = GeneratedColumn<double>(
+    'action_value_6',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _actionValue7Meta = const VerificationMeta(
+    'actionValue7',
+  );
+  @override
+  late final GeneratedColumn<double> actionValue7 = GeneratedColumn<double>(
+    'action_value_7',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _targetAssignmentMeta = const VerificationMeta(
+    'targetAssignment',
+  );
+  @override
+  late final GeneratedColumn<int> targetAssignment = GeneratedColumn<int>(
+    'target_assignment',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _targetAreaMeta = const VerificationMeta(
+    'targetArea',
+  );
+  @override
+  late final GeneratedColumn<int> targetArea = GeneratedColumn<int>(
+    'target_area',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _targetRangeMeta = const VerificationMeta(
+    'targetRange',
+  );
+  @override
+  late final GeneratedColumn<int> targetRange = GeneratedColumn<int>(
+    'target_range',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _targetTypeMeta = const VerificationMeta(
+    'targetType',
+  );
+  @override
+  late final GeneratedColumn<int> targetType = GeneratedColumn<int>(
+    'target_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _targetNumberMeta = const VerificationMeta(
+    'targetNumber',
+  );
+  @override
+  late final GeneratedColumn<int> targetNumber = GeneratedColumn<int>(
+    'target_number',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _targetCountMeta = const VerificationMeta(
+    'targetCount',
+  );
+  @override
+  late final GeneratedColumn<int> targetCount = GeneratedColumn<int>(
+    'target_count',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _descriptionMeta = const VerificationMeta(
+    'description',
+  );
+  @override
+  late final GeneratedColumn<String> description = GeneratedColumn<String>(
+    'description',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _levelUpDispMeta = const VerificationMeta(
+    'levelUpDisp',
+  );
+  @override
+  late final GeneratedColumn<String> levelUpDisp = GeneratedColumn<String>(
+    'level_up_disp',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    actionId,
+    classId,
+    actionType,
+    actionDetail1,
+    actionDetail2,
+    actionDetail3,
+    actionValue1,
+    actionValue2,
+    actionValue3,
+    actionValue4,
+    actionValue5,
+    actionValue6,
+    actionValue7,
+    targetAssignment,
+    targetArea,
+    targetRange,
+    targetType,
+    targetNumber,
+    targetCount,
+    description,
+    levelUpDisp,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'skill_action';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<SkillActionData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('action_id')) {
+      context.handle(
+        _actionIdMeta,
+        actionId.isAcceptableOrUnknown(data['action_id']!, _actionIdMeta),
+      );
+    }
+    if (data.containsKey('class_id')) {
+      context.handle(
+        _classIdMeta,
+        classId.isAcceptableOrUnknown(data['class_id']!, _classIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_classIdMeta);
+    }
+    if (data.containsKey('action_type')) {
+      context.handle(
+        _actionTypeMeta,
+        actionType.isAcceptableOrUnknown(data['action_type']!, _actionTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_actionTypeMeta);
+    }
+    if (data.containsKey('action_detail_1')) {
+      context.handle(
+        _actionDetail1Meta,
+        actionDetail1.isAcceptableOrUnknown(
+          data['action_detail_1']!,
+          _actionDetail1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionDetail1Meta);
+    }
+    if (data.containsKey('action_detail_2')) {
+      context.handle(
+        _actionDetail2Meta,
+        actionDetail2.isAcceptableOrUnknown(
+          data['action_detail_2']!,
+          _actionDetail2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionDetail2Meta);
+    }
+    if (data.containsKey('action_detail_3')) {
+      context.handle(
+        _actionDetail3Meta,
+        actionDetail3.isAcceptableOrUnknown(
+          data['action_detail_3']!,
+          _actionDetail3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionDetail3Meta);
+    }
+    if (data.containsKey('action_value_1')) {
+      context.handle(
+        _actionValue1Meta,
+        actionValue1.isAcceptableOrUnknown(
+          data['action_value_1']!,
+          _actionValue1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionValue1Meta);
+    }
+    if (data.containsKey('action_value_2')) {
+      context.handle(
+        _actionValue2Meta,
+        actionValue2.isAcceptableOrUnknown(
+          data['action_value_2']!,
+          _actionValue2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionValue2Meta);
+    }
+    if (data.containsKey('action_value_3')) {
+      context.handle(
+        _actionValue3Meta,
+        actionValue3.isAcceptableOrUnknown(
+          data['action_value_3']!,
+          _actionValue3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionValue3Meta);
+    }
+    if (data.containsKey('action_value_4')) {
+      context.handle(
+        _actionValue4Meta,
+        actionValue4.isAcceptableOrUnknown(
+          data['action_value_4']!,
+          _actionValue4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionValue4Meta);
+    }
+    if (data.containsKey('action_value_5')) {
+      context.handle(
+        _actionValue5Meta,
+        actionValue5.isAcceptableOrUnknown(
+          data['action_value_5']!,
+          _actionValue5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionValue5Meta);
+    }
+    if (data.containsKey('action_value_6')) {
+      context.handle(
+        _actionValue6Meta,
+        actionValue6.isAcceptableOrUnknown(
+          data['action_value_6']!,
+          _actionValue6Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionValue6Meta);
+    }
+    if (data.containsKey('action_value_7')) {
+      context.handle(
+        _actionValue7Meta,
+        actionValue7.isAcceptableOrUnknown(
+          data['action_value_7']!,
+          _actionValue7Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_actionValue7Meta);
+    }
+    if (data.containsKey('target_assignment')) {
+      context.handle(
+        _targetAssignmentMeta,
+        targetAssignment.isAcceptableOrUnknown(
+          data['target_assignment']!,
+          _targetAssignmentMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_targetAssignmentMeta);
+    }
+    if (data.containsKey('target_area')) {
+      context.handle(
+        _targetAreaMeta,
+        targetArea.isAcceptableOrUnknown(data['target_area']!, _targetAreaMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_targetAreaMeta);
+    }
+    if (data.containsKey('target_range')) {
+      context.handle(
+        _targetRangeMeta,
+        targetRange.isAcceptableOrUnknown(
+          data['target_range']!,
+          _targetRangeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_targetRangeMeta);
+    }
+    if (data.containsKey('target_type')) {
+      context.handle(
+        _targetTypeMeta,
+        targetType.isAcceptableOrUnknown(data['target_type']!, _targetTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_targetTypeMeta);
+    }
+    if (data.containsKey('target_number')) {
+      context.handle(
+        _targetNumberMeta,
+        targetNumber.isAcceptableOrUnknown(
+          data['target_number']!,
+          _targetNumberMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_targetNumberMeta);
+    }
+    if (data.containsKey('target_count')) {
+      context.handle(
+        _targetCountMeta,
+        targetCount.isAcceptableOrUnknown(
+          data['target_count']!,
+          _targetCountMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_targetCountMeta);
+    }
+    if (data.containsKey('description')) {
+      context.handle(
+        _descriptionMeta,
+        description.isAcceptableOrUnknown(
+          data['description']!,
+          _descriptionMeta,
+        ),
+      );
+    }
+    if (data.containsKey('level_up_disp')) {
+      context.handle(
+        _levelUpDispMeta,
+        levelUpDisp.isAcceptableOrUnknown(
+          data['level_up_disp']!,
+          _levelUpDispMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {actionId};
+  @override
+  SkillActionData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return SkillActionData(
+      actionId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_id'],
+          )!,
+      classId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}class_id'],
+          )!,
+      actionType:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_type'],
+          )!,
+      actionDetail1:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_detail_1'],
+          )!,
+      actionDetail2:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_detail_2'],
+          )!,
+      actionDetail3:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}action_detail_3'],
+          )!,
+      actionValue1:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}action_value_1'],
+          )!,
+      actionValue2:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}action_value_2'],
+          )!,
+      actionValue3:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}action_value_3'],
+          )!,
+      actionValue4:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}action_value_4'],
+          )!,
+      actionValue5:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}action_value_5'],
+          )!,
+      actionValue6:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}action_value_6'],
+          )!,
+      actionValue7:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}action_value_7'],
+          )!,
+      targetAssignment:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}target_assignment'],
+          )!,
+      targetArea:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}target_area'],
+          )!,
+      targetRange:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}target_range'],
+          )!,
+      targetType:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}target_type'],
+          )!,
+      targetNumber:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}target_number'],
+          )!,
+      targetCount:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}target_count'],
+          )!,
+      description: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}description'],
+      ),
+      levelUpDisp: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}level_up_disp'],
+      ),
+    );
+  }
+
+  @override
+  $SkillActionTable createAlias(String alias) {
+    return $SkillActionTable(attachedDatabase, alias);
+  }
+}
+
+class SkillActionData extends DataClass implements Insertable<SkillActionData> {
+  final int actionId;
+  final int classId;
+  final int actionType;
+  final int actionDetail1;
+  final int actionDetail2;
+  final int actionDetail3;
+  final double actionValue1;
+  final double actionValue2;
+  final double actionValue3;
+  final double actionValue4;
+  final double actionValue5;
+  final double actionValue6;
+  final double actionValue7;
+  final int targetAssignment;
+  final int targetArea;
+  final int targetRange;
+  final int targetType;
+  final int targetNumber;
+  final int targetCount;
+  final String? description;
+  final String? levelUpDisp;
+  const SkillActionData({
+    required this.actionId,
+    required this.classId,
+    required this.actionType,
+    required this.actionDetail1,
+    required this.actionDetail2,
+    required this.actionDetail3,
+    required this.actionValue1,
+    required this.actionValue2,
+    required this.actionValue3,
+    required this.actionValue4,
+    required this.actionValue5,
+    required this.actionValue6,
+    required this.actionValue7,
+    required this.targetAssignment,
+    required this.targetArea,
+    required this.targetRange,
+    required this.targetType,
+    required this.targetNumber,
+    required this.targetCount,
+    this.description,
+    this.levelUpDisp,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['action_id'] = Variable<int>(actionId);
+    map['class_id'] = Variable<int>(classId);
+    map['action_type'] = Variable<int>(actionType);
+    map['action_detail_1'] = Variable<int>(actionDetail1);
+    map['action_detail_2'] = Variable<int>(actionDetail2);
+    map['action_detail_3'] = Variable<int>(actionDetail3);
+    map['action_value_1'] = Variable<double>(actionValue1);
+    map['action_value_2'] = Variable<double>(actionValue2);
+    map['action_value_3'] = Variable<double>(actionValue3);
+    map['action_value_4'] = Variable<double>(actionValue4);
+    map['action_value_5'] = Variable<double>(actionValue5);
+    map['action_value_6'] = Variable<double>(actionValue6);
+    map['action_value_7'] = Variable<double>(actionValue7);
+    map['target_assignment'] = Variable<int>(targetAssignment);
+    map['target_area'] = Variable<int>(targetArea);
+    map['target_range'] = Variable<int>(targetRange);
+    map['target_type'] = Variable<int>(targetType);
+    map['target_number'] = Variable<int>(targetNumber);
+    map['target_count'] = Variable<int>(targetCount);
+    if (!nullToAbsent || description != null) {
+      map['description'] = Variable<String>(description);
+    }
+    if (!nullToAbsent || levelUpDisp != null) {
+      map['level_up_disp'] = Variable<String>(levelUpDisp);
+    }
+    return map;
+  }
+
+  SkillActionCompanion toCompanion(bool nullToAbsent) {
+    return SkillActionCompanion(
+      actionId: Value(actionId),
+      classId: Value(classId),
+      actionType: Value(actionType),
+      actionDetail1: Value(actionDetail1),
+      actionDetail2: Value(actionDetail2),
+      actionDetail3: Value(actionDetail3),
+      actionValue1: Value(actionValue1),
+      actionValue2: Value(actionValue2),
+      actionValue3: Value(actionValue3),
+      actionValue4: Value(actionValue4),
+      actionValue5: Value(actionValue5),
+      actionValue6: Value(actionValue6),
+      actionValue7: Value(actionValue7),
+      targetAssignment: Value(targetAssignment),
+      targetArea: Value(targetArea),
+      targetRange: Value(targetRange),
+      targetType: Value(targetType),
+      targetNumber: Value(targetNumber),
+      targetCount: Value(targetCount),
+      description:
+          description == null && nullToAbsent
+              ? const Value.absent()
+              : Value(description),
+      levelUpDisp:
+          levelUpDisp == null && nullToAbsent
+              ? const Value.absent()
+              : Value(levelUpDisp),
+    );
+  }
+
+  factory SkillActionData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return SkillActionData(
+      actionId: serializer.fromJson<int>(json['actionId']),
+      classId: serializer.fromJson<int>(json['classId']),
+      actionType: serializer.fromJson<int>(json['actionType']),
+      actionDetail1: serializer.fromJson<int>(json['actionDetail1']),
+      actionDetail2: serializer.fromJson<int>(json['actionDetail2']),
+      actionDetail3: serializer.fromJson<int>(json['actionDetail3']),
+      actionValue1: serializer.fromJson<double>(json['actionValue1']),
+      actionValue2: serializer.fromJson<double>(json['actionValue2']),
+      actionValue3: serializer.fromJson<double>(json['actionValue3']),
+      actionValue4: serializer.fromJson<double>(json['actionValue4']),
+      actionValue5: serializer.fromJson<double>(json['actionValue5']),
+      actionValue6: serializer.fromJson<double>(json['actionValue6']),
+      actionValue7: serializer.fromJson<double>(json['actionValue7']),
+      targetAssignment: serializer.fromJson<int>(json['targetAssignment']),
+      targetArea: serializer.fromJson<int>(json['targetArea']),
+      targetRange: serializer.fromJson<int>(json['targetRange']),
+      targetType: serializer.fromJson<int>(json['targetType']),
+      targetNumber: serializer.fromJson<int>(json['targetNumber']),
+      targetCount: serializer.fromJson<int>(json['targetCount']),
+      description: serializer.fromJson<String?>(json['description']),
+      levelUpDisp: serializer.fromJson<String?>(json['levelUpDisp']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'actionId': serializer.toJson<int>(actionId),
+      'classId': serializer.toJson<int>(classId),
+      'actionType': serializer.toJson<int>(actionType),
+      'actionDetail1': serializer.toJson<int>(actionDetail1),
+      'actionDetail2': serializer.toJson<int>(actionDetail2),
+      'actionDetail3': serializer.toJson<int>(actionDetail3),
+      'actionValue1': serializer.toJson<double>(actionValue1),
+      'actionValue2': serializer.toJson<double>(actionValue2),
+      'actionValue3': serializer.toJson<double>(actionValue3),
+      'actionValue4': serializer.toJson<double>(actionValue4),
+      'actionValue5': serializer.toJson<double>(actionValue5),
+      'actionValue6': serializer.toJson<double>(actionValue6),
+      'actionValue7': serializer.toJson<double>(actionValue7),
+      'targetAssignment': serializer.toJson<int>(targetAssignment),
+      'targetArea': serializer.toJson<int>(targetArea),
+      'targetRange': serializer.toJson<int>(targetRange),
+      'targetType': serializer.toJson<int>(targetType),
+      'targetNumber': serializer.toJson<int>(targetNumber),
+      'targetCount': serializer.toJson<int>(targetCount),
+      'description': serializer.toJson<String?>(description),
+      'levelUpDisp': serializer.toJson<String?>(levelUpDisp),
+    };
+  }
+
+  SkillActionData copyWith({
+    int? actionId,
+    int? classId,
+    int? actionType,
+    int? actionDetail1,
+    int? actionDetail2,
+    int? actionDetail3,
+    double? actionValue1,
+    double? actionValue2,
+    double? actionValue3,
+    double? actionValue4,
+    double? actionValue5,
+    double? actionValue6,
+    double? actionValue7,
+    int? targetAssignment,
+    int? targetArea,
+    int? targetRange,
+    int? targetType,
+    int? targetNumber,
+    int? targetCount,
+    Value<String?> description = const Value.absent(),
+    Value<String?> levelUpDisp = const Value.absent(),
+  }) => SkillActionData(
+    actionId: actionId ?? this.actionId,
+    classId: classId ?? this.classId,
+    actionType: actionType ?? this.actionType,
+    actionDetail1: actionDetail1 ?? this.actionDetail1,
+    actionDetail2: actionDetail2 ?? this.actionDetail2,
+    actionDetail3: actionDetail3 ?? this.actionDetail3,
+    actionValue1: actionValue1 ?? this.actionValue1,
+    actionValue2: actionValue2 ?? this.actionValue2,
+    actionValue3: actionValue3 ?? this.actionValue3,
+    actionValue4: actionValue4 ?? this.actionValue4,
+    actionValue5: actionValue5 ?? this.actionValue5,
+    actionValue6: actionValue6 ?? this.actionValue6,
+    actionValue7: actionValue7 ?? this.actionValue7,
+    targetAssignment: targetAssignment ?? this.targetAssignment,
+    targetArea: targetArea ?? this.targetArea,
+    targetRange: targetRange ?? this.targetRange,
+    targetType: targetType ?? this.targetType,
+    targetNumber: targetNumber ?? this.targetNumber,
+    targetCount: targetCount ?? this.targetCount,
+    description: description.present ? description.value : this.description,
+    levelUpDisp: levelUpDisp.present ? levelUpDisp.value : this.levelUpDisp,
+  );
+  SkillActionData copyWithCompanion(SkillActionCompanion data) {
+    return SkillActionData(
+      actionId: data.actionId.present ? data.actionId.value : this.actionId,
+      classId: data.classId.present ? data.classId.value : this.classId,
+      actionType:
+          data.actionType.present ? data.actionType.value : this.actionType,
+      actionDetail1:
+          data.actionDetail1.present
+              ? data.actionDetail1.value
+              : this.actionDetail1,
+      actionDetail2:
+          data.actionDetail2.present
+              ? data.actionDetail2.value
+              : this.actionDetail2,
+      actionDetail3:
+          data.actionDetail3.present
+              ? data.actionDetail3.value
+              : this.actionDetail3,
+      actionValue1:
+          data.actionValue1.present
+              ? data.actionValue1.value
+              : this.actionValue1,
+      actionValue2:
+          data.actionValue2.present
+              ? data.actionValue2.value
+              : this.actionValue2,
+      actionValue3:
+          data.actionValue3.present
+              ? data.actionValue3.value
+              : this.actionValue3,
+      actionValue4:
+          data.actionValue4.present
+              ? data.actionValue4.value
+              : this.actionValue4,
+      actionValue5:
+          data.actionValue5.present
+              ? data.actionValue5.value
+              : this.actionValue5,
+      actionValue6:
+          data.actionValue6.present
+              ? data.actionValue6.value
+              : this.actionValue6,
+      actionValue7:
+          data.actionValue7.present
+              ? data.actionValue7.value
+              : this.actionValue7,
+      targetAssignment:
+          data.targetAssignment.present
+              ? data.targetAssignment.value
+              : this.targetAssignment,
+      targetArea:
+          data.targetArea.present ? data.targetArea.value : this.targetArea,
+      targetRange:
+          data.targetRange.present ? data.targetRange.value : this.targetRange,
+      targetType:
+          data.targetType.present ? data.targetType.value : this.targetType,
+      targetNumber:
+          data.targetNumber.present
+              ? data.targetNumber.value
+              : this.targetNumber,
+      targetCount:
+          data.targetCount.present ? data.targetCount.value : this.targetCount,
+      description:
+          data.description.present ? data.description.value : this.description,
+      levelUpDisp:
+          data.levelUpDisp.present ? data.levelUpDisp.value : this.levelUpDisp,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SkillActionData(')
+          ..write('actionId: $actionId, ')
+          ..write('classId: $classId, ')
+          ..write('actionType: $actionType, ')
+          ..write('actionDetail1: $actionDetail1, ')
+          ..write('actionDetail2: $actionDetail2, ')
+          ..write('actionDetail3: $actionDetail3, ')
+          ..write('actionValue1: $actionValue1, ')
+          ..write('actionValue2: $actionValue2, ')
+          ..write('actionValue3: $actionValue3, ')
+          ..write('actionValue4: $actionValue4, ')
+          ..write('actionValue5: $actionValue5, ')
+          ..write('actionValue6: $actionValue6, ')
+          ..write('actionValue7: $actionValue7, ')
+          ..write('targetAssignment: $targetAssignment, ')
+          ..write('targetArea: $targetArea, ')
+          ..write('targetRange: $targetRange, ')
+          ..write('targetType: $targetType, ')
+          ..write('targetNumber: $targetNumber, ')
+          ..write('targetCount: $targetCount, ')
+          ..write('description: $description, ')
+          ..write('levelUpDisp: $levelUpDisp')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    actionId,
+    classId,
+    actionType,
+    actionDetail1,
+    actionDetail2,
+    actionDetail3,
+    actionValue1,
+    actionValue2,
+    actionValue3,
+    actionValue4,
+    actionValue5,
+    actionValue6,
+    actionValue7,
+    targetAssignment,
+    targetArea,
+    targetRange,
+    targetType,
+    targetNumber,
+    targetCount,
+    description,
+    levelUpDisp,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is SkillActionData &&
+          other.actionId == this.actionId &&
+          other.classId == this.classId &&
+          other.actionType == this.actionType &&
+          other.actionDetail1 == this.actionDetail1 &&
+          other.actionDetail2 == this.actionDetail2 &&
+          other.actionDetail3 == this.actionDetail3 &&
+          other.actionValue1 == this.actionValue1 &&
+          other.actionValue2 == this.actionValue2 &&
+          other.actionValue3 == this.actionValue3 &&
+          other.actionValue4 == this.actionValue4 &&
+          other.actionValue5 == this.actionValue5 &&
+          other.actionValue6 == this.actionValue6 &&
+          other.actionValue7 == this.actionValue7 &&
+          other.targetAssignment == this.targetAssignment &&
+          other.targetArea == this.targetArea &&
+          other.targetRange == this.targetRange &&
+          other.targetType == this.targetType &&
+          other.targetNumber == this.targetNumber &&
+          other.targetCount == this.targetCount &&
+          other.description == this.description &&
+          other.levelUpDisp == this.levelUpDisp);
+}
+
+class SkillActionCompanion extends UpdateCompanion<SkillActionData> {
+  final Value<int> actionId;
+  final Value<int> classId;
+  final Value<int> actionType;
+  final Value<int> actionDetail1;
+  final Value<int> actionDetail2;
+  final Value<int> actionDetail3;
+  final Value<double> actionValue1;
+  final Value<double> actionValue2;
+  final Value<double> actionValue3;
+  final Value<double> actionValue4;
+  final Value<double> actionValue5;
+  final Value<double> actionValue6;
+  final Value<double> actionValue7;
+  final Value<int> targetAssignment;
+  final Value<int> targetArea;
+  final Value<int> targetRange;
+  final Value<int> targetType;
+  final Value<int> targetNumber;
+  final Value<int> targetCount;
+  final Value<String?> description;
+  final Value<String?> levelUpDisp;
+  const SkillActionCompanion({
+    this.actionId = const Value.absent(),
+    this.classId = const Value.absent(),
+    this.actionType = const Value.absent(),
+    this.actionDetail1 = const Value.absent(),
+    this.actionDetail2 = const Value.absent(),
+    this.actionDetail3 = const Value.absent(),
+    this.actionValue1 = const Value.absent(),
+    this.actionValue2 = const Value.absent(),
+    this.actionValue3 = const Value.absent(),
+    this.actionValue4 = const Value.absent(),
+    this.actionValue5 = const Value.absent(),
+    this.actionValue6 = const Value.absent(),
+    this.actionValue7 = const Value.absent(),
+    this.targetAssignment = const Value.absent(),
+    this.targetArea = const Value.absent(),
+    this.targetRange = const Value.absent(),
+    this.targetType = const Value.absent(),
+    this.targetNumber = const Value.absent(),
+    this.targetCount = const Value.absent(),
+    this.description = const Value.absent(),
+    this.levelUpDisp = const Value.absent(),
+  });
+  SkillActionCompanion.insert({
+    this.actionId = const Value.absent(),
+    required int classId,
+    required int actionType,
+    required int actionDetail1,
+    required int actionDetail2,
+    required int actionDetail3,
+    required double actionValue1,
+    required double actionValue2,
+    required double actionValue3,
+    required double actionValue4,
+    required double actionValue5,
+    required double actionValue6,
+    required double actionValue7,
+    required int targetAssignment,
+    required int targetArea,
+    required int targetRange,
+    required int targetType,
+    required int targetNumber,
+    required int targetCount,
+    this.description = const Value.absent(),
+    this.levelUpDisp = const Value.absent(),
+  }) : classId = Value(classId),
+       actionType = Value(actionType),
+       actionDetail1 = Value(actionDetail1),
+       actionDetail2 = Value(actionDetail2),
+       actionDetail3 = Value(actionDetail3),
+       actionValue1 = Value(actionValue1),
+       actionValue2 = Value(actionValue2),
+       actionValue3 = Value(actionValue3),
+       actionValue4 = Value(actionValue4),
+       actionValue5 = Value(actionValue5),
+       actionValue6 = Value(actionValue6),
+       actionValue7 = Value(actionValue7),
+       targetAssignment = Value(targetAssignment),
+       targetArea = Value(targetArea),
+       targetRange = Value(targetRange),
+       targetType = Value(targetType),
+       targetNumber = Value(targetNumber),
+       targetCount = Value(targetCount);
+  static Insertable<SkillActionData> custom({
+    Expression<int>? actionId,
+    Expression<int>? classId,
+    Expression<int>? actionType,
+    Expression<int>? actionDetail1,
+    Expression<int>? actionDetail2,
+    Expression<int>? actionDetail3,
+    Expression<double>? actionValue1,
+    Expression<double>? actionValue2,
+    Expression<double>? actionValue3,
+    Expression<double>? actionValue4,
+    Expression<double>? actionValue5,
+    Expression<double>? actionValue6,
+    Expression<double>? actionValue7,
+    Expression<int>? targetAssignment,
+    Expression<int>? targetArea,
+    Expression<int>? targetRange,
+    Expression<int>? targetType,
+    Expression<int>? targetNumber,
+    Expression<int>? targetCount,
+    Expression<String>? description,
+    Expression<String>? levelUpDisp,
+  }) {
+    return RawValuesInsertable({
+      if (actionId != null) 'action_id': actionId,
+      if (classId != null) 'class_id': classId,
+      if (actionType != null) 'action_type': actionType,
+      if (actionDetail1 != null) 'action_detail_1': actionDetail1,
+      if (actionDetail2 != null) 'action_detail_2': actionDetail2,
+      if (actionDetail3 != null) 'action_detail_3': actionDetail3,
+      if (actionValue1 != null) 'action_value_1': actionValue1,
+      if (actionValue2 != null) 'action_value_2': actionValue2,
+      if (actionValue3 != null) 'action_value_3': actionValue3,
+      if (actionValue4 != null) 'action_value_4': actionValue4,
+      if (actionValue5 != null) 'action_value_5': actionValue5,
+      if (actionValue6 != null) 'action_value_6': actionValue6,
+      if (actionValue7 != null) 'action_value_7': actionValue7,
+      if (targetAssignment != null) 'target_assignment': targetAssignment,
+      if (targetArea != null) 'target_area': targetArea,
+      if (targetRange != null) 'target_range': targetRange,
+      if (targetType != null) 'target_type': targetType,
+      if (targetNumber != null) 'target_number': targetNumber,
+      if (targetCount != null) 'target_count': targetCount,
+      if (description != null) 'description': description,
+      if (levelUpDisp != null) 'level_up_disp': levelUpDisp,
+    });
+  }
+
+  SkillActionCompanion copyWith({
+    Value<int>? actionId,
+    Value<int>? classId,
+    Value<int>? actionType,
+    Value<int>? actionDetail1,
+    Value<int>? actionDetail2,
+    Value<int>? actionDetail3,
+    Value<double>? actionValue1,
+    Value<double>? actionValue2,
+    Value<double>? actionValue3,
+    Value<double>? actionValue4,
+    Value<double>? actionValue5,
+    Value<double>? actionValue6,
+    Value<double>? actionValue7,
+    Value<int>? targetAssignment,
+    Value<int>? targetArea,
+    Value<int>? targetRange,
+    Value<int>? targetType,
+    Value<int>? targetNumber,
+    Value<int>? targetCount,
+    Value<String?>? description,
+    Value<String?>? levelUpDisp,
+  }) {
+    return SkillActionCompanion(
+      actionId: actionId ?? this.actionId,
+      classId: classId ?? this.classId,
+      actionType: actionType ?? this.actionType,
+      actionDetail1: actionDetail1 ?? this.actionDetail1,
+      actionDetail2: actionDetail2 ?? this.actionDetail2,
+      actionDetail3: actionDetail3 ?? this.actionDetail3,
+      actionValue1: actionValue1 ?? this.actionValue1,
+      actionValue2: actionValue2 ?? this.actionValue2,
+      actionValue3: actionValue3 ?? this.actionValue3,
+      actionValue4: actionValue4 ?? this.actionValue4,
+      actionValue5: actionValue5 ?? this.actionValue5,
+      actionValue6: actionValue6 ?? this.actionValue6,
+      actionValue7: actionValue7 ?? this.actionValue7,
+      targetAssignment: targetAssignment ?? this.targetAssignment,
+      targetArea: targetArea ?? this.targetArea,
+      targetRange: targetRange ?? this.targetRange,
+      targetType: targetType ?? this.targetType,
+      targetNumber: targetNumber ?? this.targetNumber,
+      targetCount: targetCount ?? this.targetCount,
+      description: description ?? this.description,
+      levelUpDisp: levelUpDisp ?? this.levelUpDisp,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (actionId.present) {
+      map['action_id'] = Variable<int>(actionId.value);
+    }
+    if (classId.present) {
+      map['class_id'] = Variable<int>(classId.value);
+    }
+    if (actionType.present) {
+      map['action_type'] = Variable<int>(actionType.value);
+    }
+    if (actionDetail1.present) {
+      map['action_detail_1'] = Variable<int>(actionDetail1.value);
+    }
+    if (actionDetail2.present) {
+      map['action_detail_2'] = Variable<int>(actionDetail2.value);
+    }
+    if (actionDetail3.present) {
+      map['action_detail_3'] = Variable<int>(actionDetail3.value);
+    }
+    if (actionValue1.present) {
+      map['action_value_1'] = Variable<double>(actionValue1.value);
+    }
+    if (actionValue2.present) {
+      map['action_value_2'] = Variable<double>(actionValue2.value);
+    }
+    if (actionValue3.present) {
+      map['action_value_3'] = Variable<double>(actionValue3.value);
+    }
+    if (actionValue4.present) {
+      map['action_value_4'] = Variable<double>(actionValue4.value);
+    }
+    if (actionValue5.present) {
+      map['action_value_5'] = Variable<double>(actionValue5.value);
+    }
+    if (actionValue6.present) {
+      map['action_value_6'] = Variable<double>(actionValue6.value);
+    }
+    if (actionValue7.present) {
+      map['action_value_7'] = Variable<double>(actionValue7.value);
+    }
+    if (targetAssignment.present) {
+      map['target_assignment'] = Variable<int>(targetAssignment.value);
+    }
+    if (targetArea.present) {
+      map['target_area'] = Variable<int>(targetArea.value);
+    }
+    if (targetRange.present) {
+      map['target_range'] = Variable<int>(targetRange.value);
+    }
+    if (targetType.present) {
+      map['target_type'] = Variable<int>(targetType.value);
+    }
+    if (targetNumber.present) {
+      map['target_number'] = Variable<int>(targetNumber.value);
+    }
+    if (targetCount.present) {
+      map['target_count'] = Variable<int>(targetCount.value);
+    }
+    if (description.present) {
+      map['description'] = Variable<String>(description.value);
+    }
+    if (levelUpDisp.present) {
+      map['level_up_disp'] = Variable<String>(levelUpDisp.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SkillActionCompanion(')
+          ..write('actionId: $actionId, ')
+          ..write('classId: $classId, ')
+          ..write('actionType: $actionType, ')
+          ..write('actionDetail1: $actionDetail1, ')
+          ..write('actionDetail2: $actionDetail2, ')
+          ..write('actionDetail3: $actionDetail3, ')
+          ..write('actionValue1: $actionValue1, ')
+          ..write('actionValue2: $actionValue2, ')
+          ..write('actionValue3: $actionValue3, ')
+          ..write('actionValue4: $actionValue4, ')
+          ..write('actionValue5: $actionValue5, ')
+          ..write('actionValue6: $actionValue6, ')
+          ..write('actionValue7: $actionValue7, ')
+          ..write('targetAssignment: $targetAssignment, ')
+          ..write('targetArea: $targetArea, ')
+          ..write('targetRange: $targetRange, ')
+          ..write('targetType: $targetType, ')
+          ..write('targetNumber: $targetNumber, ')
+          ..write('targetCount: $targetCount, ')
+          ..write('description: $description, ')
+          ..write('levelUpDisp: $levelUpDisp')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $AilmentDataTable extends AilmentData
+    with TableInfo<$AilmentDataTable, AilmentDataData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $AilmentDataTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _ailmentIdMeta = const VerificationMeta(
+    'ailmentId',
+  );
+  @override
+  late final GeneratedColumn<int> ailmentId = GeneratedColumn<int>(
+    'ailment_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _ailmentActionMeta = const VerificationMeta(
+    'ailmentAction',
+  );
+  @override
+  late final GeneratedColumn<int> ailmentAction = GeneratedColumn<int>(
+    'ailment_action',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _ailmentDetail1Meta = const VerificationMeta(
+    'ailmentDetail1',
+  );
+  @override
+  late final GeneratedColumn<int> ailmentDetail1 = GeneratedColumn<int>(
+    'ailment_detail_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _ailmentNameMeta = const VerificationMeta(
+    'ailmentName',
+  );
+  @override
+  late final GeneratedColumn<String> ailmentName = GeneratedColumn<String>(
+    'ailment_name',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    ailmentId,
+    ailmentAction,
+    ailmentDetail1,
+    ailmentName,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'ailment_data';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<AilmentDataData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('ailment_id')) {
+      context.handle(
+        _ailmentIdMeta,
+        ailmentId.isAcceptableOrUnknown(data['ailment_id']!, _ailmentIdMeta),
+      );
+    }
+    if (data.containsKey('ailment_action')) {
+      context.handle(
+        _ailmentActionMeta,
+        ailmentAction.isAcceptableOrUnknown(
+          data['ailment_action']!,
+          _ailmentActionMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_ailmentActionMeta);
+    }
+    if (data.containsKey('ailment_detail_1')) {
+      context.handle(
+        _ailmentDetail1Meta,
+        ailmentDetail1.isAcceptableOrUnknown(
+          data['ailment_detail_1']!,
+          _ailmentDetail1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_ailmentDetail1Meta);
+    }
+    if (data.containsKey('ailment_name')) {
+      context.handle(
+        _ailmentNameMeta,
+        ailmentName.isAcceptableOrUnknown(
+          data['ailment_name']!,
+          _ailmentNameMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {ailmentId};
+  @override
+  AilmentDataData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return AilmentDataData(
+      ailmentId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}ailment_id'],
+          )!,
+      ailmentAction:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}ailment_action'],
+          )!,
+      ailmentDetail1:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}ailment_detail_1'],
+          )!,
+      ailmentName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}ailment_name'],
+      ),
+    );
+  }
+
+  @override
+  $AilmentDataTable createAlias(String alias) {
+    return $AilmentDataTable(attachedDatabase, alias);
+  }
+}
+
+class AilmentDataData extends DataClass implements Insertable<AilmentDataData> {
+  final int ailmentId;
+  final int ailmentAction;
+  final int ailmentDetail1;
+  final String? ailmentName;
+  const AilmentDataData({
+    required this.ailmentId,
+    required this.ailmentAction,
+    required this.ailmentDetail1,
+    this.ailmentName,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['ailment_id'] = Variable<int>(ailmentId);
+    map['ailment_action'] = Variable<int>(ailmentAction);
+    map['ailment_detail_1'] = Variable<int>(ailmentDetail1);
+    if (!nullToAbsent || ailmentName != null) {
+      map['ailment_name'] = Variable<String>(ailmentName);
+    }
+    return map;
+  }
+
+  AilmentDataCompanion toCompanion(bool nullToAbsent) {
+    return AilmentDataCompanion(
+      ailmentId: Value(ailmentId),
+      ailmentAction: Value(ailmentAction),
+      ailmentDetail1: Value(ailmentDetail1),
+      ailmentName:
+          ailmentName == null && nullToAbsent
+              ? const Value.absent()
+              : Value(ailmentName),
+    );
+  }
+
+  factory AilmentDataData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return AilmentDataData(
+      ailmentId: serializer.fromJson<int>(json['ailmentId']),
+      ailmentAction: serializer.fromJson<int>(json['ailmentAction']),
+      ailmentDetail1: serializer.fromJson<int>(json['ailmentDetail1']),
+      ailmentName: serializer.fromJson<String?>(json['ailmentName']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'ailmentId': serializer.toJson<int>(ailmentId),
+      'ailmentAction': serializer.toJson<int>(ailmentAction),
+      'ailmentDetail1': serializer.toJson<int>(ailmentDetail1),
+      'ailmentName': serializer.toJson<String?>(ailmentName),
+    };
+  }
+
+  AilmentDataData copyWith({
+    int? ailmentId,
+    int? ailmentAction,
+    int? ailmentDetail1,
+    Value<String?> ailmentName = const Value.absent(),
+  }) => AilmentDataData(
+    ailmentId: ailmentId ?? this.ailmentId,
+    ailmentAction: ailmentAction ?? this.ailmentAction,
+    ailmentDetail1: ailmentDetail1 ?? this.ailmentDetail1,
+    ailmentName: ailmentName.present ? ailmentName.value : this.ailmentName,
+  );
+  AilmentDataData copyWithCompanion(AilmentDataCompanion data) {
+    return AilmentDataData(
+      ailmentId: data.ailmentId.present ? data.ailmentId.value : this.ailmentId,
+      ailmentAction:
+          data.ailmentAction.present
+              ? data.ailmentAction.value
+              : this.ailmentAction,
+      ailmentDetail1:
+          data.ailmentDetail1.present
+              ? data.ailmentDetail1.value
+              : this.ailmentDetail1,
+      ailmentName:
+          data.ailmentName.present ? data.ailmentName.value : this.ailmentName,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AilmentDataData(')
+          ..write('ailmentId: $ailmentId, ')
+          ..write('ailmentAction: $ailmentAction, ')
+          ..write('ailmentDetail1: $ailmentDetail1, ')
+          ..write('ailmentName: $ailmentName')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(ailmentId, ailmentAction, ailmentDetail1, ailmentName);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is AilmentDataData &&
+          other.ailmentId == this.ailmentId &&
+          other.ailmentAction == this.ailmentAction &&
+          other.ailmentDetail1 == this.ailmentDetail1 &&
+          other.ailmentName == this.ailmentName);
+}
+
+class AilmentDataCompanion extends UpdateCompanion<AilmentDataData> {
+  final Value<int> ailmentId;
+  final Value<int> ailmentAction;
+  final Value<int> ailmentDetail1;
+  final Value<String?> ailmentName;
+  const AilmentDataCompanion({
+    this.ailmentId = const Value.absent(),
+    this.ailmentAction = const Value.absent(),
+    this.ailmentDetail1 = const Value.absent(),
+    this.ailmentName = const Value.absent(),
+  });
+  AilmentDataCompanion.insert({
+    this.ailmentId = const Value.absent(),
+    required int ailmentAction,
+    required int ailmentDetail1,
+    this.ailmentName = const Value.absent(),
+  }) : ailmentAction = Value(ailmentAction),
+       ailmentDetail1 = Value(ailmentDetail1);
+  static Insertable<AilmentDataData> custom({
+    Expression<int>? ailmentId,
+    Expression<int>? ailmentAction,
+    Expression<int>? ailmentDetail1,
+    Expression<String>? ailmentName,
+  }) {
+    return RawValuesInsertable({
+      if (ailmentId != null) 'ailment_id': ailmentId,
+      if (ailmentAction != null) 'ailment_action': ailmentAction,
+      if (ailmentDetail1 != null) 'ailment_detail_1': ailmentDetail1,
+      if (ailmentName != null) 'ailment_name': ailmentName,
+    });
+  }
+
+  AilmentDataCompanion copyWith({
+    Value<int>? ailmentId,
+    Value<int>? ailmentAction,
+    Value<int>? ailmentDetail1,
+    Value<String?>? ailmentName,
+  }) {
+    return AilmentDataCompanion(
+      ailmentId: ailmentId ?? this.ailmentId,
+      ailmentAction: ailmentAction ?? this.ailmentAction,
+      ailmentDetail1: ailmentDetail1 ?? this.ailmentDetail1,
+      ailmentName: ailmentName ?? this.ailmentName,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (ailmentId.present) {
+      map['ailment_id'] = Variable<int>(ailmentId.value);
+    }
+    if (ailmentAction.present) {
+      map['ailment_action'] = Variable<int>(ailmentAction.value);
+    }
+    if (ailmentDetail1.present) {
+      map['ailment_detail_1'] = Variable<int>(ailmentDetail1.value);
+    }
+    if (ailmentName.present) {
+      map['ailment_name'] = Variable<String>(ailmentName.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AilmentDataCompanion(')
+          ..write('ailmentId: $ailmentId, ')
+          ..write('ailmentAction: $ailmentAction, ')
+          ..write('ailmentDetail1: $ailmentDetail1, ')
+          ..write('ailmentName: $ailmentName')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $UnitAttackPatternTable extends UnitAttackPattern
+    with TableInfo<$UnitAttackPatternTable, UnitAttackPatternData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UnitAttackPatternTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _patternIdMeta = const VerificationMeta(
+    'patternId',
+  );
+  @override
+  late final GeneratedColumn<int> patternId = GeneratedColumn<int>(
+    'pattern_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _loopStartMeta = const VerificationMeta(
+    'loopStart',
+  );
+  @override
+  late final GeneratedColumn<int> loopStart = GeneratedColumn<int>(
+    'loop_start',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _loopEndMeta = const VerificationMeta(
+    'loopEnd',
+  );
+  @override
+  late final GeneratedColumn<int> loopEnd = GeneratedColumn<int>(
+    'loop_end',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern1Meta = const VerificationMeta(
+    'atkPattern1',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern1 = GeneratedColumn<int>(
+    'atk_pattern_1',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern2Meta = const VerificationMeta(
+    'atkPattern2',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern2 = GeneratedColumn<int>(
+    'atk_pattern_2',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern3Meta = const VerificationMeta(
+    'atkPattern3',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern3 = GeneratedColumn<int>(
+    'atk_pattern_3',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern4Meta = const VerificationMeta(
+    'atkPattern4',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern4 = GeneratedColumn<int>(
+    'atk_pattern_4',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern5Meta = const VerificationMeta(
+    'atkPattern5',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern5 = GeneratedColumn<int>(
+    'atk_pattern_5',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern6Meta = const VerificationMeta(
+    'atkPattern6',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern6 = GeneratedColumn<int>(
+    'atk_pattern_6',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern7Meta = const VerificationMeta(
+    'atkPattern7',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern7 = GeneratedColumn<int>(
+    'atk_pattern_7',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern8Meta = const VerificationMeta(
+    'atkPattern8',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern8 = GeneratedColumn<int>(
+    'atk_pattern_8',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern9Meta = const VerificationMeta(
+    'atkPattern9',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern9 = GeneratedColumn<int>(
+    'atk_pattern_9',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern10Meta = const VerificationMeta(
+    'atkPattern10',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern10 = GeneratedColumn<int>(
+    'atk_pattern_10',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern11Meta = const VerificationMeta(
+    'atkPattern11',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern11 = GeneratedColumn<int>(
+    'atk_pattern_11',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern12Meta = const VerificationMeta(
+    'atkPattern12',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern12 = GeneratedColumn<int>(
+    'atk_pattern_12',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern13Meta = const VerificationMeta(
+    'atkPattern13',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern13 = GeneratedColumn<int>(
+    'atk_pattern_13',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern14Meta = const VerificationMeta(
+    'atkPattern14',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern14 = GeneratedColumn<int>(
+    'atk_pattern_14',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern15Meta = const VerificationMeta(
+    'atkPattern15',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern15 = GeneratedColumn<int>(
+    'atk_pattern_15',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern16Meta = const VerificationMeta(
+    'atkPattern16',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern16 = GeneratedColumn<int>(
+    'atk_pattern_16',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern17Meta = const VerificationMeta(
+    'atkPattern17',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern17 = GeneratedColumn<int>(
+    'atk_pattern_17',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern18Meta = const VerificationMeta(
+    'atkPattern18',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern18 = GeneratedColumn<int>(
+    'atk_pattern_18',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern19Meta = const VerificationMeta(
+    'atkPattern19',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern19 = GeneratedColumn<int>(
+    'atk_pattern_19',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkPattern20Meta = const VerificationMeta(
+    'atkPattern20',
+  );
+  @override
+  late final GeneratedColumn<int> atkPattern20 = GeneratedColumn<int>(
+    'atk_pattern_20',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    patternId,
+    unitId,
+    loopStart,
+    loopEnd,
+    atkPattern1,
+    atkPattern2,
+    atkPattern3,
+    atkPattern4,
+    atkPattern5,
+    atkPattern6,
+    atkPattern7,
+    atkPattern8,
+    atkPattern9,
+    atkPattern10,
+    atkPattern11,
+    atkPattern12,
+    atkPattern13,
+    atkPattern14,
+    atkPattern15,
+    atkPattern16,
+    atkPattern17,
+    atkPattern18,
+    atkPattern19,
+    atkPattern20,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'unit_attack_pattern';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UnitAttackPatternData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('pattern_id')) {
+      context.handle(
+        _patternIdMeta,
+        patternId.isAcceptableOrUnknown(data['pattern_id']!, _patternIdMeta),
+      );
+    }
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('loop_start')) {
+      context.handle(
+        _loopStartMeta,
+        loopStart.isAcceptableOrUnknown(data['loop_start']!, _loopStartMeta),
+      );
+    }
+    if (data.containsKey('loop_end')) {
+      context.handle(
+        _loopEndMeta,
+        loopEnd.isAcceptableOrUnknown(data['loop_end']!, _loopEndMeta),
+      );
+    }
+    if (data.containsKey('atk_pattern_1')) {
+      context.handle(
+        _atkPattern1Meta,
+        atkPattern1.isAcceptableOrUnknown(
+          data['atk_pattern_1']!,
+          _atkPattern1Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_2')) {
+      context.handle(
+        _atkPattern2Meta,
+        atkPattern2.isAcceptableOrUnknown(
+          data['atk_pattern_2']!,
+          _atkPattern2Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_3')) {
+      context.handle(
+        _atkPattern3Meta,
+        atkPattern3.isAcceptableOrUnknown(
+          data['atk_pattern_3']!,
+          _atkPattern3Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_4')) {
+      context.handle(
+        _atkPattern4Meta,
+        atkPattern4.isAcceptableOrUnknown(
+          data['atk_pattern_4']!,
+          _atkPattern4Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_5')) {
+      context.handle(
+        _atkPattern5Meta,
+        atkPattern5.isAcceptableOrUnknown(
+          data['atk_pattern_5']!,
+          _atkPattern5Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_6')) {
+      context.handle(
+        _atkPattern6Meta,
+        atkPattern6.isAcceptableOrUnknown(
+          data['atk_pattern_6']!,
+          _atkPattern6Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_7')) {
+      context.handle(
+        _atkPattern7Meta,
+        atkPattern7.isAcceptableOrUnknown(
+          data['atk_pattern_7']!,
+          _atkPattern7Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_8')) {
+      context.handle(
+        _atkPattern8Meta,
+        atkPattern8.isAcceptableOrUnknown(
+          data['atk_pattern_8']!,
+          _atkPattern8Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_9')) {
+      context.handle(
+        _atkPattern9Meta,
+        atkPattern9.isAcceptableOrUnknown(
+          data['atk_pattern_9']!,
+          _atkPattern9Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_10')) {
+      context.handle(
+        _atkPattern10Meta,
+        atkPattern10.isAcceptableOrUnknown(
+          data['atk_pattern_10']!,
+          _atkPattern10Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_11')) {
+      context.handle(
+        _atkPattern11Meta,
+        atkPattern11.isAcceptableOrUnknown(
+          data['atk_pattern_11']!,
+          _atkPattern11Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_12')) {
+      context.handle(
+        _atkPattern12Meta,
+        atkPattern12.isAcceptableOrUnknown(
+          data['atk_pattern_12']!,
+          _atkPattern12Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_13')) {
+      context.handle(
+        _atkPattern13Meta,
+        atkPattern13.isAcceptableOrUnknown(
+          data['atk_pattern_13']!,
+          _atkPattern13Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_14')) {
+      context.handle(
+        _atkPattern14Meta,
+        atkPattern14.isAcceptableOrUnknown(
+          data['atk_pattern_14']!,
+          _atkPattern14Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_15')) {
+      context.handle(
+        _atkPattern15Meta,
+        atkPattern15.isAcceptableOrUnknown(
+          data['atk_pattern_15']!,
+          _atkPattern15Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_16')) {
+      context.handle(
+        _atkPattern16Meta,
+        atkPattern16.isAcceptableOrUnknown(
+          data['atk_pattern_16']!,
+          _atkPattern16Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_17')) {
+      context.handle(
+        _atkPattern17Meta,
+        atkPattern17.isAcceptableOrUnknown(
+          data['atk_pattern_17']!,
+          _atkPattern17Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_18')) {
+      context.handle(
+        _atkPattern18Meta,
+        atkPattern18.isAcceptableOrUnknown(
+          data['atk_pattern_18']!,
+          _atkPattern18Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_19')) {
+      context.handle(
+        _atkPattern19Meta,
+        atkPattern19.isAcceptableOrUnknown(
+          data['atk_pattern_19']!,
+          _atkPattern19Meta,
+        ),
+      );
+    }
+    if (data.containsKey('atk_pattern_20')) {
+      context.handle(
+        _atkPattern20Meta,
+        atkPattern20.isAcceptableOrUnknown(
+          data['atk_pattern_20']!,
+          _atkPattern20Meta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {patternId};
+  @override
+  UnitAttackPatternData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UnitAttackPatternData(
+      patternId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}pattern_id'],
+          )!,
+      unitId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}unit_id'],
+          )!,
+      loopStart: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}loop_start'],
+      ),
+      loopEnd: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}loop_end'],
+      ),
+      atkPattern1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_1'],
+      ),
+      atkPattern2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_2'],
+      ),
+      atkPattern3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_3'],
+      ),
+      atkPattern4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_4'],
+      ),
+      atkPattern5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_5'],
+      ),
+      atkPattern6: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_6'],
+      ),
+      atkPattern7: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_7'],
+      ),
+      atkPattern8: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_8'],
+      ),
+      atkPattern9: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_9'],
+      ),
+      atkPattern10: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_10'],
+      ),
+      atkPattern11: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_11'],
+      ),
+      atkPattern12: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_12'],
+      ),
+      atkPattern13: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_13'],
+      ),
+      atkPattern14: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_14'],
+      ),
+      atkPattern15: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_15'],
+      ),
+      atkPattern16: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_16'],
+      ),
+      atkPattern17: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_17'],
+      ),
+      atkPattern18: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_18'],
+      ),
+      atkPattern19: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_19'],
+      ),
+      atkPattern20: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_pattern_20'],
+      ),
+    );
+  }
+
+  @override
+  $UnitAttackPatternTable createAlias(String alias) {
+    return $UnitAttackPatternTable(attachedDatabase, alias);
+  }
+}
+
+class UnitAttackPatternData extends DataClass
+    implements Insertable<UnitAttackPatternData> {
+  final int patternId;
+  final int unitId;
+  final int? loopStart;
+  final int? loopEnd;
+  final int? atkPattern1;
+  final int? atkPattern2;
+  final int? atkPattern3;
+  final int? atkPattern4;
+  final int? atkPattern5;
+  final int? atkPattern6;
+  final int? atkPattern7;
+  final int? atkPattern8;
+  final int? atkPattern9;
+  final int? atkPattern10;
+  final int? atkPattern11;
+  final int? atkPattern12;
+  final int? atkPattern13;
+  final int? atkPattern14;
+  final int? atkPattern15;
+  final int? atkPattern16;
+  final int? atkPattern17;
+  final int? atkPattern18;
+  final int? atkPattern19;
+  final int? atkPattern20;
+  const UnitAttackPatternData({
+    required this.patternId,
+    required this.unitId,
+    this.loopStart,
+    this.loopEnd,
+    this.atkPattern1,
+    this.atkPattern2,
+    this.atkPattern3,
+    this.atkPattern4,
+    this.atkPattern5,
+    this.atkPattern6,
+    this.atkPattern7,
+    this.atkPattern8,
+    this.atkPattern9,
+    this.atkPattern10,
+    this.atkPattern11,
+    this.atkPattern12,
+    this.atkPattern13,
+    this.atkPattern14,
+    this.atkPattern15,
+    this.atkPattern16,
+    this.atkPattern17,
+    this.atkPattern18,
+    this.atkPattern19,
+    this.atkPattern20,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['pattern_id'] = Variable<int>(patternId);
+    map['unit_id'] = Variable<int>(unitId);
+    if (!nullToAbsent || loopStart != null) {
+      map['loop_start'] = Variable<int>(loopStart);
+    }
+    if (!nullToAbsent || loopEnd != null) {
+      map['loop_end'] = Variable<int>(loopEnd);
+    }
+    if (!nullToAbsent || atkPattern1 != null) {
+      map['atk_pattern_1'] = Variable<int>(atkPattern1);
+    }
+    if (!nullToAbsent || atkPattern2 != null) {
+      map['atk_pattern_2'] = Variable<int>(atkPattern2);
+    }
+    if (!nullToAbsent || atkPattern3 != null) {
+      map['atk_pattern_3'] = Variable<int>(atkPattern3);
+    }
+    if (!nullToAbsent || atkPattern4 != null) {
+      map['atk_pattern_4'] = Variable<int>(atkPattern4);
+    }
+    if (!nullToAbsent || atkPattern5 != null) {
+      map['atk_pattern_5'] = Variable<int>(atkPattern5);
+    }
+    if (!nullToAbsent || atkPattern6 != null) {
+      map['atk_pattern_6'] = Variable<int>(atkPattern6);
+    }
+    if (!nullToAbsent || atkPattern7 != null) {
+      map['atk_pattern_7'] = Variable<int>(atkPattern7);
+    }
+    if (!nullToAbsent || atkPattern8 != null) {
+      map['atk_pattern_8'] = Variable<int>(atkPattern8);
+    }
+    if (!nullToAbsent || atkPattern9 != null) {
+      map['atk_pattern_9'] = Variable<int>(atkPattern9);
+    }
+    if (!nullToAbsent || atkPattern10 != null) {
+      map['atk_pattern_10'] = Variable<int>(atkPattern10);
+    }
+    if (!nullToAbsent || atkPattern11 != null) {
+      map['atk_pattern_11'] = Variable<int>(atkPattern11);
+    }
+    if (!nullToAbsent || atkPattern12 != null) {
+      map['atk_pattern_12'] = Variable<int>(atkPattern12);
+    }
+    if (!nullToAbsent || atkPattern13 != null) {
+      map['atk_pattern_13'] = Variable<int>(atkPattern13);
+    }
+    if (!nullToAbsent || atkPattern14 != null) {
+      map['atk_pattern_14'] = Variable<int>(atkPattern14);
+    }
+    if (!nullToAbsent || atkPattern15 != null) {
+      map['atk_pattern_15'] = Variable<int>(atkPattern15);
+    }
+    if (!nullToAbsent || atkPattern16 != null) {
+      map['atk_pattern_16'] = Variable<int>(atkPattern16);
+    }
+    if (!nullToAbsent || atkPattern17 != null) {
+      map['atk_pattern_17'] = Variable<int>(atkPattern17);
+    }
+    if (!nullToAbsent || atkPattern18 != null) {
+      map['atk_pattern_18'] = Variable<int>(atkPattern18);
+    }
+    if (!nullToAbsent || atkPattern19 != null) {
+      map['atk_pattern_19'] = Variable<int>(atkPattern19);
+    }
+    if (!nullToAbsent || atkPattern20 != null) {
+      map['atk_pattern_20'] = Variable<int>(atkPattern20);
+    }
+    return map;
+  }
+
+  UnitAttackPatternCompanion toCompanion(bool nullToAbsent) {
+    return UnitAttackPatternCompanion(
+      patternId: Value(patternId),
+      unitId: Value(unitId),
+      loopStart:
+          loopStart == null && nullToAbsent
+              ? const Value.absent()
+              : Value(loopStart),
+      loopEnd:
+          loopEnd == null && nullToAbsent
+              ? const Value.absent()
+              : Value(loopEnd),
+      atkPattern1:
+          atkPattern1 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern1),
+      atkPattern2:
+          atkPattern2 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern2),
+      atkPattern3:
+          atkPattern3 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern3),
+      atkPattern4:
+          atkPattern4 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern4),
+      atkPattern5:
+          atkPattern5 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern5),
+      atkPattern6:
+          atkPattern6 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern6),
+      atkPattern7:
+          atkPattern7 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern7),
+      atkPattern8:
+          atkPattern8 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern8),
+      atkPattern9:
+          atkPattern9 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern9),
+      atkPattern10:
+          atkPattern10 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern10),
+      atkPattern11:
+          atkPattern11 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern11),
+      atkPattern12:
+          atkPattern12 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern12),
+      atkPattern13:
+          atkPattern13 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern13),
+      atkPattern14:
+          atkPattern14 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern14),
+      atkPattern15:
+          atkPattern15 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern15),
+      atkPattern16:
+          atkPattern16 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern16),
+      atkPattern17:
+          atkPattern17 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern17),
+      atkPattern18:
+          atkPattern18 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern18),
+      atkPattern19:
+          atkPattern19 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern19),
+      atkPattern20:
+          atkPattern20 == null && nullToAbsent
+              ? const Value.absent()
+              : Value(atkPattern20),
+    );
+  }
+
+  factory UnitAttackPatternData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UnitAttackPatternData(
+      patternId: serializer.fromJson<int>(json['patternId']),
+      unitId: serializer.fromJson<int>(json['unitId']),
+      loopStart: serializer.fromJson<int?>(json['loopStart']),
+      loopEnd: serializer.fromJson<int?>(json['loopEnd']),
+      atkPattern1: serializer.fromJson<int?>(json['atkPattern1']),
+      atkPattern2: serializer.fromJson<int?>(json['atkPattern2']),
+      atkPattern3: serializer.fromJson<int?>(json['atkPattern3']),
+      atkPattern4: serializer.fromJson<int?>(json['atkPattern4']),
+      atkPattern5: serializer.fromJson<int?>(json['atkPattern5']),
+      atkPattern6: serializer.fromJson<int?>(json['atkPattern6']),
+      atkPattern7: serializer.fromJson<int?>(json['atkPattern7']),
+      atkPattern8: serializer.fromJson<int?>(json['atkPattern8']),
+      atkPattern9: serializer.fromJson<int?>(json['atkPattern9']),
+      atkPattern10: serializer.fromJson<int?>(json['atkPattern10']),
+      atkPattern11: serializer.fromJson<int?>(json['atkPattern11']),
+      atkPattern12: serializer.fromJson<int?>(json['atkPattern12']),
+      atkPattern13: serializer.fromJson<int?>(json['atkPattern13']),
+      atkPattern14: serializer.fromJson<int?>(json['atkPattern14']),
+      atkPattern15: serializer.fromJson<int?>(json['atkPattern15']),
+      atkPattern16: serializer.fromJson<int?>(json['atkPattern16']),
+      atkPattern17: serializer.fromJson<int?>(json['atkPattern17']),
+      atkPattern18: serializer.fromJson<int?>(json['atkPattern18']),
+      atkPattern19: serializer.fromJson<int?>(json['atkPattern19']),
+      atkPattern20: serializer.fromJson<int?>(json['atkPattern20']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'patternId': serializer.toJson<int>(patternId),
+      'unitId': serializer.toJson<int>(unitId),
+      'loopStart': serializer.toJson<int?>(loopStart),
+      'loopEnd': serializer.toJson<int?>(loopEnd),
+      'atkPattern1': serializer.toJson<int?>(atkPattern1),
+      'atkPattern2': serializer.toJson<int?>(atkPattern2),
+      'atkPattern3': serializer.toJson<int?>(atkPattern3),
+      'atkPattern4': serializer.toJson<int?>(atkPattern4),
+      'atkPattern5': serializer.toJson<int?>(atkPattern5),
+      'atkPattern6': serializer.toJson<int?>(atkPattern6),
+      'atkPattern7': serializer.toJson<int?>(atkPattern7),
+      'atkPattern8': serializer.toJson<int?>(atkPattern8),
+      'atkPattern9': serializer.toJson<int?>(atkPattern9),
+      'atkPattern10': serializer.toJson<int?>(atkPattern10),
+      'atkPattern11': serializer.toJson<int?>(atkPattern11),
+      'atkPattern12': serializer.toJson<int?>(atkPattern12),
+      'atkPattern13': serializer.toJson<int?>(atkPattern13),
+      'atkPattern14': serializer.toJson<int?>(atkPattern14),
+      'atkPattern15': serializer.toJson<int?>(atkPattern15),
+      'atkPattern16': serializer.toJson<int?>(atkPattern16),
+      'atkPattern17': serializer.toJson<int?>(atkPattern17),
+      'atkPattern18': serializer.toJson<int?>(atkPattern18),
+      'atkPattern19': serializer.toJson<int?>(atkPattern19),
+      'atkPattern20': serializer.toJson<int?>(atkPattern20),
+    };
+  }
+
+  UnitAttackPatternData copyWith({
+    int? patternId,
+    int? unitId,
+    Value<int?> loopStart = const Value.absent(),
+    Value<int?> loopEnd = const Value.absent(),
+    Value<int?> atkPattern1 = const Value.absent(),
+    Value<int?> atkPattern2 = const Value.absent(),
+    Value<int?> atkPattern3 = const Value.absent(),
+    Value<int?> atkPattern4 = const Value.absent(),
+    Value<int?> atkPattern5 = const Value.absent(),
+    Value<int?> atkPattern6 = const Value.absent(),
+    Value<int?> atkPattern7 = const Value.absent(),
+    Value<int?> atkPattern8 = const Value.absent(),
+    Value<int?> atkPattern9 = const Value.absent(),
+    Value<int?> atkPattern10 = const Value.absent(),
+    Value<int?> atkPattern11 = const Value.absent(),
+    Value<int?> atkPattern12 = const Value.absent(),
+    Value<int?> atkPattern13 = const Value.absent(),
+    Value<int?> atkPattern14 = const Value.absent(),
+    Value<int?> atkPattern15 = const Value.absent(),
+    Value<int?> atkPattern16 = const Value.absent(),
+    Value<int?> atkPattern17 = const Value.absent(),
+    Value<int?> atkPattern18 = const Value.absent(),
+    Value<int?> atkPattern19 = const Value.absent(),
+    Value<int?> atkPattern20 = const Value.absent(),
+  }) => UnitAttackPatternData(
+    patternId: patternId ?? this.patternId,
+    unitId: unitId ?? this.unitId,
+    loopStart: loopStart.present ? loopStart.value : this.loopStart,
+    loopEnd: loopEnd.present ? loopEnd.value : this.loopEnd,
+    atkPattern1: atkPattern1.present ? atkPattern1.value : this.atkPattern1,
+    atkPattern2: atkPattern2.present ? atkPattern2.value : this.atkPattern2,
+    atkPattern3: atkPattern3.present ? atkPattern3.value : this.atkPattern3,
+    atkPattern4: atkPattern4.present ? atkPattern4.value : this.atkPattern4,
+    atkPattern5: atkPattern5.present ? atkPattern5.value : this.atkPattern5,
+    atkPattern6: atkPattern6.present ? atkPattern6.value : this.atkPattern6,
+    atkPattern7: atkPattern7.present ? atkPattern7.value : this.atkPattern7,
+    atkPattern8: atkPattern8.present ? atkPattern8.value : this.atkPattern8,
+    atkPattern9: atkPattern9.present ? atkPattern9.value : this.atkPattern9,
+    atkPattern10: atkPattern10.present ? atkPattern10.value : this.atkPattern10,
+    atkPattern11: atkPattern11.present ? atkPattern11.value : this.atkPattern11,
+    atkPattern12: atkPattern12.present ? atkPattern12.value : this.atkPattern12,
+    atkPattern13: atkPattern13.present ? atkPattern13.value : this.atkPattern13,
+    atkPattern14: atkPattern14.present ? atkPattern14.value : this.atkPattern14,
+    atkPattern15: atkPattern15.present ? atkPattern15.value : this.atkPattern15,
+    atkPattern16: atkPattern16.present ? atkPattern16.value : this.atkPattern16,
+    atkPattern17: atkPattern17.present ? atkPattern17.value : this.atkPattern17,
+    atkPattern18: atkPattern18.present ? atkPattern18.value : this.atkPattern18,
+    atkPattern19: atkPattern19.present ? atkPattern19.value : this.atkPattern19,
+    atkPattern20: atkPattern20.present ? atkPattern20.value : this.atkPattern20,
+  );
+  UnitAttackPatternData copyWithCompanion(UnitAttackPatternCompanion data) {
+    return UnitAttackPatternData(
+      patternId: data.patternId.present ? data.patternId.value : this.patternId,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      loopStart: data.loopStart.present ? data.loopStart.value : this.loopStart,
+      loopEnd: data.loopEnd.present ? data.loopEnd.value : this.loopEnd,
+      atkPattern1:
+          data.atkPattern1.present ? data.atkPattern1.value : this.atkPattern1,
+      atkPattern2:
+          data.atkPattern2.present ? data.atkPattern2.value : this.atkPattern2,
+      atkPattern3:
+          data.atkPattern3.present ? data.atkPattern3.value : this.atkPattern3,
+      atkPattern4:
+          data.atkPattern4.present ? data.atkPattern4.value : this.atkPattern4,
+      atkPattern5:
+          data.atkPattern5.present ? data.atkPattern5.value : this.atkPattern5,
+      atkPattern6:
+          data.atkPattern6.present ? data.atkPattern6.value : this.atkPattern6,
+      atkPattern7:
+          data.atkPattern7.present ? data.atkPattern7.value : this.atkPattern7,
+      atkPattern8:
+          data.atkPattern8.present ? data.atkPattern8.value : this.atkPattern8,
+      atkPattern9:
+          data.atkPattern9.present ? data.atkPattern9.value : this.atkPattern9,
+      atkPattern10:
+          data.atkPattern10.present
+              ? data.atkPattern10.value
+              : this.atkPattern10,
+      atkPattern11:
+          data.atkPattern11.present
+              ? data.atkPattern11.value
+              : this.atkPattern11,
+      atkPattern12:
+          data.atkPattern12.present
+              ? data.atkPattern12.value
+              : this.atkPattern12,
+      atkPattern13:
+          data.atkPattern13.present
+              ? data.atkPattern13.value
+              : this.atkPattern13,
+      atkPattern14:
+          data.atkPattern14.present
+              ? data.atkPattern14.value
+              : this.atkPattern14,
+      atkPattern15:
+          data.atkPattern15.present
+              ? data.atkPattern15.value
+              : this.atkPattern15,
+      atkPattern16:
+          data.atkPattern16.present
+              ? data.atkPattern16.value
+              : this.atkPattern16,
+      atkPattern17:
+          data.atkPattern17.present
+              ? data.atkPattern17.value
+              : this.atkPattern17,
+      atkPattern18:
+          data.atkPattern18.present
+              ? data.atkPattern18.value
+              : this.atkPattern18,
+      atkPattern19:
+          data.atkPattern19.present
+              ? data.atkPattern19.value
+              : this.atkPattern19,
+      atkPattern20:
+          data.atkPattern20.present
+              ? data.atkPattern20.value
+              : this.atkPattern20,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitAttackPatternData(')
+          ..write('patternId: $patternId, ')
+          ..write('unitId: $unitId, ')
+          ..write('loopStart: $loopStart, ')
+          ..write('loopEnd: $loopEnd, ')
+          ..write('atkPattern1: $atkPattern1, ')
+          ..write('atkPattern2: $atkPattern2, ')
+          ..write('atkPattern3: $atkPattern3, ')
+          ..write('atkPattern4: $atkPattern4, ')
+          ..write('atkPattern5: $atkPattern5, ')
+          ..write('atkPattern6: $atkPattern6, ')
+          ..write('atkPattern7: $atkPattern7, ')
+          ..write('atkPattern8: $atkPattern8, ')
+          ..write('atkPattern9: $atkPattern9, ')
+          ..write('atkPattern10: $atkPattern10, ')
+          ..write('atkPattern11: $atkPattern11, ')
+          ..write('atkPattern12: $atkPattern12, ')
+          ..write('atkPattern13: $atkPattern13, ')
+          ..write('atkPattern14: $atkPattern14, ')
+          ..write('atkPattern15: $atkPattern15, ')
+          ..write('atkPattern16: $atkPattern16, ')
+          ..write('atkPattern17: $atkPattern17, ')
+          ..write('atkPattern18: $atkPattern18, ')
+          ..write('atkPattern19: $atkPattern19, ')
+          ..write('atkPattern20: $atkPattern20')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    patternId,
+    unitId,
+    loopStart,
+    loopEnd,
+    atkPattern1,
+    atkPattern2,
+    atkPattern3,
+    atkPattern4,
+    atkPattern5,
+    atkPattern6,
+    atkPattern7,
+    atkPattern8,
+    atkPattern9,
+    atkPattern10,
+    atkPattern11,
+    atkPattern12,
+    atkPattern13,
+    atkPattern14,
+    atkPattern15,
+    atkPattern16,
+    atkPattern17,
+    atkPattern18,
+    atkPattern19,
+    atkPattern20,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UnitAttackPatternData &&
+          other.patternId == this.patternId &&
+          other.unitId == this.unitId &&
+          other.loopStart == this.loopStart &&
+          other.loopEnd == this.loopEnd &&
+          other.atkPattern1 == this.atkPattern1 &&
+          other.atkPattern2 == this.atkPattern2 &&
+          other.atkPattern3 == this.atkPattern3 &&
+          other.atkPattern4 == this.atkPattern4 &&
+          other.atkPattern5 == this.atkPattern5 &&
+          other.atkPattern6 == this.atkPattern6 &&
+          other.atkPattern7 == this.atkPattern7 &&
+          other.atkPattern8 == this.atkPattern8 &&
+          other.atkPattern9 == this.atkPattern9 &&
+          other.atkPattern10 == this.atkPattern10 &&
+          other.atkPattern11 == this.atkPattern11 &&
+          other.atkPattern12 == this.atkPattern12 &&
+          other.atkPattern13 == this.atkPattern13 &&
+          other.atkPattern14 == this.atkPattern14 &&
+          other.atkPattern15 == this.atkPattern15 &&
+          other.atkPattern16 == this.atkPattern16 &&
+          other.atkPattern17 == this.atkPattern17 &&
+          other.atkPattern18 == this.atkPattern18 &&
+          other.atkPattern19 == this.atkPattern19 &&
+          other.atkPattern20 == this.atkPattern20);
+}
+
+class UnitAttackPatternCompanion
+    extends UpdateCompanion<UnitAttackPatternData> {
+  final Value<int> patternId;
+  final Value<int> unitId;
+  final Value<int?> loopStart;
+  final Value<int?> loopEnd;
+  final Value<int?> atkPattern1;
+  final Value<int?> atkPattern2;
+  final Value<int?> atkPattern3;
+  final Value<int?> atkPattern4;
+  final Value<int?> atkPattern5;
+  final Value<int?> atkPattern6;
+  final Value<int?> atkPattern7;
+  final Value<int?> atkPattern8;
+  final Value<int?> atkPattern9;
+  final Value<int?> atkPattern10;
+  final Value<int?> atkPattern11;
+  final Value<int?> atkPattern12;
+  final Value<int?> atkPattern13;
+  final Value<int?> atkPattern14;
+  final Value<int?> atkPattern15;
+  final Value<int?> atkPattern16;
+  final Value<int?> atkPattern17;
+  final Value<int?> atkPattern18;
+  final Value<int?> atkPattern19;
+  final Value<int?> atkPattern20;
+  const UnitAttackPatternCompanion({
+    this.patternId = const Value.absent(),
+    this.unitId = const Value.absent(),
+    this.loopStart = const Value.absent(),
+    this.loopEnd = const Value.absent(),
+    this.atkPattern1 = const Value.absent(),
+    this.atkPattern2 = const Value.absent(),
+    this.atkPattern3 = const Value.absent(),
+    this.atkPattern4 = const Value.absent(),
+    this.atkPattern5 = const Value.absent(),
+    this.atkPattern6 = const Value.absent(),
+    this.atkPattern7 = const Value.absent(),
+    this.atkPattern8 = const Value.absent(),
+    this.atkPattern9 = const Value.absent(),
+    this.atkPattern10 = const Value.absent(),
+    this.atkPattern11 = const Value.absent(),
+    this.atkPattern12 = const Value.absent(),
+    this.atkPattern13 = const Value.absent(),
+    this.atkPattern14 = const Value.absent(),
+    this.atkPattern15 = const Value.absent(),
+    this.atkPattern16 = const Value.absent(),
+    this.atkPattern17 = const Value.absent(),
+    this.atkPattern18 = const Value.absent(),
+    this.atkPattern19 = const Value.absent(),
+    this.atkPattern20 = const Value.absent(),
+  });
+  UnitAttackPatternCompanion.insert({
+    this.patternId = const Value.absent(),
+    required int unitId,
+    this.loopStart = const Value.absent(),
+    this.loopEnd = const Value.absent(),
+    this.atkPattern1 = const Value.absent(),
+    this.atkPattern2 = const Value.absent(),
+    this.atkPattern3 = const Value.absent(),
+    this.atkPattern4 = const Value.absent(),
+    this.atkPattern5 = const Value.absent(),
+    this.atkPattern6 = const Value.absent(),
+    this.atkPattern7 = const Value.absent(),
+    this.atkPattern8 = const Value.absent(),
+    this.atkPattern9 = const Value.absent(),
+    this.atkPattern10 = const Value.absent(),
+    this.atkPattern11 = const Value.absent(),
+    this.atkPattern12 = const Value.absent(),
+    this.atkPattern13 = const Value.absent(),
+    this.atkPattern14 = const Value.absent(),
+    this.atkPattern15 = const Value.absent(),
+    this.atkPattern16 = const Value.absent(),
+    this.atkPattern17 = const Value.absent(),
+    this.atkPattern18 = const Value.absent(),
+    this.atkPattern19 = const Value.absent(),
+    this.atkPattern20 = const Value.absent(),
+  }) : unitId = Value(unitId);
+  static Insertable<UnitAttackPatternData> custom({
+    Expression<int>? patternId,
+    Expression<int>? unitId,
+    Expression<int>? loopStart,
+    Expression<int>? loopEnd,
+    Expression<int>? atkPattern1,
+    Expression<int>? atkPattern2,
+    Expression<int>? atkPattern3,
+    Expression<int>? atkPattern4,
+    Expression<int>? atkPattern5,
+    Expression<int>? atkPattern6,
+    Expression<int>? atkPattern7,
+    Expression<int>? atkPattern8,
+    Expression<int>? atkPattern9,
+    Expression<int>? atkPattern10,
+    Expression<int>? atkPattern11,
+    Expression<int>? atkPattern12,
+    Expression<int>? atkPattern13,
+    Expression<int>? atkPattern14,
+    Expression<int>? atkPattern15,
+    Expression<int>? atkPattern16,
+    Expression<int>? atkPattern17,
+    Expression<int>? atkPattern18,
+    Expression<int>? atkPattern19,
+    Expression<int>? atkPattern20,
+  }) {
+    return RawValuesInsertable({
+      if (patternId != null) 'pattern_id': patternId,
+      if (unitId != null) 'unit_id': unitId,
+      if (loopStart != null) 'loop_start': loopStart,
+      if (loopEnd != null) 'loop_end': loopEnd,
+      if (atkPattern1 != null) 'atk_pattern_1': atkPattern1,
+      if (atkPattern2 != null) 'atk_pattern_2': atkPattern2,
+      if (atkPattern3 != null) 'atk_pattern_3': atkPattern3,
+      if (atkPattern4 != null) 'atk_pattern_4': atkPattern4,
+      if (atkPattern5 != null) 'atk_pattern_5': atkPattern5,
+      if (atkPattern6 != null) 'atk_pattern_6': atkPattern6,
+      if (atkPattern7 != null) 'atk_pattern_7': atkPattern7,
+      if (atkPattern8 != null) 'atk_pattern_8': atkPattern8,
+      if (atkPattern9 != null) 'atk_pattern_9': atkPattern9,
+      if (atkPattern10 != null) 'atk_pattern_10': atkPattern10,
+      if (atkPattern11 != null) 'atk_pattern_11': atkPattern11,
+      if (atkPattern12 != null) 'atk_pattern_12': atkPattern12,
+      if (atkPattern13 != null) 'atk_pattern_13': atkPattern13,
+      if (atkPattern14 != null) 'atk_pattern_14': atkPattern14,
+      if (atkPattern15 != null) 'atk_pattern_15': atkPattern15,
+      if (atkPattern16 != null) 'atk_pattern_16': atkPattern16,
+      if (atkPattern17 != null) 'atk_pattern_17': atkPattern17,
+      if (atkPattern18 != null) 'atk_pattern_18': atkPattern18,
+      if (atkPattern19 != null) 'atk_pattern_19': atkPattern19,
+      if (atkPattern20 != null) 'atk_pattern_20': atkPattern20,
+    });
+  }
+
+  UnitAttackPatternCompanion copyWith({
+    Value<int>? patternId,
+    Value<int>? unitId,
+    Value<int?>? loopStart,
+    Value<int?>? loopEnd,
+    Value<int?>? atkPattern1,
+    Value<int?>? atkPattern2,
+    Value<int?>? atkPattern3,
+    Value<int?>? atkPattern4,
+    Value<int?>? atkPattern5,
+    Value<int?>? atkPattern6,
+    Value<int?>? atkPattern7,
+    Value<int?>? atkPattern8,
+    Value<int?>? atkPattern9,
+    Value<int?>? atkPattern10,
+    Value<int?>? atkPattern11,
+    Value<int?>? atkPattern12,
+    Value<int?>? atkPattern13,
+    Value<int?>? atkPattern14,
+    Value<int?>? atkPattern15,
+    Value<int?>? atkPattern16,
+    Value<int?>? atkPattern17,
+    Value<int?>? atkPattern18,
+    Value<int?>? atkPattern19,
+    Value<int?>? atkPattern20,
+  }) {
+    return UnitAttackPatternCompanion(
+      patternId: patternId ?? this.patternId,
+      unitId: unitId ?? this.unitId,
+      loopStart: loopStart ?? this.loopStart,
+      loopEnd: loopEnd ?? this.loopEnd,
+      atkPattern1: atkPattern1 ?? this.atkPattern1,
+      atkPattern2: atkPattern2 ?? this.atkPattern2,
+      atkPattern3: atkPattern3 ?? this.atkPattern3,
+      atkPattern4: atkPattern4 ?? this.atkPattern4,
+      atkPattern5: atkPattern5 ?? this.atkPattern5,
+      atkPattern6: atkPattern6 ?? this.atkPattern6,
+      atkPattern7: atkPattern7 ?? this.atkPattern7,
+      atkPattern8: atkPattern8 ?? this.atkPattern8,
+      atkPattern9: atkPattern9 ?? this.atkPattern9,
+      atkPattern10: atkPattern10 ?? this.atkPattern10,
+      atkPattern11: atkPattern11 ?? this.atkPattern11,
+      atkPattern12: atkPattern12 ?? this.atkPattern12,
+      atkPattern13: atkPattern13 ?? this.atkPattern13,
+      atkPattern14: atkPattern14 ?? this.atkPattern14,
+      atkPattern15: atkPattern15 ?? this.atkPattern15,
+      atkPattern16: atkPattern16 ?? this.atkPattern16,
+      atkPattern17: atkPattern17 ?? this.atkPattern17,
+      atkPattern18: atkPattern18 ?? this.atkPattern18,
+      atkPattern19: atkPattern19 ?? this.atkPattern19,
+      atkPattern20: atkPattern20 ?? this.atkPattern20,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (patternId.present) {
+      map['pattern_id'] = Variable<int>(patternId.value);
+    }
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (loopStart.present) {
+      map['loop_start'] = Variable<int>(loopStart.value);
+    }
+    if (loopEnd.present) {
+      map['loop_end'] = Variable<int>(loopEnd.value);
+    }
+    if (atkPattern1.present) {
+      map['atk_pattern_1'] = Variable<int>(atkPattern1.value);
+    }
+    if (atkPattern2.present) {
+      map['atk_pattern_2'] = Variable<int>(atkPattern2.value);
+    }
+    if (atkPattern3.present) {
+      map['atk_pattern_3'] = Variable<int>(atkPattern3.value);
+    }
+    if (atkPattern4.present) {
+      map['atk_pattern_4'] = Variable<int>(atkPattern4.value);
+    }
+    if (atkPattern5.present) {
+      map['atk_pattern_5'] = Variable<int>(atkPattern5.value);
+    }
+    if (atkPattern6.present) {
+      map['atk_pattern_6'] = Variable<int>(atkPattern6.value);
+    }
+    if (atkPattern7.present) {
+      map['atk_pattern_7'] = Variable<int>(atkPattern7.value);
+    }
+    if (atkPattern8.present) {
+      map['atk_pattern_8'] = Variable<int>(atkPattern8.value);
+    }
+    if (atkPattern9.present) {
+      map['atk_pattern_9'] = Variable<int>(atkPattern9.value);
+    }
+    if (atkPattern10.present) {
+      map['atk_pattern_10'] = Variable<int>(atkPattern10.value);
+    }
+    if (atkPattern11.present) {
+      map['atk_pattern_11'] = Variable<int>(atkPattern11.value);
+    }
+    if (atkPattern12.present) {
+      map['atk_pattern_12'] = Variable<int>(atkPattern12.value);
+    }
+    if (atkPattern13.present) {
+      map['atk_pattern_13'] = Variable<int>(atkPattern13.value);
+    }
+    if (atkPattern14.present) {
+      map['atk_pattern_14'] = Variable<int>(atkPattern14.value);
+    }
+    if (atkPattern15.present) {
+      map['atk_pattern_15'] = Variable<int>(atkPattern15.value);
+    }
+    if (atkPattern16.present) {
+      map['atk_pattern_16'] = Variable<int>(atkPattern16.value);
+    }
+    if (atkPattern17.present) {
+      map['atk_pattern_17'] = Variable<int>(atkPattern17.value);
+    }
+    if (atkPattern18.present) {
+      map['atk_pattern_18'] = Variable<int>(atkPattern18.value);
+    }
+    if (atkPattern19.present) {
+      map['atk_pattern_19'] = Variable<int>(atkPattern19.value);
+    }
+    if (atkPattern20.present) {
+      map['atk_pattern_20'] = Variable<int>(atkPattern20.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitAttackPatternCompanion(')
+          ..write('patternId: $patternId, ')
+          ..write('unitId: $unitId, ')
+          ..write('loopStart: $loopStart, ')
+          ..write('loopEnd: $loopEnd, ')
+          ..write('atkPattern1: $atkPattern1, ')
+          ..write('atkPattern2: $atkPattern2, ')
+          ..write('atkPattern3: $atkPattern3, ')
+          ..write('atkPattern4: $atkPattern4, ')
+          ..write('atkPattern5: $atkPattern5, ')
+          ..write('atkPattern6: $atkPattern6, ')
+          ..write('atkPattern7: $atkPattern7, ')
+          ..write('atkPattern8: $atkPattern8, ')
+          ..write('atkPattern9: $atkPattern9, ')
+          ..write('atkPattern10: $atkPattern10, ')
+          ..write('atkPattern11: $atkPattern11, ')
+          ..write('atkPattern12: $atkPattern12, ')
+          ..write('atkPattern13: $atkPattern13, ')
+          ..write('atkPattern14: $atkPattern14, ')
+          ..write('atkPattern15: $atkPattern15, ')
+          ..write('atkPattern16: $atkPattern16, ')
+          ..write('atkPattern17: $atkPattern17, ')
+          ..write('atkPattern18: $atkPattern18, ')
+          ..write('atkPattern19: $atkPattern19, ')
+          ..write('atkPattern20: $atkPattern20')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $SpSkillLabelDataTable extends SpSkillLabelData
+    with TableInfo<$SpSkillLabelDataTable, SpSkillLabelDataData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $SpSkillLabelDataTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _normalLabelTextMeta = const VerificationMeta(
+    'normalLabelText',
+  );
+  @override
+  late final GeneratedColumn<String> normalLabelText = GeneratedColumn<String>(
+    'normal_label_text',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _spLabelTextMeta = const VerificationMeta(
+    'spLabelText',
+  );
+  @override
+  late final GeneratedColumn<String> spLabelText = GeneratedColumn<String>(
+    'sp_label_text',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [unitId, normalLabelText, spLabelText];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'sp_skill_label';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<SpSkillLabelDataData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    }
+    if (data.containsKey('normal_label_text')) {
+      context.handle(
+        _normalLabelTextMeta,
+        normalLabelText.isAcceptableOrUnknown(
+          data['normal_label_text']!,
+          _normalLabelTextMeta,
+        ),
+      );
+    }
+    if (data.containsKey('sp_label_text')) {
+      context.handle(
+        _spLabelTextMeta,
+        spLabelText.isAcceptableOrUnknown(
+          data['sp_label_text']!,
+          _spLabelTextMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {unitId};
+  @override
+  SpSkillLabelDataData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return SpSkillLabelDataData(
+      unitId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}unit_id'],
+          )!,
+      normalLabelText: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}normal_label_text'],
+      ),
+      spLabelText: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}sp_label_text'],
+      ),
+    );
+  }
+
+  @override
+  $SpSkillLabelDataTable createAlias(String alias) {
+    return $SpSkillLabelDataTable(attachedDatabase, alias);
+  }
+}
+
+class SpSkillLabelDataData extends DataClass
+    implements Insertable<SpSkillLabelDataData> {
+  final int unitId;
+  final String? normalLabelText;
+  final String? spLabelText;
+  const SpSkillLabelDataData({
+    required this.unitId,
+    this.normalLabelText,
+    this.spLabelText,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['unit_id'] = Variable<int>(unitId);
+    if (!nullToAbsent || normalLabelText != null) {
+      map['normal_label_text'] = Variable<String>(normalLabelText);
+    }
+    if (!nullToAbsent || spLabelText != null) {
+      map['sp_label_text'] = Variable<String>(spLabelText);
+    }
+    return map;
+  }
+
+  SpSkillLabelDataCompanion toCompanion(bool nullToAbsent) {
+    return SpSkillLabelDataCompanion(
+      unitId: Value(unitId),
+      normalLabelText:
+          normalLabelText == null && nullToAbsent
+              ? const Value.absent()
+              : Value(normalLabelText),
+      spLabelText:
+          spLabelText == null && nullToAbsent
+              ? const Value.absent()
+              : Value(spLabelText),
+    );
+  }
+
+  factory SpSkillLabelDataData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return SpSkillLabelDataData(
+      unitId: serializer.fromJson<int>(json['unitId']),
+      normalLabelText: serializer.fromJson<String?>(json['normalLabelText']),
+      spLabelText: serializer.fromJson<String?>(json['spLabelText']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'unitId': serializer.toJson<int>(unitId),
+      'normalLabelText': serializer.toJson<String?>(normalLabelText),
+      'spLabelText': serializer.toJson<String?>(spLabelText),
+    };
+  }
+
+  SpSkillLabelDataData copyWith({
+    int? unitId,
+    Value<String?> normalLabelText = const Value.absent(),
+    Value<String?> spLabelText = const Value.absent(),
+  }) => SpSkillLabelDataData(
+    unitId: unitId ?? this.unitId,
+    normalLabelText:
+        normalLabelText.present ? normalLabelText.value : this.normalLabelText,
+    spLabelText: spLabelText.present ? spLabelText.value : this.spLabelText,
+  );
+  SpSkillLabelDataData copyWithCompanion(SpSkillLabelDataCompanion data) {
+    return SpSkillLabelDataData(
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      normalLabelText:
+          data.normalLabelText.present
+              ? data.normalLabelText.value
+              : this.normalLabelText,
+      spLabelText:
+          data.spLabelText.present ? data.spLabelText.value : this.spLabelText,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SpSkillLabelDataData(')
+          ..write('unitId: $unitId, ')
+          ..write('normalLabelText: $normalLabelText, ')
+          ..write('spLabelText: $spLabelText')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(unitId, normalLabelText, spLabelText);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is SpSkillLabelDataData &&
+          other.unitId == this.unitId &&
+          other.normalLabelText == this.normalLabelText &&
+          other.spLabelText == this.spLabelText);
+}
+
+class SpSkillLabelDataCompanion extends UpdateCompanion<SpSkillLabelDataData> {
+  final Value<int> unitId;
+  final Value<String?> normalLabelText;
+  final Value<String?> spLabelText;
+  const SpSkillLabelDataCompanion({
+    this.unitId = const Value.absent(),
+    this.normalLabelText = const Value.absent(),
+    this.spLabelText = const Value.absent(),
+  });
+  SpSkillLabelDataCompanion.insert({
+    this.unitId = const Value.absent(),
+    this.normalLabelText = const Value.absent(),
+    this.spLabelText = const Value.absent(),
+  });
+  static Insertable<SpSkillLabelDataData> custom({
+    Expression<int>? unitId,
+    Expression<String>? normalLabelText,
+    Expression<String>? spLabelText,
+  }) {
+    return RawValuesInsertable({
+      if (unitId != null) 'unit_id': unitId,
+      if (normalLabelText != null) 'normal_label_text': normalLabelText,
+      if (spLabelText != null) 'sp_label_text': spLabelText,
+    });
+  }
+
+  SpSkillLabelDataCompanion copyWith({
+    Value<int>? unitId,
+    Value<String?>? normalLabelText,
+    Value<String?>? spLabelText,
+  }) {
+    return SpSkillLabelDataCompanion(
+      unitId: unitId ?? this.unitId,
+      normalLabelText: normalLabelText ?? this.normalLabelText,
+      spLabelText: spLabelText ?? this.spLabelText,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (normalLabelText.present) {
+      map['normal_label_text'] = Variable<String>(normalLabelText.value);
+    }
+    if (spLabelText.present) {
+      map['sp_label_text'] = Variable<String>(spLabelText.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SpSkillLabelDataCompanion(')
+          ..write('unitId: $unitId, ')
+          ..write('normalLabelText: $normalLabelText, ')
+          ..write('spLabelText: $spLabelText')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $UnitSkillDataRFTable extends UnitSkillDataRF
+    with TableInfo<$UnitSkillDataRFTable, UnitSkillDataRFData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UnitSkillDataRFTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _skillIdMeta = const VerificationMeta(
+    'skillId',
+  );
+  @override
+  late final GeneratedColumn<int> skillId = GeneratedColumn<int>(
+    'skill_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rfSkillIdMeta = const VerificationMeta(
+    'rfSkillId',
+  );
+  @override
+  late final GeneratedColumn<int> rfSkillId = GeneratedColumn<int>(
+    'rf_skill_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _minLvMeta = const VerificationMeta('minLv');
+  @override
+  late final GeneratedColumn<int> minLv = GeneratedColumn<int>(
+    'min_lv',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _maxLvMeta = const VerificationMeta('maxLv');
+  @override
+  late final GeneratedColumn<int> maxLv = GeneratedColumn<int>(
+    'max_lv',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [id, skillId, rfSkillId, minLv, maxLv];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'unit_skill_data_rf';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UnitSkillDataRFData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('skill_id')) {
+      context.handle(
+        _skillIdMeta,
+        skillId.isAcceptableOrUnknown(data['skill_id']!, _skillIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_skillIdMeta);
+    }
+    if (data.containsKey('rf_skill_id')) {
+      context.handle(
+        _rfSkillIdMeta,
+        rfSkillId.isAcceptableOrUnknown(data['rf_skill_id']!, _rfSkillIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_rfSkillIdMeta);
+    }
+    if (data.containsKey('min_lv')) {
+      context.handle(
+        _minLvMeta,
+        minLv.isAcceptableOrUnknown(data['min_lv']!, _minLvMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_minLvMeta);
+    }
+    if (data.containsKey('max_lv')) {
+      context.handle(
+        _maxLvMeta,
+        maxLv.isAcceptableOrUnknown(data['max_lv']!, _maxLvMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_maxLvMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  UnitSkillDataRFData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UnitSkillDataRFData(
+      id:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
+      skillId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}skill_id'],
+          )!,
+      rfSkillId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}rf_skill_id'],
+          )!,
+      minLv:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}min_lv'],
+          )!,
+      maxLv:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}max_lv'],
+          )!,
+    );
+  }
+
+  @override
+  $UnitSkillDataRFTable createAlias(String alias) {
+    return $UnitSkillDataRFTable(attachedDatabase, alias);
+  }
+}
+
+class UnitSkillDataRFData extends DataClass
+    implements Insertable<UnitSkillDataRFData> {
+  final int id;
+  final int skillId;
+  final int rfSkillId;
+  final int minLv;
+  final int maxLv;
+  const UnitSkillDataRFData({
+    required this.id,
+    required this.skillId,
+    required this.rfSkillId,
+    required this.minLv,
+    required this.maxLv,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['skill_id'] = Variable<int>(skillId);
+    map['rf_skill_id'] = Variable<int>(rfSkillId);
+    map['min_lv'] = Variable<int>(minLv);
+    map['max_lv'] = Variable<int>(maxLv);
+    return map;
+  }
+
+  UnitSkillDataRFCompanion toCompanion(bool nullToAbsent) {
+    return UnitSkillDataRFCompanion(
+      id: Value(id),
+      skillId: Value(skillId),
+      rfSkillId: Value(rfSkillId),
+      minLv: Value(minLv),
+      maxLv: Value(maxLv),
+    );
+  }
+
+  factory UnitSkillDataRFData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UnitSkillDataRFData(
+      id: serializer.fromJson<int>(json['id']),
+      skillId: serializer.fromJson<int>(json['skillId']),
+      rfSkillId: serializer.fromJson<int>(json['rfSkillId']),
+      minLv: serializer.fromJson<int>(json['minLv']),
+      maxLv: serializer.fromJson<int>(json['maxLv']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'skillId': serializer.toJson<int>(skillId),
+      'rfSkillId': serializer.toJson<int>(rfSkillId),
+      'minLv': serializer.toJson<int>(minLv),
+      'maxLv': serializer.toJson<int>(maxLv),
+    };
+  }
+
+  UnitSkillDataRFData copyWith({
+    int? id,
+    int? skillId,
+    int? rfSkillId,
+    int? minLv,
+    int? maxLv,
+  }) => UnitSkillDataRFData(
+    id: id ?? this.id,
+    skillId: skillId ?? this.skillId,
+    rfSkillId: rfSkillId ?? this.rfSkillId,
+    minLv: minLv ?? this.minLv,
+    maxLv: maxLv ?? this.maxLv,
+  );
+  UnitSkillDataRFData copyWithCompanion(UnitSkillDataRFCompanion data) {
+    return UnitSkillDataRFData(
+      id: data.id.present ? data.id.value : this.id,
+      skillId: data.skillId.present ? data.skillId.value : this.skillId,
+      rfSkillId: data.rfSkillId.present ? data.rfSkillId.value : this.rfSkillId,
+      minLv: data.minLv.present ? data.minLv.value : this.minLv,
+      maxLv: data.maxLv.present ? data.maxLv.value : this.maxLv,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitSkillDataRFData(')
+          ..write('id: $id, ')
+          ..write('skillId: $skillId, ')
+          ..write('rfSkillId: $rfSkillId, ')
+          ..write('minLv: $minLv, ')
+          ..write('maxLv: $maxLv')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, skillId, rfSkillId, minLv, maxLv);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UnitSkillDataRFData &&
+          other.id == this.id &&
+          other.skillId == this.skillId &&
+          other.rfSkillId == this.rfSkillId &&
+          other.minLv == this.minLv &&
+          other.maxLv == this.maxLv);
+}
+
+class UnitSkillDataRFCompanion extends UpdateCompanion<UnitSkillDataRFData> {
+  final Value<int> id;
+  final Value<int> skillId;
+  final Value<int> rfSkillId;
+  final Value<int> minLv;
+  final Value<int> maxLv;
+  const UnitSkillDataRFCompanion({
+    this.id = const Value.absent(),
+    this.skillId = const Value.absent(),
+    this.rfSkillId = const Value.absent(),
+    this.minLv = const Value.absent(),
+    this.maxLv = const Value.absent(),
+  });
+  UnitSkillDataRFCompanion.insert({
+    this.id = const Value.absent(),
+    required int skillId,
+    required int rfSkillId,
+    required int minLv,
+    required int maxLv,
+  }) : skillId = Value(skillId),
+       rfSkillId = Value(rfSkillId),
+       minLv = Value(minLv),
+       maxLv = Value(maxLv);
+  static Insertable<UnitSkillDataRFData> custom({
+    Expression<int>? id,
+    Expression<int>? skillId,
+    Expression<int>? rfSkillId,
+    Expression<int>? minLv,
+    Expression<int>? maxLv,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (skillId != null) 'skill_id': skillId,
+      if (rfSkillId != null) 'rf_skill_id': rfSkillId,
+      if (minLv != null) 'min_lv': minLv,
+      if (maxLv != null) 'max_lv': maxLv,
+    });
+  }
+
+  UnitSkillDataRFCompanion copyWith({
+    Value<int>? id,
+    Value<int>? skillId,
+    Value<int>? rfSkillId,
+    Value<int>? minLv,
+    Value<int>? maxLv,
+  }) {
+    return UnitSkillDataRFCompanion(
+      id: id ?? this.id,
+      skillId: skillId ?? this.skillId,
+      rfSkillId: rfSkillId ?? this.rfSkillId,
+      minLv: minLv ?? this.minLv,
+      maxLv: maxLv ?? this.maxLv,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (skillId.present) {
+      map['skill_id'] = Variable<int>(skillId.value);
+    }
+    if (rfSkillId.present) {
+      map['rf_skill_id'] = Variable<int>(rfSkillId.value);
+    }
+    if (minLv.present) {
+      map['min_lv'] = Variable<int>(minLv.value);
+    }
+    if (maxLv.present) {
+      map['max_lv'] = Variable<int>(maxLv.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitSkillDataRFCompanion(')
+          ..write('id: $id, ')
+          ..write('skillId: $skillId, ')
+          ..write('rfSkillId: $rfSkillId, ')
+          ..write('minLv: $minLv, ')
+          ..write('maxLv: $maxLv')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDb extends GeneratedDatabase {
   _$AppDb(QueryExecutor e) : super(e);
   $AppDbManager get managers => $AppDbManager(this);
@@ -5505,6 +12571,18 @@ abstract class _$AppDb extends GeneratedDatabase {
   late final $Rarity6QuestDataTable rarity6QuestData = $Rarity6QuestDataTable(
     this,
   );
+  late final $SkillDataTable skillData = $SkillDataTable(this);
+  late final $UnitSkillDataTable unitSkillData = $UnitSkillDataTable(this);
+  late final $SkillActionTable skillAction = $SkillActionTable(this);
+  late final $AilmentDataTable ailmentData = $AilmentDataTable(this);
+  late final $UnitAttackPatternTable unitAttackPattern =
+      $UnitAttackPatternTable(this);
+  late final $SpSkillLabelDataTable spSkillLabelData = $SpSkillLabelDataTable(
+    this,
+  );
+  late final $UnitSkillDataRFTable unitSkillDataRF = $UnitSkillDataRFTable(
+    this,
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -5516,6 +12594,13 @@ abstract class _$AppDb extends GeneratedDatabase {
     uniqueEquipmentEnhanceData,
     actualUnitBackground,
     rarity6QuestData,
+    skillData,
+    unitSkillData,
+    skillAction,
+    ailmentData,
+    unitAttackPattern,
+    spSkillLabelData,
+    unitSkillDataRF,
   ];
 }
 
@@ -8050,6 +15135,3186 @@ typedef $$Rarity6QuestDataTableProcessedTableManager =
       Rarity6QuestDataData,
       PrefetchHooks Function()
     >;
+typedef $$SkillDataTableCreateCompanionBuilder =
+    SkillDataCompanion Function({
+      Value<int> skillId,
+      required String name,
+      required int skillType,
+      required int skillAreaWidth,
+      required double skillCastTime,
+      Value<double?> bossUbCoolTime,
+      required int action1,
+      required int action2,
+      required int action3,
+      required int action4,
+      required int action5,
+      required int action6,
+      required int action7,
+      required int action8,
+      required int action9,
+      required int action10,
+      required int actionDepend1,
+      required int actionDepend2,
+      required int actionDepend3,
+      required int actionDepend4,
+      required int actionDepend5,
+      required int actionDepend6,
+      required int actionDepend7,
+      required int actionDepend8,
+      required int actionDepend9,
+      required int actionDepend10,
+      Value<String?> description,
+      Value<int?> iconType,
+    });
+typedef $$SkillDataTableUpdateCompanionBuilder =
+    SkillDataCompanion Function({
+      Value<int> skillId,
+      Value<String> name,
+      Value<int> skillType,
+      Value<int> skillAreaWidth,
+      Value<double> skillCastTime,
+      Value<double?> bossUbCoolTime,
+      Value<int> action1,
+      Value<int> action2,
+      Value<int> action3,
+      Value<int> action4,
+      Value<int> action5,
+      Value<int> action6,
+      Value<int> action7,
+      Value<int> action8,
+      Value<int> action9,
+      Value<int> action10,
+      Value<int> actionDepend1,
+      Value<int> actionDepend2,
+      Value<int> actionDepend3,
+      Value<int> actionDepend4,
+      Value<int> actionDepend5,
+      Value<int> actionDepend6,
+      Value<int> actionDepend7,
+      Value<int> actionDepend8,
+      Value<int> actionDepend9,
+      Value<int> actionDepend10,
+      Value<String?> description,
+      Value<int?> iconType,
+    });
+
+class $$SkillDataTableFilterComposer
+    extends Composer<_$AppDb, $SkillDataTable> {
+  $$SkillDataTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get skillId => $composableBuilder(
+    column: $table.skillId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get skillType => $composableBuilder(
+    column: $table.skillType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get skillAreaWidth => $composableBuilder(
+    column: $table.skillAreaWidth,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get skillCastTime => $composableBuilder(
+    column: $table.skillCastTime,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get bossUbCoolTime => $composableBuilder(
+    column: $table.bossUbCoolTime,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action1 => $composableBuilder(
+    column: $table.action1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action2 => $composableBuilder(
+    column: $table.action2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action3 => $composableBuilder(
+    column: $table.action3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action4 => $composableBuilder(
+    column: $table.action4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action5 => $composableBuilder(
+    column: $table.action5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action6 => $composableBuilder(
+    column: $table.action6,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action7 => $composableBuilder(
+    column: $table.action7,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action8 => $composableBuilder(
+    column: $table.action8,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action9 => $composableBuilder(
+    column: $table.action9,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action10 => $composableBuilder(
+    column: $table.action10,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend1 => $composableBuilder(
+    column: $table.actionDepend1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend2 => $composableBuilder(
+    column: $table.actionDepend2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend3 => $composableBuilder(
+    column: $table.actionDepend3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend4 => $composableBuilder(
+    column: $table.actionDepend4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend5 => $composableBuilder(
+    column: $table.actionDepend5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend6 => $composableBuilder(
+    column: $table.actionDepend6,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend7 => $composableBuilder(
+    column: $table.actionDepend7,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend8 => $composableBuilder(
+    column: $table.actionDepend8,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend9 => $composableBuilder(
+    column: $table.actionDepend9,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend10 => $composableBuilder(
+    column: $table.actionDepend10,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get iconType => $composableBuilder(
+    column: $table.iconType,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$SkillDataTableOrderingComposer
+    extends Composer<_$AppDb, $SkillDataTable> {
+  $$SkillDataTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get skillId => $composableBuilder(
+    column: $table.skillId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get skillType => $composableBuilder(
+    column: $table.skillType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get skillAreaWidth => $composableBuilder(
+    column: $table.skillAreaWidth,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get skillCastTime => $composableBuilder(
+    column: $table.skillCastTime,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get bossUbCoolTime => $composableBuilder(
+    column: $table.bossUbCoolTime,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action1 => $composableBuilder(
+    column: $table.action1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action2 => $composableBuilder(
+    column: $table.action2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action3 => $composableBuilder(
+    column: $table.action3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action4 => $composableBuilder(
+    column: $table.action4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action5 => $composableBuilder(
+    column: $table.action5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action6 => $composableBuilder(
+    column: $table.action6,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action7 => $composableBuilder(
+    column: $table.action7,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action8 => $composableBuilder(
+    column: $table.action8,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action9 => $composableBuilder(
+    column: $table.action9,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action10 => $composableBuilder(
+    column: $table.action10,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend1 => $composableBuilder(
+    column: $table.actionDepend1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend2 => $composableBuilder(
+    column: $table.actionDepend2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend3 => $composableBuilder(
+    column: $table.actionDepend3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend4 => $composableBuilder(
+    column: $table.actionDepend4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend5 => $composableBuilder(
+    column: $table.actionDepend5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend6 => $composableBuilder(
+    column: $table.actionDepend6,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend7 => $composableBuilder(
+    column: $table.actionDepend7,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend8 => $composableBuilder(
+    column: $table.actionDepend8,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend9 => $composableBuilder(
+    column: $table.actionDepend9,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend10 => $composableBuilder(
+    column: $table.actionDepend10,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get iconType => $composableBuilder(
+    column: $table.iconType,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$SkillDataTableAnnotationComposer
+    extends Composer<_$AppDb, $SkillDataTable> {
+  $$SkillDataTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get skillId =>
+      $composableBuilder(column: $table.skillId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<int> get skillType =>
+      $composableBuilder(column: $table.skillType, builder: (column) => column);
+
+  GeneratedColumn<int> get skillAreaWidth => $composableBuilder(
+    column: $table.skillAreaWidth,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get skillCastTime => $composableBuilder(
+    column: $table.skillCastTime,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get bossUbCoolTime => $composableBuilder(
+    column: $table.bossUbCoolTime,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get action1 =>
+      $composableBuilder(column: $table.action1, builder: (column) => column);
+
+  GeneratedColumn<int> get action2 =>
+      $composableBuilder(column: $table.action2, builder: (column) => column);
+
+  GeneratedColumn<int> get action3 =>
+      $composableBuilder(column: $table.action3, builder: (column) => column);
+
+  GeneratedColumn<int> get action4 =>
+      $composableBuilder(column: $table.action4, builder: (column) => column);
+
+  GeneratedColumn<int> get action5 =>
+      $composableBuilder(column: $table.action5, builder: (column) => column);
+
+  GeneratedColumn<int> get action6 =>
+      $composableBuilder(column: $table.action6, builder: (column) => column);
+
+  GeneratedColumn<int> get action7 =>
+      $composableBuilder(column: $table.action7, builder: (column) => column);
+
+  GeneratedColumn<int> get action8 =>
+      $composableBuilder(column: $table.action8, builder: (column) => column);
+
+  GeneratedColumn<int> get action9 =>
+      $composableBuilder(column: $table.action9, builder: (column) => column);
+
+  GeneratedColumn<int> get action10 =>
+      $composableBuilder(column: $table.action10, builder: (column) => column);
+
+  GeneratedColumn<int> get actionDepend1 => $composableBuilder(
+    column: $table.actionDepend1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend2 => $composableBuilder(
+    column: $table.actionDepend2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend3 => $composableBuilder(
+    column: $table.actionDepend3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend4 => $composableBuilder(
+    column: $table.actionDepend4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend5 => $composableBuilder(
+    column: $table.actionDepend5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend6 => $composableBuilder(
+    column: $table.actionDepend6,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend7 => $composableBuilder(
+    column: $table.actionDepend7,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend8 => $composableBuilder(
+    column: $table.actionDepend8,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend9 => $composableBuilder(
+    column: $table.actionDepend9,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend10 => $composableBuilder(
+    column: $table.actionDepend10,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get iconType =>
+      $composableBuilder(column: $table.iconType, builder: (column) => column);
+}
+
+class $$SkillDataTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $SkillDataTable,
+          SkillDataData,
+          $$SkillDataTableFilterComposer,
+          $$SkillDataTableOrderingComposer,
+          $$SkillDataTableAnnotationComposer,
+          $$SkillDataTableCreateCompanionBuilder,
+          $$SkillDataTableUpdateCompanionBuilder,
+          (
+            SkillDataData,
+            BaseReferences<_$AppDb, $SkillDataTable, SkillDataData>,
+          ),
+          SkillDataData,
+          PrefetchHooks Function()
+        > {
+  $$SkillDataTableTableManager(_$AppDb db, $SkillDataTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer:
+              () => $$SkillDataTableFilterComposer($db: db, $table: table),
+          createOrderingComposer:
+              () => $$SkillDataTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer:
+              () => $$SkillDataTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> skillId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<int> skillType = const Value.absent(),
+                Value<int> skillAreaWidth = const Value.absent(),
+                Value<double> skillCastTime = const Value.absent(),
+                Value<double?> bossUbCoolTime = const Value.absent(),
+                Value<int> action1 = const Value.absent(),
+                Value<int> action2 = const Value.absent(),
+                Value<int> action3 = const Value.absent(),
+                Value<int> action4 = const Value.absent(),
+                Value<int> action5 = const Value.absent(),
+                Value<int> action6 = const Value.absent(),
+                Value<int> action7 = const Value.absent(),
+                Value<int> action8 = const Value.absent(),
+                Value<int> action9 = const Value.absent(),
+                Value<int> action10 = const Value.absent(),
+                Value<int> actionDepend1 = const Value.absent(),
+                Value<int> actionDepend2 = const Value.absent(),
+                Value<int> actionDepend3 = const Value.absent(),
+                Value<int> actionDepend4 = const Value.absent(),
+                Value<int> actionDepend5 = const Value.absent(),
+                Value<int> actionDepend6 = const Value.absent(),
+                Value<int> actionDepend7 = const Value.absent(),
+                Value<int> actionDepend8 = const Value.absent(),
+                Value<int> actionDepend9 = const Value.absent(),
+                Value<int> actionDepend10 = const Value.absent(),
+                Value<String?> description = const Value.absent(),
+                Value<int?> iconType = const Value.absent(),
+              }) => SkillDataCompanion(
+                skillId: skillId,
+                name: name,
+                skillType: skillType,
+                skillAreaWidth: skillAreaWidth,
+                skillCastTime: skillCastTime,
+                bossUbCoolTime: bossUbCoolTime,
+                action1: action1,
+                action2: action2,
+                action3: action3,
+                action4: action4,
+                action5: action5,
+                action6: action6,
+                action7: action7,
+                action8: action8,
+                action9: action9,
+                action10: action10,
+                actionDepend1: actionDepend1,
+                actionDepend2: actionDepend2,
+                actionDepend3: actionDepend3,
+                actionDepend4: actionDepend4,
+                actionDepend5: actionDepend5,
+                actionDepend6: actionDepend6,
+                actionDepend7: actionDepend7,
+                actionDepend8: actionDepend8,
+                actionDepend9: actionDepend9,
+                actionDepend10: actionDepend10,
+                description: description,
+                iconType: iconType,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> skillId = const Value.absent(),
+                required String name,
+                required int skillType,
+                required int skillAreaWidth,
+                required double skillCastTime,
+                Value<double?> bossUbCoolTime = const Value.absent(),
+                required int action1,
+                required int action2,
+                required int action3,
+                required int action4,
+                required int action5,
+                required int action6,
+                required int action7,
+                required int action8,
+                required int action9,
+                required int action10,
+                required int actionDepend1,
+                required int actionDepend2,
+                required int actionDepend3,
+                required int actionDepend4,
+                required int actionDepend5,
+                required int actionDepend6,
+                required int actionDepend7,
+                required int actionDepend8,
+                required int actionDepend9,
+                required int actionDepend10,
+                Value<String?> description = const Value.absent(),
+                Value<int?> iconType = const Value.absent(),
+              }) => SkillDataCompanion.insert(
+                skillId: skillId,
+                name: name,
+                skillType: skillType,
+                skillAreaWidth: skillAreaWidth,
+                skillCastTime: skillCastTime,
+                bossUbCoolTime: bossUbCoolTime,
+                action1: action1,
+                action2: action2,
+                action3: action3,
+                action4: action4,
+                action5: action5,
+                action6: action6,
+                action7: action7,
+                action8: action8,
+                action9: action9,
+                action10: action10,
+                actionDepend1: actionDepend1,
+                actionDepend2: actionDepend2,
+                actionDepend3: actionDepend3,
+                actionDepend4: actionDepend4,
+                actionDepend5: actionDepend5,
+                actionDepend6: actionDepend6,
+                actionDepend7: actionDepend7,
+                actionDepend8: actionDepend8,
+                actionDepend9: actionDepend9,
+                actionDepend10: actionDepend10,
+                description: description,
+                iconType: iconType,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$SkillDataTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $SkillDataTable,
+      SkillDataData,
+      $$SkillDataTableFilterComposer,
+      $$SkillDataTableOrderingComposer,
+      $$SkillDataTableAnnotationComposer,
+      $$SkillDataTableCreateCompanionBuilder,
+      $$SkillDataTableUpdateCompanionBuilder,
+      (SkillDataData, BaseReferences<_$AppDb, $SkillDataTable, SkillDataData>),
+      SkillDataData,
+      PrefetchHooks Function()
+    >;
+typedef $$UnitSkillDataTableCreateCompanionBuilder =
+    UnitSkillDataCompanion Function({
+      Value<int> unitId,
+      required int unionBurst,
+      required int spUnionBurst,
+      Value<int?> unionBurstEvolution,
+      required int mainSkill1,
+      required int mainSkill2,
+      required int mainSkill3,
+      required int mainSkill4,
+      required int mainSkill5,
+      required int mainSkill6,
+      required int mainSkill7,
+      required int mainSkill8,
+      required int mainSkill9,
+      required int mainSkill10,
+      Value<int?> mainSkillEvolution1,
+      Value<int?> mainSkillEvolution2,
+      required int exSkill1,
+      required int exSkill2,
+      required int exSkill3,
+      required int exSkill4,
+      required int exSkill5,
+      Value<int?> exSkillEvolution1,
+      Value<int?> exSkillEvolution2,
+      Value<int?> exSkillEvolution3,
+      Value<int?> exSkillEvolution4,
+      Value<int?> exSkillEvolution5,
+      required int spSkill1,
+      required int spSkill2,
+      required int spSkill3,
+      required int spSkill4,
+      required int spSkill5,
+      Value<int?> spSkillEvolution1,
+      Value<int?> spSkillEvolution2,
+    });
+typedef $$UnitSkillDataTableUpdateCompanionBuilder =
+    UnitSkillDataCompanion Function({
+      Value<int> unitId,
+      Value<int> unionBurst,
+      Value<int> spUnionBurst,
+      Value<int?> unionBurstEvolution,
+      Value<int> mainSkill1,
+      Value<int> mainSkill2,
+      Value<int> mainSkill3,
+      Value<int> mainSkill4,
+      Value<int> mainSkill5,
+      Value<int> mainSkill6,
+      Value<int> mainSkill7,
+      Value<int> mainSkill8,
+      Value<int> mainSkill9,
+      Value<int> mainSkill10,
+      Value<int?> mainSkillEvolution1,
+      Value<int?> mainSkillEvolution2,
+      Value<int> exSkill1,
+      Value<int> exSkill2,
+      Value<int> exSkill3,
+      Value<int> exSkill4,
+      Value<int> exSkill5,
+      Value<int?> exSkillEvolution1,
+      Value<int?> exSkillEvolution2,
+      Value<int?> exSkillEvolution3,
+      Value<int?> exSkillEvolution4,
+      Value<int?> exSkillEvolution5,
+      Value<int> spSkill1,
+      Value<int> spSkill2,
+      Value<int> spSkill3,
+      Value<int> spSkill4,
+      Value<int> spSkill5,
+      Value<int?> spSkillEvolution1,
+      Value<int?> spSkillEvolution2,
+    });
+
+class $$UnitSkillDataTableFilterComposer
+    extends Composer<_$AppDb, $UnitSkillDataTable> {
+  $$UnitSkillDataTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unionBurst => $composableBuilder(
+    column: $table.unionBurst,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get spUnionBurst => $composableBuilder(
+    column: $table.spUnionBurst,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unionBurstEvolution => $composableBuilder(
+    column: $table.unionBurstEvolution,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkill1 => $composableBuilder(
+    column: $table.mainSkill1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkill2 => $composableBuilder(
+    column: $table.mainSkill2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkill3 => $composableBuilder(
+    column: $table.mainSkill3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkill4 => $composableBuilder(
+    column: $table.mainSkill4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkill5 => $composableBuilder(
+    column: $table.mainSkill5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkill6 => $composableBuilder(
+    column: $table.mainSkill6,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkill7 => $composableBuilder(
+    column: $table.mainSkill7,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkill8 => $composableBuilder(
+    column: $table.mainSkill8,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkill9 => $composableBuilder(
+    column: $table.mainSkill9,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkill10 => $composableBuilder(
+    column: $table.mainSkill10,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillEvolution1 => $composableBuilder(
+    column: $table.mainSkillEvolution1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillEvolution2 => $composableBuilder(
+    column: $table.mainSkillEvolution2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkill1 => $composableBuilder(
+    column: $table.exSkill1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkill2 => $composableBuilder(
+    column: $table.exSkill2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkill3 => $composableBuilder(
+    column: $table.exSkill3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkill4 => $composableBuilder(
+    column: $table.exSkill4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkill5 => $composableBuilder(
+    column: $table.exSkill5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillEvolution1 => $composableBuilder(
+    column: $table.exSkillEvolution1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillEvolution2 => $composableBuilder(
+    column: $table.exSkillEvolution2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillEvolution3 => $composableBuilder(
+    column: $table.exSkillEvolution3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillEvolution4 => $composableBuilder(
+    column: $table.exSkillEvolution4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillEvolution5 => $composableBuilder(
+    column: $table.exSkillEvolution5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get spSkill1 => $composableBuilder(
+    column: $table.spSkill1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get spSkill2 => $composableBuilder(
+    column: $table.spSkill2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get spSkill3 => $composableBuilder(
+    column: $table.spSkill3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get spSkill4 => $composableBuilder(
+    column: $table.spSkill4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get spSkill5 => $composableBuilder(
+    column: $table.spSkill5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get spSkillEvolution1 => $composableBuilder(
+    column: $table.spSkillEvolution1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get spSkillEvolution2 => $composableBuilder(
+    column: $table.spSkillEvolution2,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$UnitSkillDataTableOrderingComposer
+    extends Composer<_$AppDb, $UnitSkillDataTable> {
+  $$UnitSkillDataTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unionBurst => $composableBuilder(
+    column: $table.unionBurst,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get spUnionBurst => $composableBuilder(
+    column: $table.spUnionBurst,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unionBurstEvolution => $composableBuilder(
+    column: $table.unionBurstEvolution,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkill1 => $composableBuilder(
+    column: $table.mainSkill1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkill2 => $composableBuilder(
+    column: $table.mainSkill2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkill3 => $composableBuilder(
+    column: $table.mainSkill3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkill4 => $composableBuilder(
+    column: $table.mainSkill4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkill5 => $composableBuilder(
+    column: $table.mainSkill5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkill6 => $composableBuilder(
+    column: $table.mainSkill6,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkill7 => $composableBuilder(
+    column: $table.mainSkill7,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkill8 => $composableBuilder(
+    column: $table.mainSkill8,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkill9 => $composableBuilder(
+    column: $table.mainSkill9,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkill10 => $composableBuilder(
+    column: $table.mainSkill10,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillEvolution1 => $composableBuilder(
+    column: $table.mainSkillEvolution1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillEvolution2 => $composableBuilder(
+    column: $table.mainSkillEvolution2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkill1 => $composableBuilder(
+    column: $table.exSkill1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkill2 => $composableBuilder(
+    column: $table.exSkill2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkill3 => $composableBuilder(
+    column: $table.exSkill3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkill4 => $composableBuilder(
+    column: $table.exSkill4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkill5 => $composableBuilder(
+    column: $table.exSkill5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillEvolution1 => $composableBuilder(
+    column: $table.exSkillEvolution1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillEvolution2 => $composableBuilder(
+    column: $table.exSkillEvolution2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillEvolution3 => $composableBuilder(
+    column: $table.exSkillEvolution3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillEvolution4 => $composableBuilder(
+    column: $table.exSkillEvolution4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillEvolution5 => $composableBuilder(
+    column: $table.exSkillEvolution5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get spSkill1 => $composableBuilder(
+    column: $table.spSkill1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get spSkill2 => $composableBuilder(
+    column: $table.spSkill2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get spSkill3 => $composableBuilder(
+    column: $table.spSkill3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get spSkill4 => $composableBuilder(
+    column: $table.spSkill4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get spSkill5 => $composableBuilder(
+    column: $table.spSkill5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get spSkillEvolution1 => $composableBuilder(
+    column: $table.spSkillEvolution1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get spSkillEvolution2 => $composableBuilder(
+    column: $table.spSkillEvolution2,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$UnitSkillDataTableAnnotationComposer
+    extends Composer<_$AppDb, $UnitSkillDataTable> {
+  $$UnitSkillDataTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<int> get unionBurst => $composableBuilder(
+    column: $table.unionBurst,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get spUnionBurst => $composableBuilder(
+    column: $table.spUnionBurst,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get unionBurstEvolution => $composableBuilder(
+    column: $table.unionBurstEvolution,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkill1 => $composableBuilder(
+    column: $table.mainSkill1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkill2 => $composableBuilder(
+    column: $table.mainSkill2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkill3 => $composableBuilder(
+    column: $table.mainSkill3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkill4 => $composableBuilder(
+    column: $table.mainSkill4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkill5 => $composableBuilder(
+    column: $table.mainSkill5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkill6 => $composableBuilder(
+    column: $table.mainSkill6,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkill7 => $composableBuilder(
+    column: $table.mainSkill7,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkill8 => $composableBuilder(
+    column: $table.mainSkill8,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkill9 => $composableBuilder(
+    column: $table.mainSkill9,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkill10 => $composableBuilder(
+    column: $table.mainSkill10,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillEvolution1 => $composableBuilder(
+    column: $table.mainSkillEvolution1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillEvolution2 => $composableBuilder(
+    column: $table.mainSkillEvolution2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkill1 =>
+      $composableBuilder(column: $table.exSkill1, builder: (column) => column);
+
+  GeneratedColumn<int> get exSkill2 =>
+      $composableBuilder(column: $table.exSkill2, builder: (column) => column);
+
+  GeneratedColumn<int> get exSkill3 =>
+      $composableBuilder(column: $table.exSkill3, builder: (column) => column);
+
+  GeneratedColumn<int> get exSkill4 =>
+      $composableBuilder(column: $table.exSkill4, builder: (column) => column);
+
+  GeneratedColumn<int> get exSkill5 =>
+      $composableBuilder(column: $table.exSkill5, builder: (column) => column);
+
+  GeneratedColumn<int> get exSkillEvolution1 => $composableBuilder(
+    column: $table.exSkillEvolution1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillEvolution2 => $composableBuilder(
+    column: $table.exSkillEvolution2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillEvolution3 => $composableBuilder(
+    column: $table.exSkillEvolution3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillEvolution4 => $composableBuilder(
+    column: $table.exSkillEvolution4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillEvolution5 => $composableBuilder(
+    column: $table.exSkillEvolution5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get spSkill1 =>
+      $composableBuilder(column: $table.spSkill1, builder: (column) => column);
+
+  GeneratedColumn<int> get spSkill2 =>
+      $composableBuilder(column: $table.spSkill2, builder: (column) => column);
+
+  GeneratedColumn<int> get spSkill3 =>
+      $composableBuilder(column: $table.spSkill3, builder: (column) => column);
+
+  GeneratedColumn<int> get spSkill4 =>
+      $composableBuilder(column: $table.spSkill4, builder: (column) => column);
+
+  GeneratedColumn<int> get spSkill5 =>
+      $composableBuilder(column: $table.spSkill5, builder: (column) => column);
+
+  GeneratedColumn<int> get spSkillEvolution1 => $composableBuilder(
+    column: $table.spSkillEvolution1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get spSkillEvolution2 => $composableBuilder(
+    column: $table.spSkillEvolution2,
+    builder: (column) => column,
+  );
+}
+
+class $$UnitSkillDataTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $UnitSkillDataTable,
+          UnitSkillDataData,
+          $$UnitSkillDataTableFilterComposer,
+          $$UnitSkillDataTableOrderingComposer,
+          $$UnitSkillDataTableAnnotationComposer,
+          $$UnitSkillDataTableCreateCompanionBuilder,
+          $$UnitSkillDataTableUpdateCompanionBuilder,
+          (
+            UnitSkillDataData,
+            BaseReferences<_$AppDb, $UnitSkillDataTable, UnitSkillDataData>,
+          ),
+          UnitSkillDataData,
+          PrefetchHooks Function()
+        > {
+  $$UnitSkillDataTableTableManager(_$AppDb db, $UnitSkillDataTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer:
+              () => $$UnitSkillDataTableFilterComposer($db: db, $table: table),
+          createOrderingComposer:
+              () =>
+                  $$UnitSkillDataTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer:
+              () => $$UnitSkillDataTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> unitId = const Value.absent(),
+                Value<int> unionBurst = const Value.absent(),
+                Value<int> spUnionBurst = const Value.absent(),
+                Value<int?> unionBurstEvolution = const Value.absent(),
+                Value<int> mainSkill1 = const Value.absent(),
+                Value<int> mainSkill2 = const Value.absent(),
+                Value<int> mainSkill3 = const Value.absent(),
+                Value<int> mainSkill4 = const Value.absent(),
+                Value<int> mainSkill5 = const Value.absent(),
+                Value<int> mainSkill6 = const Value.absent(),
+                Value<int> mainSkill7 = const Value.absent(),
+                Value<int> mainSkill8 = const Value.absent(),
+                Value<int> mainSkill9 = const Value.absent(),
+                Value<int> mainSkill10 = const Value.absent(),
+                Value<int?> mainSkillEvolution1 = const Value.absent(),
+                Value<int?> mainSkillEvolution2 = const Value.absent(),
+                Value<int> exSkill1 = const Value.absent(),
+                Value<int> exSkill2 = const Value.absent(),
+                Value<int> exSkill3 = const Value.absent(),
+                Value<int> exSkill4 = const Value.absent(),
+                Value<int> exSkill5 = const Value.absent(),
+                Value<int?> exSkillEvolution1 = const Value.absent(),
+                Value<int?> exSkillEvolution2 = const Value.absent(),
+                Value<int?> exSkillEvolution3 = const Value.absent(),
+                Value<int?> exSkillEvolution4 = const Value.absent(),
+                Value<int?> exSkillEvolution5 = const Value.absent(),
+                Value<int> spSkill1 = const Value.absent(),
+                Value<int> spSkill2 = const Value.absent(),
+                Value<int> spSkill3 = const Value.absent(),
+                Value<int> spSkill4 = const Value.absent(),
+                Value<int> spSkill5 = const Value.absent(),
+                Value<int?> spSkillEvolution1 = const Value.absent(),
+                Value<int?> spSkillEvolution2 = const Value.absent(),
+              }) => UnitSkillDataCompanion(
+                unitId: unitId,
+                unionBurst: unionBurst,
+                spUnionBurst: spUnionBurst,
+                unionBurstEvolution: unionBurstEvolution,
+                mainSkill1: mainSkill1,
+                mainSkill2: mainSkill2,
+                mainSkill3: mainSkill3,
+                mainSkill4: mainSkill4,
+                mainSkill5: mainSkill5,
+                mainSkill6: mainSkill6,
+                mainSkill7: mainSkill7,
+                mainSkill8: mainSkill8,
+                mainSkill9: mainSkill9,
+                mainSkill10: mainSkill10,
+                mainSkillEvolution1: mainSkillEvolution1,
+                mainSkillEvolution2: mainSkillEvolution2,
+                exSkill1: exSkill1,
+                exSkill2: exSkill2,
+                exSkill3: exSkill3,
+                exSkill4: exSkill4,
+                exSkill5: exSkill5,
+                exSkillEvolution1: exSkillEvolution1,
+                exSkillEvolution2: exSkillEvolution2,
+                exSkillEvolution3: exSkillEvolution3,
+                exSkillEvolution4: exSkillEvolution4,
+                exSkillEvolution5: exSkillEvolution5,
+                spSkill1: spSkill1,
+                spSkill2: spSkill2,
+                spSkill3: spSkill3,
+                spSkill4: spSkill4,
+                spSkill5: spSkill5,
+                spSkillEvolution1: spSkillEvolution1,
+                spSkillEvolution2: spSkillEvolution2,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> unitId = const Value.absent(),
+                required int unionBurst,
+                required int spUnionBurst,
+                Value<int?> unionBurstEvolution = const Value.absent(),
+                required int mainSkill1,
+                required int mainSkill2,
+                required int mainSkill3,
+                required int mainSkill4,
+                required int mainSkill5,
+                required int mainSkill6,
+                required int mainSkill7,
+                required int mainSkill8,
+                required int mainSkill9,
+                required int mainSkill10,
+                Value<int?> mainSkillEvolution1 = const Value.absent(),
+                Value<int?> mainSkillEvolution2 = const Value.absent(),
+                required int exSkill1,
+                required int exSkill2,
+                required int exSkill3,
+                required int exSkill4,
+                required int exSkill5,
+                Value<int?> exSkillEvolution1 = const Value.absent(),
+                Value<int?> exSkillEvolution2 = const Value.absent(),
+                Value<int?> exSkillEvolution3 = const Value.absent(),
+                Value<int?> exSkillEvolution4 = const Value.absent(),
+                Value<int?> exSkillEvolution5 = const Value.absent(),
+                required int spSkill1,
+                required int spSkill2,
+                required int spSkill3,
+                required int spSkill4,
+                required int spSkill5,
+                Value<int?> spSkillEvolution1 = const Value.absent(),
+                Value<int?> spSkillEvolution2 = const Value.absent(),
+              }) => UnitSkillDataCompanion.insert(
+                unitId: unitId,
+                unionBurst: unionBurst,
+                spUnionBurst: spUnionBurst,
+                unionBurstEvolution: unionBurstEvolution,
+                mainSkill1: mainSkill1,
+                mainSkill2: mainSkill2,
+                mainSkill3: mainSkill3,
+                mainSkill4: mainSkill4,
+                mainSkill5: mainSkill5,
+                mainSkill6: mainSkill6,
+                mainSkill7: mainSkill7,
+                mainSkill8: mainSkill8,
+                mainSkill9: mainSkill9,
+                mainSkill10: mainSkill10,
+                mainSkillEvolution1: mainSkillEvolution1,
+                mainSkillEvolution2: mainSkillEvolution2,
+                exSkill1: exSkill1,
+                exSkill2: exSkill2,
+                exSkill3: exSkill3,
+                exSkill4: exSkill4,
+                exSkill5: exSkill5,
+                exSkillEvolution1: exSkillEvolution1,
+                exSkillEvolution2: exSkillEvolution2,
+                exSkillEvolution3: exSkillEvolution3,
+                exSkillEvolution4: exSkillEvolution4,
+                exSkillEvolution5: exSkillEvolution5,
+                spSkill1: spSkill1,
+                spSkill2: spSkill2,
+                spSkill3: spSkill3,
+                spSkill4: spSkill4,
+                spSkill5: spSkill5,
+                spSkillEvolution1: spSkillEvolution1,
+                spSkillEvolution2: spSkillEvolution2,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$UnitSkillDataTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $UnitSkillDataTable,
+      UnitSkillDataData,
+      $$UnitSkillDataTableFilterComposer,
+      $$UnitSkillDataTableOrderingComposer,
+      $$UnitSkillDataTableAnnotationComposer,
+      $$UnitSkillDataTableCreateCompanionBuilder,
+      $$UnitSkillDataTableUpdateCompanionBuilder,
+      (
+        UnitSkillDataData,
+        BaseReferences<_$AppDb, $UnitSkillDataTable, UnitSkillDataData>,
+      ),
+      UnitSkillDataData,
+      PrefetchHooks Function()
+    >;
+typedef $$SkillActionTableCreateCompanionBuilder =
+    SkillActionCompanion Function({
+      Value<int> actionId,
+      required int classId,
+      required int actionType,
+      required int actionDetail1,
+      required int actionDetail2,
+      required int actionDetail3,
+      required double actionValue1,
+      required double actionValue2,
+      required double actionValue3,
+      required double actionValue4,
+      required double actionValue5,
+      required double actionValue6,
+      required double actionValue7,
+      required int targetAssignment,
+      required int targetArea,
+      required int targetRange,
+      required int targetType,
+      required int targetNumber,
+      required int targetCount,
+      Value<String?> description,
+      Value<String?> levelUpDisp,
+    });
+typedef $$SkillActionTableUpdateCompanionBuilder =
+    SkillActionCompanion Function({
+      Value<int> actionId,
+      Value<int> classId,
+      Value<int> actionType,
+      Value<int> actionDetail1,
+      Value<int> actionDetail2,
+      Value<int> actionDetail3,
+      Value<double> actionValue1,
+      Value<double> actionValue2,
+      Value<double> actionValue3,
+      Value<double> actionValue4,
+      Value<double> actionValue5,
+      Value<double> actionValue6,
+      Value<double> actionValue7,
+      Value<int> targetAssignment,
+      Value<int> targetArea,
+      Value<int> targetRange,
+      Value<int> targetType,
+      Value<int> targetNumber,
+      Value<int> targetCount,
+      Value<String?> description,
+      Value<String?> levelUpDisp,
+    });
+
+class $$SkillActionTableFilterComposer
+    extends Composer<_$AppDb, $SkillActionTable> {
+  $$SkillActionTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get actionId => $composableBuilder(
+    column: $table.actionId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get classId => $composableBuilder(
+    column: $table.classId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionType => $composableBuilder(
+    column: $table.actionType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDetail1 => $composableBuilder(
+    column: $table.actionDetail1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDetail2 => $composableBuilder(
+    column: $table.actionDetail2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDetail3 => $composableBuilder(
+    column: $table.actionDetail3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get actionValue1 => $composableBuilder(
+    column: $table.actionValue1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get actionValue2 => $composableBuilder(
+    column: $table.actionValue2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get actionValue3 => $composableBuilder(
+    column: $table.actionValue3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get actionValue4 => $composableBuilder(
+    column: $table.actionValue4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get actionValue5 => $composableBuilder(
+    column: $table.actionValue5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get actionValue6 => $composableBuilder(
+    column: $table.actionValue6,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get actionValue7 => $composableBuilder(
+    column: $table.actionValue7,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get targetAssignment => $composableBuilder(
+    column: $table.targetAssignment,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get targetArea => $composableBuilder(
+    column: $table.targetArea,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get targetRange => $composableBuilder(
+    column: $table.targetRange,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get targetType => $composableBuilder(
+    column: $table.targetType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get targetNumber => $composableBuilder(
+    column: $table.targetNumber,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get targetCount => $composableBuilder(
+    column: $table.targetCount,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get levelUpDisp => $composableBuilder(
+    column: $table.levelUpDisp,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$SkillActionTableOrderingComposer
+    extends Composer<_$AppDb, $SkillActionTable> {
+  $$SkillActionTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get actionId => $composableBuilder(
+    column: $table.actionId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get classId => $composableBuilder(
+    column: $table.classId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionType => $composableBuilder(
+    column: $table.actionType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDetail1 => $composableBuilder(
+    column: $table.actionDetail1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDetail2 => $composableBuilder(
+    column: $table.actionDetail2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDetail3 => $composableBuilder(
+    column: $table.actionDetail3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get actionValue1 => $composableBuilder(
+    column: $table.actionValue1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get actionValue2 => $composableBuilder(
+    column: $table.actionValue2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get actionValue3 => $composableBuilder(
+    column: $table.actionValue3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get actionValue4 => $composableBuilder(
+    column: $table.actionValue4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get actionValue5 => $composableBuilder(
+    column: $table.actionValue5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get actionValue6 => $composableBuilder(
+    column: $table.actionValue6,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get actionValue7 => $composableBuilder(
+    column: $table.actionValue7,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get targetAssignment => $composableBuilder(
+    column: $table.targetAssignment,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get targetArea => $composableBuilder(
+    column: $table.targetArea,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get targetRange => $composableBuilder(
+    column: $table.targetRange,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get targetType => $composableBuilder(
+    column: $table.targetType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get targetNumber => $composableBuilder(
+    column: $table.targetNumber,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get targetCount => $composableBuilder(
+    column: $table.targetCount,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get levelUpDisp => $composableBuilder(
+    column: $table.levelUpDisp,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$SkillActionTableAnnotationComposer
+    extends Composer<_$AppDb, $SkillActionTable> {
+  $$SkillActionTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get actionId =>
+      $composableBuilder(column: $table.actionId, builder: (column) => column);
+
+  GeneratedColumn<int> get classId =>
+      $composableBuilder(column: $table.classId, builder: (column) => column);
+
+  GeneratedColumn<int> get actionType => $composableBuilder(
+    column: $table.actionType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDetail1 => $composableBuilder(
+    column: $table.actionDetail1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDetail2 => $composableBuilder(
+    column: $table.actionDetail2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDetail3 => $composableBuilder(
+    column: $table.actionDetail3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get actionValue1 => $composableBuilder(
+    column: $table.actionValue1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get actionValue2 => $composableBuilder(
+    column: $table.actionValue2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get actionValue3 => $composableBuilder(
+    column: $table.actionValue3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get actionValue4 => $composableBuilder(
+    column: $table.actionValue4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get actionValue5 => $composableBuilder(
+    column: $table.actionValue5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get actionValue6 => $composableBuilder(
+    column: $table.actionValue6,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get actionValue7 => $composableBuilder(
+    column: $table.actionValue7,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get targetAssignment => $composableBuilder(
+    column: $table.targetAssignment,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get targetArea => $composableBuilder(
+    column: $table.targetArea,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get targetRange => $composableBuilder(
+    column: $table.targetRange,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get targetType => $composableBuilder(
+    column: $table.targetType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get targetNumber => $composableBuilder(
+    column: $table.targetNumber,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get targetCount => $composableBuilder(
+    column: $table.targetCount,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get levelUpDisp => $composableBuilder(
+    column: $table.levelUpDisp,
+    builder: (column) => column,
+  );
+}
+
+class $$SkillActionTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $SkillActionTable,
+          SkillActionData,
+          $$SkillActionTableFilterComposer,
+          $$SkillActionTableOrderingComposer,
+          $$SkillActionTableAnnotationComposer,
+          $$SkillActionTableCreateCompanionBuilder,
+          $$SkillActionTableUpdateCompanionBuilder,
+          (
+            SkillActionData,
+            BaseReferences<_$AppDb, $SkillActionTable, SkillActionData>,
+          ),
+          SkillActionData,
+          PrefetchHooks Function()
+        > {
+  $$SkillActionTableTableManager(_$AppDb db, $SkillActionTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer:
+              () => $$SkillActionTableFilterComposer($db: db, $table: table),
+          createOrderingComposer:
+              () => $$SkillActionTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer:
+              () =>
+                  $$SkillActionTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> actionId = const Value.absent(),
+                Value<int> classId = const Value.absent(),
+                Value<int> actionType = const Value.absent(),
+                Value<int> actionDetail1 = const Value.absent(),
+                Value<int> actionDetail2 = const Value.absent(),
+                Value<int> actionDetail3 = const Value.absent(),
+                Value<double> actionValue1 = const Value.absent(),
+                Value<double> actionValue2 = const Value.absent(),
+                Value<double> actionValue3 = const Value.absent(),
+                Value<double> actionValue4 = const Value.absent(),
+                Value<double> actionValue5 = const Value.absent(),
+                Value<double> actionValue6 = const Value.absent(),
+                Value<double> actionValue7 = const Value.absent(),
+                Value<int> targetAssignment = const Value.absent(),
+                Value<int> targetArea = const Value.absent(),
+                Value<int> targetRange = const Value.absent(),
+                Value<int> targetType = const Value.absent(),
+                Value<int> targetNumber = const Value.absent(),
+                Value<int> targetCount = const Value.absent(),
+                Value<String?> description = const Value.absent(),
+                Value<String?> levelUpDisp = const Value.absent(),
+              }) => SkillActionCompanion(
+                actionId: actionId,
+                classId: classId,
+                actionType: actionType,
+                actionDetail1: actionDetail1,
+                actionDetail2: actionDetail2,
+                actionDetail3: actionDetail3,
+                actionValue1: actionValue1,
+                actionValue2: actionValue2,
+                actionValue3: actionValue3,
+                actionValue4: actionValue4,
+                actionValue5: actionValue5,
+                actionValue6: actionValue6,
+                actionValue7: actionValue7,
+                targetAssignment: targetAssignment,
+                targetArea: targetArea,
+                targetRange: targetRange,
+                targetType: targetType,
+                targetNumber: targetNumber,
+                targetCount: targetCount,
+                description: description,
+                levelUpDisp: levelUpDisp,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> actionId = const Value.absent(),
+                required int classId,
+                required int actionType,
+                required int actionDetail1,
+                required int actionDetail2,
+                required int actionDetail3,
+                required double actionValue1,
+                required double actionValue2,
+                required double actionValue3,
+                required double actionValue4,
+                required double actionValue5,
+                required double actionValue6,
+                required double actionValue7,
+                required int targetAssignment,
+                required int targetArea,
+                required int targetRange,
+                required int targetType,
+                required int targetNumber,
+                required int targetCount,
+                Value<String?> description = const Value.absent(),
+                Value<String?> levelUpDisp = const Value.absent(),
+              }) => SkillActionCompanion.insert(
+                actionId: actionId,
+                classId: classId,
+                actionType: actionType,
+                actionDetail1: actionDetail1,
+                actionDetail2: actionDetail2,
+                actionDetail3: actionDetail3,
+                actionValue1: actionValue1,
+                actionValue2: actionValue2,
+                actionValue3: actionValue3,
+                actionValue4: actionValue4,
+                actionValue5: actionValue5,
+                actionValue6: actionValue6,
+                actionValue7: actionValue7,
+                targetAssignment: targetAssignment,
+                targetArea: targetArea,
+                targetRange: targetRange,
+                targetType: targetType,
+                targetNumber: targetNumber,
+                targetCount: targetCount,
+                description: description,
+                levelUpDisp: levelUpDisp,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$SkillActionTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $SkillActionTable,
+      SkillActionData,
+      $$SkillActionTableFilterComposer,
+      $$SkillActionTableOrderingComposer,
+      $$SkillActionTableAnnotationComposer,
+      $$SkillActionTableCreateCompanionBuilder,
+      $$SkillActionTableUpdateCompanionBuilder,
+      (
+        SkillActionData,
+        BaseReferences<_$AppDb, $SkillActionTable, SkillActionData>,
+      ),
+      SkillActionData,
+      PrefetchHooks Function()
+    >;
+typedef $$AilmentDataTableCreateCompanionBuilder =
+    AilmentDataCompanion Function({
+      Value<int> ailmentId,
+      required int ailmentAction,
+      required int ailmentDetail1,
+      Value<String?> ailmentName,
+    });
+typedef $$AilmentDataTableUpdateCompanionBuilder =
+    AilmentDataCompanion Function({
+      Value<int> ailmentId,
+      Value<int> ailmentAction,
+      Value<int> ailmentDetail1,
+      Value<String?> ailmentName,
+    });
+
+class $$AilmentDataTableFilterComposer
+    extends Composer<_$AppDb, $AilmentDataTable> {
+  $$AilmentDataTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get ailmentId => $composableBuilder(
+    column: $table.ailmentId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get ailmentAction => $composableBuilder(
+    column: $table.ailmentAction,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get ailmentDetail1 => $composableBuilder(
+    column: $table.ailmentDetail1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get ailmentName => $composableBuilder(
+    column: $table.ailmentName,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$AilmentDataTableOrderingComposer
+    extends Composer<_$AppDb, $AilmentDataTable> {
+  $$AilmentDataTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get ailmentId => $composableBuilder(
+    column: $table.ailmentId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get ailmentAction => $composableBuilder(
+    column: $table.ailmentAction,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get ailmentDetail1 => $composableBuilder(
+    column: $table.ailmentDetail1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get ailmentName => $composableBuilder(
+    column: $table.ailmentName,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$AilmentDataTableAnnotationComposer
+    extends Composer<_$AppDb, $AilmentDataTable> {
+  $$AilmentDataTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get ailmentId =>
+      $composableBuilder(column: $table.ailmentId, builder: (column) => column);
+
+  GeneratedColumn<int> get ailmentAction => $composableBuilder(
+    column: $table.ailmentAction,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get ailmentDetail1 => $composableBuilder(
+    column: $table.ailmentDetail1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get ailmentName => $composableBuilder(
+    column: $table.ailmentName,
+    builder: (column) => column,
+  );
+}
+
+class $$AilmentDataTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $AilmentDataTable,
+          AilmentDataData,
+          $$AilmentDataTableFilterComposer,
+          $$AilmentDataTableOrderingComposer,
+          $$AilmentDataTableAnnotationComposer,
+          $$AilmentDataTableCreateCompanionBuilder,
+          $$AilmentDataTableUpdateCompanionBuilder,
+          (
+            AilmentDataData,
+            BaseReferences<_$AppDb, $AilmentDataTable, AilmentDataData>,
+          ),
+          AilmentDataData,
+          PrefetchHooks Function()
+        > {
+  $$AilmentDataTableTableManager(_$AppDb db, $AilmentDataTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer:
+              () => $$AilmentDataTableFilterComposer($db: db, $table: table),
+          createOrderingComposer:
+              () => $$AilmentDataTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer:
+              () =>
+                  $$AilmentDataTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> ailmentId = const Value.absent(),
+                Value<int> ailmentAction = const Value.absent(),
+                Value<int> ailmentDetail1 = const Value.absent(),
+                Value<String?> ailmentName = const Value.absent(),
+              }) => AilmentDataCompanion(
+                ailmentId: ailmentId,
+                ailmentAction: ailmentAction,
+                ailmentDetail1: ailmentDetail1,
+                ailmentName: ailmentName,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> ailmentId = const Value.absent(),
+                required int ailmentAction,
+                required int ailmentDetail1,
+                Value<String?> ailmentName = const Value.absent(),
+              }) => AilmentDataCompanion.insert(
+                ailmentId: ailmentId,
+                ailmentAction: ailmentAction,
+                ailmentDetail1: ailmentDetail1,
+                ailmentName: ailmentName,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$AilmentDataTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $AilmentDataTable,
+      AilmentDataData,
+      $$AilmentDataTableFilterComposer,
+      $$AilmentDataTableOrderingComposer,
+      $$AilmentDataTableAnnotationComposer,
+      $$AilmentDataTableCreateCompanionBuilder,
+      $$AilmentDataTableUpdateCompanionBuilder,
+      (
+        AilmentDataData,
+        BaseReferences<_$AppDb, $AilmentDataTable, AilmentDataData>,
+      ),
+      AilmentDataData,
+      PrefetchHooks Function()
+    >;
+typedef $$UnitAttackPatternTableCreateCompanionBuilder =
+    UnitAttackPatternCompanion Function({
+      Value<int> patternId,
+      required int unitId,
+      Value<int?> loopStart,
+      Value<int?> loopEnd,
+      Value<int?> atkPattern1,
+      Value<int?> atkPattern2,
+      Value<int?> atkPattern3,
+      Value<int?> atkPattern4,
+      Value<int?> atkPattern5,
+      Value<int?> atkPattern6,
+      Value<int?> atkPattern7,
+      Value<int?> atkPattern8,
+      Value<int?> atkPattern9,
+      Value<int?> atkPattern10,
+      Value<int?> atkPattern11,
+      Value<int?> atkPattern12,
+      Value<int?> atkPattern13,
+      Value<int?> atkPattern14,
+      Value<int?> atkPattern15,
+      Value<int?> atkPattern16,
+      Value<int?> atkPattern17,
+      Value<int?> atkPattern18,
+      Value<int?> atkPattern19,
+      Value<int?> atkPattern20,
+    });
+typedef $$UnitAttackPatternTableUpdateCompanionBuilder =
+    UnitAttackPatternCompanion Function({
+      Value<int> patternId,
+      Value<int> unitId,
+      Value<int?> loopStart,
+      Value<int?> loopEnd,
+      Value<int?> atkPattern1,
+      Value<int?> atkPattern2,
+      Value<int?> atkPattern3,
+      Value<int?> atkPattern4,
+      Value<int?> atkPattern5,
+      Value<int?> atkPattern6,
+      Value<int?> atkPattern7,
+      Value<int?> atkPattern8,
+      Value<int?> atkPattern9,
+      Value<int?> atkPattern10,
+      Value<int?> atkPattern11,
+      Value<int?> atkPattern12,
+      Value<int?> atkPattern13,
+      Value<int?> atkPattern14,
+      Value<int?> atkPattern15,
+      Value<int?> atkPattern16,
+      Value<int?> atkPattern17,
+      Value<int?> atkPattern18,
+      Value<int?> atkPattern19,
+      Value<int?> atkPattern20,
+    });
+
+class $$UnitAttackPatternTableFilterComposer
+    extends Composer<_$AppDb, $UnitAttackPatternTable> {
+  $$UnitAttackPatternTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get patternId => $composableBuilder(
+    column: $table.patternId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get loopStart => $composableBuilder(
+    column: $table.loopStart,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get loopEnd => $composableBuilder(
+    column: $table.loopEnd,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern1 => $composableBuilder(
+    column: $table.atkPattern1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern2 => $composableBuilder(
+    column: $table.atkPattern2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern3 => $composableBuilder(
+    column: $table.atkPattern3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern4 => $composableBuilder(
+    column: $table.atkPattern4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern5 => $composableBuilder(
+    column: $table.atkPattern5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern6 => $composableBuilder(
+    column: $table.atkPattern6,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern7 => $composableBuilder(
+    column: $table.atkPattern7,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern8 => $composableBuilder(
+    column: $table.atkPattern8,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern9 => $composableBuilder(
+    column: $table.atkPattern9,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern10 => $composableBuilder(
+    column: $table.atkPattern10,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern11 => $composableBuilder(
+    column: $table.atkPattern11,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern12 => $composableBuilder(
+    column: $table.atkPattern12,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern13 => $composableBuilder(
+    column: $table.atkPattern13,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern14 => $composableBuilder(
+    column: $table.atkPattern14,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern15 => $composableBuilder(
+    column: $table.atkPattern15,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern16 => $composableBuilder(
+    column: $table.atkPattern16,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern17 => $composableBuilder(
+    column: $table.atkPattern17,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern18 => $composableBuilder(
+    column: $table.atkPattern18,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern19 => $composableBuilder(
+    column: $table.atkPattern19,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkPattern20 => $composableBuilder(
+    column: $table.atkPattern20,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$UnitAttackPatternTableOrderingComposer
+    extends Composer<_$AppDb, $UnitAttackPatternTable> {
+  $$UnitAttackPatternTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get patternId => $composableBuilder(
+    column: $table.patternId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get loopStart => $composableBuilder(
+    column: $table.loopStart,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get loopEnd => $composableBuilder(
+    column: $table.loopEnd,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern1 => $composableBuilder(
+    column: $table.atkPattern1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern2 => $composableBuilder(
+    column: $table.atkPattern2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern3 => $composableBuilder(
+    column: $table.atkPattern3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern4 => $composableBuilder(
+    column: $table.atkPattern4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern5 => $composableBuilder(
+    column: $table.atkPattern5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern6 => $composableBuilder(
+    column: $table.atkPattern6,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern7 => $composableBuilder(
+    column: $table.atkPattern7,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern8 => $composableBuilder(
+    column: $table.atkPattern8,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern9 => $composableBuilder(
+    column: $table.atkPattern9,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern10 => $composableBuilder(
+    column: $table.atkPattern10,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern11 => $composableBuilder(
+    column: $table.atkPattern11,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern12 => $composableBuilder(
+    column: $table.atkPattern12,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern13 => $composableBuilder(
+    column: $table.atkPattern13,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern14 => $composableBuilder(
+    column: $table.atkPattern14,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern15 => $composableBuilder(
+    column: $table.atkPattern15,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern16 => $composableBuilder(
+    column: $table.atkPattern16,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern17 => $composableBuilder(
+    column: $table.atkPattern17,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern18 => $composableBuilder(
+    column: $table.atkPattern18,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern19 => $composableBuilder(
+    column: $table.atkPattern19,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkPattern20 => $composableBuilder(
+    column: $table.atkPattern20,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$UnitAttackPatternTableAnnotationComposer
+    extends Composer<_$AppDb, $UnitAttackPatternTable> {
+  $$UnitAttackPatternTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get patternId =>
+      $composableBuilder(column: $table.patternId, builder: (column) => column);
+
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<int> get loopStart =>
+      $composableBuilder(column: $table.loopStart, builder: (column) => column);
+
+  GeneratedColumn<int> get loopEnd =>
+      $composableBuilder(column: $table.loopEnd, builder: (column) => column);
+
+  GeneratedColumn<int> get atkPattern1 => $composableBuilder(
+    column: $table.atkPattern1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern2 => $composableBuilder(
+    column: $table.atkPattern2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern3 => $composableBuilder(
+    column: $table.atkPattern3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern4 => $composableBuilder(
+    column: $table.atkPattern4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern5 => $composableBuilder(
+    column: $table.atkPattern5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern6 => $composableBuilder(
+    column: $table.atkPattern6,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern7 => $composableBuilder(
+    column: $table.atkPattern7,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern8 => $composableBuilder(
+    column: $table.atkPattern8,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern9 => $composableBuilder(
+    column: $table.atkPattern9,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern10 => $composableBuilder(
+    column: $table.atkPattern10,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern11 => $composableBuilder(
+    column: $table.atkPattern11,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern12 => $composableBuilder(
+    column: $table.atkPattern12,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern13 => $composableBuilder(
+    column: $table.atkPattern13,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern14 => $composableBuilder(
+    column: $table.atkPattern14,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern15 => $composableBuilder(
+    column: $table.atkPattern15,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern16 => $composableBuilder(
+    column: $table.atkPattern16,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern17 => $composableBuilder(
+    column: $table.atkPattern17,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern18 => $composableBuilder(
+    column: $table.atkPattern18,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern19 => $composableBuilder(
+    column: $table.atkPattern19,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkPattern20 => $composableBuilder(
+    column: $table.atkPattern20,
+    builder: (column) => column,
+  );
+}
+
+class $$UnitAttackPatternTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $UnitAttackPatternTable,
+          UnitAttackPatternData,
+          $$UnitAttackPatternTableFilterComposer,
+          $$UnitAttackPatternTableOrderingComposer,
+          $$UnitAttackPatternTableAnnotationComposer,
+          $$UnitAttackPatternTableCreateCompanionBuilder,
+          $$UnitAttackPatternTableUpdateCompanionBuilder,
+          (
+            UnitAttackPatternData,
+            BaseReferences<
+              _$AppDb,
+              $UnitAttackPatternTable,
+              UnitAttackPatternData
+            >,
+          ),
+          UnitAttackPatternData,
+          PrefetchHooks Function()
+        > {
+  $$UnitAttackPatternTableTableManager(
+    _$AppDb db,
+    $UnitAttackPatternTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer:
+              () => $$UnitAttackPatternTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer:
+              () => $$UnitAttackPatternTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$UnitAttackPatternTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> patternId = const Value.absent(),
+                Value<int> unitId = const Value.absent(),
+                Value<int?> loopStart = const Value.absent(),
+                Value<int?> loopEnd = const Value.absent(),
+                Value<int?> atkPattern1 = const Value.absent(),
+                Value<int?> atkPattern2 = const Value.absent(),
+                Value<int?> atkPattern3 = const Value.absent(),
+                Value<int?> atkPattern4 = const Value.absent(),
+                Value<int?> atkPattern5 = const Value.absent(),
+                Value<int?> atkPattern6 = const Value.absent(),
+                Value<int?> atkPattern7 = const Value.absent(),
+                Value<int?> atkPattern8 = const Value.absent(),
+                Value<int?> atkPattern9 = const Value.absent(),
+                Value<int?> atkPattern10 = const Value.absent(),
+                Value<int?> atkPattern11 = const Value.absent(),
+                Value<int?> atkPattern12 = const Value.absent(),
+                Value<int?> atkPattern13 = const Value.absent(),
+                Value<int?> atkPattern14 = const Value.absent(),
+                Value<int?> atkPattern15 = const Value.absent(),
+                Value<int?> atkPattern16 = const Value.absent(),
+                Value<int?> atkPattern17 = const Value.absent(),
+                Value<int?> atkPattern18 = const Value.absent(),
+                Value<int?> atkPattern19 = const Value.absent(),
+                Value<int?> atkPattern20 = const Value.absent(),
+              }) => UnitAttackPatternCompanion(
+                patternId: patternId,
+                unitId: unitId,
+                loopStart: loopStart,
+                loopEnd: loopEnd,
+                atkPattern1: atkPattern1,
+                atkPattern2: atkPattern2,
+                atkPattern3: atkPattern3,
+                atkPattern4: atkPattern4,
+                atkPattern5: atkPattern5,
+                atkPattern6: atkPattern6,
+                atkPattern7: atkPattern7,
+                atkPattern8: atkPattern8,
+                atkPattern9: atkPattern9,
+                atkPattern10: atkPattern10,
+                atkPattern11: atkPattern11,
+                atkPattern12: atkPattern12,
+                atkPattern13: atkPattern13,
+                atkPattern14: atkPattern14,
+                atkPattern15: atkPattern15,
+                atkPattern16: atkPattern16,
+                atkPattern17: atkPattern17,
+                atkPattern18: atkPattern18,
+                atkPattern19: atkPattern19,
+                atkPattern20: atkPattern20,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> patternId = const Value.absent(),
+                required int unitId,
+                Value<int?> loopStart = const Value.absent(),
+                Value<int?> loopEnd = const Value.absent(),
+                Value<int?> atkPattern1 = const Value.absent(),
+                Value<int?> atkPattern2 = const Value.absent(),
+                Value<int?> atkPattern3 = const Value.absent(),
+                Value<int?> atkPattern4 = const Value.absent(),
+                Value<int?> atkPattern5 = const Value.absent(),
+                Value<int?> atkPattern6 = const Value.absent(),
+                Value<int?> atkPattern7 = const Value.absent(),
+                Value<int?> atkPattern8 = const Value.absent(),
+                Value<int?> atkPattern9 = const Value.absent(),
+                Value<int?> atkPattern10 = const Value.absent(),
+                Value<int?> atkPattern11 = const Value.absent(),
+                Value<int?> atkPattern12 = const Value.absent(),
+                Value<int?> atkPattern13 = const Value.absent(),
+                Value<int?> atkPattern14 = const Value.absent(),
+                Value<int?> atkPattern15 = const Value.absent(),
+                Value<int?> atkPattern16 = const Value.absent(),
+                Value<int?> atkPattern17 = const Value.absent(),
+                Value<int?> atkPattern18 = const Value.absent(),
+                Value<int?> atkPattern19 = const Value.absent(),
+                Value<int?> atkPattern20 = const Value.absent(),
+              }) => UnitAttackPatternCompanion.insert(
+                patternId: patternId,
+                unitId: unitId,
+                loopStart: loopStart,
+                loopEnd: loopEnd,
+                atkPattern1: atkPattern1,
+                atkPattern2: atkPattern2,
+                atkPattern3: atkPattern3,
+                atkPattern4: atkPattern4,
+                atkPattern5: atkPattern5,
+                atkPattern6: atkPattern6,
+                atkPattern7: atkPattern7,
+                atkPattern8: atkPattern8,
+                atkPattern9: atkPattern9,
+                atkPattern10: atkPattern10,
+                atkPattern11: atkPattern11,
+                atkPattern12: atkPattern12,
+                atkPattern13: atkPattern13,
+                atkPattern14: atkPattern14,
+                atkPattern15: atkPattern15,
+                atkPattern16: atkPattern16,
+                atkPattern17: atkPattern17,
+                atkPattern18: atkPattern18,
+                atkPattern19: atkPattern19,
+                atkPattern20: atkPattern20,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$UnitAttackPatternTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $UnitAttackPatternTable,
+      UnitAttackPatternData,
+      $$UnitAttackPatternTableFilterComposer,
+      $$UnitAttackPatternTableOrderingComposer,
+      $$UnitAttackPatternTableAnnotationComposer,
+      $$UnitAttackPatternTableCreateCompanionBuilder,
+      $$UnitAttackPatternTableUpdateCompanionBuilder,
+      (
+        UnitAttackPatternData,
+        BaseReferences<_$AppDb, $UnitAttackPatternTable, UnitAttackPatternData>,
+      ),
+      UnitAttackPatternData,
+      PrefetchHooks Function()
+    >;
+typedef $$SpSkillLabelDataTableCreateCompanionBuilder =
+    SpSkillLabelDataCompanion Function({
+      Value<int> unitId,
+      Value<String?> normalLabelText,
+      Value<String?> spLabelText,
+    });
+typedef $$SpSkillLabelDataTableUpdateCompanionBuilder =
+    SpSkillLabelDataCompanion Function({
+      Value<int> unitId,
+      Value<String?> normalLabelText,
+      Value<String?> spLabelText,
+    });
+
+class $$SpSkillLabelDataTableFilterComposer
+    extends Composer<_$AppDb, $SpSkillLabelDataTable> {
+  $$SpSkillLabelDataTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get normalLabelText => $composableBuilder(
+    column: $table.normalLabelText,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get spLabelText => $composableBuilder(
+    column: $table.spLabelText,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$SpSkillLabelDataTableOrderingComposer
+    extends Composer<_$AppDb, $SpSkillLabelDataTable> {
+  $$SpSkillLabelDataTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get normalLabelText => $composableBuilder(
+    column: $table.normalLabelText,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get spLabelText => $composableBuilder(
+    column: $table.spLabelText,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$SpSkillLabelDataTableAnnotationComposer
+    extends Composer<_$AppDb, $SpSkillLabelDataTable> {
+  $$SpSkillLabelDataTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<String> get normalLabelText => $composableBuilder(
+    column: $table.normalLabelText,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get spLabelText => $composableBuilder(
+    column: $table.spLabelText,
+    builder: (column) => column,
+  );
+}
+
+class $$SpSkillLabelDataTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $SpSkillLabelDataTable,
+          SpSkillLabelDataData,
+          $$SpSkillLabelDataTableFilterComposer,
+          $$SpSkillLabelDataTableOrderingComposer,
+          $$SpSkillLabelDataTableAnnotationComposer,
+          $$SpSkillLabelDataTableCreateCompanionBuilder,
+          $$SpSkillLabelDataTableUpdateCompanionBuilder,
+          (
+            SpSkillLabelDataData,
+            BaseReferences<
+              _$AppDb,
+              $SpSkillLabelDataTable,
+              SpSkillLabelDataData
+            >,
+          ),
+          SpSkillLabelDataData,
+          PrefetchHooks Function()
+        > {
+  $$SpSkillLabelDataTableTableManager(_$AppDb db, $SpSkillLabelDataTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer:
+              () =>
+                  $$SpSkillLabelDataTableFilterComposer($db: db, $table: table),
+          createOrderingComposer:
+              () => $$SpSkillLabelDataTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$SpSkillLabelDataTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> unitId = const Value.absent(),
+                Value<String?> normalLabelText = const Value.absent(),
+                Value<String?> spLabelText = const Value.absent(),
+              }) => SpSkillLabelDataCompanion(
+                unitId: unitId,
+                normalLabelText: normalLabelText,
+                spLabelText: spLabelText,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> unitId = const Value.absent(),
+                Value<String?> normalLabelText = const Value.absent(),
+                Value<String?> spLabelText = const Value.absent(),
+              }) => SpSkillLabelDataCompanion.insert(
+                unitId: unitId,
+                normalLabelText: normalLabelText,
+                spLabelText: spLabelText,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$SpSkillLabelDataTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $SpSkillLabelDataTable,
+      SpSkillLabelDataData,
+      $$SpSkillLabelDataTableFilterComposer,
+      $$SpSkillLabelDataTableOrderingComposer,
+      $$SpSkillLabelDataTableAnnotationComposer,
+      $$SpSkillLabelDataTableCreateCompanionBuilder,
+      $$SpSkillLabelDataTableUpdateCompanionBuilder,
+      (
+        SpSkillLabelDataData,
+        BaseReferences<_$AppDb, $SpSkillLabelDataTable, SpSkillLabelDataData>,
+      ),
+      SpSkillLabelDataData,
+      PrefetchHooks Function()
+    >;
+typedef $$UnitSkillDataRFTableCreateCompanionBuilder =
+    UnitSkillDataRFCompanion Function({
+      Value<int> id,
+      required int skillId,
+      required int rfSkillId,
+      required int minLv,
+      required int maxLv,
+    });
+typedef $$UnitSkillDataRFTableUpdateCompanionBuilder =
+    UnitSkillDataRFCompanion Function({
+      Value<int> id,
+      Value<int> skillId,
+      Value<int> rfSkillId,
+      Value<int> minLv,
+      Value<int> maxLv,
+    });
+
+class $$UnitSkillDataRFTableFilterComposer
+    extends Composer<_$AppDb, $UnitSkillDataRFTable> {
+  $$UnitSkillDataRFTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get skillId => $composableBuilder(
+    column: $table.skillId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rfSkillId => $composableBuilder(
+    column: $table.rfSkillId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get minLv => $composableBuilder(
+    column: $table.minLv,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get maxLv => $composableBuilder(
+    column: $table.maxLv,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$UnitSkillDataRFTableOrderingComposer
+    extends Composer<_$AppDb, $UnitSkillDataRFTable> {
+  $$UnitSkillDataRFTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get skillId => $composableBuilder(
+    column: $table.skillId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rfSkillId => $composableBuilder(
+    column: $table.rfSkillId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get minLv => $composableBuilder(
+    column: $table.minLv,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get maxLv => $composableBuilder(
+    column: $table.maxLv,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$UnitSkillDataRFTableAnnotationComposer
+    extends Composer<_$AppDb, $UnitSkillDataRFTable> {
+  $$UnitSkillDataRFTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get skillId =>
+      $composableBuilder(column: $table.skillId, builder: (column) => column);
+
+  GeneratedColumn<int> get rfSkillId =>
+      $composableBuilder(column: $table.rfSkillId, builder: (column) => column);
+
+  GeneratedColumn<int> get minLv =>
+      $composableBuilder(column: $table.minLv, builder: (column) => column);
+
+  GeneratedColumn<int> get maxLv =>
+      $composableBuilder(column: $table.maxLv, builder: (column) => column);
+}
+
+class $$UnitSkillDataRFTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $UnitSkillDataRFTable,
+          UnitSkillDataRFData,
+          $$UnitSkillDataRFTableFilterComposer,
+          $$UnitSkillDataRFTableOrderingComposer,
+          $$UnitSkillDataRFTableAnnotationComposer,
+          $$UnitSkillDataRFTableCreateCompanionBuilder,
+          $$UnitSkillDataRFTableUpdateCompanionBuilder,
+          (
+            UnitSkillDataRFData,
+            BaseReferences<_$AppDb, $UnitSkillDataRFTable, UnitSkillDataRFData>,
+          ),
+          UnitSkillDataRFData,
+          PrefetchHooks Function()
+        > {
+  $$UnitSkillDataRFTableTableManager(_$AppDb db, $UnitSkillDataRFTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer:
+              () =>
+                  $$UnitSkillDataRFTableFilterComposer($db: db, $table: table),
+          createOrderingComposer:
+              () => $$UnitSkillDataRFTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$UnitSkillDataRFTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> skillId = const Value.absent(),
+                Value<int> rfSkillId = const Value.absent(),
+                Value<int> minLv = const Value.absent(),
+                Value<int> maxLv = const Value.absent(),
+              }) => UnitSkillDataRFCompanion(
+                id: id,
+                skillId: skillId,
+                rfSkillId: rfSkillId,
+                minLv: minLv,
+                maxLv: maxLv,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int skillId,
+                required int rfSkillId,
+                required int minLv,
+                required int maxLv,
+              }) => UnitSkillDataRFCompanion.insert(
+                id: id,
+                skillId: skillId,
+                rfSkillId: rfSkillId,
+                minLv: minLv,
+                maxLv: maxLv,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$UnitSkillDataRFTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $UnitSkillDataRFTable,
+      UnitSkillDataRFData,
+      $$UnitSkillDataRFTableFilterComposer,
+      $$UnitSkillDataRFTableOrderingComposer,
+      $$UnitSkillDataRFTableAnnotationComposer,
+      $$UnitSkillDataRFTableCreateCompanionBuilder,
+      $$UnitSkillDataRFTableUpdateCompanionBuilder,
+      (
+        UnitSkillDataRFData,
+        BaseReferences<_$AppDb, $UnitSkillDataRFTable, UnitSkillDataRFData>,
+      ),
+      UnitSkillDataRFData,
+      PrefetchHooks Function()
+    >;
 
 class $AppDbManager {
   final _$AppDb _db;
@@ -8070,4 +18335,18 @@ class $AppDbManager {
       $$ActualUnitBackgroundTableTableManager(_db, _db.actualUnitBackground);
   $$Rarity6QuestDataTableTableManager get rarity6QuestData =>
       $$Rarity6QuestDataTableTableManager(_db, _db.rarity6QuestData);
+  $$SkillDataTableTableManager get skillData =>
+      $$SkillDataTableTableManager(_db, _db.skillData);
+  $$UnitSkillDataTableTableManager get unitSkillData =>
+      $$UnitSkillDataTableTableManager(_db, _db.unitSkillData);
+  $$SkillActionTableTableManager get skillAction =>
+      $$SkillActionTableTableManager(_db, _db.skillAction);
+  $$AilmentDataTableTableManager get ailmentData =>
+      $$AilmentDataTableTableManager(_db, _db.ailmentData);
+  $$UnitAttackPatternTableTableManager get unitAttackPattern =>
+      $$UnitAttackPatternTableTableManager(_db, _db.unitAttackPattern);
+  $$SpSkillLabelDataTableTableManager get spSkillLabelData =>
+      $$SpSkillLabelDataTableTableManager(_db, _db.spSkillLabelData);
+  $$UnitSkillDataRFTableTableManager get unitSkillDataRF =>
+      $$UnitSkillDataRFTableTableManager(_db, _db.unitSkillDataRF);
 }

@@ -1,0 +1,3031 @@
+{
+  "@@locale": "zh",
+  "date_m_d": "{arg1} 月 {arg2} 日",
+  "@date_m_d": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "unknown_character": "角色暂未登场",
+  "unknown_character_type": "未实装（{arg1}）",
+  "@unknown_character_type": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "age": "年龄",
+  "title_height": "身高",
+  "title_weight": "体重",
+  "title_birth": "生日",
+  "title_blood": "血型",
+  "title_race": "种族",
+  "title_race_multiple": "多人",
+  "title_guild": "公会",
+  "title_fav": "兴趣",
+  "cv": "CV",
+  "title_self": "介绍",
+  "title_position": "位置",
+  "skill_cooltime": "冷却时间：{arg1}秒",
+  "@skill_cooltime": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_cast_time": "准备时间：{arg1}秒",
+  "@skill_cast_time": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "cast_time": "{arg1}秒",
+  "@cast_time": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_level": "技能等级：{arg1}",
+  "@skill_level": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "before_loop": "初始动作",
+  "looping": "循环动作",
+  "title_comments": "交流",
+  "title_home_page_comments": "主页",
+  "title_room_comments": "小屋",
+  "character_attr": "属性",
+  "title_story_attr": "剧情属性",
+  "title_basic_coe": "基本系数",
+  "title_skill_coe": "技能基本系数",
+  "title_skill_basic_coe": "技能相关系数",
+  "title_rank_bonus": "RANK 奖励属性",
+  "cur_rank": "当前 RANK",
+  "target_rank": "目标 RANK",
+  "function": "功能",
+  "skill": "技能信息",
+  "skill_loop": "技能循环",
+  "title_unlock_6": "★6解放",
+  "rank_select": "RANK选择",
+  "rank_compare": "RANK对比",
+  "calc_equip_count": "装备统计",
+  "character_pic": "立绘",
+  "character_card_video": "动态卡面",
+  "character_basic_info": "角色资料",
+  "basic_info": "基本信息",
+  "story_pic": "剧情立绘",
+  "to_summon": "召唤物",
+  "spine_preview": "模型预览",
+  "no_guild": "无公会",
+  "sp_skill": "SP技能",
+  "tp_limit_level_action_desc": "等级 > 260，TP数值不会继续增加",
+  "other_limit_level_action_desc": "等级 > 300，该数值不会继续增加",
+  "other_limit_level_action_desc_unique": "等级 > 300，回避数值不会继续增加",
+  "basic": "基本",
+  "story": "剧情",
+  "no_story_info": "暂无剧情信息",
+  "no_comic_info": "暂无漫画信息",
+  "character_birthday": "角色生日：{arg1}",
+  "@character_birthday": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "value_100_m": "{arg1}亿",
+  "@value_100_m": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "value_10_k": "{arg1}万",
+  "@value_10_k": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "unit_level": "等级：{arg1}",
+  "@unit_level": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "title_unit_level": "等级",
+  "input_level": "请输入等级",
+  "order_character_detail": "未选中模块显示在次要页面（退出编辑后滑动切换）",
+  "character_card": "角色卡片",
+  "character_other_tool": "其他功能（装备统计等）",
+  "character_tool": "功能（资料、立绘、模型）",
+  "character_power": "战力",
+  "tip_skill_loop": "技能循环（未选中时显示悬浮按钮）",
+  "character_icon_info": "角色图标",
+  "character_leader": "角色评分、梯队",
+  "app_setting": "设置",
+  "vibrate": "振动反馈",
+  "animation": "动画效果",
+  "dynamic_color": "动态色彩",
+  "content_api_request_error": "请切换网络后重试",
+  "use_ip": "网络调整",
+  "use_ip_tip_on": "已调整访问地址。设置变更后将自动关闭应用",
+  "use_ip_tip_off": "若一直提示网络请求异常，可尝试开启。设置变更后将自动关闭应用",
+  "vibrate_on": "振动开启",
+  "animation_on": "动画开启",
+  "color_on": "根据系统壁纸，调整应用主题颜色",
+  "vibrate_off": "振动关闭",
+  "animation_off": "动画关闭",
+  "color_off": "使用默认主题",
+  "thanks": "感谢",
+  "data_from": "Unity Texture Toolkit",
+  "data_from_hint": "资源获取工具",
+  "data_from_url": "https://github.com/esterTion/unity-texture-toolkit",
+  "shizuru_note": "静流笔记",
+  "shizuru_note_tip": "感谢大佬的开源项目",
+  "shizuru_note_url": "https://github.com/MalitsPlus/ShizuruNotes",
+  "pcrdfans": "公主连结Re: Dive Fan Club",
+  "pcrdfans_tip": "竞技场查询数据来源",
+  "pcrdfans_url": "https://pcrdfans.com",
+  "pcrdfans_upload_url": "https://pcrdfans.com/battle/upload",
+  "pcrdfans_search_url": "https://pcrdfans.com/battle",
+  "leader_source": "GameWith",
+  "leader_tip": "角色排行数据来源",
+  "leader_source_url": "https://gamewith.jp/pricone-re/article/show/93068",
+  "title_spine": "模型预览",
+  "spine_tip": "可预览游戏内角色、BOSS模型",
+  "random_drop_source": "蘭德索爾圖書館",
+  "random_drop_tip": "额外掉落数据来源",
+  "random_drop_source_url": "https://pcredivewiki.tw/Other/MapExtraDrop",
+  "time_zone": "自动时区",
+  "time_zone_tip": "\\n手动变更设备时区后，请重新打开应用",
+  "title_sort": "排序类型",
+  "sort_date": "登场日期",
+  "position_2": "后卫",
+  "position_1": "中卫",
+  "position_0": "前卫",
+  "atk_type": "攻击类型",
+  "talent_type": "天赋类型",
+  "role_type": "职能类型",
+  "unit_talent": "角色天赋",
+  "talent": "天赋",
+  "physical": "物理",
+  "magic": "魔法",
+  "fire": "火",
+  "water": "水",
+  "wind": "风",
+  "light": "光",
+  "dark": "暗",
+  "unknown": "\\?",
+  "all": "全部",
+  "title_favorite": "收藏",
+  "title_history": "历史",
+  "favorite": "已收藏",
+  "sort_asc_desc": "排序方式",
+  "sort_desc": "降序",
+  "sort_asc": "升序",
+  "equip_level_color": "装备品级",
+  "equip_craft": "装备合成",
+  "craft": "装备",
+  "uncraft": "素材",
+  "title_rarity": "星级",
+  "title_type": "类型",
+  "star": "★{arg1}",
+  "@star": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "cutin_skill": "★6技能",
+  "six_locked": "其他",
+  "type_normal": "常驻",
+  "type_limit": "限定",
+  "type_event_limit": "活动",
+  "type_extra_character": "额外",
+  "name": "名字",
+  "id": "编号",
+  "unit_role": "角色职能",
+  "role": "职能",
+  "attacker": "攻击",
+  "breaker": "破坏",
+  "buffer": "增益",
+  "debuffer": "减益",
+  "booster": "加速",
+  "healer": "治疗",
+  "tank": "坦克",
+  "jammer": "干扰",
+  "equip_require_level": "需求等级：{arg1}",
+  "@equip_require_level": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "equip_name": "装备名",
+  "favorite_equip": "收藏装备",
+  "favorite_equip_material": "收藏素材",
+  "tool_equip": "装备",
+  "equip_material": "合成素材",
+  "equip_max_select_count": "最多可选 {arg1} 个装备",
+  "@equip_max_select_count": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "equip_search": "开始查询",
+  "equip_search_mode": "掉落查询",
+  "tip_equip_search": "请先选择装备",
+  "picked_equip": "已选择",
+  "tool_leader": "角色排行",
+  "leader_score": "角色评分",
+  "wiki": "wiki",
+  "tool_calendar_inprogress": "进行中活动",
+  "tool_calendar_coming": "活动预告",
+  "tool_calendar_event": "活动记录",
+  "tool_website": "收藏夹",
+  "tool_clan": "公会战",
+  "tool_clan_no_boss": "BOSS 信息暂未实装",
+  "tool_guild": "角色公会",
+  "character": "角色",
+  "tool_gacha": "卡池",
+  "tool_free_gacha": "免费十连",
+  "tool_birthday": "生日",
+  "tool_event": "剧情活动",
+  "tool_news": "公告",
+  "news_title": "公告标题",
+  "jjc": "竞技场",
+  "clan": "公会战",
+  "tower": "露娜塔",
+  "sp_dungeon": "特殊地下城",
+  "tdf": "次元断层",
+  "colosseum": "斗技场",
+  "abyss": "深渊讨伐战",
+  "result": "数值变化",
+  "character_name": "角色名",
+  "tweet": "日服情报",
+  "comic": "漫画",
+  "comic_4": "4格漫画",
+  "comic_toc": "目录",
+  "comic_toc_index": "第{arg1}话",
+  "@comic_toc_index": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "comic_input_hint": "输入跳转，如：382",
+  "other": "其他",
+  "activity_info": "活动日程",
+  "no_limit": "无限制",
+  "tip_no_equip_get_area": "暂无掉落区域",
+  "title_recently_used": "常用",
+  "phase": "{arg1}阶段",
+  "@phase": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "random_area": "额外掉落",
+  "random_drop_area_title": "区域 {arg1}",
+  "@random_drop_area_title": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "random_drop_area_1": "（前半）",
+  "random_drop_area_2": "（后半）",
+  "qq_group": "反馈交流群",
+  "to_feedback": "反馈",
+  "qq_group_summary": "有任何问题或建议，可在群内反馈",
+  "to_join_qq_group": "加入QQ群",
+  "clean_image_cache": "清除缓存",
+  "tip_clean_cache": "加载缓存，可减少网络数据使用。正常使用中请勿清除",
+  "cache_size": "占用：{arg1}\\n数量：{arg2}",
+  "@cache_size": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "confirm_clean_cache": "清除缓存后，下次打开应用将通过网络重新加载图片",
+  "github": "GitHub",
+  "afd": "爱发电",
+  "sponsor": "支持",
+  "afd_url": "https://afdian.com/a/wthee",
+  "tip_afd": "期待你的关注与支持",
+  "please": "✪ ω ✪",
+  "github_project_url": "https://github.com/wthee/pcr-tool",
+  "tip_github": "项目开源代码",
+  "mode": "MODE{arg1}",
+  "@mode": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "clan_battle_y_m": "{arg1} 年 {arg2} 月",
+  "@clan_battle_y_m": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "update": "更新",
+  "system": "系统",
+  "event": "活动",
+  "shop": "周边",
+  "local_note": "本地化笔记",
+  "search_suggestion": "快捷输入",
+  "search_api": "查询",
+  "search_api_desc": "需要网络",
+  "tool_all_quest": "主线地图",
+  "pick_date": "选择日期",
+  "picked_date": "已选择",
+  "beta_tool_group": "测试",
+  "beta_tool_group_title": "后续将调整至其他分组或移除",
+  "all_unit_calc_equip": "全角色装备统计",
+  "to": " ~ ",
+  "title_comic_zh": "优妮hnn汉化组",
+  "tip_comic_zh": "漫画汉化",
+  "comic_zh_url": "https://space.bilibili.com/3260075",
+  "title_jp_info": "PCR公主连结日服情报站",
+  "tip_jp_info": "日服最新情报",
+  "jp_info_url": "https://space.bilibili.com/1731293061",
+  "tool_unique_equip": "专用装备",
+  "search_unique_equip": "装备名/角色名",
+  "character_detail": "角色详情",
+  "tool_load_comic": "过场漫画",
+  "description": "描述",
+  "pvp_search": "查询",
+  "pvp_upload": "上传记录",
+  "pvp_no_data": "未查询到进攻队伍信息",
+  "research": "重新查询",
+  "pvp_search_on_web": "去网站查询",
+  "team_no": "进攻队伍 {arg1}",
+  "@team_no": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "team_win": "进攻",
+  "team_lose": "防守",
+  "tip_select_5": "请选择 5 名角色",
+  "tip_selected_5": "已选择 5 名角色",
+  "tool_pvp": "竞技场",
+  "pvp_no_favorites": "暂无收藏",
+  "pvp_no_history": "暂无查询历史",
+  "pvp_service": "竞技场查询服务",
+  "pvp_service_running": "竞技场查询服务正在运行",
+  "close_app": "关闭应用",
+  "cancel": "取消",
+  "confirm": "确认",
+  "to_add_tool": "添加功能",
+  "edit": "管理功能",
+  "done": "完成",
+  "copy_all": "全部复制",
+  "open_browser": "在浏览器中打开",
+  "copy_qq_group": "已复制QQ群号：{arg1}",
+  "@copy_qq_group": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "share_to": "分享到：",
+  "release": "{arg1} 发布",
+  "@release": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "daily_mission": "每日任务体力",
+  "daily_login": "每日登录宝石奖励，共计",
+  "fortune_event": "兰德索尔杯",
+  "normal": "普通关卡",
+  "hard": "困难关卡",
+  "very_hard": "高难关卡",
+  "explore": "探索",
+  "shrine": "圣迹调查",
+  "temple": "神殿调查",
+  "dungeon": "地下城",
+  "drop": "掉落量",
+  "mana": "玛那掉落量",
+  "multiple": "{arg1}倍",
+  "@multiple": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "free_gacha_content": "「免费十连」{arg1} 次",
+  "@free_gacha_content": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "story_event_sub": "支线",
+  "story_event_re": "复刻",
+  "story_event_preview": "预告",
+  "story_event_new": "活动",
+  "clan_battle_month": "{arg1}月公会战",
+  "@clan_battle_month": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "title_ex_skill_add": "EX+ 额外数值",
+  "title_skill_1_add": "技能+ 额外数值",
+  "title_skill_1_coe": "技能+ 系数",
+  "title_ub_add": "连结爆发+ 额外数值",
+  "title_ub_coe": "连结爆发+ 系数",
+  "attr_all_value": "战力：{arg1}",
+  "@attr_all_value": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "title_attr_tip": "属性数值说明",
+  "attr_calc": "角色属性数值 = 基本属性 + 剧情属性 + 被动技能（不计算到战力） + RANK 奖励属性",
+  "tip_status_coe": "※ 数值与游戏数值可能存在一定误差，请以游戏内为准",
+  "no_more": "暂无更多",
+  "no_data": "暂无数据",
+  "data_get_error": "数据获取失败",
+  "not_installed": "暂未实装",
+  "tip_click_to_add": "点击下列功能，添加至首页",
+  "tip_save_to_gallery": "保存至系统相册",
+  "wait_pic_load": "请等待图片加载完成",
+  "wait_video_load": "请等待视频加载完成",
+  "pic_exist": "图片已存在\\n{arg1}",
+  "@pic_exist": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "video_exist": "视频已存在\\n{arg1}",
+  "@video_exist": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "save_success": "已成功保存至系统相册\\n{arg1}",
+  "@save_success": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "save_failure": "保存失败",
+  "save_error": "保存异常",
+  "download_failure": "下载失败",
+  "copy_success": "文本已复制",
+  "title_api_request_error": "网络请求异常",
+  "title_dialog_delete": "删除",
+  "title_dialog_save_img": "保存图片",
+  "title_dialog_clean_cache": "清除缓存",
+  "find_new_release": "v{arg1} 已发布",
+  "@find_new_release": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "change_failed": "切换失败",
+  "check_db_error": "数据版本获取失败",
+  "db_file_error_re_download": "数据文件已损坏\\n请点此[重新下载]数据",
+  "db_error": "数据异常",
+  "remote_db_file_error": "远程数据异常\\n请[加群反馈]",
+  "re_download_db_file": "若数据加载或下载异常\\n请点此[重新下载]数据",
+  "title_db_downloading": "正在下载数据",
+  "db_download_cancel": "下载因未知原因中断，请重新下载",
+  "update_database": "数据更新",
+  "db_download_failure": "数据下载失败，请重新下载",
+  "db_download_exception": "数据下载出现异常，请重新下载",
+  "db_load_failure": "数据加载失败，请重试",
+  "db_diff_version": "版本",
+  "db_diff_content": "更新内容",
+  "db_diff_time": "日期",
+  "db_diff_content_none": "其他",
+  "db_cn": "国服",
+  "db_tw": "台服",
+  "db_jp": "日服",
+  "limit_re": "复刻限定",
+  "limit_re_pick": "复刻自选",
+  "normal_re": "复刻常驻",
+  "fes": "公主庆典",
+  "anv": "周年",
+  "gacha_fes": "Fes限定★3",
+  "gacha_limit": "限定★3",
+  "gacha_normal": "常驻★3",
+  "tool_mock_gacha": "抽卡模拟",
+  "gacha_pick_up_normal": "全角色 UP",
+  "gacha_pick_up_fes": "Fes UP",
+  "gacha_pick_up_single": "单角色 UP",
+  "tip_to_pick_up": "请选择角色",
+  "tip_to_pick_up_normal": "所选角色概率相同",
+  "tip_to_pick_up_single": "仅最后选择的角色概率提升",
+  "tip_to_mock_single": "单角色 UP：至少选择2名角色",
+  "tip_no_gacha_record": "暂无抽卡记录",
+  "reset_record": "重置卡池",
+  "delete_gacha": "删除卡池",
+  "tip_delete_gacha": "删除卡池记录和模拟抽卡记录",
+  "go_to_mock": "去抽卡",
+  "gacha_max_select_count": "最多可选 {arg1} 名角色",
+  "@gacha_max_select_count": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "last_gacha_date": "已抽{arg1}次，{arg2}",
+  "@last_gacha_date": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "gacha_used_gem": "宝石 {arg1}",
+  "@gacha_used_gem": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "gacha_order": "第 {arg1} 次",
+  "@gacha_order": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "selected_mark": "✓",
+  "extra_equip_normal": "普通",
+  "extra_equip_clan": "公会战",
+  "extra_equip_flag": "适用场景",
+  "extra_equip_category": "类型",
+  "extra_equip_passive_skill": "被动技能",
+  "extra_equip_default_value": "初始",
+  "extra_equip_max_value": "上限",
+  "tool_extra_equip": "EX装备",
+  "extra_equip_rarity_and_type": "★{arg1}  {arg2}",
+  "@extra_equip_rarity_and_type": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "extra_equip_rarity": "稀有度",
+  "extra_equip_unit": "适用角色",
+  "extra_equip_no_drop_quest": "暂无掉落区域",
+  "tool_travel": "EX冒险",
+  "unit_extra_equip_slot": "适用装备",
+  "travel_limit_unit_num": "人数上限",
+  "travel_need_power": "所需战力",
+  "travel_time": "所需时间",
+  "travel_time_decrease_limit": "缩减时间",
+  "ex_equip_drop_odd": "%.2f%%",
+  "union_burst": "连结爆发",
+  "skill_index": "技能 {arg1}",
+  "@skill_index": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "ex_skill": "EX技能",
+  "character_summon_info": "等级：{arg1} / RANK：{arg2} / 星级：{arg3}",
+  "@character_summon_info": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "normal_attack": "普攻",
+  "ub_video": "技能动画",
+  "color_blue": "蓝",
+  "color_copper": "铜",
+  "color_silver": "银",
+  "color_gold": "金",
+  "color_purple": "紫",
+  "color_red": "红",
+  "color_green": "绿",
+  "color_orange": "橙",
+  "color_cyan": "青",
+  "color_pink": "粉",
+  "no1": "一",
+  "no2": "二",
+  "no3": "三",
+  "no4": "四",
+  "no5": "五",
+  "no6": "六",
+  "no7": "七",
+  "none": "",
+  "skill_type_1": "伤害",
+  "skill_type_2": "位移",
+  "skill_type_4_5": "治疗",
+  "skill_type_6": "护盾",
+  "skill_type_12": "黑暗",
+  "skill_type_13": "沉默",
+  "skill_type_14": "模式变更",
+  "skill_type_15": "召唤",
+  "skill_type_16_92": "TP",
+  "skill_type_17": "条件",
+  "skill_type_18_19": "蓄力",
+  "skill_type_20": "挑衅",
+  "skill_type_21": "回避",
+  "skill_type_22": "循环变更",
+  "skill_type_24": "复活",
+  "skill_type_30": "即死",
+  "skill_type_32": "HP吸收",
+  "skill_type_33": "反伤",
+  "skill_type_34": "伤害递增",
+  "skill_type_35_43_60_77": "标记",
+  "skill_type_36_37_38_39_40": "领域",
+  "skill_type_42": "触发",
+  "skill_type_44": "进场",
+  "skill_type_46": "比例伤害",
+  "skill_type_48": "持续回复",
+  "skill_type_49": "移除",
+  "skill_type_50": "持续动作",
+  "skill_type_54": "潜伏",
+  "skill_type_56": "千里眼",
+  "skill_type_57": "延时",
+  "skill_type_58": "解除领域",
+  "skill_type_59": "回复妨碍",
+  "skill_type_61": "恐慌",
+  "skill_type_62": "畏惧",
+  "skill_type_63": "持续效果",
+  "skill_type_69": "变身",
+  "skill_type_70": "HP变化",
+  "skill_type_71": "免死",
+  "skill_type_72": "减伤",
+  "skill_type_73": "伤害护盾",
+  "skill_type_75": "次数触发",
+  "skill_type_76": "HP回复量",
+  "skill_type_78": "被击伤害",
+  "skill_type_79": "行动伤害",
+  "skill_type_81": "无效目标",
+  "skill_type_90": "被动",
+  "skill_type_901_902": "装备",
+  "skill_type_95": "隐匿",
+  "skill_type_100": "免疫",
+  "skill_type_105": "环境",
+  "skill_type_106": "守护",
+  "skill_type_110": "持续伤害易伤",
+  "skill_action_type_116": "执着",
+  "skill_action_type_121": "幻化",
+  "skill_action_type_123": "减伤",
+  "skill_action_type_124": "转移伤害",
+  "skill_action_type_125": "无法选中",
+  "skill_action_type_128": "持续伤害增强",
+  "skill_action_type_129": "伤害转化",
+  "skill_action_type_130": "调和",
+  "skill_status_100": "无法行动",
+  "skill_status_101": "加速状态",
+  "skill_status_200": "失明",
+  "skill_status_300": "魅惑状态",
+  "skill_status_400": "挑衅状态",
+  "skill_status_500": "烧伤状态",
+  "skill_status_501": "诅咒状态",
+  "skill_status_502": "中毒状态",
+  "skill_status_503": "猛毒状态",
+  "skill_status_504": "咒术状态",
+  "skill_status_511": "诅咒或咒术状态",
+  "skill_status_512": "中毒或猛毒状态",
+  "skill_status_710": "BREAK 状态",
+  "skill_status_900": "HP 全满状态",
+  "skill_status_1400": "变身状态",
+  "skill_status_1600": "恐慌状态",
+  "skill_status_1601": "隐匿状态",
+  "skill_status_1700_21": "物理防御减少状态",
+  "skill_status_1700_41": "魔法防御减少状态",
+  "skill_status_721": "特殊标记状态",
+  "skill_status_6107": "龙之眼状态",
+  "skill_status_1800": "多目标状态",
+  "skill_status_1900": "护盾展开",
+  "skill_status_3137": "界雷",
+  "skill_status_3162": "妨魔塵",
+  "skill_status_3175": "绝冰",
+  "skill_status_3207": "忌火",
+  "skill_status_6160": "黏着状态",
+  "skill_status_physical_atk": "物理攻击",
+  "skill_status_magic_atk": "魔法攻击",
+  "skill_area_exclude_summon": "召唤物、分身除外",
+  "skill_target_none": "目标",
+  "skill_target_2_8": "随机",
+  "skill_target_3": "最近",
+  "skill_target_4": "最远",
+  "skill_target_5_25": "HP最低",
+  "skill_target_6_26": "HP最高",
+  "skill_target_7": "自身",
+  "skill_target_9": "最后方",
+  "skill_target_10": "最前方",
+  "skill_target_11": "范围内",
+  "skill_target_12_27_37": "TP最高",
+  "skill_target_13_19_28": "TP最低",
+  "skill_target_14_29": "物理攻击力最高",
+  "skill_target_15_30": "物理攻击力最低",
+  "skill_target_16_31": "魔法攻击力最高",
+  "skill_target_17_32": "魔法攻击力最低",
+  "skill_target_18": "召唤物",
+  "skill_target_20": "物理",
+  "skill_target_21": "魔法",
+  "skill_target_22": "随机召唤物",
+  "skill_target_23": "自身召唤物",
+  "skill_target_24": "领主",
+  "skill_target_33": "暗影",
+  "skill_target_34": "除自身以外",
+  "skill_target_35": "剩余HP最高",
+  "skill_target_36": "剩余HP最低",
+  "skill_target_38": "攻击力最高",
+  "skill_target_39": "攻击力最低",
+  "skill_target_42": "多目标",
+  "skill_target_43": "物理攻击力最高(自身除外)",
+  "skill_target_44": "剩余HP最低(自身除外)",
+  "skill_target_45": "物理防御力最低",
+  "skill_target_46": "魔法防御力最低",
+  "skill_target_50": "魔法攻击力最高(自身除外)",
+  "skill_target_13xxx": "被标记",
+  "skill_target_fire": "火天赋",
+  "skill_target_water": "水天赋",
+  "skill_target_wind": "风天赋",
+  "skill_target_light": "光天赋",
+  "skill_target_dark": "暗天赋",
+  "skill_target_assignment_0": "自身",
+  "skill_target_assignment_1": "敌人",
+  "skill_target_assignment_2": "己方",
+  "skill_target_assignment_3": "敌人和己方",
+  "skill_shield_no_effect": "无效",
+  "skill_shield_defense": "吸收",
+  "skill_shield": "{arg1}{arg2}伤害的护盾",
+  "@skill_shield": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action": "动作",
+  "skill_action_d": "动作({arg1})",
+  "@skill_action_d": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_effect_time": "，持续 {arg1} 秒",
+  "@skill_effect_time": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_all": "所有",
+  "skill_level_text": "技能等级",
+  "skill_atk_text": "攻击力",
+  "skill_speed": "速度",
+  "skill_hp_max": "HP最大值",
+  "skill_increase": "提升",
+  "skill_reduce": "减少",
+  "skill_fixed": "(固定数值，无法被其他技能效果改变)",
+  "skill_physical_critical_damage": "物理暴击伤害",
+  "skill_magic_critical_damage": "魔法暴击伤害",
+  "skill_critical_damage_take": "受到的暴击伤害",
+  "skill_physical_damage_take": "受到的物理伤害",
+  "skill_magic_damage_take": "受到的魔法伤害",
+  "skill_physical_damage": "造成的物理伤害",
+  "skill_magic_damage": "造成的魔法伤害",
+  "skill_depend_action": "受到动作({arg1})影响的",
+  "@skill_depend_action": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_range": "范围{arg1}内",
+  "@skill_range": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_target_single": "单体",
+  "skill_target_count": "{arg1}名",
+  "@skill_target_count": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_target_all": "全体",
+  "skill_target_order_num": "第{arg1}近",
+  "@skill_target_order_num": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_target_order_1": "最近",
+  "skill_physical": "物理",
+  "skill_physical_str": "物理攻击力",
+  "skill_physical_def": "物理防御力",
+  "skill_magic": "魔法",
+  "skill_magic_str": "魔法攻击力",
+  "skill_magic_def": "魔法防御力",
+  "skill_must_hit_physical": "必定命中的物理",
+  "skill_must_hit_magic": "必定命中的魔法",
+  "skill_sum_atk_physical": "(物理、魔法攻击力合计)物理",
+  "skill_sum_atk_magic": "(物理、魔法攻击力合计)魔法",
+  "skill_adaptive_lower_defense": "(适应物理/魔法防御中较低的防御)",
+  "skill_critical_damage_multiple": "；暴击时，造成{arg1} 倍伤害",
+  "@skill_critical_damage_multiple": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_must_critical": "；必定暴击",
+  "skill_ignore_def": "；无视目标{arg1}防御力 ",
+  "@skill_ignore_def": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_1": "对{arg1}造成 {arg2} 的{arg3}伤害{arg4}{arg5}{arg6}{arg7}",
+  "@skill_action_type_desc_1": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      },
+      "arg5": {
+        "type": "String"
+      },
+      "arg6": {
+        "type": "String"
+      },
+      "arg7": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_forward": "向前",
+  "skill_backward": "向后",
+  "skill_ahead": "前方",
+  "skill_rear": "后方",
+  "skill_move": "移动至{arg1}{arg2} [{arg3}]",
+  "@skill_move": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_return": "，动作结束后回到原来位置",
+  "skill_move_speed": "，移动速度 [{arg1}]",
+  "@skill_move_speed": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_hit_up": "击飞",
+  "skill_action_type_desc_3_up": "{arg1}{arg2}，高度 [{arg3}]",
+  "@skill_action_type_desc_3_up": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_push": "击退",
+  "skill_pull": "拉近",
+  "skill_action_type_desc_3_move": "{arg1}{arg2}，距离 [{arg3}]",
+  "@skill_action_type_desc_3_move": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_3_pull": "将{arg1}{arg2}身前 [{arg3}]",
+  "@skill_action_type_desc_3_pull": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_4": "使{arg1}HP回复 {arg2}",
+  "@skill_action_type_desc_4": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_6": "对{arg1}展开{arg2} {arg3}{arg4}",
+  "@skill_action_type_desc_6": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_7": "锁定{arg1}",
+  "@skill_action_type_desc_7": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_speed_change": "速度额外{arg1}初始值的 {arg2} 倍",
+  "@skill_action_speed_change": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_speed_multiple": "速度变更为初始值的 {arg1} 倍",
+  "@skill_action_speed_multiple": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_8": "使{arg1}进入{arg2}状态{arg3}{arg4}",
+  "@skill_action_type_desc_8": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_hit_remove": "，本效果将会在受到伤害时解除",
+  "skill_action_dot_increase": "，伤害每秒增加基础数值的 [{arg1}%%]",
+  "@skill_action_dot_increase": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_9": "使{arg1}进入 [{arg2}] 状态，每秒造成伤害 {arg3}{arg4}{arg5}",
+  "@skill_action_type_desc_9": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      },
+      "arg5": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_buff": "增益",
+  "skill_debuff": "减益",
+  "skill_barrier": "护盾",
+  "skill_damage": "伤害",
+  "skill_status_down": "状态下降",
+  "skill_status_ub": "己方使用连结爆发技能",
+  "skill_action_type_desc_10_break": "BREAK 期间，{arg1}{arg2}",
+  "@skill_action_type_desc_10_break": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_charm_0": "魅惑",
+  "skill_charm_1": "混乱",
+  "skill_action_type_desc_12_13": "以 {arg1} 的概率使{arg2}进入{arg3}状态{arg4}",
+  "@skill_action_type_desc_12_13": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_atk_miss": "；对象进行物理攻击时有 [{arg1}%%] 的概率被回避",
+  "@skill_action_atk_miss": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_loop_change": "技能循环改变{arg1}",
+  "@skill_action_loop_change": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_mode": "行动模式改变{arg1}{arg2}",
+  "@skill_action_change_mode": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_to_flight_status": "，进入 [飞行] 状态",
+  "skill_action_type_desc_14_2": "行动模式改变，每秒降低 [{arg1}] TP",
+  "@skill_action_type_desc_14_2": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_14_3": "效果结束后，切换回原行动模式",
+  "skill_action_type_desc_15": "在{arg1}{arg2} [{arg3}] 的位置{arg4}",
+  "@skill_action_type_desc_15": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "int"
+      },
+      "arg4": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_summon_target": "在{arg1}{arg2}",
+  "@skill_action_summon_target": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_summon_unit": "，召唤友方单位",
+  "skill_action_tp_recovery": "TP回复",
+  "skill_action_tp_reduce": "TP减少",
+  "skill_action_condition": "条件：{arg1}",
+  "@skill_action_condition": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_17_2": "受到伤害时 [{arg1}%%] 概率",
+  "@skill_action_type_desc_17_2": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_17_3": "HP [{arg1}%%] 以下",
+  "@skill_action_type_desc_17_3": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_17_4": "死亡时 [{arg1}%%] 概率",
+  "@skill_action_type_desc_17_4": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_17_5": "暴击时 [{arg1}%%] 概率",
+  "@skill_action_type_desc_17_5": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_17_7": "战斗剩余时间 [{arg1}] 秒以下",
+  "@skill_action_type_desc_17_7": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_17_8": "隐身时 [{arg1}%%] 概率",
+  "@skill_action_type_desc_17_8": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_17_9": "BREAK 时 [{arg1}%%] 的概率{arg2}",
+  "@skill_action_type_desc_17_9": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_17_10": "受到持续伤害时 [{arg1}%%] 概率",
+  "@skill_action_type_desc_17_10": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_17_11": "所有部位 BREAK",
+  "skill_action_type_desc_17_13": "HP减少 [{arg1}] 时",
+  "@skill_action_type_desc_17_13": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_17_17": "被击时 [{arg1}%%] 概率触发",
+  "@skill_action_type_desc_17_17": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_18_19": "蓄力 [{arg1}] 秒",
+  "@skill_action_type_desc_18_19": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_18_19_detail": "，动作({arg1})效果增加 {arg2} * 蓄力中受到的伤害",
+  "@skill_action_type_desc_18_19_detail": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_20": "使{arg1}进入{arg2}状态{arg3}",
+  "@skill_action_type_desc_20": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_21_1": "无敌",
+  "skill_action_type_desc_21_2": "回避物理攻击",
+  "skill_action_type_desc_21_3": "回避所有攻击",
+  "skill_action_type_desc_21_6": "回避 BREAK",
+  "skill_action_type_desc_21_8": "回避魔法攻击",
+  "skill_action_skill_anim_change": "技能动画改变{arg1}",
+  "@skill_action_skill_anim_change": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_if_status": "当{arg1}在 [{arg2}] 时，使用动作({arg3})",
+  "@skill_action_if_status": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_if_status_not": "当{arg1}不在 [{arg2}] 时，使用动作({arg3})",
+  "@skill_action_if_status_not": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_if_mark": "{arg1}持有标记时，使用动作({arg2})",
+  "@skill_action_if_mark": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_if_mark_not": "{arg1}未持有标记时，使用动作({arg2})",
+  "@skill_action_if_mark_not": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_if_mark_count": "{arg1}持有标记数量为 [{arg2}] 时，使用动作({arg3})",
+  "@skill_action_if_mark_count": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_if_mark_count_not": "{arg1}持有标记数量不为 [{arg2}] 时，使用动作({arg3})",
+  "@skill_action_if_mark_count_not": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_if_alone": "{arg1}仅剩一名时，使用动作({arg2})",
+  "@skill_action_if_alone": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_if_alone_not": "{arg1}多于一名时，使用动作({arg2})",
+  "@skill_action_if_alone_not": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_if_hp_below": "{arg1}的HP在 [{arg2}%%] 以下时，使用动作({arg3})",
+  "@skill_action_if_hp_below": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_if_hp_above": "{arg1}的HP在 [{arg2}%%] 以上时，使用动作({arg3})",
+  "@skill_action_if_hp_above": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_if_unit_atk_type": "{arg1}是 [{arg2}] 对象时，使用动作({arg3})",
+  "@skill_action_if_unit_atk_type": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_random_1": "随机：[{arg1}%%] 的概率使用动作({arg2})，否则使用动作({arg3})",
+  "@skill_action_random_1": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_random_2": "随机：[{arg1}%%] 的概率使用动作({arg2})",
+  "@skill_action_random_2": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_24": "复活{arg1}，并回复其 [{arg2}%%] HP",
+  "@skill_action_type_desc_24": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_additive": "增加",
+  "skill_action_type_desc_subtract": "减少",
+  "skill_action_type_desc_multiple": "乘以",
+  "skill_action_type_desc_divide": "除以",
+  "skill_action_change_coe": "动作({arg1})的数值'{'{arg2}'}'{arg3} {arg4}",
+  "@skill_action_change_coe": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_limit": "；叠加上限 {arg1}",
+  "@skill_action_limit": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_limit_int": "；叠加上限 [{arg1}]",
+  "@skill_action_limit_int": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_damage_limit_int": "；伤害上限 [{arg1}]",
+  "@skill_action_damage_limit_int": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_change_coe_0": "{arg1} * [剩余的HP]",
+  "@skill_action_change_coe_0": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_coe_1": "{arg1} * [损失的HP]",
+  "@skill_action_change_coe_1": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_coe_2": "{arg1} * [击杀数量]",
+  "@skill_action_change_coe_2": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_coe_4": "{arg1} * [{arg2}数量]",
+  "@skill_action_change_coe_4": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_coe_5": "{arg1} * [受到伤害的目标数量]",
+  "@skill_action_change_coe_5": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_coe_6": "{arg1} * [造成的伤害]",
+  "@skill_action_change_coe_6": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_coe_7_10": "{arg1} * [{arg2}的{arg3}]",
+  "@skill_action_change_coe_7_10": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_coe_12": "{arg1} * [后方{arg2}数量]",
+  "@skill_action_change_coe_12": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_coe_13": "{arg1} * [损失的HP比例]",
+  "@skill_action_change_coe_13": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_coe_15": "{arg1} * [{arg2}剩余HP]",
+  "@skill_action_change_coe_15": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_coe_16": "{arg1} * [{arg2}消耗的TP]",
+  "@skill_action_change_coe_16": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_coe_102": "{arg1} * [小眼球数量]",
+  "@skill_action_change_coe_102": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_coe_skill_count": "{arg1} * [技能计数]",
+  "@skill_action_change_coe_skill_count": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_change_coe_mark_count": "{arg1} * [标记层数]",
+  "@skill_action_change_coe_mark_count": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_sp_if_rate": "以 [{arg1}%%] 的概率使用动作({arg2})",
+  "@skill_action_sp_if_rate": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_sp_if_dot": "{arg1}身上有持续伤害时，使用动作({arg2})",
+  "@skill_action_sp_if_dot": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_sp_if_dot_not": "{arg1}身上没有持续伤害时，使用动作({arg2})",
+  "@skill_action_sp_if_dot_not": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_sp_if_skill_count": "{arg1}的技能计数 ≥ [{arg2}] 时，使用动作({arg3})",
+  "@skill_action_sp_if_skill_count": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_sp_if_skill_count_not": "{arg1}的技能计数 ﹤ [{arg2}] 时，使用动作({arg3})",
+  "@skill_action_sp_if_skill_count_not": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_sp_if_mark_count": "{arg1}的标记层数 ≥ [{arg2}] 时，使用动作({arg3})",
+  "@skill_action_sp_if_mark_count": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_sp_if_mark_count_not": "{arg1}的标记层数 ﹤ [{arg2}] 时，使用动作({arg3})",
+  "@skill_action_sp_if_mark_count_not": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_sp_if_unit_count": "隐身状态的单位除外，{arg1}的数量是 [{arg2}] 时，使用动作({arg3})",
+  "@skill_action_sp_if_unit_count": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_sp_if_unit_count_not": "隐身状态的单位除外，{arg1}的数量不是 [{arg2}] 时，使用动作({arg3})",
+  "@skill_action_sp_if_unit_count_not": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_sp_if_unit_exist": "{arg1}中存在单位时，使用动作({arg2})",
+  "@skill_action_sp_if_unit_exist": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_sp_if_unit_exist_not": "{arg1}中不存在单位时，使用动作({arg2})",
+  "@skill_action_sp_if_unit_exist_not": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_sp_if_kill": "上一个动作击杀了单位时，使用动作({arg1})",
+  "@skill_action_sp_if_kill": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_sp_if_kill_not": "上一个动作未击杀单位时，使用动作({arg1})",
+  "@skill_action_sp_if_kill_not": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_sp_if_critical": "技能暴击时，使用动作({arg1})",
+  "@skill_action_sp_if_critical": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_sp_if_critical_not": "技能未暴击时，使用动作({arg1})",
+  "@skill_action_sp_if_critical_not": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_29": "无 UB 技能",
+  "skill_action_type_desc_30": "{arg1}死亡",
+  "@skill_action_type_desc_30": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_32": "为{arg1}的下 [{arg2}] 次攻击附加{arg3} {arg4} 的效果",
+  "@skill_action_type_desc_32": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_33": "{arg1}，受到{arg2}伤害时反弹 {arg3} 伤害{arg4}，生效 [{arg5}] 次",
+  "@skill_action_type_desc_33": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      },
+      "arg5": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_33_hp": "，并回复HP",
+  "skill_action_type_desc_34": "每次攻击当前的目标，将会追加伤害 {arg1}{arg2}",
+  "@skill_action_type_desc_34": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_35": "对{arg1}追加 [{arg2}] 层标记{arg3}{arg4}",
+  "@skill_action_type_desc_35": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_35_reduce": "{arg1}减少 [{arg2}] 层标记",
+  "@skill_action_type_desc_35_reduce": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_36_damage": "每秒造成 {arg1} {arg2}伤害",
+  "@skill_action_type_desc_36_damage": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_field": "展开{arg2}的领域，范围 [{arg1}]{arg3}",
+  "@skill_action_type_desc_field": {
+    "placeholders": {
+      "arg2": {
+        "type": "String"
+      },
+      "arg1": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_37_heal": "每秒回复 {arg1} HP",
+  "@skill_action_type_desc_37_heal": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_38_action": "，持续施放动作({arg1})",
+  "@skill_action_type_desc_38_action": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_42_2": "[{arg1}] 秒内受到伤害时，以 {arg2} 的概率使用动作({arg3})",
+  "@skill_action_type_desc_42_2": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_42_14": "[{arg1}] 秒内受到无法行动、击飞、拉近伤害时，以 {arg2} 的概率使用{arg3}",
+  "@skill_action_type_desc_42_14": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_44": "战斗开始 [{arg1}] 秒后入场",
+  "@skill_action_type_desc_44": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_45": "技能计数加 [1] {arg1}",
+  "@skill_action_type_desc_45": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_46_1": "对{arg1}造成最大HP {arg2} 伤害",
+  "@skill_action_type_desc_46_1": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_46_2": "对{arg1}造成剩余HP {arg2} 伤害",
+  "@skill_action_type_desc_46_2": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_46_3": "对{arg1}造成初始最大HP {arg2} 伤害",
+  "@skill_action_type_desc_46_3": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_47": "对低等级的玩家造成的伤害将被减轻",
+  "skill_action_type_desc_48": "每秒回复{arg1}的 {arg2} {arg3}{arg4}",
+  "@skill_action_type_desc_48": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_49": "{arg1} 概率移除{arg2}的{arg3}",
+  "@skill_action_type_desc_49": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_50": "{arg1}{arg2}{arg3}，受到 [{arg4}] 次伤害时中断",
+  "@skill_action_type_desc_50": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_52": "将模型的宽度变为 [{arg1}]",
+  "@skill_action_type_desc_52": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_53": "特定的领域效果存在时使用动作({arg1}){arg2}",
+  "@skill_action_type_desc_53": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_53_2": "，否则使用动作({arg1})",
+  "@skill_action_type_desc_53_2": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_54": "进入隐身状态{arg1}",
+  "@skill_action_type_desc_54": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_55": "使部位{arg1}向前移动 [{arg2}] ，随后使其返回原位置",
+  "@skill_action_type_desc_55": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_56_1": "使{arg1}的物理攻击必定被回避{arg2}",
+  "@skill_action_type_desc_56_1": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_56_2": "使{arg1}的下 {arg2} 次物理攻击必定被回避",
+  "@skill_action_type_desc_56_2": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_57": "对{arg1}设置倒计时，[{arg2}] 秒后触发动作({arg3})",
+  "@skill_action_type_desc_57": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_58": "解除第{arg1}个技能的动作({arg2})展开的领域",
+  "@skill_action_type_desc_58": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_59": "{arg1}，HP回复效果减少 [{arg2}%%] {arg3}",
+  "@skill_action_type_desc_59": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_60_0": "，追加 [1] 层标记{arg1}{arg2}",
+  "@skill_action_type_desc_60_0": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_60_1": "自身每次攻击{arg1}时{arg2}",
+  "@skill_action_type_desc_60_1": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_60_2": "{arg1}每次造成伤害时{arg2}",
+  "@skill_action_type_desc_60_2": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_60_3": "{arg1}每次造成暴击时{arg2}",
+  "@skill_action_type_desc_60_3": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_60_4": "{arg1}每次攻击命中敌人时{arg2}",
+  "@skill_action_type_desc_60_4": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_61": "以 {arg1} 的概率使{arg2}进入{arg3}状态{arg4}",
+  "@skill_action_type_desc_61": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_62_0": "{arg1}的UB对任意目标造成伤害或直接回复时，使其效果值降低 {arg2}{arg3}",
+  "@skill_action_type_desc_62_0": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_62_1": "{arg1}的UB或技能对任意目标造成伤害或直接回复时，使其效果值降低 {arg2}{arg3}",
+  "@skill_action_type_desc_62_1": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_63_success": "持续时间结束后，使用动作({arg1})；",
+  "@skill_action_type_desc_63_success": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_63_failure": "效果被中断后，使用动作({arg1})；",
+  "@skill_action_type_desc_63_failure": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_63": "每 {arg1} 秒使用 1 次动作({arg2})，最长持续 [{arg3}] 秒；受到的伤害量超过 [{arg4}] 时中断此效果；",
+  "@skill_action_type_desc_63": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_69": "使{arg1}变身{arg2}",
+  "@skill_action_type_desc_69": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_71": "赋予{arg1}「受到致死伤害时，回复 {arg2} HP」的效果{arg3}",
+  "@skill_action_type_desc_71": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_72": "赋予{arg1}承受{arg2}伤害减少{arg3}的效果{arg4}",
+  "@skill_action_type_desc_72": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_73": "为{arg1}展开护盾，在单个动作中受到的伤害超过 [{arg2}] 时，伤害值将衰减{arg3}",
+  "@skill_action_type_desc_73": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_75": "每造成 [{arg1}] 次伤害时，触发动作({arg2}) {arg3}",
+  "@skill_action_type_desc_75": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_76": "{arg1}治疗量变为原来的 {arg2}{arg3}",
+  "@skill_action_type_desc_76": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_77": "每当{arg1} [{arg2}] 时，为自身追加 [{arg3}] 层标记{arg4}{arg5}",
+  "@skill_action_type_desc_77": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "int"
+      },
+      "arg4": {
+        "type": "String"
+      },
+      "arg5": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_77_1": "受到",
+  "skill_action_type_desc_78": "使{arg1}受到的伤害额外{arg2} {arg3} 倍{arg4}{arg5}",
+  "@skill_action_type_desc_78": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      },
+      "arg5": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_78_1": "减益和异常状态数量",
+  "skill_action_type_desc_79": "{arg1}行动时，受到{arg2} {arg3} 伤害{arg4}{arg5}",
+  "@skill_action_type_desc_79": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      },
+      "arg5": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_81": "{arg1}变更为无法被攻击的目标",
+  "@skill_action_type_desc_81": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_90": "{arg1}{arg2}提升 {arg3}",
+  "@skill_action_type_desc_90": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_901": "战斗开始时生效",
+  "skill_action_type_desc_902": "战斗时间剩余{arg1}秒时生效",
+  "@skill_action_type_desc_902": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_92": "使{arg1}受击获得的TP变更为初始值的 [{arg2}] 倍",
+  "@skill_action_type_desc_92": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_93": "攻击{arg1}时，无视挑衅效果",
+  "@skill_action_type_desc_93": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_94": "{arg1}附加技能特效",
+  "@skill_action_type_desc_94": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_95": "{arg1}进入隐匿状态{arg2}",
+  "@skill_action_type_desc_95": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_96_tp": "每秒回复 {arg1} TP",
+  "@skill_action_type_desc_96_tp": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_97": "；受击时减少 [1] 层标记，TP回复 [{arg1}]",
+  "@skill_action_type_desc_97": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_98": "使{arg1}受到TP降低时，效果变更为初始值的 [{arg2}] 倍{arg3}",
+  "@skill_action_type_desc_98": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_100": "{arg1}免疫 [无法行动] 异常状态{arg2}{arg3}",
+  "@skill_action_type_desc_100": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_100_count": " [{arg1}] 次",
+  "@skill_action_type_desc_100_count": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_101": "{arg1}攻击时，对敌人追加 [{arg2}] 层标记{arg3}{arg4}",
+  "@skill_action_type_desc_101": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_101_reduce": "{arg1}攻击时，敌人减少 [{arg2}] 层标记",
+  "@skill_action_type_desc_101_reduce": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_103": "动作({arg1})造成的伤害将依据{arg2}的攻击力",
+  "@skill_action_type_desc_103": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_unknown": "{arg1}目标：{arg2}；类型：{arg3}；数值：{arg4}{arg5}",
+  "@skill_action_type_unknown": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "int"
+      },
+      "arg4": {
+        "type": "String"
+      },
+      "arg5": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_105": "发动 [{arg1}] 环境效果{arg2}",
+  "@skill_action_type_desc_105": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_106": "赋予{arg1} [{arg2}] 状态，并代替其承受伤害{arg3}",
+  "@skill_action_type_desc_106": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_106_type_common": "守护",
+  "skill_action_type_desc_106_type_141": "堕天使的守护",
+  "skill_action_type_desc_107": "动作({arg1})暴击率依据物理暴击与魔法暴击之和",
+  "@skill_action_type_desc_107": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_110": "使{arg1}受到持续伤害时，额外承受 {arg2} 的伤害{arg3}",
+  "@skill_action_type_desc_110": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_111": "当{arg1}{arg2}时，使用动作({arg3})",
+  "@skill_action_type_desc_111": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_111_1": "当{arg1}标记数量 {arg2} [{arg3}] 时，使用动作({arg4})",
+  "@skill_action_type_desc_111_1": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "int"
+      },
+      "arg4": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_111_2": "受到暴击伤害",
+  "skill_action_type_desc_114": "对{arg1}追加 [{arg2}] 层标记，{arg3}，受到伤害时，减少 [1] 层标记，并使用动作({arg4})和动作({arg5}){arg6}",
+  "@skill_action_type_desc_114": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "int"
+      },
+      "arg5": {
+        "type": "int"
+      },
+      "arg6": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_114_aura": "己方受到的伤害降低 [{arg1}%%]",
+  "@skill_action_type_desc_114_aura": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_116_121_123_124": "使{arg1}进入 [{arg2}] 状态{arg3}",
+  "@skill_action_type_desc_116_121_123_124": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_123_1": "受到的伤害减少{arg1}",
+  "@skill_action_type_desc_123_1": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_125": "使{arg1}进入 [{arg2}] 状态（持有标记时，不会成为攻击目标）",
+  "@skill_action_type_desc_125": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_128": "使{arg1}受到的持续伤害的间隔和时间延长 [{arg2}] 倍{arg3}",
+  "@skill_action_type_desc_128": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_129": "使{arg1}受到的 {arg2} 伤害转化为持续伤害{arg3}；该持续伤害不回复 TP",
+  "@skill_action_type_desc_129": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_130": "使{arg1}受到伤害时，按物理/魔法防御中较高的防御计算伤害",
+  "@skill_action_type_desc_130": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_ailment_1": "减速",
+  "skill_ailment_2": "加速",
+  "skill_ailment_3": "麻痹",
+  "skill_ailment_4": "冻结",
+  "skill_ailment_5": "束缚",
+  "skill_ailment_6": "睡眠",
+  "skill_ailment_7_12_14": "眩晕",
+  "skill_ailment_8": "石化",
+  "skill_ailment_9": "拘留",
+  "skill_ailment_10": "昏迷",
+  "skill_ailment_11": "时间停止",
+  "skill_ailment_13": "结晶",
+  "skill_ailment_extra": "(额外)",
+  "skill_ailment_field": "(范围)",
+  "skill_dot_0": "拘留(造成伤害)",
+  "skill_dot_1_7": "中毒",
+  "skill_dot_2": "烧伤",
+  "skill_dot_3_8": "诅咒",
+  "skill_dot_4": "猛毒",
+  "skill_dot_5": "咒术",
+  "skill_dot_11": "绝怠灵度",
+  "attr_hp": "HP",
+  "attr_life_steal": "HP吸收",
+  "attr_atk": "物理攻击力",
+  "attr_magic_str": "魔法攻击力",
+  "attr_def": "物理防御力",
+  "attr_magic_def": "魔法防御力",
+  "attr_physical_critical": "物理暴击",
+  "attr_magic_critical": "魔法暴击",
+  "attr_physical_penetrate": "物理穿透",
+  "attr_magic_penetrate": "魔法穿透",
+  "attr_accuracy": "命中",
+  "attr_dodge": "回避",
+  "attr_wave_hp_recovery": "HP回复",
+  "attr_hp_recovery_rate": "回复上升",
+  "attr_wave_energy_recovery": "TP回复",
+  "attr_energy_recovery_rate": "TP上升",
+  "attr_energy_reduce_rate": "TP减少",
+  "attr_tp": "TP",
+  "day": "{arg1}天",
+  "@day": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "hour": "{arg1}时",
+  "@hour": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "minute": "{arg1}分",
+  "@minute": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "response_error": "未正常获取数据，请切换网络后重试",
+  "response_cancel": "查询取消",
+  "leader_need_sync": "未关联",
+  "only_jp": "基于日服版本的评价，仅供参考",
+  "tool_leader_tier": "角色梯队",
+  "leader_tier_0": "综合",
+  "leader_tier_1": "竞技场进攻",
+  "leader_tier_2": "竞技场防守",
+  "leader_tier_d": "T{arg1}",
+  "@leader_tier_d": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "debug_short_text": "测试文本测试文本测试文本",
+  "debug_long_text": "测试文本测试文本测试文本测试文本，测试文本测试文本测试文本，测试文本测试",
+  "debug_name": "测试名称（类型）",
+  "to_zh": "（汉化）",
+  "download_apk_error": "获取安装包失败，请重试",
+  "install_apk_error": "安装失败",
+  "download_apk": "立即更新",
+  "download_apk_from_github": "从Github更新",
+  "apk_url": "https://github.com/wthee/pcr-tool/releases/download/v{arg1}/app-official-release.apk",
+  "@apk_url": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "request_install": "正在请求应用安装权限，开启权限后请重新更新",
+  "video_play_speed": "倍速:",
+  "play_error": "播放出错或资源不存在",
+  "video_resource_error": "资源不存在",
+  "save_video": "保存视频",
+  "video_caching": "视频缓存中...",
+  "saved": "已保存",
+  "title_download_file": "正在下载",
+  "download_file_notice": "文件下载通知",
+  "preview_spine_type": "预览类型",
+  "preview_spine_battle": "战斗",
+  "preview_spine_room": "小屋",
+  "talent_quest": "深域关卡",
+  "talent_weakness": "弱点属性",
+  "talent_weakness_tip": "弱点属性加成数值为最大值，即队伍中相同天赋角色数量为 5 时的数值",
+  "talent_item_1": "星素碎片*{arg1}",
+  "@talent_item_1": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "talnet_item_2": "水晶球*{arg1}",
+  "@talnet_item_2": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  }
+}

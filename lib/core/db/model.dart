@@ -49,3 +49,57 @@ class UnitInfo {
     required this.limitType,
   });
 }
+
+class SkillActionInfo {
+  final int actionId;
+  final int classId;
+  final int actionType;
+  final int actionDetail1;
+  final int actionDetail2;
+  final int actionDetail3;
+  final double actionValue1;
+  final double actionValue2;
+  final double actionValue3;
+  final double actionValue4;
+  final double actionValue5;
+  final double actionValue6;
+  final double actionValue7;
+  final int targetAssignment;
+  final int targetArea;
+  final int targetRange;
+  final int targetType;
+  final int targetNumber;
+  final int targetCount;
+  final String? description;
+  final String? levelUpDisp;
+  final String ailmentName;
+  final bool isRfSkill;
+  final bool isOtherRfSkill;
+
+  SkillActionInfo({
+    required this.actionId,
+    required this.classId,
+    required this.actionType,
+    required this.actionDetail1,
+    required this.actionDetail2,
+    required this.actionDetail3,
+    required this.actionValue1,
+    required this.actionValue2,
+    required this.actionValue3,
+    required this.actionValue4,
+    required this.actionValue5,
+    required this.actionValue6,
+    required this.actionValue7,
+    required this.targetAssignment,
+    required this.targetArea,
+    required this.targetRange,
+    required this.targetType,
+    required this.targetNumber,
+    required this.targetCount,
+    required this.description,
+    required this.levelUpDisp,
+    required this.ailmentName,
+    required this.isRfSkill,
+    required this.isOtherRfSkill,
+  });
+}

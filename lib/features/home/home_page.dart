@@ -1,57 +1,35 @@
-import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:kanna_note/app.dart';
-import 'package:kanna_note/core/component/image.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:kanna_note/features/component/unit_card.dart';
 import 'package:kanna_note/core/db/database.dart';
 import 'package:kanna_note/core/db/model.dart';
-import 'package:kanna_note/core/network/download.dart';
-import 'package:kanna_note/core/utils/app_router.dart';
-import '../../constants.dart';
+import 'package:kanna_note/di.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
   @override
-  State<HomePage> createState() => _HomePageState();
+  ConsumerState<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends ConsumerState<HomePage> {
+  AppDb get db => ref.read(dbProvider);
   double? _progress;
-  late UnitInfo unitInfo;
-  AppDb? db;
-  late CachedImage cachedImage;
+  final showUnit = [170101, 170201, 100101, 100201, 100301, 100401];
+
   @override
   void initState() {
     super.initState();
-    db = AppDb(File(FilePath.db(Area.cn)));
     Future.microtask(() async {
-      await db?.init();
-      unitInfo = (await db?.getUnitInfo(170101))!;
-      cachedImage = CachedImage(
-        url: FetchUrl.fullcardUrl(1701, 3),
-        width: 486,
-        height: 486 / 1.4,
-        borderRadius: BorderRadius.circular(8),
-      );
+      await db.init();
     });
   }
 
   Future<void> _startUpdate() async {
     setState(() {
-      _progress = 0;
-    });
-    await updatePcrDatabase(
-      Area.cn,
-      onProgress: (rec, total) {
-        setState(() {
-          _progress = rec / total;
-        });
-      },
-    );
-    setState(() {
       _progress = null;
     });
-    db = AppDb(FilePath.db(Area.cn));
     await db.init();
   }
 
@@ -63,7 +41,6 @@ class _HomePageState extends State<HomePage> {
         units.add(info);
       }
     }
-    print(units.map((e) => e.unitId).toList());
     return units;
   }
 
@@ -79,20 +56,46 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Home (Phase 0 Scaffold)'),
-            const SizedBox(height: 12),
-            FilledButton(
-              onPressed:
-                  () => context.go(
-                    AppRoutes.unitDetail,
-                    extra: UnitPageExtra(
-                      unitInfo: unitInfo,
-                      cachedImage: cachedImage,
+            AppBar(title: const Text('角色')),
+            FutureBuilder(
+              future: _loadUnits(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const CircularProgressIndicator();
+                } else if (snapshot.hasError) {
+                  return Text(
+                    'Error: ${snapshot.error} ${snapshot.stackTrace}',
+                  );
+                } else if (snapshot.hasData) {
+                  final units = snapshot.data!;
+                  return SizedBox(
+                    height: cardHeight,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      physics: const BouncingScrollPhysics(),
+                      cacheExtent: cardWidth,
+                      itemCount: units.length,
+                      separatorBuilder: (_, __) => const SizedBox(width: 12),
+                      itemBuilder: (context, i) {
+                        final unit = units[i];
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: UnitCard(
+                            unitInfo: unit,
+                            isR6: db.r6Units.contains(unit.unitId),
+                            size: (cardWidth, cardHeight),
+                          ),
+                        );
+                      },
                     ),
-                  ),
-              child: const Text('Go Settings'),
+                  );
+                } else {
+                  return const Text('No data');
+                }
+              },
             ),
-            const SizedBox(height: 12),
+
             FilledButton(
               onPressed: _progress == null ? _startUpdate : null,
               child: const Text('更新数据库'),

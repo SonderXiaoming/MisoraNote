@@ -2,7 +2,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:palette_generator/palette_generator.dart';
-import '../storage/cache.dart';
+import '../../core/storage/cache.dart';
 
 class CachedImage extends StatelessWidget {
   final String url;
@@ -60,8 +60,7 @@ class CachedImage extends StatelessWidget {
             ),
           ),
       errorWidget:
-          (ctx, _, __) =>
-              const Center(child: Icon(Icons.broken_image_outlined)),
+          (ctx, _, _) => const Center(child: Icon(Icons.broken_image_outlined)),
     );
 
     if (borderRadius != null) {
