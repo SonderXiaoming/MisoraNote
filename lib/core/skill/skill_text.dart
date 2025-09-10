@@ -1,3 +1,4 @@
+import 'package:kanna_note/constants.dart';
 import 'package:kanna_note/core/db/database.dart';
 import 'package:kanna_note/l10n/app_localizations.dart';
 import 'package:kanna_note/core/db/model.dart';
@@ -10,6 +11,8 @@ class ActionHandler {
   late SkillActionInfo action;
   late SkillDataData skillData;
   late String tag;
+  bool isOtherRfSkill = false; // 是否为回避等技能
+  bool isOtherLimitAction = false; // 是否为等级限制技能
   ActionHandler({required this.t});
 
   String getAtkType() {
@@ -295,6 +298,73 @@ class ActionHandler {
     return v1 <= 6 ? t.skill_shield(f, type) : t.unknown;
   }
 
+  String getPercent() {
+    if (action.actionType == SkillActionType.aura.value ||
+        action.actionType == SkillActionType.healDown.value) {
+      if (action.actionValue1 == 2 ||
+          [11, 12, 14, 16, 17, 18, 19].contains(action.actionDetail1 ~/ 10)) {
+        return "%";
+      } else {
+        return "";
+      }
+    } else if (action.actionType == SkillActionType.healField.value ||
+        action.actionType == SkillActionType.auraField.value) {
+      return action.actionDetail2 == 2 ? "%" : "";
+    } else if (action.actionType == SkillActionType.damageReduce.value) {
+      return "%";
+    } else if (action.actionType == SkillActionType.actionDot.value) {
+      return action.actionDetail1 == 10 ? "%" : "";
+    } else if (action.actionType == SkillActionType.dot.value) {
+      return action.actionDetail1 == 11 ? "%" : "";
+    } else {
+      return "";
+    }
+  }
+
+  void initOtherLimit() {
+    if (level > PCRLevelLimit.otherLimitLevel && isOtherRfSkill) {
+      isOtherLimitAction = true;
+    }
+  }
+
+  String getAura(int v, String valueText) {
+    // 作用
+    final actionType =
+        v == 1
+            ? t.skill_hp_max
+            : {
+                  1: t.attr_atk,
+                  2: t.attr_def,
+                  3: t.attr_magic_str,
+                  4: t.attr_magic_def,
+                  5: t.attr_dodge,
+                  6: t.attr_physical_critical,
+                  7: t.attr_magic_critical,
+                  8: t.attr_energy_recovery_rate,
+                  9: t.attr_life_steal,
+                  10: t.skill_speed,
+                  11: t.skill_physical_critical_damage,
+                  12: t.skill_magic_critical_damage,
+                  13: t.attr_accuracy,
+                  14: t.skill_critical_damage_take,
+                  16: t.skill_physical_damage_take,
+                  17: t.skill_magic_damage_take,
+                  18: t.skill_physical_damage,
+                  19: t.skill_magic_damage,
+                }[v % 1000 ~/ 10] ??
+                t.unknown;
+    String type = "";
+    if ([14, 16, 17].contains(v ~/ 10)) {
+      type = "${v % 10 == 0 ? t.skill_reduce : t.skill_increase} $valueText";
+    } else {
+      type = "${v % 10 == 0 ? t.skill_increase : t.skill_reduce} $valueText";
+    }
+    if (v > 1000) {
+      type += t.skill_fixed;
+    }
+    return actionType + type;
+  }
+
   String formatDesc(
     SkillActionInfo action,
     SkillDataData skillData,
@@ -342,7 +412,7 @@ class ActionHandler {
       case SkillActionType.trigger:
         return trigger();
       case SkillActionType.triggerV2:
-        return trigger_v2();
+        return triggerV2();
       case SkillActionType.charge:
       case SkillActionType.damageCharge:
         return charge();
@@ -473,28 +543,55 @@ class ActionHandler {
         return environment();
       case SkillActionType.guard:
         return guard();
-      case SkillActionType.sum_critical:
+      case SkillActionType.sumCritical:
         return sum_critical();
-      case SkillActionType.dot_up:
+      case SkillActionType.dotUp:
         return dot_up();
-      case SkillActionType.seal_count:
+      case SkillActionType.sealCount:
         return seal_count();
       case SkillActionType.persistent:
         return persistent();
-      case SkillActionType.magic_change:
+      case SkillActionType.magicChange:
         return magic_change();
-      case SkillActionType.magic_change_reduce_damage:
+      case SkillActionType.magicChangeReduceDamage:
         return magic_change_reduce_damage();
       case SkillActionType.transferDamage:
         return transfer_damage();
-      case SkillActionType.cannot_selected:
+      case SkillActionType.cannotSelected:
         return cannot_selected();
-      case SkillActionType.buff_dot:
+      case SkillActionType.buffDot:
         return buff_dot();
       case SkillActionType.damageToDot:
         return damage2dot();
       case SkillActionType.changeDefMax:
         return change_def_max();
+      case SkillActionType.unknown:
+        // TODO: Handle this case.
+        return t.unknown;
+      case SkillActionType.cure:
+        // TODO: Handle this case.
+        throw UnimplementedError();
+      case SkillActionType.continuousAttack:
+        // TODO: Handle this case.
+        throw UnimplementedError();
+      case SkillActionType.continuousAttackNearby:
+        // TODO: Handle this case.
+        throw UnimplementedError();
+      case SkillActionType.changeActionSpeedField:
+        // TODO: Handle this case.
+        throw UnimplementedError();
+      case SkillActionType.changeUbTime:
+        // TODO: Handle this case.
+        throw UnimplementedError();
+      case SkillActionType.ifTargeted:
+        // TODO: Handle this case.
+        throw UnimplementedError();
+      case SkillActionType.division:
+        // TODO: Handle this case.
+        throw UnimplementedError();
+      case SkillActionType.hpChange:
+        // TODO: Handle this case.
+        throw UnimplementedError();
     }
   }
 
@@ -612,5 +709,283 @@ class ActionHandler {
     } else {
       return type;
     }
+  }
+
+  String chooseEnemy() {
+    return t.skill_action_type_desc_7(getTarget());
+  }
+
+  String speed() {
+    tag =
+        ({
+              1: t.skill_ailment_1,
+              2: t.skill_ailment_2,
+              3: t.skill_ailment_3,
+              4: t.skill_ailment_4,
+              5: t.skill_ailment_5,
+              6: t.skill_ailment_6,
+              7: t.skill_ailment_7_12_14,
+              12: t.skill_ailment_7_12_14,
+              14: t.skill_ailment_7_12_14,
+              8: t.skill_ailment_8,
+              9: t.skill_ailment_9,
+              10: t.skill_ailment_10,
+              11: t.skill_ailment_11,
+              13: t.skill_ailment_13,
+            }[action.actionDetail1] ??
+            t.unknown);
+    final value = getValueText(1, action.actionValue1, action.actionValue2);
+    final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
+    String descText = "";
+    if (action.actionType ==
+        SkillActionType.superimposeChangeActionSpeed.value) {
+      tag += t.skill_ailment_extra;
+    } else if (action.actionType == SkillActionType.speedField.value) {
+      tag += t.skill_ailment_field;
+    }
+    if ([1, 2].contains(action.actionDetail1)) {
+      if (action.actionType ==
+          SkillActionType.superimposeChangeActionSpeed.value) {
+        final type =
+            action.actionDetail1 == 1 ? t.skill_reduce : t.skill_increase;
+        descText = t.skill_action_speed_change(type, value);
+      } else {
+        descText = t.skill_action_speed_multiple(value);
+      }
+      if (action.actionType == SkillActionType.speedField.value) {
+        return t.skill_action_type_desc_field(
+          descText,
+          action.actionValue5.toInt(),
+          time,
+        );
+      } else {
+        return "$tag${getTarget()}，$descText$time";
+      }
+    } else {
+      final count = action.actionDetail2 == 1 ? t.skill_action_hit_remove : "";
+
+      return t.skill_action_type_desc_8(getTarget(), tag, time, count);
+    }
+  }
+
+  String dot() {
+    tag =
+        ({
+              0: t.skill_dot_0,
+              1: t.skill_dot_1_7,
+              7: t.skill_dot_1_7,
+              2: t.skill_dot_2,
+              3: t.skill_dot_3_8,
+              8: t.skill_dot_3_8,
+              4: t.skill_dot_4,
+              5: t.skill_dot_5,
+              11: t.skill_dot_11,
+            }[action.actionDetail1] ??
+            t.unknown);
+    final value = getValueText(
+      1,
+      action.actionValue1,
+      action.actionValue2,
+      percent: getPercent(),
+    );
+    final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
+    final dotIncrease =
+        action.actionDetail1 == 5
+            ? t.skill_action_dot_increase(action.actionValue5.toInt())
+            : "";
+    return t.skill_action_type_desc_9(
+      getTarget(),
+      tag,
+      value,
+      dotIncrease,
+      time,
+    );
+  }
+
+  String aura() {
+    tag = action.actionDetail1 % 10 == 0 ? t.skill_buff : t.skill_debuff;
+    if (action.actionDetail1 % 1000 ~/ 10 == 5) {
+      // 回避等技能限制
+      initOtherLimit();
+    }
+
+    final value = getValueText(
+      2,
+      action.actionValue2,
+      action.actionValue3,
+      percent: getPercent(),
+    );
+    final aura = getAura(action.actionDetail1, value);
+    final time = getTimeText(4, action.actionValue4, v2: action.actionValue5);
+    if (action.actionDetail2 == 2) {
+      return t.skill_action_type_desc_10_break(getTarget(), aura);
+    } else {
+      return "${getTarget()}$aura$time";
+    }
+  }
+
+  // 11：魅惑/混乱12：黑暗 13：沉默
+  String charm() {
+    final chance = getValueText(
+      3,
+      action.actionValue3,
+      (action.actionValue3 == 100 ? 0.0 : 1.0),
+      v3: 0.0,
+      percent: "%",
+    );
+    final time = getTimeText(1, action.actionValue1, v2: action.actionValue2);
+    if (action.actionType == SkillActionType.charm.value) {
+      tag =
+          {0: t.skill_charm_0, 1: t.skill_charm_1}[action.actionDetail1] ??
+          t.unknown;
+    } else if (action.actionType == SkillActionType.silence.value) {
+      tag = t.skill_type_13;
+    }
+    String result = t.skill_action_type_desc_12_13(
+      chance,
+      getTarget(),
+      tag,
+      time,
+    );
+    if (action.actionType == SkillActionType.blind.value) {
+      result += t.skill_action_atk_miss(100 - action.actionDetail1);
+    }
+    return result;
+  }
+
+  String changeMode() {
+    return {
+          1: t.skill_action_change_mode(
+            action.actionValue5 == 1
+                ? t.skill_action_change_to_flight_status
+                : t.none,
+            getTimeText(1, action.actionValue1),
+          ),
+          2: t.skill_action_type_desc_14_2(action.actionValue1.toInt()),
+          3: t.skill_action_type_desc_14_3,
+        }[action.actionDetail1] ??
+        t.unknown;
+  }
+
+  String summon() {
+    final desc = t.skill_action_summon_unit;
+    if (action.actionValue7 > 0) {
+      return t.skill_action_type_desc_15(
+        getTarget(),
+        t.skill_ahead,
+        action.actionValue7.toInt(),
+        desc,
+      );
+    } else if (action.actionValue7 < 0) {
+      return t.skill_action_type_desc_15(
+        getTarget(),
+        t.skill_rear,
+        action.actionValue7.abs().toInt(),
+        desc,
+      );
+    } else {
+      return t.skill_action_summon_target(getTarget(), desc);
+    }
+  }
+
+  String tp() {
+    final value = getValueText(1, action.actionValue1, action.actionValue2);
+    tag = t.skill_action_tp_recovery;
+    if (action.actionDetail1 == 4) {
+      tag = t.skill_action_tp_reduce;
+    }
+    return "${getTarget()}$tag $value";
+  }
+
+  String trigger() {
+    final desc =
+        {
+          2: t.skill_action_type_desc_17_2(action.actionValue1.toInt()),
+          3: t.skill_action_type_desc_17_3(action.actionValue3.toInt()),
+          4: t.skill_action_type_desc_17_4(action.actionValue1.toInt()),
+          5: t.skill_action_type_desc_17_5(action.actionValue1.toInt()),
+          7: t.skill_action_type_desc_17_7(action.actionValue3.toInt()),
+          8: t.skill_action_type_desc_17_8(action.actionValue1.toInt()),
+          9: t.skill_action_type_desc_17_9(
+            action.actionValue1.toInt(),
+            getTimeText(3, action.actionValue3, hideIndex: true),
+          ),
+          10: t.skill_action_type_desc_17_10(action.actionValue1.toInt()),
+          11: t.skill_action_type_desc_17_11,
+          13: t.skill_action_type_desc_17_13(action.actionValue3.toInt()),
+          14: t.skill_action_type_desc_17_17(action.actionValue1.toInt()),
+        }[action.actionDetail1] ??
+        t.unknown;
+    return t.skill_action_condition(desc);
+  }
+
+  String loopTrigger() {
+    if (action.actionDetail1 == 2) {
+      final value = getValueText(
+        1,
+        action.actionValue1,
+        action.actionValue2,
+        percent: "%",
+      );
+      return t.skill_action_type_desc_42_2(
+        action.actionValue4.toInt(),
+        value,
+        action.actionDetail2 % 100,
+      );
+    } else if (action.actionDetail1 == 14) {
+      final value = getValueText(
+        1,
+        action.actionValue1,
+        action.actionValue2,
+        percent: "%",
+      );
+      String actionText = t.skill_action_d(action.actionDetail2 % 100);
+      if (action.actionDetail3 != 0) {
+        actionText += "、${t.skill_action_d(action.actionDetail3 % 100)}";
+      }
+      return t.skill_action_type_desc_42_14(
+        action.actionValue4.toInt(),
+        value,
+        actionText,
+      );
+    } else {
+      return t.unknown;
+    }
+  }
+
+  String triggerV2() {
+    final effect =
+        {
+          1: t.skill_action_type_desc_77_1 + t.skill_buff,
+          2: t.skill_action_type_desc_77_1 + t.skill_action_type_desc_111_2,
+        }[action.actionDetail1] ??
+        t.unknown;
+    return t.skill_action_type_desc_111(
+      getTarget(),
+      effect,
+      action.actionDetail2 % 100,
+    );
+  }
+
+  String charge() {
+    // 18：蓄力、19：伤害充能
+    final desc = t.skill_action_type_desc_18_19(action.actionValue3.toString());
+    String extraDesc = "";
+    if (action.actionValue1 != 0.0 || action.actionValue2 != 0.0) {
+      final value = getValueText(1, action.actionValue1, action.actionValue2);
+      extraDesc = t.skill_action_type_desc_18_19_detail(
+        action.actionDetail2 % 100,
+        value,
+      );
+    }
+    return desc + extraDesc;
+  }
+
+  String taunt() {
+    // 20：挑衅
+    // 回避等技能限制
+    initOtherLimit();
+    final time = getTimeText(1, action.actionValue1, v2: action.actionValue2);
+    return t.skill_action_type_desc_20(getTarget(), action.ailmentName, time);
   }
 }

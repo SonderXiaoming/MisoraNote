@@ -70,3 +70,10 @@ class CustomColors {
   static const colorDeepBlue = 0xFF578DE6; //深蓝
   static const colorDeepPink = 0xFFD854CC; //深粉
 }
+
+class PCRLevelLimit {
+  //属性变化等级，300级后，回避等属性转换为其他属性
+  static const int otherLimitLevel = 300;
+  //tp属性变化等级，260级后，tp回复将转化为攻击力
+  static const int tpLimitLevel = 260;
+}
