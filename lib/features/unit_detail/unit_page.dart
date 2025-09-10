@@ -19,35 +19,21 @@ class UnitPage extends ConsumerWidget {
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: Stack(
-        children: [
-          Stack(
-            children: [
-              CachedImage(
-                url: card.imageUrl,
-                height: card.size.$2,
-                width: width,
+      body: SizedBox(
+        width: width,
+        height: card.size.$2,
+        child: Stack(
+          children: [
+            CachedImage(url: card.imageUrl, height: card.size.$2, width: width),
+            Positioned.fill(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
+                child: Container(color: Colors.white.withAlpha(80)),
               ),
-              // 半透明遮罩
-              Positioned.fill(
-                right: 0,
-                left: 0,
-                top: 0,
-                bottom: 0,
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
-                  child: Container(
-                    color: Colors.white.withAlpha(80), // 可调整透明度
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [SizedBox(child: card, width: width)],
-              ),
-            ],
-          ),
-        ],
+            ),
+            Align(alignment: Alignment.center, child: card),
+          ],
+        ),
       ),
     );
   }

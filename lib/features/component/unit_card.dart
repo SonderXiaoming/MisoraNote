@@ -62,24 +62,25 @@ class _UnitCardState extends State<UnitCard> {
       fontWeight: FontWeight.w500,
       color: textColor,
     );
-    return GestureDetector(
-      onTap: () {
-        context.go(
-          AppRoutes.unitDetail,
-          extra: UnitPageExtra(unitInfo: widget.unitInfo, card: widget),
-        );
-      },
-      child: Card(
-        elevation: 4,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        clipBehavior: Clip.hardEdge,
-        child: SizedBox(
-          width: widget.size.$1,
-          height: widget.size.$2,
+    return SizedBox(
+      width: widget.size.$1,
+      height: widget.size.$2,
+      child: GestureDetector(
+        onTap: () {
+          context.go(
+            AppRoutes.unitDetail,
+            extra: UnitPageExtra(unitInfo: widget.unitInfo, card: widget),
+          );
+        },
+        child: Card(
+          elevation: 4,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          clipBehavior: Clip.hardEdge,
           child: Stack(
             children: [
               unitImage,
               Positioned(
+                right: 0,
                 child: ClipPath(
                   clipper: TrapezoidClipper(),
                   child: Container(
