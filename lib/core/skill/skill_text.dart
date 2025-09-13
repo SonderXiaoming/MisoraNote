@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:kanna_note/constants.dart';
 import 'package:kanna_note/core/db/database.dart';
 import 'package:kanna_note/l10n/app_localizations.dart';
@@ -365,6 +367,48 @@ class ActionHandler {
     return actionType + type;
   }
 
+  String getStatus() {
+    return {
+          100: t.skill_status_100,
+          101: t.skill_status_101,
+          200: t.skill_status_200,
+          300: t.skill_status_300,
+          400: t.skill_status_400,
+          500: t.skill_status_500,
+          501: t.skill_status_501,
+          502: t.skill_status_502,
+          503: t.skill_status_503,
+          504: t.skill_status_504,
+          511: t.skill_status_511,
+          512: t.skill_status_512,
+          710: t.skill_status_710,
+          900: t.skill_status_900,
+          1400: t.skill_status_1400,
+          1600: t.skill_status_1600,
+          1601: t.skill_status_1601,
+          1700:
+              {21: t.skill_status_1700_21, 41: t.skill_status_1700_41}[action
+                  .actionValue3] ??
+              t.unknown,
+          721: t.skill_status_721,
+          6107: t.skill_status_6107,
+          1513: t.skill_ailment_13,
+          1800: t.skill_status_1800,
+          1900: t.skill_status_1900,
+          3137: t.skill_status_3137,
+          3162: t.skill_status_3162,
+          3175: t.skill_status_3175,
+          3207: t.skill_status_3207,
+          6160: t.skill_status_6160,
+          4001: t.skill_target_fire,
+          4002: t.skill_target_water,
+          4003: t.skill_target_wind,
+          4004: t.skill_target_light,
+          4005: t.skill_target_dark,
+        }[action.actionDetail1] ??
+        t.unknown;
+  }
+
   String formatDesc(
     SkillActionInfo action,
     SkillDataData skillData,
@@ -423,7 +467,7 @@ class ActionHandler {
       case SkillActionType.changePattern:
         return changePattern();
       case SkillActionType.ifStatus:
-        return if_status();
+        return ifStatus();
       case SkillActionType.revival:
         return revival();
       case SkillActionType.additive:
@@ -431,18 +475,18 @@ class ActionHandler {
       case SkillActionType.divide:
         return coefficient();
       case SkillActionType.ifSpStatus:
-        return if_sp_status();
+        return ifSpStatus();
       case SkillActionType.noUb:
-        return no_ub();
+        return noUb();
       case SkillActionType.killMe:
-        return kill_me();
+        return killMe();
       case SkillActionType.lifeSteal:
-        return life_steal();
+        return lifeSteal();
       case SkillActionType.strikeBack:
-        return strike_back();
+        return strikeBack();
       case SkillActionType.accumulativeDamage:
       case SkillActionType.accumulativeDamageV2:
-        return accumulative_damage();
+        return accumulativeDamage();
       case SkillActionType.seal:
         return seal();
       case SkillActionType.sealV2:
@@ -987,5 +1031,563 @@ class ActionHandler {
     initOtherLimit();
     final time = getTimeText(1, action.actionValue1, v2: action.actionValue2);
     return t.skill_action_type_desc_20(getTarget(), action.ailmentName, time);
+  }
+
+  String invincible() {
+    // 回避等技能限制
+    initOtherLimit();
+    tag =
+        {
+          1: t.skill_action_type_desc_21_1,
+          2: t.skill_action_type_desc_21_2,
+          3: t.skill_action_type_desc_21_3,
+          6: t.skill_action_type_desc_21_6,
+          8: t.skill_action_type_desc_21_8,
+        }[action.actionDetail1] ??
+        t.unknown;
+    if (action.actionValue1 <= 0) {
+      return tag;
+    }
+    final time = getTimeText(1, action.actionValue1, v2: action.actionValue2);
+    return "$tag$time";
+  }
+
+  String changePattern() {
+    if (action.actionDetail1 == 1) {
+      return t.skill_action_loop_change(
+        action.actionValue1 > 0 ? getTimeText(1, action.actionValue1) : "",
+      );
+    } else if (action.actionDetail1 == 2) {
+      return t.skill_action_skill_anim_change(
+        getTimeText(1, action.actionValue1),
+      );
+    } else {
+      return t.unknown;
+    }
+  }
+
+  String ifStatus() {
+    final status = getStatus();
+    String trueClause = t.unknown;
+    String falseClause = t.unknown;
+    // ---------- 设置 true_clause ----------
+    if (action.actionDetail2 != 0) {
+      if (status != t.unknown) {
+        // 原代码: getString(R.string.skill_action_if_status, getTarget(), status, self.action.action_detail_2 % 100)
+        trueClause = t.skill_action_if_status(
+          getTarget(),
+          status,
+          action.actionDetail2 % 100,
+        );
+      } else {
+        // 根据 self.action.action_detail_1 不同范围进行判断
+        if ((600 <= action.actionDetail1 && action.actionDetail1 <= 699) ||
+            action.actionDetail1 == 710 ||
+            action.actionDetail1 == 6145) {
+          // getString(R.string.skill_action_if_mark, getTarget(), self.action.action_detail_2 % 100)
+          trueClause = t.skill_action_if_mark(
+            getTarget(),
+            action.actionDetail2 % 100,
+          );
+        } else if (action.actionDetail1 == 6194) {
+          // getString(R.string.skill_action_if_mark_count, getTarget(), self.action.action_value_3.toInt(), self.action.action_detail_2 % 100)
+          trueClause = t.skill_action_if_mark_count(
+            getTarget(),
+            action.actionValue3.toInt(),
+            action.actionDetail2 % 100,
+          );
+        } else if (action.actionDetail1 == 700) {
+          // getString(R.string.skill_action_if_alone, getTarget(), self.action.action_detail_2 % 100)
+          trueClause = t.skill_action_if_alone(
+            getTarget(),
+            action.actionDetail2 % 100,
+          );
+        } else if (901 <= action.actionDetail1 && action.actionDetail1 <= 999) {
+          // getString(R.string.skill_action_if_hp_below, getTarget(), self.action
+          trueClause = t.skill_action_if_hp_below(
+            getTarget(),
+            action.actionDetail1 - 900,
+            action.actionDetail2 % 100,
+          );
+        } else if (action.actionDetail1 == 2000 ||
+            action.actionDetail1 == 1300) {
+          // getString(R.string.skill_action_if_unit_atk_type, getTarget(), getString(R.string.skill_status_physical_atk), self.action.action_detail_2 % 100)
+          // 这里模拟 getString(R.string.skill_status_physical_atk) => "physical_atk"
+          trueClause = t.skill_action_if_unit_atk_type(
+            getTarget(),
+            t.skill_status_physical_atk,
+            action.actionDetail2 % 100,
+          );
+        } else if (action.actionDetail1 == 2001) {
+          // getString(R.string.skill_action_if_unit_atk_type, getTarget(), getString(R.string.skill_status_magic_atk), self.action.action_detail_2 % 100)
+          trueClause = t.skill_action_if_unit_atk_type(
+            getTarget(),
+            t.skill_status_magic_atk,
+            action.actionDetail2 % 100,
+          );
+        } else {
+          trueClause = t.unknown;
+        }
+      }
+    }
+
+    // ---------- 设置 false_clause ----------
+    if (action.actionDetail3 != 0) {
+      if (status != t.unknown) {
+        // getString(R.string.skill_action_if_status_not, getTarget(), status, self.action.action_detail_3 % 100)
+        falseClause = t.skill_action_if_status_not(
+          getTarget(),
+          status,
+          action.actionDetail3 % 100,
+        );
+      } else {
+        if ((600 <= action.actionDetail1 && action.actionDetail1 <= 699) ||
+            action.actionDetail1 == 710 ||
+            action.actionDetail1 == 6145) {
+          // getString(R.string.skill_action_if_mark_not, getTarget(), self.action.action_detail_3 % 100)
+          falseClause = t.skill_action_if_mark_not(
+            getTarget(),
+            action.actionDetail3 % 100,
+          );
+        } else if (action.actionDetail1 == 6194) {
+          // getString(R.string.skill_action_if_mark_count_not, getTarget(), self.action.action_value_3.toInt(), self.action.action_detail_3 % 100)
+          falseClause = t.skill_action_if_mark_count_not(
+            getTarget(),
+            action.actionValue3.toInt(),
+            action.actionDetail3 % 100,
+          );
+        } else if (action.actionDetail1 == 700) {
+          // getString(R.string.skill_action_if_alone_not, getTarget(), self.action.action
+          falseClause = t.skill_action_if_alone_not(
+            getTarget(),
+            action.actionDetail3 % 100,
+          );
+        } else if (901 <= action.actionDetail1 && action.actionDetail1 <= 999) {
+          // getString(R.string.skill_action_if_hp_above, getTarget(), self.action
+          falseClause = t.skill_action_if_hp_above(
+            getTarget(),
+            action.actionDetail1 - 900,
+            action.actionDetail3 % 100,
+          );
+        } else if (action.actionDetail1 == 2000 ||
+            action.actionDetail1 == 1300) {
+          // 原代码中的“else分支”与 truth 分支相反；对 atk_type 逻辑做相反处理
+          falseClause = t.skill_action_if_unit_atk_type(
+            getTarget(),
+            t.skill_status_magic_atk,
+            action.actionDetail3 % 100,
+          );
+        } else if (action.actionDetail1 == 2001) {
+          falseClause = t.skill_action_if_unit_atk_type(
+            getTarget(),
+            t.skill_status_physical_atk,
+            action.actionDetail3 % 100,
+          );
+        } else {
+          falseClause = t.unknown;
+        }
+      }
+    }
+    // ---------- 最终返回结果 ----------
+    // 原 Kotlin: if (self.action.action_detail_1 in 0..99) { ... } else { ... }
+    if (0 <= action.actionDetail1 && action.actionDetail1 <= 99) {
+      // 满足 0..99 时，走 “随机” 分支
+      if (action.actionDetail2 != 0 && action.actionDetail3 != 0) {
+        // getString(R.string.skill_action_random_1, self.action.action_detail_1, self.action.action_detail_2 % 100, self.action.action_detail_3 % 100)
+        return t.skill_action_random_1(
+          action.actionDetail1,
+          action.actionDetail2 % 100,
+          action.actionDetail3 % 100,
+        );
+      } else if (action.actionDetail2 != 0) {
+        // getString(R.string.skill_action_random_2, self.action.action_detail_1, self.action.action_detail_2 % 100)
+        return t.skill_action_random_2(
+          action.actionDetail1,
+          action.actionDetail2 % 100,
+        );
+      } else if (action.actionDetail3 != 0) {
+        // getString(R.string.skill_action_random_2, 100 - self.action.action_detail_1, self.action.action_detail_3 % 100)
+        return t.skill_action_random_2(
+          100 - action.actionDetail1,
+          action.actionDetail3 % 100,
+        );
+      } else {
+        return t.unknown;
+      }
+    } else if (trueClause != t.unknown && falseClause != t.unknown) {
+      // getString(R.string.skill_action_condition, "${trueClause}；${falseClause}")
+      // 注意原 Kotlin 用的是 “；” 分隔，这里也用同样符号
+      return t.skill_action_condition("$trueClause；$falseClause");
+    } else if (trueClause != t.unknown) {
+      // getString(R.string.skill_action_condition, trueClause)
+      return t.skill_action_condition(trueClause);
+    } else if (falseClause != t.unknown) {
+      // getString(R.string.skill_action_condition, falseClause)
+      return t.skill_action_condition(falseClause);
+    } else {
+      return t.unknown;
+    }
+  }
+
+  String revival() {
+    return t.skill_action_type_desc_24(
+      getTarget(),
+      (action.actionValue2 * 100).toInt(),
+    );
+  }
+
+  String coefficient() {
+    // ------------ 1) 计算 attrType ------------
+    final attrType =
+        {
+          7: t.skill_physical_str,
+          8: t.skill_magic_str,
+          9: t.skill_physical_def,
+          10: t.skill_magic_def,
+        }[action.actionValue1.toInt()] ??
+        t.unknown;
+    // ------------ 2) 计算 changeType ------------
+    final sat = SkillActionType.getByType(action.actionType);
+    String changeType;
+    switch (sat) {
+      case SkillActionType.additive:
+        changeType = t.skill_action_type_desc_additive;
+      case SkillActionType.multiple:
+        changeType = t.skill_action_type_desc_multiple;
+      case SkillActionType.divide:
+        changeType = t.skill_action_type_desc_divide;
+      default:
+        changeType = t.unknown;
+    }
+
+    //------------ 3) 构造 commonDesc 字符串 ------------
+    final value = getValueText(
+      2,
+      action.actionValue2,
+      action.actionValue3,
+      hideIndex: true,
+    );
+    final commonDesc = t.skill_action_change_coe(
+      (action.actionDetail1 % 100).toInt(),
+      action.actionDetail2.toInt(),
+      changeType,
+      value,
+    );
+    // ------------ 4) 根据 self.action.action_value_1 不同取 extraDesc ------------
+    final av1 = action.actionValue1.toInt();
+    String extraDesc = t.unknown;
+    if (av1 == 2) {
+      String mValue;
+      if (action.actionDetail3 == 0) {
+        mValue = "[${action.actionValue2}]";
+      } else if (action.actionDetail2 == 0) {
+        mValue = "[${action.actionValue3}]";
+      } else {
+        mValue =
+            "[${action.actionValue2 + 2 * action.actionValue3 * level}] <${action.actionValue2} + ${2 * action.actionValue3} * ${t.skill_level}>";
+      }
+      final mDesc = t.skill_action_change_coe(
+        (action.actionDetail1 % 100).toInt(),
+        action.actionDetail2.toInt(),
+        changeType,
+        mValue,
+      );
+      extraDesc = t.skill_action_change_coe_2(mDesc);
+    } else if (av1 == 0) {
+      extraDesc = t.skill_action_change_coe_0(commonDesc);
+    } else if (av1 == 1) {
+      extraDesc = t.skill_action_change_coe_1(commonDesc);
+    } else if (av1 == 4) {
+      final targetStr = getTarget();
+      final targetType = targetStr.isNotEmpty ? targetStr : t.skill_target_none;
+      extraDesc = t.skill_action_change_coe_4(commonDesc, targetType);
+    } else if (av1 == 5) {
+      extraDesc = t.skill_action_change_coe_5(commonDesc);
+    } else if (av1 == 6) {
+      extraDesc = t.skill_action_change_coe_6(commonDesc);
+    } else if (7 <= av1 && av1 <= 10) {
+      // getString(R.string.skill_action_change_coe_7_10, commonDesc, getTarget(), attrType)
+      extraDesc = t.skill_action_change_coe_7_10(
+        commonDesc,
+        getTarget(),
+        attrType,
+      );
+    } else if (av1 == 12) {
+      extraDesc = t.skill_action_change_coe_12(commonDesc, getTarget());
+    } else if (av1 == 13) {
+      extraDesc = t.skill_action_change_coe_13(commonDesc);
+    } else if (av1 == 15) {
+      extraDesc = t.skill_action_change_coe_15(commonDesc, getTarget());
+    } else if (av1 == 16) {
+      extraDesc = t.skill_action_change_coe_16(commonDesc, getTarget());
+    } else if (av1 == 102) {
+      extraDesc = t.skill_action_change_coe_102(commonDesc);
+    } else if (20 <= av1 && av1 < 30) {
+      extraDesc = t.skill_action_change_coe_skill_count(commonDesc);
+    } else if ((200 <= av1 && av1 < 300) || (2112 <= av1 && av1 < 3000)) {
+      extraDesc = t.skill_action_change_coe_mark_count(commonDesc);
+    } else {
+      extraDesc = t.unknown;
+    }
+    // ------------ 5) 计算 limitDesc 并返回最终结果 ------------
+    if (action.actionValue4.toInt() == 0) {
+      return extraDesc;
+    }
+    final limitValue = getValueText(
+      4,
+      action.actionValue4,
+      action.actionValue5,
+      hideIndex: true,
+    );
+    final limitDesc = t.skill_action_limit(limitValue);
+    // extraDesc + limit
+    return extraDesc == t.unknown ? t.unknown : extraDesc + limitDesc;
+  }
+
+  String ifSpStatus() {
+    final status = getStatus();
+    String trueClause = t.unknown;
+    String falseClause = t.unknown;
+    // ---------- 设置 true_clause ----------
+    if (action.actionDetail2 != 0 || action.actionDetail3 == 0) {
+      // 对应 Kotlin：if (self.action.action_detail_2 != 0 || self.action.action_detail_3 == 0) {...}
+      if (0 <= action.actionDetail1 && action.actionDetail1 <= 99) {
+        // skill_action_sp_if_rate
+        trueClause = t.skill_action_sp_if_rate(
+          action.actionDetail1,
+          action.actionDetail2 % 100,
+        );
+      } else if (action.actionDetail1 == 599) {
+        // skill_action_sp_if_dot
+        trueClause = t.skill_action_sp_if_dot(
+          getTarget(),
+          action.actionDetail2 % 100,
+        );
+      } else if ((600 <= action.actionDetail1 && action.actionDetail1 <= 699) ||
+          (6000 <= action.actionDetail1 && action.actionDetail1 <= 6999)) {
+        // skill_action_sp_if_mark_count
+        final cnt = max(action.actionValue3.toInt(), 1);
+        trueClause = t.skill_action_sp_if_mark_count(
+          getTarget(),
+          cnt,
+          action.actionDetail2 % 100,
+        );
+      } else if (action.actionDetail1 == 700) {
+        // skill_action_if_alone
+        trueClause = t.skill_action_if_alone(
+          getTarget(),
+          action.actionDetail2 % 100,
+        );
+      } else if (701 <= action.actionDetail1 && action.actionDetail1 <= 709) {
+        // skill_action_sp_if_unit_count
+        trueClause = t.skill_action_sp_if_unit_count(
+          getTarget(),
+          action.actionDetail1 - 700,
+          action.actionDetail2 % 100,
+        );
+      } else if (action.actionDetail1 == 720) {
+        // skill_action_sp_if_unit_exist
+        trueClause = t.skill_action_sp_if_unit_exist(
+          getTarget(),
+          action.actionDetail2 % 100,
+        );
+      } else if (901 <= action.actionDetail1 && action.actionDetail1 <= 999) {
+        // skill_action_if_hp_below
+        trueClause = t.skill_action_if_hp_below(
+          getTarget(),
+          action.actionDetail1 - 900,
+          action.actionDetail2 % 100,
+        );
+      } else if (action.actionDetail1 == 1000) {
+        // skill_action_sp_if_kill
+        trueClause = t.skill_action_sp_if_kill(action.actionDetail2 % 100);
+      } else if (action.actionDetail1 == 1001) {
+        // skill_action_sp_if_critical
+        trueClause = t.skill_action_sp_if_critical(action.actionDetail2 % 100);
+      } else if (1200 <= action.actionDetail1 && action.actionDetail1 <= 1299) {
+        // skill_action_sp_if_skill_count
+        trueClause = t.skill_action_sp_if_skill_count(
+          getTarget(),
+          action.actionDetail1 % 10,
+          action.actionDetail2 % 100,
+        );
+      } else if (action.actionDetail1 == 2000 || action.actionDetail1 == 1300) {
+        // skill_action_if_unit_atk_type ... physical
+        trueClause = t.skill_action_if_unit_atk_type(
+          getTarget(),
+          t.skill_status_physical_atk,
+          action.actionDetail2 % 100,
+        );
+      } else if (action.actionDetail1 == 2001) {
+        // skill_action_if_unit_atk_type ... magic
+        trueClause = t.skill_action_if_unit_atk_type(
+          getTarget(),
+          t.skill_status_magic_atk,
+          action.actionDetail2 % 100,
+        );
+      } else {
+        // skill_action_if_status
+        trueClause = t.skill_action_if_status(
+          getTarget(),
+          status,
+          action.actionDetail2 % 100,
+        );
+      }
+    }
+    // ---------- 设置 false_clause ----------
+    // 对应 Kotlin：if (self.action.action_detail_3 != 0) {...}
+    if (action.actionDetail3 != 0) {
+      if (0 <= action.actionDetail1 && action.actionDetail1 <= 99) {
+        falseClause = t.skill_action_sp_if_rate(
+          100 - action.actionDetail1,
+          action.actionDetail3 % 100,
+        );
+      } else if (action.actionDetail1 == 599) {
+        falseClause = t.skill_action_sp_if_dot_not(
+          getTarget(),
+          action.actionDetail3 % 100,
+        );
+      } else if ((600 <= action.actionDetail1 && action.actionDetail1 <= 699) ||
+          (6000 <= action.actionDetail1 && action.actionDetail1 <= 6999)) {
+        final cnt = max(action.actionValue3.toInt(), 1);
+        falseClause = t.skill_action_sp_if_mark_count_not(
+          getTarget(),
+          cnt,
+          action.actionDetail3 % 100,
+        );
+      } else if (action.actionDetail1 == 700) {
+        falseClause = t.skill_action_if_alone_not(
+          getTarget(),
+          action.actionDetail3 % 100,
+        );
+      } else if (701 <= action.actionDetail1 && action.actionDetail1 <= 709) {
+        falseClause = t.skill_action_sp_if_unit_count_not(
+          getTarget(),
+          action.actionDetail1 - 700,
+          action.actionDetail3 % 100,
+        );
+      } else if (action.actionDetail1 == 720) {
+        falseClause = t.skill_action_sp_if_unit_exist_not(
+          getTarget(),
+          action.actionDetail3 % 100,
+        );
+      } else if (901 <= action.actionDetail1 && action.actionDetail1 <= 999) {
+        falseClause = t.skill_action_if_hp_above(
+          getTarget(),
+          action.actionDetail1 - 900,
+          action.actionDetail3 % 100,
+        );
+      } else if (action.actionDetail1 == 1000) {
+        falseClause = t.skill_action_sp_if_kill_not(action.actionDetail3 % 100);
+      } else if (action.actionDetail1 == 1001) {
+        falseClause = t.skill_action_sp_if_critical_not(
+          action.actionDetail3 % 100,
+        );
+      } else if (1200 <= action.actionDetail1 && action.actionDetail1 <= 1299) {
+        falseClause = t.skill_action_sp_if_skill_count_not(
+          getTarget(),
+          action.actionDetail1 % 10,
+          action.actionDetail3 % 100,
+        );
+      } else if (action.actionDetail1 == 2000 || action.actionDetail1 == 1300) {
+        falseClause = t.skill_action_if_unit_atk_type(
+          getTarget(),
+          t.skill_status_magic_atk,
+          action.actionDetail3 % 100,
+        );
+      } else if (action.actionDetail1 == 2001) {
+        falseClause = t.skill_action_if_unit_atk_type(
+          getTarget(),
+          t.skill_status_physical_atk,
+          action.actionDetail3 % 100,
+        );
+      } else {
+        falseClause = t.skill_action_if_status_not(
+          getTarget(),
+          status,
+          action.actionDetail3 % 100,
+        );
+      }
+    }
+    // ---------- 最终返回结果 ----------
+    // 对应 Kotlin：if (self.action.action_detail_1 in 0..99) { ... } else { ... }
+    if (trueClause != t.unknown && falseClause != t.unknown) {
+      // "trueClause；falseClause"
+      return t.skill_action_condition("$trueClause；$falseClause");
+    } else if (trueClause != t.unknown) {
+      return t.skill_action_condition(trueClause);
+    } else if (falseClause != t.unknown) {
+      return t.skill_action_condition(falseClause);
+    } else {
+      return t.unknown;
+    }
+  }
+
+  String noUb() {
+    return t.skill_action_type_desc_29;
+  }
+
+  String killMe() {
+    return t.skill_action_type_desc_30(getTarget());
+  }
+
+  String lifeSteal() {
+    // 回避等技能限制
+    initOtherLimit();
+    final value = getValueText(1, action.actionValue1, action.actionValue2);
+    return t.skill_action_type_desc_32(
+      getTarget(),
+      action.actionValue3.toInt(),
+      action.ailmentName,
+      value,
+    );
+  }
+
+  String strikeBack() {
+    final value = getValueText(1, action.actionValue1, action.actionValue2);
+    final type = getBarrierType(action.actionDetail1);
+    final shieldText = t.skill_action_type_desc_6(getTarget(), type, "", "");
+    final backType =
+        {
+          1: t.skill_physical,
+          3: t.skill_physical,
+          2: t.skill_magic,
+          4: t.skill_magic,
+        }[action.actionDetail1] ??
+        "";
+    final hpRecovery =
+        {
+          3: t.skill_action_type_desc_33_hp,
+          4: t.skill_action_type_desc_33_hp,
+          6: t.skill_action_type_desc_33_hp,
+        }[action.actionDetail1] ??
+        "";
+    if (action.actionDetail1 <= 6) {
+      return t.skill_action_type_desc_33(
+        shieldText,
+        backType,
+        value,
+        hpRecovery,
+        action.actionValue3.toInt(),
+      );
+    } else {
+      return t.unknown;
+    }
+  }
+
+  String accumulativeDamage() {
+    final value = getValueText(2, action.actionValue2, action.actionValue3);
+    final limit = t.skill_action_limit_int(action.actionValue4.toInt());
+    return t.skill_action_type_desc_34(value, limit);
+  }
+
+  String seal() {
+    final count = action.actionValue4.abs();
+    if (action.actionValue4 <= 0) {
+      return t.skill_action_type_desc_35_reduce(getTarget(), count.toInt());
+    }
+    final time = getTimeText(3, action.actionValue3, hideIndex: true);
+    final limit = t.skill_action_limit_int(action.actionValue1.toInt());
+    return t.skill_action_type_desc_35(getTarget(), count.toInt(), time, limit);
   }
 }
