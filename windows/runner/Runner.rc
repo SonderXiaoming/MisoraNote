@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "kanna_note" "\0"
+            VALUE "FileDescription", "misora_note" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "kanna_note" "\0"
+            VALUE "InternalName", "misora_note" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2025 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "kanna_note.exe" "\0"
-            VALUE "ProductName", "kanna_note" "\0"
+            VALUE "OriginalFilename", "misora_note.exe" "\0"
+            VALUE "ProductName", "misora_note" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

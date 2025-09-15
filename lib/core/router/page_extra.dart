@@ -1,5 +1,5 @@
-import 'package:kanna_note/features/component/unit_card.dart';
-import 'package:kanna_note/core/db/model.dart';
+import 'package:misora_note/features/component/unit_card.dart';
+import 'package:misora_note/core/db/model.dart';
 
 class UnitPageExtra {
   final UnitInfo unitInfo;

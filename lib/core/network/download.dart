@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:kanna_note/constants.dart';
-import 'package:kanna_note/core/utils/util.dart';
+import 'package:misora_note/constants.dart';
+import 'package:misora_note/core/utils/util.dart';
 import './base.dart';
 
 Future<void> updatePcrDatabase(

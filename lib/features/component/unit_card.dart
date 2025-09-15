@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kanna_note/features/component/image.dart';
-import 'package:kanna_note/features/component/shape.dart';
-import 'package:kanna_note/core/db/model.dart';
-import 'package:kanna_note/constants.dart';
-import 'package:kanna_note/core/router/page_extra.dart';
-import 'package:kanna_note/core/utils/util.dart';
+import 'package:misora_note/features/component/image.dart';
+import 'package:misora_note/features/component/shape.dart';
+import 'package:misora_note/core/db/model.dart';
+import 'package:misora_note/constants.dart';
+import 'package:misora_note/core/router/page_extra.dart';
+import 'package:misora_note/core/utils/util.dart';
 
 class UnitCard extends StatefulWidget {
   final UnitInfo unitInfo;

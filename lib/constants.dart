@@ -77,3 +77,78 @@ class PCRLevelLimit {
   //tp属性变化等级，260级后，tp回复将转化为攻击力
   static const int tpLimitLevel = 260;
 }
+
+class SkillTag {
+  static const tagColorMap = {
+    "<": 0xFFa24072,
+    "[": 0xFF7aa57b,
+    "『": 0xFFa24072,
+    "{": 0xFFb476cd,
+  };
+
+  static const Map<String, String> tyagPairs = {
+    "<": ">",
+    "[": "]",
+    "『": "』",
+    "{": "}",
+  };
+
+  static int tagColor(String tag) =>
+      SkillTag.tagColorMap[tag] ?? CustomColors.colorBlack;
+
+  static String getPair(String tag) => SkillTag.tyagPairs[tag] ?? "";
+}
+
+enum SkillTextType {
+  ub("连结爆发"),
+  ubPlus("连结爆发+"),
+  skill1("技能1"),
+  skill1Plus("技能1+"),
+  skill2("技能2"),
+  skill2Plus("技能2+"),
+  exSkill("额外技能"),
+  exSkillPlus("额外技能+"),
+  spUb("SP连结爆发"),
+  spSkill1("SP技能1"),
+  spSkill1Plus("SP技能1+"),
+  spSkill2("SP技能2"),
+  spSkill2Plus("SP技能2+"),
+  spSkill3("SP技能3"),
+  other("其他");
+
+  final String value;
+  const SkillTextType(this.value);
+  static SkillTextType? fromValue(String value) {
+    for (var type in SkillTextType.values) {
+      if (type.value == value) {
+        return type;
+      }
+    }
+    return null;
+  }
+
+  static int getColor(SkillTextType type) {
+    switch (type) {
+      case SkillTextType.ub:
+      case SkillTextType.ubPlus:
+      case SkillTextType.spUb:
+        return CustomColors.colorGold;
+      case SkillTextType.skill1:
+      case SkillTextType.skill1Plus:
+      case SkillTextType.spSkill1:
+      case SkillTextType.spSkill1Plus:
+        return CustomColors.colorPurple;
+      case SkillTextType.skill2:
+      case SkillTextType.skill2Plus:
+      case SkillTextType.spSkill2:
+      case SkillTextType.spSkill2Plus:
+        return CustomColors.colorRed;
+      case SkillTextType.exSkill:
+      case SkillTextType.exSkillPlus:
+      case SkillTextType.spSkill3:
+        return CustomColors.colorOrange;
+      case SkillTextType.other:
+        return CustomColors.colorGray;
+    }
+  }
+}

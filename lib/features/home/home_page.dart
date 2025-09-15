@@ -2,10 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:kanna_note/features/component/unit_card.dart';
-import 'package:kanna_note/core/db/database.dart';
-import 'package:kanna_note/core/db/model.dart';
-import 'package:kanna_note/di.dart';
+import 'package:misora_note/features/component/unit_card.dart';
+import 'package:misora_note/core/db/database.dart';
+import 'package:misora_note/core/db/model.dart';
+import 'package:misora_note/di.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});

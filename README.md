@@ -1,4 +1,4 @@
-# kanna_note
+# misora note
 
 A new Flutter project.
 

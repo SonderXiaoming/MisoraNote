@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:kanna_note/l10n/app_localizations.dart';
+import 'package:misora_note/l10n/app_localizations.dart';
 
 enum SkillActionType {
   unknown(0),

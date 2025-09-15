@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kanna_note/constants.dart';
+import 'package:misora_note/constants.dart';
 
 class TrapezoidClipper extends CustomClipper<Path> {
   @override

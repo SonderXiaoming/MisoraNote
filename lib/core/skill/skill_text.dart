@@ -1,13 +1,13 @@
 import 'dart:math';
 
-import 'package:kanna_note/constants.dart';
-import 'package:kanna_note/core/db/database.dart';
-import 'package:kanna_note/l10n/app_localizations.dart';
-import 'package:kanna_note/core/db/model.dart';
-import 'package:kanna_note/core/skill/skill_type.dart';
+import 'package:misora_note/constants.dart';
+import 'package:misora_note/core/db/database.dart';
+import 'package:misora_note/l10n/app_localizations.dart';
+import 'package:misora_note/core/db/model.dart';
+import 'package:misora_note/core/skill/skill_type.dart';
 
 class ActionHandler {
-  final AppLocalizations t;
+  late AppLocalizations t;
   late int level;
   late int atk;
   late SkillActionInfo action;
@@ -15,7 +15,9 @@ class ActionHandler {
   late String tag;
   bool isOtherRfSkill = false; // 是否为回避等技能
   bool isOtherLimitAction = false; // 是否为等级限制技能
-  ActionHandler({required this.t});
+  ActionHandler(AppLocalizations? l10n) {
+    t = l10n!;
+  }
 
   String getAtkType() {
     switch (action.actionDetail1) {
@@ -490,25 +492,25 @@ class ActionHandler {
       case SkillActionType.seal:
         return seal();
       case SkillActionType.sealV2:
-        return seal_v2();
+        return sealV2();
       case SkillActionType.attackField:
-        return attack_field();
+        return attackField();
       case SkillActionType.healField:
-        return heal_field();
+        return healField();
       case SkillActionType.auraField:
-        return aura_field();
+        return auraField();
       case SkillActionType.dotField:
-        return dot_field();
+        return dotField();
       case SkillActionType.loopTrigger:
-        return loop_trigger();
+        return loopTrigger();
       case SkillActionType.waveStart:
-        return wave_start();
+        return waveStart();
       case SkillActionType.skillCount:
-        return skill_count();
+        return skillCount();
       case SkillActionType.rateDamage:
-        return rate_damage();
+        return rateDamage();
       case SkillActionType.upperLimitAttack:
-        return limit_attack();
+        return limitAttack();
       case SkillActionType.hot:
         return hot();
       case SkillActionType.dispel:
@@ -516,23 +518,23 @@ class ActionHandler {
       case SkillActionType.channel:
         return channel();
       case SkillActionType.changeWidth:
-        return change_width();
+        return changeWidth();
       case SkillActionType.ifHasField:
-        return if_has_field();
+        return ifHasField();
       case SkillActionType.stealth:
         return stealth();
       case SkillActionType.movePart:
-        return move_part();
+        return movePart();
       case SkillActionType.countBlind:
-        return count_blind();
+        return countBlind();
       case SkillActionType.countDown:
-        return count_down();
+        return countDown();
       case SkillActionType.stopField:
-        return stop_field();
+        return stopField();
       case SkillActionType.inhibitHealAction:
-        return inhibit_heal();
+        return inhibitHeal();
       case SkillActionType.attackSeal:
-        return attack_seal();
+        return attackSeal();
       case SkillActionType.fear:
         return fear();
       case SkillActionType.awe:
@@ -542,75 +544,74 @@ class ActionHandler {
       case SkillActionType.reindeer:
         return reindeer();
       case SkillActionType.exemptionDeath:
-        return exemption_death();
+        return exemptionDeath();
       case SkillActionType.damageReduce:
-        return damage_reduce();
+        return damageReduce();
       case SkillActionType.logBarrier:
-        return log_barrier();
+        return logBarrier();
       case SkillActionType.hitCount:
-        return hit_count();
+        return hitCount();
       case SkillActionType.healDown:
-        return heal_down();
+        return healDown();
       case SkillActionType.ifBuffSeal:
-        return if_buff_seal();
+        return ifBuffSeal();
       case SkillActionType.dmgTakenUp:
-        return damage_taken_up();
+        return damageTacenUp();
       case SkillActionType.actionDot:
-        return action_dot();
+        return actionDot();
       case SkillActionType.noTarget:
-        return no_target();
+        return noTarget();
       case SkillActionType.ex:
         return ex();
       case SkillActionType.exEquip:
-        return ex_equip_full();
+        return exEquipFull();
       case SkillActionType.exEquipHalf:
-        return ex_equip_half();
+        return exEquipHalf();
       case SkillActionType.changeTpRatio:
-        return change_tp_ratio();
+        return changeTpRatio();
       case SkillActionType.ignoreTaunt:
-        return ignore_taunt();
+        return ignoreTaunt();
       case SkillActionType.specialEffect:
-        return special_effect();
+        return specialEffect();
       case SkillActionType.hide:
         return hide();
       case SkillActionType.tpField:
-        return tp_field();
+        return tpField();
       case SkillActionType.tpHit:
-        return tp_hit();
+        return tpHit();
       case SkillActionType.tpHitReduce:
-        return tp_hit_reduce();
+        return tpHitReduce();
       case SkillActionType.ignoreSpeedDown:
-        return ignore_speed_down();
+        return ignoreSpeedDown();
       case SkillActionType.copyAtk:
-        return copy_atk();
+        return copyAtk();
       case SkillActionType.environment:
         return environment();
       case SkillActionType.guard:
         return guard();
       case SkillActionType.sumCritical:
-        return sum_critical();
+        return sumCritical();
       case SkillActionType.dotUp:
-        return dot_up();
+        return dotUp();
       case SkillActionType.sealCount:
-        return seal_count();
+        return sealCount();
       case SkillActionType.persistent:
         return persistent();
       case SkillActionType.magicChange:
-        return magic_change();
+        return magicChange();
       case SkillActionType.magicChangeReduceDamage:
-        return magic_change_reduce_damage();
+        return magicChangeReduceDamage();
       case SkillActionType.transferDamage:
-        return transfer_damage();
+        return transferDamage();
       case SkillActionType.cannotSelected:
-        return cannot_selected();
+        return cannotSelected();
       case SkillActionType.buffDot:
-        return buff_dot();
+        return buffDot();
       case SkillActionType.damageToDot:
         return damage2dot();
       case SkillActionType.changeDefMax:
-        return change_def_max();
+        return changeDefMax();
       case SkillActionType.unknown:
-        // TODO: Handle this case.
         return t.unknown;
       case SkillActionType.cure:
         // TODO: Handle this case.
@@ -1589,5 +1590,638 @@ class ActionHandler {
     final time = getTimeText(3, action.actionValue3, hideIndex: true);
     final limit = t.skill_action_limit_int(action.actionValue1.toInt());
     return t.skill_action_type_desc_35(getTarget(), count.toInt(), time, limit);
+  }
+
+  String sealV2() {
+    final count = action.actionValue4.abs().toInt();
+    if (action.actionDetail2 <= 0) {
+      return t.skill_action_type_desc_101_reduce(getTarget(), count);
+    }
+    final time = getTimeText(3, action.actionValue3, hideIndex: true);
+    final limit = t.skill_action_limit_int(action.actionValue1.toInt());
+    return t.skill_action_type_desc_101(getTarget(), count, time, limit);
+  }
+
+  String attackField() {
+    final atkType = getAtkType();
+    final value = getValueText(
+      1,
+      action.actionValue1,
+      action.actionValue2,
+      v3: action.actionValue3,
+    );
+    final time = getTimeText(5, action.actionValue5, v2: action.actionValue6);
+    final damage = t.skill_action_type_desc_36_damage(value, atkType);
+    return t.skill_action_type_desc_field(
+      damage,
+      action.actionValue7.toInt(),
+      time,
+    );
+  }
+
+  String healField() {
+    final value = getValueText(
+      1,
+      action.actionValue1,
+      action.actionValue2,
+      v3: action.actionValue3,
+    );
+    final heal = t.skill_action_type_desc_37_heal(value);
+    final time = getTimeText(5, action.actionValue5, v2: action.actionValue6);
+    return t.skill_action_type_desc_field(
+      heal,
+      action.actionValue7.toInt(),
+      time,
+    );
+  }
+
+  String dotField() {
+    final time = getTimeText(3, action.actionValue1, v2: action.actionValue2);
+    final action_desc = t.skill_action_type_desc_38_action(
+      action.actionDetail1 % 100,
+    );
+    return t.skill_action_type_desc_field(
+      action_desc,
+      action.actionValue3.toInt(),
+      time,
+    );
+  }
+
+  String auraField() {
+    final value = getValueText(
+      2,
+      action.actionValue2,
+      action.actionValue3,
+      percent: getPercent(),
+    );
+    final aura = getAura(action.actionDetail1, value);
+    final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
+    return t.skill_action_type_desc_field(
+      aura,
+      action.actionValue5.toInt(),
+      time,
+    );
+  }
+
+  String waveStart() {
+    return t.skill_action_type_desc_44(action.actionValue1.toInt());
+  }
+
+  String skillCount() {
+    return t.skill_action_type_desc_45(
+      t.skill_action_limit_int(action.actionValue1.toInt()),
+    );
+  }
+
+  String rateDamage() {
+    final value = getValueText(
+      1,
+      action.actionValue1,
+      action.actionValue2,
+      percent: "%",
+    );
+    final limit =
+        action.actionValue3 != 0.0
+            ? t.skill_action_damage_limit_int(action.actionValue3.toInt())
+            : "";
+    final result =
+        {
+          1: t.skill_action_type_desc_46_1(getTarget(), value),
+          2: t.skill_action_type_desc_46_2(getTarget(), value),
+          3: t.skill_action_type_desc_46_3(getTarget(), value),
+        }[action.actionDetail1] ??
+        t.unknown;
+    return result + limit;
+  }
+
+  String limitAttack() {
+    return t.skill_action_type_desc_47;
+  }
+
+  String hot() {
+    final type =
+        {1: t.attr_hp, 2: t.attr_tp}[action.actionDetail2] ?? t.unknown;
+    final value = getValueText(
+      1,
+      action.actionValue1,
+      action.actionValue2,
+      v3: action.actionValue3,
+    );
+    final time = getTimeText(5, action.actionValue5, v2: action.actionValue6);
+    if (type != t.unknown) {
+      return t.skill_action_type_desc_48(getTarget(), type, value, time);
+    } else {
+      return t.unknown;
+    }
+  }
+
+  String dispel() {
+    final value = getValueText(
+      1,
+      action.actionValue1,
+      action.actionValue2,
+      v3: 0.0,
+      percent: "%",
+    );
+    final type =
+        {
+          1: t.skill_buff,
+          3: t.skill_buff,
+          2: t.skill_debuff,
+          10: t.skill_barrier,
+          20: t.skill_barrier,
+        }[action.actionDetail1] ??
+        t.unknown;
+
+    return t.skill_action_type_desc_49(value, getTarget(), type);
+  }
+
+  String channel() {
+    final time = getTimeText(4, action.actionValue4, v2: action.actionValue5);
+    final value = getValueText(
+      2,
+      action.actionValue2,
+      action.actionValue3,
+      percent: getPercent(),
+    );
+    final aura = getAura(action.actionDetail1, value);
+    return t.skill_action_type_desc_50(
+      getTarget(),
+      aura,
+      time,
+      action.actionDetail3,
+    );
+  }
+
+  String changeWidth() {
+    return t.skill_action_type_desc_52(action.actionValue1.toInt());
+  }
+
+  String ifHasField() {
+    // 53：存在领域时
+    if (action.actionDetail2 != 0 && action.actionDetail3 != 0) {
+      final otherwise = t.skill_action_type_desc_53_2(
+        action.actionDetail3 % 100,
+      );
+      final content = t.skill_action_type_desc_53(
+        action.actionDetail2 % 100,
+        otherwise,
+      );
+      return t.skill_action_condition(content);
+    } else if (action.actionDetail2 != 0) {
+      final content = t.skill_action_type_desc_53(
+        action.actionDetail2 % 100,
+        "",
+      );
+      return t.skill_action_condition(content);
+    } else {
+      return t.unknown;
+    }
+  }
+
+  String stealth() {
+    return t.skill_action_type_desc_54(getTimeText(1, action.actionValue1));
+  }
+
+  String movePart() {
+    return t.skill_action_type_desc_55(
+      action.actionValue4.toInt(),
+      action.actionValue1.toInt(),
+    );
+  }
+
+  String countBlind() {
+    if (action.actionValue1 == 1) {
+      final time = getTimeText(2, action.actionValue2, v2: action.actionValue3);
+      return t.skill_action_type_desc_56_1(time, "");
+    } else if (action.actionValue1 == 2) {
+      final value = getValueText(2, action.actionValue2, action.actionValue3);
+      return t.skill_action_type_desc_56_2(getTarget(), value);
+    } else {
+      return t.unknown;
+    }
+  }
+
+  String countDown() {
+    return t.skill_action_type_desc_57(
+      getTarget(),
+      action.actionValue1.toInt(),
+      action.actionDetail1 % 100,
+    );
+  }
+
+  String stopField() {
+    return t.skill_action_type_desc_58(
+      action.actionDetail1 ~/ 100 % 10,
+      action.actionDetail1 % 100,
+    );
+  }
+
+  String inhibitHeal() {
+    return t.skill_action_type_desc_59(
+      getTarget(),
+      (action.actionValue1 * 100).toInt(),
+      getTimeText(2, action.actionValue2),
+    );
+  }
+
+  String attackSeal() {
+    final limit = t.skill_action_limit_int(action.actionValue1.toInt());
+    final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
+    final target = getTarget();
+    final desc = t.skill_action_type_desc_60_0(time, limit);
+    if (action.actionDetail1 == 3) {
+      return t.skill_action_type_desc_60_1(target, desc);
+    } else if (action.actionDetail1 == 1 && action.actionDetail3 == 1) {
+      return t.skill_action_type_desc_60_2(target, desc);
+    } else if (action.actionDetail1 == 4 && action.actionDetail3 == 1) {
+      return t.skill_action_type_desc_60_3(target, desc);
+    } else if (action.actionDetail1 == 5 && action.actionDetail3 == 1) {
+      return t.skill_action_type_desc_60_4(target, desc);
+    } else {
+      return t.unknown;
+    }
+  }
+
+  String fear() {
+    final value = getValueText(
+      3,
+      action.actionValue3,
+      action.actionValue4,
+      percent: "%",
+    );
+    final time = getTimeText(1, action.actionValue1, v2: action.actionValue2);
+    return t.skill_action_type_desc_61(
+      value,
+      getTarget(),
+      action.ailmentName,
+      time,
+    );
+  }
+
+  String awe() {
+    final value = getValueText(
+      1,
+      action.actionValue1,
+      action.actionValue2,
+      percent: "%",
+    );
+    final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
+    return {
+          0: t.skill_action_type_desc_62_0(getTarget(), value, time),
+          1: t.skill_action_type_desc_62_1(getTarget(), value, time),
+        }[action.actionDetail1] ??
+        t.unknown;
+  }
+
+  String loop() {
+    final success_clause =
+        action.actionDetail2 != 0
+            ? t.skill_action_type_desc_63_success(action.actionDetail2 % 100)
+            : t.unknown;
+    final failure_clause =
+        action.actionDetail3 != 0
+            ? t.skill_action_type_desc_63_failure(action.actionDetail3 % 100)
+            : t.unknown;
+    final main = t.skill_action_type_desc_63(
+      action.actionValue2.toString(),
+      action.actionDetail1 % 100,
+      action.actionValue1.toString(),
+      action.actionValue3.toString(),
+    );
+    if (success_clause != t.unknown && failure_clause != t.unknown) {
+      return main + success_clause + failure_clause;
+    } else if (success_clause != t.unknown) {
+      return main + success_clause;
+    } else if (failure_clause != t.unknown) {
+      return main + failure_clause;
+    } else {
+      return t.unknown;
+    }
+  }
+
+  String reindeer() {
+    return t.skill_action_type_desc_69(
+      getTarget(),
+      getTimeText(1, action.actionValue1, v2: action.actionValue2),
+    );
+  }
+
+  String exemptionDeath() {
+    return t.skill_action_type_desc_71(
+      getTarget(),
+      getValueText(
+        2,
+        action.actionValue2,
+        action.actionValue3,
+        v3: action.actionValue4,
+      ),
+      getTimeText(6, action.actionValue6, v2: action.actionValue7),
+    );
+  }
+
+  String damageReduce() {
+    final type =
+        {1: t.skill_physical, 2: t.skill_magic, 3: t.skill_all}[action
+            .actionDetail1] ??
+        "UNKNOWN";
+    final value = getValueText(
+      1,
+      action.actionValue1,
+      action.actionValue2,
+      percent: "%",
+    );
+    final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
+    return t.skill_action_type_desc_72(getTarget(), type, value, time);
+  }
+
+  String logBarrier() {
+    final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
+    return t.skill_action_type_desc_73(
+      getTarget(),
+      action.actionValue5.toInt(),
+      time,
+    );
+  }
+
+  String hitCount() {
+    final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
+    if (action.actionDetail1 == 3) {
+      return t.skill_action_type_desc_75(
+        action.actionValue1.toInt(),
+        action.actionDetail2 % 100,
+        time,
+      );
+    } else {
+      return t.unknown;
+    }
+  }
+
+  String healDown() {
+    final value = getValueText(
+      1,
+      action.actionValue1,
+      action.actionValue2,
+      percent: getPercent(),
+    );
+    final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
+    return t.skill_action_type_desc_76(getTarget(), value, time);
+  }
+
+  String ifBuffSeal() {
+    final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
+    final effect =
+        {
+          1: t.skill_action_type_desc_77_1 + t.skill_buff,
+          2: t.skill_action_type_desc_77_1 + t.skill_damage,
+          3: t.skill_action_type_desc_77_1 + t.skill_status_down,
+          4: t.skill_status_ub,
+        }[action.actionDetail1] ??
+        t.unknown;
+    final limit = t.skill_action_limit_int(action.actionValue1.toInt());
+
+    return t.skill_action_type_desc_77(
+      action.actionDetail1 != 4 ? getTarget() : "",
+      effect,
+      action.actionDetail2,
+      time,
+      limit,
+    );
+  }
+
+  String damageTacenUp() {
+    final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
+    final limit = t.skill_action_limit_int(action.actionValue1.toInt());
+    final countType =
+        {1: t.skill_action_type_desc_78_1}[action.actionDetail1] ?? t.unknown;
+    final effectType =
+        {
+          1: t.skill_action_type_desc_additive,
+          2: t.skill_action_type_desc_subtract,
+        }[action.actionDetail2] ??
+        t.unknown;
+    final valueText = "<${action.actionValue1} * ${countType}>";
+    return t.skill_action_type_desc_78(
+      getTarget(),
+      effectType,
+      valueText,
+      time,
+      limit,
+    );
+  }
+
+  String actionDot() {
+    final value = getValueText(
+      1,
+      action.actionValue1,
+      action.actionValue2,
+      percent: getPercent(),
+    );
+    final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
+    String type = "";
+    String limit = "";
+    if (action.actionDetail1 == 10) {
+      type = t.skill_hp_max;
+      limit = t.skill_action_damage_limit_int(action.actionValue5.toInt());
+    }
+
+    return t.skill_action_type_desc_79(getTarget(), type, value, time, limit);
+  }
+
+  String noTarget() {
+    return t.skill_action_type_desc_81(getTarget());
+  }
+
+  String ex() {
+    final type =
+        {
+          1: t.attr_hp,
+          2: t.attr_atk,
+          3: t.attr_def,
+          4: t.attr_magic_str,
+          5: t.attr_magic_def,
+          6: t.attr_physical_critical,
+          7: t.attr_magic_critical,
+        }[action.actionDetail1] ??
+        t.unknown;
+
+    final value = getValueText(2, action.actionValue2, action.actionValue3);
+
+    return t.skill_action_type_desc_90(getTarget(), type, value);
+  }
+
+  String exEquipHalf() {
+    return t.skill_action_type_desc_902(action.actionValue3.toString());
+  }
+
+  String exEquipFull() {
+    return t.skill_action_type_desc_901;
+  }
+
+  String changeTpRatio() {
+    return t.skill_action_type_desc_92(
+      getTarget(),
+      action.actionValue1.toInt().toString(),
+    );
+  }
+
+  String ignoreTaunt() {
+    return t.skill_action_type_desc_93(getTarget());
+  }
+
+  String specialEffect() {
+    return t.skill_action_type_desc_94(getTarget());
+  }
+
+  String hide() {
+    final time = getTimeText(1, action.actionValue1, v2: action.actionValue2);
+    return t.skill_action_type_desc_95(getTarget(), time);
+  }
+
+  String tpField() {
+    final value = getValueText(1, action.actionValue1, action.actionValue2);
+    final tp = t.skill_action_type_desc_96_tp(value);
+    final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
+    return t.skill_action_type_desc_field(
+      tp,
+      action.actionValue5.toInt(),
+
+      time,
+    );
+  }
+
+  String tpHit() {
+    final limit = t.skill_action_limit_int(action.actionValue4.toInt());
+    final time = getTimeText(5, action.actionValue5);
+    final desc = t.skill_action_type_desc_35(
+      getTarget(),
+      action.actionValue3.toInt(),
+      time,
+      limit,
+    );
+    final tpDesc = t.skill_action_type_desc_97(action.actionValue1.toInt());
+    return desc + tpDesc;
+  }
+
+  String tpHitReduce() {
+    final time = getTimeText(2, action.actionValue2, v2: action.actionValue3);
+    return t.skill_action_type_desc_98(
+      getTarget(),
+      action.actionValue1.toString(),
+      time,
+    );
+  }
+
+  String ignoreSpeedDown() {
+    final time = getTimeText(3, action.actionValue3);
+    final limit =
+        action.actionValue1 == -1
+            ? t.none
+            : t.skill_action_type_desc_100_count(action.actionValue1.toInt());
+    return t.skill_action_type_desc_100(getTarget(), limit, time);
+  }
+
+  String copyAtk() {
+    return t.skill_action_type_desc_103(
+      action.actionDetail2 % 100,
+      getTarget(),
+    );
+  }
+
+  String environment() {
+    final type =
+        {
+          137: t.skill_status_3137,
+          162: t.skill_status_3162,
+          175: t.skill_status_3175,
+          207: t.skill_status_3207,
+        }[action.actionDetail2] ??
+        t.unknown;
+
+    final time = getTimeText(1, action.actionValue1);
+    return t.skill_action_type_desc_105(type, time);
+  }
+
+  String guard() {
+    final type =
+        {141: t.skill_action_type_desc_106_type_141}[action.actionDetail1] ??
+        t.skill_action_type_desc_106_type_common;
+    final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
+    return t.skill_action_type_desc_106(getTarget(), type, time);
+  }
+
+  String sumCritical() {
+    return t.skill_action_type_desc_107(action.actionDetail1 % 100);
+  }
+
+  String dotUp() {
+    final value = getValueText(1, action.actionValue1, action.actionValue2);
+    final limit = t.skill_action_damage_limit_int(action.actionValue7.toInt());
+    return t.skill_action_type_desc_110(getTarget(), value, limit);
+  }
+
+  String sealCount() {
+    return t.skill_action_type_desc_114(
+      getTarget(),
+      action.actionValue2.toInt(),
+      action.actionValue3.toString(),
+      action.actionDetail1 % 100,
+      action.actionDetail2 % 100,
+      getTimeText(4, action.actionValue4, hideIndex: true),
+    );
+  }
+
+  String persistent() {
+    final time = getTimeText(1, action.actionValue1);
+    final status = t.skill_action_type_116;
+    return t.skill_action_type_desc_116_121_123_124(getTarget(), status, time);
+  }
+
+  String magicChange() {
+    final time = getTimeText(5, action.actionValue5);
+    final status = t.skill_action_type_121;
+    return t.skill_action_type_desc_116_121_123_124(getTarget(), status, time);
+  }
+
+  String magicChangeReduceDamage() {
+    final time = getTimeText(3, action.actionValue3);
+    final value = getValueText(
+      1,
+      action.actionValue1,
+      action.actionValue2,
+      percent: "%",
+    );
+    final desc = t.skill_action_type_desc_123_1(value);
+    return t.skill_action_type_desc_116_121_123_124(getTarget(), desc, time);
+  }
+
+  String transferDamage() {
+    final time = getTimeText(3, action.actionValue3);
+    final status = t.skill_action_type_124;
+    return t.skill_action_type_desc_116_121_123_124(getTarget(), status, time);
+  }
+
+  String cannotSelected() {
+    return t.skill_action_type_desc_125(getTarget(), t.skill_action_type_125);
+  }
+
+  String buffDot() {
+    return t.skill_action_type_desc_128(
+      getTarget(),
+      action.actionValue1 ~/ 100,
+      getTimeText(2, action.actionValue2),
+    );
+  }
+
+  String damage2dot() {
+    return t.skill_action_type_desc_129(
+      getTarget(),
+      getValueText(1, action.actionValue1, 0.0, percent: "%"),
+      getTimeText(2, action.actionValue2),
+    );
+  }
+
+  String changeDefMax() {
+    return t.skill_action_type_desc_130(getTarget());
   }
 }
