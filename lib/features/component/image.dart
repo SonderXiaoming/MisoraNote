@@ -4,6 +4,36 @@ import 'package:flutter/material.dart';
 import 'package:palette_generator/palette_generator.dart';
 import '../../core/storage/cache.dart';
 
+class LocalImage extends StatelessWidget {
+  final String path;
+  final double width;
+  final double height;
+  final BoxFit fit;
+  final BorderRadius? borderRadius;
+
+  const LocalImage({
+    super.key,
+    required this.path,
+    this.width = 100,
+    this.height = 100,
+    this.fit = BoxFit.cover,
+    this.borderRadius,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final image = Image.asset(path, fit: fit);
+
+    if (borderRadius != null) {
+      return ClipRRect(
+        borderRadius: borderRadius!,
+        child: SizedBox(width: width, height: height, child: image),
+      );
+    }
+    return SizedBox(width: width, height: height, child: image);
+  }
+}
+
 class CachedImage extends StatelessWidget {
   final String url;
   final double width;
@@ -14,6 +44,7 @@ class CachedImage extends StatelessWidget {
   const CachedImage({
     super.key,
     required this.url,
+
     this.width = 100,
     this.height = 100,
     this.fit = BoxFit.cover,

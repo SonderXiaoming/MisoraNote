@@ -86,7 +86,7 @@ class SkillTag {
     "{": 0xFFb476cd,
   };
 
-  static const Map<String, String> tyagPairs = {
+  static const Map<String, String> tagPairs = {
     "<": ">",
     "[": "]",
     "『": "』",
@@ -96,7 +96,7 @@ class SkillTag {
   static int tagColor(String tag) =>
       SkillTag.tagColorMap[tag] ?? CustomColors.colorBlack;
 
-  static String getPair(String tag) => SkillTag.tyagPairs[tag] ?? "";
+  static String getPair(String tag) => SkillTag.tagPairs[tag] ?? "";
 }
 
 enum SkillTextType {
@@ -106,15 +106,30 @@ enum SkillTextType {
   skill1Plus("技能1+"),
   skill2("技能2"),
   skill2Plus("技能2+"),
+  skill3("技能3"),
+  skill4("技能4"),
+  skill5("技能5"),
+  skill6("技能6"),
+  skill7("技能7"),
+  skill8("技能8"),
+  skill9("技能9"),
+  skill10("技能10"),
   exSkill("额外技能"),
   exSkillPlus("额外技能+"),
+  exSkill2("额外技能2"),
+  exSkill2Plus("额外技能2+"),
+  exSkill3("额外技能3"),
+  exSkill3Plus("额外技能3+"),
+  exSkill4("额外技能4"),
+  exSkill4Plus("额外技能4+"),
+  exSkill5("额外技能5"),
+  exSkill5Plus("额外技能5+"),
   spUb("SP连结爆发"),
   spSkill1("SP技能1"),
   spSkill1Plus("SP技能1+"),
   spSkill2("SP技能2"),
   spSkill2Plus("SP技能2+"),
-  spSkill3("SP技能3"),
-  other("其他");
+  spSkill3("SP技能3");
 
   final String value;
   const SkillTextType(this.value);
@@ -147,8 +162,8 @@ enum SkillTextType {
       case SkillTextType.exSkillPlus:
       case SkillTextType.spSkill3:
         return CustomColors.colorOrange;
-      case SkillTextType.other:
-        return CustomColors.colorGray;
+      default:
+        return CustomColors.colorBlack;
     }
   }
 }
