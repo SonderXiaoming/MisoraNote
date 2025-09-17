@@ -14,12 +14,14 @@ class SkillActionText extends StatelessWidget {
   final String actionDesc;
   final int? summonUnitId;
   final bool showCoe;
+  final int index;
   const SkillActionText({
     super.key,
     required this.actionId,
     required this.tag,
     required this.actionDesc,
     required this.showCoe,
+    required this.index,
     this.summonUnitId,
   });
 
@@ -28,7 +30,8 @@ class SkillActionText extends StatelessWidget {
     List<(String, int)> tagStack = [("root", CustomColors.colorBlack)];
     List<(String, int)> parts = []; // 存储 (文本段, 对应颜色) 的列表
     String buffer = ""; // 缓冲普通文本
-    for (var char in actionDesc.characters) {
+    final desc = '($index) $actionDesc';
+    for (var char in desc.characters) {
       if (SkillTag.tagPairs.containsKey(char)) {
         // 遇到左开标记
         // 先将当前缓冲区内容 flush，按当前栈顶颜色输出
@@ -65,13 +68,24 @@ class SkillActionText extends StatelessWidget {
       parts.add((buffer, tagStack.last.$2));
     }
 
-    return RichText(
-      text: TextSpan(
-        children:
-            parts.map((e) {
-              return TextSpan(text: e.$1, style: TextStyle(color: Color(e.$2)));
-            }).toList(),
-        style: Theme.of(context).textTheme.bodyMedium,
+    return Container(
+      margin: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: Color(CustomColors.colorPrimary).withAlpha(30),
+        borderRadius: BorderRadius.circular(6),
+      ),
+      child: RichText(
+        text: TextSpan(
+          children:
+              parts.map((e) {
+                return TextSpan(
+                  text: e.$1,
+                  style: TextStyle(color: Color(e.$2)),
+                );
+              }).toList(),
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
       ),
     );
   }
@@ -97,7 +111,8 @@ class SingleSkillInfo extends StatelessWidget {
     late String desc;
     late bool showCoe;
     late String tag;
-    for (var action in actions) {
+    for (var i = 0; i < actions.length; i++) {
+      var action = actions[i];
       if (action.actionType == SkillActionType.summon.value) {
         summonUnitId = action.actionDetail2;
       }
@@ -123,6 +138,7 @@ class SingleSkillInfo extends StatelessWidget {
           actionDesc: desc,
           summonUnitId: summonUnitId,
           showCoe: showCoe,
+          index: i + 1,
         ),
       );
     }
@@ -138,7 +154,7 @@ class SingleSkillInfo extends StatelessWidget {
     final textTheme = theme.textTheme;
     String skillSubTitle = skillType.value;
     if (skill.skillCastTime > 0) {
-      skillSubTitle += '   准备时间: ${skill.skillCastTime}s';
+      skillSubTitle += '   准备时间: ${skill.skillCastTime}秒';
     }
     if ((level ?? 0) > 0) {
       skillSubTitle += '   技能等级: $level';
@@ -152,7 +168,7 @@ class SingleSkillInfo extends StatelessWidget {
             .toList();
     return Container(
       margin: const EdgeInsets.all(16),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -164,6 +180,8 @@ class SingleSkillInfo extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(height: 12),
+
           /// 行首：左图标 + 标题 + 副标题
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,7 +195,11 @@ class SingleSkillInfo extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(color: borderColor),
                 ),
-                child: CachedImage(url: FetchUrl.skillIconUrl(skill.skillId)),
+                child: CachedImage(
+                  url: FetchUrl.skillIconUrl(
+                    skill.iconType ?? 1001,
+                  ), // 默认图标ID为1001
+                ),
               ),
               const SizedBox(width: 10),
               // 标题与副标题
@@ -215,11 +237,11 @@ class SingleSkillInfo extends StatelessWidget {
                       (e) => Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 8,
-                          vertical: 3,
+                          vertical: 2,
                         ),
                         margin: const EdgeInsets.only(right: 6),
                         decoration: BoxDecoration(
-                          color: Color(CustomColors.colorPrimary).withAlpha(30),
+                          color: Color(CustomColors.colorPrimary),
                           borderRadius: BorderRadius.circular(6),
                           border: Border.all(
                             color: Color(CustomColors.colorPrimary),
@@ -228,8 +250,8 @@ class SingleSkillInfo extends StatelessWidget {
                         child: Text(
                           e,
                           style: textTheme.labelMedium?.copyWith(
-                            color: Color(CustomColors.colorPrimary),
-                            fontWeight: FontWeight.w700,
+                            color: Color(CustomColors.colorWhite),
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
@@ -242,7 +264,7 @@ class SingleSkillInfo extends StatelessWidget {
           /// 正文描述
           Text(
             skill.description ?? '暂无描述',
-            style: textTheme.bodyMedium?.copyWith(height: 1.3),
+            style: textTheme.bodyLarge?.copyWith(height: 1.3),
           ),
 
           const SizedBox(height: 10),
@@ -268,6 +290,7 @@ class AllSkillInfo extends StatelessWidget {
           "技能信息",
           style: style.titleLarge?.copyWith(
             color: Color(CustomColors.colorPrimary),
+            fontWeight: FontWeight.w700,
           ),
         ),
         ...[
@@ -284,6 +307,7 @@ class AllSkillInfo extends StatelessWidget {
               "SP技能信息",
               style: style.titleLarge?.copyWith(
                 color: Color(CustomColors.colorPrimary),
+                fontWeight: FontWeight.w700,
               ),
             ),
           ],

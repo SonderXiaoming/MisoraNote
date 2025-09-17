@@ -47,8 +47,7 @@ class AppRoutes {
 }
 
 class CustomColors {
-  static const colorPrimary = 0xFF5690EF;
-  static const colorPrimaryDark = 0xFF3F6BB3;
+  static const colorPrimary = 0xFFa24072;
   static const colorWhite = 0xFFFFFCFE;
   static const colorBlack = 0xFF0D0F0F;
   static const colorGray = 0xFF9C9C9C;
