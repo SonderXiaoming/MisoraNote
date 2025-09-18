@@ -1,5 +1,6 @@
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
+import 'package:misora_note/constants.dart';
 import 'dart:io';
 import 'model.dart';
 import 'table.dart'; // 里面有 class UnitProfile extends Table
@@ -57,7 +58,25 @@ class AppDb extends _$AppDb {
     return result.map((e) => e.unitId).toList();
   }
 
-  Future<List<UnitDataData>> getUnitsData() => select(unitData).get();
+  Future<List<UnitDataData>> getUnitsData({UnitRankType? type, int? limit}) {
+    var sql = select(unitData);
+    switch (type) {
+      case UnitRankType.lastUpdate:
+        sql =
+            sql..orderBy([
+              (t) => OrderingTerm(
+                expression: t.startTime,
+                mode: OrderingMode.desc,
+              ),
+            ]);
+      case null:
+        break;
+    }
+    if (limit != null && limit > 0) {
+      sql = sql..limit(limit);
+    }
+    return sql.get();
+  }
 
   Future<UnitInfo?> getUnitInfo(int unitId) async {
     final u = unitProfile; // 表 getter：unit_profile

@@ -69,6 +69,7 @@ class SkillActionText extends StatelessWidget {
     }
 
     return Container(
+      width: double.infinity,
       margin: const EdgeInsets.only(bottom: 16),
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
@@ -229,6 +230,13 @@ class SingleSkillInfo extends StatelessWidget {
             ],
           ),
 
+          const SizedBox(height: 8),
+
+          /// 正文描述
+          Text(
+            skill.description ?? '暂无描述',
+            style: textTheme.bodyLarge?.copyWith(height: 1.3),
+          ),
           const SizedBox(height: 12),
           Row(
             children:
@@ -257,14 +265,6 @@ class SingleSkillInfo extends StatelessWidget {
                       ),
                     )
                     .toList(),
-          ),
-
-          const SizedBox(height: 8),
-
-          /// 正文描述
-          Text(
-            skill.description ?? '暂无描述',
-            style: textTheme.bodyLarge?.copyWith(height: 1.3),
           ),
 
           const SizedBox(height: 10),
@@ -346,7 +346,10 @@ Future<UnitSkillList> getUnitSkillList(
     skillTypeDict[skill.mainSkill1] = SkillTextType.skill1;
     normal.add(skill.mainSkill1);
   }
-  if (skill.mainSkillEvolution1 != 0) {
+  if (skill.mainSkillEvolution1 != 0 &&
+      (skill.spSkill1 != 1064101 ||
+          skill.mainSkillEvolution1 != 1065012)) // 日服雪菲
+  {
     skillTypeDict[skill.mainSkillEvolution1!] = SkillTextType.skill1Plus;
     normal.add(skill.mainSkillEvolution1!);
   }
@@ -484,35 +487,34 @@ Future<UnitSkillList> getUnitSkillList(
         level: levelMap != null ? levelMap[id] ?? 0 : 0,
       ),
     );
-
-    for (var id in sp) {
-      var skillDataData = await db.getSkill(
-        (await db.getRfSkillId(id))?.rfSkillId ?? id,
-      );
-      var actions = await db.getSkillActions(
-        [
-          skillDataData?.action1,
-          skillDataData?.action2,
-          skillDataData?.action3,
-          skillDataData?.action4,
-          skillDataData?.action5,
-          skillDataData?.action6,
-          skillDataData?.action7,
-          skillDataData?.action8,
-          skillDataData?.action9,
-          skillDataData?.action10,
-        ].whereType<int>().toList(),
-      );
-      skillData.sp.add(
-        SkillFinalData(
-          id: id,
-          type: skillTypeDict[id]!,
-          data: skillDataData!,
-          actions: actions,
-          level: levelMap != null ? levelMap[id] ?? 0 : 0,
-        ),
-      );
-    }
+  }
+  for (var id in sp) {
+    var skillDataData = await db.getSkill(
+      (await db.getRfSkillId(id))?.rfSkillId ?? id,
+    );
+    var actions = await db.getSkillActions(
+      [
+        skillDataData?.action1,
+        skillDataData?.action2,
+        skillDataData?.action3,
+        skillDataData?.action4,
+        skillDataData?.action5,
+        skillDataData?.action6,
+        skillDataData?.action7,
+        skillDataData?.action8,
+        skillDataData?.action9,
+        skillDataData?.action10,
+      ].whereType<int>().toList(),
+    );
+    skillData.sp.add(
+      SkillFinalData(
+        id: id,
+        type: skillTypeDict[id]!,
+        data: skillDataData!,
+        actions: actions,
+        level: levelMap != null ? levelMap[id] ?? 0 : 0,
+      ),
+    );
   }
   return skillData;
 }

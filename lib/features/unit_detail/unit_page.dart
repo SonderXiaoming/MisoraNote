@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/features/component/data_model.dart';
 import 'package:misora_note/features/component/image.dart';
@@ -46,34 +48,63 @@ class _UnitPage extends ConsumerState<UnitPage> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
+    return Stack(
+      children: [
+        Scaffold(
+          body: SingleChildScrollView(
+            child: Column(
               children: [
-                CachedImage(
-                  url: widget.card.imageUrl,
-                  height: widget.card.size.$2,
-                  width: width,
+                Stack(
+                  children: [
+                    CachedImage(
+                      url: widget.card.imageUrl,
+                      height: widget.card.size.$2,
+                      width: width,
+                    ),
+                    Positioned.fill(
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
+                        child: Container(color: Colors.white.withAlpha(80)),
+                      ),
+                    ),
+                    Align(alignment: Alignment.center, child: widget.card),
+                  ],
                 ),
-                Positioned.fill(
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
-                    child: Container(color: Colors.white.withAlpha(80)),
-                  ),
-                ),
-                Align(alignment: Alignment.center, child: widget.card),
+                const SizedBox(height: 16),
+                if (unitSkillList == null)
+                  const Center(child: CircularProgressIndicator()),
+                if (unitSkillList != null)
+                  AllSkillInfo(skillIdList: unitSkillList!),
+                const SizedBox(height: 64), // 最后给点空隙给按钮
               ],
             ),
-            const SizedBox(height: 16),
-            if (unitSkillList == null)
-              const Center(child: CircularProgressIndicator()),
-            if (unitSkillList != null)
-              AllSkillInfo(skillIdList: unitSkillList!),
-          ],
+          ),
         ),
-      ),
+        Positioned(
+          right: 16,
+          bottom: 16,
+          child: ClipOval(
+            child: Material(
+              color:
+                  HSLColor.fromColor(
+                    Color(CustomColors.colorPink),
+                  ).withLightness(0.95).toColor(),
+              child: InkWell(
+                onTap: () => context.pop(),
+                child: const SizedBox(
+                  width: 40,
+                  height: 40,
+                  child: Icon(
+                    Icons.arrow_back_ios_new,
+                    color: Color(CustomColors.colorPrimary),
+                    size: 20,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

@@ -31,8 +31,8 @@ class UnitCard extends StatefulWidget {
 
 class _UnitCardState extends State<UnitCard> {
   late final CachedImage unitImage;
-  Color colorDomain = Colors.transparent;
-  Color colorVibrant = Colors.transparent;
+  Color? colorDomain;
+  Color? colorVibrant;
 
   @override
   void initState() {
@@ -62,103 +62,121 @@ class _UnitCardState extends State<UnitCard> {
       fontWeight: FontWeight.w500,
       color: textColor,
     );
-    return SizedBox(
-      width: widget.size.$1,
-      height: widget.size.$2,
-      child: GestureDetector(
-        onTap: () {
-          context.go(
-            AppRoutes.unitDetail,
-            extra: UnitPageExtra(unitInfo: widget.unitInfo, card: widget),
-          );
-        },
-        child: Card(
-          elevation: 4,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          clipBehavior: Clip.hardEdge,
-          child: Stack(
-            children: [
-              unitImage,
-              Positioned(
-                right: 0,
-                child: ClipPath(
-                  clipper: TrapezoidClipper(),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft, // 渐变开始方向
-                        end: Alignment.bottomRight, // 渐变结束方向
-                        colors: [
-                          colorDomain.withAlpha(100),
-                          colorVibrant.withAlpha(200),
-                        ],
+    if (colorDomain == null || colorVibrant == null) {
+      return SizedBox(
+        width: widget.size.$1,
+        height: widget.size.$2,
+        child: Center(
+          child: CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation(
+              Color(CustomColors.colorPrimary),
+            ),
+          ),
+        ),
+      );
+    }
+    return Hero(
+      tag: 'unit_card_${widget.unitInfo.unitId}',
+      child: SizedBox(
+        width: widget.size.$1,
+        height: widget.size.$2,
+        child: GestureDetector(
+          onTap: () {
+            context.push(
+              AppRoutes.unitDetail,
+              extra: UnitPageExtra(unitInfo: widget.unitInfo, card: widget),
+            );
+          },
+          child: Card(
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            clipBehavior: Clip.hardEdge,
+            child: Stack(
+              children: [
+                unitImage,
+                Positioned(
+                  right: 0,
+                  child: ClipPath(
+                    clipper: TrapezoidClipper(),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft, // 渐变开始方向
+                          end: Alignment.bottomRight, // 渐变结束方向
+                          colors: [
+                            colorDomain!.withAlpha(100),
+                            colorVibrant!.withAlpha(200),
+                          ],
+                        ),
                       ),
+                      height: unitImage.height,
+                      width: unitImage.width * (1 - ratioGolden),
                     ),
-                    height: unitImage.height,
-                    width: unitImage.width * (1 - ratioGolden),
                   ),
                 ),
-              ),
-              //名称
-              Positioned(
-                bottom: 8,
-                left: 8,
-                child: Text(
-                  widget.unitInfo.unitName,
-                  style: TextStyle(
-                    fontSize: widget.size.$2 * 0.1,
-                    fontWeight: FontWeight.bold,
-                    color: textColor,
-                    shadows: [
-                      Shadow(
-                        offset: Offset(1, 1),
-                        blurRadius: 6,
-                        color: Colors.black54,
+                //名称
+                Positioned(
+                  bottom: 8,
+                  left: 8,
+                  child: Text(
+                    widget.unitInfo.unitName,
+                    style: TextStyle(
+                      fontSize: widget.size.$2 * 0.1,
+                      fontWeight: FontWeight.bold,
+                      color: textColor,
+                      shadows: [
+                        Shadow(
+                          offset: Offset(1, 1),
+                          blurRadius: 6,
+                          color: Colors.black54,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: widget.size.$1 * 0.03,
+                  top: widget.size.$2 * 0.05,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end, // 整列右对齐
+                    children: [
+                      Text(
+                        "${widget.unitInfo.ageInt == -1 ? "???" : widget.unitInfo.ageInt}",
+                        style: textStyle,
+                      ),
+                      Text(
+                        "${widget.unitInfo.weightInt == -1 ? "?" : widget.unitInfo.weightInt} KG",
+                        style: textStyle,
+                      ),
+                      Text(
+                        "${widget.unitInfo.heightInt == -1 ? "?" : widget.unitInfo.heightInt} CM",
+                        style: textStyle,
+                      ),
+                      Text(
+                        widget.unitInfo.birthMonthInt == -1 ||
+                                widget.unitInfo.birthDayInt == -1
+                            ? "???"
+                            : "${widget.unitInfo.birthMonthInt} 月 ${widget.unitInfo.birthDayInt} 日",
+                        style: textStyle,
                       ),
                     ],
                   ),
                 ),
-              ),
-              Positioned(
-                right: widget.size.$1 * 0.03,
-                top: widget.size.$2 * 0.05,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end, // 整列右对齐
-                  children: [
-                    Text(
-                      "${widget.unitInfo.ageInt == -1 ? "???" : widget.unitInfo.ageInt}",
-                      style: textStyle,
+                Positioned(
+                  right: widget.size.$1 * 0.03,
+                  bottom: 8,
+                  child: Text(
+                    widget.unitInfo.unitStartTime.split(" ").first,
+                    style: textStyle.copyWith(
+                      fontSize: widget.size.$2 * 0.05,
+                      fontWeight: FontWeight.normal,
                     ),
-                    Text(
-                      "${widget.unitInfo.weightInt == -1 ? "?" : widget.unitInfo.weightInt} KG",
-                      style: textStyle,
-                    ),
-                    Text(
-                      "${widget.unitInfo.heightInt == -1 ? "?" : widget.unitInfo.heightInt} CM",
-                      style: textStyle,
-                    ),
-                    Text(
-                      widget.unitInfo.birthMonthInt == -1 ||
-                              widget.unitInfo.birthDayInt == -1
-                          ? "???"
-                          : "${widget.unitInfo.birthMonthInt} 月 ${widget.unitInfo.birthDayInt} 日",
-                      style: textStyle,
-                    ),
-                  ],
-                ),
-              ),
-              Positioned(
-                right: widget.size.$1 * 0.03,
-                bottom: 8,
-                child: Text(
-                  widget.unitInfo.unitStartTime.split(" ").first,
-                  style: textStyle.copyWith(
-                    fontSize: widget.size.$2 * 0.05,
-                    fontWeight: FontWeight.normal,
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

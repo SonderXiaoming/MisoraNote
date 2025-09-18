@@ -2,6 +2,8 @@ import 'package:path/path.dart' as p;
 
 enum Area { jp, tw, cn }
 
+enum UnitRankType { lastUpdate }
+
 const double ratioGolden = 0.618;
 
 class FetchUrl {
