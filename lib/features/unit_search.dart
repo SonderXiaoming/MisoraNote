@@ -91,18 +91,13 @@ class _ShowResult extends State<ShowResult> {
       cardWidth = mediaWidth - padding * 2;
     }
 
-    return ScrollConfiguration(
-      behavior: ScrollConfiguration.of(context).copyWith(
-        dragDevices: {
-          PointerDeviceKind.touch,
-          PointerDeviceKind.mouse,
-        },
-        scrollbars: false,
-      ),
-      child: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          SliverGrid(
+    return CustomScrollView(
+      cacheExtent: MediaQuery.of(context).size.height,
+      physics: const BouncingScrollPhysics(),
+      slivers: [
+        SliverPadding(
+          padding: const EdgeInsets.all(padding),
+          sliver: SliverGrid(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: crossAxisCount,
               childAspectRatio: 1408 / 792,
@@ -124,8 +119,8 @@ class _ShowResult extends State<ShowResult> {
               childCount: widget.unitIds.length,
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

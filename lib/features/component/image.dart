@@ -30,15 +30,48 @@ class LocalImage extends StatelessWidget {
         width: width,
         height: height,
         fit: fit,
-        placeholderBuilder: (ctx) =>
-            Center(child: Icon(Icons.image, size: width * 0.7)),
+        placeholderBuilder: (ctx) => Container(
+          width: width,
+          height: height,
+          color: Colors.grey.shade100,
+          child: Center(
+            child: Icon(
+              Icons.image,
+              size: width * 0.3,
+              color: Colors.grey.shade400,
+            ),
+          ),
+        ),
       );
     } else {
       image = Image.asset(
         safePath,
         fit: fit,
-        errorBuilder: (context, error, stackTrace) =>
-            Center(child: Icon(Icons.broken_image_outlined, size: width * 0.7)),
+        errorBuilder: (context, error, stackTrace) => Container(
+          width: width,
+          height: height,
+          color: Colors.grey.shade50,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.image_not_supported_outlined,
+                size: width * 0.3,
+                color: Colors.grey.shade400,
+              ),
+              if (height > 60) ...[
+                const SizedBox(height: 4),
+                Text(
+                  '文件不存在',
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: Colors.grey.shade500,
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
       );
     }
     if (borderRadius != null) {
@@ -89,19 +122,78 @@ class CachedImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final pixelRatio = MediaQuery.of(context).devicePixelRatio;
+    final cacheWidth = (width * pixelRatio).toInt();
+    final cacheHeight = (height * pixelRatio).toInt();
+
+    // 为不同尺寸生成唯一的缓存键
+    final cacheKey = '${url}_${cacheWidth}x$cacheHeight';
+
     final image = CachedNetworkImage(
       imageUrl: url,
+      cacheKey: cacheKey, // 使用包含尺寸信息的缓存键
       cacheManager: ImageCacheManager.instance,
       fit: fit,
-      placeholder: (ctx, _) => const Center(
-        child: SizedBox(
-          width: 20,
-          height: 20,
-          child: CircularProgressIndicator(strokeWidth: 2),
+      maxWidthDiskCache: cacheWidth, // 按显示尺寸下采样
+      maxHeightDiskCache: cacheHeight, // 按显示尺寸下采样
+      memCacheWidth: cacheWidth, // 内存缓存优化
+      memCacheHeight: cacheHeight, // 内存缓存优化
+      placeholder: (ctx, _) => Container(
+        width: width,
+        height: height,
+        color: Colors.grey.shade100,
+        child: const Center(
+          child: SizedBox(
+            width: 20,
+            height: 20,
+            child: CircularProgressIndicator(strokeWidth: 2),
+          ),
         ),
       ),
-      errorWidget: (ctx, error, stackTrace) =>
-          const Center(child: Icon(Icons.broken_image_outlined)),
+      errorWidget: (ctx, error, stackTrace) {
+        // 根据错误类型显示不同的错误提示
+        IconData iconData;
+        String errorMsg;
+
+        if (error.toString().contains('404') ||
+            error.toString().contains('Not Found')) {
+          iconData = Icons.image_not_supported_outlined;
+          errorMsg = '图片不存在';
+        } else if (error.toString().contains('timeout') ||
+            error.toString().contains('network')) {
+          iconData = Icons.wifi_off_outlined;
+          errorMsg = '网络错误';
+        } else {
+          iconData = Icons.broken_image_outlined;
+          errorMsg = '加载失败';
+        }
+
+        return Container(
+          width: width,
+          height: height,
+          color: Colors.grey.shade50,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                iconData,
+                size: width * 0.3,
+                color: Colors.grey.shade400,
+              ),
+              if (height > 60) ...[
+                const SizedBox(height: 4),
+                Text(
+                  errorMsg,
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: Colors.grey.shade500,
+                  ),
+                ),
+              ],
+            ],
+          ),
+        );
+      },
     );
 
     if (borderRadius != null) {
