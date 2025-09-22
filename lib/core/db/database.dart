@@ -67,13 +67,13 @@ class AppDb extends _$AppDb {
     var sql = select(unitData);
     switch (type) {
       case UnitRankType.lastUpdate:
-        sql =
-            sql..orderBy([
-              (t) => OrderingTerm(
-                expression: t.startTime,
-                mode: OrderingMode.desc,
-              ),
-            ]);
+        sql = sql
+          ..orderBy([
+            (t) => OrderingTerm(
+                  expression: t.startTime,
+                  mode: OrderingMode.desc,
+                ),
+          ]);
       case null:
         break;
     }
@@ -87,60 +87,57 @@ class AppDb extends _$AppDb {
     final u = unitProfile; // 表 getter：unit_profile
     final d = unitData; // 表 getter：unit_data
     final a = actualUnitBackground; // 表 getter：actual_unit_background
-    final limitTypeExpr =
-        CaseWhenExpression(
-              cases: [
-                CaseWhen(d.isLimited.equals(0), then: Constant(1)),
-                CaseWhen(
-                  d.isLimited.equals(1) & d.rarity.equals(3),
-                  then: Constant(2),
-                ),
-                CaseWhen(
-                  d.isLimited.equals(1) & d.rarity.equals(1),
-                  then: Constant(3),
-                ),
-                CaseWhen(d.isLimited.equals(1), then: Constant(4)),
-              ],
-              orElse: const Constant(0),
-            )
-            as Expression<int>;
-    final join =
-        selectOnly(u)
-          ..addColumns([
-            u.unitId, // 0
-            d.unitName, // 1
-            d.kana, // 2
-            d.rarity, // 3
-            u.age, // 4  (TEXT, Dart里转int)
-            u.guild, // 5
-            u.race, // 6
-            u.voice, // 7
-            u.bloodType, // 8
-            u.favorite, // 9
-            u.catchCopy, // 10
-            u.selfText, // 11
-            u.height, // 12 (TEXT->int)
-            u.weight, // 13 (TEXT->int)
-            u.birthMonth, // 14 (TEXT->int)
-            u.birthDay, // 15 (TEXT->int)
-            d.searchAreaWidth, // 16
-            d.atkType, // 17
-            d.comment, // 18
-            d.startTime, // 19
-            a.unitName, // 20
-            d.cutin1Star6, // 21
-            limitTypeExpr, // 22
-            d.normalAtkCastTime, // 23
-          ])
-          ..join([
-            leftOuterJoin(d, d.unitId.equalsExp(u.unitId)),
-            leftOuterJoin(
-              a,
-              ((a.unitId - d.unitId).abs().isSmallerThan(Constant(100))),
-            ),
-          ])
-          ..where(d.unitId.equals(unitId))
-          ..limit(1);
+    final limitTypeExpr = CaseWhenExpression(
+      cases: [
+        CaseWhen(d.isLimited.equals(0), then: Constant(1)),
+        CaseWhen(
+          d.isLimited.equals(1) & d.rarity.equals(3),
+          then: Constant(2),
+        ),
+        CaseWhen(
+          d.isLimited.equals(1) & d.rarity.equals(1),
+          then: Constant(3),
+        ),
+        CaseWhen(d.isLimited.equals(1), then: Constant(4)),
+      ],
+      orElse: const Constant(0),
+    ) as Expression<int>;
+    final join = selectOnly(u)
+      ..addColumns([
+        u.unitId, // 0
+        d.unitName, // 1
+        d.kana, // 2
+        d.rarity, // 3
+        u.age, // 4  (TEXT, Dart里转int)
+        u.guild, // 5
+        u.race, // 6
+        u.voice, // 7
+        u.bloodType, // 8
+        u.favorite, // 9
+        u.catchCopy, // 10
+        u.selfText, // 11
+        u.height, // 12 (TEXT->int)
+        u.weight, // 13 (TEXT->int)
+        u.birthMonth, // 14 (TEXT->int)
+        u.birthDay, // 15 (TEXT->int)
+        d.searchAreaWidth, // 16
+        d.atkType, // 17
+        d.comment, // 18
+        d.startTime, // 19
+        a.unitName, // 20
+        d.cutin1Star6, // 21
+        limitTypeExpr, // 22
+        d.normalAtkCastTime, // 23
+      ])
+      ..join([
+        leftOuterJoin(d, d.unitId.equalsExp(u.unitId)),
+        leftOuterJoin(
+          a,
+          ((a.unitId - d.unitId).abs().isSmallerThan(Constant(100))),
+        ),
+      ])
+      ..where(d.unitId.equals(unitId))
+      ..limit(1);
 
     final row = await join.getSingleOrNull();
     if (row == null) return null;
@@ -183,16 +180,15 @@ class AppDb extends _$AppDb {
 
   // ORM：按 id 查询
   Future<UnitProfileData?> getUnitById(int id) =>
-      (select(unitProfile)
-        ..where((t) => t.unitId.equals(id))).getSingleOrNull();
+      (select(unitProfile)..where((t) => t.unitId.equals(id)))
+          .getSingleOrNull();
 
   Future<int> getMaxUniqueEquipLv(int slot) async {
     final maxExpr = uniqueEquipmentEnhanceData.enhanceLevel.max();
 
-    final query =
-        selectOnly(uniqueEquipmentEnhanceData)
-          ..addColumns([maxExpr])
-          ..where(uniqueEquipmentEnhanceData.equipSlot.equals(slot));
+    final query = selectOnly(uniqueEquipmentEnhanceData)
+      ..addColumns([maxExpr])
+      ..where(uniqueEquipmentEnhanceData.equipSlot.equals(slot));
 
     final row = await query.getSingleOrNull();
 
@@ -202,12 +198,12 @@ class AppDb extends _$AppDb {
   }
 
   Future<UnitSkillDataData?> getUnitSkills(int unitId) =>
-      (select(unitSkillData)
-        ..where((t) => t.unitId.equals(unitId))).getSingleOrNull();
+      (select(unitSkillData)..where((t) => t.unitId.equals(unitId)))
+          .getSingleOrNull();
 
   Future<SkillDataData?> getSkill(int skillId) =>
-      (select(skillData)
-        ..where((t) => t.skillId.equals(skillId))).getSingleOrNull();
+      (select(skillData)..where((t) => t.skillId.equals(skillId)))
+          .getSingleOrNull();
 
   Future<List<SkillActionInfo>> getSkillActions(
     List<int> actionIds, {
@@ -215,19 +211,18 @@ class AppDb extends _$AppDb {
     bool isOtherRfSkill = true,
   }) async {
     if (actionIds.isEmpty) return [];
-    final query =
-        select(skillAction).join([
-            leftOuterJoin(
-              ailmentData,
-              (skillAction.actionType.equalsExp(ailmentData.ailmentAction) &
-                  ((skillAction.actionDetail1.equalsExp(
-                        ailmentData.ailmentDetail1,
-                      )) |
-                      ailmentData.ailmentDetail1.equals(-1))),
-            ),
-          ])
-          ..where(skillAction.actionId.isIn(actionIds))
-          ..addColumns([ailmentData.ailmentName]);
+    final query = select(skillAction).join([
+      leftOuterJoin(
+        ailmentData,
+        (skillAction.actionType.equalsExp(ailmentData.ailmentAction) &
+            ((skillAction.actionDetail1.equalsExp(
+                  ailmentData.ailmentDetail1,
+                )) |
+                ailmentData.ailmentDetail1.equals(-1))),
+      ),
+    ])
+      ..where(skillAction.actionId.isIn(actionIds))
+      ..addColumns([ailmentData.ailmentName]);
 
     final result = await query.get();
 
@@ -269,8 +264,8 @@ class AppDb extends _$AppDb {
   }
 
   Future<SpSkillLabelDataData?> getSpSkillLabel(int unitId) =>
-      (select(spSkillLabelData)
-        ..where((t) => t.unitId.equals(unitId))).getSingleOrNull();
+      (select(spSkillLabelData)..where((t) => t.unitId.equals(unitId)))
+          .getSingleOrNull();
 
   Future<UnitSkillDataRFData?> getRfSkillId(int skillId) async {
     final query = select(unitSkillDataRF)
@@ -293,28 +288,27 @@ class AppDb extends _$AppDb {
     final ue = unitUniqueEquip; // unit_unique_equip
 
     // 构建 SELECT（只从 a 出发，左连 b/uu/ue）
-    final query =
-        selectOnly(a, distinct: true)
-          ..join([
-            leftOuterJoin(b, b.equipmentId.equalsExp(a.equipmentId)),
-            // 两个“拥有关系”的表都左连到 a.equipment_id 上，
-            // 下面 where 用 (uu.unit_id = unitId OR ue.unit_id = unitId) 来覆盖原 SQL 的 UNION 逻辑
-            leftOuterJoin(uu, uu.equipId.equalsExp(a.equipmentId)),
-            leftOuterJoin(ue, ue.equipId.equalsExp(a.equipmentId)),
-          ])
-          ..where(
-            // (uu.unit_id == unitId) OR (ue.unit_id == unitId)
-            uu.unitId.equals(unitId) | ue.unitId.equals(unitId),
-          )
-          ..where(
-            // b.min_lv <= 2
-            b.minLv.isSmallerOrEqualValue(2),
-          )
-          ..where(
-            CustomExpression<int>(
-              '${a.tableName}.${a.equipmentId.name} % 10',
-            ).equals(slot),
-          );
+    final query = selectOnly(a, distinct: true)
+      ..join([
+        leftOuterJoin(b, b.equipmentId.equalsExp(a.equipmentId)),
+        // 两个“拥有关系”的表都左连到 a.equipment_id 上，
+        // 下面 where 用 (uu.unit_id = unitId OR ue.unit_id = unitId) 来覆盖原 SQL 的 UNION 逻辑
+        leftOuterJoin(uu, uu.equipId.equalsExp(a.equipmentId)),
+        leftOuterJoin(ue, ue.equipId.equalsExp(a.equipmentId)),
+      ])
+      ..where(
+        // (uu.unit_id == unitId) OR (ue.unit_id == unitId)
+        uu.unitId.equals(unitId) | ue.unitId.equals(unitId),
+      )
+      ..where(
+        // b.min_lv <= 2
+        b.minLv.isSmallerOrEqualValue(2),
+      )
+      ..where(
+        CustomExpression<int>(
+          '${a.tableName}.${a.equipmentId.name} % 10',
+        ).equals(slot),
+      );
 
     query.addColumns([uu.unitId, ue.unitId]);
 

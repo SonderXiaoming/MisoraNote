@@ -50,6 +50,7 @@ class AppRoutes {
   static const home = '/home';
   static const settings = '/settings';
   static const unitDetail = '/unitDetail';
+  static const unitSearch = '/unitSearch';
 }
 
 class CustomColors {

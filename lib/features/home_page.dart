@@ -2,10 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/features/component/unit_card.dart';
 import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/core/di/di.dart';
+import 'package:misora_note/l10n/app_localizations.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -51,10 +53,11 @@ class _HomePageState extends ConsumerState<HomePage> {
     final cardWidth = min(max(420.0, mediaWidth * 0.4), mediaWidth);
     final cardHeight = cardWidth * 792 / 1408;
     final textTheme = Theme.of(context).textTheme;
+    final t = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '美空笔记',
+          t.app_name,
           style: textTheme.headlineLarge?.copyWith(
             fontWeight: FontWeight.bold,
             color: Color(CustomColors.colorPrimary),
@@ -67,17 +70,33 @@ class _HomePageState extends ConsumerState<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppBar(
-              title: Row(
-                children: [
-                  Icon(Icons.auto_awesome),
-                  SizedBox(width: 8),
-                  Text(
-                    '角色',
-                    style: textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+              title: InkWell(
+                onTap: () {
+                  context.push(AppRoutes.unitSearch,
+                      extra: showUnit.sublist(0, 3));
+                },
+                borderRadius: BorderRadius.circular(8),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  child: Row(
+                    children: [
+                      Icon(Icons.auto_awesome),
+                      SizedBox(width: 8),
+                      Text(
+                        t.character,
+                        style: textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        size: 18,
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
             if (showUnit.isEmpty)

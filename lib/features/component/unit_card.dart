@@ -290,7 +290,8 @@ class _UnitCardState extends ConsumerState<UnitCard> {
                     Text(
                       unitInfo.birthMonthInt == -1 || unitInfo.birthDayInt == -1
                           ? "???"
-                          : "${unitInfo.birthMonthInt} 月 ${unitInfo.birthDayInt} 日",
+                          : t.date_m_d(unitInfo.birthMonthInt!.toString(),
+                              unitInfo.birthDayInt!.toString()),
                       style: textStyle,
                     ),
                   ],

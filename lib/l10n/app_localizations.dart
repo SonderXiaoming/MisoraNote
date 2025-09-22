@@ -100,89 +100,11 @@ abstract class AppLocalizations {
   /// **'{arg1} 月 {arg2} 日'**
   String date_m_d(String arg1, String arg2);
 
-  /// No description provided for @unknown_character.
+  /// No description provided for @app_name.
   ///
   /// In zh, this message translates to:
-  /// **'角色暂未登场'**
-  String get unknown_character;
-
-  /// No description provided for @unknown_character_type.
-  ///
-  /// In zh, this message translates to:
-  /// **'未实装（{arg1}）'**
-  String unknown_character_type(String arg1);
-
-  /// No description provided for @age.
-  ///
-  /// In zh, this message translates to:
-  /// **'年龄'**
-  String get age;
-
-  /// No description provided for @title_height.
-  ///
-  /// In zh, this message translates to:
-  /// **'身高'**
-  String get title_height;
-
-  /// No description provided for @title_weight.
-  ///
-  /// In zh, this message translates to:
-  /// **'体重'**
-  String get title_weight;
-
-  /// No description provided for @title_birth.
-  ///
-  /// In zh, this message translates to:
-  /// **'生日'**
-  String get title_birth;
-
-  /// No description provided for @title_blood.
-  ///
-  /// In zh, this message translates to:
-  /// **'血型'**
-  String get title_blood;
-
-  /// No description provided for @title_race.
-  ///
-  /// In zh, this message translates to:
-  /// **'种族'**
-  String get title_race;
-
-  /// No description provided for @title_race_multiple.
-  ///
-  /// In zh, this message translates to:
-  /// **'多人'**
-  String get title_race_multiple;
-
-  /// No description provided for @title_guild.
-  ///
-  /// In zh, this message translates to:
-  /// **'公会'**
-  String get title_guild;
-
-  /// No description provided for @title_fav.
-  ///
-  /// In zh, this message translates to:
-  /// **'兴趣'**
-  String get title_fav;
-
-  /// No description provided for @cv.
-  ///
-  /// In zh, this message translates to:
-  /// **'CV'**
-  String get cv;
-
-  /// No description provided for @title_self.
-  ///
-  /// In zh, this message translates to:
-  /// **'介绍'**
-  String get title_self;
-
-  /// No description provided for @title_position.
-  ///
-  /// In zh, this message translates to:
-  /// **'位置'**
-  String get title_position;
+  /// **'美空笔记'**
+  String get app_name;
 
   /// No description provided for @skill_cooltime.
   ///
@@ -208,95 +130,23 @@ abstract class AppLocalizations {
   /// **'技能等级：{arg1}'**
   String skill_level(int arg1);
 
-  /// No description provided for @before_loop.
+  /// No description provided for @skill_loop_start.
   ///
   /// In zh, this message translates to:
-  /// **'初始动作'**
-  String get before_loop;
+  /// **'循环开始'**
+  String get skill_loop_start;
 
-  /// No description provided for @looping.
+  /// No description provided for @skill_loop_end.
   ///
   /// In zh, this message translates to:
-  /// **'循环动作'**
-  String get looping;
+  /// **'循环结束'**
+  String get skill_loop_end;
 
-  /// No description provided for @title_comments.
+  /// No description provided for @attack_pattern.
   ///
   /// In zh, this message translates to:
-  /// **'交流'**
-  String get title_comments;
-
-  /// No description provided for @title_home_page_comments.
-  ///
-  /// In zh, this message translates to:
-  /// **'主页'**
-  String get title_home_page_comments;
-
-  /// No description provided for @title_room_comments.
-  ///
-  /// In zh, this message translates to:
-  /// **'小屋'**
-  String get title_room_comments;
-
-  /// No description provided for @character_attr.
-  ///
-  /// In zh, this message translates to:
-  /// **'属性'**
-  String get character_attr;
-
-  /// No description provided for @title_story_attr.
-  ///
-  /// In zh, this message translates to:
-  /// **'剧情属性'**
-  String get title_story_attr;
-
-  /// No description provided for @title_basic_coe.
-  ///
-  /// In zh, this message translates to:
-  /// **'基本系数'**
-  String get title_basic_coe;
-
-  /// No description provided for @title_skill_coe.
-  ///
-  /// In zh, this message translates to:
-  /// **'技能基本系数'**
-  String get title_skill_coe;
-
-  /// No description provided for @title_skill_basic_coe.
-  ///
-  /// In zh, this message translates to:
-  /// **'技能相关系数'**
-  String get title_skill_basic_coe;
-
-  /// No description provided for @title_rank_bonus.
-  ///
-  /// In zh, this message translates to:
-  /// **'RANK 奖励属性'**
-  String get title_rank_bonus;
-
-  /// No description provided for @cur_rank.
-  ///
-  /// In zh, this message translates to:
-  /// **'当前 RANK'**
-  String get cur_rank;
-
-  /// No description provided for @target_rank.
-  ///
-  /// In zh, this message translates to:
-  /// **'目标 RANK'**
-  String get target_rank;
-
-  /// No description provided for @function.
-  ///
-  /// In zh, this message translates to:
-  /// **'功能'**
-  String get function;
-
-  /// No description provided for @skill.
-  ///
-  /// In zh, this message translates to:
-  /// **'技能信息'**
-  String get skill;
+  /// **'攻击模式'**
+  String get attack_pattern;
 
   /// No description provided for @skill_loop.
   ///
@@ -304,77 +154,11 @@ abstract class AppLocalizations {
   /// **'技能循环'**
   String get skill_loop;
 
-  /// No description provided for @title_unlock_6.
+  /// No description provided for @skill_info.
   ///
   /// In zh, this message translates to:
-  /// **'★6解放'**
-  String get title_unlock_6;
-
-  /// No description provided for @rank_select.
-  ///
-  /// In zh, this message translates to:
-  /// **'RANK选择'**
-  String get rank_select;
-
-  /// No description provided for @rank_compare.
-  ///
-  /// In zh, this message translates to:
-  /// **'RANK对比'**
-  String get rank_compare;
-
-  /// No description provided for @calc_equip_count.
-  ///
-  /// In zh, this message translates to:
-  /// **'装备统计'**
-  String get calc_equip_count;
-
-  /// No description provided for @character_pic.
-  ///
-  /// In zh, this message translates to:
-  /// **'立绘'**
-  String get character_pic;
-
-  /// No description provided for @character_card_video.
-  ///
-  /// In zh, this message translates to:
-  /// **'动态卡面'**
-  String get character_card_video;
-
-  /// No description provided for @character_basic_info.
-  ///
-  /// In zh, this message translates to:
-  /// **'角色资料'**
-  String get character_basic_info;
-
-  /// No description provided for @basic_info.
-  ///
-  /// In zh, this message translates to:
-  /// **'基本信息'**
-  String get basic_info;
-
-  /// No description provided for @story_pic.
-  ///
-  /// In zh, this message translates to:
-  /// **'剧情立绘'**
-  String get story_pic;
-
-  /// No description provided for @to_summon.
-  ///
-  /// In zh, this message translates to:
-  /// **'召唤物'**
-  String get to_summon;
-
-  /// No description provided for @spine_preview.
-  ///
-  /// In zh, this message translates to:
-  /// **'模型预览'**
-  String get spine_preview;
-
-  /// No description provided for @no_guild.
-  ///
-  /// In zh, this message translates to:
-  /// **'无公会'**
-  String get no_guild;
+  /// **'技能信息'**
+  String get skill_info;
 
   /// No description provided for @sp_skill.
   ///
@@ -382,551 +166,11 @@ abstract class AppLocalizations {
   /// **'SP技能'**
   String get sp_skill;
 
-  /// No description provided for @tp_limit_level_action_desc.
+  /// No description provided for @search_hit.
   ///
   /// In zh, this message translates to:
-  /// **'等级 > 260，TP数值不会继续增加'**
-  String get tp_limit_level_action_desc;
-
-  /// No description provided for @other_limit_level_action_desc.
-  ///
-  /// In zh, this message translates to:
-  /// **'等级 > 300，该数值不会继续增加'**
-  String get other_limit_level_action_desc;
-
-  /// No description provided for @other_limit_level_action_desc_unique.
-  ///
-  /// In zh, this message translates to:
-  /// **'等级 > 300，回避数值不会继续增加'**
-  String get other_limit_level_action_desc_unique;
-
-  /// No description provided for @basic.
-  ///
-  /// In zh, this message translates to:
-  /// **'基本'**
-  String get basic;
-
-  /// No description provided for @story.
-  ///
-  /// In zh, this message translates to:
-  /// **'剧情'**
-  String get story;
-
-  /// No description provided for @no_story_info.
-  ///
-  /// In zh, this message translates to:
-  /// **'暂无剧情信息'**
-  String get no_story_info;
-
-  /// No description provided for @no_comic_info.
-  ///
-  /// In zh, this message translates to:
-  /// **'暂无漫画信息'**
-  String get no_comic_info;
-
-  /// No description provided for @character_birthday.
-  ///
-  /// In zh, this message translates to:
-  /// **'角色生日：{arg1}'**
-  String character_birthday(String arg1);
-
-  /// No description provided for @value_100_m.
-  ///
-  /// In zh, this message translates to:
-  /// **'{arg1}亿'**
-  String value_100_m(String arg1);
-
-  /// No description provided for @value_10_k.
-  ///
-  /// In zh, this message translates to:
-  /// **'{arg1}万'**
-  String value_10_k(int arg1);
-
-  /// No description provided for @unit_level.
-  ///
-  /// In zh, this message translates to:
-  /// **'等级：{arg1}'**
-  String unit_level(int arg1);
-
-  /// No description provided for @title_unit_level.
-  ///
-  /// In zh, this message translates to:
-  /// **'等级'**
-  String get title_unit_level;
-
-  /// No description provided for @input_level.
-  ///
-  /// In zh, this message translates to:
-  /// **'请输入等级'**
-  String get input_level;
-
-  /// No description provided for @order_character_detail.
-  ///
-  /// In zh, this message translates to:
-  /// **'未选中模块显示在次要页面（退出编辑后滑动切换）'**
-  String get order_character_detail;
-
-  /// No description provided for @character_card.
-  ///
-  /// In zh, this message translates to:
-  /// **'角色卡片'**
-  String get character_card;
-
-  /// No description provided for @character_other_tool.
-  ///
-  /// In zh, this message translates to:
-  /// **'其他功能（装备统计等）'**
-  String get character_other_tool;
-
-  /// No description provided for @character_tool.
-  ///
-  /// In zh, this message translates to:
-  /// **'功能（资料、立绘、模型）'**
-  String get character_tool;
-
-  /// No description provided for @character_power.
-  ///
-  /// In zh, this message translates to:
-  /// **'战力'**
-  String get character_power;
-
-  /// No description provided for @tip_skill_loop.
-  ///
-  /// In zh, this message translates to:
-  /// **'技能循环（未选中时显示悬浮按钮）'**
-  String get tip_skill_loop;
-
-  /// No description provided for @character_icon_info.
-  ///
-  /// In zh, this message translates to:
-  /// **'角色图标'**
-  String get character_icon_info;
-
-  /// No description provided for @character_leader.
-  ///
-  /// In zh, this message translates to:
-  /// **'角色评分、梯队'**
-  String get character_leader;
-
-  /// No description provided for @app_setting.
-  ///
-  /// In zh, this message translates to:
-  /// **'设置'**
-  String get app_setting;
-
-  /// No description provided for @vibrate.
-  ///
-  /// In zh, this message translates to:
-  /// **'振动反馈'**
-  String get vibrate;
-
-  /// No description provided for @animation.
-  ///
-  /// In zh, this message translates to:
-  /// **'动画效果'**
-  String get animation;
-
-  /// No description provided for @dynamic_color.
-  ///
-  /// In zh, this message translates to:
-  /// **'动态色彩'**
-  String get dynamic_color;
-
-  /// No description provided for @content_api_request_error.
-  ///
-  /// In zh, this message translates to:
-  /// **'请切换网络后重试'**
-  String get content_api_request_error;
-
-  /// No description provided for @use_ip.
-  ///
-  /// In zh, this message translates to:
-  /// **'网络调整'**
-  String get use_ip;
-
-  /// No description provided for @use_ip_tip_on.
-  ///
-  /// In zh, this message translates to:
-  /// **'已调整访问地址。设置变更后将自动关闭应用'**
-  String get use_ip_tip_on;
-
-  /// No description provided for @use_ip_tip_off.
-  ///
-  /// In zh, this message translates to:
-  /// **'若一直提示网络请求异常，可尝试开启。设置变更后将自动关闭应用'**
-  String get use_ip_tip_off;
-
-  /// No description provided for @vibrate_on.
-  ///
-  /// In zh, this message translates to:
-  /// **'振动开启'**
-  String get vibrate_on;
-
-  /// No description provided for @animation_on.
-  ///
-  /// In zh, this message translates to:
-  /// **'动画开启'**
-  String get animation_on;
-
-  /// No description provided for @color_on.
-  ///
-  /// In zh, this message translates to:
-  /// **'根据系统壁纸，调整应用主题颜色'**
-  String get color_on;
-
-  /// No description provided for @vibrate_off.
-  ///
-  /// In zh, this message translates to:
-  /// **'振动关闭'**
-  String get vibrate_off;
-
-  /// No description provided for @animation_off.
-  ///
-  /// In zh, this message translates to:
-  /// **'动画关闭'**
-  String get animation_off;
-
-  /// No description provided for @color_off.
-  ///
-  /// In zh, this message translates to:
-  /// **'使用默认主题'**
-  String get color_off;
-
-  /// No description provided for @thanks.
-  ///
-  /// In zh, this message translates to:
-  /// **'感谢'**
-  String get thanks;
-
-  /// No description provided for @data_from.
-  ///
-  /// In zh, this message translates to:
-  /// **'Unity Texture Toolkit'**
-  String get data_from;
-
-  /// No description provided for @data_from_hint.
-  ///
-  /// In zh, this message translates to:
-  /// **'资源获取工具'**
-  String get data_from_hint;
-
-  /// No description provided for @data_from_url.
-  ///
-  /// In zh, this message translates to:
-  /// **'https://github.com/esterTion/unity-texture-toolkit'**
-  String get data_from_url;
-
-  /// No description provided for @shizuru_note.
-  ///
-  /// In zh, this message translates to:
-  /// **'静流笔记'**
-  String get shizuru_note;
-
-  /// No description provided for @shizuru_note_tip.
-  ///
-  /// In zh, this message translates to:
-  /// **'感谢大佬的开源项目'**
-  String get shizuru_note_tip;
-
-  /// No description provided for @shizuru_note_url.
-  ///
-  /// In zh, this message translates to:
-  /// **'https://github.com/MalitsPlus/ShizuruNotes'**
-  String get shizuru_note_url;
-
-  /// No description provided for @pcrdfans.
-  ///
-  /// In zh, this message translates to:
-  /// **'公主连结Re: Dive Fan Club'**
-  String get pcrdfans;
-
-  /// No description provided for @pcrdfans_tip.
-  ///
-  /// In zh, this message translates to:
-  /// **'竞技场查询数据来源'**
-  String get pcrdfans_tip;
-
-  /// No description provided for @pcrdfans_url.
-  ///
-  /// In zh, this message translates to:
-  /// **'https://pcrdfans.com'**
-  String get pcrdfans_url;
-
-  /// No description provided for @pcrdfans_upload_url.
-  ///
-  /// In zh, this message translates to:
-  /// **'https://pcrdfans.com/battle/upload'**
-  String get pcrdfans_upload_url;
-
-  /// No description provided for @pcrdfans_search_url.
-  ///
-  /// In zh, this message translates to:
-  /// **'https://pcrdfans.com/battle'**
-  String get pcrdfans_search_url;
-
-  /// No description provided for @leader_source.
-  ///
-  /// In zh, this message translates to:
-  /// **'GameWith'**
-  String get leader_source;
-
-  /// No description provided for @leader_tip.
-  ///
-  /// In zh, this message translates to:
-  /// **'角色排行数据来源'**
-  String get leader_tip;
-
-  /// No description provided for @leader_source_url.
-  ///
-  /// In zh, this message translates to:
-  /// **'https://gamewith.jp/pricone-re/article/show/93068'**
-  String get leader_source_url;
-
-  /// No description provided for @title_spine.
-  ///
-  /// In zh, this message translates to:
-  /// **'模型预览'**
-  String get title_spine;
-
-  /// No description provided for @spine_tip.
-  ///
-  /// In zh, this message translates to:
-  /// **'可预览游戏内角色、BOSS模型'**
-  String get spine_tip;
-
-  /// No description provided for @random_drop_source.
-  ///
-  /// In zh, this message translates to:
-  /// **'蘭德索爾圖書館'**
-  String get random_drop_source;
-
-  /// No description provided for @random_drop_tip.
-  ///
-  /// In zh, this message translates to:
-  /// **'额外掉落数据来源'**
-  String get random_drop_tip;
-
-  /// No description provided for @random_drop_source_url.
-  ///
-  /// In zh, this message translates to:
-  /// **'https://pcredivewiki.tw/Other/MapExtraDrop'**
-  String get random_drop_source_url;
-
-  /// No description provided for @time_zone.
-  ///
-  /// In zh, this message translates to:
-  /// **'自动时区'**
-  String get time_zone;
-
-  /// No description provided for @time_zone_tip.
-  ///
-  /// In zh, this message translates to:
-  /// **'\\n手动变更设备时区后，请重新打开应用'**
-  String get time_zone_tip;
-
-  /// No description provided for @title_sort.
-  ///
-  /// In zh, this message translates to:
-  /// **'排序类型'**
-  String get title_sort;
-
-  /// No description provided for @sort_date.
-  ///
-  /// In zh, this message translates to:
-  /// **'登场日期'**
-  String get sort_date;
-
-  /// No description provided for @position_2.
-  ///
-  /// In zh, this message translates to:
-  /// **'后卫'**
-  String get position_2;
-
-  /// No description provided for @position_1.
-  ///
-  /// In zh, this message translates to:
-  /// **'中卫'**
-  String get position_1;
-
-  /// No description provided for @position_0.
-  ///
-  /// In zh, this message translates to:
-  /// **'前卫'**
-  String get position_0;
-
-  /// No description provided for @atk_type.
-  ///
-  /// In zh, this message translates to:
-  /// **'攻击类型'**
-  String get atk_type;
-
-  /// No description provided for @talent_type.
-  ///
-  /// In zh, this message translates to:
-  /// **'天赋类型'**
-  String get talent_type;
-
-  /// No description provided for @role_type.
-  ///
-  /// In zh, this message translates to:
-  /// **'职能类型'**
-  String get role_type;
-
-  /// No description provided for @unit_talent.
-  ///
-  /// In zh, this message translates to:
-  /// **'角色天赋'**
-  String get unit_talent;
-
-  /// No description provided for @talent.
-  ///
-  /// In zh, this message translates to:
-  /// **'天赋'**
-  String get talent;
-
-  /// No description provided for @physical.
-  ///
-  /// In zh, this message translates to:
-  /// **'物理'**
-  String get physical;
-
-  /// No description provided for @magic.
-  ///
-  /// In zh, this message translates to:
-  /// **'魔法'**
-  String get magic;
-
-  /// No description provided for @fire.
-  ///
-  /// In zh, this message translates to:
-  /// **'火'**
-  String get fire;
-
-  /// No description provided for @water.
-  ///
-  /// In zh, this message translates to:
-  /// **'水'**
-  String get water;
-
-  /// No description provided for @wind.
-  ///
-  /// In zh, this message translates to:
-  /// **'风'**
-  String get wind;
-
-  /// No description provided for @light.
-  ///
-  /// In zh, this message translates to:
-  /// **'光'**
-  String get light;
-
-  /// No description provided for @dark.
-  ///
-  /// In zh, this message translates to:
-  /// **'暗'**
-  String get dark;
-
-  /// No description provided for @unknown.
-  ///
-  /// In zh, this message translates to:
-  /// **'\\?'**
-  String get unknown;
-
-  /// No description provided for @all.
-  ///
-  /// In zh, this message translates to:
-  /// **'全部'**
-  String get all;
-
-  /// No description provided for @title_favorite.
-  ///
-  /// In zh, this message translates to:
-  /// **'收藏'**
-  String get title_favorite;
-
-  /// No description provided for @title_history.
-  ///
-  /// In zh, this message translates to:
-  /// **'历史'**
-  String get title_history;
-
-  /// No description provided for @favorite.
-  ///
-  /// In zh, this message translates to:
-  /// **'已收藏'**
-  String get favorite;
-
-  /// No description provided for @sort_asc_desc.
-  ///
-  /// In zh, this message translates to:
-  /// **'排序方式'**
-  String get sort_asc_desc;
-
-  /// No description provided for @sort_desc.
-  ///
-  /// In zh, this message translates to:
-  /// **'降序'**
-  String get sort_desc;
-
-  /// No description provided for @sort_asc.
-  ///
-  /// In zh, this message translates to:
-  /// **'升序'**
-  String get sort_asc;
-
-  /// No description provided for @equip_level_color.
-  ///
-  /// In zh, this message translates to:
-  /// **'装备品级'**
-  String get equip_level_color;
-
-  /// No description provided for @equip_craft.
-  ///
-  /// In zh, this message translates to:
-  /// **'装备合成'**
-  String get equip_craft;
-
-  /// No description provided for @craft.
-  ///
-  /// In zh, this message translates to:
-  /// **'装备'**
-  String get craft;
-
-  /// No description provided for @uncraft.
-  ///
-  /// In zh, this message translates to:
-  /// **'素材'**
-  String get uncraft;
-
-  /// No description provided for @title_rarity.
-  ///
-  /// In zh, this message translates to:
-  /// **'星级'**
-  String get title_rarity;
-
-  /// No description provided for @title_type.
-  ///
-  /// In zh, this message translates to:
-  /// **'类型'**
-  String get title_type;
-
-  /// No description provided for @star.
-  ///
-  /// In zh, this message translates to:
-  /// **'★{arg1}'**
-  String star(int arg1);
-
-  /// No description provided for @cutin_skill.
-  ///
-  /// In zh, this message translates to:
-  /// **'★6技能'**
-  String get cutin_skill;
-
-  /// No description provided for @six_locked.
-  ///
-  /// In zh, this message translates to:
-  /// **'其他'**
-  String get six_locked;
+  /// **'请输入角色名/编号'**
+  String get search_hit;
 
   /// No description provided for @type_normal.
   ///
@@ -952,77 +196,23 @@ abstract class AppLocalizations {
   /// **'额外'**
   String get type_extra_character;
 
-  /// No description provided for @name.
+  /// No description provided for @unknown.
   ///
   /// In zh, this message translates to:
-  /// **'名字'**
-  String get name;
+  /// **'?'**
+  String get unknown;
 
-  /// No description provided for @id.
+  /// No description provided for @magic.
   ///
   /// In zh, this message translates to:
-  /// **'编号'**
-  String get id;
+  /// **'魔法'**
+  String get magic;
 
-  /// No description provided for @unit_role.
+  /// No description provided for @physical.
   ///
   /// In zh, this message translates to:
-  /// **'角色职能'**
-  String get unit_role;
-
-  /// No description provided for @role.
-  ///
-  /// In zh, this message translates to:
-  /// **'职能'**
-  String get role;
-
-  /// No description provided for @attacker.
-  ///
-  /// In zh, this message translates to:
-  /// **'攻击'**
-  String get attacker;
-
-  /// No description provided for @breaker.
-  ///
-  /// In zh, this message translates to:
-  /// **'破坏'**
-  String get breaker;
-
-  /// No description provided for @buffer.
-  ///
-  /// In zh, this message translates to:
-  /// **'增益'**
-  String get buffer;
-
-  /// No description provided for @debuffer.
-  ///
-  /// In zh, this message translates to:
-  /// **'减益'**
-  String get debuffer;
-
-  /// No description provided for @booster.
-  ///
-  /// In zh, this message translates to:
-  /// **'加速'**
-  String get booster;
-
-  /// No description provided for @healer.
-  ///
-  /// In zh, this message translates to:
-  /// **'治疗'**
-  String get healer;
-
-  /// No description provided for @tank.
-  ///
-  /// In zh, this message translates to:
-  /// **'坦克'**
-  String get tank;
-
-  /// No description provided for @jammer.
-  ///
-  /// In zh, this message translates to:
-  /// **'干扰'**
-  String get jammer;
+  /// **'物理'**
+  String get physical;
 
   /// No description provided for @equip_require_level.
   ///
@@ -2443,14 +1633,14 @@ abstract class AppLocalizations {
   /// No description provided for @skill_index.
   ///
   /// In zh, this message translates to:
-  /// **'技能 {arg1}'**
+  /// **'技能{arg1}'**
   String skill_index(int arg1);
 
-  /// No description provided for @ex_skill.
+  /// No description provided for @ex_skill_index.
   ///
   /// In zh, this message translates to:
-  /// **'EX技能'**
-  String get ex_skill;
+  /// **'额外技能{arg1}'**
+  String ex_skill_index(String arg1);
 
   /// No description provided for @character_summon_info.
   ///

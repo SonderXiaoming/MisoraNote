@@ -601,50 +601,39 @@ enum UnitGetType {
 }
 
 enum SkillTextType {
-  normal("普攻"),
-  ub("连结爆发"),
-  ubPlus("连结爆发+"),
-  skill1("技能1"),
-  skill1Plus("技能1+"),
-  skill2("技能2"),
-  skill2Plus("技能2+"),
-  skill3("技能3"),
-  skill4("技能4"),
-  skill5("技能5"),
-  skill6("技能6"),
-  skill7("技能7"),
-  skill8("技能8"),
-  skill9("技能9"),
-  skill10("技能10"),
-  exSkill("额外技能"),
-  exSkillPlus("额外技能+"),
-  exSkill2("额外技能2"),
-  exSkill2Plus("额外技能2+"),
-  exSkill3("额外技能3"),
-  exSkill3Plus("额外技能3+"),
-  exSkill4("额外技能4"),
-  exSkill4Plus("额外技能4+"),
-  exSkill5("额外技能5"),
-  exSkill5Plus("额外技能5+"),
-  spUb("SP连结爆发"),
-  spSkill1("SP技能1"),
-  spSkill1Plus("SP技能1+"),
-  spSkill2("SP技能2"),
-  spSkill2Plus("SP技能2+"),
-  spSkill3("SP技能3"),
-  spSkill4("SP技能4"),
-  spSkill5("SP技能5");
-
-  final String value;
-  const SkillTextType(this.value);
-  static SkillTextType? fromValue(String value) {
-    for (var type in SkillTextType.values) {
-      if (type.value == value) {
-        return type;
-      }
-    }
-    return null;
-  }
+  normal,
+  ub,
+  ubPlus,
+  skill1,
+  skill1Plus,
+  skill2,
+  skill2Plus,
+  skill3,
+  skill4,
+  skill5,
+  skill6,
+  skill7,
+  skill8,
+  skill9,
+  skill10,
+  exSkill,
+  exSkillPlus,
+  exSkill2,
+  exSkill2Plus,
+  exSkill3,
+  exSkill3Plus,
+  exSkill4,
+  exSkill4Plus,
+  exSkill5,
+  exSkill5Plus,
+  spUb,
+  spSkill1,
+  spSkill1Plus,
+  spSkill2,
+  spSkill2Plus,
+  spSkill3,
+  spSkill4,
+  spSkill5;
 
   static int getColor(SkillTextType type) {
     switch (type) {
@@ -668,6 +657,77 @@ enum SkillTextType {
         return CustomColors.colorOrange;
       default:
         return CustomColors.colorBlack;
+    }
+  }
+
+  static String getName(AppLocalizations t, SkillTextType type) {
+    switch (type) {
+      case SkillTextType.normal:
+        return t.normal_attack;
+      case SkillTextType.ub:
+        return t.union_burst;
+      case SkillTextType.ubPlus:
+        return "${t.union_burst}+";
+      case SkillTextType.skill1:
+        return t.skill_index(1);
+      case SkillTextType.skill1Plus:
+        return "${t.skill_index(1)}+";
+      case SkillTextType.skill2:
+        return t.skill_index(2);
+      case SkillTextType.skill2Plus:
+        return "${t.skill_index(2)}+";
+      case SkillTextType.skill3:
+        return t.skill_index(3);
+      case SkillTextType.skill4:
+        return t.skill_index(4);
+      case SkillTextType.skill5:
+        return t.skill_index(5);
+      case SkillTextType.skill6:
+        return t.skill_index(6);
+      case SkillTextType.skill7:
+        return t.skill_index(7);
+      case SkillTextType.skill8:
+        return t.skill_index(8);
+      case SkillTextType.skill9:
+        return t.skill_index(9);
+      case SkillTextType.skill10:
+        return t.skill_index(10);
+      case SkillTextType.exSkill:
+        return t.ex_skill_index("");
+      case SkillTextType.exSkillPlus:
+        return t.ex_skill_index("+");
+      case SkillTextType.exSkill2:
+        return t.ex_skill_index("2");
+      case SkillTextType.exSkill2Plus:
+        return t.ex_skill_index("2+");
+      case SkillTextType.exSkill3:
+        return t.ex_skill_index("3");
+      case SkillTextType.exSkill3Plus:
+        return t.ex_skill_index("3+");
+      case SkillTextType.exSkill4:
+        return t.ex_skill_index("4");
+      case SkillTextType.exSkill4Plus:
+        return t.ex_skill_index("4+");
+      case SkillTextType.exSkill5:
+        return t.ex_skill_index("5");
+      case SkillTextType.exSkill5Plus:
+        return t.ex_skill_index("5+");
+      case SkillTextType.spUb:
+        return "SP${t.union_burst}";
+      case SkillTextType.spSkill1:
+        return "SP${t.skill_index(1)}";
+      case SkillTextType.spSkill1Plus:
+        return "SP${t.skill_index(1)}+";
+      case SkillTextType.spSkill2:
+        return "SP${t.skill_index(2)}";
+      case SkillTextType.spSkill2Plus:
+        return "SP${t.skill_index(2)}+";
+      case SkillTextType.spSkill3:
+        return "SP${t.skill_index(3)}";
+      case SkillTextType.spSkill4:
+        return "SP${t.skill_index(4)}";
+      case SkillTextType.spSkill5:
+        return "SP${t.skill_index(5)}";
     }
   }
 }

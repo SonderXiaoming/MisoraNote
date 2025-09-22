@@ -11,27 +11,7 @@
       }
     }
   },
-  "unknown_character": "角色暂未登场",
-  "unknown_character_type": "未实装（{arg1}）",
-  "@unknown_character_type": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "age": "年龄",
-  "title_height": "身高",
-  "title_weight": "体重",
-  "title_birth": "生日",
-  "title_blood": "血型",
-  "title_race": "种族",
-  "title_race_multiple": "多人",
-  "title_guild": "公会",
-  "title_fav": "兴趣",
-  "cv": "CV",
-  "title_self": "介绍",
-  "title_position": "位置",
+  "app_name": "美空笔记",
   "skill_cooltime": "冷却时间：{arg1}秒",
   "@skill_cooltime": {
     "placeholders": {
@@ -64,177 +44,20 @@
       }
     }
   },
-  "before_loop": "初始动作",
-  "looping": "循环动作",
-  "title_comments": "交流",
-  "title_home_page_comments": "主页",
-  "title_room_comments": "小屋",
-  "character_attr": "属性",
-  "title_story_attr": "剧情属性",
-  "title_basic_coe": "基本系数",
-  "title_skill_coe": "技能基本系数",
-  "title_skill_basic_coe": "技能相关系数",
-  "title_rank_bonus": "RANK 奖励属性",
-  "cur_rank": "当前 RANK",
-  "target_rank": "目标 RANK",
-  "function": "功能",
-  "skill": "技能信息",
+  "skill_loop_start": "循环开始",
+  "skill_loop_end": "循环结束",
+  "attack_pattern": "攻击模式",
   "skill_loop": "技能循环",
-  "title_unlock_6": "★6解放",
-  "rank_select": "RANK选择",
-  "rank_compare": "RANK对比",
-  "calc_equip_count": "装备统计",
-  "character_pic": "立绘",
-  "character_card_video": "动态卡面",
-  "character_basic_info": "角色资料",
-  "basic_info": "基本信息",
-  "story_pic": "剧情立绘",
-  "to_summon": "召唤物",
-  "spine_preview": "模型预览",
-  "no_guild": "无公会",
+  "skill_info": "技能信息",
   "sp_skill": "SP技能",
-  "tp_limit_level_action_desc": "等级 > 260，TP数值不会继续增加",
-  "other_limit_level_action_desc": "等级 > 300，该数值不会继续增加",
-  "other_limit_level_action_desc_unique": "等级 > 300，回避数值不会继续增加",
-  "basic": "基本",
-  "story": "剧情",
-  "no_story_info": "暂无剧情信息",
-  "no_comic_info": "暂无漫画信息",
-  "character_birthday": "角色生日：{arg1}",
-  "@character_birthday": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "value_100_m": "{arg1}亿",
-  "@value_100_m": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "value_10_k": "{arg1}万",
-  "@value_10_k": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "unit_level": "等级：{arg1}",
-  "@unit_level": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "title_unit_level": "等级",
-  "input_level": "请输入等级",
-  "order_character_detail": "未选中模块显示在次要页面（退出编辑后滑动切换）",
-  "character_card": "角色卡片",
-  "character_other_tool": "其他功能（装备统计等）",
-  "character_tool": "功能（资料、立绘、模型）",
-  "character_power": "战力",
-  "tip_skill_loop": "技能循环（未选中时显示悬浮按钮）",
-  "character_icon_info": "角色图标",
-  "character_leader": "角色评分、梯队",
-  "app_setting": "设置",
-  "vibrate": "振动反馈",
-  "animation": "动画效果",
-  "dynamic_color": "动态色彩",
-  "content_api_request_error": "请切换网络后重试",
-  "use_ip": "网络调整",
-  "use_ip_tip_on": "已调整访问地址。设置变更后将自动关闭应用",
-  "use_ip_tip_off": "若一直提示网络请求异常，可尝试开启。设置变更后将自动关闭应用",
-  "vibrate_on": "振动开启",
-  "animation_on": "动画开启",
-  "color_on": "根据系统壁纸，调整应用主题颜色",
-  "vibrate_off": "振动关闭",
-  "animation_off": "动画关闭",
-  "color_off": "使用默认主题",
-  "thanks": "感谢",
-  "data_from": "Unity Texture Toolkit",
-  "data_from_hint": "资源获取工具",
-  "data_from_url": "https://github.com/esterTion/unity-texture-toolkit",
-  "shizuru_note": "静流笔记",
-  "shizuru_note_tip": "感谢大佬的开源项目",
-  "shizuru_note_url": "https://github.com/MalitsPlus/ShizuruNotes",
-  "pcrdfans": "公主连结Re: Dive Fan Club",
-  "pcrdfans_tip": "竞技场查询数据来源",
-  "pcrdfans_url": "https://pcrdfans.com",
-  "pcrdfans_upload_url": "https://pcrdfans.com/battle/upload",
-  "pcrdfans_search_url": "https://pcrdfans.com/battle",
-  "leader_source": "GameWith",
-  "leader_tip": "角色排行数据来源",
-  "leader_source_url": "https://gamewith.jp/pricone-re/article/show/93068",
-  "title_spine": "模型预览",
-  "spine_tip": "可预览游戏内角色、BOSS模型",
-  "random_drop_source": "蘭德索爾圖書館",
-  "random_drop_tip": "额外掉落数据来源",
-  "random_drop_source_url": "https://pcredivewiki.tw/Other/MapExtraDrop",
-  "time_zone": "自动时区",
-  "time_zone_tip": "\\n手动变更设备时区后，请重新打开应用",
-  "title_sort": "排序类型",
-  "sort_date": "登场日期",
-  "position_2": "后卫",
-  "position_1": "中卫",
-  "position_0": "前卫",
-  "atk_type": "攻击类型",
-  "talent_type": "天赋类型",
-  "role_type": "职能类型",
-  "unit_talent": "角色天赋",
-  "talent": "天赋",
-  "physical": "物理",
-  "magic": "魔法",
-  "fire": "火",
-  "water": "水",
-  "wind": "风",
-  "light": "光",
-  "dark": "暗",
-  "unknown": "\\?",
-  "all": "全部",
-  "title_favorite": "收藏",
-  "title_history": "历史",
-  "favorite": "已收藏",
-  "sort_asc_desc": "排序方式",
-  "sort_desc": "降序",
-  "sort_asc": "升序",
-  "equip_level_color": "装备品级",
-  "equip_craft": "装备合成",
-  "craft": "装备",
-  "uncraft": "素材",
-  "title_rarity": "星级",
-  "title_type": "类型",
-  "star": "★{arg1}",
-  "@star": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "cutin_skill": "★6技能",
-  "six_locked": "其他",
+  "search_hit": "请输入角色名/编号",
   "type_normal": "常驻",
   "type_limit": "限定",
   "type_event_limit": "活动",
   "type_extra_character": "额外",
-  "name": "名字",
-  "id": "编号",
-  "unit_role": "角色职能",
-  "role": "职能",
-  "attacker": "攻击",
-  "breaker": "破坏",
-  "buffer": "增益",
-  "debuffer": "减益",
-  "booster": "加速",
-  "healer": "治疗",
-  "tank": "坦克",
-  "jammer": "干扰",
+  "unknown": "?",
+  "magic": "魔法",
+  "physical": "物理",
   "equip_require_level": "需求等级：{arg1}",
   "@equip_require_level": {
     "placeholders": {
@@ -651,7 +474,7 @@
   "travel_time_decrease_limit": "缩减时间",
   "ex_equip_drop_odd": "%.2f%",
   "union_burst": "连结爆发",
-  "skill_index": "技能 {arg1}",
+  "skill_index": "技能{arg1}",
   "@skill_index": {
     "placeholders": {
       "arg1": {
@@ -659,7 +482,14 @@
       }
     }
   },
-  "ex_skill": "EX技能",
+  "ex_skill_index": "额外技能{arg1}",
+  "@ex_skill_index": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
   "character_summon_info": "等级：{arg1} / RANK：{arg2} / 星级：{arg3}",
   "@character_summon_info": {
     "placeholders": {

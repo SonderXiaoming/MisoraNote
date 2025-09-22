@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/di/di_parameter.dart';
+import 'package:misora_note/features/component/back_icon.dart';
 import 'package:misora_note/features/component/unit_card.dart';
 import 'package:misora_note/core/di/di.dart';
 import 'package:misora_note/features/skill/atk_pattern.dart';
@@ -78,24 +79,10 @@ class _UnitPage extends ConsumerState<UnitPage> {
                     )),
                 expandedHeight: expandedHeight,
                 backgroundColor: Colors.white,
-                leading: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: ClipOval(
-                    child: Material(
-                      color: HSLColor.fromColor(
-                        Color(CustomColors.colorPink),
-                      ).withLightness(0.95).toColor(),
-                      child: InkWell(
-                        onTap: () => context.pop(),
-                        child: const Icon(
-                          Icons.arrow_back_ios_new,
-                          color: Color(CustomColors.colorPrimary),
-                          size: 18,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                leading: BackIcon(
+                    backgroundColor: HSLColor.fromColor(
+                  Color(CustomColors.colorPink),
+                ).withLightness(0.95).toColor()),
                 flexibleSpace: FlexibleSpaceBar(
                   background: Stack(
                     fit: StackFit.expand,

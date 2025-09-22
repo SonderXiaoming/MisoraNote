@@ -14,48 +14,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get unknown_character => '角色暂未登场';
-
-  @override
-  String unknown_character_type(String arg1) {
-    return '未实装（$arg1）';
-  }
-
-  @override
-  String get age => '年龄';
-
-  @override
-  String get title_height => '身高';
-
-  @override
-  String get title_weight => '体重';
-
-  @override
-  String get title_birth => '生日';
-
-  @override
-  String get title_blood => '血型';
-
-  @override
-  String get title_race => '种族';
-
-  @override
-  String get title_race_multiple => '多人';
-
-  @override
-  String get title_guild => '公会';
-
-  @override
-  String get title_fav => '兴趣';
-
-  @override
-  String get cv => 'CV';
-
-  @override
-  String get title_self => '介绍';
-
-  @override
-  String get title_position => '位置';
+  String get app_name => '美空笔记';
 
   @override
   String skill_cooltime(String arg1) {
@@ -78,377 +37,25 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get before_loop => '初始动作';
+  String get skill_loop_start => '循环开始';
 
   @override
-  String get looping => '循环动作';
+  String get skill_loop_end => '循环结束';
 
   @override
-  String get title_comments => '交流';
-
-  @override
-  String get title_home_page_comments => '主页';
-
-  @override
-  String get title_room_comments => '小屋';
-
-  @override
-  String get character_attr => '属性';
-
-  @override
-  String get title_story_attr => '剧情属性';
-
-  @override
-  String get title_basic_coe => '基本系数';
-
-  @override
-  String get title_skill_coe => '技能基本系数';
-
-  @override
-  String get title_skill_basic_coe => '技能相关系数';
-
-  @override
-  String get title_rank_bonus => 'RANK 奖励属性';
-
-  @override
-  String get cur_rank => '当前 RANK';
-
-  @override
-  String get target_rank => '目标 RANK';
-
-  @override
-  String get function => '功能';
-
-  @override
-  String get skill => '技能信息';
+  String get attack_pattern => '攻击模式';
 
   @override
   String get skill_loop => '技能循环';
 
   @override
-  String get title_unlock_6 => '★6解放';
-
-  @override
-  String get rank_select => 'RANK选择';
-
-  @override
-  String get rank_compare => 'RANK对比';
-
-  @override
-  String get calc_equip_count => '装备统计';
-
-  @override
-  String get character_pic => '立绘';
-
-  @override
-  String get character_card_video => '动态卡面';
-
-  @override
-  String get character_basic_info => '角色资料';
-
-  @override
-  String get basic_info => '基本信息';
-
-  @override
-  String get story_pic => '剧情立绘';
-
-  @override
-  String get to_summon => '召唤物';
-
-  @override
-  String get spine_preview => '模型预览';
-
-  @override
-  String get no_guild => '无公会';
+  String get skill_info => '技能信息';
 
   @override
   String get sp_skill => 'SP技能';
 
   @override
-  String get tp_limit_level_action_desc => '等级 > 260，TP数值不会继续增加';
-
-  @override
-  String get other_limit_level_action_desc => '等级 > 300，该数值不会继续增加';
-
-  @override
-  String get other_limit_level_action_desc_unique => '等级 > 300，回避数值不会继续增加';
-
-  @override
-  String get basic => '基本';
-
-  @override
-  String get story => '剧情';
-
-  @override
-  String get no_story_info => '暂无剧情信息';
-
-  @override
-  String get no_comic_info => '暂无漫画信息';
-
-  @override
-  String character_birthday(String arg1) {
-    return '角色生日：$arg1';
-  }
-
-  @override
-  String value_100_m(String arg1) {
-    return '$arg1亿';
-  }
-
-  @override
-  String value_10_k(int arg1) {
-    return '$arg1万';
-  }
-
-  @override
-  String unit_level(int arg1) {
-    return '等级：$arg1';
-  }
-
-  @override
-  String get title_unit_level => '等级';
-
-  @override
-  String get input_level => '请输入等级';
-
-  @override
-  String get order_character_detail => '未选中模块显示在次要页面（退出编辑后滑动切换）';
-
-  @override
-  String get character_card => '角色卡片';
-
-  @override
-  String get character_other_tool => '其他功能（装备统计等）';
-
-  @override
-  String get character_tool => '功能（资料、立绘、模型）';
-
-  @override
-  String get character_power => '战力';
-
-  @override
-  String get tip_skill_loop => '技能循环（未选中时显示悬浮按钮）';
-
-  @override
-  String get character_icon_info => '角色图标';
-
-  @override
-  String get character_leader => '角色评分、梯队';
-
-  @override
-  String get app_setting => '设置';
-
-  @override
-  String get vibrate => '振动反馈';
-
-  @override
-  String get animation => '动画效果';
-
-  @override
-  String get dynamic_color => '动态色彩';
-
-  @override
-  String get content_api_request_error => '请切换网络后重试';
-
-  @override
-  String get use_ip => '网络调整';
-
-  @override
-  String get use_ip_tip_on => '已调整访问地址。设置变更后将自动关闭应用';
-
-  @override
-  String get use_ip_tip_off => '若一直提示网络请求异常，可尝试开启。设置变更后将自动关闭应用';
-
-  @override
-  String get vibrate_on => '振动开启';
-
-  @override
-  String get animation_on => '动画开启';
-
-  @override
-  String get color_on => '根据系统壁纸，调整应用主题颜色';
-
-  @override
-  String get vibrate_off => '振动关闭';
-
-  @override
-  String get animation_off => '动画关闭';
-
-  @override
-  String get color_off => '使用默认主题';
-
-  @override
-  String get thanks => '感谢';
-
-  @override
-  String get data_from => 'Unity Texture Toolkit';
-
-  @override
-  String get data_from_hint => '资源获取工具';
-
-  @override
-  String get data_from_url =>
-      'https://github.com/esterTion/unity-texture-toolkit';
-
-  @override
-  String get shizuru_note => '静流笔记';
-
-  @override
-  String get shizuru_note_tip => '感谢大佬的开源项目';
-
-  @override
-  String get shizuru_note_url => 'https://github.com/MalitsPlus/ShizuruNotes';
-
-  @override
-  String get pcrdfans => '公主连结Re: Dive Fan Club';
-
-  @override
-  String get pcrdfans_tip => '竞技场查询数据来源';
-
-  @override
-  String get pcrdfans_url => 'https://pcrdfans.com';
-
-  @override
-  String get pcrdfans_upload_url => 'https://pcrdfans.com/battle/upload';
-
-  @override
-  String get pcrdfans_search_url => 'https://pcrdfans.com/battle';
-
-  @override
-  String get leader_source => 'GameWith';
-
-  @override
-  String get leader_tip => '角色排行数据来源';
-
-  @override
-  String get leader_source_url =>
-      'https://gamewith.jp/pricone-re/article/show/93068';
-
-  @override
-  String get title_spine => '模型预览';
-
-  @override
-  String get spine_tip => '可预览游戏内角色、BOSS模型';
-
-  @override
-  String get random_drop_source => '蘭德索爾圖書館';
-
-  @override
-  String get random_drop_tip => '额外掉落数据来源';
-
-  @override
-  String get random_drop_source_url =>
-      'https://pcredivewiki.tw/Other/MapExtraDrop';
-
-  @override
-  String get time_zone => '自动时区';
-
-  @override
-  String get time_zone_tip => '\\n手动变更设备时区后，请重新打开应用';
-
-  @override
-  String get title_sort => '排序类型';
-
-  @override
-  String get sort_date => '登场日期';
-
-  @override
-  String get position_2 => '后卫';
-
-  @override
-  String get position_1 => '中卫';
-
-  @override
-  String get position_0 => '前卫';
-
-  @override
-  String get atk_type => '攻击类型';
-
-  @override
-  String get talent_type => '天赋类型';
-
-  @override
-  String get role_type => '职能类型';
-
-  @override
-  String get unit_talent => '角色天赋';
-
-  @override
-  String get talent => '天赋';
-
-  @override
-  String get physical => '物理';
-
-  @override
-  String get magic => '魔法';
-
-  @override
-  String get fire => '火';
-
-  @override
-  String get water => '水';
-
-  @override
-  String get wind => '风';
-
-  @override
-  String get light => '光';
-
-  @override
-  String get dark => '暗';
-
-  @override
-  String get unknown => '\\?';
-
-  @override
-  String get all => '全部';
-
-  @override
-  String get title_favorite => '收藏';
-
-  @override
-  String get title_history => '历史';
-
-  @override
-  String get favorite => '已收藏';
-
-  @override
-  String get sort_asc_desc => '排序方式';
-
-  @override
-  String get sort_desc => '降序';
-
-  @override
-  String get sort_asc => '升序';
-
-  @override
-  String get equip_level_color => '装备品级';
-
-  @override
-  String get equip_craft => '装备合成';
-
-  @override
-  String get craft => '装备';
-
-  @override
-  String get uncraft => '素材';
-
-  @override
-  String get title_rarity => '星级';
-
-  @override
-  String get title_type => '类型';
-
-  @override
-  String star(int arg1) {
-    return '★$arg1';
-  }
-
-  @override
-  String get cutin_skill => '★6技能';
-
-  @override
-  String get six_locked => '其他';
+  String get search_hit => '请输入角色名/编号';
 
   @override
   String get type_normal => '常驻';
@@ -463,40 +70,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get type_extra_character => '额外';
 
   @override
-  String get name => '名字';
+  String get unknown => '?';
 
   @override
-  String get id => '编号';
+  String get magic => '魔法';
 
   @override
-  String get unit_role => '角色职能';
-
-  @override
-  String get role => '职能';
-
-  @override
-  String get attacker => '攻击';
-
-  @override
-  String get breaker => '破坏';
-
-  @override
-  String get buffer => '增益';
-
-  @override
-  String get debuffer => '减益';
-
-  @override
-  String get booster => '加速';
-
-  @override
-  String get healer => '治疗';
-
-  @override
-  String get tank => '坦克';
-
-  @override
-  String get jammer => '干扰';
+  String get physical => '物理';
 
   @override
   String equip_require_level(String arg1) {
@@ -1256,11 +836,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_index(int arg1) {
-    return '技能 $arg1';
+    return '技能$arg1';
   }
 
   @override
-  String get ex_skill => 'EX技能';
+  String ex_skill_index(String arg1) {
+    return '额外技能$arg1';
+  }
 
   @override
   String character_summon_info(int arg1, int arg2, int arg3) {

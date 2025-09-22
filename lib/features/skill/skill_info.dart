@@ -78,13 +78,12 @@ class SkillActionText extends StatelessWidget {
       ),
       child: RichText(
         text: TextSpan(
-          children:
-              parts.map((e) {
-                return TextSpan(
-                  text: e.$1,
-                  style: TextStyle(color: Color(e.$2)),
-                );
-              }).toList(),
+          children: parts.map((e) {
+            return TextSpan(
+              text: e.$1,
+              style: TextStyle(color: Color(e.$2)),
+            );
+          }).toList(),
           style: Theme.of(context).textTheme.bodyMedium,
         ),
       ),
@@ -148,25 +147,25 @@ class SingleSkillInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppLocalizations.of(context);
+    final t = AppLocalizations.of(context)!;
     final skillActionHandler = ActionHandler(t);
     final borderColor = Color(CustomColors.colorGray).withAlpha(50);
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    String skillSubTitle = skillType.value;
+    String skillSubTitle = SkillTextType.getName(t, skillType);
     if (skill.skillCastTime > 0) {
-      skillSubTitle += '\t\t\t准备时间: ${skill.skillCastTime}秒';
+      skillSubTitle +=
+          '\t\t\t${t.skill_cooltime(skill.skillCastTime.toString())}';
     }
     if ((level ?? 0) > 0) {
-      skillSubTitle += '\t\t\t技能等级: $level';
+      skillSubTitle += '\t\t\t${t.skill_level(level!)}';
     }
     final skillAction = getActionDescList(skillActionHandler);
-    final tags =
-        skillAction
-            .map((e) => e.tag)
-            .where((tag) => tag.isNotEmpty)
-            .toSet()
-            .toList();
+    final tags = skillAction
+        .map((e) => e.tag)
+        .where((tag) => tag.isNotEmpty)
+        .toSet()
+        .toList();
     return BaseCard(
       border: Border.all(color: borderColor),
       child: Column(
@@ -224,22 +223,21 @@ class SingleSkillInfo extends StatelessWidget {
           const SizedBox(height: 12),
           Row(
             spacing: 6,
-            children:
-                tags
-                    .map(
-                      (e) => TagBase(
-                        backgroundColor: Color(CustomColors.colorPrimary),
-                        borderRadius: BorderRadius.circular(6),
-                        child: Text(
-                          e,
-                          style: textTheme.labelMedium?.copyWith(
-                            color: Color(CustomColors.colorWhite),
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),
+            children: tags
+                .map(
+                  (e) => TagBase(
+                    backgroundColor: Color(CustomColors.colorPrimary),
+                    borderRadius: BorderRadius.circular(6),
+                    child: Text(
+                      e,
+                      style: textTheme.labelMedium?.copyWith(
+                        color: Color(CustomColors.colorWhite),
+                        fontWeight: FontWeight.w800,
                       ),
-                    )
-                    .toList(),
+                    ),
+                  ),
+                )
+                .toList(),
           ),
 
           const SizedBox(height: 10),
@@ -259,10 +257,11 @@ class AllSkillInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
+    final t = AppLocalizations.of(context)!;
     return Column(
       children: [
         Text(
-          "技能信息",
+          t.skill_info,
           style: style.titleLarge?.copyWith(
             color: Color(CustomColors.colorPrimary),
             fontWeight: FontWeight.w700,
@@ -279,7 +278,7 @@ class AllSkillInfo extends StatelessWidget {
           if (skillIdList.sp.isNotEmpty) ...[
             const SizedBox(height: 16),
             Text(
-              "SP技能信息",
+              "SP${t.skill_info}",
               style: style.titleLarge?.copyWith(
                 color: Color(CustomColors.colorPrimary),
                 fontWeight: FontWeight.w700,
