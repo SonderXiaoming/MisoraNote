@@ -4,7 +4,7 @@ import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 import 'package:misora_note/core/db/model.dart';
-import 'package:misora_note/core/skill/skill_type.dart';
+import 'package:misora_note/features/skill/skill_type.dart';
 
 class ActionHandler {
   late AppLocalizations t;
@@ -1875,11 +1875,11 @@ class ActionHandler {
   }
 
   String loop() {
-    final success_clause =
+    final successClause =
         action.actionDetail2 != 0
             ? t.skill_action_type_desc_63_success(action.actionDetail2 % 100)
             : t.unknown;
-    final failure_clause =
+    final failureClause =
         action.actionDetail3 != 0
             ? t.skill_action_type_desc_63_failure(action.actionDetail3 % 100)
             : t.unknown;
@@ -1889,12 +1889,12 @@ class ActionHandler {
       action.actionValue1.toString(),
       action.actionValue3.toString(),
     );
-    if (success_clause != t.unknown && failure_clause != t.unknown) {
-      return main + success_clause + failure_clause;
-    } else if (success_clause != t.unknown) {
-      return main + success_clause;
-    } else if (failure_clause != t.unknown) {
-      return main + failure_clause;
+    if (successClause != t.unknown && failureClause != t.unknown) {
+      return main + successClause + failureClause;
+    } else if (successClause != t.unknown) {
+      return main + successClause;
+    } else if (failureClause != t.unknown) {
+      return main + failureClause;
     } else {
       return t.unknown;
     }
@@ -2000,7 +2000,7 @@ class ActionHandler {
           2: t.skill_action_type_desc_subtract,
         }[action.actionDetail2] ??
         t.unknown;
-    final valueText = "<${action.actionValue1} * ${countType}>";
+    final valueText = "<${action.actionValue1} * $countType>";
     return t.skill_action_type_desc_78(
       getTarget(),
       effectType,

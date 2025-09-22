@@ -5,8 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/features/component/unit_card.dart';
 import 'package:misora_note/core/db/database.dart';
-import 'package:misora_note/core/db/model.dart';
-import 'package:misora_note/di.dart';
+import 'package:misora_note/core/di/di.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -15,22 +14,27 @@ class HomePage extends ConsumerStatefulWidget {
 }
 
 class _HomePageState extends ConsumerState<HomePage> {
-  AppDb get db => ref.read(dbProvider);
-  List<UnitInfo> units = [];
+  AppDb get db => ref.watch(dbProvider); // watch以便db变化时自动刷新
   double? _progress;
+  List<int> showUnit = [];
+
+  Future<void> init() async {
+    await db.init();
+    final units = await db
+        .getUnitsData(type: UnitRankType.lastUpdate, limit: 6)
+        .then((value) => value.map((e) => e.unitId).toList());
+    if (mounted) {
+      setState(() {
+        showUnit = units;
+      });
+    }
+  }
 
   @override
   void initState() {
     super.initState();
     Future.microtask(() async {
-      await db.init();
-      List<int> showUnit = await db
-          .getUnitsData(type: UnitRankType.lastUpdate, limit: 5)
-          .then((value) => value.map((e) => e.unitId).toList());
-      final units = await _loadUnits(showUnit);
-      setState(() {
-        this.units = units;
-      });
+      init();
     });
   }
 
@@ -38,24 +42,13 @@ class _HomePageState extends ConsumerState<HomePage> {
     setState(() {
       _progress = null;
     });
-    await db.init();
-  }
-
-  Future<List<UnitInfo>> _loadUnits(List<int> showUnit) async {
-    List<UnitInfo> units = [];
-    for (var id in showUnit) {
-      var info = await db.getUnitInfo(id);
-      if (info != null) {
-        units.add(info);
-      }
-    }
-    return units;
+    await init();
   }
 
   @override
   Widget build(BuildContext context) {
     final mediaWidth = MediaQuery.of(context).size.width;
-    final cardWidth = min(max(486.0, mediaWidth * 0.33), mediaWidth);
+    final cardWidth = min(max(420.0, mediaWidth * 0.4), mediaWidth);
     final cardHeight = cardWidth * 792 / 1408;
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
@@ -87,8 +80,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                 ],
               ),
             ),
-
-            if (units.isEmpty)
+            if (showUnit.isEmpty)
               const Padding(
                 padding: EdgeInsets.all(16),
                 child: CircularProgressIndicator(),
@@ -101,22 +93,25 @@ class _HomePageState extends ConsumerState<HomePage> {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   physics: const BouncingScrollPhysics(),
                   cacheExtent: cardWidth,
-                  itemCount: units.length,
-                  separatorBuilder: (_, __) => const SizedBox(width: 12),
+                  itemCount: showUnit.length,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 12),
                   itemBuilder: (context, i) {
-                    final unit = units[i];
+                    final unit = showUnit[i];
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: UnitCard(
-                        unitInfo: unit,
-                        isR6: db.r6Units.contains(unit.unitId),
-                        size: (cardWidth, cardHeight),
+                      child: Hero(
+                        tag: 'unit_card_$unit',
+                        child: UnitCard(
+                          unitId: unit,
+                          isR6: db.r6Units.contains(unit),
+                          size: (cardWidth, cardHeight),
+                        ),
                       ),
                     );
                   },
                 ),
               ),
-
             FilledButton(
               onPressed: _progress == null ? _startUpdate : null,
               child: const Text('更新数据库'),

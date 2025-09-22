@@ -8,7 +8,7 @@ import 'table.dart'; // 里面有 class UnitProfile extends Table
 part 'database.g.dart';
 
 int _toIntOrNull(String? s) => s == null ? -1 : int.tryParse(s.trim()) ?? -1;
-final kannaIDs = [170101, 170201];
+final kannaIds = [170101, 170201];
 
 @DriftDatabase(
   tables: [
@@ -25,6 +25,11 @@ final kannaIDs = [170101, 170201];
     UnitAttackPattern,
     SpSkillLabelData,
     UnitSkillDataRF,
+    UnitUniqueEquip,
+    UnitUniqueEquipment,
+    UniqueEquipEnhanceRate,
+    UniqueEquipmentData,
+    UniqueEquipmentEnhanceData,
   ],
 )
 class AppDb extends _$AppDb {
@@ -125,6 +130,7 @@ class AppDb extends _$AppDb {
             a.unitName, // 20
             d.cutin1Star6, // 21
             limitTypeExpr, // 22
+            d.normalAtkCastTime, // 23
           ])
           ..join([
             leftOuterJoin(d, d.unitId.equalsExp(u.unitId)),
@@ -163,9 +169,10 @@ class AppDb extends _$AppDb {
       actualName: row.read(a.unitName) ?? '',
       cutin1Star6: row.read(d.cutin1Star6),
       limitType: row.read(limitTypeExpr),
+      normalAtkCastTime: row.read(d.normalAtkCastTime) ?? 0.0,
     );
 
-    if (kannaIDs.contains(info.unitId)) {
+    if (kannaIds.contains(info.unitId)) {
       info.limitType = 2;
     } else if (exCharacter.contains(info.unitId)) {
       info.limitType = 4;
@@ -269,5 +276,132 @@ class AppDb extends _$AppDb {
     final query = select(unitSkillDataRF)
       ..where((t) => t.skillId.equals(skillId));
     return query.getSingleOrNull();
+  }
+
+  Future<UniqueEquipInfo?> getUniqueEquipInfo(
+    int unitId, {
+    int lv = 1,
+    int slot = 1,
+  }) async {
+    final lvOffset = lv - 1.0;
+    final lvVar = Variable.withReal(lvOffset);
+
+    // 别名简化
+    final a = uniqueEquipmentData; // unique_equipment_data
+    final b = uniqueEquipEnhanceRate; // unique_equip_enhance_rate
+    final uu = unitUniqueEquipment; // unit_unique_equipment
+    final ue = unitUniqueEquip; // unit_unique_equip
+
+    // 构建 SELECT（只从 a 出发，左连 b/uu/ue）
+    final query =
+        selectOnly(a, distinct: true)
+          ..join([
+            leftOuterJoin(b, b.equipmentId.equalsExp(a.equipmentId)),
+            // 两个“拥有关系”的表都左连到 a.equipment_id 上，
+            // 下面 where 用 (uu.unit_id = unitId OR ue.unit_id = unitId) 来覆盖原 SQL 的 UNION 逻辑
+            leftOuterJoin(uu, uu.equipId.equalsExp(a.equipmentId)),
+            leftOuterJoin(ue, ue.equipId.equalsExp(a.equipmentId)),
+          ])
+          ..where(
+            // (uu.unit_id == unitId) OR (ue.unit_id == unitId)
+            uu.unitId.equals(unitId) | ue.unitId.equals(unitId),
+          )
+          ..where(
+            // b.min_lv <= 2
+            b.minLv.isSmallerOrEqualValue(2),
+          )
+          ..where(
+            CustomExpression<int>(
+              '${a.tableName}.${a.equipmentId.name} % 10',
+            ).equals(slot),
+          );
+
+    query.addColumns([uu.unitId, ue.unitId]);
+
+    // 基本信息
+    query.addColumns([a.equipmentId, a.equipmentName, a.description]);
+
+    // 定义一个小工具：c = base + rate * lvOffset
+    Expression<double> scaled(RealColumn base, RealColumn rate) =>
+        base + rate * lvVar;
+
+    final hp = scaled(a.hp, b.hp);
+    final atk = scaled(a.atk, b.atk);
+    final magicStr = scaled(a.magicStr, b.magicStr);
+    final def = scaled(a.def_, b.def_);
+    final magicDef = scaled(a.magicDef, b.magicDef);
+    final physicalCritical = scaled(a.physicalCritical, b.physicalCritical);
+    final magicCritical = scaled(a.magicCritical, b.magicCritical);
+    final waveHpRecovery = scaled(a.waveHpRecovery, b.waveHpRecovery);
+    final waveEnergyRecovery = scaled(
+      a.waveEnergyRecovery,
+      b.waveEnergyRecovery,
+    );
+    final dodge = scaled(a.dodge, b.dodge);
+    final physicalPenetrate = scaled(a.physicalPenetrate, b.physicalPenetrate);
+    final magicPenetrate = scaled(a.magicPenetrate, b.magicPenetrate);
+    final lifeSteal = scaled(a.lifeSteal, b.lifeSteal);
+    final hpRecoveryRate = scaled(a.hpRecoveryRate, b.hpRecoveryRate);
+    final energyRecoveryRate = scaled(
+      a.energyRecoveryRate,
+      b.energyRecoveryRate,
+    );
+    final energyReduceRate = scaled(a.energyReduceRate, b.energyReduceRate);
+    final accuracy = scaled(a.accuracy, b.accuracy);
+
+    // 加入这些表达式列
+    query.addColumns([
+      hp,
+      atk,
+      magicStr,
+      def,
+      magicDef,
+      physicalCritical,
+      magicCritical,
+      waveHpRecovery,
+      waveEnergyRecovery,
+      dodge,
+      physicalPenetrate,
+      magicPenetrate,
+      lifeSteal,
+      hpRecoveryRate,
+      energyRecoveryRate,
+      energyReduceRate,
+      accuracy,
+    ]);
+
+    // 读取一行
+    final row = await query.getSingleOrNull();
+    if (row == null) return null;
+
+    // 组装 unit_id：优先 uu.unit_id，否则 ue.unit_id
+    final unitIdFromUu = row.read(uu.unitId);
+    final unitIdFromUe = row.read(ue.unitId);
+    final pickedUnitId = unitIdFromUu ?? unitIdFromUe;
+
+    return UniqueEquipInfo(
+      unitId: pickedUnitId ?? unitId, // 冗余兜底
+      equipmentId: row.read(a.equipmentId) ?? 0,
+      equipmentName: row.read(a.equipmentName) ?? '',
+      description: row.read(a.description) ?? '',
+      hp: row.read(hp) ?? 0,
+      atk: row.read(atk) ?? 0,
+      magicStr: row.read(magicStr) ?? 0,
+      def_: row.read(def) ?? 0,
+      magicDef: row.read(magicDef) ?? 0,
+      physicalCritical: row.read(physicalCritical) ?? 0,
+      magicCritical: row.read(magicCritical) ?? 0,
+      waveHpRecovery: row.read(waveHpRecovery) ?? 0,
+      waveEnergyRecovery: row.read(waveEnergyRecovery) ?? 0,
+      dodge: row.read(dodge) ?? 0,
+      physicalPenetrate: row.read(physicalPenetrate) ?? 0,
+      magicPenetrate: row.read(magicPenetrate) ?? 0,
+      lifeSteal: row.read(lifeSteal) ?? 0,
+      hpRecoveryRate: row.read(hpRecoveryRate) ?? 0,
+      energyRecoveryRate: row.read(energyRecoveryRate) ?? 0,
+      energyReduceRate: row.read(energyReduceRate) ?? 0,
+      accuracy: row.read(accuracy) ?? 0,
+      isTpLimitAction: 0, // 原 SQL 常量 0
+    );
   }
 }

@@ -352,3 +352,135 @@ class UnitSkillDataRF extends Table {
   IntColumn get minLv => integer().named("min_lv")();
   IntColumn get maxLv => integer().named("max_lv")();
 }
+
+class UnitUniqueEquipment extends Table {
+  @override
+  String get tableName => "unit_unique_equipment";
+  @override
+  Set<Column> get primaryKey => {unitId, equipSlot};
+
+  IntColumn get unitId => integer().named("unit_id")();
+  IntColumn get equipSlot => integer().named("equip_slot")();
+  IntColumn get equipId => integer().named("equip_id")();
+}
+
+class UnitUniqueEquip extends Table {
+  @override
+  String get tableName => "unit_unique_equip";
+  @override
+  Set<Column> get primaryKey => {unitId, equipSlot};
+
+  IntColumn get unitId => integer().named("unit_id")();
+  IntColumn get equipSlot => integer().named("equip_slot")();
+  IntColumn get equipId => integer().named("equip_id")();
+}
+
+class UniqueEquipEnhanceRate extends Table {
+  @override
+  String get tableName => "unique_equip_enhance_rate";
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named("id")();
+  IntColumn get equipmentId => integer().named("equipment_id")();
+  IntColumn get minLv => integer().named("min_lv")();
+  IntColumn get maxLv => integer().named("max_lv")();
+  RealColumn get hp => real().named("hp")();
+  RealColumn get atk => real().named("atk")();
+  RealColumn get magicStr => real().named("magic_str")();
+  RealColumn get def_ => real().named("def")();
+  RealColumn get magicDef => real().named("magic_def")();
+  RealColumn get physicalCritical => real().named("physical_critical")();
+  RealColumn get magicCritical => real().named("magic_critical")();
+  RealColumn get waveHpRecovery => real().named("wave_hp_recovery")();
+  RealColumn get waveEnergyRecovery => real().named("wave_energy_recovery")();
+  RealColumn get dodge => real().named("dodge")();
+  RealColumn get physicalPenetrate => real().named("physical_penetrate")();
+  RealColumn get magicPenetrate => real().named("magic_penetrate")();
+  RealColumn get lifeSteal => real().named("life_steal")();
+  RealColumn get hpRecoveryRate => real().named("hp_recovery_rate")();
+  RealColumn get energyRecoveryRate => real().named("energy_recovery_rate")();
+  RealColumn get energyReduceRate => real().named("energy_reduce_rate")();
+  RealColumn get accuracy => real().named("accuracy")();
+}
+
+class UniqueEquipmentEnhanceRate extends Table {
+  @override
+  String get tableName => "unique_equipment_enhance_rate";
+  @override
+  Set<Column> get primaryKey => {equipmentId};
+
+  IntColumn get equipmentId => integer().named("equipment_id")();
+  TextColumn get equipmentName => text().named("equipment_name").nullable()();
+  TextColumn get description => text().named("description").nullable()();
+  IntColumn get promotionLevel =>
+      integer().named("promotion_level").nullable()();
+  RealColumn get hp => real().named("hp").nullable()();
+  RealColumn get atk => real().named("atk").nullable()();
+  RealColumn get magicStr => real().named("magic_str").nullable()();
+  RealColumn get def_ => real().named("def").nullable()();
+  RealColumn get magicDef => real().named("magic_def").nullable()();
+  RealColumn get physicalCritical =>
+      real().named("physical_critical").nullable()();
+  RealColumn get magicCritical => real().named("magic_critical").nullable()();
+  RealColumn get waveHpRecovery =>
+      real().named("wave_hp_recovery").nullable()();
+  RealColumn get waveEnergyRecovery =>
+      real().named("wave_energy_recovery").nullable()();
+  RealColumn get dodge => real().named("dodge").nullable()();
+  RealColumn get physicalPenetrate =>
+      real().named("physical_penetrate").nullable()();
+  RealColumn get magicPenetrate => real().named("magic_penetrate").nullable()();
+  RealColumn get lifeSteal => real().named("life_steal").nullable()();
+  RealColumn get hpRecoveryRate =>
+      real().named("hp_recovery_rate").nullable()();
+  RealColumn get energyRecoveryRate =>
+      real().named("energy_recovery_rate").nullable()();
+  RealColumn get energyReduceRate =>
+      real().named("energy_reduce_rate").nullable()();
+  RealColumn get accuracy => real().named("accuracy").nullable()();
+}
+
+class UniqueEquipmentData extends Table {
+  @override
+  String get tableName => "unique_equipment_data";
+  @override
+  Set<Column> get primaryKey => {equipmentId};
+
+  IntColumn get equipmentId => integer().named("equipment_id")();
+  TextColumn get equipmentName => text().named("equipment_name").nullable()();
+  TextColumn get description => text().named("description").nullable()();
+  IntColumn get promotionLevel =>
+      integer().named("promotion_level").nullable()();
+  IntColumn get craftFlg => integer().named("craft_flg").nullable()();
+  IntColumn get equipmentEnhancePoint =>
+      integer().named("equipment_enhance_point").nullable()();
+  IntColumn get salePrice => integer().named("sale_price").nullable()();
+  IntColumn get requireLevel => integer().named("require_level").nullable()();
+  RealColumn get hp => real().named("hp").nullable()();
+  RealColumn get atk => real().named("atk").nullable()();
+  RealColumn get magicStr => real().named("magic_str").nullable()();
+  RealColumn get def_ => real().named("def").nullable()();
+  RealColumn get magicDef => real().named("magic_def").nullable()();
+  RealColumn get physicalCritical =>
+      real().named("physical_critical").nullable()();
+  RealColumn get magicCritical => real().named("magic_critical").nullable()();
+  RealColumn get waveHpRecovery =>
+      real().named("wave_hp_recovery").nullable()();
+  RealColumn get waveEnergyRecovery =>
+      real().named("wave_energy_recovery").nullable()();
+  RealColumn get dodge => real().named("dodge").nullable()();
+  RealColumn get physicalPenetrate =>
+      real().named("physical_penetrate").nullable()();
+  RealColumn get magicPenetrate => real().named("magic_penetrate").nullable()();
+  RealColumn get lifeSteal => real().named("life_steal").nullable()();
+  RealColumn get hpRecoveryRate =>
+      real().named("hp_recovery_rate").nullable()();
+  RealColumn get energyRecoveryRate =>
+      real().named("energy_recovery_rate").nullable()();
+  RealColumn get energyReduceRate =>
+      real().named("energy_reduce_rate").nullable()();
+  IntColumn get enableDonation =>
+      integer().named("enable_donation").nullable()();
+  RealColumn get accuracy => real().named("accuracy").nullable()();
+}

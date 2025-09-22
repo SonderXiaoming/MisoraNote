@@ -20,6 +20,7 @@ class UnitInfo {
   final String intro;
   final String unitStartTime; // 'YYYY/MM/DD'
   final String actualName;
+  final double normalAtkCastTime;
   final int? cutin1Star6;
   int? limitType; // 1/2/3/4
 
@@ -47,6 +48,7 @@ class UnitInfo {
     required this.actualName,
     required this.cutin1Star6,
     required this.limitType,
+    required this.normalAtkCastTime,
   });
 }
 
@@ -101,5 +103,116 @@ class SkillActionInfo {
     required this.ailmentName,
     required this.isRfSkill,
     required this.isOtherRfSkill,
+  });
+}
+
+class UniqueEquipInfo {
+  int unitId;
+  int equipmentId;
+  String equipmentName;
+  String description;
+  double hp;
+  double atk;
+  double magicStr;
+  double def_;
+  double magicDef;
+  double physicalCritical;
+  double magicCritical;
+  double waveHpRecovery;
+  double waveEnergyRecovery;
+  double dodge;
+  double physicalPenetrate;
+  double magicPenetrate;
+  double lifeSteal;
+  double hpRecoveryRate;
+  double energyRecoveryRate;
+  double energyReduceRate;
+  double accuracy;
+  int isTpLimitAction; // 固定值 0
+  int isOtherLimitAction; // 固定值 0
+
+  UniqueEquipInfo({
+    this.unitId = 0,
+    this.equipmentId = 0,
+    this.equipmentName = "",
+    this.description = "",
+    this.hp = 0,
+    this.atk = 0,
+    this.magicStr = 0,
+    this.def_ = 0,
+    this.magicDef = 0,
+    this.physicalCritical = 0,
+    this.magicCritical = 0,
+    this.waveHpRecovery = 0,
+    this.waveEnergyRecovery = 0,
+    this.dodge = 0,
+    this.physicalPenetrate = 0,
+    this.magicPenetrate = 0,
+    this.lifeSteal = 0,
+    this.hpRecoveryRate = 0,
+    this.energyRecoveryRate = 0,
+    this.energyReduceRate = 0,
+    this.accuracy = 0,
+    this.isTpLimitAction = 0,
+    this.isOtherLimitAction = 0,
+  });
+
+  void add(UniqueEquipBonus other) {
+    hp += other.hp;
+    atk += other.atk;
+    magicStr += other.magicStr;
+    def_ += other.def_;
+    magicDef += other.magicDef;
+    physicalCritical += other.physicalCritical;
+    magicCritical += other.magicCritical;
+    waveHpRecovery += other.waveHpRecovery;
+    waveEnergyRecovery += other.waveEnergyRecovery;
+    dodge += other.dodge;
+    physicalPenetrate += other.physicalPenetrate;
+    magicPenetrate += other.magicPenetrate;
+    lifeSteal += other.lifeSteal;
+    hpRecoveryRate += other.hpRecoveryRate;
+    energyRecoveryRate += other.energyRecoveryRate;
+    energyReduceRate += other.energyReduceRate;
+    accuracy = other.accuracy;
+  }
+}
+
+class UniqueEquipBonus {
+  double hp;
+  double atk;
+  double magicStr;
+  double def_;
+  double magicDef;
+  double physicalCritical;
+  double magicCritical;
+  double waveHpRecovery;
+  double waveEnergyRecovery;
+  double dodge;
+  double physicalPenetrate;
+  double magicPenetrate;
+  double lifeSteal;
+  double hpRecoveryRate;
+  double energyRecoveryRate;
+  double energyReduceRate;
+  double accuracy;
+  UniqueEquipBonus({
+    this.hp = 0,
+    this.atk = 0,
+    this.magicStr = 0,
+    this.def_ = 0,
+    this.magicDef = 0,
+    this.physicalCritical = 0,
+    this.magicCritical = 0,
+    this.waveHpRecovery = 0,
+    this.waveEnergyRecovery = 0,
+    this.dodge = 0,
+    this.physicalPenetrate = 0,
+    this.magicPenetrate = 0,
+    this.lifeSteal = 0,
+    this.hpRecoveryRate = 0,
+    this.energyRecoveryRate = 0,
+    this.energyReduceRate = 0,
+    this.accuracy = 0,
   });
 }

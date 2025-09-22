@@ -1,10 +1,12 @@
 import 'package:path/path.dart' as p;
+import 'package:misora_note/l10n/app_localizations.dart';
+import 'package:misora_note/features/component/image.dart';
 
 enum Area { jp, tw, cn }
 
 enum UnitRankType { lastUpdate }
 
-const double ratioGolden = 0.618;
+final double ratioGolden = 0.618;
 
 class FetchUrl {
   static const estertionBase = "https://redive.estertion.win";
@@ -28,16 +30,18 @@ class FetchUrl {
 }
 
 class FilePath {
-  static const base = "resources";
+  static final base = "resources";
+  static final img = p.join(base, 'img');
   static String db(Area area) => p.join(base, 'db', 'redive_${area.name}.db');
   static String fullcard(int id, int star) =>
       p.join(base, 'fullcard', 'fullcard_unit_$id${star}1.png');
+  static String uniqueNumIcon(int num) => p.join(img, 'unique_$num.png');
   static String skillIcon(int skillIconId) =>
-      p.join(base, 'icon', 'skill', '$skillIconId.png');
+      p.join(img, 'skill', '$skillIconId.png');
   static String equipment(int equipmentIconId) =>
-      p.join(base, 'icon', 'equipment', '$equipmentIconId.png');
+      p.join(img, 'equipment', '$equipmentIconId.png');
   static String enemyIcon(int enemyIconId) =>
-      p.join(base, 'icon', 'unit', '$enemyIconId.png');
+      p.join(img, 'unit', '$enemyIconId.png');
   static String teaser(int teaserId) => p.join(base, 'teaser', '$teaserId.png');
 }
 
@@ -100,71 +104,122 @@ class SkillTag {
   static String getPair(String tag) => SkillTag.tagPairs[tag] ?? "";
 }
 
-enum SkillTextType {
-  ub("连结爆发"),
-  ubPlus("连结爆发+"),
-  skill1("技能1"),
-  skill1Plus("技能1+"),
-  skill2("技能2"),
-  skill2Plus("技能2+"),
-  skill3("技能3"),
-  skill4("技能4"),
-  skill5("技能5"),
-  skill6("技能6"),
-  skill7("技能7"),
-  skill8("技能8"),
-  skill9("技能9"),
-  skill10("技能10"),
-  exSkill("额外技能"),
-  exSkillPlus("额外技能+"),
-  exSkill2("额外技能2"),
-  exSkill2Plus("额外技能2+"),
-  exSkill3("额外技能3"),
-  exSkill3Plus("额外技能3+"),
-  exSkill4("额外技能4"),
-  exSkill4Plus("额外技能4+"),
-  exSkill5("额外技能5"),
-  exSkill5Plus("额外技能5+"),
-  spUb("SP连结爆发"),
-  spSkill1("SP技能1"),
-  spSkill1Plus("SP技能1+"),
-  spSkill2("SP技能2"),
-  spSkill2Plus("SP技能2+"),
-  spSkill3("SP技能3");
+enum SearchAreaWidthType {
+  front,
+  back,
+  middle;
 
-  final String value;
-  const SkillTextType(this.value);
-  static SkillTextType? fromValue(String value) {
-    for (var type in SkillTextType.values) {
-      if (type.value == value) {
-        return type;
-      }
+  static SearchAreaWidthType getType(int width) {
+    if (width < 300) {
+      return SearchAreaWidthType.front;
+    } else if (width > 600) {
+      return SearchAreaWidthType.back;
+    } else {
+      return SearchAreaWidthType.middle;
     }
-    return null;
   }
 
-  static int getColor(SkillTextType type) {
+  static int getColor(SearchAreaWidthType type) {
     switch (type) {
-      case SkillTextType.ub:
-      case SkillTextType.ubPlus:
-      case SkillTextType.spUb:
-        return CustomColors.colorGold;
-      case SkillTextType.skill1:
-      case SkillTextType.skill1Plus:
-      case SkillTextType.spSkill1:
-      case SkillTextType.spSkill1Plus:
-        return CustomColors.colorPurple;
-      case SkillTextType.skill2:
-      case SkillTextType.skill2Plus:
-      case SkillTextType.spSkill2:
-      case SkillTextType.spSkill2Plus:
-        return CustomColors.colorRed;
-      case SkillTextType.exSkill:
-      case SkillTextType.exSkillPlus:
-      case SkillTextType.spSkill3:
+      case SearchAreaWidthType.front:
         return CustomColors.colorOrange;
+      case SearchAreaWidthType.back:
+        return CustomColors.colorBlue;
+      case SearchAreaWidthType.middle:
+        return CustomColors.colorGold;
+    }
+  }
+
+  static LocalImage getIcon(
+    SearchAreaWidthType type,
+    double width,
+    double height,
+  ) {
+    switch (type) {
+      case SearchAreaWidthType.front:
+        return LocalImage(
+          path: "${FilePath.img}/front.svg",
+          width: width,
+          height: height,
+        );
+      case SearchAreaWidthType.back:
+        return LocalImage(
+          path: "${FilePath.img}/back.svg",
+          width: width,
+          height: height,
+        );
+      case SearchAreaWidthType.middle:
+        return LocalImage(
+          path: "${FilePath.img}/middle.svg",
+          width: width,
+          height: height,
+        );
+    }
+  }
+}
+
+enum AtkType {
+  physical,
+  magic;
+
+  static int getColor(AtkType type) {
+    switch (type) {
+      case AtkType.physical:
+        return CustomColors.colorGold;
+      case AtkType.magic:
+        return CustomColors.colorPurple;
+    }
+  }
+
+  static LocalImage getIcon(AtkType type, double width, double height) {
+    switch (type) {
+      case AtkType.physical:
+        return LocalImage(
+          path: "${FilePath.img}/physical.png",
+          width: width,
+          height: height,
+        );
+      case AtkType.magic:
+        return LocalImage(
+          path: "${FilePath.img}/magic.png",
+          width: width,
+          height: height,
+        );
+    }
+  }
+
+  static LocalImage getSkillIcon(AtkType type, double width, double height) {
+    switch (type) {
+      case AtkType.physical:
+        return LocalImage(
+          path: "${FilePath.img}/attack.png",
+          width: width,
+          height: height,
+        );
+      case AtkType.magic:
+        return LocalImage(
+          path: "${FilePath.img}/attack.png",
+          width: width,
+          height: height,
+        );
+    }
+  }
+
+  static String getName(AppLocalizations t, AtkType type) {
+    switch (type) {
+      case AtkType.physical:
+        return t.physical;
+      case AtkType.magic:
+        return t.magic;
+    }
+  }
+
+  static AtkType fromValue(int value) {
+    switch (value) {
+      case 1:
+        return AtkType.physical;
       default:
-        return CustomColors.colorBlack;
+        return AtkType.magic;
     }
   }
 }

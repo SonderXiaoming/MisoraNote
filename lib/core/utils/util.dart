@@ -3,6 +3,10 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:brotli/brotli.dart';
 
+int longUnitId2Short(int longId) {
+  return longId ~/ 100;
+}
+
 final Dio dio = Dio(
   BaseOptions(
     headers: {
@@ -13,10 +17,6 @@ final Dio dio = Dio(
     validateStatus: (code) => code != null && code < 500,
   ),
 );
-
-int longUnitId2Short(int longId) {
-  return longId ~/ 100;
-}
 
 // TODO: 大文件分块解压
 Future<void> decompress({

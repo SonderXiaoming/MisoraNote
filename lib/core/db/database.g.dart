@@ -12558,6 +12558,3282 @@ class UnitSkillDataRFCompanion extends UpdateCompanion<UnitSkillDataRFData> {
   }
 }
 
+class $UnitUniqueEquipTable extends UnitUniqueEquip
+    with TableInfo<$UnitUniqueEquipTable, UnitUniqueEquipData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UnitUniqueEquipTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _equipSlotMeta = const VerificationMeta(
+    'equipSlot',
+  );
+  @override
+  late final GeneratedColumn<int> equipSlot = GeneratedColumn<int>(
+    'equip_slot',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _equipIdMeta = const VerificationMeta(
+    'equipId',
+  );
+  @override
+  late final GeneratedColumn<int> equipId = GeneratedColumn<int>(
+    'equip_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [unitId, equipSlot, equipId];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'unit_unique_equip';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UnitUniqueEquipData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('equip_slot')) {
+      context.handle(
+        _equipSlotMeta,
+        equipSlot.isAcceptableOrUnknown(data['equip_slot']!, _equipSlotMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_equipSlotMeta);
+    }
+    if (data.containsKey('equip_id')) {
+      context.handle(
+        _equipIdMeta,
+        equipId.isAcceptableOrUnknown(data['equip_id']!, _equipIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_equipIdMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {unitId, equipSlot};
+  @override
+  UnitUniqueEquipData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UnitUniqueEquipData(
+      unitId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}unit_id'],
+          )!,
+      equipSlot:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}equip_slot'],
+          )!,
+      equipId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}equip_id'],
+          )!,
+    );
+  }
+
+  @override
+  $UnitUniqueEquipTable createAlias(String alias) {
+    return $UnitUniqueEquipTable(attachedDatabase, alias);
+  }
+}
+
+class UnitUniqueEquipData extends DataClass
+    implements Insertable<UnitUniqueEquipData> {
+  final int unitId;
+  final int equipSlot;
+  final int equipId;
+  const UnitUniqueEquipData({
+    required this.unitId,
+    required this.equipSlot,
+    required this.equipId,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['unit_id'] = Variable<int>(unitId);
+    map['equip_slot'] = Variable<int>(equipSlot);
+    map['equip_id'] = Variable<int>(equipId);
+    return map;
+  }
+
+  UnitUniqueEquipCompanion toCompanion(bool nullToAbsent) {
+    return UnitUniqueEquipCompanion(
+      unitId: Value(unitId),
+      equipSlot: Value(equipSlot),
+      equipId: Value(equipId),
+    );
+  }
+
+  factory UnitUniqueEquipData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UnitUniqueEquipData(
+      unitId: serializer.fromJson<int>(json['unitId']),
+      equipSlot: serializer.fromJson<int>(json['equipSlot']),
+      equipId: serializer.fromJson<int>(json['equipId']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'unitId': serializer.toJson<int>(unitId),
+      'equipSlot': serializer.toJson<int>(equipSlot),
+      'equipId': serializer.toJson<int>(equipId),
+    };
+  }
+
+  UnitUniqueEquipData copyWith({int? unitId, int? equipSlot, int? equipId}) =>
+      UnitUniqueEquipData(
+        unitId: unitId ?? this.unitId,
+        equipSlot: equipSlot ?? this.equipSlot,
+        equipId: equipId ?? this.equipId,
+      );
+  UnitUniqueEquipData copyWithCompanion(UnitUniqueEquipCompanion data) {
+    return UnitUniqueEquipData(
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      equipSlot: data.equipSlot.present ? data.equipSlot.value : this.equipSlot,
+      equipId: data.equipId.present ? data.equipId.value : this.equipId,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitUniqueEquipData(')
+          ..write('unitId: $unitId, ')
+          ..write('equipSlot: $equipSlot, ')
+          ..write('equipId: $equipId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(unitId, equipSlot, equipId);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UnitUniqueEquipData &&
+          other.unitId == this.unitId &&
+          other.equipSlot == this.equipSlot &&
+          other.equipId == this.equipId);
+}
+
+class UnitUniqueEquipCompanion extends UpdateCompanion<UnitUniqueEquipData> {
+  final Value<int> unitId;
+  final Value<int> equipSlot;
+  final Value<int> equipId;
+  final Value<int> rowid;
+  const UnitUniqueEquipCompanion({
+    this.unitId = const Value.absent(),
+    this.equipSlot = const Value.absent(),
+    this.equipId = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  UnitUniqueEquipCompanion.insert({
+    required int unitId,
+    required int equipSlot,
+    required int equipId,
+    this.rowid = const Value.absent(),
+  }) : unitId = Value(unitId),
+       equipSlot = Value(equipSlot),
+       equipId = Value(equipId);
+  static Insertable<UnitUniqueEquipData> custom({
+    Expression<int>? unitId,
+    Expression<int>? equipSlot,
+    Expression<int>? equipId,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (unitId != null) 'unit_id': unitId,
+      if (equipSlot != null) 'equip_slot': equipSlot,
+      if (equipId != null) 'equip_id': equipId,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  UnitUniqueEquipCompanion copyWith({
+    Value<int>? unitId,
+    Value<int>? equipSlot,
+    Value<int>? equipId,
+    Value<int>? rowid,
+  }) {
+    return UnitUniqueEquipCompanion(
+      unitId: unitId ?? this.unitId,
+      equipSlot: equipSlot ?? this.equipSlot,
+      equipId: equipId ?? this.equipId,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (equipSlot.present) {
+      map['equip_slot'] = Variable<int>(equipSlot.value);
+    }
+    if (equipId.present) {
+      map['equip_id'] = Variable<int>(equipId.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitUniqueEquipCompanion(')
+          ..write('unitId: $unitId, ')
+          ..write('equipSlot: $equipSlot, ')
+          ..write('equipId: $equipId, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $UnitUniqueEquipmentTable extends UnitUniqueEquipment
+    with TableInfo<$UnitUniqueEquipmentTable, UnitUniqueEquipmentData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UnitUniqueEquipmentTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _equipSlotMeta = const VerificationMeta(
+    'equipSlot',
+  );
+  @override
+  late final GeneratedColumn<int> equipSlot = GeneratedColumn<int>(
+    'equip_slot',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _equipIdMeta = const VerificationMeta(
+    'equipId',
+  );
+  @override
+  late final GeneratedColumn<int> equipId = GeneratedColumn<int>(
+    'equip_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [unitId, equipSlot, equipId];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'unit_unique_equipment';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UnitUniqueEquipmentData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('equip_slot')) {
+      context.handle(
+        _equipSlotMeta,
+        equipSlot.isAcceptableOrUnknown(data['equip_slot']!, _equipSlotMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_equipSlotMeta);
+    }
+    if (data.containsKey('equip_id')) {
+      context.handle(
+        _equipIdMeta,
+        equipId.isAcceptableOrUnknown(data['equip_id']!, _equipIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_equipIdMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {unitId, equipSlot};
+  @override
+  UnitUniqueEquipmentData map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UnitUniqueEquipmentData(
+      unitId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}unit_id'],
+          )!,
+      equipSlot:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}equip_slot'],
+          )!,
+      equipId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}equip_id'],
+          )!,
+    );
+  }
+
+  @override
+  $UnitUniqueEquipmentTable createAlias(String alias) {
+    return $UnitUniqueEquipmentTable(attachedDatabase, alias);
+  }
+}
+
+class UnitUniqueEquipmentData extends DataClass
+    implements Insertable<UnitUniqueEquipmentData> {
+  final int unitId;
+  final int equipSlot;
+  final int equipId;
+  const UnitUniqueEquipmentData({
+    required this.unitId,
+    required this.equipSlot,
+    required this.equipId,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['unit_id'] = Variable<int>(unitId);
+    map['equip_slot'] = Variable<int>(equipSlot);
+    map['equip_id'] = Variable<int>(equipId);
+    return map;
+  }
+
+  UnitUniqueEquipmentCompanion toCompanion(bool nullToAbsent) {
+    return UnitUniqueEquipmentCompanion(
+      unitId: Value(unitId),
+      equipSlot: Value(equipSlot),
+      equipId: Value(equipId),
+    );
+  }
+
+  factory UnitUniqueEquipmentData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UnitUniqueEquipmentData(
+      unitId: serializer.fromJson<int>(json['unitId']),
+      equipSlot: serializer.fromJson<int>(json['equipSlot']),
+      equipId: serializer.fromJson<int>(json['equipId']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'unitId': serializer.toJson<int>(unitId),
+      'equipSlot': serializer.toJson<int>(equipSlot),
+      'equipId': serializer.toJson<int>(equipId),
+    };
+  }
+
+  UnitUniqueEquipmentData copyWith({
+    int? unitId,
+    int? equipSlot,
+    int? equipId,
+  }) => UnitUniqueEquipmentData(
+    unitId: unitId ?? this.unitId,
+    equipSlot: equipSlot ?? this.equipSlot,
+    equipId: equipId ?? this.equipId,
+  );
+  UnitUniqueEquipmentData copyWithCompanion(UnitUniqueEquipmentCompanion data) {
+    return UnitUniqueEquipmentData(
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      equipSlot: data.equipSlot.present ? data.equipSlot.value : this.equipSlot,
+      equipId: data.equipId.present ? data.equipId.value : this.equipId,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitUniqueEquipmentData(')
+          ..write('unitId: $unitId, ')
+          ..write('equipSlot: $equipSlot, ')
+          ..write('equipId: $equipId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(unitId, equipSlot, equipId);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UnitUniqueEquipmentData &&
+          other.unitId == this.unitId &&
+          other.equipSlot == this.equipSlot &&
+          other.equipId == this.equipId);
+}
+
+class UnitUniqueEquipmentCompanion
+    extends UpdateCompanion<UnitUniqueEquipmentData> {
+  final Value<int> unitId;
+  final Value<int> equipSlot;
+  final Value<int> equipId;
+  final Value<int> rowid;
+  const UnitUniqueEquipmentCompanion({
+    this.unitId = const Value.absent(),
+    this.equipSlot = const Value.absent(),
+    this.equipId = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  UnitUniqueEquipmentCompanion.insert({
+    required int unitId,
+    required int equipSlot,
+    required int equipId,
+    this.rowid = const Value.absent(),
+  }) : unitId = Value(unitId),
+       equipSlot = Value(equipSlot),
+       equipId = Value(equipId);
+  static Insertable<UnitUniqueEquipmentData> custom({
+    Expression<int>? unitId,
+    Expression<int>? equipSlot,
+    Expression<int>? equipId,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (unitId != null) 'unit_id': unitId,
+      if (equipSlot != null) 'equip_slot': equipSlot,
+      if (equipId != null) 'equip_id': equipId,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  UnitUniqueEquipmentCompanion copyWith({
+    Value<int>? unitId,
+    Value<int>? equipSlot,
+    Value<int>? equipId,
+    Value<int>? rowid,
+  }) {
+    return UnitUniqueEquipmentCompanion(
+      unitId: unitId ?? this.unitId,
+      equipSlot: equipSlot ?? this.equipSlot,
+      equipId: equipId ?? this.equipId,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (equipSlot.present) {
+      map['equip_slot'] = Variable<int>(equipSlot.value);
+    }
+    if (equipId.present) {
+      map['equip_id'] = Variable<int>(equipId.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitUniqueEquipmentCompanion(')
+          ..write('unitId: $unitId, ')
+          ..write('equipSlot: $equipSlot, ')
+          ..write('equipId: $equipId, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $UniqueEquipEnhanceRateTable extends UniqueEquipEnhanceRate
+    with TableInfo<$UniqueEquipEnhanceRateTable, UniqueEquipEnhanceRateData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UniqueEquipEnhanceRateTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _equipmentIdMeta = const VerificationMeta(
+    'equipmentId',
+  );
+  @override
+  late final GeneratedColumn<int> equipmentId = GeneratedColumn<int>(
+    'equipment_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _minLvMeta = const VerificationMeta('minLv');
+  @override
+  late final GeneratedColumn<int> minLv = GeneratedColumn<int>(
+    'min_lv',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _maxLvMeta = const VerificationMeta('maxLv');
+  @override
+  late final GeneratedColumn<int> maxLv = GeneratedColumn<int>(
+    'max_lv',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpMeta = const VerificationMeta('hp');
+  @override
+  late final GeneratedColumn<double> hp = GeneratedColumn<double>(
+    'hp',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _atkMeta = const VerificationMeta('atk');
+  @override
+  late final GeneratedColumn<double> atk = GeneratedColumn<double>(
+    'atk',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicStrMeta = const VerificationMeta(
+    'magicStr',
+  );
+  @override
+  late final GeneratedColumn<double> magicStr = GeneratedColumn<double>(
+    'magic_str',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _def_Meta = const VerificationMeta('def_');
+  @override
+  late final GeneratedColumn<double> def_ = GeneratedColumn<double>(
+    'def',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicDefMeta = const VerificationMeta(
+    'magicDef',
+  );
+  @override
+  late final GeneratedColumn<double> magicDef = GeneratedColumn<double>(
+    'magic_def',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalCriticalMeta = const VerificationMeta(
+    'physicalCritical',
+  );
+  @override
+  late final GeneratedColumn<double> physicalCritical = GeneratedColumn<double>(
+    'physical_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicCriticalMeta = const VerificationMeta(
+    'magicCritical',
+  );
+  @override
+  late final GeneratedColumn<double> magicCritical = GeneratedColumn<double>(
+    'magic_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveHpRecoveryMeta = const VerificationMeta(
+    'waveHpRecovery',
+  );
+  @override
+  late final GeneratedColumn<double> waveHpRecovery = GeneratedColumn<double>(
+    'wave_hp_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveEnergyRecoveryMeta =
+      const VerificationMeta('waveEnergyRecovery');
+  @override
+  late final GeneratedColumn<double> waveEnergyRecovery =
+      GeneratedColumn<double>(
+        'wave_energy_recovery',
+        aliasedName,
+        false,
+        type: DriftSqlType.double,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _dodgeMeta = const VerificationMeta('dodge');
+  @override
+  late final GeneratedColumn<double> dodge = GeneratedColumn<double>(
+    'dodge',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalPenetrateMeta = const VerificationMeta(
+    'physicalPenetrate',
+  );
+  @override
+  late final GeneratedColumn<double> physicalPenetrate =
+      GeneratedColumn<double>(
+        'physical_penetrate',
+        aliasedName,
+        false,
+        type: DriftSqlType.double,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _magicPenetrateMeta = const VerificationMeta(
+    'magicPenetrate',
+  );
+  @override
+  late final GeneratedColumn<double> magicPenetrate = GeneratedColumn<double>(
+    'magic_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _lifeStealMeta = const VerificationMeta(
+    'lifeSteal',
+  );
+  @override
+  late final GeneratedColumn<double> lifeSteal = GeneratedColumn<double>(
+    'life_steal',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpRecoveryRateMeta = const VerificationMeta(
+    'hpRecoveryRate',
+  );
+  @override
+  late final GeneratedColumn<double> hpRecoveryRate = GeneratedColumn<double>(
+    'hp_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyRecoveryRateMeta =
+      const VerificationMeta('energyRecoveryRate');
+  @override
+  late final GeneratedColumn<double> energyRecoveryRate =
+      GeneratedColumn<double>(
+        'energy_recovery_rate',
+        aliasedName,
+        false,
+        type: DriftSqlType.double,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _energyReduceRateMeta = const VerificationMeta(
+    'energyReduceRate',
+  );
+  @override
+  late final GeneratedColumn<double> energyReduceRate = GeneratedColumn<double>(
+    'energy_reduce_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _accuracyMeta = const VerificationMeta(
+    'accuracy',
+  );
+  @override
+  late final GeneratedColumn<double> accuracy = GeneratedColumn<double>(
+    'accuracy',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    equipmentId,
+    minLv,
+    maxLv,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    accuracy,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'unique_equip_enhance_rate';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UniqueEquipEnhanceRateData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('equipment_id')) {
+      context.handle(
+        _equipmentIdMeta,
+        equipmentId.isAcceptableOrUnknown(
+          data['equipment_id']!,
+          _equipmentIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_equipmentIdMeta);
+    }
+    if (data.containsKey('min_lv')) {
+      context.handle(
+        _minLvMeta,
+        minLv.isAcceptableOrUnknown(data['min_lv']!, _minLvMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_minLvMeta);
+    }
+    if (data.containsKey('max_lv')) {
+      context.handle(
+        _maxLvMeta,
+        maxLv.isAcceptableOrUnknown(data['max_lv']!, _maxLvMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_maxLvMeta);
+    }
+    if (data.containsKey('hp')) {
+      context.handle(_hpMeta, hp.isAcceptableOrUnknown(data['hp']!, _hpMeta));
+    } else if (isInserting) {
+      context.missing(_hpMeta);
+    }
+    if (data.containsKey('atk')) {
+      context.handle(
+        _atkMeta,
+        atk.isAcceptableOrUnknown(data['atk']!, _atkMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_atkMeta);
+    }
+    if (data.containsKey('magic_str')) {
+      context.handle(
+        _magicStrMeta,
+        magicStr.isAcceptableOrUnknown(data['magic_str']!, _magicStrMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicStrMeta);
+    }
+    if (data.containsKey('def')) {
+      context.handle(
+        _def_Meta,
+        def_.isAcceptableOrUnknown(data['def']!, _def_Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_def_Meta);
+    }
+    if (data.containsKey('magic_def')) {
+      context.handle(
+        _magicDefMeta,
+        magicDef.isAcceptableOrUnknown(data['magic_def']!, _magicDefMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicDefMeta);
+    }
+    if (data.containsKey('physical_critical')) {
+      context.handle(
+        _physicalCriticalMeta,
+        physicalCritical.isAcceptableOrUnknown(
+          data['physical_critical']!,
+          _physicalCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalCriticalMeta);
+    }
+    if (data.containsKey('magic_critical')) {
+      context.handle(
+        _magicCriticalMeta,
+        magicCritical.isAcceptableOrUnknown(
+          data['magic_critical']!,
+          _magicCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicCriticalMeta);
+    }
+    if (data.containsKey('wave_hp_recovery')) {
+      context.handle(
+        _waveHpRecoveryMeta,
+        waveHpRecovery.isAcceptableOrUnknown(
+          data['wave_hp_recovery']!,
+          _waveHpRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveHpRecoveryMeta);
+    }
+    if (data.containsKey('wave_energy_recovery')) {
+      context.handle(
+        _waveEnergyRecoveryMeta,
+        waveEnergyRecovery.isAcceptableOrUnknown(
+          data['wave_energy_recovery']!,
+          _waveEnergyRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveEnergyRecoveryMeta);
+    }
+    if (data.containsKey('dodge')) {
+      context.handle(
+        _dodgeMeta,
+        dodge.isAcceptableOrUnknown(data['dodge']!, _dodgeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dodgeMeta);
+    }
+    if (data.containsKey('physical_penetrate')) {
+      context.handle(
+        _physicalPenetrateMeta,
+        physicalPenetrate.isAcceptableOrUnknown(
+          data['physical_penetrate']!,
+          _physicalPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalPenetrateMeta);
+    }
+    if (data.containsKey('magic_penetrate')) {
+      context.handle(
+        _magicPenetrateMeta,
+        magicPenetrate.isAcceptableOrUnknown(
+          data['magic_penetrate']!,
+          _magicPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicPenetrateMeta);
+    }
+    if (data.containsKey('life_steal')) {
+      context.handle(
+        _lifeStealMeta,
+        lifeSteal.isAcceptableOrUnknown(data['life_steal']!, _lifeStealMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_lifeStealMeta);
+    }
+    if (data.containsKey('hp_recovery_rate')) {
+      context.handle(
+        _hpRecoveryRateMeta,
+        hpRecoveryRate.isAcceptableOrUnknown(
+          data['hp_recovery_rate']!,
+          _hpRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_hpRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_recovery_rate')) {
+      context.handle(
+        _energyRecoveryRateMeta,
+        energyRecoveryRate.isAcceptableOrUnknown(
+          data['energy_recovery_rate']!,
+          _energyRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_reduce_rate')) {
+      context.handle(
+        _energyReduceRateMeta,
+        energyReduceRate.isAcceptableOrUnknown(
+          data['energy_reduce_rate']!,
+          _energyReduceRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyReduceRateMeta);
+    }
+    if (data.containsKey('accuracy')) {
+      context.handle(
+        _accuracyMeta,
+        accuracy.isAcceptableOrUnknown(data['accuracy']!, _accuracyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_accuracyMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  UniqueEquipEnhanceRateData map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UniqueEquipEnhanceRateData(
+      id:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}id'],
+          )!,
+      equipmentId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}equipment_id'],
+          )!,
+      minLv:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}min_lv'],
+          )!,
+      maxLv:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}max_lv'],
+          )!,
+      hp:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}hp'],
+          )!,
+      atk:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}atk'],
+          )!,
+      magicStr:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}magic_str'],
+          )!,
+      def_:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}def'],
+          )!,
+      magicDef:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}magic_def'],
+          )!,
+      physicalCritical:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}physical_critical'],
+          )!,
+      magicCritical:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}magic_critical'],
+          )!,
+      waveHpRecovery:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}wave_hp_recovery'],
+          )!,
+      waveEnergyRecovery:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}wave_energy_recovery'],
+          )!,
+      dodge:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}dodge'],
+          )!,
+      physicalPenetrate:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}physical_penetrate'],
+          )!,
+      magicPenetrate:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}magic_penetrate'],
+          )!,
+      lifeSteal:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}life_steal'],
+          )!,
+      hpRecoveryRate:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}hp_recovery_rate'],
+          )!,
+      energyRecoveryRate:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}energy_recovery_rate'],
+          )!,
+      energyReduceRate:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}energy_reduce_rate'],
+          )!,
+      accuracy:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.double,
+            data['${effectivePrefix}accuracy'],
+          )!,
+    );
+  }
+
+  @override
+  $UniqueEquipEnhanceRateTable createAlias(String alias) {
+    return $UniqueEquipEnhanceRateTable(attachedDatabase, alias);
+  }
+}
+
+class UniqueEquipEnhanceRateData extends DataClass
+    implements Insertable<UniqueEquipEnhanceRateData> {
+  final int id;
+  final int equipmentId;
+  final int minLv;
+  final int maxLv;
+  final double hp;
+  final double atk;
+  final double magicStr;
+  final double def_;
+  final double magicDef;
+  final double physicalCritical;
+  final double magicCritical;
+  final double waveHpRecovery;
+  final double waveEnergyRecovery;
+  final double dodge;
+  final double physicalPenetrate;
+  final double magicPenetrate;
+  final double lifeSteal;
+  final double hpRecoveryRate;
+  final double energyRecoveryRate;
+  final double energyReduceRate;
+  final double accuracy;
+  const UniqueEquipEnhanceRateData({
+    required this.id,
+    required this.equipmentId,
+    required this.minLv,
+    required this.maxLv,
+    required this.hp,
+    required this.atk,
+    required this.magicStr,
+    required this.def_,
+    required this.magicDef,
+    required this.physicalCritical,
+    required this.magicCritical,
+    required this.waveHpRecovery,
+    required this.waveEnergyRecovery,
+    required this.dodge,
+    required this.physicalPenetrate,
+    required this.magicPenetrate,
+    required this.lifeSteal,
+    required this.hpRecoveryRate,
+    required this.energyRecoveryRate,
+    required this.energyReduceRate,
+    required this.accuracy,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['equipment_id'] = Variable<int>(equipmentId);
+    map['min_lv'] = Variable<int>(minLv);
+    map['max_lv'] = Variable<int>(maxLv);
+    map['hp'] = Variable<double>(hp);
+    map['atk'] = Variable<double>(atk);
+    map['magic_str'] = Variable<double>(magicStr);
+    map['def'] = Variable<double>(def_);
+    map['magic_def'] = Variable<double>(magicDef);
+    map['physical_critical'] = Variable<double>(physicalCritical);
+    map['magic_critical'] = Variable<double>(magicCritical);
+    map['wave_hp_recovery'] = Variable<double>(waveHpRecovery);
+    map['wave_energy_recovery'] = Variable<double>(waveEnergyRecovery);
+    map['dodge'] = Variable<double>(dodge);
+    map['physical_penetrate'] = Variable<double>(physicalPenetrate);
+    map['magic_penetrate'] = Variable<double>(magicPenetrate);
+    map['life_steal'] = Variable<double>(lifeSteal);
+    map['hp_recovery_rate'] = Variable<double>(hpRecoveryRate);
+    map['energy_recovery_rate'] = Variable<double>(energyRecoveryRate);
+    map['energy_reduce_rate'] = Variable<double>(energyReduceRate);
+    map['accuracy'] = Variable<double>(accuracy);
+    return map;
+  }
+
+  UniqueEquipEnhanceRateCompanion toCompanion(bool nullToAbsent) {
+    return UniqueEquipEnhanceRateCompanion(
+      id: Value(id),
+      equipmentId: Value(equipmentId),
+      minLv: Value(minLv),
+      maxLv: Value(maxLv),
+      hp: Value(hp),
+      atk: Value(atk),
+      magicStr: Value(magicStr),
+      def_: Value(def_),
+      magicDef: Value(magicDef),
+      physicalCritical: Value(physicalCritical),
+      magicCritical: Value(magicCritical),
+      waveHpRecovery: Value(waveHpRecovery),
+      waveEnergyRecovery: Value(waveEnergyRecovery),
+      dodge: Value(dodge),
+      physicalPenetrate: Value(physicalPenetrate),
+      magicPenetrate: Value(magicPenetrate),
+      lifeSteal: Value(lifeSteal),
+      hpRecoveryRate: Value(hpRecoveryRate),
+      energyRecoveryRate: Value(energyRecoveryRate),
+      energyReduceRate: Value(energyReduceRate),
+      accuracy: Value(accuracy),
+    );
+  }
+
+  factory UniqueEquipEnhanceRateData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UniqueEquipEnhanceRateData(
+      id: serializer.fromJson<int>(json['id']),
+      equipmentId: serializer.fromJson<int>(json['equipmentId']),
+      minLv: serializer.fromJson<int>(json['minLv']),
+      maxLv: serializer.fromJson<int>(json['maxLv']),
+      hp: serializer.fromJson<double>(json['hp']),
+      atk: serializer.fromJson<double>(json['atk']),
+      magicStr: serializer.fromJson<double>(json['magicStr']),
+      def_: serializer.fromJson<double>(json['def_']),
+      magicDef: serializer.fromJson<double>(json['magicDef']),
+      physicalCritical: serializer.fromJson<double>(json['physicalCritical']),
+      magicCritical: serializer.fromJson<double>(json['magicCritical']),
+      waveHpRecovery: serializer.fromJson<double>(json['waveHpRecovery']),
+      waveEnergyRecovery: serializer.fromJson<double>(
+        json['waveEnergyRecovery'],
+      ),
+      dodge: serializer.fromJson<double>(json['dodge']),
+      physicalPenetrate: serializer.fromJson<double>(json['physicalPenetrate']),
+      magicPenetrate: serializer.fromJson<double>(json['magicPenetrate']),
+      lifeSteal: serializer.fromJson<double>(json['lifeSteal']),
+      hpRecoveryRate: serializer.fromJson<double>(json['hpRecoveryRate']),
+      energyRecoveryRate: serializer.fromJson<double>(
+        json['energyRecoveryRate'],
+      ),
+      energyReduceRate: serializer.fromJson<double>(json['energyReduceRate']),
+      accuracy: serializer.fromJson<double>(json['accuracy']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'equipmentId': serializer.toJson<int>(equipmentId),
+      'minLv': serializer.toJson<int>(minLv),
+      'maxLv': serializer.toJson<int>(maxLv),
+      'hp': serializer.toJson<double>(hp),
+      'atk': serializer.toJson<double>(atk),
+      'magicStr': serializer.toJson<double>(magicStr),
+      'def_': serializer.toJson<double>(def_),
+      'magicDef': serializer.toJson<double>(magicDef),
+      'physicalCritical': serializer.toJson<double>(physicalCritical),
+      'magicCritical': serializer.toJson<double>(magicCritical),
+      'waveHpRecovery': serializer.toJson<double>(waveHpRecovery),
+      'waveEnergyRecovery': serializer.toJson<double>(waveEnergyRecovery),
+      'dodge': serializer.toJson<double>(dodge),
+      'physicalPenetrate': serializer.toJson<double>(physicalPenetrate),
+      'magicPenetrate': serializer.toJson<double>(magicPenetrate),
+      'lifeSteal': serializer.toJson<double>(lifeSteal),
+      'hpRecoveryRate': serializer.toJson<double>(hpRecoveryRate),
+      'energyRecoveryRate': serializer.toJson<double>(energyRecoveryRate),
+      'energyReduceRate': serializer.toJson<double>(energyReduceRate),
+      'accuracy': serializer.toJson<double>(accuracy),
+    };
+  }
+
+  UniqueEquipEnhanceRateData copyWith({
+    int? id,
+    int? equipmentId,
+    int? minLv,
+    int? maxLv,
+    double? hp,
+    double? atk,
+    double? magicStr,
+    double? def_,
+    double? magicDef,
+    double? physicalCritical,
+    double? magicCritical,
+    double? waveHpRecovery,
+    double? waveEnergyRecovery,
+    double? dodge,
+    double? physicalPenetrate,
+    double? magicPenetrate,
+    double? lifeSteal,
+    double? hpRecoveryRate,
+    double? energyRecoveryRate,
+    double? energyReduceRate,
+    double? accuracy,
+  }) => UniqueEquipEnhanceRateData(
+    id: id ?? this.id,
+    equipmentId: equipmentId ?? this.equipmentId,
+    minLv: minLv ?? this.minLv,
+    maxLv: maxLv ?? this.maxLv,
+    hp: hp ?? this.hp,
+    atk: atk ?? this.atk,
+    magicStr: magicStr ?? this.magicStr,
+    def_: def_ ?? this.def_,
+    magicDef: magicDef ?? this.magicDef,
+    physicalCritical: physicalCritical ?? this.physicalCritical,
+    magicCritical: magicCritical ?? this.magicCritical,
+    waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+    waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+    dodge: dodge ?? this.dodge,
+    physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+    magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+    lifeSteal: lifeSteal ?? this.lifeSteal,
+    hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+    energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+    energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+    accuracy: accuracy ?? this.accuracy,
+  );
+  UniqueEquipEnhanceRateData copyWithCompanion(
+    UniqueEquipEnhanceRateCompanion data,
+  ) {
+    return UniqueEquipEnhanceRateData(
+      id: data.id.present ? data.id.value : this.id,
+      equipmentId:
+          data.equipmentId.present ? data.equipmentId.value : this.equipmentId,
+      minLv: data.minLv.present ? data.minLv.value : this.minLv,
+      maxLv: data.maxLv.present ? data.maxLv.value : this.maxLv,
+      hp: data.hp.present ? data.hp.value : this.hp,
+      atk: data.atk.present ? data.atk.value : this.atk,
+      magicStr: data.magicStr.present ? data.magicStr.value : this.magicStr,
+      def_: data.def_.present ? data.def_.value : this.def_,
+      magicDef: data.magicDef.present ? data.magicDef.value : this.magicDef,
+      physicalCritical:
+          data.physicalCritical.present
+              ? data.physicalCritical.value
+              : this.physicalCritical,
+      magicCritical:
+          data.magicCritical.present
+              ? data.magicCritical.value
+              : this.magicCritical,
+      waveHpRecovery:
+          data.waveHpRecovery.present
+              ? data.waveHpRecovery.value
+              : this.waveHpRecovery,
+      waveEnergyRecovery:
+          data.waveEnergyRecovery.present
+              ? data.waveEnergyRecovery.value
+              : this.waveEnergyRecovery,
+      dodge: data.dodge.present ? data.dodge.value : this.dodge,
+      physicalPenetrate:
+          data.physicalPenetrate.present
+              ? data.physicalPenetrate.value
+              : this.physicalPenetrate,
+      magicPenetrate:
+          data.magicPenetrate.present
+              ? data.magicPenetrate.value
+              : this.magicPenetrate,
+      lifeSteal: data.lifeSteal.present ? data.lifeSteal.value : this.lifeSteal,
+      hpRecoveryRate:
+          data.hpRecoveryRate.present
+              ? data.hpRecoveryRate.value
+              : this.hpRecoveryRate,
+      energyRecoveryRate:
+          data.energyRecoveryRate.present
+              ? data.energyRecoveryRate.value
+              : this.energyRecoveryRate,
+      energyReduceRate:
+          data.energyReduceRate.present
+              ? data.energyReduceRate.value
+              : this.energyReduceRate,
+      accuracy: data.accuracy.present ? data.accuracy.value : this.accuracy,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UniqueEquipEnhanceRateData(')
+          ..write('id: $id, ')
+          ..write('equipmentId: $equipmentId, ')
+          ..write('minLv: $minLv, ')
+          ..write('maxLv: $maxLv, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('accuracy: $accuracy')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    id,
+    equipmentId,
+    minLv,
+    maxLv,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    accuracy,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UniqueEquipEnhanceRateData &&
+          other.id == this.id &&
+          other.equipmentId == this.equipmentId &&
+          other.minLv == this.minLv &&
+          other.maxLv == this.maxLv &&
+          other.hp == this.hp &&
+          other.atk == this.atk &&
+          other.magicStr == this.magicStr &&
+          other.def_ == this.def_ &&
+          other.magicDef == this.magicDef &&
+          other.physicalCritical == this.physicalCritical &&
+          other.magicCritical == this.magicCritical &&
+          other.waveHpRecovery == this.waveHpRecovery &&
+          other.waveEnergyRecovery == this.waveEnergyRecovery &&
+          other.dodge == this.dodge &&
+          other.physicalPenetrate == this.physicalPenetrate &&
+          other.magicPenetrate == this.magicPenetrate &&
+          other.lifeSteal == this.lifeSteal &&
+          other.hpRecoveryRate == this.hpRecoveryRate &&
+          other.energyRecoveryRate == this.energyRecoveryRate &&
+          other.energyReduceRate == this.energyReduceRate &&
+          other.accuracy == this.accuracy);
+}
+
+class UniqueEquipEnhanceRateCompanion
+    extends UpdateCompanion<UniqueEquipEnhanceRateData> {
+  final Value<int> id;
+  final Value<int> equipmentId;
+  final Value<int> minLv;
+  final Value<int> maxLv;
+  final Value<double> hp;
+  final Value<double> atk;
+  final Value<double> magicStr;
+  final Value<double> def_;
+  final Value<double> magicDef;
+  final Value<double> physicalCritical;
+  final Value<double> magicCritical;
+  final Value<double> waveHpRecovery;
+  final Value<double> waveEnergyRecovery;
+  final Value<double> dodge;
+  final Value<double> physicalPenetrate;
+  final Value<double> magicPenetrate;
+  final Value<double> lifeSteal;
+  final Value<double> hpRecoveryRate;
+  final Value<double> energyRecoveryRate;
+  final Value<double> energyReduceRate;
+  final Value<double> accuracy;
+  const UniqueEquipEnhanceRateCompanion({
+    this.id = const Value.absent(),
+    this.equipmentId = const Value.absent(),
+    this.minLv = const Value.absent(),
+    this.maxLv = const Value.absent(),
+    this.hp = const Value.absent(),
+    this.atk = const Value.absent(),
+    this.magicStr = const Value.absent(),
+    this.def_ = const Value.absent(),
+    this.magicDef = const Value.absent(),
+    this.physicalCritical = const Value.absent(),
+    this.magicCritical = const Value.absent(),
+    this.waveHpRecovery = const Value.absent(),
+    this.waveEnergyRecovery = const Value.absent(),
+    this.dodge = const Value.absent(),
+    this.physicalPenetrate = const Value.absent(),
+    this.magicPenetrate = const Value.absent(),
+    this.lifeSteal = const Value.absent(),
+    this.hpRecoveryRate = const Value.absent(),
+    this.energyRecoveryRate = const Value.absent(),
+    this.energyReduceRate = const Value.absent(),
+    this.accuracy = const Value.absent(),
+  });
+  UniqueEquipEnhanceRateCompanion.insert({
+    this.id = const Value.absent(),
+    required int equipmentId,
+    required int minLv,
+    required int maxLv,
+    required double hp,
+    required double atk,
+    required double magicStr,
+    required double def_,
+    required double magicDef,
+    required double physicalCritical,
+    required double magicCritical,
+    required double waveHpRecovery,
+    required double waveEnergyRecovery,
+    required double dodge,
+    required double physicalPenetrate,
+    required double magicPenetrate,
+    required double lifeSteal,
+    required double hpRecoveryRate,
+    required double energyRecoveryRate,
+    required double energyReduceRate,
+    required double accuracy,
+  }) : equipmentId = Value(equipmentId),
+       minLv = Value(minLv),
+       maxLv = Value(maxLv),
+       hp = Value(hp),
+       atk = Value(atk),
+       magicStr = Value(magicStr),
+       def_ = Value(def_),
+       magicDef = Value(magicDef),
+       physicalCritical = Value(physicalCritical),
+       magicCritical = Value(magicCritical),
+       waveHpRecovery = Value(waveHpRecovery),
+       waveEnergyRecovery = Value(waveEnergyRecovery),
+       dodge = Value(dodge),
+       physicalPenetrate = Value(physicalPenetrate),
+       magicPenetrate = Value(magicPenetrate),
+       lifeSteal = Value(lifeSteal),
+       hpRecoveryRate = Value(hpRecoveryRate),
+       energyRecoveryRate = Value(energyRecoveryRate),
+       energyReduceRate = Value(energyReduceRate),
+       accuracy = Value(accuracy);
+  static Insertable<UniqueEquipEnhanceRateData> custom({
+    Expression<int>? id,
+    Expression<int>? equipmentId,
+    Expression<int>? minLv,
+    Expression<int>? maxLv,
+    Expression<double>? hp,
+    Expression<double>? atk,
+    Expression<double>? magicStr,
+    Expression<double>? def_,
+    Expression<double>? magicDef,
+    Expression<double>? physicalCritical,
+    Expression<double>? magicCritical,
+    Expression<double>? waveHpRecovery,
+    Expression<double>? waveEnergyRecovery,
+    Expression<double>? dodge,
+    Expression<double>? physicalPenetrate,
+    Expression<double>? magicPenetrate,
+    Expression<double>? lifeSteal,
+    Expression<double>? hpRecoveryRate,
+    Expression<double>? energyRecoveryRate,
+    Expression<double>? energyReduceRate,
+    Expression<double>? accuracy,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (equipmentId != null) 'equipment_id': equipmentId,
+      if (minLv != null) 'min_lv': minLv,
+      if (maxLv != null) 'max_lv': maxLv,
+      if (hp != null) 'hp': hp,
+      if (atk != null) 'atk': atk,
+      if (magicStr != null) 'magic_str': magicStr,
+      if (def_ != null) 'def': def_,
+      if (magicDef != null) 'magic_def': magicDef,
+      if (physicalCritical != null) 'physical_critical': physicalCritical,
+      if (magicCritical != null) 'magic_critical': magicCritical,
+      if (waveHpRecovery != null) 'wave_hp_recovery': waveHpRecovery,
+      if (waveEnergyRecovery != null)
+        'wave_energy_recovery': waveEnergyRecovery,
+      if (dodge != null) 'dodge': dodge,
+      if (physicalPenetrate != null) 'physical_penetrate': physicalPenetrate,
+      if (magicPenetrate != null) 'magic_penetrate': magicPenetrate,
+      if (lifeSteal != null) 'life_steal': lifeSteal,
+      if (hpRecoveryRate != null) 'hp_recovery_rate': hpRecoveryRate,
+      if (energyRecoveryRate != null)
+        'energy_recovery_rate': energyRecoveryRate,
+      if (energyReduceRate != null) 'energy_reduce_rate': energyReduceRate,
+      if (accuracy != null) 'accuracy': accuracy,
+    });
+  }
+
+  UniqueEquipEnhanceRateCompanion copyWith({
+    Value<int>? id,
+    Value<int>? equipmentId,
+    Value<int>? minLv,
+    Value<int>? maxLv,
+    Value<double>? hp,
+    Value<double>? atk,
+    Value<double>? magicStr,
+    Value<double>? def_,
+    Value<double>? magicDef,
+    Value<double>? physicalCritical,
+    Value<double>? magicCritical,
+    Value<double>? waveHpRecovery,
+    Value<double>? waveEnergyRecovery,
+    Value<double>? dodge,
+    Value<double>? physicalPenetrate,
+    Value<double>? magicPenetrate,
+    Value<double>? lifeSteal,
+    Value<double>? hpRecoveryRate,
+    Value<double>? energyRecoveryRate,
+    Value<double>? energyReduceRate,
+    Value<double>? accuracy,
+  }) {
+    return UniqueEquipEnhanceRateCompanion(
+      id: id ?? this.id,
+      equipmentId: equipmentId ?? this.equipmentId,
+      minLv: minLv ?? this.minLv,
+      maxLv: maxLv ?? this.maxLv,
+      hp: hp ?? this.hp,
+      atk: atk ?? this.atk,
+      magicStr: magicStr ?? this.magicStr,
+      def_: def_ ?? this.def_,
+      magicDef: magicDef ?? this.magicDef,
+      physicalCritical: physicalCritical ?? this.physicalCritical,
+      magicCritical: magicCritical ?? this.magicCritical,
+      waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+      waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+      dodge: dodge ?? this.dodge,
+      physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+      magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+      lifeSteal: lifeSteal ?? this.lifeSteal,
+      hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+      energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+      energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+      accuracy: accuracy ?? this.accuracy,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (equipmentId.present) {
+      map['equipment_id'] = Variable<int>(equipmentId.value);
+    }
+    if (minLv.present) {
+      map['min_lv'] = Variable<int>(minLv.value);
+    }
+    if (maxLv.present) {
+      map['max_lv'] = Variable<int>(maxLv.value);
+    }
+    if (hp.present) {
+      map['hp'] = Variable<double>(hp.value);
+    }
+    if (atk.present) {
+      map['atk'] = Variable<double>(atk.value);
+    }
+    if (magicStr.present) {
+      map['magic_str'] = Variable<double>(magicStr.value);
+    }
+    if (def_.present) {
+      map['def'] = Variable<double>(def_.value);
+    }
+    if (magicDef.present) {
+      map['magic_def'] = Variable<double>(magicDef.value);
+    }
+    if (physicalCritical.present) {
+      map['physical_critical'] = Variable<double>(physicalCritical.value);
+    }
+    if (magicCritical.present) {
+      map['magic_critical'] = Variable<double>(magicCritical.value);
+    }
+    if (waveHpRecovery.present) {
+      map['wave_hp_recovery'] = Variable<double>(waveHpRecovery.value);
+    }
+    if (waveEnergyRecovery.present) {
+      map['wave_energy_recovery'] = Variable<double>(waveEnergyRecovery.value);
+    }
+    if (dodge.present) {
+      map['dodge'] = Variable<double>(dodge.value);
+    }
+    if (physicalPenetrate.present) {
+      map['physical_penetrate'] = Variable<double>(physicalPenetrate.value);
+    }
+    if (magicPenetrate.present) {
+      map['magic_penetrate'] = Variable<double>(magicPenetrate.value);
+    }
+    if (lifeSteal.present) {
+      map['life_steal'] = Variable<double>(lifeSteal.value);
+    }
+    if (hpRecoveryRate.present) {
+      map['hp_recovery_rate'] = Variable<double>(hpRecoveryRate.value);
+    }
+    if (energyRecoveryRate.present) {
+      map['energy_recovery_rate'] = Variable<double>(energyRecoveryRate.value);
+    }
+    if (energyReduceRate.present) {
+      map['energy_reduce_rate'] = Variable<double>(energyReduceRate.value);
+    }
+    if (accuracy.present) {
+      map['accuracy'] = Variable<double>(accuracy.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UniqueEquipEnhanceRateCompanion(')
+          ..write('id: $id, ')
+          ..write('equipmentId: $equipmentId, ')
+          ..write('minLv: $minLv, ')
+          ..write('maxLv: $maxLv, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('accuracy: $accuracy')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $UniqueEquipmentDataTable extends UniqueEquipmentData
+    with TableInfo<$UniqueEquipmentDataTable, UniqueEquipmentDataData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UniqueEquipmentDataTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _equipmentIdMeta = const VerificationMeta(
+    'equipmentId',
+  );
+  @override
+  late final GeneratedColumn<int> equipmentId = GeneratedColumn<int>(
+    'equipment_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _equipmentNameMeta = const VerificationMeta(
+    'equipmentName',
+  );
+  @override
+  late final GeneratedColumn<String> equipmentName = GeneratedColumn<String>(
+    'equipment_name',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _descriptionMeta = const VerificationMeta(
+    'description',
+  );
+  @override
+  late final GeneratedColumn<String> description = GeneratedColumn<String>(
+    'description',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _promotionLevelMeta = const VerificationMeta(
+    'promotionLevel',
+  );
+  @override
+  late final GeneratedColumn<int> promotionLevel = GeneratedColumn<int>(
+    'promotion_level',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _craftFlgMeta = const VerificationMeta(
+    'craftFlg',
+  );
+  @override
+  late final GeneratedColumn<int> craftFlg = GeneratedColumn<int>(
+    'craft_flg',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _equipmentEnhancePointMeta =
+      const VerificationMeta('equipmentEnhancePoint');
+  @override
+  late final GeneratedColumn<int> equipmentEnhancePoint = GeneratedColumn<int>(
+    'equipment_enhance_point',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _salePriceMeta = const VerificationMeta(
+    'salePrice',
+  );
+  @override
+  late final GeneratedColumn<int> salePrice = GeneratedColumn<int>(
+    'sale_price',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _requireLevelMeta = const VerificationMeta(
+    'requireLevel',
+  );
+  @override
+  late final GeneratedColumn<int> requireLevel = GeneratedColumn<int>(
+    'require_level',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _hpMeta = const VerificationMeta('hp');
+  @override
+  late final GeneratedColumn<double> hp = GeneratedColumn<double>(
+    'hp',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _atkMeta = const VerificationMeta('atk');
+  @override
+  late final GeneratedColumn<double> atk = GeneratedColumn<double>(
+    'atk',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _magicStrMeta = const VerificationMeta(
+    'magicStr',
+  );
+  @override
+  late final GeneratedColumn<double> magicStr = GeneratedColumn<double>(
+    'magic_str',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _def_Meta = const VerificationMeta('def_');
+  @override
+  late final GeneratedColumn<double> def_ = GeneratedColumn<double>(
+    'def',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _magicDefMeta = const VerificationMeta(
+    'magicDef',
+  );
+  @override
+  late final GeneratedColumn<double> magicDef = GeneratedColumn<double>(
+    'magic_def',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _physicalCriticalMeta = const VerificationMeta(
+    'physicalCritical',
+  );
+  @override
+  late final GeneratedColumn<double> physicalCritical = GeneratedColumn<double>(
+    'physical_critical',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _magicCriticalMeta = const VerificationMeta(
+    'magicCritical',
+  );
+  @override
+  late final GeneratedColumn<double> magicCritical = GeneratedColumn<double>(
+    'magic_critical',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _waveHpRecoveryMeta = const VerificationMeta(
+    'waveHpRecovery',
+  );
+  @override
+  late final GeneratedColumn<double> waveHpRecovery = GeneratedColumn<double>(
+    'wave_hp_recovery',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _waveEnergyRecoveryMeta =
+      const VerificationMeta('waveEnergyRecovery');
+  @override
+  late final GeneratedColumn<double> waveEnergyRecovery =
+      GeneratedColumn<double>(
+        'wave_energy_recovery',
+        aliasedName,
+        true,
+        type: DriftSqlType.double,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _dodgeMeta = const VerificationMeta('dodge');
+  @override
+  late final GeneratedColumn<double> dodge = GeneratedColumn<double>(
+    'dodge',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _physicalPenetrateMeta = const VerificationMeta(
+    'physicalPenetrate',
+  );
+  @override
+  late final GeneratedColumn<double> physicalPenetrate =
+      GeneratedColumn<double>(
+        'physical_penetrate',
+        aliasedName,
+        true,
+        type: DriftSqlType.double,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _magicPenetrateMeta = const VerificationMeta(
+    'magicPenetrate',
+  );
+  @override
+  late final GeneratedColumn<double> magicPenetrate = GeneratedColumn<double>(
+    'magic_penetrate',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _lifeStealMeta = const VerificationMeta(
+    'lifeSteal',
+  );
+  @override
+  late final GeneratedColumn<double> lifeSteal = GeneratedColumn<double>(
+    'life_steal',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _hpRecoveryRateMeta = const VerificationMeta(
+    'hpRecoveryRate',
+  );
+  @override
+  late final GeneratedColumn<double> hpRecoveryRate = GeneratedColumn<double>(
+    'hp_recovery_rate',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _energyRecoveryRateMeta =
+      const VerificationMeta('energyRecoveryRate');
+  @override
+  late final GeneratedColumn<double> energyRecoveryRate =
+      GeneratedColumn<double>(
+        'energy_recovery_rate',
+        aliasedName,
+        true,
+        type: DriftSqlType.double,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _energyReduceRateMeta = const VerificationMeta(
+    'energyReduceRate',
+  );
+  @override
+  late final GeneratedColumn<double> energyReduceRate = GeneratedColumn<double>(
+    'energy_reduce_rate',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _enableDonationMeta = const VerificationMeta(
+    'enableDonation',
+  );
+  @override
+  late final GeneratedColumn<int> enableDonation = GeneratedColumn<int>(
+    'enable_donation',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _accuracyMeta = const VerificationMeta(
+    'accuracy',
+  );
+  @override
+  late final GeneratedColumn<double> accuracy = GeneratedColumn<double>(
+    'accuracy',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    equipmentId,
+    equipmentName,
+    description,
+    promotionLevel,
+    craftFlg,
+    equipmentEnhancePoint,
+    salePrice,
+    requireLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    enableDonation,
+    accuracy,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'unique_equipment_data';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UniqueEquipmentDataData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('equipment_id')) {
+      context.handle(
+        _equipmentIdMeta,
+        equipmentId.isAcceptableOrUnknown(
+          data['equipment_id']!,
+          _equipmentIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('equipment_name')) {
+      context.handle(
+        _equipmentNameMeta,
+        equipmentName.isAcceptableOrUnknown(
+          data['equipment_name']!,
+          _equipmentNameMeta,
+        ),
+      );
+    }
+    if (data.containsKey('description')) {
+      context.handle(
+        _descriptionMeta,
+        description.isAcceptableOrUnknown(
+          data['description']!,
+          _descriptionMeta,
+        ),
+      );
+    }
+    if (data.containsKey('promotion_level')) {
+      context.handle(
+        _promotionLevelMeta,
+        promotionLevel.isAcceptableOrUnknown(
+          data['promotion_level']!,
+          _promotionLevelMeta,
+        ),
+      );
+    }
+    if (data.containsKey('craft_flg')) {
+      context.handle(
+        _craftFlgMeta,
+        craftFlg.isAcceptableOrUnknown(data['craft_flg']!, _craftFlgMeta),
+      );
+    }
+    if (data.containsKey('equipment_enhance_point')) {
+      context.handle(
+        _equipmentEnhancePointMeta,
+        equipmentEnhancePoint.isAcceptableOrUnknown(
+          data['equipment_enhance_point']!,
+          _equipmentEnhancePointMeta,
+        ),
+      );
+    }
+    if (data.containsKey('sale_price')) {
+      context.handle(
+        _salePriceMeta,
+        salePrice.isAcceptableOrUnknown(data['sale_price']!, _salePriceMeta),
+      );
+    }
+    if (data.containsKey('require_level')) {
+      context.handle(
+        _requireLevelMeta,
+        requireLevel.isAcceptableOrUnknown(
+          data['require_level']!,
+          _requireLevelMeta,
+        ),
+      );
+    }
+    if (data.containsKey('hp')) {
+      context.handle(_hpMeta, hp.isAcceptableOrUnknown(data['hp']!, _hpMeta));
+    }
+    if (data.containsKey('atk')) {
+      context.handle(
+        _atkMeta,
+        atk.isAcceptableOrUnknown(data['atk']!, _atkMeta),
+      );
+    }
+    if (data.containsKey('magic_str')) {
+      context.handle(
+        _magicStrMeta,
+        magicStr.isAcceptableOrUnknown(data['magic_str']!, _magicStrMeta),
+      );
+    }
+    if (data.containsKey('def')) {
+      context.handle(
+        _def_Meta,
+        def_.isAcceptableOrUnknown(data['def']!, _def_Meta),
+      );
+    }
+    if (data.containsKey('magic_def')) {
+      context.handle(
+        _magicDefMeta,
+        magicDef.isAcceptableOrUnknown(data['magic_def']!, _magicDefMeta),
+      );
+    }
+    if (data.containsKey('physical_critical')) {
+      context.handle(
+        _physicalCriticalMeta,
+        physicalCritical.isAcceptableOrUnknown(
+          data['physical_critical']!,
+          _physicalCriticalMeta,
+        ),
+      );
+    }
+    if (data.containsKey('magic_critical')) {
+      context.handle(
+        _magicCriticalMeta,
+        magicCritical.isAcceptableOrUnknown(
+          data['magic_critical']!,
+          _magicCriticalMeta,
+        ),
+      );
+    }
+    if (data.containsKey('wave_hp_recovery')) {
+      context.handle(
+        _waveHpRecoveryMeta,
+        waveHpRecovery.isAcceptableOrUnknown(
+          data['wave_hp_recovery']!,
+          _waveHpRecoveryMeta,
+        ),
+      );
+    }
+    if (data.containsKey('wave_energy_recovery')) {
+      context.handle(
+        _waveEnergyRecoveryMeta,
+        waveEnergyRecovery.isAcceptableOrUnknown(
+          data['wave_energy_recovery']!,
+          _waveEnergyRecoveryMeta,
+        ),
+      );
+    }
+    if (data.containsKey('dodge')) {
+      context.handle(
+        _dodgeMeta,
+        dodge.isAcceptableOrUnknown(data['dodge']!, _dodgeMeta),
+      );
+    }
+    if (data.containsKey('physical_penetrate')) {
+      context.handle(
+        _physicalPenetrateMeta,
+        physicalPenetrate.isAcceptableOrUnknown(
+          data['physical_penetrate']!,
+          _physicalPenetrateMeta,
+        ),
+      );
+    }
+    if (data.containsKey('magic_penetrate')) {
+      context.handle(
+        _magicPenetrateMeta,
+        magicPenetrate.isAcceptableOrUnknown(
+          data['magic_penetrate']!,
+          _magicPenetrateMeta,
+        ),
+      );
+    }
+    if (data.containsKey('life_steal')) {
+      context.handle(
+        _lifeStealMeta,
+        lifeSteal.isAcceptableOrUnknown(data['life_steal']!, _lifeStealMeta),
+      );
+    }
+    if (data.containsKey('hp_recovery_rate')) {
+      context.handle(
+        _hpRecoveryRateMeta,
+        hpRecoveryRate.isAcceptableOrUnknown(
+          data['hp_recovery_rate']!,
+          _hpRecoveryRateMeta,
+        ),
+      );
+    }
+    if (data.containsKey('energy_recovery_rate')) {
+      context.handle(
+        _energyRecoveryRateMeta,
+        energyRecoveryRate.isAcceptableOrUnknown(
+          data['energy_recovery_rate']!,
+          _energyRecoveryRateMeta,
+        ),
+      );
+    }
+    if (data.containsKey('energy_reduce_rate')) {
+      context.handle(
+        _energyReduceRateMeta,
+        energyReduceRate.isAcceptableOrUnknown(
+          data['energy_reduce_rate']!,
+          _energyReduceRateMeta,
+        ),
+      );
+    }
+    if (data.containsKey('enable_donation')) {
+      context.handle(
+        _enableDonationMeta,
+        enableDonation.isAcceptableOrUnknown(
+          data['enable_donation']!,
+          _enableDonationMeta,
+        ),
+      );
+    }
+    if (data.containsKey('accuracy')) {
+      context.handle(
+        _accuracyMeta,
+        accuracy.isAcceptableOrUnknown(data['accuracy']!, _accuracyMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {equipmentId};
+  @override
+  UniqueEquipmentDataData map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UniqueEquipmentDataData(
+      equipmentId:
+          attachedDatabase.typeMapping.read(
+            DriftSqlType.int,
+            data['${effectivePrefix}equipment_id'],
+          )!,
+      equipmentName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}equipment_name'],
+      ),
+      description: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}description'],
+      ),
+      promotionLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}promotion_level'],
+      ),
+      craftFlg: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}craft_flg'],
+      ),
+      equipmentEnhancePoint: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}equipment_enhance_point'],
+      ),
+      salePrice: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}sale_price'],
+      ),
+      requireLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}require_level'],
+      ),
+      hp: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}hp'],
+      ),
+      atk: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}atk'],
+      ),
+      magicStr: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}magic_str'],
+      ),
+      def_: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}def'],
+      ),
+      magicDef: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}magic_def'],
+      ),
+      physicalCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}physical_critical'],
+      ),
+      magicCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}magic_critical'],
+      ),
+      waveHpRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}wave_hp_recovery'],
+      ),
+      waveEnergyRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}wave_energy_recovery'],
+      ),
+      dodge: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}dodge'],
+      ),
+      physicalPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}physical_penetrate'],
+      ),
+      magicPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}magic_penetrate'],
+      ),
+      lifeSteal: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}life_steal'],
+      ),
+      hpRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}hp_recovery_rate'],
+      ),
+      energyRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}energy_recovery_rate'],
+      ),
+      energyReduceRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}energy_reduce_rate'],
+      ),
+      enableDonation: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enable_donation'],
+      ),
+      accuracy: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}accuracy'],
+      ),
+    );
+  }
+
+  @override
+  $UniqueEquipmentDataTable createAlias(String alias) {
+    return $UniqueEquipmentDataTable(attachedDatabase, alias);
+  }
+}
+
+class UniqueEquipmentDataData extends DataClass
+    implements Insertable<UniqueEquipmentDataData> {
+  final int equipmentId;
+  final String? equipmentName;
+  final String? description;
+  final int? promotionLevel;
+  final int? craftFlg;
+  final int? equipmentEnhancePoint;
+  final int? salePrice;
+  final int? requireLevel;
+  final double? hp;
+  final double? atk;
+  final double? magicStr;
+  final double? def_;
+  final double? magicDef;
+  final double? physicalCritical;
+  final double? magicCritical;
+  final double? waveHpRecovery;
+  final double? waveEnergyRecovery;
+  final double? dodge;
+  final double? physicalPenetrate;
+  final double? magicPenetrate;
+  final double? lifeSteal;
+  final double? hpRecoveryRate;
+  final double? energyRecoveryRate;
+  final double? energyReduceRate;
+  final int? enableDonation;
+  final double? accuracy;
+  const UniqueEquipmentDataData({
+    required this.equipmentId,
+    this.equipmentName,
+    this.description,
+    this.promotionLevel,
+    this.craftFlg,
+    this.equipmentEnhancePoint,
+    this.salePrice,
+    this.requireLevel,
+    this.hp,
+    this.atk,
+    this.magicStr,
+    this.def_,
+    this.magicDef,
+    this.physicalCritical,
+    this.magicCritical,
+    this.waveHpRecovery,
+    this.waveEnergyRecovery,
+    this.dodge,
+    this.physicalPenetrate,
+    this.magicPenetrate,
+    this.lifeSteal,
+    this.hpRecoveryRate,
+    this.energyRecoveryRate,
+    this.energyReduceRate,
+    this.enableDonation,
+    this.accuracy,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['equipment_id'] = Variable<int>(equipmentId);
+    if (!nullToAbsent || equipmentName != null) {
+      map['equipment_name'] = Variable<String>(equipmentName);
+    }
+    if (!nullToAbsent || description != null) {
+      map['description'] = Variable<String>(description);
+    }
+    if (!nullToAbsent || promotionLevel != null) {
+      map['promotion_level'] = Variable<int>(promotionLevel);
+    }
+    if (!nullToAbsent || craftFlg != null) {
+      map['craft_flg'] = Variable<int>(craftFlg);
+    }
+    if (!nullToAbsent || equipmentEnhancePoint != null) {
+      map['equipment_enhance_point'] = Variable<int>(equipmentEnhancePoint);
+    }
+    if (!nullToAbsent || salePrice != null) {
+      map['sale_price'] = Variable<int>(salePrice);
+    }
+    if (!nullToAbsent || requireLevel != null) {
+      map['require_level'] = Variable<int>(requireLevel);
+    }
+    if (!nullToAbsent || hp != null) {
+      map['hp'] = Variable<double>(hp);
+    }
+    if (!nullToAbsent || atk != null) {
+      map['atk'] = Variable<double>(atk);
+    }
+    if (!nullToAbsent || magicStr != null) {
+      map['magic_str'] = Variable<double>(magicStr);
+    }
+    if (!nullToAbsent || def_ != null) {
+      map['def'] = Variable<double>(def_);
+    }
+    if (!nullToAbsent || magicDef != null) {
+      map['magic_def'] = Variable<double>(magicDef);
+    }
+    if (!nullToAbsent || physicalCritical != null) {
+      map['physical_critical'] = Variable<double>(physicalCritical);
+    }
+    if (!nullToAbsent || magicCritical != null) {
+      map['magic_critical'] = Variable<double>(magicCritical);
+    }
+    if (!nullToAbsent || waveHpRecovery != null) {
+      map['wave_hp_recovery'] = Variable<double>(waveHpRecovery);
+    }
+    if (!nullToAbsent || waveEnergyRecovery != null) {
+      map['wave_energy_recovery'] = Variable<double>(waveEnergyRecovery);
+    }
+    if (!nullToAbsent || dodge != null) {
+      map['dodge'] = Variable<double>(dodge);
+    }
+    if (!nullToAbsent || physicalPenetrate != null) {
+      map['physical_penetrate'] = Variable<double>(physicalPenetrate);
+    }
+    if (!nullToAbsent || magicPenetrate != null) {
+      map['magic_penetrate'] = Variable<double>(magicPenetrate);
+    }
+    if (!nullToAbsent || lifeSteal != null) {
+      map['life_steal'] = Variable<double>(lifeSteal);
+    }
+    if (!nullToAbsent || hpRecoveryRate != null) {
+      map['hp_recovery_rate'] = Variable<double>(hpRecoveryRate);
+    }
+    if (!nullToAbsent || energyRecoveryRate != null) {
+      map['energy_recovery_rate'] = Variable<double>(energyRecoveryRate);
+    }
+    if (!nullToAbsent || energyReduceRate != null) {
+      map['energy_reduce_rate'] = Variable<double>(energyReduceRate);
+    }
+    if (!nullToAbsent || enableDonation != null) {
+      map['enable_donation'] = Variable<int>(enableDonation);
+    }
+    if (!nullToAbsent || accuracy != null) {
+      map['accuracy'] = Variable<double>(accuracy);
+    }
+    return map;
+  }
+
+  UniqueEquipmentDataCompanion toCompanion(bool nullToAbsent) {
+    return UniqueEquipmentDataCompanion(
+      equipmentId: Value(equipmentId),
+      equipmentName:
+          equipmentName == null && nullToAbsent
+              ? const Value.absent()
+              : Value(equipmentName),
+      description:
+          description == null && nullToAbsent
+              ? const Value.absent()
+              : Value(description),
+      promotionLevel:
+          promotionLevel == null && nullToAbsent
+              ? const Value.absent()
+              : Value(promotionLevel),
+      craftFlg:
+          craftFlg == null && nullToAbsent
+              ? const Value.absent()
+              : Value(craftFlg),
+      equipmentEnhancePoint:
+          equipmentEnhancePoint == null && nullToAbsent
+              ? const Value.absent()
+              : Value(equipmentEnhancePoint),
+      salePrice:
+          salePrice == null && nullToAbsent
+              ? const Value.absent()
+              : Value(salePrice),
+      requireLevel:
+          requireLevel == null && nullToAbsent
+              ? const Value.absent()
+              : Value(requireLevel),
+      hp: hp == null && nullToAbsent ? const Value.absent() : Value(hp),
+      atk: atk == null && nullToAbsent ? const Value.absent() : Value(atk),
+      magicStr:
+          magicStr == null && nullToAbsent
+              ? const Value.absent()
+              : Value(magicStr),
+      def_: def_ == null && nullToAbsent ? const Value.absent() : Value(def_),
+      magicDef:
+          magicDef == null && nullToAbsent
+              ? const Value.absent()
+              : Value(magicDef),
+      physicalCritical:
+          physicalCritical == null && nullToAbsent
+              ? const Value.absent()
+              : Value(physicalCritical),
+      magicCritical:
+          magicCritical == null && nullToAbsent
+              ? const Value.absent()
+              : Value(magicCritical),
+      waveHpRecovery:
+          waveHpRecovery == null && nullToAbsent
+              ? const Value.absent()
+              : Value(waveHpRecovery),
+      waveEnergyRecovery:
+          waveEnergyRecovery == null && nullToAbsent
+              ? const Value.absent()
+              : Value(waveEnergyRecovery),
+      dodge:
+          dodge == null && nullToAbsent ? const Value.absent() : Value(dodge),
+      physicalPenetrate:
+          physicalPenetrate == null && nullToAbsent
+              ? const Value.absent()
+              : Value(physicalPenetrate),
+      magicPenetrate:
+          magicPenetrate == null && nullToAbsent
+              ? const Value.absent()
+              : Value(magicPenetrate),
+      lifeSteal:
+          lifeSteal == null && nullToAbsent
+              ? const Value.absent()
+              : Value(lifeSteal),
+      hpRecoveryRate:
+          hpRecoveryRate == null && nullToAbsent
+              ? const Value.absent()
+              : Value(hpRecoveryRate),
+      energyRecoveryRate:
+          energyRecoveryRate == null && nullToAbsent
+              ? const Value.absent()
+              : Value(energyRecoveryRate),
+      energyReduceRate:
+          energyReduceRate == null && nullToAbsent
+              ? const Value.absent()
+              : Value(energyReduceRate),
+      enableDonation:
+          enableDonation == null && nullToAbsent
+              ? const Value.absent()
+              : Value(enableDonation),
+      accuracy:
+          accuracy == null && nullToAbsent
+              ? const Value.absent()
+              : Value(accuracy),
+    );
+  }
+
+  factory UniqueEquipmentDataData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UniqueEquipmentDataData(
+      equipmentId: serializer.fromJson<int>(json['equipmentId']),
+      equipmentName: serializer.fromJson<String?>(json['equipmentName']),
+      description: serializer.fromJson<String?>(json['description']),
+      promotionLevel: serializer.fromJson<int?>(json['promotionLevel']),
+      craftFlg: serializer.fromJson<int?>(json['craftFlg']),
+      equipmentEnhancePoint: serializer.fromJson<int?>(
+        json['equipmentEnhancePoint'],
+      ),
+      salePrice: serializer.fromJson<int?>(json['salePrice']),
+      requireLevel: serializer.fromJson<int?>(json['requireLevel']),
+      hp: serializer.fromJson<double?>(json['hp']),
+      atk: serializer.fromJson<double?>(json['atk']),
+      magicStr: serializer.fromJson<double?>(json['magicStr']),
+      def_: serializer.fromJson<double?>(json['def_']),
+      magicDef: serializer.fromJson<double?>(json['magicDef']),
+      physicalCritical: serializer.fromJson<double?>(json['physicalCritical']),
+      magicCritical: serializer.fromJson<double?>(json['magicCritical']),
+      waveHpRecovery: serializer.fromJson<double?>(json['waveHpRecovery']),
+      waveEnergyRecovery: serializer.fromJson<double?>(
+        json['waveEnergyRecovery'],
+      ),
+      dodge: serializer.fromJson<double?>(json['dodge']),
+      physicalPenetrate: serializer.fromJson<double?>(
+        json['physicalPenetrate'],
+      ),
+      magicPenetrate: serializer.fromJson<double?>(json['magicPenetrate']),
+      lifeSteal: serializer.fromJson<double?>(json['lifeSteal']),
+      hpRecoveryRate: serializer.fromJson<double?>(json['hpRecoveryRate']),
+      energyRecoveryRate: serializer.fromJson<double?>(
+        json['energyRecoveryRate'],
+      ),
+      energyReduceRate: serializer.fromJson<double?>(json['energyReduceRate']),
+      enableDonation: serializer.fromJson<int?>(json['enableDonation']),
+      accuracy: serializer.fromJson<double?>(json['accuracy']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'equipmentId': serializer.toJson<int>(equipmentId),
+      'equipmentName': serializer.toJson<String?>(equipmentName),
+      'description': serializer.toJson<String?>(description),
+      'promotionLevel': serializer.toJson<int?>(promotionLevel),
+      'craftFlg': serializer.toJson<int?>(craftFlg),
+      'equipmentEnhancePoint': serializer.toJson<int?>(equipmentEnhancePoint),
+      'salePrice': serializer.toJson<int?>(salePrice),
+      'requireLevel': serializer.toJson<int?>(requireLevel),
+      'hp': serializer.toJson<double?>(hp),
+      'atk': serializer.toJson<double?>(atk),
+      'magicStr': serializer.toJson<double?>(magicStr),
+      'def_': serializer.toJson<double?>(def_),
+      'magicDef': serializer.toJson<double?>(magicDef),
+      'physicalCritical': serializer.toJson<double?>(physicalCritical),
+      'magicCritical': serializer.toJson<double?>(magicCritical),
+      'waveHpRecovery': serializer.toJson<double?>(waveHpRecovery),
+      'waveEnergyRecovery': serializer.toJson<double?>(waveEnergyRecovery),
+      'dodge': serializer.toJson<double?>(dodge),
+      'physicalPenetrate': serializer.toJson<double?>(physicalPenetrate),
+      'magicPenetrate': serializer.toJson<double?>(magicPenetrate),
+      'lifeSteal': serializer.toJson<double?>(lifeSteal),
+      'hpRecoveryRate': serializer.toJson<double?>(hpRecoveryRate),
+      'energyRecoveryRate': serializer.toJson<double?>(energyRecoveryRate),
+      'energyReduceRate': serializer.toJson<double?>(energyReduceRate),
+      'enableDonation': serializer.toJson<int?>(enableDonation),
+      'accuracy': serializer.toJson<double?>(accuracy),
+    };
+  }
+
+  UniqueEquipmentDataData copyWith({
+    int? equipmentId,
+    Value<String?> equipmentName = const Value.absent(),
+    Value<String?> description = const Value.absent(),
+    Value<int?> promotionLevel = const Value.absent(),
+    Value<int?> craftFlg = const Value.absent(),
+    Value<int?> equipmentEnhancePoint = const Value.absent(),
+    Value<int?> salePrice = const Value.absent(),
+    Value<int?> requireLevel = const Value.absent(),
+    Value<double?> hp = const Value.absent(),
+    Value<double?> atk = const Value.absent(),
+    Value<double?> magicStr = const Value.absent(),
+    Value<double?> def_ = const Value.absent(),
+    Value<double?> magicDef = const Value.absent(),
+    Value<double?> physicalCritical = const Value.absent(),
+    Value<double?> magicCritical = const Value.absent(),
+    Value<double?> waveHpRecovery = const Value.absent(),
+    Value<double?> waveEnergyRecovery = const Value.absent(),
+    Value<double?> dodge = const Value.absent(),
+    Value<double?> physicalPenetrate = const Value.absent(),
+    Value<double?> magicPenetrate = const Value.absent(),
+    Value<double?> lifeSteal = const Value.absent(),
+    Value<double?> hpRecoveryRate = const Value.absent(),
+    Value<double?> energyRecoveryRate = const Value.absent(),
+    Value<double?> energyReduceRate = const Value.absent(),
+    Value<int?> enableDonation = const Value.absent(),
+    Value<double?> accuracy = const Value.absent(),
+  }) => UniqueEquipmentDataData(
+    equipmentId: equipmentId ?? this.equipmentId,
+    equipmentName:
+        equipmentName.present ? equipmentName.value : this.equipmentName,
+    description: description.present ? description.value : this.description,
+    promotionLevel:
+        promotionLevel.present ? promotionLevel.value : this.promotionLevel,
+    craftFlg: craftFlg.present ? craftFlg.value : this.craftFlg,
+    equipmentEnhancePoint:
+        equipmentEnhancePoint.present
+            ? equipmentEnhancePoint.value
+            : this.equipmentEnhancePoint,
+    salePrice: salePrice.present ? salePrice.value : this.salePrice,
+    requireLevel: requireLevel.present ? requireLevel.value : this.requireLevel,
+    hp: hp.present ? hp.value : this.hp,
+    atk: atk.present ? atk.value : this.atk,
+    magicStr: magicStr.present ? magicStr.value : this.magicStr,
+    def_: def_.present ? def_.value : this.def_,
+    magicDef: magicDef.present ? magicDef.value : this.magicDef,
+    physicalCritical:
+        physicalCritical.present
+            ? physicalCritical.value
+            : this.physicalCritical,
+    magicCritical:
+        magicCritical.present ? magicCritical.value : this.magicCritical,
+    waveHpRecovery:
+        waveHpRecovery.present ? waveHpRecovery.value : this.waveHpRecovery,
+    waveEnergyRecovery:
+        waveEnergyRecovery.present
+            ? waveEnergyRecovery.value
+            : this.waveEnergyRecovery,
+    dodge: dodge.present ? dodge.value : this.dodge,
+    physicalPenetrate:
+        physicalPenetrate.present
+            ? physicalPenetrate.value
+            : this.physicalPenetrate,
+    magicPenetrate:
+        magicPenetrate.present ? magicPenetrate.value : this.magicPenetrate,
+    lifeSteal: lifeSteal.present ? lifeSteal.value : this.lifeSteal,
+    hpRecoveryRate:
+        hpRecoveryRate.present ? hpRecoveryRate.value : this.hpRecoveryRate,
+    energyRecoveryRate:
+        energyRecoveryRate.present
+            ? energyRecoveryRate.value
+            : this.energyRecoveryRate,
+    energyReduceRate:
+        energyReduceRate.present
+            ? energyReduceRate.value
+            : this.energyReduceRate,
+    enableDonation:
+        enableDonation.present ? enableDonation.value : this.enableDonation,
+    accuracy: accuracy.present ? accuracy.value : this.accuracy,
+  );
+  UniqueEquipmentDataData copyWithCompanion(UniqueEquipmentDataCompanion data) {
+    return UniqueEquipmentDataData(
+      equipmentId:
+          data.equipmentId.present ? data.equipmentId.value : this.equipmentId,
+      equipmentName:
+          data.equipmentName.present
+              ? data.equipmentName.value
+              : this.equipmentName,
+      description:
+          data.description.present ? data.description.value : this.description,
+      promotionLevel:
+          data.promotionLevel.present
+              ? data.promotionLevel.value
+              : this.promotionLevel,
+      craftFlg: data.craftFlg.present ? data.craftFlg.value : this.craftFlg,
+      equipmentEnhancePoint:
+          data.equipmentEnhancePoint.present
+              ? data.equipmentEnhancePoint.value
+              : this.equipmentEnhancePoint,
+      salePrice: data.salePrice.present ? data.salePrice.value : this.salePrice,
+      requireLevel:
+          data.requireLevel.present
+              ? data.requireLevel.value
+              : this.requireLevel,
+      hp: data.hp.present ? data.hp.value : this.hp,
+      atk: data.atk.present ? data.atk.value : this.atk,
+      magicStr: data.magicStr.present ? data.magicStr.value : this.magicStr,
+      def_: data.def_.present ? data.def_.value : this.def_,
+      magicDef: data.magicDef.present ? data.magicDef.value : this.magicDef,
+      physicalCritical:
+          data.physicalCritical.present
+              ? data.physicalCritical.value
+              : this.physicalCritical,
+      magicCritical:
+          data.magicCritical.present
+              ? data.magicCritical.value
+              : this.magicCritical,
+      waveHpRecovery:
+          data.waveHpRecovery.present
+              ? data.waveHpRecovery.value
+              : this.waveHpRecovery,
+      waveEnergyRecovery:
+          data.waveEnergyRecovery.present
+              ? data.waveEnergyRecovery.value
+              : this.waveEnergyRecovery,
+      dodge: data.dodge.present ? data.dodge.value : this.dodge,
+      physicalPenetrate:
+          data.physicalPenetrate.present
+              ? data.physicalPenetrate.value
+              : this.physicalPenetrate,
+      magicPenetrate:
+          data.magicPenetrate.present
+              ? data.magicPenetrate.value
+              : this.magicPenetrate,
+      lifeSteal: data.lifeSteal.present ? data.lifeSteal.value : this.lifeSteal,
+      hpRecoveryRate:
+          data.hpRecoveryRate.present
+              ? data.hpRecoveryRate.value
+              : this.hpRecoveryRate,
+      energyRecoveryRate:
+          data.energyRecoveryRate.present
+              ? data.energyRecoveryRate.value
+              : this.energyRecoveryRate,
+      energyReduceRate:
+          data.energyReduceRate.present
+              ? data.energyReduceRate.value
+              : this.energyReduceRate,
+      enableDonation:
+          data.enableDonation.present
+              ? data.enableDonation.value
+              : this.enableDonation,
+      accuracy: data.accuracy.present ? data.accuracy.value : this.accuracy,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UniqueEquipmentDataData(')
+          ..write('equipmentId: $equipmentId, ')
+          ..write('equipmentName: $equipmentName, ')
+          ..write('description: $description, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('craftFlg: $craftFlg, ')
+          ..write('equipmentEnhancePoint: $equipmentEnhancePoint, ')
+          ..write('salePrice: $salePrice, ')
+          ..write('requireLevel: $requireLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('enableDonation: $enableDonation, ')
+          ..write('accuracy: $accuracy')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    equipmentId,
+    equipmentName,
+    description,
+    promotionLevel,
+    craftFlg,
+    equipmentEnhancePoint,
+    salePrice,
+    requireLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    enableDonation,
+    accuracy,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UniqueEquipmentDataData &&
+          other.equipmentId == this.equipmentId &&
+          other.equipmentName == this.equipmentName &&
+          other.description == this.description &&
+          other.promotionLevel == this.promotionLevel &&
+          other.craftFlg == this.craftFlg &&
+          other.equipmentEnhancePoint == this.equipmentEnhancePoint &&
+          other.salePrice == this.salePrice &&
+          other.requireLevel == this.requireLevel &&
+          other.hp == this.hp &&
+          other.atk == this.atk &&
+          other.magicStr == this.magicStr &&
+          other.def_ == this.def_ &&
+          other.magicDef == this.magicDef &&
+          other.physicalCritical == this.physicalCritical &&
+          other.magicCritical == this.magicCritical &&
+          other.waveHpRecovery == this.waveHpRecovery &&
+          other.waveEnergyRecovery == this.waveEnergyRecovery &&
+          other.dodge == this.dodge &&
+          other.physicalPenetrate == this.physicalPenetrate &&
+          other.magicPenetrate == this.magicPenetrate &&
+          other.lifeSteal == this.lifeSteal &&
+          other.hpRecoveryRate == this.hpRecoveryRate &&
+          other.energyRecoveryRate == this.energyRecoveryRate &&
+          other.energyReduceRate == this.energyReduceRate &&
+          other.enableDonation == this.enableDonation &&
+          other.accuracy == this.accuracy);
+}
+
+class UniqueEquipmentDataCompanion
+    extends UpdateCompanion<UniqueEquipmentDataData> {
+  final Value<int> equipmentId;
+  final Value<String?> equipmentName;
+  final Value<String?> description;
+  final Value<int?> promotionLevel;
+  final Value<int?> craftFlg;
+  final Value<int?> equipmentEnhancePoint;
+  final Value<int?> salePrice;
+  final Value<int?> requireLevel;
+  final Value<double?> hp;
+  final Value<double?> atk;
+  final Value<double?> magicStr;
+  final Value<double?> def_;
+  final Value<double?> magicDef;
+  final Value<double?> physicalCritical;
+  final Value<double?> magicCritical;
+  final Value<double?> waveHpRecovery;
+  final Value<double?> waveEnergyRecovery;
+  final Value<double?> dodge;
+  final Value<double?> physicalPenetrate;
+  final Value<double?> magicPenetrate;
+  final Value<double?> lifeSteal;
+  final Value<double?> hpRecoveryRate;
+  final Value<double?> energyRecoveryRate;
+  final Value<double?> energyReduceRate;
+  final Value<int?> enableDonation;
+  final Value<double?> accuracy;
+  const UniqueEquipmentDataCompanion({
+    this.equipmentId = const Value.absent(),
+    this.equipmentName = const Value.absent(),
+    this.description = const Value.absent(),
+    this.promotionLevel = const Value.absent(),
+    this.craftFlg = const Value.absent(),
+    this.equipmentEnhancePoint = const Value.absent(),
+    this.salePrice = const Value.absent(),
+    this.requireLevel = const Value.absent(),
+    this.hp = const Value.absent(),
+    this.atk = const Value.absent(),
+    this.magicStr = const Value.absent(),
+    this.def_ = const Value.absent(),
+    this.magicDef = const Value.absent(),
+    this.physicalCritical = const Value.absent(),
+    this.magicCritical = const Value.absent(),
+    this.waveHpRecovery = const Value.absent(),
+    this.waveEnergyRecovery = const Value.absent(),
+    this.dodge = const Value.absent(),
+    this.physicalPenetrate = const Value.absent(),
+    this.magicPenetrate = const Value.absent(),
+    this.lifeSteal = const Value.absent(),
+    this.hpRecoveryRate = const Value.absent(),
+    this.energyRecoveryRate = const Value.absent(),
+    this.energyReduceRate = const Value.absent(),
+    this.enableDonation = const Value.absent(),
+    this.accuracy = const Value.absent(),
+  });
+  UniqueEquipmentDataCompanion.insert({
+    this.equipmentId = const Value.absent(),
+    this.equipmentName = const Value.absent(),
+    this.description = const Value.absent(),
+    this.promotionLevel = const Value.absent(),
+    this.craftFlg = const Value.absent(),
+    this.equipmentEnhancePoint = const Value.absent(),
+    this.salePrice = const Value.absent(),
+    this.requireLevel = const Value.absent(),
+    this.hp = const Value.absent(),
+    this.atk = const Value.absent(),
+    this.magicStr = const Value.absent(),
+    this.def_ = const Value.absent(),
+    this.magicDef = const Value.absent(),
+    this.physicalCritical = const Value.absent(),
+    this.magicCritical = const Value.absent(),
+    this.waveHpRecovery = const Value.absent(),
+    this.waveEnergyRecovery = const Value.absent(),
+    this.dodge = const Value.absent(),
+    this.physicalPenetrate = const Value.absent(),
+    this.magicPenetrate = const Value.absent(),
+    this.lifeSteal = const Value.absent(),
+    this.hpRecoveryRate = const Value.absent(),
+    this.energyRecoveryRate = const Value.absent(),
+    this.energyReduceRate = const Value.absent(),
+    this.enableDonation = const Value.absent(),
+    this.accuracy = const Value.absent(),
+  });
+  static Insertable<UniqueEquipmentDataData> custom({
+    Expression<int>? equipmentId,
+    Expression<String>? equipmentName,
+    Expression<String>? description,
+    Expression<int>? promotionLevel,
+    Expression<int>? craftFlg,
+    Expression<int>? equipmentEnhancePoint,
+    Expression<int>? salePrice,
+    Expression<int>? requireLevel,
+    Expression<double>? hp,
+    Expression<double>? atk,
+    Expression<double>? magicStr,
+    Expression<double>? def_,
+    Expression<double>? magicDef,
+    Expression<double>? physicalCritical,
+    Expression<double>? magicCritical,
+    Expression<double>? waveHpRecovery,
+    Expression<double>? waveEnergyRecovery,
+    Expression<double>? dodge,
+    Expression<double>? physicalPenetrate,
+    Expression<double>? magicPenetrate,
+    Expression<double>? lifeSteal,
+    Expression<double>? hpRecoveryRate,
+    Expression<double>? energyRecoveryRate,
+    Expression<double>? energyReduceRate,
+    Expression<int>? enableDonation,
+    Expression<double>? accuracy,
+  }) {
+    return RawValuesInsertable({
+      if (equipmentId != null) 'equipment_id': equipmentId,
+      if (equipmentName != null) 'equipment_name': equipmentName,
+      if (description != null) 'description': description,
+      if (promotionLevel != null) 'promotion_level': promotionLevel,
+      if (craftFlg != null) 'craft_flg': craftFlg,
+      if (equipmentEnhancePoint != null)
+        'equipment_enhance_point': equipmentEnhancePoint,
+      if (salePrice != null) 'sale_price': salePrice,
+      if (requireLevel != null) 'require_level': requireLevel,
+      if (hp != null) 'hp': hp,
+      if (atk != null) 'atk': atk,
+      if (magicStr != null) 'magic_str': magicStr,
+      if (def_ != null) 'def': def_,
+      if (magicDef != null) 'magic_def': magicDef,
+      if (physicalCritical != null) 'physical_critical': physicalCritical,
+      if (magicCritical != null) 'magic_critical': magicCritical,
+      if (waveHpRecovery != null) 'wave_hp_recovery': waveHpRecovery,
+      if (waveEnergyRecovery != null)
+        'wave_energy_recovery': waveEnergyRecovery,
+      if (dodge != null) 'dodge': dodge,
+      if (physicalPenetrate != null) 'physical_penetrate': physicalPenetrate,
+      if (magicPenetrate != null) 'magic_penetrate': magicPenetrate,
+      if (lifeSteal != null) 'life_steal': lifeSteal,
+      if (hpRecoveryRate != null) 'hp_recovery_rate': hpRecoveryRate,
+      if (energyRecoveryRate != null)
+        'energy_recovery_rate': energyRecoveryRate,
+      if (energyReduceRate != null) 'energy_reduce_rate': energyReduceRate,
+      if (enableDonation != null) 'enable_donation': enableDonation,
+      if (accuracy != null) 'accuracy': accuracy,
+    });
+  }
+
+  UniqueEquipmentDataCompanion copyWith({
+    Value<int>? equipmentId,
+    Value<String?>? equipmentName,
+    Value<String?>? description,
+    Value<int?>? promotionLevel,
+    Value<int?>? craftFlg,
+    Value<int?>? equipmentEnhancePoint,
+    Value<int?>? salePrice,
+    Value<int?>? requireLevel,
+    Value<double?>? hp,
+    Value<double?>? atk,
+    Value<double?>? magicStr,
+    Value<double?>? def_,
+    Value<double?>? magicDef,
+    Value<double?>? physicalCritical,
+    Value<double?>? magicCritical,
+    Value<double?>? waveHpRecovery,
+    Value<double?>? waveEnergyRecovery,
+    Value<double?>? dodge,
+    Value<double?>? physicalPenetrate,
+    Value<double?>? magicPenetrate,
+    Value<double?>? lifeSteal,
+    Value<double?>? hpRecoveryRate,
+    Value<double?>? energyRecoveryRate,
+    Value<double?>? energyReduceRate,
+    Value<int?>? enableDonation,
+    Value<double?>? accuracy,
+  }) {
+    return UniqueEquipmentDataCompanion(
+      equipmentId: equipmentId ?? this.equipmentId,
+      equipmentName: equipmentName ?? this.equipmentName,
+      description: description ?? this.description,
+      promotionLevel: promotionLevel ?? this.promotionLevel,
+      craftFlg: craftFlg ?? this.craftFlg,
+      equipmentEnhancePoint:
+          equipmentEnhancePoint ?? this.equipmentEnhancePoint,
+      salePrice: salePrice ?? this.salePrice,
+      requireLevel: requireLevel ?? this.requireLevel,
+      hp: hp ?? this.hp,
+      atk: atk ?? this.atk,
+      magicStr: magicStr ?? this.magicStr,
+      def_: def_ ?? this.def_,
+      magicDef: magicDef ?? this.magicDef,
+      physicalCritical: physicalCritical ?? this.physicalCritical,
+      magicCritical: magicCritical ?? this.magicCritical,
+      waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+      waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+      dodge: dodge ?? this.dodge,
+      physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+      magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+      lifeSteal: lifeSteal ?? this.lifeSteal,
+      hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+      energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+      energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+      enableDonation: enableDonation ?? this.enableDonation,
+      accuracy: accuracy ?? this.accuracy,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (equipmentId.present) {
+      map['equipment_id'] = Variable<int>(equipmentId.value);
+    }
+    if (equipmentName.present) {
+      map['equipment_name'] = Variable<String>(equipmentName.value);
+    }
+    if (description.present) {
+      map['description'] = Variable<String>(description.value);
+    }
+    if (promotionLevel.present) {
+      map['promotion_level'] = Variable<int>(promotionLevel.value);
+    }
+    if (craftFlg.present) {
+      map['craft_flg'] = Variable<int>(craftFlg.value);
+    }
+    if (equipmentEnhancePoint.present) {
+      map['equipment_enhance_point'] = Variable<int>(
+        equipmentEnhancePoint.value,
+      );
+    }
+    if (salePrice.present) {
+      map['sale_price'] = Variable<int>(salePrice.value);
+    }
+    if (requireLevel.present) {
+      map['require_level'] = Variable<int>(requireLevel.value);
+    }
+    if (hp.present) {
+      map['hp'] = Variable<double>(hp.value);
+    }
+    if (atk.present) {
+      map['atk'] = Variable<double>(atk.value);
+    }
+    if (magicStr.present) {
+      map['magic_str'] = Variable<double>(magicStr.value);
+    }
+    if (def_.present) {
+      map['def'] = Variable<double>(def_.value);
+    }
+    if (magicDef.present) {
+      map['magic_def'] = Variable<double>(magicDef.value);
+    }
+    if (physicalCritical.present) {
+      map['physical_critical'] = Variable<double>(physicalCritical.value);
+    }
+    if (magicCritical.present) {
+      map['magic_critical'] = Variable<double>(magicCritical.value);
+    }
+    if (waveHpRecovery.present) {
+      map['wave_hp_recovery'] = Variable<double>(waveHpRecovery.value);
+    }
+    if (waveEnergyRecovery.present) {
+      map['wave_energy_recovery'] = Variable<double>(waveEnergyRecovery.value);
+    }
+    if (dodge.present) {
+      map['dodge'] = Variable<double>(dodge.value);
+    }
+    if (physicalPenetrate.present) {
+      map['physical_penetrate'] = Variable<double>(physicalPenetrate.value);
+    }
+    if (magicPenetrate.present) {
+      map['magic_penetrate'] = Variable<double>(magicPenetrate.value);
+    }
+    if (lifeSteal.present) {
+      map['life_steal'] = Variable<double>(lifeSteal.value);
+    }
+    if (hpRecoveryRate.present) {
+      map['hp_recovery_rate'] = Variable<double>(hpRecoveryRate.value);
+    }
+    if (energyRecoveryRate.present) {
+      map['energy_recovery_rate'] = Variable<double>(energyRecoveryRate.value);
+    }
+    if (energyReduceRate.present) {
+      map['energy_reduce_rate'] = Variable<double>(energyReduceRate.value);
+    }
+    if (enableDonation.present) {
+      map['enable_donation'] = Variable<int>(enableDonation.value);
+    }
+    if (accuracy.present) {
+      map['accuracy'] = Variable<double>(accuracy.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UniqueEquipmentDataCompanion(')
+          ..write('equipmentId: $equipmentId, ')
+          ..write('equipmentName: $equipmentName, ')
+          ..write('description: $description, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('craftFlg: $craftFlg, ')
+          ..write('equipmentEnhancePoint: $equipmentEnhancePoint, ')
+          ..write('salePrice: $salePrice, ')
+          ..write('requireLevel: $requireLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('enableDonation: $enableDonation, ')
+          ..write('accuracy: $accuracy')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDb extends GeneratedDatabase {
   _$AppDb(QueryExecutor e) : super(e);
   $AppDbManager get managers => $AppDbManager(this);
@@ -12583,6 +15859,15 @@ abstract class _$AppDb extends GeneratedDatabase {
   late final $UnitSkillDataRFTable unitSkillDataRF = $UnitSkillDataRFTable(
     this,
   );
+  late final $UnitUniqueEquipTable unitUniqueEquip = $UnitUniqueEquipTable(
+    this,
+  );
+  late final $UnitUniqueEquipmentTable unitUniqueEquipment =
+      $UnitUniqueEquipmentTable(this);
+  late final $UniqueEquipEnhanceRateTable uniqueEquipEnhanceRate =
+      $UniqueEquipEnhanceRateTable(this);
+  late final $UniqueEquipmentDataTable uniqueEquipmentData =
+      $UniqueEquipmentDataTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -12601,6 +15886,10 @@ abstract class _$AppDb extends GeneratedDatabase {
     unitAttackPattern,
     spSkillLabelData,
     unitSkillDataRF,
+    unitUniqueEquip,
+    unitUniqueEquipment,
+    uniqueEquipEnhanceRate,
+    uniqueEquipmentData,
   ];
 }
 
@@ -18315,6 +21604,1565 @@ typedef $$UnitSkillDataRFTableProcessedTableManager =
       UnitSkillDataRFData,
       PrefetchHooks Function()
     >;
+typedef $$UnitUniqueEquipTableCreateCompanionBuilder =
+    UnitUniqueEquipCompanion Function({
+      required int unitId,
+      required int equipSlot,
+      required int equipId,
+      Value<int> rowid,
+    });
+typedef $$UnitUniqueEquipTableUpdateCompanionBuilder =
+    UnitUniqueEquipCompanion Function({
+      Value<int> unitId,
+      Value<int> equipSlot,
+      Value<int> equipId,
+      Value<int> rowid,
+    });
+
+class $$UnitUniqueEquipTableFilterComposer
+    extends Composer<_$AppDb, $UnitUniqueEquipTable> {
+  $$UnitUniqueEquipTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get equipSlot => $composableBuilder(
+    column: $table.equipSlot,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get equipId => $composableBuilder(
+    column: $table.equipId,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$UnitUniqueEquipTableOrderingComposer
+    extends Composer<_$AppDb, $UnitUniqueEquipTable> {
+  $$UnitUniqueEquipTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get equipSlot => $composableBuilder(
+    column: $table.equipSlot,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get equipId => $composableBuilder(
+    column: $table.equipId,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$UnitUniqueEquipTableAnnotationComposer
+    extends Composer<_$AppDb, $UnitUniqueEquipTable> {
+  $$UnitUniqueEquipTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<int> get equipSlot =>
+      $composableBuilder(column: $table.equipSlot, builder: (column) => column);
+
+  GeneratedColumn<int> get equipId =>
+      $composableBuilder(column: $table.equipId, builder: (column) => column);
+}
+
+class $$UnitUniqueEquipTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $UnitUniqueEquipTable,
+          UnitUniqueEquipData,
+          $$UnitUniqueEquipTableFilterComposer,
+          $$UnitUniqueEquipTableOrderingComposer,
+          $$UnitUniqueEquipTableAnnotationComposer,
+          $$UnitUniqueEquipTableCreateCompanionBuilder,
+          $$UnitUniqueEquipTableUpdateCompanionBuilder,
+          (
+            UnitUniqueEquipData,
+            BaseReferences<_$AppDb, $UnitUniqueEquipTable, UnitUniqueEquipData>,
+          ),
+          UnitUniqueEquipData,
+          PrefetchHooks Function()
+        > {
+  $$UnitUniqueEquipTableTableManager(_$AppDb db, $UnitUniqueEquipTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer:
+              () =>
+                  $$UnitUniqueEquipTableFilterComposer($db: db, $table: table),
+          createOrderingComposer:
+              () => $$UnitUniqueEquipTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$UnitUniqueEquipTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> unitId = const Value.absent(),
+                Value<int> equipSlot = const Value.absent(),
+                Value<int> equipId = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => UnitUniqueEquipCompanion(
+                unitId: unitId,
+                equipSlot: equipSlot,
+                equipId: equipId,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required int unitId,
+                required int equipSlot,
+                required int equipId,
+                Value<int> rowid = const Value.absent(),
+              }) => UnitUniqueEquipCompanion.insert(
+                unitId: unitId,
+                equipSlot: equipSlot,
+                equipId: equipId,
+                rowid: rowid,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$UnitUniqueEquipTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $UnitUniqueEquipTable,
+      UnitUniqueEquipData,
+      $$UnitUniqueEquipTableFilterComposer,
+      $$UnitUniqueEquipTableOrderingComposer,
+      $$UnitUniqueEquipTableAnnotationComposer,
+      $$UnitUniqueEquipTableCreateCompanionBuilder,
+      $$UnitUniqueEquipTableUpdateCompanionBuilder,
+      (
+        UnitUniqueEquipData,
+        BaseReferences<_$AppDb, $UnitUniqueEquipTable, UnitUniqueEquipData>,
+      ),
+      UnitUniqueEquipData,
+      PrefetchHooks Function()
+    >;
+typedef $$UnitUniqueEquipmentTableCreateCompanionBuilder =
+    UnitUniqueEquipmentCompanion Function({
+      required int unitId,
+      required int equipSlot,
+      required int equipId,
+      Value<int> rowid,
+    });
+typedef $$UnitUniqueEquipmentTableUpdateCompanionBuilder =
+    UnitUniqueEquipmentCompanion Function({
+      Value<int> unitId,
+      Value<int> equipSlot,
+      Value<int> equipId,
+      Value<int> rowid,
+    });
+
+class $$UnitUniqueEquipmentTableFilterComposer
+    extends Composer<_$AppDb, $UnitUniqueEquipmentTable> {
+  $$UnitUniqueEquipmentTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get equipSlot => $composableBuilder(
+    column: $table.equipSlot,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get equipId => $composableBuilder(
+    column: $table.equipId,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$UnitUniqueEquipmentTableOrderingComposer
+    extends Composer<_$AppDb, $UnitUniqueEquipmentTable> {
+  $$UnitUniqueEquipmentTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get equipSlot => $composableBuilder(
+    column: $table.equipSlot,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get equipId => $composableBuilder(
+    column: $table.equipId,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$UnitUniqueEquipmentTableAnnotationComposer
+    extends Composer<_$AppDb, $UnitUniqueEquipmentTable> {
+  $$UnitUniqueEquipmentTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<int> get equipSlot =>
+      $composableBuilder(column: $table.equipSlot, builder: (column) => column);
+
+  GeneratedColumn<int> get equipId =>
+      $composableBuilder(column: $table.equipId, builder: (column) => column);
+}
+
+class $$UnitUniqueEquipmentTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $UnitUniqueEquipmentTable,
+          UnitUniqueEquipmentData,
+          $$UnitUniqueEquipmentTableFilterComposer,
+          $$UnitUniqueEquipmentTableOrderingComposer,
+          $$UnitUniqueEquipmentTableAnnotationComposer,
+          $$UnitUniqueEquipmentTableCreateCompanionBuilder,
+          $$UnitUniqueEquipmentTableUpdateCompanionBuilder,
+          (
+            UnitUniqueEquipmentData,
+            BaseReferences<
+              _$AppDb,
+              $UnitUniqueEquipmentTable,
+              UnitUniqueEquipmentData
+            >,
+          ),
+          UnitUniqueEquipmentData,
+          PrefetchHooks Function()
+        > {
+  $$UnitUniqueEquipmentTableTableManager(
+    _$AppDb db,
+    $UnitUniqueEquipmentTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer:
+              () => $$UnitUniqueEquipmentTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer:
+              () => $$UnitUniqueEquipmentTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$UnitUniqueEquipmentTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> unitId = const Value.absent(),
+                Value<int> equipSlot = const Value.absent(),
+                Value<int> equipId = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => UnitUniqueEquipmentCompanion(
+                unitId: unitId,
+                equipSlot: equipSlot,
+                equipId: equipId,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required int unitId,
+                required int equipSlot,
+                required int equipId,
+                Value<int> rowid = const Value.absent(),
+              }) => UnitUniqueEquipmentCompanion.insert(
+                unitId: unitId,
+                equipSlot: equipSlot,
+                equipId: equipId,
+                rowid: rowid,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$UnitUniqueEquipmentTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $UnitUniqueEquipmentTable,
+      UnitUniqueEquipmentData,
+      $$UnitUniqueEquipmentTableFilterComposer,
+      $$UnitUniqueEquipmentTableOrderingComposer,
+      $$UnitUniqueEquipmentTableAnnotationComposer,
+      $$UnitUniqueEquipmentTableCreateCompanionBuilder,
+      $$UnitUniqueEquipmentTableUpdateCompanionBuilder,
+      (
+        UnitUniqueEquipmentData,
+        BaseReferences<
+          _$AppDb,
+          $UnitUniqueEquipmentTable,
+          UnitUniqueEquipmentData
+        >,
+      ),
+      UnitUniqueEquipmentData,
+      PrefetchHooks Function()
+    >;
+typedef $$UniqueEquipEnhanceRateTableCreateCompanionBuilder =
+    UniqueEquipEnhanceRateCompanion Function({
+      Value<int> id,
+      required int equipmentId,
+      required int minLv,
+      required int maxLv,
+      required double hp,
+      required double atk,
+      required double magicStr,
+      required double def_,
+      required double magicDef,
+      required double physicalCritical,
+      required double magicCritical,
+      required double waveHpRecovery,
+      required double waveEnergyRecovery,
+      required double dodge,
+      required double physicalPenetrate,
+      required double magicPenetrate,
+      required double lifeSteal,
+      required double hpRecoveryRate,
+      required double energyRecoveryRate,
+      required double energyReduceRate,
+      required double accuracy,
+    });
+typedef $$UniqueEquipEnhanceRateTableUpdateCompanionBuilder =
+    UniqueEquipEnhanceRateCompanion Function({
+      Value<int> id,
+      Value<int> equipmentId,
+      Value<int> minLv,
+      Value<int> maxLv,
+      Value<double> hp,
+      Value<double> atk,
+      Value<double> magicStr,
+      Value<double> def_,
+      Value<double> magicDef,
+      Value<double> physicalCritical,
+      Value<double> magicCritical,
+      Value<double> waveHpRecovery,
+      Value<double> waveEnergyRecovery,
+      Value<double> dodge,
+      Value<double> physicalPenetrate,
+      Value<double> magicPenetrate,
+      Value<double> lifeSteal,
+      Value<double> hpRecoveryRate,
+      Value<double> energyRecoveryRate,
+      Value<double> energyReduceRate,
+      Value<double> accuracy,
+    });
+
+class $$UniqueEquipEnhanceRateTableFilterComposer
+    extends Composer<_$AppDb, $UniqueEquipEnhanceRateTable> {
+  $$UniqueEquipEnhanceRateTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get equipmentId => $composableBuilder(
+    column: $table.equipmentId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get minLv => $composableBuilder(
+    column: $table.minLv,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get maxLv => $composableBuilder(
+    column: $table.maxLv,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$UniqueEquipEnhanceRateTableOrderingComposer
+    extends Composer<_$AppDb, $UniqueEquipEnhanceRateTable> {
+  $$UniqueEquipEnhanceRateTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get equipmentId => $composableBuilder(
+    column: $table.equipmentId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get minLv => $composableBuilder(
+    column: $table.minLv,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get maxLv => $composableBuilder(
+    column: $table.maxLv,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$UniqueEquipEnhanceRateTableAnnotationComposer
+    extends Composer<_$AppDb, $UniqueEquipEnhanceRateTable> {
+  $$UniqueEquipEnhanceRateTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get equipmentId => $composableBuilder(
+    column: $table.equipmentId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get minLv =>
+      $composableBuilder(column: $table.minLv, builder: (column) => column);
+
+  GeneratedColumn<int> get maxLv =>
+      $composableBuilder(column: $table.maxLv, builder: (column) => column);
+
+  GeneratedColumn<double> get hp =>
+      $composableBuilder(column: $table.hp, builder: (column) => column);
+
+  GeneratedColumn<double> get atk =>
+      $composableBuilder(column: $table.atk, builder: (column) => column);
+
+  GeneratedColumn<double> get magicStr =>
+      $composableBuilder(column: $table.magicStr, builder: (column) => column);
+
+  GeneratedColumn<double> get def_ =>
+      $composableBuilder(column: $table.def_, builder: (column) => column);
+
+  GeneratedColumn<double> get magicDef =>
+      $composableBuilder(column: $table.magicDef, builder: (column) => column);
+
+  GeneratedColumn<double> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get dodge =>
+      $composableBuilder(column: $table.dodge, builder: (column) => column);
+
+  GeneratedColumn<double> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get lifeSteal =>
+      $composableBuilder(column: $table.lifeSteal, builder: (column) => column);
+
+  GeneratedColumn<double> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get accuracy =>
+      $composableBuilder(column: $table.accuracy, builder: (column) => column);
+}
+
+class $$UniqueEquipEnhanceRateTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $UniqueEquipEnhanceRateTable,
+          UniqueEquipEnhanceRateData,
+          $$UniqueEquipEnhanceRateTableFilterComposer,
+          $$UniqueEquipEnhanceRateTableOrderingComposer,
+          $$UniqueEquipEnhanceRateTableAnnotationComposer,
+          $$UniqueEquipEnhanceRateTableCreateCompanionBuilder,
+          $$UniqueEquipEnhanceRateTableUpdateCompanionBuilder,
+          (
+            UniqueEquipEnhanceRateData,
+            BaseReferences<
+              _$AppDb,
+              $UniqueEquipEnhanceRateTable,
+              UniqueEquipEnhanceRateData
+            >,
+          ),
+          UniqueEquipEnhanceRateData,
+          PrefetchHooks Function()
+        > {
+  $$UniqueEquipEnhanceRateTableTableManager(
+    _$AppDb db,
+    $UniqueEquipEnhanceRateTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer:
+              () => $$UniqueEquipEnhanceRateTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer:
+              () => $$UniqueEquipEnhanceRateTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$UniqueEquipEnhanceRateTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> equipmentId = const Value.absent(),
+                Value<int> minLv = const Value.absent(),
+                Value<int> maxLv = const Value.absent(),
+                Value<double> hp = const Value.absent(),
+                Value<double> atk = const Value.absent(),
+                Value<double> magicStr = const Value.absent(),
+                Value<double> def_ = const Value.absent(),
+                Value<double> magicDef = const Value.absent(),
+                Value<double> physicalCritical = const Value.absent(),
+                Value<double> magicCritical = const Value.absent(),
+                Value<double> waveHpRecovery = const Value.absent(),
+                Value<double> waveEnergyRecovery = const Value.absent(),
+                Value<double> dodge = const Value.absent(),
+                Value<double> physicalPenetrate = const Value.absent(),
+                Value<double> magicPenetrate = const Value.absent(),
+                Value<double> lifeSteal = const Value.absent(),
+                Value<double> hpRecoveryRate = const Value.absent(),
+                Value<double> energyRecoveryRate = const Value.absent(),
+                Value<double> energyReduceRate = const Value.absent(),
+                Value<double> accuracy = const Value.absent(),
+              }) => UniqueEquipEnhanceRateCompanion(
+                id: id,
+                equipmentId: equipmentId,
+                minLv: minLv,
+                maxLv: maxLv,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                accuracy: accuracy,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int equipmentId,
+                required int minLv,
+                required int maxLv,
+                required double hp,
+                required double atk,
+                required double magicStr,
+                required double def_,
+                required double magicDef,
+                required double physicalCritical,
+                required double magicCritical,
+                required double waveHpRecovery,
+                required double waveEnergyRecovery,
+                required double dodge,
+                required double physicalPenetrate,
+                required double magicPenetrate,
+                required double lifeSteal,
+                required double hpRecoveryRate,
+                required double energyRecoveryRate,
+                required double energyReduceRate,
+                required double accuracy,
+              }) => UniqueEquipEnhanceRateCompanion.insert(
+                id: id,
+                equipmentId: equipmentId,
+                minLv: minLv,
+                maxLv: maxLv,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                accuracy: accuracy,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$UniqueEquipEnhanceRateTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $UniqueEquipEnhanceRateTable,
+      UniqueEquipEnhanceRateData,
+      $$UniqueEquipEnhanceRateTableFilterComposer,
+      $$UniqueEquipEnhanceRateTableOrderingComposer,
+      $$UniqueEquipEnhanceRateTableAnnotationComposer,
+      $$UniqueEquipEnhanceRateTableCreateCompanionBuilder,
+      $$UniqueEquipEnhanceRateTableUpdateCompanionBuilder,
+      (
+        UniqueEquipEnhanceRateData,
+        BaseReferences<
+          _$AppDb,
+          $UniqueEquipEnhanceRateTable,
+          UniqueEquipEnhanceRateData
+        >,
+      ),
+      UniqueEquipEnhanceRateData,
+      PrefetchHooks Function()
+    >;
+typedef $$UniqueEquipmentDataTableCreateCompanionBuilder =
+    UniqueEquipmentDataCompanion Function({
+      Value<int> equipmentId,
+      Value<String?> equipmentName,
+      Value<String?> description,
+      Value<int?> promotionLevel,
+      Value<int?> craftFlg,
+      Value<int?> equipmentEnhancePoint,
+      Value<int?> salePrice,
+      Value<int?> requireLevel,
+      Value<double?> hp,
+      Value<double?> atk,
+      Value<double?> magicStr,
+      Value<double?> def_,
+      Value<double?> magicDef,
+      Value<double?> physicalCritical,
+      Value<double?> magicCritical,
+      Value<double?> waveHpRecovery,
+      Value<double?> waveEnergyRecovery,
+      Value<double?> dodge,
+      Value<double?> physicalPenetrate,
+      Value<double?> magicPenetrate,
+      Value<double?> lifeSteal,
+      Value<double?> hpRecoveryRate,
+      Value<double?> energyRecoveryRate,
+      Value<double?> energyReduceRate,
+      Value<int?> enableDonation,
+      Value<double?> accuracy,
+    });
+typedef $$UniqueEquipmentDataTableUpdateCompanionBuilder =
+    UniqueEquipmentDataCompanion Function({
+      Value<int> equipmentId,
+      Value<String?> equipmentName,
+      Value<String?> description,
+      Value<int?> promotionLevel,
+      Value<int?> craftFlg,
+      Value<int?> equipmentEnhancePoint,
+      Value<int?> salePrice,
+      Value<int?> requireLevel,
+      Value<double?> hp,
+      Value<double?> atk,
+      Value<double?> magicStr,
+      Value<double?> def_,
+      Value<double?> magicDef,
+      Value<double?> physicalCritical,
+      Value<double?> magicCritical,
+      Value<double?> waveHpRecovery,
+      Value<double?> waveEnergyRecovery,
+      Value<double?> dodge,
+      Value<double?> physicalPenetrate,
+      Value<double?> magicPenetrate,
+      Value<double?> lifeSteal,
+      Value<double?> hpRecoveryRate,
+      Value<double?> energyRecoveryRate,
+      Value<double?> energyReduceRate,
+      Value<int?> enableDonation,
+      Value<double?> accuracy,
+    });
+
+class $$UniqueEquipmentDataTableFilterComposer
+    extends Composer<_$AppDb, $UniqueEquipmentDataTable> {
+  $$UniqueEquipmentDataTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get equipmentId => $composableBuilder(
+    column: $table.equipmentId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get equipmentName => $composableBuilder(
+    column: $table.equipmentName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get craftFlg => $composableBuilder(
+    column: $table.craftFlg,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get equipmentEnhancePoint => $composableBuilder(
+    column: $table.equipmentEnhancePoint,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get salePrice => $composableBuilder(
+    column: $table.salePrice,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get requireLevel => $composableBuilder(
+    column: $table.requireLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get enableDonation => $composableBuilder(
+    column: $table.enableDonation,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$UniqueEquipmentDataTableOrderingComposer
+    extends Composer<_$AppDb, $UniqueEquipmentDataTable> {
+  $$UniqueEquipmentDataTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get equipmentId => $composableBuilder(
+    column: $table.equipmentId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get equipmentName => $composableBuilder(
+    column: $table.equipmentName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get craftFlg => $composableBuilder(
+    column: $table.craftFlg,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get equipmentEnhancePoint => $composableBuilder(
+    column: $table.equipmentEnhancePoint,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get salePrice => $composableBuilder(
+    column: $table.salePrice,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get requireLevel => $composableBuilder(
+    column: $table.requireLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get enableDonation => $composableBuilder(
+    column: $table.enableDonation,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$UniqueEquipmentDataTableAnnotationComposer
+    extends Composer<_$AppDb, $UniqueEquipmentDataTable> {
+  $$UniqueEquipmentDataTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get equipmentId => $composableBuilder(
+    column: $table.equipmentId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get equipmentName => $composableBuilder(
+    column: $table.equipmentName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get craftFlg =>
+      $composableBuilder(column: $table.craftFlg, builder: (column) => column);
+
+  GeneratedColumn<int> get equipmentEnhancePoint => $composableBuilder(
+    column: $table.equipmentEnhancePoint,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get salePrice =>
+      $composableBuilder(column: $table.salePrice, builder: (column) => column);
+
+  GeneratedColumn<int> get requireLevel => $composableBuilder(
+    column: $table.requireLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get hp =>
+      $composableBuilder(column: $table.hp, builder: (column) => column);
+
+  GeneratedColumn<double> get atk =>
+      $composableBuilder(column: $table.atk, builder: (column) => column);
+
+  GeneratedColumn<double> get magicStr =>
+      $composableBuilder(column: $table.magicStr, builder: (column) => column);
+
+  GeneratedColumn<double> get def_ =>
+      $composableBuilder(column: $table.def_, builder: (column) => column);
+
+  GeneratedColumn<double> get magicDef =>
+      $composableBuilder(column: $table.magicDef, builder: (column) => column);
+
+  GeneratedColumn<double> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get dodge =>
+      $composableBuilder(column: $table.dodge, builder: (column) => column);
+
+  GeneratedColumn<double> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get lifeSteal =>
+      $composableBuilder(column: $table.lifeSteal, builder: (column) => column);
+
+  GeneratedColumn<double> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get enableDonation => $composableBuilder(
+    column: $table.enableDonation,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get accuracy =>
+      $composableBuilder(column: $table.accuracy, builder: (column) => column);
+}
+
+class $$UniqueEquipmentDataTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $UniqueEquipmentDataTable,
+          UniqueEquipmentDataData,
+          $$UniqueEquipmentDataTableFilterComposer,
+          $$UniqueEquipmentDataTableOrderingComposer,
+          $$UniqueEquipmentDataTableAnnotationComposer,
+          $$UniqueEquipmentDataTableCreateCompanionBuilder,
+          $$UniqueEquipmentDataTableUpdateCompanionBuilder,
+          (
+            UniqueEquipmentDataData,
+            BaseReferences<
+              _$AppDb,
+              $UniqueEquipmentDataTable,
+              UniqueEquipmentDataData
+            >,
+          ),
+          UniqueEquipmentDataData,
+          PrefetchHooks Function()
+        > {
+  $$UniqueEquipmentDataTableTableManager(
+    _$AppDb db,
+    $UniqueEquipmentDataTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer:
+              () => $$UniqueEquipmentDataTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer:
+              () => $$UniqueEquipmentDataTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer:
+              () => $$UniqueEquipmentDataTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> equipmentId = const Value.absent(),
+                Value<String?> equipmentName = const Value.absent(),
+                Value<String?> description = const Value.absent(),
+                Value<int?> promotionLevel = const Value.absent(),
+                Value<int?> craftFlg = const Value.absent(),
+                Value<int?> equipmentEnhancePoint = const Value.absent(),
+                Value<int?> salePrice = const Value.absent(),
+                Value<int?> requireLevel = const Value.absent(),
+                Value<double?> hp = const Value.absent(),
+                Value<double?> atk = const Value.absent(),
+                Value<double?> magicStr = const Value.absent(),
+                Value<double?> def_ = const Value.absent(),
+                Value<double?> magicDef = const Value.absent(),
+                Value<double?> physicalCritical = const Value.absent(),
+                Value<double?> magicCritical = const Value.absent(),
+                Value<double?> waveHpRecovery = const Value.absent(),
+                Value<double?> waveEnergyRecovery = const Value.absent(),
+                Value<double?> dodge = const Value.absent(),
+                Value<double?> physicalPenetrate = const Value.absent(),
+                Value<double?> magicPenetrate = const Value.absent(),
+                Value<double?> lifeSteal = const Value.absent(),
+                Value<double?> hpRecoveryRate = const Value.absent(),
+                Value<double?> energyRecoveryRate = const Value.absent(),
+                Value<double?> energyReduceRate = const Value.absent(),
+                Value<int?> enableDonation = const Value.absent(),
+                Value<double?> accuracy = const Value.absent(),
+              }) => UniqueEquipmentDataCompanion(
+                equipmentId: equipmentId,
+                equipmentName: equipmentName,
+                description: description,
+                promotionLevel: promotionLevel,
+                craftFlg: craftFlg,
+                equipmentEnhancePoint: equipmentEnhancePoint,
+                salePrice: salePrice,
+                requireLevel: requireLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                enableDonation: enableDonation,
+                accuracy: accuracy,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> equipmentId = const Value.absent(),
+                Value<String?> equipmentName = const Value.absent(),
+                Value<String?> description = const Value.absent(),
+                Value<int?> promotionLevel = const Value.absent(),
+                Value<int?> craftFlg = const Value.absent(),
+                Value<int?> equipmentEnhancePoint = const Value.absent(),
+                Value<int?> salePrice = const Value.absent(),
+                Value<int?> requireLevel = const Value.absent(),
+                Value<double?> hp = const Value.absent(),
+                Value<double?> atk = const Value.absent(),
+                Value<double?> magicStr = const Value.absent(),
+                Value<double?> def_ = const Value.absent(),
+                Value<double?> magicDef = const Value.absent(),
+                Value<double?> physicalCritical = const Value.absent(),
+                Value<double?> magicCritical = const Value.absent(),
+                Value<double?> waveHpRecovery = const Value.absent(),
+                Value<double?> waveEnergyRecovery = const Value.absent(),
+                Value<double?> dodge = const Value.absent(),
+                Value<double?> physicalPenetrate = const Value.absent(),
+                Value<double?> magicPenetrate = const Value.absent(),
+                Value<double?> lifeSteal = const Value.absent(),
+                Value<double?> hpRecoveryRate = const Value.absent(),
+                Value<double?> energyRecoveryRate = const Value.absent(),
+                Value<double?> energyReduceRate = const Value.absent(),
+                Value<int?> enableDonation = const Value.absent(),
+                Value<double?> accuracy = const Value.absent(),
+              }) => UniqueEquipmentDataCompanion.insert(
+                equipmentId: equipmentId,
+                equipmentName: equipmentName,
+                description: description,
+                promotionLevel: promotionLevel,
+                craftFlg: craftFlg,
+                equipmentEnhancePoint: equipmentEnhancePoint,
+                salePrice: salePrice,
+                requireLevel: requireLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                enableDonation: enableDonation,
+                accuracy: accuracy,
+              ),
+          withReferenceMapper:
+              (p0) =>
+                  p0
+                      .map(
+                        (e) => (
+                          e.readTable(table),
+                          BaseReferences(db, table, e),
+                        ),
+                      )
+                      .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$UniqueEquipmentDataTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $UniqueEquipmentDataTable,
+      UniqueEquipmentDataData,
+      $$UniqueEquipmentDataTableFilterComposer,
+      $$UniqueEquipmentDataTableOrderingComposer,
+      $$UniqueEquipmentDataTableAnnotationComposer,
+      $$UniqueEquipmentDataTableCreateCompanionBuilder,
+      $$UniqueEquipmentDataTableUpdateCompanionBuilder,
+      (
+        UniqueEquipmentDataData,
+        BaseReferences<
+          _$AppDb,
+          $UniqueEquipmentDataTable,
+          UniqueEquipmentDataData
+        >,
+      ),
+      UniqueEquipmentDataData,
+      PrefetchHooks Function()
+    >;
 
 class $AppDbManager {
   final _$AppDb _db;
@@ -18349,4 +23197,15 @@ class $AppDbManager {
       $$SpSkillLabelDataTableTableManager(_db, _db.spSkillLabelData);
   $$UnitSkillDataRFTableTableManager get unitSkillDataRF =>
       $$UnitSkillDataRFTableTableManager(_db, _db.unitSkillDataRF);
+  $$UnitUniqueEquipTableTableManager get unitUniqueEquip =>
+      $$UnitUniqueEquipTableTableManager(_db, _db.unitUniqueEquip);
+  $$UnitUniqueEquipmentTableTableManager get unitUniqueEquipment =>
+      $$UnitUniqueEquipmentTableTableManager(_db, _db.unitUniqueEquipment);
+  $$UniqueEquipEnhanceRateTableTableManager get uniqueEquipEnhanceRate =>
+      $$UniqueEquipEnhanceRateTableTableManager(
+        _db,
+        _db.uniqueEquipEnhanceRate,
+      );
+  $$UniqueEquipmentDataTableTableManager get uniqueEquipmentData =>
+      $$UniqueEquipmentDataTableTableManager(_db, _db.uniqueEquipmentData);
 }

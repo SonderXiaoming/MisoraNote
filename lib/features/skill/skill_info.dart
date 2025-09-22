@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/core/db/model.dart';
-import 'package:misora_note/core/skill/skill_text.dart';
-import 'package:misora_note/core/skill/skill_type.dart';
-import 'package:misora_note/features/component/data_model.dart';
+import 'package:misora_note/features/component/base.dart';
+import 'package:misora_note/features/skill/skill_text.dart';
 import 'package:misora_note/features/component/image.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
+import 'package:misora_note/features/skill/skill_type.dart';
 
 class SkillActionText extends StatelessWidget {
   final int actionId;
@@ -155,10 +155,10 @@ class SingleSkillInfo extends StatelessWidget {
     final textTheme = theme.textTheme;
     String skillSubTitle = skillType.value;
     if (skill.skillCastTime > 0) {
-      skillSubTitle += '   准备时间: ${skill.skillCastTime}秒';
+      skillSubTitle += '\t\t\t准备时间: ${skill.skillCastTime}秒';
     }
     if ((level ?? 0) > 0) {
-      skillSubTitle += '   技能等级: $level';
+      skillSubTitle += '\t\t\t技能等级: $level';
     }
     final skillAction = getActionDescList(skillActionHandler);
     final tags =
@@ -167,17 +167,8 @@ class SingleSkillInfo extends StatelessWidget {
             .where((tag) => tag.isNotEmpty)
             .toSet()
             .toList();
-    return Container(
-      margin: const EdgeInsets.all(16),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: borderColor),
-        boxShadow: const [
-          BoxShadow(blurRadius: 12, spreadRadius: 0, color: Color(0x14000000)),
-        ],
-      ),
+    return BaseCard(
+      border: Border.all(color: borderColor),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -187,10 +178,9 @@ class SingleSkillInfo extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // 左侧技能图标（占位）
               Container(
-                width: 44,
-                height: 44,
+                width: 50,
+                height: 50,
                 decoration: BoxDecoration(
                   color: const Color(0xFFFFF3E0),
                   borderRadius: BorderRadius.circular(8),
@@ -217,13 +207,7 @@ class SingleSkillInfo extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     // 副标题：“技能1   准备时间: 1.4s”
-                    Text(
-                      skillSubTitle,
-                      style: textTheme.bodySmall?.copyWith(
-                        color: Color(CustomColors.colorBlack),
-                        height: 1.1,
-                      ),
-                    ),
+                    Text(skillSubTitle, style: textTheme.bodyMedium),
                   ],
                 ),
               ),
@@ -239,27 +223,18 @@ class SingleSkillInfo extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           Row(
+            spacing: 6,
             children:
                 tags
                     .map(
-                      (e) => Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 2,
-                        ),
-                        margin: const EdgeInsets.only(right: 6),
-                        decoration: BoxDecoration(
-                          color: Color(CustomColors.colorPrimary),
-                          borderRadius: BorderRadius.circular(6),
-                          border: Border.all(
-                            color: Color(CustomColors.colorPrimary),
-                          ),
-                        ),
+                      (e) => TagBase(
+                        backgroundColor: Color(CustomColors.colorPrimary),
+                        borderRadius: BorderRadius.circular(6),
                         child: Text(
                           e,
                           style: textTheme.labelMedium?.copyWith(
                             color: Color(CustomColors.colorWhite),
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w800,
                           ),
                         ),
                       ),

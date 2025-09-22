@@ -1,3 +1,6 @@
+import 'package:misora_note/constants.dart';
+import 'package:misora_note/core/db/database.dart';
+import 'package:misora_note/core/db/model.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 
 enum SkillActionType {
@@ -549,5 +552,175 @@ enum SkillActionType {
   /// 根据数值获取枚举
   static SkillActionType getByType(int value) {
     return _typeMap[value] ?? SkillActionType.unknown;
+  }
+}
+
+enum UnitGetType {
+  normal(1),
+  limit(2),
+  event(3),
+  extra(4);
+
+  final int value;
+  const UnitGetType(this.value);
+
+  static UnitGetType? fromValue(int value) {
+    for (var type in UnitGetType.values) {
+      if (type.value == value) {
+        return type;
+      }
+    }
+    return null;
+  }
+
+  static String getName(AppLocalizations t, UnitGetType type) {
+    switch (type) {
+      case UnitGetType.normal:
+        return t.type_normal;
+      case UnitGetType.limit:
+        return t.type_limit;
+      case UnitGetType.event:
+        return t.type_event_limit;
+      case UnitGetType.extra:
+        return t.type_extra_character;
+    }
+  }
+
+  static int getColor(UnitGetType type) {
+    switch (type) {
+      case UnitGetType.normal:
+        return CustomColors.colorGold;
+      case UnitGetType.limit:
+        return CustomColors.colorOrange;
+      case UnitGetType.event:
+        return CustomColors.colorGreen;
+      case UnitGetType.extra:
+        return CustomColors.colorBlue;
+    }
+  }
+}
+
+enum SkillTextType {
+  normal("普攻"),
+  ub("连结爆发"),
+  ubPlus("连结爆发+"),
+  skill1("技能1"),
+  skill1Plus("技能1+"),
+  skill2("技能2"),
+  skill2Plus("技能2+"),
+  skill3("技能3"),
+  skill4("技能4"),
+  skill5("技能5"),
+  skill6("技能6"),
+  skill7("技能7"),
+  skill8("技能8"),
+  skill9("技能9"),
+  skill10("技能10"),
+  exSkill("额外技能"),
+  exSkillPlus("额外技能+"),
+  exSkill2("额外技能2"),
+  exSkill2Plus("额外技能2+"),
+  exSkill3("额外技能3"),
+  exSkill3Plus("额外技能3+"),
+  exSkill4("额外技能4"),
+  exSkill4Plus("额外技能4+"),
+  exSkill5("额外技能5"),
+  exSkill5Plus("额外技能5+"),
+  spUb("SP连结爆发"),
+  spSkill1("SP技能1"),
+  spSkill1Plus("SP技能1+"),
+  spSkill2("SP技能2"),
+  spSkill2Plus("SP技能2+"),
+  spSkill3("SP技能3"),
+  spSkill4("SP技能4"),
+  spSkill5("SP技能5");
+
+  final String value;
+  const SkillTextType(this.value);
+  static SkillTextType? fromValue(String value) {
+    for (var type in SkillTextType.values) {
+      if (type.value == value) {
+        return type;
+      }
+    }
+    return null;
+  }
+
+  static int getColor(SkillTextType type) {
+    switch (type) {
+      case SkillTextType.ub:
+      case SkillTextType.ubPlus:
+      case SkillTextType.spUb:
+        return CustomColors.colorGold;
+      case SkillTextType.skill1:
+      case SkillTextType.skill1Plus:
+      case SkillTextType.spSkill1:
+      case SkillTextType.spSkill1Plus:
+        return CustomColors.colorPurple;
+      case SkillTextType.skill2:
+      case SkillTextType.skill2Plus:
+      case SkillTextType.spSkill2:
+      case SkillTextType.spSkill2Plus:
+        return CustomColors.colorRed;
+      case SkillTextType.exSkill:
+      case SkillTextType.exSkillPlus:
+      case SkillTextType.spSkill3:
+        return CustomColors.colorOrange;
+      default:
+        return CustomColors.colorBlack;
+    }
+  }
+}
+
+class SkillFinalData {
+  final int id;
+  final SkillTextType type;
+  final SkillDataData data;
+  final List<SkillActionInfo> actions;
+  int level;
+
+  SkillFinalData({
+    required this.id,
+    required this.type,
+    required this.data,
+    required this.actions,
+    required this.level,
+  });
+}
+
+class UnitSkillList {
+  final normal = <SkillFinalData>[];
+  final sp = <SkillFinalData>[];
+
+  UnitSkillList get pureSkill {
+    final result = UnitSkillList();
+    result.normal.addAll(
+      normal.where(
+        (e) => [
+          SkillTextType.skill1,
+          SkillTextType.skill2,
+          SkillTextType.skill3,
+          SkillTextType.skill4,
+          SkillTextType.skill5,
+          SkillTextType.skill6,
+          SkillTextType.skill7,
+          SkillTextType.skill8,
+          SkillTextType.skill9,
+          SkillTextType.skill10,
+        ].contains(e.type),
+      ),
+    );
+    result.sp.addAll(
+      sp.where(
+        (e) => [
+          SkillTextType.spSkill1,
+          SkillTextType.spSkill2,
+          SkillTextType.spSkill3,
+          SkillTextType.spSkill4,
+          SkillTextType.spSkill5,
+        ].contains(e.type),
+      ),
+    );
+    return result;
   }
 }
