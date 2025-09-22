@@ -122,22 +122,10 @@ class CachedImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pixelRatio = MediaQuery.of(context).devicePixelRatio;
-    final cacheWidth = (width * pixelRatio).toInt();
-    final cacheHeight = (height * pixelRatio).toInt();
-
-    // 为不同尺寸生成唯一的缓存键
-    final cacheKey = '${url}_${cacheWidth}x$cacheHeight';
-
     final image = CachedNetworkImage(
       imageUrl: url,
-      cacheKey: cacheKey, // 使用包含尺寸信息的缓存键
       cacheManager: ImageCacheManager.instance,
       fit: fit,
-      maxWidthDiskCache: cacheWidth, // 按显示尺寸下采样
-      maxHeightDiskCache: cacheHeight, // 按显示尺寸下采样
-      memCacheWidth: cacheWidth, // 内存缓存优化
-      memCacheHeight: cacheHeight, // 内存缓存优化
       placeholder: (ctx, _) => Container(
         width: width,
         height: height,
