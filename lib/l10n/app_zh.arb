@@ -1,5 +1,7 @@
 {
   "@@locale": "zh",
+  "unknown": "?",
+  "none": "",
   "date_m_d": "{arg1} 月 {arg2} 日",
   "@date_m_d": {
     "placeholders": {
@@ -44,362 +46,7 @@
       }
     }
   },
-  "skill_loop_start": "循环开始",
-  "skill_loop_end": "循环结束",
-  "attack_pattern": "攻击模式",
-  "skill_loop": "技能循环",
-  "skill_info": "技能信息",
-  "sp_skill": "SP技能",
-  "search_hit": "请输入角色名/编号",
-  "type_normal": "常驻",
-  "type_limit": "限定",
-  "type_event_limit": "活动",
-  "type_extra_character": "额外",
-  "unknown": "?",
-  "magic": "魔法",
-  "physical": "物理",
-  "position_front": "前卫",
-  "position_middle": "中卫",
-  "position_back": "后卫",
-  "character": "角色",
-  "random_area": "额外掉落",
-  "random_drop_area_title": "区域 {arg1}",
-  "@random_drop_area_title": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "random_drop_area_1": "（前半）",
-  "random_drop_area_2": "（后半）",
-  "qq_group": "反馈交流群",
-  "to_feedback": "反馈",
-  "qq_group_summary": "有任何问题或建议，可在群内反馈",
-  "to_join_qq_group": "加入QQ群",
-  "clean_image_cache": "清除缓存",
-  "tip_clean_cache": "加载缓存，可减少网络数据使用。正常使用中请勿清除",
-  "cache_size": "占用：{arg1}\\n数量：{arg2}",
-  "@cache_size": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      },
-      "arg2": {
-        "type": "int"
-      }
-    }
-  },
-  "confirm_clean_cache": "清除缓存后，下次打开应用将通过网络重新加载图片",
-  "github": "GitHub",
-  "afd": "爱发电",
-  "sponsor": "支持",
-  "afd_url": "https://afdian.com/a/wthee",
-  "tip_afd": "期待你的关注与支持",
-  "please": "✪ ω ✪",
-  "github_project_url": "https://github.com/wthee/pcr-tool",
-  "tip_github": "项目开源代码",
-  "mode": "MODE{arg1}",
-  "@mode": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "clan_battle_y_m": "{arg1} 年 {arg2} 月",
-  "@clan_battle_y_m": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      },
-      "arg2": {
-        "type": "String"
-      }
-    }
-  },
-  "update": "更新",
-  "system": "系统",
-  "event": "活动",
-  "shop": "周边",
-  "local_note": "本地化笔记",
-  "search_suggestion": "快捷输入",
-  "search_api": "查询",
-  "search_api_desc": "需要网络",
-  "tool_all_quest": "主线地图",
-  "pick_date": "选择日期",
-  "picked_date": "已选择",
-  "beta_tool_group": "测试",
-  "beta_tool_group_title": "后续将调整至其他分组或移除",
-  "all_unit_calc_equip": "全角色装备统计",
-  "to": " ~ ",
-  "title_comic_zh": "优妮hnn汉化组",
-  "tip_comic_zh": "漫画汉化",
-  "comic_zh_url": "https://space.bilibili.com/3260075",
-  "title_jp_info": "PCR公主连结日服情报站",
-  "tip_jp_info": "日服最新情报",
-  "jp_info_url": "https://space.bilibili.com/1731293061",
-  "tool_unique_equip": "专用装备",
-  "search_unique_equip": "装备名/角色名",
-  "character_detail": "角色详情",
-  "tool_load_comic": "过场漫画",
-  "description": "描述",
-  "pvp_search": "查询",
-  "pvp_upload": "上传记录",
-  "pvp_no_data": "未查询到进攻队伍信息",
-  "research": "重新查询",
-  "pvp_search_on_web": "去网站查询",
-  "team_no": "进攻队伍 {arg1}",
-  "@team_no": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "team_win": "进攻",
-  "team_lose": "防守",
-  "tip_select_5": "请选择 5 名角色",
-  "tip_selected_5": "已选择 5 名角色",
-  "tool_pvp": "竞技场",
-  "pvp_no_favorites": "暂无收藏",
-  "pvp_no_history": "暂无查询历史",
-  "pvp_service": "竞技场查询服务",
-  "pvp_service_running": "竞技场查询服务正在运行",
-  "close_app": "关闭应用",
-  "cancel": "取消",
-  "confirm": "确认",
-  "to_add_tool": "添加功能",
-  "edit": "管理功能",
-  "done": "完成",
-  "copy_all": "全部复制",
-  "open_browser": "在浏览器中打开",
-  "copy_qq_group": "已复制QQ群号：{arg1}",
-  "@copy_qq_group": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "share_to": "分享到：",
-  "release": "{arg1} 发布",
-  "@release": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "daily_mission": "每日任务体力",
-  "daily_login": "每日登录宝石奖励，共计",
-  "fortune_event": "兰德索尔杯",
-  "normal": "普通关卡",
-  "hard": "困难关卡",
-  "very_hard": "高难关卡",
-  "explore": "探索",
-  "shrine": "圣迹调查",
-  "temple": "神殿调查",
-  "dungeon": "地下城",
-  "drop": "掉落量",
-  "mana": "玛那掉落量",
-  "multiple": "{arg1}倍",
-  "@multiple": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "free_gacha_content": "「免费十连」{arg1} 次",
-  "@free_gacha_content": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "story_event_sub": "支线",
-  "story_event_re": "复刻",
-  "story_event_preview": "预告",
-  "story_event_new": "活动",
-  "clan_battle_month": "{arg1}月公会战",
-  "@clan_battle_month": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "title_ex_skill_add": "EX+ 额外数值",
-  "title_skill_1_add": "技能+ 额外数值",
-  "title_skill_1_coe": "技能+ 系数",
-  "title_ub_add": "连结爆发+ 额外数值",
-  "title_ub_coe": "连结爆发+ 系数",
-  "attr_all_value": "战力：{arg1}",
-  "@attr_all_value": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "title_attr_tip": "属性数值说明",
-  "attr_calc": "角色属性数值 = 基本属性 + 剧情属性 + 被动技能（不计算到战力） + RANK 奖励属性",
-  "tip_status_coe": "※ 数值与游戏数值可能存在一定误差，请以游戏内为准",
-  "no_more": "暂无更多",
-  "no_data": "暂无数据",
-  "data_get_error": "数据获取失败",
-  "not_installed": "暂未实装",
-  "tip_click_to_add": "点击下列功能，添加至首页",
-  "tip_save_to_gallery": "保存至系统相册",
-  "wait_pic_load": "请等待图片加载完成",
-  "wait_video_load": "请等待视频加载完成",
-  "pic_exist": "图片已存在\\n{arg1}",
-  "@pic_exist": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "video_exist": "视频已存在\\n{arg1}",
-  "@video_exist": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "save_success": "已成功保存至系统相册\\n{arg1}",
-  "@save_success": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "save_failure": "保存失败",
-  "save_error": "保存异常",
-  "download_failure": "下载失败",
-  "copy_success": "文本已复制",
-  "title_api_request_error": "网络请求异常",
-  "title_dialog_delete": "删除",
-  "title_dialog_save_img": "保存图片",
-  "title_dialog_clean_cache": "清除缓存",
-  "find_new_release": "v{arg1} 已发布",
-  "@find_new_release": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "change_failed": "切换失败",
-  "check_db_error": "数据版本获取失败",
-  "db_file_error_re_download": "数据文件已损坏\\n请点此[重新下载]数据",
-  "db_error": "数据异常",
-  "remote_db_file_error": "远程数据异常\\n请[加群反馈]",
-  "re_download_db_file": "若数据加载或下载异常\\n请点此[重新下载]数据",
-  "title_db_downloading": "正在下载数据",
-  "db_download_cancel": "下载因未知原因中断，请重新下载",
-  "update_database": "数据更新",
-  "db_download_failure": "数据下载失败，请重新下载",
-  "db_download_exception": "数据下载出现异常，请重新下载",
-  "db_load_failure": "数据加载失败，请重试",
-  "db_diff_version": "版本",
-  "db_diff_content": "更新内容",
-  "db_diff_time": "日期",
-  "db_diff_content_none": "其他",
-  "db_cn": "国服",
-  "db_tw": "台服",
-  "db_jp": "日服",
-  "limit_re": "复刻限定",
-  "limit_re_pick": "复刻自选",
-  "normal_re": "复刻常驻",
-  "fes": "公主庆典",
-  "anv": "周年",
-  "gacha_fes": "Fes限定★3",
-  "gacha_limit": "限定★3",
-  "gacha_normal": "常驻★3",
-  "tool_mock_gacha": "抽卡模拟",
-  "gacha_pick_up_normal": "全角色 UP",
-  "gacha_pick_up_fes": "Fes UP",
-  "gacha_pick_up_single": "单角色 UP",
-  "tip_to_pick_up": "请选择角色",
-  "tip_to_pick_up_normal": "所选角色概率相同",
-  "tip_to_pick_up_single": "仅最后选择的角色概率提升",
-  "tip_to_mock_single": "单角色 UP：至少选择2名角色",
-  "tip_no_gacha_record": "暂无抽卡记录",
-  "reset_record": "重置卡池",
-  "delete_gacha": "删除卡池",
-  "tip_delete_gacha": "删除卡池记录和模拟抽卡记录",
-  "go_to_mock": "去抽卡",
-  "gacha_max_select_count": "最多可选 {arg1} 名角色",
-  "@gacha_max_select_count": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "last_gacha_date": "已抽{arg1}次，{arg2}",
-  "@last_gacha_date": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      },
-      "arg2": {
-        "type": "String"
-      }
-    }
-  },
-  "gacha_used_gem": "宝石 {arg1}",
-  "@gacha_used_gem": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "gacha_order": "第 {arg1} 次",
-  "@gacha_order": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "selected_mark": "✓",
-  "extra_equip_normal": "普通",
-  "extra_equip_clan": "公会战",
-  "extra_equip_flag": "适用场景",
-  "extra_equip_category": "类型",
-  "extra_equip_passive_skill": "被动技能",
-  "extra_equip_default_value": "初始",
-  "extra_equip_max_value": "上限",
-  "tool_extra_equip": "EX装备",
-  "extra_equip_rarity_and_type": "★{arg1}  {arg2}",
-  "@extra_equip_rarity_and_type": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      },
-      "arg2": {
-        "type": "String"
-      }
-    }
-  },
-  "extra_equip_rarity": "稀有度",
-  "extra_equip_unit": "适用角色",
-  "extra_equip_no_drop_quest": "暂无掉落区域",
-  "tool_travel": "EX冒险",
-  "unit_extra_equip_slot": "适用装备",
-  "travel_limit_unit_num": "人数上限",
-  "travel_need_power": "所需战力",
-  "travel_time": "所需时间",
-  "travel_time_decrease_limit": "缩减时间",
-  "ex_equip_drop_odd": "%.2f%",
+  "normal_attack": "普攻",
   "union_burst": "连结爆发",
   "skill_index": "技能{arg1}",
   "@skill_index": {
@@ -417,40 +64,48 @@
       }
     }
   },
-  "character_summon_info": "等级：{arg1} / RANK：{arg2} / 星级：{arg3}",
-  "@character_summon_info": {
+  "skill_loop_start": "循环开始",
+  "skill_loop_end": "循环结束",
+  "attack_pattern": "攻击模式",
+  "skill_loop": "技能循环",
+  "skill_info": "技能信息",
+  "sp_skill": "SP技能",
+  "type_normal": "常驻",
+  "type_limit": "限定",
+  "type_event_limit": "活动",
+  "type_extra_character": "额外",
+  "magic": "魔法",
+  "physical": "物理",
+  "position": "位置",
+  "position_front": "前卫",
+  "position_middle": "中卫",
+  "position_back": "后卫",
+  "last_update": "最后更新",
+  "age": "年龄",
+  "height": "身高",
+  "weight": "体重",
+  "unit_id": "角色ID",
+  "birthday": "生日",
+  "search_area_width": "位置",
+  "character": "角色",
+  "clan_battle_y_m": "{arg1} 年 {arg2} 月",
+  "@clan_battle_y_m": {
     "placeholders": {
       "arg1": {
-        "type": "int"
+        "type": "String"
       },
       "arg2": {
-        "type": "int"
-      },
-      "arg3": {
-        "type": "int"
+        "type": "String"
       }
     }
   },
-  "normal_attack": "普攻",
-  "ub_video": "技能动画",
-  "color_blue": "蓝",
-  "color_copper": "铜",
-  "color_silver": "银",
-  "color_gold": "金",
-  "color_purple": "紫",
-  "color_red": "红",
-  "color_green": "绿",
-  "color_orange": "橙",
-  "color_cyan": "青",
-  "color_pink": "粉",
-  "no1": "一",
-  "no2": "二",
-  "no3": "三",
-  "no4": "四",
-  "no5": "五",
-  "no6": "六",
-  "no7": "七",
-  "none": "",
+  "tool_unique_equip": "专武",
+  "character_detail": "角色详情",
+  "attack_type": "类型",
+  "no_search_result": "无搜索结果",
+  "searching": "搜索中",
+  "search_hit_name": "请输入角色名",
+  "search_hit_id": "请输入角色ID",
   "skill_type_1": "伤害",
   "skill_type_2": "位移",
   "skill_type_4_5": "治疗",
@@ -2697,92 +2352,5 @@
   "attr_wave_energy_recovery": "TP回复",
   "attr_energy_recovery_rate": "TP上升",
   "attr_energy_reduce_rate": "TP减少",
-  "attr_tp": "TP",
-  "day": "{arg1}天",
-  "@day": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "hour": "{arg1}时",
-  "@hour": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "minute": "{arg1}分",
-  "@minute": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "response_error": "未正常获取数据，请切换网络后重试",
-  "response_cancel": "查询取消",
-  "leader_need_sync": "未关联",
-  "only_jp": "基于日服版本的评价，仅供参考",
-  "tool_leader_tier": "角色梯队",
-  "leader_tier_0": "综合",
-  "leader_tier_1": "竞技场进攻",
-  "leader_tier_2": "竞技场防守",
-  "leader_tier_d": "T{arg1}",
-  "@leader_tier_d": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "debug_short_text": "测试文本测试文本测试文本",
-  "debug_long_text": "测试文本测试文本测试文本测试文本，测试文本测试文本测试文本，测试文本测试",
-  "debug_name": "测试名称（类型）",
-  "to_zh": "（汉化）",
-  "download_apk_error": "获取安装包失败，请重试",
-  "install_apk_error": "安装失败",
-  "download_apk": "立即更新",
-  "download_apk_from_github": "从Github更新",
-  "apk_url": "https://github.com/wthee/pcr-tool/releases/download/v{arg1}/app-official-release.apk",
-  "@apk_url": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "request_install": "正在请求应用安装权限，开启权限后请重新更新",
-  "video_play_speed": "倍速:",
-  "play_error": "播放出错或资源不存在",
-  "video_resource_error": "资源不存在",
-  "save_video": "保存视频",
-  "video_caching": "视频缓存中...",
-  "saved": "已保存",
-  "title_download_file": "正在下载",
-  "download_file_notice": "文件下载通知",
-  "preview_spine_type": "预览类型",
-  "preview_spine_battle": "战斗",
-  "preview_spine_room": "小屋",
-  "talent_quest": "深域关卡",
-  "talent_weakness": "弱点属性",
-  "talent_weakness_tip": "弱点属性加成数值为最大值，即队伍中相同天赋角色数量为 5 时的数值",
-  "talent_item_1": "星素碎片*{arg1}",
-  "@talent_item_1": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "talnet_item_2": "水晶球*{arg1}",
-  "@talnet_item_2": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  }
+  "attr_tp": "TP"
 }

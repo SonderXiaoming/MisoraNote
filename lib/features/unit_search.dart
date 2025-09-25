@@ -7,7 +7,8 @@ import 'package:misora_note/features/component/custom_icon.dart';
 import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/unit_card.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
-import 'package:misora_note/features/component/search.dart';
+
+import 'package:misora_note/features/component/filter.dart';
 
 class SearchFilters extends StatelessWidget {
   final UnitSearchData searchData;
@@ -22,31 +23,25 @@ class SearchFilters extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
-
+    final textTheme = Theme.of(context).textTheme;
+    final textStyle = textTheme.bodyMedium;
     return Row(
       children: [
         // 位置过滤器
         Expanded(
-          child: FilterDropdown<SearchAreaWidthType>(
-            label: '位置',
+          child: FilterDropdownWithRadio<SearchAreaWidthType>(
+            label: t.position,
             value: searchData.searchAreaWidth,
+            selectedValue: searchData.searchAreaWidth,
             items: [
-              DropdownMenuItem<SearchAreaWidthType?>(
-                value: null,
-                child: Text('全部', style: TextStyle(fontSize: 14)),
-              ),
-              ...SearchAreaWidthType.values.map((type) => DropdownMenuItem(
-                    value: type,
-                    child: Row(
-                      children: [
-                        SearchAreaWidthType.getIcon(type, 16, 16),
-                        SizedBox(width: 4),
-                        Text(SearchAreaWidthType.getName(t, type),
-                            style: TextStyle(fontSize: 14)),
-                      ],
-                    ),
-                  )),
+              (null, t.position),
+              ...SearchAreaWidthType.values
+                  .map((type) => (type, SearchAreaWidthType.getName(t, type)))
             ],
+            itemStyleBuilder: (type) => type != null
+                ? textStyle?.copyWith(
+                    color: Color(SearchAreaWidthType.getColor(type)))
+                : textStyle,
             onChanged: (value) {
               if (searchData.searchAreaWidth != value) {
                 searchData.searchAreaWidth = value;
@@ -58,26 +53,17 @@ class SearchFilters extends StatelessWidget {
         SizedBox(width: 8),
         // 攻击类型过滤器
         Expanded(
-          child: FilterDropdown<AtkType>(
-            label: '攻击',
+          child: FilterDropdownWithRadio<AtkType>(
+            label: t.attack_type,
             value: searchData.atkType,
+            selectedValue: searchData.atkType,
             items: [
-              DropdownMenuItem<AtkType?>(
-                value: null,
-                child: Text('全部', style: TextStyle(fontSize: 14)),
-              ),
-              ...AtkType.values.map((type) => DropdownMenuItem(
-                    value: type,
-                    child: Row(
-                      children: [
-                        AtkType.getIcon(type, 16, 16),
-                        SizedBox(width: 4),
-                        Text(AtkType.getName(t, type),
-                            style: TextStyle(fontSize: 14)),
-                      ],
-                    ),
-                  )),
+              (null, t.attack_type),
+              ...AtkType.values.map((type) => (type, AtkType.getName(t, type)))
             ],
+            itemStyleBuilder: (type) => type != null
+                ? textStyle?.copyWith(color: Color(AtkType.getColor(type)))
+                : textStyle,
             onChanged: (value) {
               if (searchData.atkType != value) {
                 searchData.atkType = value;
@@ -87,53 +73,18 @@ class SearchFilters extends StatelessWidget {
           ),
         ),
         SizedBox(width: 8),
-        // 6星过滤器
-        Expanded(
-          child: FilterDropdown<bool>(
-            label: '6星',
-            value: searchData.isR6,
-            items: [
-              DropdownMenuItem<bool?>(
-                value: null,
-                child: Text('全部', style: TextStyle(fontSize: 14)),
-              ),
-              DropdownMenuItem(
-                value: true,
-                child: Text('6星', style: TextStyle(fontSize: 14)),
-              ),
-              DropdownMenuItem(
-                value: false,
-                child: Text('非6星', style: TextStyle(fontSize: 14)),
-              ),
-            ],
-            onChanged: (value) {
-              if (searchData.isR6 != value) {
-                searchData.isR6 = value;
-                onSearchDataChanged(searchData);
-              }
-            },
-          ),
-        ),
-        SizedBox(width: 8),
         // 专武过滤器
         Expanded(
-          child: FilterDropdown<(bool?, bool?)>(
-            label: '专武',
+          child: FilterDropdownWithRadio<(bool?, bool?)>(
+            label: t.tool_unique_equip,
             value: (searchData.hasUnique1, searchData.hasUnique2),
+            selectedValue: (searchData.hasUnique1, searchData.hasUnique2),
             items: [
-              DropdownMenuItem<(bool?, bool?)>(
-                value: (null, null),
-                child: Text('全部', style: TextStyle(fontSize: 14)),
-              ),
-              DropdownMenuItem(
-                value: (true, null),
-                child: Text('专武1', style: TextStyle(fontSize: 14)),
-              ),
-              DropdownMenuItem(
-                value: (true, true),
-                child: Text('专武2', style: TextStyle(fontSize: 14)),
-              ),
+              ((null, null), t.tool_unique_equip),
+              ((true, null), '${t.tool_unique_equip}1'),
+              ((true, true), '${t.tool_unique_equip}2'),
             ],
+            itemStyleBuilder: (_) => textStyle,
             onChanged: (value) {
               if (searchData.hasUnique1 != value?.$1 ||
                   searchData.hasUnique2 != value?.$2) {
@@ -170,6 +121,7 @@ class ShowResult extends StatefulWidget {
 class _ShowResult extends State<ShowResult> {
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     final texttheme = Theme.of(context).textTheme;
     // 如果正在搜索，显示加载状态
     if (widget.isSearching) {
@@ -182,11 +134,9 @@ class _ShowResult extends State<ShowResult> {
             ),
             const SizedBox(height: 16),
             Text(
-              '搜索中: "${widget.searchQuery}"',
-              style: TextStyle(
-                color: Color(CustomColors.colorGray),
-                fontSize: 16,
-              ),
+              '${t.searching}: "${widget.searchQuery}"',
+              style: texttheme.bodyLarge?.copyWith(
+                  color: Color(CustomColors.colorGray).withAlpha(150)),
             ),
           ],
         ),
@@ -205,7 +155,7 @@ class _ShowResult extends State<ShowResult> {
               color: Color(CustomColors.colorGray).withAlpha(100),
             ),
             const SizedBox(height: 16),
-            Text(widget.searchQuery.isEmpty ? '输入角色名称开始搜索' : '暂无搜索结果',
+            Text(t.no_search_result,
                 style: texttheme.bodyLarge?.copyWith(
                   color: Color(CustomColors.colorGray).withAlpha(150),
                 ))
@@ -281,6 +231,8 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
   String _searchQuery = '';
   bool isSearching = false; // 是否正在搜索
   bool _isSearchById = false; // 是否按ID搜索
+  bool _isAscending = false; // 是否正序排列
+  UnitRankType _rankType = UnitRankType.lastUpdate; // 排序方式
   UnitSearchData _searchData = UnitSearchData();
 
   @override
@@ -288,7 +240,12 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
     results = widget.perUnitIds;
     super.initState();
     final db = ref.read(dbProvider);
-    db.getUnitsData(type: UnitRankType.lastUpdate).then((units) {
+    db
+        .getUnitsData(
+      type: _rankType,
+      isDesc: !_isAscending,
+    )
+        .then((units) {
       if (mounted) {
         setState(() {
           results = units.map((e) => e.unitId).toList();
@@ -335,18 +292,51 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
   }
 
   void _loadDefaultResults() async {
+    final db = ref.read(dbProvider);
+    final units = await db.getUnitsData(
+      type: _rankType,
+      isDesc: !_isAscending,
+    );
+    if (mounted) {
+      setState(() {
+        results = units.map((e) => e.unitId).toList();
+        defaultResult = results.toList(growable: false);
+        isSearching = false;
+      });
+    }
+  }
+
+  void _toggleSortOrder() {
     setState(() {
-      results = defaultResult ?? [];
-      isSearching = false;
+      _isAscending = !_isAscending;
     });
+    if (_searchQuery.isEmpty && !_hasActiveFilters()) {
+      _loadDefaultResults();
+    } else {
+      _performSearchWithFilters();
+    }
+  }
+
+  void _changeRankType(UnitRankType? newRankType) {
+    if (newRankType != null && newRankType != _rankType) {
+      setState(() {
+        _rankType = newRankType;
+      });
+      if (_searchQuery.isEmpty && !_hasActiveFilters()) {
+        _loadDefaultResults();
+      } else {
+        _performSearchWithFilters();
+      }
+    }
   }
 
   Future<void> _performSearch(String query) async {
     try {
       final db = ref.read(dbProvider);
       final searchResults = await db.getUnitsData(
-        type: UnitRankType.lastUpdate,
+        type: _rankType,
         searchData: _searchData,
+        isDesc: !_isAscending,
       );
       if (mounted) {
         setState(() {
@@ -422,6 +412,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
     for (var id in db.r6Units) {
       r6Units[id] = true;
     }
+    final texttheme = Theme.of(context).textTheme;
     return Scaffold(
       body: Column(
         children: [
@@ -450,7 +441,8 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                 Expanded(
                   child: SearchBar(
                     controller: _searchController,
-                    hintText: _isSearchById ? '输入角色ID' : t.search_hit,
+                    hintText:
+                        _isSearchById ? t.search_hit_id : t.search_hit_name,
                     onChanged: _onSearchChanged,
                     textInputAction: TextInputAction.search,
                     keyboardType: _isSearchById
@@ -470,7 +462,6 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                                   size: 20,
                                 ),
                                 onPressed: _clearFilters,
-                                tooltip: '清除过滤器',
                               ),
                             if (_searchQuery.isNotEmpty)
                               IconButton(
@@ -514,6 +505,67 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                   onTap: _toggleSearchMode,
                   child: Icon(
                     _isSearchById ? Icons.tag : Icons.person,
+                    color: Color(CustomColors.colorPrimary),
+                    size: 25,
+                  ),
+                ),
+                const SizedBox(width: 4),
+                PopupMenuButton<UnitRankType>(
+                  onSelected: _changeRankType,
+                  position: PopupMenuPosition.under,
+                  elevation: 8,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  color: Colors.white,
+                  constraints: BoxConstraints(
+                    minWidth: 120,
+                    maxWidth: 150,
+                    maxHeight: 300,
+                  ),
+                  itemBuilder: (BuildContext context) {
+                    return UnitRankType.values.map((UnitRankType type) {
+                      final isSelected = type == _rankType;
+                      return PopupMenuItem<UnitRankType>(
+                        value: type,
+                        child: Row(
+                          children: [
+                            Icon(
+                              isSelected
+                                  ? Icons.radio_button_checked
+                                  : Icons.radio_button_unchecked,
+                              size: 16,
+                              color: isSelected
+                                  ? Color(CustomColors.colorPrimary)
+                                  : Colors.grey,
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                UnitRankType.getName(t, type),
+                                style: texttheme.bodyMedium,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }).toList();
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    child: Icon(
+                      Icons.sort,
+                      color: Color(CustomColors.colorPrimary),
+                      size: 22,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 4),
+                CustomIconButton(
+                  backgroundColor: Colors.transparent,
+                  onTap: _toggleSortOrder,
+                  child: Icon(
+                    _isAscending ? Icons.arrow_upward : Icons.arrow_downward,
                     color: Color(CustomColors.colorPrimary),
                     size: 25,
                   ),

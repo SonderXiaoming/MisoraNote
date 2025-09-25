@@ -51,6 +51,7 @@ dependencies:
   flutter_svg: ^2.2.1
   archive: ^4.0.7
   flutter_riverpod: ^3.0.0
+  msix: ^3.16.12
 
 dev_dependencies:
   flutter_test:
@@ -110,3 +111,10 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
   generate: true
+
+msix_config:
+  display_name: 美空笔记
+  publisher_display_name: 小明信息
+  identity_name: com.misora.note.cialloworld.app
+  msix_version: 1.0.0.0
+  logo_path: windows/runner/resources/app_icon.ico

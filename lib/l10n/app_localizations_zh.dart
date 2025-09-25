@@ -9,6 +9,12 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get unknown => '?';
+
+  @override
+  String get none => '';
+
+  @override
   String date_m_d(String arg1, String arg2) {
     return '$arg1 月 $arg2 日';
   }
@@ -37,6 +43,22 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get normal_attack => '普攻';
+
+  @override
+  String get union_burst => '连结爆发';
+
+  @override
+  String skill_index(int arg1) {
+    return '技能$arg1';
+  }
+
+  @override
+  String ex_skill_index(String arg1) {
+    return '额外技能$arg1';
+  }
+
+  @override
   String get skill_loop_start => '循环开始';
 
   @override
@@ -55,9 +77,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get sp_skill => 'SP技能';
 
   @override
-  String get search_hit => '请输入角色名/编号';
-
-  @override
   String get type_normal => '常驻';
 
   @override
@@ -70,13 +89,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get type_extra_character => '额外';
 
   @override
-  String get unknown => '?';
-
-  @override
   String get magic => '魔法';
 
   @override
   String get physical => '物理';
+
+  @override
+  String get position => '位置';
 
   @override
   String get position_front => '前卫';
@@ -88,76 +107,28 @@ class AppLocalizationsZh extends AppLocalizations {
   String get position_back => '后卫';
 
   @override
+  String get last_update => '最后更新';
+
+  @override
+  String get age => '年龄';
+
+  @override
+  String get height => '身高';
+
+  @override
+  String get weight => '体重';
+
+  @override
+  String get unit_id => '角色ID';
+
+  @override
+  String get birthday => '生日';
+
+  @override
+  String get search_area_width => '位置';
+
+  @override
   String get character => '角色';
-
-  @override
-  String get random_area => '额外掉落';
-
-  @override
-  String random_drop_area_title(int arg1) {
-    return '区域 $arg1';
-  }
-
-  @override
-  String get random_drop_area_1 => '（前半）';
-
-  @override
-  String get random_drop_area_2 => '（后半）';
-
-  @override
-  String get qq_group => '反馈交流群';
-
-  @override
-  String get to_feedback => '反馈';
-
-  @override
-  String get qq_group_summary => '有任何问题或建议，可在群内反馈';
-
-  @override
-  String get to_join_qq_group => '加入QQ群';
-
-  @override
-  String get clean_image_cache => '清除缓存';
-
-  @override
-  String get tip_clean_cache => '加载缓存，可减少网络数据使用。正常使用中请勿清除';
-
-  @override
-  String cache_size(String arg1, int arg2) {
-    return '占用：$arg1\\n数量：$arg2';
-  }
-
-  @override
-  String get confirm_clean_cache => '清除缓存后，下次打开应用将通过网络重新加载图片';
-
-  @override
-  String get github => 'GitHub';
-
-  @override
-  String get afd => '爱发电';
-
-  @override
-  String get sponsor => '支持';
-
-  @override
-  String get afd_url => 'https://afdian.com/a/wthee';
-
-  @override
-  String get tip_afd => '期待你的关注与支持';
-
-  @override
-  String get please => '✪ ω ✪';
-
-  @override
-  String get github_project_url => 'https://github.com/wthee/pcr-tool';
-
-  @override
-  String get tip_github => '项目开源代码';
-
-  @override
-  String mode(int arg1) {
-    return 'MODE$arg1';
-  }
 
   @override
   String clan_battle_y_m(String arg1, String arg2) {
@@ -165,606 +136,25 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get update => '更新';
-
-  @override
-  String get system => '系统';
-
-  @override
-  String get event => '活动';
-
-  @override
-  String get shop => '周边';
-
-  @override
-  String get local_note => '本地化笔记';
-
-  @override
-  String get search_suggestion => '快捷输入';
-
-  @override
-  String get search_api => '查询';
-
-  @override
-  String get search_api_desc => '需要网络';
-
-  @override
-  String get tool_all_quest => '主线地图';
-
-  @override
-  String get pick_date => '选择日期';
-
-  @override
-  String get picked_date => '已选择';
-
-  @override
-  String get beta_tool_group => '测试';
-
-  @override
-  String get beta_tool_group_title => '后续将调整至其他分组或移除';
-
-  @override
-  String get all_unit_calc_equip => '全角色装备统计';
-
-  @override
-  String get to => ' ~ ';
-
-  @override
-  String get title_comic_zh => '优妮hnn汉化组';
-
-  @override
-  String get tip_comic_zh => '漫画汉化';
-
-  @override
-  String get comic_zh_url => 'https://space.bilibili.com/3260075';
-
-  @override
-  String get title_jp_info => 'PCR公主连结日服情报站';
-
-  @override
-  String get tip_jp_info => '日服最新情报';
-
-  @override
-  String get jp_info_url => 'https://space.bilibili.com/1731293061';
-
-  @override
-  String get tool_unique_equip => '专用装备';
-
-  @override
-  String get search_unique_equip => '装备名/角色名';
+  String get tool_unique_equip => '专武';
 
   @override
   String get character_detail => '角色详情';
 
   @override
-  String get tool_load_comic => '过场漫画';
+  String get attack_type => '类型';
 
   @override
-  String get description => '描述';
+  String get no_search_result => '无搜索结果';
 
   @override
-  String get pvp_search => '查询';
+  String get searching => '搜索中';
 
   @override
-  String get pvp_upload => '上传记录';
+  String get search_hit_name => '请输入角色名';
 
   @override
-  String get pvp_no_data => '未查询到进攻队伍信息';
-
-  @override
-  String get research => '重新查询';
-
-  @override
-  String get pvp_search_on_web => '去网站查询';
-
-  @override
-  String team_no(String arg1) {
-    return '进攻队伍 $arg1';
-  }
-
-  @override
-  String get team_win => '进攻';
-
-  @override
-  String get team_lose => '防守';
-
-  @override
-  String get tip_select_5 => '请选择 5 名角色';
-
-  @override
-  String get tip_selected_5 => '已选择 5 名角色';
-
-  @override
-  String get tool_pvp => '竞技场';
-
-  @override
-  String get pvp_no_favorites => '暂无收藏';
-
-  @override
-  String get pvp_no_history => '暂无查询历史';
-
-  @override
-  String get pvp_service => '竞技场查询服务';
-
-  @override
-  String get pvp_service_running => '竞技场查询服务正在运行';
-
-  @override
-  String get close_app => '关闭应用';
-
-  @override
-  String get cancel => '取消';
-
-  @override
-  String get confirm => '确认';
-
-  @override
-  String get to_add_tool => '添加功能';
-
-  @override
-  String get edit => '管理功能';
-
-  @override
-  String get done => '完成';
-
-  @override
-  String get copy_all => '全部复制';
-
-  @override
-  String get open_browser => '在浏览器中打开';
-
-  @override
-  String copy_qq_group(String arg1) {
-    return '已复制QQ群号：$arg1';
-  }
-
-  @override
-  String get share_to => '分享到：';
-
-  @override
-  String release(String arg1) {
-    return '$arg1 发布';
-  }
-
-  @override
-  String get daily_mission => '每日任务体力';
-
-  @override
-  String get daily_login => '每日登录宝石奖励，共计';
-
-  @override
-  String get fortune_event => '兰德索尔杯';
-
-  @override
-  String get normal => '普通关卡';
-
-  @override
-  String get hard => '困难关卡';
-
-  @override
-  String get very_hard => '高难关卡';
-
-  @override
-  String get explore => '探索';
-
-  @override
-  String get shrine => '圣迹调查';
-
-  @override
-  String get temple => '神殿调查';
-
-  @override
-  String get dungeon => '地下城';
-
-  @override
-  String get drop => '掉落量';
-
-  @override
-  String get mana => '玛那掉落量';
-
-  @override
-  String multiple(String arg1) {
-    return '$arg1倍';
-  }
-
-  @override
-  String free_gacha_content(int arg1) {
-    return '「免费十连」$arg1 次';
-  }
-
-  @override
-  String get story_event_sub => '支线';
-
-  @override
-  String get story_event_re => '复刻';
-
-  @override
-  String get story_event_preview => '预告';
-
-  @override
-  String get story_event_new => '活动';
-
-  @override
-  String clan_battle_month(int arg1) {
-    return '$arg1月公会战';
-  }
-
-  @override
-  String get title_ex_skill_add => 'EX+ 额外数值';
-
-  @override
-  String get title_skill_1_add => '技能+ 额外数值';
-
-  @override
-  String get title_skill_1_coe => '技能+ 系数';
-
-  @override
-  String get title_ub_add => '连结爆发+ 额外数值';
-
-  @override
-  String get title_ub_coe => '连结爆发+ 系数';
-
-  @override
-  String attr_all_value(String arg1) {
-    return '战力：$arg1';
-  }
-
-  @override
-  String get title_attr_tip => '属性数值说明';
-
-  @override
-  String get attr_calc => '角色属性数值 = 基本属性 + 剧情属性 + 被动技能（不计算到战力） + RANK 奖励属性';
-
-  @override
-  String get tip_status_coe => '※ 数值与游戏数值可能存在一定误差，请以游戏内为准';
-
-  @override
-  String get no_more => '暂无更多';
-
-  @override
-  String get no_data => '暂无数据';
-
-  @override
-  String get data_get_error => '数据获取失败';
-
-  @override
-  String get not_installed => '暂未实装';
-
-  @override
-  String get tip_click_to_add => '点击下列功能，添加至首页';
-
-  @override
-  String get tip_save_to_gallery => '保存至系统相册';
-
-  @override
-  String get wait_pic_load => '请等待图片加载完成';
-
-  @override
-  String get wait_video_load => '请等待视频加载完成';
-
-  @override
-  String pic_exist(String arg1) {
-    return '图片已存在\\n$arg1';
-  }
-
-  @override
-  String video_exist(String arg1) {
-    return '视频已存在\\n$arg1';
-  }
-
-  @override
-  String save_success(String arg1) {
-    return '已成功保存至系统相册\\n$arg1';
-  }
-
-  @override
-  String get save_failure => '保存失败';
-
-  @override
-  String get save_error => '保存异常';
-
-  @override
-  String get download_failure => '下载失败';
-
-  @override
-  String get copy_success => '文本已复制';
-
-  @override
-  String get title_api_request_error => '网络请求异常';
-
-  @override
-  String get title_dialog_delete => '删除';
-
-  @override
-  String get title_dialog_save_img => '保存图片';
-
-  @override
-  String get title_dialog_clean_cache => '清除缓存';
-
-  @override
-  String find_new_release(String arg1) {
-    return 'v$arg1 已发布';
-  }
-
-  @override
-  String get change_failed => '切换失败';
-
-  @override
-  String get check_db_error => '数据版本获取失败';
-
-  @override
-  String get db_file_error_re_download => '数据文件已损坏\\n请点此[重新下载]数据';
-
-  @override
-  String get db_error => '数据异常';
-
-  @override
-  String get remote_db_file_error => '远程数据异常\\n请[加群反馈]';
-
-  @override
-  String get re_download_db_file => '若数据加载或下载异常\\n请点此[重新下载]数据';
-
-  @override
-  String get title_db_downloading => '正在下载数据';
-
-  @override
-  String get db_download_cancel => '下载因未知原因中断，请重新下载';
-
-  @override
-  String get update_database => '数据更新';
-
-  @override
-  String get db_download_failure => '数据下载失败，请重新下载';
-
-  @override
-  String get db_download_exception => '数据下载出现异常，请重新下载';
-
-  @override
-  String get db_load_failure => '数据加载失败，请重试';
-
-  @override
-  String get db_diff_version => '版本';
-
-  @override
-  String get db_diff_content => '更新内容';
-
-  @override
-  String get db_diff_time => '日期';
-
-  @override
-  String get db_diff_content_none => '其他';
-
-  @override
-  String get db_cn => '国服';
-
-  @override
-  String get db_tw => '台服';
-
-  @override
-  String get db_jp => '日服';
-
-  @override
-  String get limit_re => '复刻限定';
-
-  @override
-  String get limit_re_pick => '复刻自选';
-
-  @override
-  String get normal_re => '复刻常驻';
-
-  @override
-  String get fes => '公主庆典';
-
-  @override
-  String get anv => '周年';
-
-  @override
-  String get gacha_fes => 'Fes限定★3';
-
-  @override
-  String get gacha_limit => '限定★3';
-
-  @override
-  String get gacha_normal => '常驻★3';
-
-  @override
-  String get tool_mock_gacha => '抽卡模拟';
-
-  @override
-  String get gacha_pick_up_normal => '全角色 UP';
-
-  @override
-  String get gacha_pick_up_fes => 'Fes UP';
-
-  @override
-  String get gacha_pick_up_single => '单角色 UP';
-
-  @override
-  String get tip_to_pick_up => '请选择角色';
-
-  @override
-  String get tip_to_pick_up_normal => '所选角色概率相同';
-
-  @override
-  String get tip_to_pick_up_single => '仅最后选择的角色概率提升';
-
-  @override
-  String get tip_to_mock_single => '单角色 UP：至少选择2名角色';
-
-  @override
-  String get tip_no_gacha_record => '暂无抽卡记录';
-
-  @override
-  String get reset_record => '重置卡池';
-
-  @override
-  String get delete_gacha => '删除卡池';
-
-  @override
-  String get tip_delete_gacha => '删除卡池记录和模拟抽卡记录';
-
-  @override
-  String get go_to_mock => '去抽卡';
-
-  @override
-  String gacha_max_select_count(int arg1) {
-    return '最多可选 $arg1 名角色';
-  }
-
-  @override
-  String last_gacha_date(int arg1, String arg2) {
-    return '已抽$arg1次，$arg2';
-  }
-
-  @override
-  String gacha_used_gem(int arg1) {
-    return '宝石 $arg1';
-  }
-
-  @override
-  String gacha_order(int arg1) {
-    return '第 $arg1 次';
-  }
-
-  @override
-  String get selected_mark => '✓';
-
-  @override
-  String get extra_equip_normal => '普通';
-
-  @override
-  String get extra_equip_clan => '公会战';
-
-  @override
-  String get extra_equip_flag => '适用场景';
-
-  @override
-  String get extra_equip_category => '类型';
-
-  @override
-  String get extra_equip_passive_skill => '被动技能';
-
-  @override
-  String get extra_equip_default_value => '初始';
-
-  @override
-  String get extra_equip_max_value => '上限';
-
-  @override
-  String get tool_extra_equip => 'EX装备';
-
-  @override
-  String extra_equip_rarity_and_type(int arg1, String arg2) {
-    return '★$arg1  $arg2';
-  }
-
-  @override
-  String get extra_equip_rarity => '稀有度';
-
-  @override
-  String get extra_equip_unit => '适用角色';
-
-  @override
-  String get extra_equip_no_drop_quest => '暂无掉落区域';
-
-  @override
-  String get tool_travel => 'EX冒险';
-
-  @override
-  String get unit_extra_equip_slot => '适用装备';
-
-  @override
-  String get travel_limit_unit_num => '人数上限';
-
-  @override
-  String get travel_need_power => '所需战力';
-
-  @override
-  String get travel_time => '所需时间';
-
-  @override
-  String get travel_time_decrease_limit => '缩减时间';
-
-  @override
-  String get ex_equip_drop_odd => '%.2f%';
-
-  @override
-  String get union_burst => '连结爆发';
-
-  @override
-  String skill_index(int arg1) {
-    return '技能$arg1';
-  }
-
-  @override
-  String ex_skill_index(String arg1) {
-    return '额外技能$arg1';
-  }
-
-  @override
-  String character_summon_info(int arg1, int arg2, int arg3) {
-    return '等级：$arg1 / RANK：$arg2 / 星级：$arg3';
-  }
-
-  @override
-  String get normal_attack => '普攻';
-
-  @override
-  String get ub_video => '技能动画';
-
-  @override
-  String get color_blue => '蓝';
-
-  @override
-  String get color_copper => '铜';
-
-  @override
-  String get color_silver => '银';
-
-  @override
-  String get color_gold => '金';
-
-  @override
-  String get color_purple => '紫';
-
-  @override
-  String get color_red => '红';
-
-  @override
-  String get color_green => '绿';
-
-  @override
-  String get color_orange => '橙';
-
-  @override
-  String get color_cyan => '青';
-
-  @override
-  String get color_pink => '粉';
-
-  @override
-  String get no1 => '一';
-
-  @override
-  String get no2 => '二';
-
-  @override
-  String get no3 => '三';
-
-  @override
-  String get no4 => '四';
-
-  @override
-  String get no5 => '五';
-
-  @override
-  String get no6 => '六';
-
-  @override
-  String get no7 => '七';
-
-  @override
-  String get none => '';
+  String get search_hit_id => '请输入角色ID';
 
   @override
   String get skill_type_1 => '伤害';
@@ -2396,132 +1786,4 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get attr_tp => 'TP';
-
-  @override
-  String day(int arg1) {
-    return '$arg1天';
-  }
-
-  @override
-  String hour(int arg1) {
-    return '$arg1时';
-  }
-
-  @override
-  String minute(int arg1) {
-    return '$arg1分';
-  }
-
-  @override
-  String get response_error => '未正常获取数据，请切换网络后重试';
-
-  @override
-  String get response_cancel => '查询取消';
-
-  @override
-  String get leader_need_sync => '未关联';
-
-  @override
-  String get only_jp => '基于日服版本的评价，仅供参考';
-
-  @override
-  String get tool_leader_tier => '角色梯队';
-
-  @override
-  String get leader_tier_0 => '综合';
-
-  @override
-  String get leader_tier_1 => '竞技场进攻';
-
-  @override
-  String get leader_tier_2 => '竞技场防守';
-
-  @override
-  String leader_tier_d(String arg1) {
-    return 'T$arg1';
-  }
-
-  @override
-  String get debug_short_text => '测试文本测试文本测试文本';
-
-  @override
-  String get debug_long_text => '测试文本测试文本测试文本测试文本，测试文本测试文本测试文本，测试文本测试';
-
-  @override
-  String get debug_name => '测试名称（类型）';
-
-  @override
-  String get to_zh => '（汉化）';
-
-  @override
-  String get download_apk_error => '获取安装包失败，请重试';
-
-  @override
-  String get install_apk_error => '安装失败';
-
-  @override
-  String get download_apk => '立即更新';
-
-  @override
-  String get download_apk_from_github => '从Github更新';
-
-  @override
-  String apk_url(String arg1) {
-    return 'https://github.com/wthee/pcr-tool/releases/download/v$arg1/app-official-release.apk';
-  }
-
-  @override
-  String get request_install => '正在请求应用安装权限，开启权限后请重新更新';
-
-  @override
-  String get video_play_speed => '倍速:';
-
-  @override
-  String get play_error => '播放出错或资源不存在';
-
-  @override
-  String get video_resource_error => '资源不存在';
-
-  @override
-  String get save_video => '保存视频';
-
-  @override
-  String get video_caching => '视频缓存中...';
-
-  @override
-  String get saved => '已保存';
-
-  @override
-  String get title_download_file => '正在下载';
-
-  @override
-  String get download_file_notice => '文件下载通知';
-
-  @override
-  String get preview_spine_type => '预览类型';
-
-  @override
-  String get preview_spine_battle => '战斗';
-
-  @override
-  String get preview_spine_room => '小屋';
-
-  @override
-  String get talent_quest => '深域关卡';
-
-  @override
-  String get talent_weakness => '弱点属性';
-
-  @override
-  String get talent_weakness_tip => '弱点属性加成数值为最大值，即队伍中相同天赋角色数量为 5 时的数值';
-
-  @override
-  String talent_item_1(String arg1) {
-    return '星素碎片*$arg1';
-  }
-
-  @override
-  String talnet_item_2(String arg1) {
-    return '水晶球*$arg1';
-  }
 }

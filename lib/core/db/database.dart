@@ -108,6 +108,14 @@ class AppDb extends _$AppDb {
           ]);
       case UnitRankType.age:
         sql = sql
+          ..join(
+            [
+              leftOuterJoin(
+                unitProfile,
+                unitProfile.unitId.equalsExp(unitData.unitId),
+              ),
+            ],
+          )
           ..orderBy([
             OrderingTerm(
               expression: unitProfile.age.cast<int>(),
@@ -116,6 +124,14 @@ class AppDb extends _$AppDb {
           ]);
       case UnitRankType.height:
         sql = sql
+          ..join(
+            [
+              leftOuterJoin(
+                unitProfile,
+                unitProfile.unitId.equalsExp(unitData.unitId),
+              ),
+            ],
+          )
           ..orderBy([
             OrderingTerm(
               expression: unitProfile.height.cast<int>(),
@@ -124,6 +140,14 @@ class AppDb extends _$AppDb {
           ]);
       case UnitRankType.weight:
         sql = sql
+          ..join(
+            [
+              leftOuterJoin(
+                unitProfile,
+                unitProfile.unitId.equalsExp(unitData.unitId),
+              ),
+            ],
+          )
           ..orderBy([
             OrderingTerm(
               expression: unitProfile.weight.cast<int>(),
@@ -132,6 +156,14 @@ class AppDb extends _$AppDb {
           ]);
       case UnitRankType.birthDay:
         sql = sql
+          ..join(
+            [
+              leftOuterJoin(
+                unitProfile,
+                unitProfile.unitId.equalsExp(unitData.unitId),
+              ),
+            ],
+          )
           ..orderBy([
             OrderingTerm(
               expression: unitProfile.birthMonth.cast<int>(),
@@ -158,7 +190,21 @@ class AppDb extends _$AppDb {
     }
     if (searchData != null) {
       if (searchData.unitId != null) {
-        sql = sql..where(unitData.unitId.equals(searchData.unitId!));
+        final inputId = searchData.unitId!;
+        final idString = inputId.toString();
+        if (idString.length == 4) {
+          // 4位数：后面加01
+          sql = sql..where(unitData.unitId.equals(int.parse('${idString}01')));
+        } else if (idString.length > 4) {
+          sql = sql..where(unitData.unitId.equals(inputId));
+        } else {
+          // 小于4位数：生成两个数字，一个补0到四位数，一个补9
+          final startId = int.parse(idString.padRight(4, '0')) * 100 + 1;
+          final endId = int.parse(idString.padRight(4, '9')) * 100 + 1;
+          sql = sql
+            ..where(
+                unitData.unitId.isBetween(Constant(startId), Constant(endId)));
+        }
       }
       if (searchData.unitName != null && searchData.unitName!.isNotEmpty) {
         sql = sql..where(unitData.unitName.like('%${searchData.unitName!}%'));

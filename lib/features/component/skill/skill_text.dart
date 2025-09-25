@@ -1,6 +1,4 @@
 import 'dart:math';
-
-import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 import 'package:misora_note/core/db/model.dart';

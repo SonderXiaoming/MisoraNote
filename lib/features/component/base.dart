@@ -9,7 +9,26 @@ enum UnitRankType {
   weight,
   unitId,
   birthDay,
-  searchAreaWidth
+  searchAreaWidth;
+
+  static String getName(AppLocalizations t, UnitRankType type) {
+    switch (type) {
+      case UnitRankType.lastUpdate:
+        return t.last_update;
+      case UnitRankType.age:
+        return t.age;
+      case UnitRankType.height:
+        return t.height;
+      case UnitRankType.weight:
+        return t.weight;
+      case UnitRankType.unitId:
+        return t.unit_id;
+      case UnitRankType.birthDay:
+        return t.birthday;
+      case UnitRankType.searchAreaWidth:
+        return t.position;
+    }
+  }
 }
 
 enum SearchAreaWidthType {
