@@ -4,7 +4,7 @@ import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 import 'package:misora_note/core/db/model.dart';
-import 'package:misora_note/features/skill/skill_type.dart';
+import 'package:misora_note/features/component/skill/skill_type.dart';
 
 class ActionHandler {
   late AppLocalizations t;
@@ -333,30 +333,29 @@ class ActionHandler {
 
   String getAura(int v, String valueText) {
     // 作用
-    final actionType =
-        v == 1
-            ? t.skill_hp_max
-            : {
-                  1: t.attr_atk,
-                  2: t.attr_def,
-                  3: t.attr_magic_str,
-                  4: t.attr_magic_def,
-                  5: t.attr_dodge,
-                  6: t.attr_physical_critical,
-                  7: t.attr_magic_critical,
-                  8: t.attr_energy_recovery_rate,
-                  9: t.attr_life_steal,
-                  10: t.skill_speed,
-                  11: t.skill_physical_critical_damage,
-                  12: t.skill_magic_critical_damage,
-                  13: t.attr_accuracy,
-                  14: t.skill_critical_damage_take,
-                  16: t.skill_physical_damage_take,
-                  17: t.skill_magic_damage_take,
-                  18: t.skill_physical_damage,
-                  19: t.skill_magic_damage,
-                }[v % 1000 ~/ 10] ??
-                t.unknown;
+    final actionType = v == 1
+        ? t.skill_hp_max
+        : {
+              1: t.attr_atk,
+              2: t.attr_def,
+              3: t.attr_magic_str,
+              4: t.attr_magic_def,
+              5: t.attr_dodge,
+              6: t.attr_physical_critical,
+              7: t.attr_magic_critical,
+              8: t.attr_energy_recovery_rate,
+              9: t.attr_life_steal,
+              10: t.skill_speed,
+              11: t.skill_physical_critical_damage,
+              12: t.skill_magic_critical_damage,
+              13: t.attr_accuracy,
+              14: t.skill_critical_damage_take,
+              16: t.skill_physical_damage_take,
+              17: t.skill_magic_damage_take,
+              18: t.skill_physical_damage,
+              19: t.skill_magic_damage,
+            }[v % 1000 ~/ 10] ??
+            t.unknown;
     String type = "";
     if ([14, 16, 17].contains(v ~/ 10)) {
       type = "${v % 10 == 0 ? t.skill_reduce : t.skill_increase} $valueText";
@@ -388,9 +387,10 @@ class ActionHandler {
           1400: t.skill_status_1400,
           1600: t.skill_status_1600,
           1601: t.skill_status_1601,
-          1700:
-              {21: t.skill_status_1700_21, 41: t.skill_status_1700_41}[action
-                  .actionValue3] ??
+          1700: {
+                21: t.skill_status_1700_21,
+                41: t.skill_status_1700_41
+              }[action.actionValue3] ??
               t.unknown,
           721: t.skill_status_721,
           6107: t.skill_status_6107,
@@ -645,11 +645,10 @@ class ActionHandler {
     final adaptive =
         action.actionDetail2 == 1 ? t.skill_adaptive_lower_defense : "";
     final mustCritical = action.actionValue5 == 1 ? t.skill_must_critical : "";
-    final ignoreDef =
-        (action.actionValue7 > 0 ||
-                [106501108, 106501109].contains(action.actionId))
-            ? t.skill_ignore_def(action.actionValue7.toStringAsFixed(0))
-            : "";
+    final ignoreDef = (action.actionValue7 > 0 ||
+            [106501108, 106501109].contains(action.actionId))
+        ? t.skill_ignore_def(action.actionValue7.toStringAsFixed(0))
+        : "";
     String multiple = "";
     String multipleDamage = "";
     String value = "";
@@ -761,24 +760,23 @@ class ActionHandler {
   }
 
   String speed() {
-    tag =
-        ({
-              1: t.skill_ailment_1,
-              2: t.skill_ailment_2,
-              3: t.skill_ailment_3,
-              4: t.skill_ailment_4,
-              5: t.skill_ailment_5,
-              6: t.skill_ailment_6,
-              7: t.skill_ailment_7_12_14,
-              12: t.skill_ailment_7_12_14,
-              14: t.skill_ailment_7_12_14,
-              8: t.skill_ailment_8,
-              9: t.skill_ailment_9,
-              10: t.skill_ailment_10,
-              11: t.skill_ailment_11,
-              13: t.skill_ailment_13,
-            }[action.actionDetail1] ??
-            t.unknown);
+    tag = ({
+          1: t.skill_ailment_1,
+          2: t.skill_ailment_2,
+          3: t.skill_ailment_3,
+          4: t.skill_ailment_4,
+          5: t.skill_ailment_5,
+          6: t.skill_ailment_6,
+          7: t.skill_ailment_7_12_14,
+          12: t.skill_ailment_7_12_14,
+          14: t.skill_ailment_7_12_14,
+          8: t.skill_ailment_8,
+          9: t.skill_ailment_9,
+          10: t.skill_ailment_10,
+          11: t.skill_ailment_11,
+          13: t.skill_ailment_13,
+        }[action.actionDetail1] ??
+        t.unknown);
     final value = getValueText(1, action.actionValue1, action.actionValue2);
     final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
     String descText = "";
@@ -814,19 +812,18 @@ class ActionHandler {
   }
 
   String dot() {
-    tag =
-        ({
-              0: t.skill_dot_0,
-              1: t.skill_dot_1_7,
-              7: t.skill_dot_1_7,
-              2: t.skill_dot_2,
-              3: t.skill_dot_3_8,
-              8: t.skill_dot_3_8,
-              4: t.skill_dot_4,
-              5: t.skill_dot_5,
-              11: t.skill_dot_11,
-            }[action.actionDetail1] ??
-            t.unknown);
+    tag = ({
+          0: t.skill_dot_0,
+          1: t.skill_dot_1_7,
+          7: t.skill_dot_1_7,
+          2: t.skill_dot_2,
+          3: t.skill_dot_3_8,
+          8: t.skill_dot_3_8,
+          4: t.skill_dot_4,
+          5: t.skill_dot_5,
+          11: t.skill_dot_11,
+        }[action.actionDetail1] ??
+        t.unknown);
     final value = getValueText(
       1,
       action.actionValue1,
@@ -834,10 +831,9 @@ class ActionHandler {
       percent: getPercent(),
     );
     final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
-    final dotIncrease =
-        action.actionDetail1 == 5
-            ? t.skill_action_dot_increase(action.actionValue5.toInt())
-            : "";
+    final dotIncrease = action.actionDetail1 == 5
+        ? t.skill_action_dot_increase(action.actionValue5.toInt())
+        : "";
     return t.skill_action_type_desc_9(
       getTarget(),
       tag,
@@ -880,8 +876,7 @@ class ActionHandler {
     );
     final time = getTimeText(1, action.actionValue1, v2: action.actionValue2);
     if (action.actionType == SkillActionType.charm.value) {
-      tag =
-          {0: t.skill_charm_0, 1: t.skill_charm_1}[action.actionDetail1] ??
+      tag = {0: t.skill_charm_0, 1: t.skill_charm_1}[action.actionDetail1] ??
           t.unknown;
     } else if (action.actionType == SkillActionType.silence.value) {
       tag = t.skill_type_13;
@@ -943,8 +938,7 @@ class ActionHandler {
   }
 
   String trigger() {
-    final desc =
-        {
+    final desc = {
           2: t.skill_action_type_desc_17_2(action.actionValue1.toInt()),
           3: t.skill_action_type_desc_17_3(action.actionValue3.toInt()),
           4: t.skill_action_type_desc_17_4(action.actionValue1.toInt()),
@@ -999,8 +993,7 @@ class ActionHandler {
   }
 
   String triggerV2() {
-    final effect =
-        {
+    final effect = {
           1: t.skill_action_type_desc_77_1 + t.skill_buff,
           2: t.skill_action_type_desc_77_1 + t.skill_action_type_desc_111_2,
         }[action.actionDetail1] ??
@@ -1037,8 +1030,7 @@ class ActionHandler {
   String invincible() {
     // 回避等技能限制
     initOtherLimit();
-    tag =
-        {
+    tag = {
           1: t.skill_action_type_desc_21_1,
           2: t.skill_action_type_desc_21_2,
           3: t.skill_action_type_desc_21_3,
@@ -1239,8 +1231,7 @@ class ActionHandler {
 
   String coefficient() {
     // ------------ 1) 计算 attrType ------------
-    final attrType =
-        {
+    final attrType = {
           7: t.skill_physical_str,
           8: t.skill_magic_str,
           9: t.skill_physical_def,
@@ -1548,16 +1539,14 @@ class ActionHandler {
     final value = getValueText(1, action.actionValue1, action.actionValue2);
     final type = getBarrierType(action.actionDetail1);
     final shieldText = t.skill_action_type_desc_6(getTarget(), type, "", "");
-    final backType =
-        {
+    final backType = {
           1: t.skill_physical,
           3: t.skill_physical,
           2: t.skill_magic,
           4: t.skill_magic,
         }[action.actionDetail1] ??
         "";
-    final hpRecovery =
-        {
+    final hpRecovery = {
           3: t.skill_action_type_desc_33_hp,
           4: t.skill_action_type_desc_33_hp,
           6: t.skill_action_type_desc_33_hp,
@@ -1680,12 +1669,10 @@ class ActionHandler {
       action.actionValue2,
       percent: "%",
     );
-    final limit =
-        action.actionValue3 != 0.0
-            ? t.skill_action_damage_limit_int(action.actionValue3.toInt())
-            : "";
-    final result =
-        {
+    final limit = action.actionValue3 != 0.0
+        ? t.skill_action_damage_limit_int(action.actionValue3.toInt())
+        : "";
+    final result = {
           1: t.skill_action_type_desc_46_1(getTarget(), value),
           2: t.skill_action_type_desc_46_2(getTarget(), value),
           3: t.skill_action_type_desc_46_3(getTarget(), value),
@@ -1723,8 +1710,7 @@ class ActionHandler {
       v3: 0.0,
       percent: "%",
     );
-    final type =
-        {
+    final type = {
           1: t.skill_buff,
           3: t.skill_buff,
           2: t.skill_debuff,
@@ -1875,14 +1861,12 @@ class ActionHandler {
   }
 
   String loop() {
-    final successClause =
-        action.actionDetail2 != 0
-            ? t.skill_action_type_desc_63_success(action.actionDetail2 % 100)
-            : t.unknown;
-    final failureClause =
-        action.actionDetail3 != 0
-            ? t.skill_action_type_desc_63_failure(action.actionDetail3 % 100)
-            : t.unknown;
+    final successClause = action.actionDetail2 != 0
+        ? t.skill_action_type_desc_63_success(action.actionDetail2 % 100)
+        : t.unknown;
+    final failureClause = action.actionDetail3 != 0
+        ? t.skill_action_type_desc_63_failure(action.actionDetail3 % 100)
+        : t.unknown;
     final main = t.skill_action_type_desc_63(
       action.actionValue2.toString(),
       action.actionDetail1 % 100,
@@ -1921,9 +1905,11 @@ class ActionHandler {
   }
 
   String damageReduce() {
-    final type =
-        {1: t.skill_physical, 2: t.skill_magic, 3: t.skill_all}[action
-            .actionDetail1] ??
+    final type = {
+          1: t.skill_physical,
+          2: t.skill_magic,
+          3: t.skill_all
+        }[action.actionDetail1] ??
         "UNKNOWN";
     final value = getValueText(
       1,
@@ -1970,8 +1956,7 @@ class ActionHandler {
 
   String ifBuffSeal() {
     final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
-    final effect =
-        {
+    final effect = {
           1: t.skill_action_type_desc_77_1 + t.skill_buff,
           2: t.skill_action_type_desc_77_1 + t.skill_damage,
           3: t.skill_action_type_desc_77_1 + t.skill_status_down,
@@ -1994,8 +1979,7 @@ class ActionHandler {
     final limit = t.skill_action_limit_int(action.actionValue1.toInt());
     final countType =
         {1: t.skill_action_type_desc_78_1}[action.actionDetail1] ?? t.unknown;
-    final effectType =
-        {
+    final effectType = {
           1: t.skill_action_type_desc_additive,
           2: t.skill_action_type_desc_subtract,
         }[action.actionDetail2] ??
@@ -2033,8 +2017,7 @@ class ActionHandler {
   }
 
   String ex() {
-    final type =
-        {
+    final type = {
           1: t.attr_hp,
           2: t.attr_atk,
           3: t.attr_def,
@@ -2085,7 +2068,6 @@ class ActionHandler {
     return t.skill_action_type_desc_field(
       tp,
       action.actionValue5.toInt(),
-
       time,
     );
   }
@@ -2114,10 +2096,9 @@ class ActionHandler {
 
   String ignoreSpeedDown() {
     final time = getTimeText(3, action.actionValue3);
-    final limit =
-        action.actionValue1 == -1
-            ? t.none
-            : t.skill_action_type_desc_100_count(action.actionValue1.toInt());
+    final limit = action.actionValue1 == -1
+        ? t.none
+        : t.skill_action_type_desc_100_count(action.actionValue1.toInt());
     return t.skill_action_type_desc_100(getTarget(), limit, time);
   }
 
@@ -2129,8 +2110,7 @@ class ActionHandler {
   }
 
   String environment() {
-    final type =
-        {
+    final type = {
           137: t.skill_status_3137,
           162: t.skill_status_3162,
           175: t.skill_status_3175,
@@ -2143,8 +2123,9 @@ class ActionHandler {
   }
 
   String guard() {
-    final type =
-        {141: t.skill_action_type_desc_106_type_141}[action.actionDetail1] ??
+    final type = {
+          141: t.skill_action_type_desc_106_type_141
+        }[action.actionDetail1] ??
         t.skill_action_type_desc_106_type_common;
     final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
     return t.skill_action_type_desc_106(getTarget(), type, time);

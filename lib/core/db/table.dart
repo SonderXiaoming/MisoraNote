@@ -484,3 +484,42 @@ class UniqueEquipmentData extends Table {
       integer().named("enable_donation").nullable()();
   RealColumn get accuracy => real().named("accuracy").nullable()();
 }
+
+class UnlockUnitCondition extends Table {
+  @override
+  String get tableName => "unlock_unit_condition";
+  @override
+  Set<Column> get primaryKey => {unitId};
+
+  IntColumn get unitId => integer()(); // 主键
+  TextColumn get unitName => text()();
+  IntColumn get classId => integer()();
+  IntColumn get preUnitId => integer()();
+
+  IntColumn get conditionType_1 => integer()();
+  IntColumn get conditionTypeDetail_1 => integer()();
+  IntColumn get conditionId_1 => integer()();
+  IntColumn get count_1 => integer()();
+
+  IntColumn get conditionType_2 => integer()();
+  IntColumn get conditionTypeDetail_2 => integer()();
+  IntColumn get conditionId_2 => integer()();
+  IntColumn get count_2 => integer()();
+
+  IntColumn get conditionType_3 => integer()();
+  IntColumn get conditionTypeDetail_3 => integer()();
+  IntColumn get conditionId_3 => integer()();
+  IntColumn get count_3 => integer()();
+
+  IntColumn get conditionType_4 => integer()();
+  IntColumn get conditionTypeDetail_4 => integer()();
+  IntColumn get conditionId_4 => integer()();
+  IntColumn get count_4 => integer()();
+
+  IntColumn get conditionType_5 => integer()();
+  IntColumn get conditionTypeDetail_5 => integer()();
+  IntColumn get conditionId_5 => integer()();
+  IntColumn get count_5 => integer()();
+
+  IntColumn get releaseEffectType => integer().nullable()();
+}

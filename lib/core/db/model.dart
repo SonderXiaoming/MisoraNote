@@ -1,3 +1,5 @@
+import 'package:misora_note/features/component/base.dart';
+
 class UnitInfo {
   final int unitId;
   final String unitName;
@@ -214,5 +216,25 @@ class UniqueEquipBonus {
     this.energyRecoveryRate = 0,
     this.energyReduceRate = 0,
     this.accuracy = 0,
+  });
+}
+
+class UnitSearchData {
+  int? unitId;
+  String? unitName;
+  SearchAreaWidthType? searchAreaWidth;
+  AtkType? atkType;
+  bool? isR6;
+  bool? hasUnique1;
+  bool? hasUnique2;
+
+  UnitSearchData({
+    this.unitId,
+    this.unitName,
+    this.searchAreaWidth,
+    this.atkType,
+    this.isR6,
+    this.hasUnique1,
+    this.hasUnique2,
   });
 }

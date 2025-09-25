@@ -555,51 +555,6 @@ enum SkillActionType {
   }
 }
 
-enum UnitGetType {
-  normal(1),
-  limit(2),
-  event(3),
-  extra(4);
-
-  final int value;
-  const UnitGetType(this.value);
-
-  static UnitGetType? fromValue(int value) {
-    for (var type in UnitGetType.values) {
-      if (type.value == value) {
-        return type;
-      }
-    }
-    return null;
-  }
-
-  static String getName(AppLocalizations t, UnitGetType type) {
-    switch (type) {
-      case UnitGetType.normal:
-        return t.type_normal;
-      case UnitGetType.limit:
-        return t.type_limit;
-      case UnitGetType.event:
-        return t.type_event_limit;
-      case UnitGetType.extra:
-        return t.type_extra_character;
-    }
-  }
-
-  static int getColor(UnitGetType type) {
-    switch (type) {
-      case UnitGetType.normal:
-        return CustomColors.colorGold;
-      case UnitGetType.limit:
-        return CustomColors.colorOrange;
-      case UnitGetType.event:
-        return CustomColors.colorGreen;
-      case UnitGetType.extra:
-        return CustomColors.colorBlue;
-    }
-  }
-}
-
 enum SkillTextType {
   normal,
   ub,
@@ -783,4 +738,32 @@ class UnitSkillList {
     );
     return result;
   }
+}
+
+class PCRLevelLimit {
+  //属性变化等级，300级后，回避等属性转换为其他属性
+  static const int otherLimitLevel = 300;
+  //tp属性变化等级，260级后，tp回复将转化为攻击力
+  static const int tpLimitLevel = 260;
+}
+
+class SkillTag {
+  static const tagColorMap = {
+    "<": 0xFFa24072,
+    "[": 0xFF7aa57b,
+    "『": 0xFFa24072,
+    "{": 0xFFb476cd,
+  };
+
+  static const Map<String, String> tagPairs = {
+    "<": ">",
+    "[": "]",
+    "『": "』",
+    "{": "}",
+  };
+
+  static int tagColor(String tag) =>
+      SkillTag.tagColorMap[tag] ?? CustomColors.colorBlack;
+
+  static String getPair(String tag) => SkillTag.tagPairs[tag] ?? "";
 }

@@ -3,13 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:misora_note/core/di/di.dart';
 import 'package:misora_note/core/di/di_parameter.dart';
-import 'package:misora_note/features/skill/skill_type.dart';
+import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/image.dart';
 import 'package:misora_note/features/component/shape.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/router/page_extra.dart';
 import 'package:misora_note/core/utils/util.dart';
-import 'package:misora_note/features/component/base.dart';
+import 'package:misora_note/features/component/tag.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 
 class UnitCard extends ConsumerStatefulWidget {
@@ -71,17 +71,7 @@ class _UnitCardState extends ConsumerState<UnitCard> {
     if (unitInfoAsync.isLoading ||
         dominantColors.isLoading ||
         uniqueInfo.any((e) => e.isLoading)) {
-      return SizedBox(
-        width: widget.size.$1,
-        height: widget.size.$2,
-        child: Center(
-          child: CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation(
-              Color(CustomColors.colorPrimary),
-            ),
-          ),
-        ),
-      );
+      return widget.unitImage;
     }
 
     if (unitInfoAsync.hasError ||

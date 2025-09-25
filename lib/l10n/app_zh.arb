@@ -58,83 +58,10 @@
   "unknown": "?",
   "magic": "魔法",
   "physical": "物理",
-  "equip_require_level": "需求等级：{arg1}",
-  "@equip_require_level": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
-  "equip_name": "装备名",
-  "favorite_equip": "收藏装备",
-  "favorite_equip_material": "收藏素材",
-  "tool_equip": "装备",
-  "equip_material": "合成素材",
-  "equip_max_select_count": "最多可选 {arg1} 个装备",
-  "@equip_max_select_count": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "equip_search": "开始查询",
-  "equip_search_mode": "掉落查询",
-  "tip_equip_search": "请先选择装备",
-  "picked_equip": "已选择",
-  "tool_leader": "角色排行",
-  "leader_score": "角色评分",
-  "wiki": "wiki",
-  "tool_calendar_inprogress": "进行中活动",
-  "tool_calendar_coming": "活动预告",
-  "tool_calendar_event": "活动记录",
-  "tool_website": "收藏夹",
-  "tool_clan": "公会战",
-  "tool_clan_no_boss": "BOSS 信息暂未实装",
-  "tool_guild": "角色公会",
+  "position_front": "前卫",
+  "position_middle": "中卫",
+  "position_back": "后卫",
   "character": "角色",
-  "tool_gacha": "卡池",
-  "tool_free_gacha": "免费十连",
-  "tool_birthday": "生日",
-  "tool_event": "剧情活动",
-  "tool_news": "公告",
-  "news_title": "公告标题",
-  "jjc": "竞技场",
-  "clan": "公会战",
-  "tower": "露娜塔",
-  "sp_dungeon": "特殊地下城",
-  "tdf": "次元断层",
-  "colosseum": "斗技场",
-  "abyss": "深渊讨伐战",
-  "result": "数值变化",
-  "character_name": "角色名",
-  "tweet": "日服情报",
-  "comic": "漫画",
-  "comic_4": "4格漫画",
-  "comic_toc": "目录",
-  "comic_toc_index": "第{arg1}话",
-  "@comic_toc_index": {
-    "placeholders": {
-      "arg1": {
-        "type": "int"
-      }
-    }
-  },
-  "comic_input_hint": "输入跳转，如：382",
-  "other": "其他",
-  "activity_info": "活动日程",
-  "no_limit": "无限制",
-  "tip_no_equip_get_area": "暂无掉落区域",
-  "title_recently_used": "常用",
-  "phase": "{arg1}阶段",
-  "@phase": {
-    "placeholders": {
-      "arg1": {
-        "type": "String"
-      }
-    }
-  },
   "random_area": "额外掉落",
   "random_drop_area_title": "区域 {arg1}",
   "@random_drop_area_title": {

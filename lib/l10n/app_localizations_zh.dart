@@ -79,159 +79,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get physical => '物理';
 
   @override
-  String equip_require_level(String arg1) {
-    return '需求等级：$arg1';
-  }
+  String get position_front => '前卫';
 
   @override
-  String get equip_name => '装备名';
+  String get position_middle => '中卫';
 
   @override
-  String get favorite_equip => '收藏装备';
-
-  @override
-  String get favorite_equip_material => '收藏素材';
-
-  @override
-  String get tool_equip => '装备';
-
-  @override
-  String get equip_material => '合成素材';
-
-  @override
-  String equip_max_select_count(int arg1) {
-    return '最多可选 $arg1 个装备';
-  }
-
-  @override
-  String get equip_search => '开始查询';
-
-  @override
-  String get equip_search_mode => '掉落查询';
-
-  @override
-  String get tip_equip_search => '请先选择装备';
-
-  @override
-  String get picked_equip => '已选择';
-
-  @override
-  String get tool_leader => '角色排行';
-
-  @override
-  String get leader_score => '角色评分';
-
-  @override
-  String get wiki => 'wiki';
-
-  @override
-  String get tool_calendar_inprogress => '进行中活动';
-
-  @override
-  String get tool_calendar_coming => '活动预告';
-
-  @override
-  String get tool_calendar_event => '活动记录';
-
-  @override
-  String get tool_website => '收藏夹';
-
-  @override
-  String get tool_clan => '公会战';
-
-  @override
-  String get tool_clan_no_boss => 'BOSS 信息暂未实装';
-
-  @override
-  String get tool_guild => '角色公会';
+  String get position_back => '后卫';
 
   @override
   String get character => '角色';
-
-  @override
-  String get tool_gacha => '卡池';
-
-  @override
-  String get tool_free_gacha => '免费十连';
-
-  @override
-  String get tool_birthday => '生日';
-
-  @override
-  String get tool_event => '剧情活动';
-
-  @override
-  String get tool_news => '公告';
-
-  @override
-  String get news_title => '公告标题';
-
-  @override
-  String get jjc => '竞技场';
-
-  @override
-  String get clan => '公会战';
-
-  @override
-  String get tower => '露娜塔';
-
-  @override
-  String get sp_dungeon => '特殊地下城';
-
-  @override
-  String get tdf => '次元断层';
-
-  @override
-  String get colosseum => '斗技场';
-
-  @override
-  String get abyss => '深渊讨伐战';
-
-  @override
-  String get result => '数值变化';
-
-  @override
-  String get character_name => '角色名';
-
-  @override
-  String get tweet => '日服情报';
-
-  @override
-  String get comic => '漫画';
-
-  @override
-  String get comic_4 => '4格漫画';
-
-  @override
-  String get comic_toc => '目录';
-
-  @override
-  String comic_toc_index(int arg1) {
-    return '第$arg1话';
-  }
-
-  @override
-  String get comic_input_hint => '输入跳转，如：382';
-
-  @override
-  String get other => '其他';
-
-  @override
-  String get activity_info => '活动日程';
-
-  @override
-  String get no_limit => '无限制';
-
-  @override
-  String get tip_no_equip_get_area => '暂无掉落区域';
-
-  @override
-  String get title_recently_used => '常用';
-
-  @override
-  String phase(String arg1) {
-    return '$arg1阶段';
-  }
 
   @override
   String get random_area => '额外掉落';

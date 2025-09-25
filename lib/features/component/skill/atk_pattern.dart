@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/features/component/base.dart';
+import 'package:misora_note/features/component/tag.dart';
 import 'package:misora_note/features/component/image.dart';
-import 'package:misora_note/features/skill/skill_type.dart';
+import 'package:misora_note/features/component/skill/skill_type.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 
 class PatternSkill extends StatelessWidget {

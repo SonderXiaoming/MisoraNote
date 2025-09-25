@@ -1,11 +1,153 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:misora_note/constants.dart';
+import 'package:misora_note/core/db/model.dart';
 import 'package:misora_note/core/di/di.dart';
-import 'package:misora_note/features/component/back_icon.dart';
+import 'package:misora_note/features/component/custom_icon.dart';
+import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/unit_card.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
+import 'package:misora_note/features/component/search.dart';
+
+class SearchFilters extends StatelessWidget {
+  final UnitSearchData searchData;
+  final ValueChanged<UnitSearchData> onSearchDataChanged;
+
+  const SearchFilters({
+    super.key,
+    required this.searchData,
+    required this.onSearchDataChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+
+    return Row(
+      children: [
+        // 位置过滤器
+        Expanded(
+          child: FilterDropdown<SearchAreaWidthType>(
+            label: '位置',
+            value: searchData.searchAreaWidth,
+            items: [
+              DropdownMenuItem<SearchAreaWidthType?>(
+                value: null,
+                child: Text('全部', style: TextStyle(fontSize: 14)),
+              ),
+              ...SearchAreaWidthType.values.map((type) => DropdownMenuItem(
+                    value: type,
+                    child: Row(
+                      children: [
+                        SearchAreaWidthType.getIcon(type, 16, 16),
+                        SizedBox(width: 4),
+                        Text(SearchAreaWidthType.getName(t, type),
+                            style: TextStyle(fontSize: 14)),
+                      ],
+                    ),
+                  )),
+            ],
+            onChanged: (value) {
+              if (searchData.searchAreaWidth != value) {
+                searchData.searchAreaWidth = value;
+                onSearchDataChanged(searchData);
+              }
+            },
+          ),
+        ),
+        SizedBox(width: 8),
+        // 攻击类型过滤器
+        Expanded(
+          child: FilterDropdown<AtkType>(
+            label: '攻击',
+            value: searchData.atkType,
+            items: [
+              DropdownMenuItem<AtkType?>(
+                value: null,
+                child: Text('全部', style: TextStyle(fontSize: 14)),
+              ),
+              ...AtkType.values.map((type) => DropdownMenuItem(
+                    value: type,
+                    child: Row(
+                      children: [
+                        AtkType.getIcon(type, 16, 16),
+                        SizedBox(width: 4),
+                        Text(AtkType.getName(t, type),
+                            style: TextStyle(fontSize: 14)),
+                      ],
+                    ),
+                  )),
+            ],
+            onChanged: (value) {
+              if (searchData.atkType != value) {
+                searchData.atkType = value;
+                onSearchDataChanged(searchData);
+              }
+            },
+          ),
+        ),
+        SizedBox(width: 8),
+        // 6星过滤器
+        Expanded(
+          child: FilterDropdown<bool>(
+            label: '6星',
+            value: searchData.isR6,
+            items: [
+              DropdownMenuItem<bool?>(
+                value: null,
+                child: Text('全部', style: TextStyle(fontSize: 14)),
+              ),
+              DropdownMenuItem(
+                value: true,
+                child: Text('6星', style: TextStyle(fontSize: 14)),
+              ),
+              DropdownMenuItem(
+                value: false,
+                child: Text('非6星', style: TextStyle(fontSize: 14)),
+              ),
+            ],
+            onChanged: (value) {
+              if (searchData.isR6 != value) {
+                searchData.isR6 = value;
+                onSearchDataChanged(searchData);
+              }
+            },
+          ),
+        ),
+        SizedBox(width: 8),
+        // 专武过滤器
+        Expanded(
+          child: FilterDropdown<(bool?, bool?)>(
+            label: '专武',
+            value: (searchData.hasUnique1, searchData.hasUnique2),
+            items: [
+              DropdownMenuItem<(bool?, bool?)>(
+                value: (null, null),
+                child: Text('全部', style: TextStyle(fontSize: 14)),
+              ),
+              DropdownMenuItem(
+                value: (true, null),
+                child: Text('专武1', style: TextStyle(fontSize: 14)),
+              ),
+              DropdownMenuItem(
+                value: (true, true),
+                child: Text('专武2', style: TextStyle(fontSize: 14)),
+              ),
+            ],
+            onChanged: (value) {
+              if (searchData.hasUnique1 != value?.$1 ||
+                  searchData.hasUnique2 != value?.$2) {
+                searchData.hasUnique1 = value?.$1;
+                searchData.hasUnique2 = value?.$2;
+                onSearchDataChanged(searchData);
+              }
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
 
 class ShowResult extends StatefulWidget {
   final List<int> unitIds;
@@ -28,6 +170,7 @@ class ShowResult extends StatefulWidget {
 class _ShowResult extends State<ShowResult> {
   @override
   Widget build(BuildContext context) {
+    final texttheme = Theme.of(context).textTheme;
     // 如果正在搜索，显示加载状态
     if (widget.isSearching) {
       return Center(
@@ -62,13 +205,10 @@ class _ShowResult extends State<ShowResult> {
               color: Color(CustomColors.colorGray).withAlpha(100),
             ),
             const SizedBox(height: 16),
-            Text(
-              widget.searchQuery.isEmpty ? '输入角色名称开始搜索' : '暂无搜索结果',
-              style: TextStyle(
-                color: Color(CustomColors.colorGray),
-                fontSize: 16,
-              ),
-            ),
+            Text(widget.searchQuery.isEmpty ? '输入角色名称开始搜索' : '暂无搜索结果',
+                style: texttheme.bodyLarge?.copyWith(
+                  color: Color(CustomColors.colorGray).withAlpha(150),
+                ))
           ],
         ),
       );
@@ -134,12 +274,14 @@ class UnitSearch extends ConsumerStatefulWidget {
 }
 
 class _UnitSearchState extends ConsumerState<UnitSearch> {
-  final TextEditingController _searchController = TextEditingController();
+  final SearchController _searchController = SearchController();
   final FocusNode _searchFocusNode = FocusNode();
   List<int> results = []; // 统一的结果列表，包含默认和搜索结果
   List<int>? defaultResult;
   String _searchQuery = '';
   bool isSearching = false; // 是否正在搜索
+  bool _isSearchById = false; // 是否按ID搜索
+  UnitSearchData _searchData = UnitSearchData();
 
   @override
   void initState() {
@@ -164,18 +306,32 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
   }
 
   void _onSearchChanged(String query) {
+    _searchQuery = query.trim();
     setState(() {
-      _searchQuery = query.trim();
-      if (_searchQuery.isEmpty) {
-        // 清空搜索时，恢复默认结果
-        isSearching = false;
-        _loadDefaultResults();
+      if (_isSearchById) {
+        // 按ID搜索
+        _searchData.unitId =
+            _searchQuery.isEmpty ? null : int.tryParse(_searchQuery);
+        _searchData.unitName = null;
       } else {
-        // 开始搜索
-        isSearching = true;
-        _performSearch(_searchQuery);
+        // 按角色名搜索
+        _searchData.unitName = _searchQuery.isEmpty ? null : _searchQuery;
+        _searchData.unitId = null;
       }
     });
+    _performSearchWithFilters();
+  }
+
+  void _toggleSearchMode() {
+    setState(() {
+      _isSearchById = !_isSearchById;
+      _searchController.clear();
+      _searchQuery = '';
+      _searchData.unitId = null;
+      _searchData.unitName = null;
+    });
+    _loadDefaultResults();
+    _searchFocusNode.requestFocus();
   }
 
   void _loadDefaultResults() async {
@@ -187,17 +343,14 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
 
   Future<void> _performSearch(String query) async {
     try {
-      // final db = ref.read(dbProvider);
-      // TODO: 实现真正的搜索逻辑
-      // 这里先模拟搜索过程
-      await Future.delayed(Duration(milliseconds: 500));
-
-      if (mounted && _searchQuery == query) {
-        // 确保搜索结果对应当前查询
-        // TODO: 替换为真正的搜索逻辑
-        // final searchResults = await db.searchUnits(query);
+      final db = ref.read(dbProvider);
+      final searchResults = await db.getUnitsData(
+        type: UnitRankType.lastUpdate,
+        searchData: _searchData,
+      );
+      if (mounted) {
         setState(() {
-          results = []; // 暂时返回空结果，你需要实现真正的搜索
+          results = searchResults.map((e) => e.unitId).toList();
           isSearching = false;
         });
       }
@@ -213,8 +366,52 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
 
   void _clearSearch() {
     _searchController.clear();
-    _onSearchChanged('');
+    setState(() {
+      _searchQuery = '';
+      _searchData.unitName = null;
+      _searchData.unitId = null;
+      _searchData.searchAreaWidth = null;
+      _searchData.atkType = null;
+      _searchData.isR6 = null;
+      _searchData.hasUnique1 = null;
+      _searchData.hasUnique2 = null;
+    });
+    _loadDefaultResults();
     _searchFocusNode.requestFocus();
+  }
+
+  void _performSearchWithFilters() {
+    if (_searchQuery.isEmpty &&
+        _searchData.searchAreaWidth == null &&
+        _searchData.atkType == null &&
+        _searchData.isR6 == null &&
+        _searchData.hasUnique1 == null &&
+        _searchData.unitId == null) {
+      _loadDefaultResults();
+    } else {
+      setState(() {
+        isSearching = true;
+      });
+      _performSearch(_searchQuery);
+    }
+  }
+
+  bool _hasActiveFilters() {
+    return _searchData.searchAreaWidth != null ||
+        _searchData.atkType != null ||
+        _searchData.isR6 != null ||
+        _searchData.hasUnique1 != null;
+  }
+
+  void _clearFilters() {
+    setState(() {
+      _searchData.searchAreaWidth = null;
+      _searchData.atkType = null;
+      _searchData.isR6 = null;
+      _searchData.hasUnique1 = null;
+      _searchData.hasUnique2 = null;
+    });
+    _performSearchWithFilters();
   }
 
   @override
@@ -240,7 +437,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
             child: Row(
               children: [
                 // 返回按钮
-                BackIcon(
+                CustomIconButton(
                   backgroundSize: 40,
                   paddingValue: 0,
                   backgroundColor: HSLColor.fromColor(
@@ -248,54 +445,94 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                   ).withLightness(0.95).toColor(),
                 ),
                 const SizedBox(width: 12),
+
                 // 搜索框
                 Expanded(
-                  child: TextField(
+                  child: SearchBar(
                     controller: _searchController,
-                    focusNode: _searchFocusNode,
+                    hintText: _isSearchById ? '输入角色ID' : t.search_hit,
                     onChanged: _onSearchChanged,
-                    decoration: InputDecoration(
-                      hintText: t.search_hit,
-                      prefixIcon: Icon(
-                        Icons.search,
-                        color: Color(CustomColors.colorPrimary),
-                      ),
-                      suffixIcon: _searchQuery.isNotEmpty
-                          ? IconButton(
-                              icon: Icon(
-                                Icons.clear,
-                                color: Color(CustomColors.colorGray),
+                    textInputAction: TextInputAction.search,
+                    keyboardType: _isSearchById
+                        ? TextInputType.number
+                        : TextInputType.text,
+                    leading: Icon(
+                      Icons.search,
+                      color: Color(CustomColors.colorPrimary),
+                    ),
+                    trailing: _searchQuery.isNotEmpty || _hasActiveFilters()
+                        ? [
+                            if (_hasActiveFilters())
+                              IconButton(
+                                icon: Icon(
+                                  Icons.filter_list_off,
+                                  color: Color(CustomColors.colorOrange),
+                                  size: 20,
+                                ),
+                                onPressed: _clearFilters,
+                                tooltip: '清除过滤器',
                               ),
-                              onPressed: _clearSearch,
-                            )
-                          : null,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(
-                          color: Color(CustomColors.colorGray).withAlpha(100),
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(
+                            if (_searchQuery.isNotEmpty)
+                              IconButton(
+                                icon: Icon(
+                                  Icons.clear,
+                                  color: Color(CustomColors.colorGray),
+                                ),
+                                onPressed: _clearSearch,
+                              ),
+                          ]
+                        : <Widget>[],
+                    backgroundColor:
+                        WidgetStateProperty.all(Colors.grey.shade50),
+                    shadowColor: WidgetStateProperty.all(Colors.transparent),
+                    surfaceTintColor:
+                        WidgetStateProperty.all(Colors.transparent),
+                    side: WidgetStateProperty.resolveWith((states) {
+                      if (states.contains(WidgetState.focused)) {
+                        return BorderSide(
                           color: Color(CustomColors.colorPrimary),
                           width: 2,
-                        ),
-                      ),
-                      filled: true,
-                      fillColor: Colors.grey.shade50,
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 12,
+                        );
+                      }
+                      return BorderSide(
+                        color: Color(CustomColors.colorGray).withAlpha(100),
+                      );
+                    }),
+                    shape: WidgetStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    textInputAction: TextInputAction.search,
-                    onSubmitted: (value) {
-                      // TODO: 执行搜索
-                    },
+                    padding: WidgetStateProperty.all(
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 4),
+                CustomIconButton(
+                  backgroundColor: Colors.transparent,
+                  onTap: _toggleSearchMode,
+                  child: Icon(
+                    _isSearchById ? Icons.tag : Icons.person,
+                    color: Color(CustomColors.colorPrimary),
+                    size: 25,
                   ),
                 ),
               ],
+            ),
+          ),
+          // 搜索过滤器
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            color: Colors.white,
+            child: SearchFilters(
+              searchData: _searchData,
+              onSearchDataChanged: (newSearchData) {
+                setState(() {
+                  _searchData = newSearchData;
+                });
+                _performSearchWithFilters();
+              },
             ),
           ),
           // 搜索结果区域

@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:misora_note/constants.dart';
+import 'package:misora_note/features/component/base.dart';
 import 'dart:io';
 import 'model.dart';
 import 'table.dart'; // 里面有 class UnitProfile extends Table
@@ -30,11 +31,14 @@ final kannaIds = [170101, 170201];
     UniqueEquipEnhanceRate,
     UniqueEquipmentData,
     UniqueEquipmentEnhanceData,
+    UnlockUnitCondition,
   ],
 )
 class AppDb extends _$AppDb {
   late List<int> exCharacter; // 可兑换角色列表
   late List<int> r6Units; // 所有 6 星角色列表
+  late List<int> unique1Units; // 所有专一1角色列表
+  late List<int> unique2Units; // 所有专一2角色列表
   late (int, int) maxUniqueEquipLv; // 最大的专一2等级
 
   AppDb(String sqliteFile) : super(NativeDatabase(File(sqliteFile)));
@@ -46,6 +50,14 @@ class AppDb extends _$AppDb {
       await getMaxUniqueEquipLv(2),
     );
     r6Units = await getR6Units();
+    unique1Units = (await getallUniqueEquip(slot: 1))
+        .map((e) => e.unitId)
+        .toSet()
+        .toList();
+    unique2Units = (await getallUniqueEquip(slot: 2))
+        .map((e) => e.unitId)
+        .toSet()
+        .toList();
   }
 
   @override
@@ -63,16 +75,80 @@ class AppDb extends _$AppDb {
     return result.map((e) => e.unitId).toList();
   }
 
-  Future<List<UnitDataData>> getUnitsData({UnitRankType? type, int? limit}) {
-    var sql = select(unitData);
+  Future<List<UnitDataData>> getUnitsData(
+      {UnitRankType? type,
+      int? limit,
+      bool? isDesc,
+      UnitSearchData? searchData}) {
+    var sql = select(unitData).join([
+      innerJoin(
+        unlockUnitCondition,
+        unlockUnitCondition.unitId.equalsExp(unitData.unitId),
+      ),
+    ]);
+
+    final orderMode =
+        isDesc == null || isDesc == true ? OrderingMode.desc : OrderingMode.asc;
     switch (type) {
       case UnitRankType.lastUpdate:
         sql = sql
           ..orderBy([
-            (t) => OrderingTerm(
-                  expression: t.startTime,
-                  mode: OrderingMode.desc,
-                ),
+            OrderingTerm(
+              expression: unitData.startTime,
+              mode: orderMode,
+            ),
+          ]);
+      case UnitRankType.unitId:
+        sql = sql
+          ..orderBy([
+            OrderingTerm(
+              expression: unitData.unitId,
+              mode: orderMode,
+            ),
+          ]);
+      case UnitRankType.age:
+        sql = sql
+          ..orderBy([
+            OrderingTerm(
+              expression: unitProfile.age.cast<int>(),
+              mode: orderMode,
+            ),
+          ]);
+      case UnitRankType.height:
+        sql = sql
+          ..orderBy([
+            OrderingTerm(
+              expression: unitProfile.height.cast<int>(),
+              mode: orderMode,
+            ),
+          ]);
+      case UnitRankType.weight:
+        sql = sql
+          ..orderBy([
+            OrderingTerm(
+              expression: unitProfile.weight.cast<int>(),
+              mode: orderMode,
+            ),
+          ]);
+      case UnitRankType.birthDay:
+        sql = sql
+          ..orderBy([
+            OrderingTerm(
+              expression: unitProfile.birthMonth.cast<int>(),
+              mode: orderMode,
+            ),
+            OrderingTerm(
+              expression: unitProfile.birthDay.cast<int>(),
+              mode: orderMode,
+            ),
+          ]);
+      case UnitRankType.searchAreaWidth:
+        sql = sql
+          ..orderBy([
+            OrderingTerm(
+              expression: unitData.searchAreaWidth,
+              mode: orderMode,
+            ),
           ]);
       case null:
         break;
@@ -80,7 +156,42 @@ class AppDb extends _$AppDb {
     if (limit != null && limit > 0) {
       sql = sql..limit(limit);
     }
-    return sql.get();
+    if (searchData != null) {
+      if (searchData.unitId != null) {
+        sql = sql..where(unitData.unitId.equals(searchData.unitId!));
+      }
+      if (searchData.unitName != null && searchData.unitName!.isNotEmpty) {
+        sql = sql..where(unitData.unitName.like('%${searchData.unitName!}%'));
+      }
+      if (searchData.searchAreaWidth != null) {
+        final range = SearchAreaWidthType.getRange(
+          searchData.searchAreaWidth!,
+        );
+        sql = sql
+          ..where(unitData.searchAreaWidth
+              .isBetween(Constant(range.$1), Constant(range.$2)));
+      }
+      if (searchData.atkType != null) {
+        sql = sql..where(unitData.atkType.equals(searchData.atkType!.value));
+      }
+      if (searchData.isR6 != null) {
+        if (searchData.isR6 == true) {
+          sql = sql..where(unitData.unitId.isIn(r6Units));
+        } else {
+          sql = sql..where(unitData.unitId.isNotIn(r6Units));
+        }
+      }
+      if (searchData.hasUnique1 == true) {
+        sql = sql..where(unitData.unitId.isIn(unique1Units));
+      }
+
+      if (searchData.hasUnique2 == true) {
+        sql = sql..where(unitData.unitId.isIn(unique2Units));
+      }
+    }
+    return sql
+        .get()
+        .then((rows) => rows.map((row) => row.readTable(unitData)).toList());
   }
 
   Future<UnitInfo?> getUnitInfo(int unitId) async {
@@ -271,6 +382,21 @@ class AppDb extends _$AppDb {
     final query = select(unitSkillDataRF)
       ..where((t) => t.skillId.equals(skillId));
     return query.getSingleOrNull();
+  }
+
+  Future<List<UnitUniqueEquipmentData>> getallUniqueEquip(
+      {int slot = 1}) async {
+    return (select(unitUniqueEquipment)
+          ..where((t) => CustomExpression<int>(
+                '${unitUniqueEquipment.tableName}.${unitUniqueEquipment.equipId.name} % 10',
+              ).equals(slot))
+          ..orderBy([
+            (t) => OrderingTerm(
+                  expression: t.equipId,
+                  mode: OrderingMode.desc,
+                )
+          ]))
+        .get();
   }
 
   Future<UniqueEquipInfo?> getUniqueEquipInfo(

@@ -3,14 +3,14 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/di/di_parameter.dart';
-import 'package:misora_note/features/component/back_icon.dart';
+import 'package:misora_note/features/component/custom_icon.dart';
+import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/unit_card.dart';
 import 'package:misora_note/core/di/di.dart';
-import 'package:misora_note/features/skill/atk_pattern.dart';
-import 'skill/skill_info.dart';
+import 'package:misora_note/features/component/skill/atk_pattern.dart';
+import 'component/skill/skill_info.dart';
 
 class UnitPage extends ConsumerStatefulWidget {
   final int unitId;
@@ -69,6 +69,7 @@ class _UnitPage extends ConsumerState<UnitPage> {
               return SliverAppBar(
                 pinned: true,
                 floating: false,
+                centerTitle: false,
                 title: Opacity(
                     opacity: radio,
                     child: Text(
@@ -79,7 +80,7 @@ class _UnitPage extends ConsumerState<UnitPage> {
                     )),
                 expandedHeight: expandedHeight,
                 backgroundColor: Colors.white,
-                leading: BackIcon(
+                leading: CustomIconButton(
                     backgroundColor: HSLColor.fromColor(
                   Color(CustomColors.colorPink),
                 ).withLightness(0.95).toColor()),

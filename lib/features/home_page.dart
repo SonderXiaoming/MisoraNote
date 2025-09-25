@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:misora_note/constants.dart';
+import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/unit_card.dart';
 import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/core/di/di.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
+import 'package:misora_note/core/network/download.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -42,9 +44,43 @@ class _HomePageState extends ConsumerState<HomePage> {
 
   Future<void> _startUpdate() async {
     setState(() {
-      _progress = null;
+      _progress = 0.0; // 初始化进度为0
     });
-    await init();
+
+    try {
+      await updatePcrDatabase(
+        Area.cn,
+        onProgress: (received, total) {
+          if (total > 0 && mounted) {
+            setState(() {
+              _progress = received / total; // 更新进度
+            });
+          }
+        },
+      );
+      // 数据库更新完成后重新初始化
+      await init();
+    } catch (e) {
+      // 错误处理：显示错误信息或重置进度
+      if (mounted) {
+        setState(() {
+          _progress = null;
+        });
+      }
+      // 可以添加错误提示
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('数据库更新失败: $e')),
+        );
+      }
+    } finally {
+      // 完成后隐藏进度条
+      if (mounted) {
+        setState(() {
+          _progress = null;
+        });
+      }
+    }
   }
 
   @override
@@ -56,6 +92,7 @@ class _HomePageState extends ConsumerState<HomePage> {
     final t = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
+        centerTitle: false,
         title: Text(
           t.app_name,
           style: textTheme.headlineLarge?.copyWith(
@@ -72,8 +109,7 @@ class _HomePageState extends ConsumerState<HomePage> {
             AppBar(
               title: InkWell(
                 onTap: () {
-                  context.push(AppRoutes.unitSearch,
-                      extra: showUnit.sublist(0, 3));
+                  context.push(AppRoutes.unitSearch, extra: showUnit);
                 },
                 borderRadius: BorderRadius.circular(8),
                 child: Padding(

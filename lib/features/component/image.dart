@@ -2,6 +2,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:misora_note/constants.dart';
 import '../../core/storage/cache.dart';
 
 class LocalImage extends StatelessWidget {
@@ -134,7 +135,10 @@ class CachedImage extends StatelessWidget {
           child: SizedBox(
             width: 20,
             height: 20,
-            child: CircularProgressIndicator(strokeWidth: 2),
+            child: CircularProgressIndicator(
+              strokeWidth: 2,
+              color: Color(CustomColors.colorPrimary),
+            ),
           ),
         ),
       ),
