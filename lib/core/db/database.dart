@@ -1,6 +1,5 @@
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
-import 'package:misora_note/constants.dart';
 import 'package:misora_note/features/component/base.dart';
 import 'dart:io';
 import 'model.dart';

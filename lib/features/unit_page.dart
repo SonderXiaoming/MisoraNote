@@ -88,7 +88,7 @@ class _UnitPage extends ConsumerState<UnitPage> {
                   background: Stack(
                     fit: StackFit.expand,
                     children: [
-                      unitCard!.unitImage.copyWith(
+                      unitCard.unitImage.copyWith(
                         height: expandedHeight,
                         width: width,
                       ),
