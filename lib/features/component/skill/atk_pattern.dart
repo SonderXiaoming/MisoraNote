@@ -149,7 +149,7 @@ class SinglePattern extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 8, width: double.infinity),
-          TagBase(
+          BaseTag(
             backgroundColor: Color(CustomColors.colorPrimary),
             borderRadius: BorderRadius.all(Radius.circular(8)),
             child: Text(

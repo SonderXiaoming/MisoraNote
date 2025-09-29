@@ -64,9 +64,9 @@ class FilterDropdownWithRadio<T> extends StatefulWidget {
   const FilterDropdownWithRadio({
     super.key,
     required this.label,
-    required this.value,
-    required this.selectedValue,
     required this.items,
+    this.value,
+    this.selectedValue,
     required this.onChanged,
     this.itemStyleBuilder,
     this.showLeadingDot = true,

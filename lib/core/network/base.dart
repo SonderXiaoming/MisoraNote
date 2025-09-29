@@ -8,7 +8,7 @@ class ApiClient {
 
   ApiClient(this.dio);
 
-  Future<T> post<T extends JsonModel>(
+  Future<T> post<T>(
     String url, {
     Map<String, dynamic>? body,
     required T Function(Map<String, dynamic>) fromJson,
@@ -27,7 +27,7 @@ class ApiClient {
     }
   }
 
-  Future<T> get<T extends JsonModel>(
+  Future<T> get<T>(
     String url, {
     required T Function(Map<String, dynamic>) fromJson,
   }) async {
@@ -111,10 +111,9 @@ class ApiClient {
     final isPartial = resp.statusCode == 206;
     final contentLen =
         int.tryParse(resp.data?.headers['content-length']?.first ?? '') ?? -1;
-    final total =
-        (contentLen > 0)
-            ? (isPartial ? existing + contentLen : contentLen)
-            : -1;
+    final total = (contentLen > 0)
+        ? (isPartial ? existing + contentLen : contentLen)
+        : -1;
 
     // 以 append 方式打开 partial 并写入
     final raf = partFile.openSync(mode: FileMode.append);

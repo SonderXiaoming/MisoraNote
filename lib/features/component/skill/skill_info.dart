@@ -225,7 +225,7 @@ class SingleSkillInfo extends StatelessWidget {
             spacing: 6,
             children: tags
                 .map(
-                  (e) => TagBase(
+                  (e) => BaseTag(
                     backgroundColor: Color(CustomColors.colorPrimary),
                     borderRadius: BorderRadius.circular(6),
                     child: Text(

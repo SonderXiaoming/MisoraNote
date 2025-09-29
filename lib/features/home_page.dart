@@ -46,10 +46,10 @@ class _HomePageState extends ConsumerState<HomePage> {
     setState(() {
       _progress = 0.0; // 初始化进度为0
     });
-
+    final area = ref.read(areaProvider);
     try {
       await updatePcrDatabase(
-        Area.cn,
+        area,
         onProgress: (received, total) {
           if (total > 0 && mounted) {
             setState(() {
@@ -126,6 +126,14 @@ class _HomePageState extends ConsumerState<HomePage> {
                         ),
                       ),
                       Spacer(),
+                      Text(
+                        db.unitNum.toString(),
+                        style: textTheme.titleLarge?.copyWith(
+                          color: Color(CustomColors.colorBlack),
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      SizedBox(width: 4),
                       Icon(
                         Icons.arrow_forward_ios,
                         size: 18,

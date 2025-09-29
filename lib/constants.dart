@@ -1,12 +1,36 @@
 import 'package:path/path.dart' as p;
 
-enum Area { jp, tw, cn }
+enum Area {
+  jp("jp"),
+  tw("tw"),
+  cn("cn");
+
+  const Area(this.name);
+  final String name;
+
+  static Area getType(String name) {
+    switch (name) {
+      case "jp":
+        return Area.jp;
+      case "tw":
+        return Area.tw;
+      case "cn":
+        return Area.cn;
+      default:
+        return Area.cn;
+    }
+  }
+}
 
 final double ratioGolden = 0.618;
 
 class FetchUrl {
   static const estertionBase = "https://redive.estertion.win";
   static const wtheeBase = "https://wthee.xyz";
+
+  static String dbVersion = "${FetchUrl.wtheeBase}/pcr/api/v1/db/info/v2";
+
+  static String dbLatestVersion = "${FetchUrl.wtheeBase}/pcr/api/v1/db/info/v2";
 
   static String db(Area area) =>
       "${FetchUrl.wtheeBase}/db/redive_${area.name}.db.br";
@@ -44,7 +68,9 @@ class FilePath {
 class AppRoutes {
   static const splash = '/';
   static const home = '/home';
+  static const function = '/function';
   static const settings = '/settings';
+  static const about = '/about';
   static const unitDetail = '/unitDetail';
   static const unitSearch = '/unitSearch';
 }

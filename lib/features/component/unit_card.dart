@@ -157,7 +157,7 @@ class _UnitCardState extends ConsumerState<UnitCard> {
                       children: [
                         uniqueIcon,
                         SizedBox(width: widget.size.$2 * 0.03),
-                        TagBase(
+                        BaseTag(
                           backgroundColor: Color(UnitGetType.getColor(getType)),
                           child: Text(
                             UnitGetType.getName(t, getType),
@@ -169,7 +169,7 @@ class _UnitCardState extends ConsumerState<UnitCard> {
                     SizedBox(height: widget.size.$2 * 0.03),
                     Row(
                       children: [
-                        TagBase(
+                        BaseTag(
                           backgroundColor: Color(
                             SearchAreaWidthType.getColor(searchAreaWidthType),
                           ),
@@ -195,7 +195,7 @@ class _UnitCardState extends ConsumerState<UnitCard> {
                           ),
                         ),
                         SizedBox(width: widget.size.$2 * 0.03),
-                        TagBase(
+                        BaseTag(
                           backgroundColor: Color(AtkType.getColor(atkType)),
                           child: Row(
                             children: [

@@ -14,6 +14,10 @@
     }
   },
   "app_name": "美空笔记",
+  "home_page": "首页",
+  "function_page": "功能",
+  "settings_page": "设置",
+  "about_page": "关于",
   "skill_cooltime": "冷却时间：{arg1}秒",
   "@skill_cooltime": {
     "placeholders": {

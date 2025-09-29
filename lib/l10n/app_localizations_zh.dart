@@ -23,6 +23,18 @@ class AppLocalizationsZh extends AppLocalizations {
   String get app_name => '美空笔记';
 
   @override
+  String get home_page => '首页';
+
+  @override
+  String get function_page => '功能';
+
+  @override
+  String get settings_page => '设置';
+
+  @override
+  String get about_page => '关于';
+
+  @override
   String skill_cooltime(String arg1) {
     return '冷却时间：$arg1秒';
   }
@@ -706,8 +718,15 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String skill_action_type_desc_1(String arg1, String arg2, String arg3,
-      String arg4, String arg5, String arg6, String arg7) {
+  String skill_action_type_desc_1(
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+    String arg5,
+    String arg6,
+    String arg7,
+  ) {
     return '对$arg1造成 $arg2 的$arg3伤害$arg4$arg5$arg6$arg7';
   }
 
@@ -767,7 +786,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_6(
-      String arg1, String arg2, String arg3, String arg4) {
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+  ) {
     return '对$arg1展开$arg2 $arg3$arg4';
   }
 
@@ -788,7 +811,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_8(
-      String arg1, String arg2, String arg3, String arg4) {
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+  ) {
     return '使$arg1进入$arg2状态$arg3$arg4';
   }
 
@@ -802,7 +829,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_9(
-      String arg1, String arg2, String arg3, String arg4, String arg5) {
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+    String arg5,
+  ) {
     return '使$arg1进入 [$arg2] 状态，每秒造成伤害 $arg3$arg4$arg5';
   }
 
@@ -837,7 +869,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_12_13(
-      String arg1, String arg2, String arg3, String arg4) {
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+  ) {
     return '以 $arg1 的概率使$arg2进入$arg3状态$arg4';
   }
 
@@ -869,7 +905,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_15(
-      String arg1, String arg2, int arg3, String arg4) {
+    String arg1,
+    String arg2,
+    int arg3,
+    String arg4,
+  ) {
     return '在$arg1$arg2 [$arg3] 的位置$arg4';
   }
 
@@ -1237,13 +1277,22 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_32(
-      String arg1, int arg2, String arg3, String arg4) {
+    String arg1,
+    int arg2,
+    String arg3,
+    String arg4,
+  ) {
     return '为$arg1的下 [$arg2] 次攻击附加$arg3 $arg4 的效果';
   }
 
   @override
   String skill_action_type_desc_33(
-      String arg1, String arg2, String arg3, String arg4, int arg5) {
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+    int arg5,
+  ) {
     return '$arg1，受到$arg2伤害时反弹 $arg3 伤害$arg4，生效 [$arg5] 次';
   }
 
@@ -1257,7 +1306,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_35(
-      String arg1, int arg2, String arg3, String arg4) {
+    String arg1,
+    int arg2,
+    String arg3,
+    String arg4,
+  ) {
     return '对$arg1追加 [$arg2] 层标记$arg3$arg4';
   }
 
@@ -1326,7 +1379,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_48(
-      String arg1, String arg2, String arg3, String arg4) {
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+  ) {
     return '每秒回复$arg1的 $arg2 $arg3$arg4';
   }
 
@@ -1337,7 +1394,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_50(
-      String arg1, String arg2, String arg3, int arg4) {
+    String arg1,
+    String arg2,
+    String arg3,
+    int arg4,
+  ) {
     return '$arg1$arg2$arg3，受到 [$arg4] 次伤害时中断';
   }
 
@@ -1418,7 +1479,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_61(
-      String arg1, String arg2, String arg3, String arg4) {
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+  ) {
     return '以 $arg1 的概率使$arg2进入$arg3状态$arg4';
   }
 
@@ -1444,7 +1509,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_63(
-      String arg1, int arg2, String arg3, String arg4) {
+    String arg1,
+    int arg2,
+    String arg3,
+    String arg4,
+  ) {
     return '每 $arg1 秒使用 1 次动作($arg2)，最长持续 [$arg3] 秒；受到的伤害量超过 [$arg4] 时中断此效果；';
   }
 
@@ -1460,7 +1529,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_72(
-      String arg1, String arg2, String arg3, String arg4) {
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+  ) {
     return '赋予$arg1承受$arg2伤害减少$arg3的效果$arg4';
   }
 
@@ -1481,7 +1554,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_77(
-      String arg1, String arg2, int arg3, String arg4, String arg5) {
+    String arg1,
+    String arg2,
+    int arg3,
+    String arg4,
+    String arg5,
+  ) {
     return '每当$arg1 [$arg2] 时，为自身追加 [$arg3] 层标记$arg4$arg5';
   }
 
@@ -1490,7 +1568,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_78(
-      String arg1, String arg2, String arg3, String arg4, String arg5) {
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+    String arg5,
+  ) {
     return '使$arg1受到的伤害额外$arg2 $arg3 倍$arg4$arg5';
   }
 
@@ -1499,7 +1582,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_79(
-      String arg1, String arg2, String arg3, String arg4, String arg5) {
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+    String arg5,
+  ) {
     return '$arg1行动时，受到$arg2 $arg3 伤害$arg4$arg5';
   }
 
@@ -1568,7 +1656,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_101(
-      String arg1, int arg2, String arg3, String arg4) {
+    String arg1,
+    int arg2,
+    String arg3,
+    String arg4,
+  ) {
     return '$arg1攻击时，对敌人追加 [$arg2] 层标记$arg3$arg4';
   }
 
@@ -1584,7 +1676,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_unknown(
-      String arg1, String arg2, int arg3, String arg4, String arg5) {
+    String arg1,
+    String arg2,
+    int arg3,
+    String arg4,
+    String arg5,
+  ) {
     return '$arg1目标：$arg2；类型：$arg3；数值：$arg4$arg5';
   }
 
@@ -1621,7 +1718,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_111_1(
-      String arg1, String arg2, int arg3, int arg4) {
+    String arg1,
+    String arg2,
+    int arg3,
+    int arg4,
+  ) {
     return '当$arg1标记数量 $arg2 [$arg3] 时，使用动作($arg4)';
   }
 
@@ -1630,7 +1731,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_114(
-      String arg1, int arg2, String arg3, int arg4, int arg5, String arg6) {
+    String arg1,
+    int arg2,
+    String arg3,
+    int arg4,
+    int arg5,
+    String arg6,
+  ) {
     return '对$arg1追加 [$arg2] 层标记，$arg3，受到伤害时，减少 [1] 层标记，并使用动作($arg4)和动作($arg5)$arg6';
   }
 
@@ -1641,7 +1748,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_116_121_123_124(
-      String arg1, String arg2, String arg3) {
+    String arg1,
+    String arg2,
+    String arg3,
+  ) {
     return '使$arg1进入 [$arg2] 状态$arg3';
   }
 

@@ -2,6 +2,8 @@ import 'dart:io';
 import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:brotli/brotli.dart';
+import 'package:misora_note/constants.dart';
+import 'package:misora_note/core/network/response_model.dart';
 
 int longUnitId2Short(int longId) {
   return longId ~/ 100;
@@ -38,4 +40,28 @@ Future<void> decompress({
   await outFile.writeAsBytes(output, flush: true);
 
   await brFile.delete();
+}
+
+void checkPathExists(String path) {
+  final file = File(path);
+  if (!file.existsSync()) {
+    throw FileSystemException('文件不存在', path);
+  }
+}
+
+Future<String?> checkDatabaseUpdate(Area area) async {
+  try {
+    final response = await dio.post(
+      FetchUrl.dbLatestVersion,
+      data: {'regionCode': area.name},
+    );
+    if (response.statusCode == 200) {
+      final info = LatestDbVersionResponse.fromJson(response.data);
+      return info.data.time;
+    }
+    return null;
+  } catch (error) {
+    // 处理错误
+    throw Exception('检查数据库更新失败: $error');
+  }
 }

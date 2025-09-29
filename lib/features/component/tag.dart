@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:misora_note/constants.dart';
 
-class TagBase extends StatelessWidget {
+class BaseTag extends StatelessWidget {
   final Widget child;
   final Color backgroundColor;
   final EdgeInsets padding;
   final BorderRadius borderRadius;
 
-  const TagBase({
+  const BaseTag({
     super.key,
     required this.child,
     this.backgroundColor = const Color(0xFFE0E0E0),

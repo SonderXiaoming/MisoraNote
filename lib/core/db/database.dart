@@ -8,6 +8,7 @@ import 'table.dart'; // 里面有 class UnitProfile extends Table
 part 'database.g.dart';
 
 int _toIntOrNull(String? s) => s == null ? -1 : int.tryParse(s.trim()) ?? -1;
+const maxUnitId = 200000;
 final kannaIds = [170101, 170201];
 
 @DriftDatabase(
@@ -39,10 +40,12 @@ class AppDb extends _$AppDb {
   late List<int> unique1Units; // 所有专一1角色列表
   late List<int> unique2Units; // 所有专一2角色列表
   late (int, int) maxUniqueEquipLv; // 最大的专一2等级
+  int unitNum = 0;
 
   AppDb(String sqliteFile) : super(NativeDatabase(File(sqliteFile)));
 
   Future<void> init() async {
+    unitNum = (await getUnitsData()).length;
     exCharacter = await getExUnitsList();
     maxUniqueEquipLv = (
       await getMaxUniqueEquipLv(1),
@@ -81,10 +84,12 @@ class AppDb extends _$AppDb {
       UnitSearchData? searchData}) {
     var sql = select(unitData).join([
       innerJoin(
-        unlockUnitCondition,
-        unlockUnitCondition.unitId.equalsExp(unitData.unitId),
+        unitProfile,
+        unitProfile.unitId.equalsExp(unitData.unitId),
       ),
-    ]);
+    ])
+      ..where(unitData.searchAreaWidth.isBiggerThanValue(0))
+      ..where(unitData.unitId.isSmallerThanValue(maxUnitId));
 
     final orderMode =
         isDesc == null || isDesc == true ? OrderingMode.desc : OrderingMode.asc;
@@ -107,14 +112,6 @@ class AppDb extends _$AppDb {
           ]);
       case UnitRankType.age:
         sql = sql
-          ..join(
-            [
-              leftOuterJoin(
-                unitProfile,
-                unitProfile.unitId.equalsExp(unitData.unitId),
-              ),
-            ],
-          )
           ..orderBy([
             OrderingTerm(
               expression: unitProfile.age.cast<int>(),
@@ -123,14 +120,6 @@ class AppDb extends _$AppDb {
           ]);
       case UnitRankType.height:
         sql = sql
-          ..join(
-            [
-              leftOuterJoin(
-                unitProfile,
-                unitProfile.unitId.equalsExp(unitData.unitId),
-              ),
-            ],
-          )
           ..orderBy([
             OrderingTerm(
               expression: unitProfile.height.cast<int>(),
@@ -139,14 +128,6 @@ class AppDb extends _$AppDb {
           ]);
       case UnitRankType.weight:
         sql = sql
-          ..join(
-            [
-              leftOuterJoin(
-                unitProfile,
-                unitProfile.unitId.equalsExp(unitData.unitId),
-              ),
-            ],
-          )
           ..orderBy([
             OrderingTerm(
               expression: unitProfile.weight.cast<int>(),
@@ -155,14 +136,6 @@ class AppDb extends _$AppDb {
           ]);
       case UnitRankType.birthDay:
         sql = sql
-          ..join(
-            [
-              leftOuterJoin(
-                unitProfile,
-                unitProfile.unitId.equalsExp(unitData.unitId),
-              ),
-            ],
-          )
           ..orderBy([
             OrderingTerm(
               expression: unitProfile.birthMonth.cast<int>(),

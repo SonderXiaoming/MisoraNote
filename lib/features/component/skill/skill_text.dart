@@ -1624,11 +1624,11 @@ class ActionHandler {
 
   String dotField() {
     final time = getTimeText(3, action.actionValue1, v2: action.actionValue2);
-    final action_desc = t.skill_action_type_desc_38_action(
+    final actionDesc = t.skill_action_type_desc_38_action(
       action.actionDetail1 % 100,
     );
     return t.skill_action_type_desc_field(
-      action_desc,
+      actionDesc,
       action.actionValue3.toInt(),
       time,
     );

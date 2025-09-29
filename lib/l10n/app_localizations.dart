@@ -62,7 +62,7 @@ import 'app_localizations_zh.dart';
 /// property.
 abstract class AppLocalizations {
   AppLocalizations(String locale)
-      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -85,11 +85,11 @@ abstract class AppLocalizations {
   /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
-    delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ];
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('zh')];
@@ -117,6 +117,30 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'美空笔记'**
   String get app_name;
+
+  /// No description provided for @home_page.
+  ///
+  /// In zh, this message translates to:
+  /// **'首页'**
+  String get home_page;
+
+  /// No description provided for @function_page.
+  ///
+  /// In zh, this message translates to:
+  /// **'功能'**
+  String get function_page;
+
+  /// No description provided for @settings_page.
+  ///
+  /// In zh, this message translates to:
+  /// **'设置'**
+  String get settings_page;
+
+  /// No description provided for @about_page.
+  ///
+  /// In zh, this message translates to:
+  /// **'关于'**
+  String get about_page;
 
   /// No description provided for @skill_cooltime.
   ///
@@ -1424,8 +1448,15 @@ abstract class AppLocalizations {
   ///
   /// In zh, this message translates to:
   /// **'对{arg1}造成 {arg2} 的{arg3}伤害{arg4}{arg5}{arg6}{arg7}'**
-  String skill_action_type_desc_1(String arg1, String arg2, String arg3,
-      String arg4, String arg5, String arg6, String arg7);
+  String skill_action_type_desc_1(
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+    String arg5,
+    String arg6,
+    String arg7,
+  );
 
   /// No description provided for @skill_forward.
   ///
@@ -1516,7 +1547,11 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'对{arg1}展开{arg2} {arg3}{arg4}'**
   String skill_action_type_desc_6(
-      String arg1, String arg2, String arg3, String arg4);
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+  );
 
   /// No description provided for @skill_action_type_desc_7.
   ///
@@ -1541,7 +1576,11 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'使{arg1}进入{arg2}状态{arg3}{arg4}'**
   String skill_action_type_desc_8(
-      String arg1, String arg2, String arg3, String arg4);
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+  );
 
   /// No description provided for @skill_action_hit_remove.
   ///
@@ -1560,7 +1599,12 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'使{arg1}进入 [{arg2}] 状态，每秒造成伤害 {arg3}{arg4}{arg5}'**
   String skill_action_type_desc_9(
-      String arg1, String arg2, String arg3, String arg4, String arg5);
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+    String arg5,
+  );
 
   /// No description provided for @skill_buff.
   ///
@@ -1621,7 +1665,11 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'以 {arg1} 的概率使{arg2}进入{arg3}状态{arg4}'**
   String skill_action_type_desc_12_13(
-      String arg1, String arg2, String arg3, String arg4);
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+  );
 
   /// No description provided for @skill_action_atk_miss.
   ///
@@ -1664,7 +1712,11 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'在{arg1}{arg2} [{arg3}] 的位置{arg4}'**
   String skill_action_type_desc_15(
-      String arg1, String arg2, int arg3, String arg4);
+    String arg1,
+    String arg2,
+    int arg3,
+    String arg4,
+  );
 
   /// No description provided for @skill_action_summon_target.
   ///
@@ -2139,14 +2191,23 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'为{arg1}的下 [{arg2}] 次攻击附加{arg3} {arg4} 的效果'**
   String skill_action_type_desc_32(
-      String arg1, int arg2, String arg3, String arg4);
+    String arg1,
+    int arg2,
+    String arg3,
+    String arg4,
+  );
 
   /// No description provided for @skill_action_type_desc_33.
   ///
   /// In zh, this message translates to:
   /// **'{arg1}，受到{arg2}伤害时反弹 {arg3} 伤害{arg4}，生效 [{arg5}] 次'**
   String skill_action_type_desc_33(
-      String arg1, String arg2, String arg3, String arg4, int arg5);
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+    int arg5,
+  );
 
   /// No description provided for @skill_action_type_desc_33_hp.
   ///
@@ -2165,7 +2226,11 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'对{arg1}追加 [{arg2}] 层标记{arg3}{arg4}'**
   String skill_action_type_desc_35(
-      String arg1, int arg2, String arg3, String arg4);
+    String arg1,
+    int arg2,
+    String arg3,
+    String arg4,
+  );
 
   /// No description provided for @skill_action_type_desc_35_reduce.
   ///
@@ -2250,7 +2315,11 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'每秒回复{arg1}的 {arg2} {arg3}{arg4}'**
   String skill_action_type_desc_48(
-      String arg1, String arg2, String arg3, String arg4);
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+  );
 
   /// No description provided for @skill_action_type_desc_49.
   ///
@@ -2263,7 +2332,11 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'{arg1}{arg2}{arg3}，受到 [{arg4}] 次伤害时中断'**
   String skill_action_type_desc_50(
-      String arg1, String arg2, String arg3, int arg4);
+    String arg1,
+    String arg2,
+    String arg3,
+    int arg4,
+  );
 
   /// No description provided for @skill_action_type_desc_52.
   ///
@@ -2360,7 +2433,11 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'以 {arg1} 的概率使{arg2}进入{arg3}状态{arg4}'**
   String skill_action_type_desc_61(
-      String arg1, String arg2, String arg3, String arg4);
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+  );
 
   /// No description provided for @skill_action_type_desc_62_0.
   ///
@@ -2391,7 +2468,11 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'每 {arg1} 秒使用 1 次动作({arg2})，最长持续 [{arg3}] 秒；受到的伤害量超过 [{arg4}] 时中断此效果；'**
   String skill_action_type_desc_63(
-      String arg1, int arg2, String arg3, String arg4);
+    String arg1,
+    int arg2,
+    String arg3,
+    String arg4,
+  );
 
   /// No description provided for @skill_action_type_desc_69.
   ///
@@ -2410,7 +2491,11 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'赋予{arg1}承受{arg2}伤害减少{arg3}的效果{arg4}'**
   String skill_action_type_desc_72(
-      String arg1, String arg2, String arg3, String arg4);
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+  );
 
   /// No description provided for @skill_action_type_desc_73.
   ///
@@ -2435,7 +2520,12 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'每当{arg1} [{arg2}] 时，为自身追加 [{arg3}] 层标记{arg4}{arg5}'**
   String skill_action_type_desc_77(
-      String arg1, String arg2, int arg3, String arg4, String arg5);
+    String arg1,
+    String arg2,
+    int arg3,
+    String arg4,
+    String arg5,
+  );
 
   /// No description provided for @skill_action_type_desc_77_1.
   ///
@@ -2448,7 +2538,12 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'使{arg1}受到的伤害额外{arg2} {arg3} 倍{arg4}{arg5}'**
   String skill_action_type_desc_78(
-      String arg1, String arg2, String arg3, String arg4, String arg5);
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+    String arg5,
+  );
 
   /// No description provided for @skill_action_type_desc_78_1.
   ///
@@ -2461,7 +2556,12 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'{arg1}行动时，受到{arg2} {arg3} 伤害{arg4}{arg5}'**
   String skill_action_type_desc_79(
-      String arg1, String arg2, String arg3, String arg4, String arg5);
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+    String arg5,
+  );
 
   /// No description provided for @skill_action_type_desc_81.
   ///
@@ -2546,7 +2646,11 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'{arg1}攻击时，对敌人追加 [{arg2}] 层标记{arg3}{arg4}'**
   String skill_action_type_desc_101(
-      String arg1, int arg2, String arg3, String arg4);
+    String arg1,
+    int arg2,
+    String arg3,
+    String arg4,
+  );
 
   /// No description provided for @skill_action_type_desc_101_reduce.
   ///
@@ -2565,7 +2669,12 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'{arg1}目标：{arg2}；类型：{arg3}；数值：{arg4}{arg5}'**
   String skill_action_type_unknown(
-      String arg1, String arg2, int arg3, String arg4, String arg5);
+    String arg1,
+    String arg2,
+    int arg3,
+    String arg4,
+    String arg5,
+  );
 
   /// No description provided for @skill_action_type_desc_105.
   ///
@@ -2614,7 +2723,11 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'当{arg1}标记数量 {arg2} [{arg3}] 时，使用动作({arg4})'**
   String skill_action_type_desc_111_1(
-      String arg1, String arg2, int arg3, int arg4);
+    String arg1,
+    String arg2,
+    int arg3,
+    int arg4,
+  );
 
   /// No description provided for @skill_action_type_desc_111_2.
   ///
@@ -2627,7 +2740,13 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'对{arg1}追加 [{arg2}] 层标记，{arg3}，受到伤害时，减少 [1] 层标记，并使用动作({arg4})和动作({arg5}){arg6}'**
   String skill_action_type_desc_114(
-      String arg1, int arg2, String arg3, int arg4, int arg5, String arg6);
+    String arg1,
+    int arg2,
+    String arg3,
+    int arg4,
+    int arg5,
+    String arg6,
+  );
 
   /// No description provided for @skill_action_type_desc_114_aura.
   ///
@@ -2640,7 +2759,10 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'使{arg1}进入 [{arg2}] 状态{arg3}'**
   String skill_action_type_desc_116_121_123_124(
-      String arg1, String arg2, String arg3);
+    String arg1,
+    String arg2,
+    String arg3,
+  );
 
   /// No description provided for @skill_action_type_desc_123_1.
   ///
@@ -2932,8 +3054,9 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   }
 
   throw FlutterError(
-      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-      'an issue with the localizations generation tool. Please file an issue '
-      'on GitHub with a reproducible sample app and the gen-l10n configuration '
-      'that was used.');
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.',
+  );
 }
