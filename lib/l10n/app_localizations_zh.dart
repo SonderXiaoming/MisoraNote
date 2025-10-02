@@ -169,6 +169,107 @@ class AppLocalizationsZh extends AppLocalizations {
   String get search_hit_id => '请输入角色ID';
 
   @override
+  String get app_settings => '应用设置';
+
+  @override
+  String get language => '语言';
+
+  @override
+  String get database_settings => '数据库设置';
+
+  @override
+  String get database_area => '数据库区域';
+
+  @override
+  String get cn_server => '国服';
+
+  @override
+  String get tw_server => '台服';
+
+  @override
+  String get jp_server => '日服';
+
+  @override
+  String get version => '版本';
+
+  @override
+  String get check_update => '检查更新';
+
+  @override
+  String get checking_update_failed => '检查更新失败';
+
+  @override
+  String get latest_version => '已是最新版本';
+
+  @override
+  String find_new_version(String arg1) {
+    return '发现新版本：$arg1';
+  }
+
+  @override
+  String get force_update => '强制更新';
+
+  @override
+  String get auto_check_update => '自动检查更新';
+
+  @override
+  String get database_missing => '数据库文件缺失';
+
+  @override
+  String get database_missing_hit => '检测到数据库文件不存在，需要下载数据库文件才能正常使用应用。';
+
+  @override
+  String get download => '下载';
+
+  @override
+  String get database_broken => '数据库文件损坏';
+
+  @override
+  String get database_broken_hit => '检测到数据库文件损坏，需要重新下载数据库文件才能正常使用应用。';
+
+  @override
+  String get database_updating => '正在更新数据库';
+
+  @override
+  String get database_update_success => '数据库更新成功';
+
+  @override
+  String get database_update_fail => '数据库更新失败:';
+
+  @override
+  String get download_failed => '下载失败';
+
+  @override
+  String get database_update => '数据库更新';
+
+  @override
+  String database_current_version(String arg1) {
+    return '当前数据库版本：$arg1';
+  }
+
+  @override
+  String database_new_version(String arg1) {
+    return '最新数据库版本：$arg1';
+  }
+
+  @override
+  String get database_update_hint => '检测到有新的数据库版本可用，建议更新以获取最新数据。';
+
+  @override
+  String get already_latest_version => '当前已是最新版本';
+
+  @override
+  String get database_version_fetch_failed => '无法获取最新数据库版本';
+
+  @override
+  String database_server(String arg1) {
+    return '服务器: $arg1';
+  }
+
+  @override
+  String get close => '关闭';
+
+  @override
   String get skill_type_1 => '伤害';
 
   @override

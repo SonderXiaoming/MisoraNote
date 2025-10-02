@@ -222,7 +222,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
         useOldVersion.isLoading) {
       return Scaffold(body: Center(child: CircularProgressIndicator()));
     }
-    final version = packageInfo.value?.version ?? 'Unknown';
+    final version = packageInfo.value?.version ?? t.unknown;
 
     return Scaffold(
       body: ListView(
@@ -248,10 +248,10 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
           SizedBox(height: 16),
 
           SubSettingsPage(
-            title: "应用设置",
+            title: t.app_settings,
             children: [
               DropDownSettings<String>(
-                title: "语言",
+                title: t.language,
                 items: Language.values
                     .map((lang) => (lang.code, Language.getDisplayName(lang)))
                     .toList(),
@@ -266,18 +266,22 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
           SizedBox(height: 16),
 
           SubSettingsPage(
-            title: "数据库设置",
+            title: t.database_settings,
             children: [
               DropDownSettings<Area>(
-                title: "数据库区域",
-                items: [(Area.cn, "国服"), (Area.tw, "台服"), (Area.jp, "日服")],
+                title: t.database_area,
+                items: [
+                  (Area.cn, t.cn_server),
+                  (Area.tw, t.tw_server),
+                  (Area.jp, t.jp_server),
+                ],
                 onSelected: (value) async {
                   ref.read(databaseAreaProvider.notifier).setArea(value);
                 },
                 currentValue: area.value,
               ),
               CheckSettings(
-                title: "版本 ${dbVersion.value ?? ''}",
+                title: "${t.version} ${dbVersion.value ?? ''}",
                 child: IconButton(
                   onPressed: () async {
                     final latestVersion = await checkDatabaseUpdate(
@@ -285,9 +289,9 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                     );
                     if (latestVersion == null) {
                       if (context.mounted) {
-                        ScaffoldMessenger.of(
-                          context,
-                        ).showSnackBar(SnackBar(content: Text('检查更新失败')));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(t.checking_update_failed)),
+                        );
                       }
                       return;
                     }
@@ -300,11 +304,10 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                   },
 
                   icon: Icon(Icons.refresh),
-                  tooltip: '检查更新',
                 ),
               ),
               CheckSettings(
-                title: "强制刷新",
+                title: t.force_update,
                 child: IconButton(
                   onPressed: () async {
                     final latestVersion = await checkDatabaseUpdate(
@@ -346,7 +349,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                       currentValue: null,
                     )
                   : SwitchSettings(
-                      title: "自动检测更新",
+                      title: t.auto_check_update,
                       value: autoUpdate.value!,
                       onChanged: (bool newValue) {
                         ref

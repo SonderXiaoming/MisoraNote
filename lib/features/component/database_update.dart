@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:misora_note/core/di/di.dart';
 import 'package:misora_note/core/network/download.dart';
-import 'package:misora_note/features/component/progress_dialog.dart';
+import 'package:misora_note/features/component/custom_dialog.dart';
+import 'package:misora_note/l10n/app_localizations.dart';
 
 Future<void> updateDatabase(
   WidgetRef ref,
   BuildContext context,
   String? newVersion,
 ) async {
+  final t = AppLocalizations.of(context)!;
   try {
     await ProgressDialog.show(
       context,
-      title: '正在更新数据库',
+      title: t.database_updating,
       task: (updateProgress) async {
         final area = ref.read(databaseAreaProvider);
         final db = ref.read(dbProvider);
@@ -42,14 +44,14 @@ Future<void> updateDatabase(
     if (context.mounted) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('数据库更新成功')));
+      ).showSnackBar(SnackBar(content: Text(t.database_update_success)));
     }
   } catch (e) {
     // 显示错误信息
     if (context.mounted) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('数据库更新失败: $e')));
+      ).showSnackBar(SnackBar(content: Text('${t.database_update_fail} $e')));
     }
     rethrow;
   }
@@ -64,26 +66,28 @@ class DatabaseUpdateDialog extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final dbVersion = ref.watch(currentDbVersionProvider);
     final area = ref.watch(databaseAreaProvider);
-
+    final t = AppLocalizations.of(context)!;
     return AlertDialog(
-      title: const Text('数据库更新'),
+      title: Text(t.database_update),
       content: dbVersion.when(
         loading: () => const SizedBox(
           height: 80,
           child: Center(child: CircularProgressIndicator()),
         ),
-        error: (error, _) => const Text('无法获取版本信息，请检查网络连接'),
+        error: (error, _) => Text(t.database_version_fetch_failed),
         data: (currentVersion) => Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('当前版本: $currentVersion'),
-            Text('最新版本: $newVersion'),
+            Text(t.database_current_version(currentVersion ?? t.unknown)),
+            Text(t.database_new_version(newVersion ?? t.unknown)),
             const SizedBox(height: 12),
-            Text('服务器: ${area.value?.name ?? "未知"}'),
+            Text(t.database_server(area.value?.name ?? t.unknown)),
             const SizedBox(height: 12),
             Text(
-              currentVersion == newVersion ? '当前已是最新版本' : '有新版本可用，建议更新以获取最新数据',
+              currentVersion == newVersion
+                  ? t.already_latest_version
+                  : t.database_update_hint,
             ),
           ],
         ),
@@ -91,7 +95,7 @@ class DatabaseUpdateDialog extends ConsumerWidget {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('关闭'),
+          child: Text(t.close),
         ),
         dbVersion.when(
           loading: () => const SizedBox.shrink(),
@@ -105,7 +109,7 @@ class DatabaseUpdateDialog extends ConsumerWidget {
                       Navigator.of(context).pop();
                     }
                   },
-                  child: const Text('更新数据库'),
+                  child: Text(t.database_update),
                 ),
         ),
       ],

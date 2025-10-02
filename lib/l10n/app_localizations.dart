@@ -382,6 +382,192 @@ abstract class AppLocalizations {
   /// **'请输入角色ID'**
   String get search_hit_id;
 
+  /// No description provided for @app_settings.
+  ///
+  /// In zh, this message translates to:
+  /// **'应用设置'**
+  String get app_settings;
+
+  /// No description provided for @language.
+  ///
+  /// In zh, this message translates to:
+  /// **'语言'**
+  String get language;
+
+  /// No description provided for @database_settings.
+  ///
+  /// In zh, this message translates to:
+  /// **'数据库设置'**
+  String get database_settings;
+
+  /// No description provided for @database_area.
+  ///
+  /// In zh, this message translates to:
+  /// **'数据库区域'**
+  String get database_area;
+
+  /// No description provided for @cn_server.
+  ///
+  /// In zh, this message translates to:
+  /// **'国服'**
+  String get cn_server;
+
+  /// No description provided for @tw_server.
+  ///
+  /// In zh, this message translates to:
+  /// **'台服'**
+  String get tw_server;
+
+  /// No description provided for @jp_server.
+  ///
+  /// In zh, this message translates to:
+  /// **'日服'**
+  String get jp_server;
+
+  /// No description provided for @version.
+  ///
+  /// In zh, this message translates to:
+  /// **'版本'**
+  String get version;
+
+  /// No description provided for @check_update.
+  ///
+  /// In zh, this message translates to:
+  /// **'检查更新'**
+  String get check_update;
+
+  /// No description provided for @checking_update_failed.
+  ///
+  /// In zh, this message translates to:
+  /// **'检查更新失败'**
+  String get checking_update_failed;
+
+  /// No description provided for @latest_version.
+  ///
+  /// In zh, this message translates to:
+  /// **'已是最新版本'**
+  String get latest_version;
+
+  /// No description provided for @find_new_version.
+  ///
+  /// In zh, this message translates to:
+  /// **'发现新版本：{arg1}'**
+  String find_new_version(String arg1);
+
+  /// No description provided for @force_update.
+  ///
+  /// In zh, this message translates to:
+  /// **'强制更新'**
+  String get force_update;
+
+  /// No description provided for @auto_check_update.
+  ///
+  /// In zh, this message translates to:
+  /// **'自动检查更新'**
+  String get auto_check_update;
+
+  /// No description provided for @database_missing.
+  ///
+  /// In zh, this message translates to:
+  /// **'数据库文件缺失'**
+  String get database_missing;
+
+  /// No description provided for @database_missing_hit.
+  ///
+  /// In zh, this message translates to:
+  /// **'检测到数据库文件不存在，需要下载数据库文件才能正常使用应用。'**
+  String get database_missing_hit;
+
+  /// No description provided for @download.
+  ///
+  /// In zh, this message translates to:
+  /// **'下载'**
+  String get download;
+
+  /// No description provided for @database_broken.
+  ///
+  /// In zh, this message translates to:
+  /// **'数据库文件损坏'**
+  String get database_broken;
+
+  /// No description provided for @database_broken_hit.
+  ///
+  /// In zh, this message translates to:
+  /// **'检测到数据库文件损坏，需要重新下载数据库文件才能正常使用应用。'**
+  String get database_broken_hit;
+
+  /// No description provided for @database_updating.
+  ///
+  /// In zh, this message translates to:
+  /// **'正在更新数据库'**
+  String get database_updating;
+
+  /// No description provided for @database_update_success.
+  ///
+  /// In zh, this message translates to:
+  /// **'数据库更新成功'**
+  String get database_update_success;
+
+  /// No description provided for @database_update_fail.
+  ///
+  /// In zh, this message translates to:
+  /// **'数据库更新失败:'**
+  String get database_update_fail;
+
+  /// No description provided for @download_failed.
+  ///
+  /// In zh, this message translates to:
+  /// **'下载失败'**
+  String get download_failed;
+
+  /// No description provided for @database_update.
+  ///
+  /// In zh, this message translates to:
+  /// **'数据库更新'**
+  String get database_update;
+
+  /// No description provided for @database_current_version.
+  ///
+  /// In zh, this message translates to:
+  /// **'当前数据库版本：{arg1}'**
+  String database_current_version(String arg1);
+
+  /// No description provided for @database_new_version.
+  ///
+  /// In zh, this message translates to:
+  /// **'最新数据库版本：{arg1}'**
+  String database_new_version(String arg1);
+
+  /// No description provided for @database_update_hint.
+  ///
+  /// In zh, this message translates to:
+  /// **'检测到有新的数据库版本可用，建议更新以获取最新数据。'**
+  String get database_update_hint;
+
+  /// No description provided for @already_latest_version.
+  ///
+  /// In zh, this message translates to:
+  /// **'当前已是最新版本'**
+  String get already_latest_version;
+
+  /// No description provided for @database_version_fetch_failed.
+  ///
+  /// In zh, this message translates to:
+  /// **'无法获取最新数据库版本'**
+  String get database_version_fetch_failed;
+
+  /// No description provided for @database_server.
+  ///
+  /// In zh, this message translates to:
+  /// **'服务器: {arg1}'**
+  String database_server(String arg1);
+
+  /// No description provided for @close.
+  ///
+  /// In zh, this message translates to:
+  /// **'关闭'**
+  String get close;
+
   /// No description provided for @skill_type_1.
   ///
   /// In zh, this message translates to:

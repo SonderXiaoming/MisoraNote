@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -28,7 +27,7 @@ class _HomePageState extends ConsumerState<HomePage> {
     // 检查数据库文件是否存在
     final dbFile = db.dbFile;
     final area = ref.read(areaProvider);
-
+    final t = AppLocalizations.of(context)!;
     if (!dbFile.existsSync()) {
       // 数据库文件不存在，要求强制更新
       if (mounted && context.mounted) {
@@ -37,8 +36,8 @@ class _HomePageState extends ConsumerState<HomePage> {
           barrierDismissible: false,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: const Text('数据库文件缺失'),
-              content: const Text('检测到数据库文件不存在，需要下载数据库文件才能正常使用应用。'),
+              title: Text(t.database_missing),
+              content: Text(t.database_missing_hit),
               actions: [
                 FilledButton(
                   onPressed: () async {
@@ -52,7 +51,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                       latestVersion,
                     ).then((value) => init());
                   },
-                  child: const Text('下载'),
+                  child: Text(t.download),
                 ),
               ],
             );
@@ -64,24 +63,19 @@ class _HomePageState extends ConsumerState<HomePage> {
     // 检查自动更新设置
     final autoUpdate = await Prefs.needAutoUpdate();
     if (autoUpdate) {
-      try {
-        final latestVersion = await checkDatabaseUpdate(area);
-        if (latestVersion != null) {
-          final currentVersion = await Prefs.dbVersion(area);
+      final latestVersion = await checkDatabaseUpdate(area);
+      if (latestVersion != null) {
+        final currentVersion = await Prefs.dbVersion(area);
 
-          if (currentVersion != latestVersion && mounted && context.mounted) {
-            // 有新版本，询问用户是否更新
-            await showDialog<bool>(
-              context: context,
-              builder: (BuildContext context) {
-                return DatabaseUpdateDialog(newVersion: latestVersion);
-              },
-            );
-          }
+        if (currentVersion != latestVersion && mounted && context.mounted) {
+          // 有新版本，询问用户是否更新
+          await showDialog<bool>(
+            context: context,
+            builder: (BuildContext context) {
+              return DatabaseUpdateDialog(newVersion: latestVersion);
+            },
+          );
         }
-      } catch (e) {
-        // 更新检查失败，继续正常初始化
-        print('自动更新检查失败: $e');
       }
     }
 
@@ -104,8 +98,8 @@ class _HomePageState extends ConsumerState<HomePage> {
           barrierDismissible: false,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: const Text('数据库文件损坏'),
-              content: const Text('检测到数据库文件损坏，需要下载数据库文件才能正常使用应用。'),
+              title: Text(t.database_broken),
+              content: Text(t.database_broken_hit),
               actions: [
                 FilledButton(
                   onPressed: () async {
@@ -119,7 +113,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                       latestVersion,
                     ).then((value) => init());
                   },
-                  child: const Text('下载'),
+                  child: Text(t.download),
                 ),
               ],
             );
