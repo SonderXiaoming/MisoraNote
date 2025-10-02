@@ -420,10 +420,23 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                   tooltip: '检查更新',
                 ),
               ),
+              CheckSettings(
+                title: "强制刷新",
+                child: IconButton(
+                  onPressed: !_isUpdating
+                      ? () async {
+                          _startUpdateWithDialog(null);
+                        }
+                      : null,
+                  icon: Icon(Icons.refresh),
+                ),
+              ),
               SwitchSettings(
                 title: "启用历史版本",
-                value: false,
-                onChanged: (bool newValue) {},
+                value: useOldVersion.value!,
+                onChanged: (bool newValue) {
+                  ref.read(useOldVersionProvider.notifier).set(newValue);
+                },
               ),
               useOldVersion.value!
                   ? DropDownSettings<String>(
@@ -440,8 +453,12 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                     )
                   : SwitchSettings(
                       title: "自动检测更新",
-                      value: false,
-                      onChanged: (bool newValue) {},
+                      value: autoUpdate.value!,
+                      onChanged: (bool newValue) {
+                        ref
+                            .read(databaseAutoUpdateProvider.notifier)
+                            .set(newValue);
+                      },
                     ),
               // Example data for "历史版本" dropdown
             ],
