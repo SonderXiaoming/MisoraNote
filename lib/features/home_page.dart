@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -5,11 +6,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/features/component/base.dart';
+import 'package:misora_note/features/component/database_update.dart';
 import 'package:misora_note/features/component/unit_card.dart';
 import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/core/di/di.dart';
+import 'package:misora_note/core/storage/prefs.dart';
+import 'package:misora_note/core/utils/util.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
-import 'package:misora_note/core/network/download.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -19,18 +22,110 @@ class HomePage extends ConsumerStatefulWidget {
 
 class _HomePageState extends ConsumerState<HomePage> {
   AppDb get db => ref.watch(dbProvider); // watch以便db变化时自动刷新
-  double? _progress;
   List<int> showUnit = [];
 
   Future<void> init() async {
-    await db.init();
-    final units = await db
-        .getUnitsData(type: UnitRankType.lastUpdate, limit: 6)
-        .then((value) => value.map((e) => e.unitId).toList());
-    if (mounted) {
-      setState(() {
-        showUnit = units;
-      });
+    // 检查数据库文件是否存在
+    final dbFile = db.dbFile;
+    final area = ref.read(areaProvider);
+
+    if (!dbFile.existsSync()) {
+      // 数据库文件不存在，要求强制更新
+      if (mounted && context.mounted) {
+        await showDialog<bool>(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('数据库文件缺失'),
+              content: const Text('检测到数据库文件不存在，需要下载数据库文件才能正常使用应用。'),
+              actions: [
+                FilledButton(
+                  onPressed: () async {
+                    final latestVersion = await checkDatabaseUpdate(
+                      ref.read(areaProvider),
+                    );
+                    Navigator.of(context).pop();
+                    updateDatabase(
+                      ref,
+                      context,
+                      latestVersion,
+                    ).then((value) => init());
+                  },
+                  child: const Text('下载'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    }
+
+    // 检查自动更新设置
+    final autoUpdate = await Prefs.needAutoUpdate();
+    if (autoUpdate) {
+      try {
+        final latestVersion = await checkDatabaseUpdate(area);
+        if (latestVersion != null) {
+          final currentVersion = await Prefs.dbVersion(area);
+
+          if (currentVersion != latestVersion && mounted && context.mounted) {
+            // 有新版本，询问用户是否更新
+            await showDialog<bool>(
+              context: context,
+              builder: (BuildContext context) {
+                return DatabaseUpdateDialog(newVersion: latestVersion);
+              },
+            );
+          }
+        }
+      } catch (e) {
+        // 更新检查失败，继续正常初始化
+        print('自动更新检查失败: $e');
+      }
+    }
+
+    try {
+      // 正常初始化数据库
+      await db.init();
+      final units = await db
+          .getUnitsData(type: UnitRankType.lastUpdate, limit: 6)
+          .then((value) => value.map((e) => e.unitId).toList());
+      if (mounted) {
+        setState(() {
+          showUnit = units;
+        });
+      }
+    } catch (e) {
+      // 初始化失败，损坏！
+      if (mounted && context.mounted) {
+        await showDialog<bool>(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('数据库文件损坏'),
+              content: const Text('检测到数据库文件损坏，需要下载数据库文件才能正常使用应用。'),
+              actions: [
+                FilledButton(
+                  onPressed: () async {
+                    final latestVersion = await checkDatabaseUpdate(
+                      ref.read(areaProvider),
+                    );
+                    Navigator.of(context).pop();
+                    updateDatabase(
+                      ref,
+                      context,
+                      latestVersion,
+                    ).then((value) => init());
+                  },
+                  child: const Text('下载'),
+                ),
+              ],
+            );
+          },
+        );
+      }
     }
   }
 
@@ -40,47 +135,6 @@ class _HomePageState extends ConsumerState<HomePage> {
     Future.microtask(() async {
       init();
     });
-  }
-
-  Future<void> _startUpdate() async {
-    setState(() {
-      _progress = 0.0; // 初始化进度为0
-    });
-    final area = ref.read(areaProvider);
-    try {
-      await updatePcrDatabase(
-        area,
-        onProgress: (received, total) {
-          if (total > 0 && mounted) {
-            setState(() {
-              _progress = received / total; // 更新进度
-            });
-          }
-        },
-      );
-      // 数据库更新完成后重新初始化
-      await init();
-    } catch (e) {
-      // 错误处理：显示错误信息或重置进度
-      if (mounted) {
-        setState(() {
-          _progress = null;
-        });
-      }
-      // 可以添加错误提示
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('数据库更新失败: $e')),
-        );
-      }
-    } finally {
-      // 完成后隐藏进度条
-      if (mounted) {
-        setState(() {
-          _progress = null;
-        });
-      }
-    }
   }
 
   @override
@@ -113,8 +167,10 @@ class _HomePageState extends ConsumerState<HomePage> {
                 },
                 borderRadius: BorderRadius.circular(8),
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
+                  ),
                   child: Row(
                     children: [
                       Icon(Icons.auto_awesome),
@@ -134,10 +190,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                         ),
                       ),
                       SizedBox(width: 4),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        size: 18,
-                      ),
+                      Icon(Icons.arrow_forward_ios, size: 18),
                     ],
                   ),
                 ),
@@ -175,19 +228,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                   },
                 ),
               ),
-            FilledButton(
-              onPressed: _progress == null ? _startUpdate : null,
-              child: const Text('更新数据库'),
-            ),
-            if (_progress != null) ...[
-              const SizedBox(height: 16),
-              SizedBox(
-                width: 200,
-                child: LinearProgressIndicator(value: _progress),
-              ),
-              const SizedBox(height: 8),
-              Text('${(_progress! * 100).toStringAsFixed(1)}%'),
-            ],
           ],
         ),
       ),

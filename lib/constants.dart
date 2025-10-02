@@ -22,6 +22,39 @@ enum Area {
   }
 }
 
+enum Language {
+  zh("zh"),
+  en("en"),
+  ja("ja");
+
+  const Language(this.code);
+  final String code;
+
+  static String getDisplayName(Language language) {
+    switch (language) {
+      case Language.zh:
+        return "中文";
+      case Language.en:
+        return "English";
+      case Language.ja:
+        return "日本語";
+    }
+  }
+
+  static Language getType(String code) {
+    switch (code) {
+      case "zh":
+        return Language.zh;
+      case "en":
+        return Language.en;
+      case "ja":
+        return Language.ja;
+      default:
+        return Language.zh;
+    }
+  }
+}
+
 final double ratioGolden = 0.618;
 
 class FetchUrl {

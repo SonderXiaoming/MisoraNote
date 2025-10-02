@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/utils/util.dart';
+import 'package:misora_note/features/component/database_update.dart';
 import 'package:misora_note/features/component/image.dart';
 import 'package:misora_note/features/component/tag.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import "package:misora_note/core/di/di.dart";
-import 'package:misora_note/core/network/download.dart';
-import 'package:misora_note/features/component/progress_dialog.dart';
 
 class DropDownSettings<T> extends StatelessWidget {
   final List<(T?, String)> items;
@@ -25,11 +24,13 @@ class DropDownSettings<T> extends StatelessWidget {
 
   // 获取当前值的显示文本
   String getCurrentDisplayText() {
-    final currentItem = items.firstWhere(
-      (item) => item.$1 == currentValue,
-      orElse: () => (currentValue, '未知'),
-    );
-    return currentItem.$2;
+    try {
+      final currentItem = items.firstWhere((item) => item.$1 == currentValue);
+      return currentItem.$2;
+    } catch (e) {
+      // 如果找不到匹配的项，返回默认值
+      return '未知';
+    }
   }
 
   @override
@@ -204,64 +205,6 @@ class SettingsPage extends ConsumerStatefulWidget {
 }
 
 class _SettingsPageState extends ConsumerState<SettingsPage> {
-  bool _isUpdating = false;
-
-  Future<void> _startUpdateWithDialog(String? newVersion) async {
-    if (_isUpdating) return;
-
-    setState(() {
-      _isUpdating = true;
-    });
-
-    try {
-      await ProgressDialog.show(
-        context,
-        title: '正在更新数据库',
-        task: (updateProgress) async {
-          final area = ref.read(databaseAreaProvider);
-
-          await updatePcrDatabase(
-            area.value!,
-            onProgress: (received, total) {
-              if (total > 0 && mounted) {
-                final progress = received / total;
-                updateProgress(progress, null);
-              }
-            },
-          );
-
-          await ref.read(dbProvider).init();
-
-          // 更新完成，设置版本号
-          if (newVersion != null) {
-            ref.read(currentDbVersionProvider.notifier).setVersion(newVersion);
-          } else {
-            // 强制更新情况，刷新版本信息
-            ref.invalidate(currentDbVersionProvider);
-          }
-        },
-      );
-
-      // 显示成功信息
-      if (context.mounted) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text('数据库更新成功')));
-      }
-    } catch (e) {
-      // 显示错误信息
-      if (context.mounted) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text('数据库更新失败: $e')));
-      }
-    } finally {
-      setState(() {
-        _isUpdating = false;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
@@ -309,7 +252,9 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
             children: [
               DropDownSettings<String>(
                 title: "语言",
-                items: [("zh", "中文"), ("en", "英文")],
+                items: Language.values
+                    .map((lang) => (lang.code, Language.getDisplayName(lang)))
+                    .toList(),
                 onSelected: (value) async {
                   await ref.read(languageProvider.notifier).setLanguage(value);
                 },
@@ -334,88 +279,26 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
               CheckSettings(
                 title: "版本 ${dbVersion.value ?? ''}",
                 child: IconButton(
-                  onPressed: !_isUpdating
-                      ? () async {
-                          final latestVersion = await checkDatabaseUpdate(
-                            area.value!,
-                          );
-                          if (latestVersion == null) {
-                            if (context.mounted) {
-                              ScaffoldMessenger.of(
-                                context,
-                              ).showSnackBar(SnackBar(content: Text('检查更新失败')));
-                            }
-                            return;
-                          }
-                          if (latestVersion != dbVersion.value) {
-                            // 有新版本，显示弹窗询问是否更新
-                            final shouldUpdate = await showDialog<bool>(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: Text('发现新版本'),
-                                  content: Text(
-                                    '发现新版本: $latestVersion\n当前版本: ${dbVersion.value}\n\n是否立即更新数据库？',
-                                  ),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.of(context).pop(false),
-                                      child: Text('取消'),
-                                    ),
-                                    FilledButton(
-                                      onPressed: () =>
-                                          Navigator.of(context).pop(true),
-                                      style: FilledButton.styleFrom(
-                                        backgroundColor: Color(
-                                          CustomColors.colorPrimary,
-                                        ),
-                                      ),
-                                      child: Text('更新'),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
-                            if (shouldUpdate == true) {
-                              _startUpdateWithDialog(latestVersion);
-                            }
-                          } else {
-                            // 已是最新版本，显示弹窗询问是否强制更新
-                            final shouldForceUpdate = await showDialog<bool>(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: Text('当前已是最新版本'),
-                                  content: Text(
-                                    '当前版本: ${dbVersion.value}\n\n是否强制重新下载数据库？',
-                                  ),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.of(context).pop(false),
-                                      child: Text('取消'),
-                                    ),
-                                    FilledButton(
-                                      onPressed: () =>
-                                          Navigator.of(context).pop(true),
-                                      style: FilledButton.styleFrom(
-                                        backgroundColor: Color(
-                                          CustomColors.colorPrimary,
-                                        ),
-                                      ),
-                                      child: Text('强制更新'),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
-                            if (shouldForceUpdate == true) {
-                              _startUpdateWithDialog(latestVersion);
-                            }
-                          }
-                        }
-                      : null,
+                  onPressed: () async {
+                    final latestVersion = await checkDatabaseUpdate(
+                      area.value!,
+                    );
+                    if (latestVersion == null) {
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(
+                          context,
+                        ).showSnackBar(SnackBar(content: Text('检查更新失败')));
+                      }
+                      return;
+                    }
+                    await showDialog<Widget>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return DatabaseUpdateDialog(newVersion: latestVersion);
+                      },
+                    );
+                  },
+
                   icon: Icon(Icons.refresh),
                   tooltip: '检查更新',
                 ),
@@ -423,14 +306,24 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
               CheckSettings(
                 title: "强制刷新",
                 child: IconButton(
-                  onPressed: !_isUpdating
-                      ? () async {
-                          _startUpdateWithDialog(null);
-                        }
-                      : null,
+                  onPressed: () async {
+                    final latestVersion = await checkDatabaseUpdate(
+                      area.value!,
+                    );
+                    if (latestVersion == null) {
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(
+                          context,
+                        ).showSnackBar(SnackBar(content: Text('获取最新版本失败')));
+                      }
+                      return;
+                    }
+                    await updateDatabase(ref, context, latestVersion);
+                  },
                   icon: Icon(Icons.refresh),
                 ),
               ),
+              /*
               SwitchSettings(
                 title: "启用历史版本",
                 value: useOldVersion.value!,
@@ -438,6 +331,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                   ref.read(useOldVersionProvider.notifier).set(newValue);
                 },
               ),
+              */
               useOldVersion.value!
                   ? DropDownSettings<String>(
                       title: "历史版本",

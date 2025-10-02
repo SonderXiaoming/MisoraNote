@@ -57,8 +57,12 @@ class ProgressDialog extends StatefulWidget {
       final result = await task((progress, message) {
         currentProgress = progress;
         currentMessage = message;
-        // 更新弹窗UI
-        dialogSetState(() {});
+        // 使用 Future.microtask 确保在下一个事件循环中更新UI
+        Future.microtask(() {
+          if (dialogContext != null && dialogContext!.mounted) {
+            dialogSetState(() {});
+          }
+        });
       });
 
       // 任务完成，关闭弹窗

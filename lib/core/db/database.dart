@@ -40,9 +40,12 @@ class AppDb extends _$AppDb {
   late List<int> unique1Units; // 所有专一1角色列表
   late List<int> unique2Units; // 所有专一2角色列表
   late (int, int) maxUniqueEquipLv; // 最大的专一2等级
+  late File dbFile;
   int unitNum = 0;
 
-  AppDb(String sqliteFile) : super(NativeDatabase(File(sqliteFile)));
+  AppDb(String sqliteFile)
+    : dbFile = File(sqliteFile),
+      super(NativeDatabase(File(sqliteFile)));
 
   Future<void> init() async {
     unitNum = (await getUnitsData()).length;
@@ -52,14 +55,12 @@ class AppDb extends _$AppDb {
       await getMaxUniqueEquipLv(2),
     );
     r6Units = await getR6Units();
-    unique1Units = (await getallUniqueEquip(slot: 1))
-        .map((e) => e.unitId)
-        .toSet()
-        .toList();
-    unique2Units = (await getallUniqueEquip(slot: 2))
-        .map((e) => e.unitId)
-        .toSet()
-        .toList();
+    unique1Units = (await getallUniqueEquip(
+      slot: 1,
+    )).map((e) => e.unitId).toSet().toList();
+    unique2Units = (await getallUniqueEquip(
+      slot: 2,
+    )).map((e) => e.unitId).toSet().toList();
   }
 
   @override
@@ -77,38 +78,35 @@ class AppDb extends _$AppDb {
     return result.map((e) => e.unitId).toList();
   }
 
-  Future<List<UnitDataData>> getUnitsData(
-      {UnitRankType? type,
-      int? limit,
-      bool? isDesc,
-      UnitSearchData? searchData}) {
-    var sql = select(unitData).join([
-      innerJoin(
-        unitProfile,
-        unitProfile.unitId.equalsExp(unitData.unitId),
-      ),
-    ])
-      ..where(unitData.searchAreaWidth.isBiggerThanValue(0))
-      ..where(unitData.unitId.isSmallerThanValue(maxUnitId));
+  Future<List<UnitDataData>> getUnitsData({
+    UnitRankType? type,
+    int? limit,
+    bool? isDesc,
+    UnitSearchData? searchData,
+  }) {
+    var sql =
+        select(unitData).join([
+            innerJoin(
+              unitProfile,
+              unitProfile.unitId.equalsExp(unitData.unitId),
+            ),
+          ])
+          ..where(unitData.searchAreaWidth.isBiggerThanValue(0))
+          ..where(unitData.unitId.isSmallerThanValue(maxUnitId));
 
-    final orderMode =
-        isDesc == null || isDesc == true ? OrderingMode.desc : OrderingMode.asc;
+    final orderMode = isDesc == null || isDesc == true
+        ? OrderingMode.desc
+        : OrderingMode.asc;
     switch (type) {
       case UnitRankType.lastUpdate:
         sql = sql
           ..orderBy([
-            OrderingTerm(
-              expression: unitData.startTime,
-              mode: orderMode,
-            ),
+            OrderingTerm(expression: unitData.startTime, mode: orderMode),
           ]);
       case UnitRankType.unitId:
         sql = sql
           ..orderBy([
-            OrderingTerm(
-              expression: unitData.unitId,
-              mode: orderMode,
-            ),
+            OrderingTerm(expression: unitData.unitId, mode: orderMode),
           ]);
       case UnitRankType.age:
         sql = sql
@@ -149,10 +147,7 @@ class AppDb extends _$AppDb {
       case UnitRankType.searchAreaWidth:
         sql = sql
           ..orderBy([
-            OrderingTerm(
-              expression: unitData.searchAreaWidth,
-              mode: orderMode,
-            ),
+            OrderingTerm(expression: unitData.searchAreaWidth, mode: orderMode),
           ]);
       case null:
         break;
@@ -175,19 +170,22 @@ class AppDb extends _$AppDb {
           final endId = int.parse(idString.padRight(4, '9')) * 100 + 1;
           sql = sql
             ..where(
-                unitData.unitId.isBetween(Constant(startId), Constant(endId)));
+              unitData.unitId.isBetween(Constant(startId), Constant(endId)),
+            );
         }
       }
       if (searchData.unitName != null && searchData.unitName!.isNotEmpty) {
         sql = sql..where(unitData.unitName.like('%${searchData.unitName!}%'));
       }
       if (searchData.searchAreaWidth != null) {
-        final range = SearchAreaWidthType.getRange(
-          searchData.searchAreaWidth!,
-        );
+        final range = SearchAreaWidthType.getRange(searchData.searchAreaWidth!);
         sql = sql
-          ..where(unitData.searchAreaWidth
-              .isBetween(Constant(range.$1), Constant(range.$2)));
+          ..where(
+            unitData.searchAreaWidth.isBetween(
+              Constant(range.$1),
+              Constant(range.$2),
+            ),
+          );
       }
       if (searchData.atkType != null) {
         sql = sql..where(unitData.atkType.equals(searchData.atkType!.value));
@@ -207,30 +205,32 @@ class AppDb extends _$AppDb {
         sql = sql..where(unitData.unitId.isIn(unique2Units));
       }
     }
-    return sql
-        .get()
-        .then((rows) => rows.map((row) => row.readTable(unitData)).toList());
+    return sql.get().then(
+      (rows) => rows.map((row) => row.readTable(unitData)).toList(),
+    );
   }
 
   Future<UnitInfo?> getUnitInfo(int unitId) async {
     final u = unitProfile; // 表 getter：unit_profile
     final d = unitData; // 表 getter：unit_data
     final a = actualUnitBackground; // 表 getter：actual_unit_background
-    final limitTypeExpr = CaseWhenExpression(
-      cases: [
-        CaseWhen(d.isLimited.equals(0), then: Constant(1)),
-        CaseWhen(
-          d.isLimited.equals(1) & d.rarity.equals(3),
-          then: Constant(2),
-        ),
-        CaseWhen(
-          d.isLimited.equals(1) & d.rarity.equals(1),
-          then: Constant(3),
-        ),
-        CaseWhen(d.isLimited.equals(1), then: Constant(4)),
-      ],
-      orElse: const Constant(0),
-    ) as Expression<int>;
+    final limitTypeExpr =
+        CaseWhenExpression(
+              cases: [
+                CaseWhen(d.isLimited.equals(0), then: Constant(1)),
+                CaseWhen(
+                  d.isLimited.equals(1) & d.rarity.equals(3),
+                  then: Constant(2),
+                ),
+                CaseWhen(
+                  d.isLimited.equals(1) & d.rarity.equals(1),
+                  then: Constant(3),
+                ),
+                CaseWhen(d.isLimited.equals(1), then: Constant(4)),
+              ],
+              orElse: const Constant(0),
+            )
+            as Expression<int>;
     final join = selectOnly(u)
       ..addColumns([
         u.unitId, // 0
@@ -308,9 +308,9 @@ class AppDb extends _$AppDb {
   }
 
   // ORM：按 id 查询
-  Future<UnitProfileData?> getUnitById(int id) =>
-      (select(unitProfile)..where((t) => t.unitId.equals(id)))
-          .getSingleOrNull();
+  Future<UnitProfileData?> getUnitById(int id) => (select(
+    unitProfile,
+  )..where((t) => t.unitId.equals(id))).getSingleOrNull();
 
   Future<int> getMaxUniqueEquipLv(int slot) async {
     final maxExpr = uniqueEquipmentEnhanceData.enhanceLevel.max();
@@ -326,13 +326,13 @@ class AppDb extends _$AppDb {
     return maxValue ?? 1;
   }
 
-  Future<UnitSkillDataData?> getUnitSkills(int unitId) =>
-      (select(unitSkillData)..where((t) => t.unitId.equals(unitId)))
-          .getSingleOrNull();
+  Future<UnitSkillDataData?> getUnitSkills(int unitId) => (select(
+    unitSkillData,
+  )..where((t) => t.unitId.equals(unitId))).getSingleOrNull();
 
-  Future<SkillDataData?> getSkill(int skillId) =>
-      (select(skillData)..where((t) => t.skillId.equals(skillId)))
-          .getSingleOrNull();
+  Future<SkillDataData?> getSkill(int skillId) => (select(
+    skillData,
+  )..where((t) => t.skillId.equals(skillId))).getSingleOrNull();
 
   Future<List<SkillActionInfo>> getSkillActions(
     List<int> actionIds, {
@@ -340,18 +340,19 @@ class AppDb extends _$AppDb {
     bool isOtherRfSkill = true,
   }) async {
     if (actionIds.isEmpty) return [];
-    final query = select(skillAction).join([
-      leftOuterJoin(
-        ailmentData,
-        (skillAction.actionType.equalsExp(ailmentData.ailmentAction) &
-            ((skillAction.actionDetail1.equalsExp(
-                  ailmentData.ailmentDetail1,
-                )) |
-                ailmentData.ailmentDetail1.equals(-1))),
-      ),
-    ])
-      ..where(skillAction.actionId.isIn(actionIds))
-      ..addColumns([ailmentData.ailmentName]);
+    final query =
+        select(skillAction).join([
+            leftOuterJoin(
+              ailmentData,
+              (skillAction.actionType.equalsExp(ailmentData.ailmentAction) &
+                  ((skillAction.actionDetail1.equalsExp(
+                        ailmentData.ailmentDetail1,
+                      )) |
+                      ailmentData.ailmentDetail1.equals(-1))),
+            ),
+          ])
+          ..where(skillAction.actionId.isIn(actionIds))
+          ..addColumns([ailmentData.ailmentName]);
 
     final result = await query.get();
 
@@ -392,9 +393,9 @@ class AppDb extends _$AppDb {
     return query.get();
   }
 
-  Future<SpSkillLabelDataData?> getSpSkillLabel(int unitId) =>
-      (select(spSkillLabelData)..where((t) => t.unitId.equals(unitId)))
-          .getSingleOrNull();
+  Future<SpSkillLabelDataData?> getSpSkillLabel(int unitId) => (select(
+    spSkillLabelData,
+  )..where((t) => t.unitId.equals(unitId))).getSingleOrNull();
 
   Future<UnitSkillDataRFData?> getRfSkillId(int skillId) async {
     final query = select(unitSkillDataRF)
@@ -402,17 +403,17 @@ class AppDb extends _$AppDb {
     return query.getSingleOrNull();
   }
 
-  Future<List<UnitUniqueEquipmentData>> getallUniqueEquip(
-      {int slot = 1}) async {
+  Future<List<UnitUniqueEquipmentData>> getallUniqueEquip({
+    int slot = 1,
+  }) async {
     return (select(unitUniqueEquipment)
-          ..where((t) => CustomExpression<int>(
-                '${unitUniqueEquipment.tableName}.${unitUniqueEquipment.equipId.name} % 10',
-              ).equals(slot))
+          ..where(
+            (t) => CustomExpression<int>(
+              '${unitUniqueEquipment.tableName}.${unitUniqueEquipment.equipId.name} % 10',
+            ).equals(slot),
+          )
           ..orderBy([
-            (t) => OrderingTerm(
-                  expression: t.equipId,
-                  mode: OrderingMode.desc,
-                )
+            (t) => OrderingTerm(expression: t.equipId, mode: OrderingMode.desc),
           ]))
         .get();
   }
