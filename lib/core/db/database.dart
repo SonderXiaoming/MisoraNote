@@ -32,6 +32,7 @@ final kannaIds = [170101, 170201];
     UniqueEquipmentData,
     UniqueEquipmentEnhanceData,
     UnlockUnitCondition,
+    UnitTalent,
   ],
 )
 class AppDb extends _$AppDb {
@@ -39,7 +40,7 @@ class AppDb extends _$AppDb {
   late List<int> r6Units; // 所有 6 星角色列表
   late List<int> unique1Units; // 所有专一1角色列表
   late List<int> unique2Units; // 所有专一2角色列表
-  late (int, int) maxUniqueEquipLv; // 最大的专一2等级
+  late (int, int) maxUniqueEquipLv; // 最大的专一，二等级
   late File dbFile;
   int unitNum = 0;
 
@@ -90,6 +91,7 @@ class AppDb extends _$AppDb {
               unitProfile,
               unitProfile.unitId.equalsExp(unitData.unitId),
             ),
+            innerJoin(unitTalent, unitTalent.unitId.equalsExp(unitData.unitId)),
           ])
           ..where(unitData.searchAreaWidth.isBiggerThanValue(0))
           ..where(unitData.unitId.isSmallerThanValue(maxUnitId));
@@ -204,6 +206,9 @@ class AppDb extends _$AppDb {
       if (searchData.hasUnique2 == true) {
         sql = sql..where(unitData.unitId.isIn(unique2Units));
       }
+      if (searchData.talent != null) {
+        sql = sql..where(unitTalent.talentId.equals(searchData.talent!.value));
+      }
     }
     return sql.get().then(
       (rows) => rows.map((row) => row.readTable(unitData)).toList(),
@@ -214,6 +219,7 @@ class AppDb extends _$AppDb {
     final u = unitProfile; // 表 getter：unit_profile
     final d = unitData; // 表 getter：unit_data
     final a = actualUnitBackground; // 表 getter：actual_unit_background
+    final t = unitTalent; // 表 getter：unit_talent
     final limitTypeExpr =
         CaseWhenExpression(
               cases: [
@@ -257,6 +263,7 @@ class AppDb extends _$AppDb {
         d.cutin1Star6, // 21
         limitTypeExpr, // 22
         d.normalAtkCastTime, // 23
+        t.talentId, // 24
       ])
       ..join([
         leftOuterJoin(d, d.unitId.equalsExp(u.unitId)),
@@ -264,6 +271,7 @@ class AppDb extends _$AppDb {
           a,
           ((a.unitId - d.unitId).abs().isSmallerThan(Constant(100))),
         ),
+        leftOuterJoin(t, t.unitId.equalsExp(u.unitId)),
       ])
       ..where(d.unitId.equals(unitId))
       ..limit(1);
@@ -296,6 +304,7 @@ class AppDb extends _$AppDb {
       cutin1Star6: row.read(d.cutin1Star6),
       limitType: row.read(limitTypeExpr),
       normalAtkCastTime: row.read(d.normalAtkCastTime) ?? 0.0,
+      talentId: row.read(t.talentId) ?? 0,
     );
 
     if (kannaIds.contains(info.unitId)) {

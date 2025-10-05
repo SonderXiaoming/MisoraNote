@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'response_model.dart';
 
 class ApiClient {
   final Dio dio;
@@ -29,9 +28,10 @@ class ApiClient {
 
   Future<T> get<T>(
     String url, {
+    Map<String, String>? headers,
     required T Function(Map<String, dynamic>) fromJson,
   }) async {
-    final resp = await dio.get(url);
+    final resp = await dio.get(url, options: Options(headers: headers));
     if (resp.statusCode != 200) {
       throw Exception('请求失败: ${resp.statusCode}');
     }

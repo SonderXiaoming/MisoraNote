@@ -27,6 +27,28 @@ class SearchFilters extends StatelessWidget {
     final textStyle = textTheme.bodyMedium;
     return Row(
       children: [
+        // 天赋过滤器
+        Expanded(
+          child: FilterDropdownWithRadio<Talent>(
+            label: t.talent,
+            value: searchData.talent,
+            selectedValue: searchData.talent,
+            items: [
+              (null, t.talent),
+              ...Talent.values.map((type) => (type, Talent.getName(t, type))),
+            ],
+            itemStyleBuilder: (type) => type != null
+                ? textStyle?.copyWith(color: Color(Talent.getColor(type)))
+                : textStyle,
+            onChanged: (value) {
+              if (searchData.talent != value) {
+                searchData.talent = value;
+                onSearchDataChanged(searchData);
+              }
+            },
+          ),
+        ),
+        SizedBox(width: 8),
         // 位置过滤器
         Expanded(
           child: FilterDropdownWithRadio<SearchAreaWidthType>(
@@ -35,12 +57,14 @@ class SearchFilters extends StatelessWidget {
             selectedValue: searchData.searchAreaWidth,
             items: [
               (null, t.position),
-              ...SearchAreaWidthType.values
-                  .map((type) => (type, SearchAreaWidthType.getName(t, type)))
+              ...SearchAreaWidthType.values.map(
+                (type) => (type, SearchAreaWidthType.getName(t, type)),
+              ),
             ],
             itemStyleBuilder: (type) => type != null
                 ? textStyle?.copyWith(
-                    color: Color(SearchAreaWidthType.getColor(type)))
+                    color: Color(SearchAreaWidthType.getColor(type)),
+                  )
                 : textStyle,
             onChanged: (value) {
               if (searchData.searchAreaWidth != value) {
@@ -59,7 +83,7 @@ class SearchFilters extends StatelessWidget {
             selectedValue: searchData.atkType,
             items: [
               (null, t.attack_type),
-              ...AtkType.values.map((type) => (type, AtkType.getName(t, type)))
+              ...AtkType.values.map((type) => (type, AtkType.getName(t, type))),
             ],
             itemStyleBuilder: (type) => type != null
                 ? textStyle?.copyWith(color: Color(AtkType.getColor(type)))
@@ -129,14 +153,13 @@ class _ShowResult extends State<ShowResult> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircularProgressIndicator(
-              color: Color(CustomColors.colorPrimary),
-            ),
+            CircularProgressIndicator(color: Color(CustomColors.colorPrimary)),
             const SizedBox(height: 16),
             Text(
               '${t.searching}: "${widget.searchQuery}"',
               style: texttheme.bodyLarge?.copyWith(
-                  color: Color(CustomColors.colorGray).withAlpha(150)),
+                color: Color(CustomColors.colorGray).withAlpha(150),
+              ),
             ),
           ],
         ),
@@ -155,10 +178,12 @@ class _ShowResult extends State<ShowResult> {
               color: Color(CustomColors.colorGray).withAlpha(100),
             ),
             const SizedBox(height: 16),
-            Text(t.no_search_result,
-                style: texttheme.bodyLarge?.copyWith(
-                  color: Color(CustomColors.colorGray).withAlpha(150),
-                ))
+            Text(
+              t.no_search_result,
+              style: texttheme.bodyLarge?.copyWith(
+                color: Color(CustomColors.colorGray).withAlpha(150),
+              ),
+            ),
           ],
         ),
       );
@@ -194,20 +219,17 @@ class _ShowResult extends State<ShowResult> {
               crossAxisSpacing: 16,
               mainAxisSpacing: 16,
             ),
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                final unitId = widget.unitIds[index];
-                return Hero(
-                  tag: "unit_card_$unitId",
-                  child: UnitCard(
-                    unitId: unitId,
-                    isR6: widget.r6Units[unitId] ?? false,
-                    size: (cardWidth, cardWidth * 792 / 1408),
-                  ),
-                );
-              },
-              childCount: widget.unitIds.length,
-            ),
+            delegate: SliverChildBuilderDelegate((context, index) {
+              final unitId = widget.unitIds[index];
+              return Hero(
+                tag: "unit_card_$unitId",
+                child: UnitCard(
+                  unitId: unitId,
+                  isR6: widget.r6Units[unitId] ?? false,
+                  size: (cardWidth, cardWidth * 792 / 1408),
+                ),
+              );
+            }, childCount: widget.unitIds.length),
           ),
         ),
       ],
@@ -240,12 +262,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
     results = widget.perUnitIds;
     super.initState();
     final db = ref.read(dbProvider);
-    db
-        .getUnitsData(
-      type: _rankType,
-      isDesc: !_isAscending,
-    )
-        .then((units) {
+    db.getUnitsData(type: _rankType, isDesc: !_isAscending).then((units) {
       if (mounted) {
         setState(() {
           results = units.map((e) => e.unitId).toList();
@@ -267,8 +284,9 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
     setState(() {
       if (_isSearchById) {
         // 按ID搜索
-        _searchData.unitId =
-            _searchQuery.isEmpty ? null : int.tryParse(_searchQuery);
+        _searchData.unitId = _searchQuery.isEmpty
+            ? null
+            : int.tryParse(_searchQuery);
         _searchData.unitName = null;
       } else {
         // 按角色名搜索
@@ -293,10 +311,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
 
   void _loadDefaultResults() async {
     final db = ref.read(dbProvider);
-    final units = await db.getUnitsData(
-      type: _rankType,
-      isDesc: !_isAscending,
-    );
+    final units = await db.getUnitsData(type: _rankType, isDesc: !_isAscending);
     if (mounted) {
       setState(() {
         results = units.map((e) => e.unitId).toList();
@@ -358,25 +373,14 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
     _searchController.clear();
     setState(() {
       _searchQuery = '';
-      _searchData.unitName = null;
-      _searchData.unitId = null;
-      _searchData.searchAreaWidth = null;
-      _searchData.atkType = null;
-      _searchData.isR6 = null;
-      _searchData.hasUnique1 = null;
-      _searchData.hasUnique2 = null;
+      _searchData.clear();
     });
     _loadDefaultResults();
     _searchFocusNode.requestFocus();
   }
 
   void _performSearchWithFilters() {
-    if (_searchQuery.isEmpty &&
-        _searchData.searchAreaWidth == null &&
-        _searchData.atkType == null &&
-        _searchData.isR6 == null &&
-        _searchData.hasUnique1 == null &&
-        _searchData.unitId == null) {
+    if (_searchQuery.isEmpty && _searchData.isEmpty()) {
       _loadDefaultResults();
     } else {
       setState(() {
@@ -390,7 +394,9 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
     return _searchData.searchAreaWidth != null ||
         _searchData.atkType != null ||
         _searchData.isR6 != null ||
-        _searchData.hasUnique1 != null;
+        _searchData.hasUnique1 != null ||
+        _searchData.hasUnique2 != null ||
+        _searchData.talent != null;
   }
 
   void _clearFilters() {
@@ -400,6 +406,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
       _searchData.isR6 = null;
       _searchData.hasUnique1 = null;
       _searchData.hasUnique2 = null;
+      _searchData.talent = null;
     });
     _performSearchWithFilters();
   }
@@ -441,8 +448,9 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                 Expanded(
                   child: SearchBar(
                     controller: _searchController,
-                    hintText:
-                        _isSearchById ? t.search_hit_id : t.search_hit_name,
+                    hintText: _isSearchById
+                        ? t.search_hit_id
+                        : t.search_hit_name,
                     onChanged: _onSearchChanged,
                     textInputAction: TextInputAction.search,
                     keyboardType: _isSearchById
@@ -473,11 +481,13 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                               ),
                           ]
                         : <Widget>[],
-                    backgroundColor:
-                        WidgetStateProperty.all(Colors.grey.shade50),
+                    backgroundColor: WidgetStateProperty.all(
+                      Colors.grey.shade50,
+                    ),
                     shadowColor: WidgetStateProperty.all(Colors.transparent),
-                    surfaceTintColor:
-                        WidgetStateProperty.all(Colors.transparent),
+                    surfaceTintColor: WidgetStateProperty.all(
+                      Colors.transparent,
+                    ),
                     side: WidgetStateProperty.resolveWith((states) {
                       if (states.contains(WidgetState.focused)) {
                         return BorderSide(

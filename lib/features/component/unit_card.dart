@@ -24,11 +24,11 @@ class UnitCard extends ConsumerStatefulWidget {
     required this.isR6,
     this.size = const (1408, 792),
   }) : unitImage = CachedImage(
-          url: FetchUrl.fullcardUrl(longUnitId2Short(unitId), isR6 ? 6 : 3),
-          width: size.$1,
-          height: size.$2,
-          borderRadius: BorderRadius.circular(8),
-        );
+         url: FetchUrl.fullcardUrl(longUnitId2Short(unitId), isR6 ? 6 : 3),
+         width: size.$1,
+         height: size.$2,
+         borderRadius: BorderRadius.circular(8),
+       );
 
   @override
   ConsumerState<UnitCard> createState() => _UnitCardState();
@@ -110,6 +110,7 @@ class _UnitCardState extends ConsumerState<UnitCard> {
       unitInfo.searchAreaWidth ?? 0,
     );
     final atkType = AtkType.fromValue(unitInfo.atkType ?? 0);
+    final talent = Talent.fromValue(unitInfo.talentId ?? 0);
     return SizedBox(
       width: widget.size.$1,
       height: widget.size.$2,
@@ -205,10 +206,7 @@ class _UnitCardState extends ConsumerState<UnitCard> {
                                 widget.size.$2 * 0.07,
                               ),
                               SizedBox(width: widget.size.$2 * 0.01),
-                              Text(
-                                AtkType.getName(t, atkType),
-                                style: textStyle,
-                              ),
+                              Text(Talent.getName(t, talent), style: textStyle),
                             ],
                           ),
                         ),
@@ -280,8 +278,10 @@ class _UnitCardState extends ConsumerState<UnitCard> {
                     Text(
                       unitInfo.birthMonthInt == -1 || unitInfo.birthDayInt == -1
                           ? "???"
-                          : t.date_m_d(unitInfo.birthMonthInt!.toString(),
-                              unitInfo.birthDayInt!.toString()),
+                          : t.date_m_d(
+                              unitInfo.birthMonthInt!.toString(),
+                              unitInfo.birthDayInt!.toString(),
+                            ),
                       style: textStyle,
                     ),
                   ],

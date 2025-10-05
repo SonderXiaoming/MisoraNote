@@ -142,6 +142,24 @@ abstract class AppLocalizations {
   /// **'关于'**
   String get about_page;
 
+  /// No description provided for @restore.
+  ///
+  /// In zh, this message translates to:
+  /// **'恢复'**
+  String get restore;
+
+  /// No description provided for @restore_settings.
+  ///
+  /// In zh, this message translates to:
+  /// **'恢复默认设置'**
+  String get restore_settings;
+
+  /// No description provided for @restore_settings_success.
+  ///
+  /// In zh, this message translates to:
+  /// **'已恢复默认设置'**
+  String get restore_settings_success;
+
   /// No description provided for @skill_cooltime.
   ///
   /// In zh, this message translates to:
@@ -352,6 +370,12 @@ abstract class AppLocalizations {
   /// **'角色详情'**
   String get character_detail;
 
+  /// No description provided for @no_description.
+  ///
+  /// In zh, this message translates to:
+  /// **'暂无描述'**
+  String get no_description;
+
   /// No description provided for @attack_type.
   ///
   /// In zh, this message translates to:
@@ -453,6 +477,18 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'发现新版本：{arg1}'**
   String find_new_version(String arg1);
+
+  /// No description provided for @can_not_launch_url.
+  ///
+  /// In zh, this message translates to:
+  /// **'无法打开链接'**
+  String get can_not_launch_url;
+
+  /// No description provided for @new_version_log.
+  ///
+  /// In zh, this message translates to:
+  /// **'更新日志'**
+  String get new_version_log;
 
   /// No description provided for @force_update.
   ///
@@ -567,6 +603,48 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'关闭'**
   String get close;
+
+  /// No description provided for @talent.
+  ///
+  /// In zh, this message translates to:
+  /// **'天赋'**
+  String get talent;
+
+  /// No description provided for @app_check_auto_update.
+  ///
+  /// In zh, this message translates to:
+  /// **'应用检查自动更新'**
+  String get app_check_auto_update;
+
+  /// No description provided for @talent_fire.
+  ///
+  /// In zh, this message translates to:
+  /// **'火'**
+  String get talent_fire;
+
+  /// No description provided for @talent_water.
+  ///
+  /// In zh, this message translates to:
+  /// **'水'**
+  String get talent_water;
+
+  /// No description provided for @talent_wind.
+  ///
+  /// In zh, this message translates to:
+  /// **'风'**
+  String get talent_wind;
+
+  /// No description provided for @talent_light.
+  ///
+  /// In zh, this message translates to:
+  /// **'光'**
+  String get talent_light;
+
+  /// No description provided for @talent_dark.
+  ///
+  /// In zh, this message translates to:
+  /// **'暗'**
+  String get talent_dark;
 
   /// No description provided for @skill_type_1.
   ///

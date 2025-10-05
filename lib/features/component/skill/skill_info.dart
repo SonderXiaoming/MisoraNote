@@ -217,7 +217,7 @@ class SingleSkillInfo extends StatelessWidget {
 
           /// 正文描述
           Text(
-            skill.description ?? '暂无描述',
+            skill.description ?? t.no_description,
             style: textTheme.bodyLarge?.copyWith(height: 1.3),
           ),
           const SizedBox(height: 12),

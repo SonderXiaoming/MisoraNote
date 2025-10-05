@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:misora_note/core/di/di.dart';
-import 'package:misora_note/core/network/download.dart';
+import 'package:misora_note/core/utils/util.dart';
 import 'package:misora_note/features/component/custom_dialog.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 
@@ -33,7 +33,7 @@ Future<void> updateDatabase(
 
         // 更新完成，设置版本号
         if (newVersion != null) {
-          ref.read(currentDbVersionProvider.notifier).setVersion(newVersion);
+          ref.read(currentDbVersionProvider.notifier).set(newVersion);
         } else {
           ref.invalidate(currentDbVersionProvider);
         }

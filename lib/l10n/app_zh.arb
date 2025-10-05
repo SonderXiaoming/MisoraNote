@@ -18,6 +18,9 @@
   "function_page": "功能",
   "settings_page": "设置",
   "about_page": "关于",
+  "restore": "恢复",
+  "restore_settings": "恢复默认设置",
+  "restore_settings_success": "已恢复默认设置",
   "skill_cooltime": "冷却时间：{arg1}秒",
   "@skill_cooltime": {
     "placeholders": {
@@ -105,6 +108,7 @@
   },
   "tool_unique_equip": "专武",
   "character_detail": "角色详情",
+  "no_description": "暂无描述",
   "attack_type": "类型",
   "no_search_result": "无搜索结果",
   "searching": "搜索中",
@@ -122,6 +126,8 @@
   "checking_update_failed": "检查更新失败",
   "latest_version": "已是最新版本",
   "find_new_version": "发现新版本：{arg1}",
+  "can_not_launch_url": "无法打开链接",
+  "new_version_log": "更新日志",
   "@find_new_version": {
     "placeholders": {
       "arg1": {
@@ -169,6 +175,13 @@
     }
   },
   "close": "关闭",
+  "talent": "天赋",
+  "app_check_auto_update": "应用检查自动更新",
+  "talent_fire": "火",
+  "talent_water": "水",
+  "talent_wind": "风",
+  "talent_light": "光",
+  "talent_dark": "暗",
   "skill_type_1": "伤害",
   "skill_type_2": "位移",
   "skill_type_4_5": "治疗",

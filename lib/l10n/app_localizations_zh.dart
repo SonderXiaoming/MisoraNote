@@ -35,6 +35,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get about_page => '关于';
 
   @override
+  String get restore => '恢复';
+
+  @override
+  String get restore_settings => '恢复默认设置';
+
+  @override
+  String get restore_settings_success => '已恢复默认设置';
+
+  @override
   String skill_cooltime(String arg1) {
     return '冷却时间：$arg1秒';
   }
@@ -154,6 +163,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get character_detail => '角色详情';
 
   @override
+  String get no_description => '暂无描述';
+
+  @override
   String get attack_type => '类型';
 
   @override
@@ -205,6 +217,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String find_new_version(String arg1) {
     return '发现新版本：$arg1';
   }
+
+  @override
+  String get can_not_launch_url => '无法打开链接';
+
+  @override
+  String get new_version_log => '更新日志';
 
   @override
   String get force_update => '强制更新';
@@ -268,6 +286,27 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get close => '关闭';
+
+  @override
+  String get talent => '天赋';
+
+  @override
+  String get app_check_auto_update => '应用检查自动更新';
+
+  @override
+  String get talent_fire => '火';
+
+  @override
+  String get talent_water => '水';
+
+  @override
+  String get talent_wind => '风';
+
+  @override
+  String get talent_light => '光';
+
+  @override
+  String get talent_dark => '暗';
 
   @override
   String get skill_type_1 => '伤害';

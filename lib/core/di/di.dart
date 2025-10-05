@@ -45,8 +45,8 @@ final dbProvider = Provider<AppDb>((ref) {
 
 final dominantColorProvider =
     FutureProvider.family<(Color?, Color?), CachedImage>((ref, image) async {
-  return await image.getDominantColor();
-});
+      return await image.getDominantColor();
+    });
 
 final unitInfoProvider = FutureProvider.family<UnitInfo?, int>((
   ref,
@@ -58,38 +58,38 @@ final unitInfoProvider = FutureProvider.family<UnitInfo?, int>((
 
 final unitUniqueEquipProvider =
     FutureProvider.family<UniqueEquipInfo?, UnitUniqueEquipParameter>((
-  ref,
-  parameter,
-) async {
-  final db = ref.watch(dbProvider);
-  return db.getUniqueEquipInfo(
-    parameter.unitId,
-    slot: parameter.solt,
-    lv: parameter.lv,
-  );
-});
+      ref,
+      parameter,
+    ) async {
+      final db = ref.watch(dbProvider);
+      return db.getUniqueEquipInfo(
+        parameter.unitId,
+        slot: parameter.solt,
+        lv: parameter.lv,
+      );
+    });
 
 final unitSkillListProvider =
     FutureProvider.family<UnitSkillList, UnitSkillListParameter>((
-  ref,
-  parameter,
-) async {
-  final db = ref.watch(dbProvider);
-  return getUnitSkillList(
-    db,
-    parameter.unitId,
-    levelMap: parameter.levelMap,
-  );
-});
+      ref,
+      parameter,
+    ) async {
+      final db = ref.watch(dbProvider);
+      return getUnitSkillList(
+        db,
+        parameter.unitId,
+        levelMap: parameter.levelMap,
+      );
+    });
 
 final unitAttackPatternProvider =
     FutureProvider.family<List<UnitAttackPatternData>, int>((
-  ref,
-  unitId,
-) async {
-  final db = ref.watch(dbProvider);
-  return db.getAttackPattern(unitId);
-});
+      ref,
+      unitId,
+    ) async {
+      final db = ref.watch(dbProvider);
+      return db.getAttackPattern(unitId);
+    });
 
 final packageInfoProvider = FutureProvider<PackageInfo>((ref) async {
   return await PackageInfo.fromPlatform();
@@ -102,7 +102,7 @@ class LanguageNotifier extends AsyncNotifier<String> {
     return await Prefs.language();
   }
 
-  Future<void> setLanguage(String languageCode) async {
+  Future<void> set(String languageCode) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       await Prefs.setLanguage(languageCode);
@@ -118,7 +118,7 @@ class DatabaseAreaNotifier extends AsyncNotifier<Area> {
     return await Prefs.databaseArea();
   }
 
-  Future<void> setArea(Area area) async {
+  Future<void> set(Area area) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       await Prefs.setDatabaseArea(area);
@@ -168,7 +168,7 @@ class CurrentDbVersionNotifier extends AsyncNotifier<String?> {
     return await Prefs.dbVersion(currentArea);
   }
 
-  Future<void> setVersion(String? version) async {
+  Future<void> set(String? version) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       final currentArea = ref.read(areaProvider);
@@ -180,27 +180,56 @@ class CurrentDbVersionNotifier extends AsyncNotifier<String?> {
   }
 }
 
+class AppAutoUpdateNotifier extends AsyncNotifier<bool> {
+  @override
+  Future<bool> build() async {
+    // 用 main() 注入的初始值；没有就默认 false
+    return await Prefs.appAutoUpdate();
+  }
+
+  Future<void> set(bool v) async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() async {
+      await Prefs.setAppAutoUpdate(v);
+      return v;
+    });
+  }
+}
+
 // 用户偏好设置 Provider
 final languageProvider = AsyncNotifierProvider<LanguageNotifier, String>(() {
   return LanguageNotifier();
 });
 
-final databaseAreaProvider =
-    AsyncNotifierProvider<DatabaseAreaNotifier, Area>(() {
-  return DatabaseAreaNotifier();
-});
+final databaseAreaProvider = AsyncNotifierProvider<DatabaseAreaNotifier, Area>(
+  () {
+    return DatabaseAreaNotifier();
+  },
+);
 
 final databaseAutoUpdateProvider =
     AsyncNotifierProvider<DatabaseAutoUpdateNotifier, bool>(() {
-  return DatabaseAutoUpdateNotifier();
-});
+      return DatabaseAutoUpdateNotifier();
+    });
 
 final useOldVersionProvider =
     AsyncNotifierProvider<UseOldVersionNotifier, bool>(() {
-  return UseOldVersionNotifier();
-});
+      return UseOldVersionNotifier();
+    });
 
 final currentDbVersionProvider =
     AsyncNotifierProvider<CurrentDbVersionNotifier, String?>(() {
-  return CurrentDbVersionNotifier();
+      return CurrentDbVersionNotifier();
+    });
+
+final appAutoUpdateProvider =
+    AsyncNotifierProvider<AppAutoUpdateNotifier, bool>(() {
+      return AppAutoUpdateNotifier();
+    });
+
+final clearAllPrefsProvider = Provider<Future<void>>((ref) async {
+  await Prefs.clear();
+  ref.invalidate(languageProvider);
+  ref.invalidate(databaseAreaProvider);
+  ref.invalidate(databaseAutoUpdateProvider);
 });

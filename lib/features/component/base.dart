@@ -220,3 +220,53 @@ enum UnitGetType {
     }
   }
 }
+
+enum Talent {
+  fire(1),
+  water(2),
+  wind(3),
+  light(4),
+  dark(5);
+
+  final int value;
+  const Talent(this.value);
+
+  static Talent fromValue(int value) {
+    for (var type in Talent.values) {
+      if (type.value == value) {
+        return type;
+      }
+    }
+    return Talent.fire; // 默认值
+  }
+
+  static String getName(AppLocalizations t, Talent type) {
+    switch (type) {
+      case Talent.fire:
+        return t.talent_fire;
+      case Talent.water:
+        return t.talent_water;
+      case Talent.wind:
+        return t.talent_wind;
+      case Talent.light:
+        return t.talent_light;
+      case Talent.dark:
+        return t.talent_dark;
+    }
+  }
+
+  static int getColor(Talent type) {
+    switch (type) {
+      case Talent.fire:
+        return CustomColors.colorRed;
+      case Talent.water:
+        return CustomColors.colorDeepBlue;
+      case Talent.wind:
+        return CustomColors.colorGreen;
+      case Talent.light:
+        return CustomColors.colorGold;
+      case Talent.dark:
+        return CustomColors.colorPurple;
+    }
+  }
+}

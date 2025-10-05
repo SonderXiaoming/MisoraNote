@@ -25,6 +25,7 @@ class UnitInfo {
   final double normalAtkCastTime;
   final int? cutin1Star6;
   int? limitType; // 1/2/3/4
+  int? talentId; // 天赋ID，可能为空
 
   UnitInfo({
     required this.unitId,
@@ -51,6 +52,7 @@ class UnitInfo {
     required this.cutin1Star6,
     required this.limitType,
     required this.normalAtkCastTime,
+    required this.talentId,
   });
 }
 
@@ -227,6 +229,7 @@ class UnitSearchData {
   bool? isR6;
   bool? hasUnique1;
   bool? hasUnique2;
+  Talent? talent;
 
   UnitSearchData({
     this.unitId,
@@ -236,5 +239,28 @@ class UnitSearchData {
     this.isR6,
     this.hasUnique1,
     this.hasUnique2,
+    this.talent,
   });
+
+  void clear() {
+    unitId = null;
+    unitName = null;
+    searchAreaWidth = null;
+    atkType = null;
+    isR6 = null;
+    hasUnique1 = null;
+    hasUnique2 = null;
+    talent = null;
+  }
+
+  bool isEmpty() {
+    return unitId == null &&
+        unitName == null &&
+        searchAreaWidth == null &&
+        atkType == null &&
+        isR6 == null &&
+        hasUnique1 == null &&
+        hasUnique2 == null &&
+        talent == null;
+  }
 }

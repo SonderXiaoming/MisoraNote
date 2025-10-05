@@ -56,13 +56,15 @@ class NavigationLayout extends StatelessWidget {
             _navigateToRoute(context, items[index].route);
           },
           destinations: items
-              .map((item) => NavigationDestination(
-                    icon: Icon(item.icon),
-                    selectedIcon: item.selectedIcon != null
-                        ? Icon(item.selectedIcon)
-                        : null,
-                    label: item.label,
-                  ))
+              .map(
+                (item) => NavigationDestination(
+                  icon: Icon(item.icon),
+                  selectedIcon: item.selectedIcon != null
+                      ? Icon(item.selectedIcon)
+                      : null,
+                  label: item.label,
+                ),
+              )
               .toList(),
         ),
       );
@@ -89,24 +91,26 @@ class NavigationLayout extends StatelessWidget {
               minExtendedWidth: railMinExtendedWidth,
               labelType: labelType,
               destinations: items
-                  .map((item) => NavigationRailDestination(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: showRailExtended ? 16 : 0,
+                  .map(
+                    (item) => NavigationRailDestination(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: showRailExtended ? 16 : 0,
+                      ),
+                      icon: Icon(item.icon, size: 24),
+                      selectedIcon: item.selectedIcon != null
+                          ? Icon(item.selectedIcon, size: 24)
+                          : Icon(item.icon, size: 24),
+                      label: Text(
+                        item.label,
+                        style: TextStyle(
+                          fontSize: showRailExtended ? 16 : 12,
+                          fontWeight: showRailExtended
+                              ? FontWeight.w500
+                              : FontWeight.normal,
                         ),
-                        icon: Icon(item.icon, size: 24),
-                        selectedIcon: item.selectedIcon != null
-                            ? Icon(item.selectedIcon, size: 24)
-                            : Icon(item.icon, size: 24),
-                        label: Text(
-                          item.label,
-                          style: TextStyle(
-                            fontSize: showRailExtended ? 16 : 12,
-                            fontWeight: showRailExtended
-                                ? FontWeight.w500
-                                : FontWeight.normal,
-                          ),
-                        ),
-                      ))
+                      ),
+                    ),
+                  )
                   .toList(),
             ),
             const VerticalDivider(thickness: 1, width: 1),
@@ -122,10 +126,7 @@ class NavigationLayout extends StatelessWidget {
 class ResponsiveNavigation extends StatelessWidget {
   final Widget child;
 
-  const ResponsiveNavigation({
-    super.key,
-    required this.child,
-  });
+  const ResponsiveNavigation({super.key, required this.child});
 
   // 获取当前选中的索引
   int _getCurrentIndex(String currentRoute, List<NavigationItem> items) {
@@ -156,7 +157,7 @@ class ResponsiveNavigation extends StatelessWidget {
         route: AppRoutes.function,
       ),
       NavigationItem(
-        label: t.about_page,
+        label: t.settings_page,
         icon: Icons.settings_outlined,
         selectedIcon: Icons.settings,
         route: AppRoutes.settings,

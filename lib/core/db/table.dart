@@ -523,3 +523,14 @@ class UnlockUnitCondition extends Table {
 
   IntColumn get releaseEffectType => integer().nullable()();
 }
+
+class UnitTalent extends Table {
+  @override
+  String get tableName => "unit_talent";
+  @override
+  Set<Column> get primaryKey => {settingId};
+
+  IntColumn get settingId => integer().named("setting_id")();
+  IntColumn get unitId => integer().named("unit_id")();
+  IntColumn get talentId => integer().named("talent_id")();
+}

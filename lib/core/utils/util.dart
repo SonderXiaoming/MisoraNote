@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:brotli/brotli.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/network/response_model.dart';
+import 'package:misora_note/core/network/base.dart';
 
 int longUnitId2Short(int longId) {
   return longId ~/ 100;
@@ -64,4 +65,20 @@ Future<String?> checkDatabaseUpdate(Area area) async {
     // 处理错误
     throw Exception('检查数据库更新失败: $error');
   }
+}
+
+Future<void> updatePcrDatabase(
+  Area area, {
+  void Function(int rec, int total)? onProgress,
+}) async {
+  final path = FilePath.db(area);
+  final brPath = '$path.br';
+  final url = FetchUrl.db(area);
+  await apiClient.download(
+    url: url,
+    path: brPath,
+    allowCache: false,
+    onProgress: onProgress,
+  );
+  await decompress(brPath: brPath, outPath: path);
 }

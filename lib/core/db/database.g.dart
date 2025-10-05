@@ -16969,6 +16969,256 @@ class UnlockUnitConditionCompanion
   }
 }
 
+class $UnitTalentTable extends UnitTalent
+    with TableInfo<$UnitTalentTable, UnitTalentData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UnitTalentTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _settingIdMeta = const VerificationMeta(
+    'settingId',
+  );
+  @override
+  late final GeneratedColumn<int> settingId = GeneratedColumn<int>(
+    'setting_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _talentIdMeta = const VerificationMeta(
+    'talentId',
+  );
+  @override
+  late final GeneratedColumn<int> talentId = GeneratedColumn<int>(
+    'talent_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [settingId, unitId, talentId];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'unit_talent';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UnitTalentData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('setting_id')) {
+      context.handle(
+        _settingIdMeta,
+        settingId.isAcceptableOrUnknown(data['setting_id']!, _settingIdMeta),
+      );
+    }
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('talent_id')) {
+      context.handle(
+        _talentIdMeta,
+        talentId.isAcceptableOrUnknown(data['talent_id']!, _talentIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_talentIdMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {settingId};
+  @override
+  UnitTalentData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UnitTalentData(
+      settingId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}setting_id'],
+      )!,
+      unitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unit_id'],
+      )!,
+      talentId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}talent_id'],
+      )!,
+    );
+  }
+
+  @override
+  $UnitTalentTable createAlias(String alias) {
+    return $UnitTalentTable(attachedDatabase, alias);
+  }
+}
+
+class UnitTalentData extends DataClass implements Insertable<UnitTalentData> {
+  final int settingId;
+  final int unitId;
+  final int talentId;
+  const UnitTalentData({
+    required this.settingId,
+    required this.unitId,
+    required this.talentId,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['setting_id'] = Variable<int>(settingId);
+    map['unit_id'] = Variable<int>(unitId);
+    map['talent_id'] = Variable<int>(talentId);
+    return map;
+  }
+
+  UnitTalentCompanion toCompanion(bool nullToAbsent) {
+    return UnitTalentCompanion(
+      settingId: Value(settingId),
+      unitId: Value(unitId),
+      talentId: Value(talentId),
+    );
+  }
+
+  factory UnitTalentData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UnitTalentData(
+      settingId: serializer.fromJson<int>(json['settingId']),
+      unitId: serializer.fromJson<int>(json['unitId']),
+      talentId: serializer.fromJson<int>(json['talentId']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'settingId': serializer.toJson<int>(settingId),
+      'unitId': serializer.toJson<int>(unitId),
+      'talentId': serializer.toJson<int>(talentId),
+    };
+  }
+
+  UnitTalentData copyWith({int? settingId, int? unitId, int? talentId}) =>
+      UnitTalentData(
+        settingId: settingId ?? this.settingId,
+        unitId: unitId ?? this.unitId,
+        talentId: talentId ?? this.talentId,
+      );
+  UnitTalentData copyWithCompanion(UnitTalentCompanion data) {
+    return UnitTalentData(
+      settingId: data.settingId.present ? data.settingId.value : this.settingId,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      talentId: data.talentId.present ? data.talentId.value : this.talentId,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitTalentData(')
+          ..write('settingId: $settingId, ')
+          ..write('unitId: $unitId, ')
+          ..write('talentId: $talentId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(settingId, unitId, talentId);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UnitTalentData &&
+          other.settingId == this.settingId &&
+          other.unitId == this.unitId &&
+          other.talentId == this.talentId);
+}
+
+class UnitTalentCompanion extends UpdateCompanion<UnitTalentData> {
+  final Value<int> settingId;
+  final Value<int> unitId;
+  final Value<int> talentId;
+  const UnitTalentCompanion({
+    this.settingId = const Value.absent(),
+    this.unitId = const Value.absent(),
+    this.talentId = const Value.absent(),
+  });
+  UnitTalentCompanion.insert({
+    this.settingId = const Value.absent(),
+    required int unitId,
+    required int talentId,
+  }) : unitId = Value(unitId),
+       talentId = Value(talentId);
+  static Insertable<UnitTalentData> custom({
+    Expression<int>? settingId,
+    Expression<int>? unitId,
+    Expression<int>? talentId,
+  }) {
+    return RawValuesInsertable({
+      if (settingId != null) 'setting_id': settingId,
+      if (unitId != null) 'unit_id': unitId,
+      if (talentId != null) 'talent_id': talentId,
+    });
+  }
+
+  UnitTalentCompanion copyWith({
+    Value<int>? settingId,
+    Value<int>? unitId,
+    Value<int>? talentId,
+  }) {
+    return UnitTalentCompanion(
+      settingId: settingId ?? this.settingId,
+      unitId: unitId ?? this.unitId,
+      talentId: talentId ?? this.talentId,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (settingId.present) {
+      map['setting_id'] = Variable<int>(settingId.value);
+    }
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (talentId.present) {
+      map['talent_id'] = Variable<int>(talentId.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitTalentCompanion(')
+          ..write('settingId: $settingId, ')
+          ..write('unitId: $unitId, ')
+          ..write('talentId: $talentId')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDb extends GeneratedDatabase {
   _$AppDb(QueryExecutor e) : super(e);
   $AppDbManager get managers => $AppDbManager(this);
@@ -17005,6 +17255,7 @@ abstract class _$AppDb extends GeneratedDatabase {
       $UniqueEquipmentDataTable(this);
   late final $UnlockUnitConditionTable unlockUnitCondition =
       $UnlockUnitConditionTable(this);
+  late final $UnitTalentTable unitTalent = $UnitTalentTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -17028,6 +17279,7 @@ abstract class _$AppDb extends GeneratedDatabase {
     uniqueEquipEnhanceRate,
     uniqueEquipmentData,
     unlockUnitCondition,
+    unitTalent,
   ];
 }
 
@@ -24754,6 +25006,162 @@ typedef $$UnlockUnitConditionTableProcessedTableManager =
       UnlockUnitConditionData,
       PrefetchHooks Function()
     >;
+typedef $$UnitTalentTableCreateCompanionBuilder =
+    UnitTalentCompanion Function({
+      Value<int> settingId,
+      required int unitId,
+      required int talentId,
+    });
+typedef $$UnitTalentTableUpdateCompanionBuilder =
+    UnitTalentCompanion Function({
+      Value<int> settingId,
+      Value<int> unitId,
+      Value<int> talentId,
+    });
+
+class $$UnitTalentTableFilterComposer
+    extends Composer<_$AppDb, $UnitTalentTable> {
+  $$UnitTalentTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get settingId => $composableBuilder(
+    column: $table.settingId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get talentId => $composableBuilder(
+    column: $table.talentId,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$UnitTalentTableOrderingComposer
+    extends Composer<_$AppDb, $UnitTalentTable> {
+  $$UnitTalentTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get settingId => $composableBuilder(
+    column: $table.settingId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get talentId => $composableBuilder(
+    column: $table.talentId,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$UnitTalentTableAnnotationComposer
+    extends Composer<_$AppDb, $UnitTalentTable> {
+  $$UnitTalentTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get settingId =>
+      $composableBuilder(column: $table.settingId, builder: (column) => column);
+
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<int> get talentId =>
+      $composableBuilder(column: $table.talentId, builder: (column) => column);
+}
+
+class $$UnitTalentTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $UnitTalentTable,
+          UnitTalentData,
+          $$UnitTalentTableFilterComposer,
+          $$UnitTalentTableOrderingComposer,
+          $$UnitTalentTableAnnotationComposer,
+          $$UnitTalentTableCreateCompanionBuilder,
+          $$UnitTalentTableUpdateCompanionBuilder,
+          (
+            UnitTalentData,
+            BaseReferences<_$AppDb, $UnitTalentTable, UnitTalentData>,
+          ),
+          UnitTalentData,
+          PrefetchHooks Function()
+        > {
+  $$UnitTalentTableTableManager(_$AppDb db, $UnitTalentTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$UnitTalentTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$UnitTalentTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$UnitTalentTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> settingId = const Value.absent(),
+                Value<int> unitId = const Value.absent(),
+                Value<int> talentId = const Value.absent(),
+              }) => UnitTalentCompanion(
+                settingId: settingId,
+                unitId: unitId,
+                talentId: talentId,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> settingId = const Value.absent(),
+                required int unitId,
+                required int talentId,
+              }) => UnitTalentCompanion.insert(
+                settingId: settingId,
+                unitId: unitId,
+                talentId: talentId,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$UnitTalentTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $UnitTalentTable,
+      UnitTalentData,
+      $$UnitTalentTableFilterComposer,
+      $$UnitTalentTableOrderingComposer,
+      $$UnitTalentTableAnnotationComposer,
+      $$UnitTalentTableCreateCompanionBuilder,
+      $$UnitTalentTableUpdateCompanionBuilder,
+      (
+        UnitTalentData,
+        BaseReferences<_$AppDb, $UnitTalentTable, UnitTalentData>,
+      ),
+      UnitTalentData,
+      PrefetchHooks Function()
+    >;
 
 class $AppDbManager {
   final _$AppDb _db;
@@ -24801,4 +25209,6 @@ class $AppDbManager {
       $$UniqueEquipmentDataTableTableManager(_db, _db.uniqueEquipmentData);
   $$UnlockUnitConditionTableTableManager get unlockUnitCondition =>
       $$UnlockUnitConditionTableTableManager(_db, _db.unlockUnitCondition);
+  $$UnitTalentTableTableManager get unitTalent =>
+      $$UnitTalentTableTableManager(_db, _db.unitTalent);
 }

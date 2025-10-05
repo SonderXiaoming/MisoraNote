@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:misora_note/constants.dart';
+import 'package:misora_note/features/component/app_check_update.dart';
 import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/database_update.dart';
 import 'package:misora_note/features/component/unit_card.dart';
@@ -24,10 +25,26 @@ class _HomePageState extends ConsumerState<HomePage> {
   List<int> showUnit = [];
 
   Future<void> init() async {
+    final t = AppLocalizations.of(context)!;
+    final newer = await fetchLatestRelease();
+    if (newer != null) {
+      final version = newer.tag_name.isNotEmpty ? newer.tag_name : newer.name;
+      final packageInfo = ref.read(packageInfoProvider);
+      final currentVersion = packageInfo.value?.version;
+      final appAutoUpdate = ref.read(appAutoUpdateProvider);
+      if (version != currentVersion && appAutoUpdate.value == true) {
+        await showDialog<Widget>(
+          context: context,
+          builder: (BuildContext context) {
+            return GithubUpdateService(newer: newer);
+          },
+        );
+      }
+    }
     // 检查数据库文件是否存在
     final dbFile = db.dbFile;
     final area = ref.read(areaProvider);
-    final t = AppLocalizations.of(context)!;
+
     if (!dbFile.existsSync()) {
       // 数据库文件不存在，要求强制更新
       if (mounted && context.mounted) {

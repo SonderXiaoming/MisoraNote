@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/utils/util.dart';
+import 'package:misora_note/features/component/app_check_update.dart';
 import 'package:misora_note/features/component/database_update.dart';
 import 'package:misora_note/features/component/image.dart';
 import 'package:misora_note/features/component/tag.dart';
@@ -29,7 +30,7 @@ class DropDownSettings<T> extends StatelessWidget {
       return currentItem.$2;
     } catch (e) {
       // 如果找不到匹配的项，返回默认值
-      return '未知';
+      return "---";
     }
   }
 
@@ -46,8 +47,9 @@ class DropDownSettings<T> extends StatelessWidget {
             await onSelected(value);
           }
         },
-        offset: Offset(0, 45),
+        offset: Offset(12, 45),
         color: Color(CustomColors.colorWhite),
+        constraints: BoxConstraints(minWidth: mediaWidth / 7),
         itemBuilder: (BuildContext context) => items.map((child) {
           return PopupMenuItem<T?>(
             value: child.$1,
@@ -73,7 +75,7 @@ class DropDownSettings<T> extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey[300]!),
+            border: Border.all(color: Color(CustomColors.colorGray)),
             borderRadius: BorderRadius.circular(6),
           ),
           child: Row(
@@ -83,8 +85,8 @@ class DropDownSettings<T> extends StatelessWidget {
               SizedBox(width: mediaWidth / 7),
               Icon(
                 Icons.keyboard_arrow_down,
-                color: Colors.grey[600],
-                size: 18,
+                color: Color(CustomColors.colorGray),
+                size: 20,
               ),
             ],
           ),
@@ -209,6 +211,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     final packageInfo = ref.watch(packageInfoProvider);
+    final appAutoUpdate = ref.watch(appAutoUpdateProvider);
     final language = ref.watch(languageProvider);
     final area = ref.watch(databaseAreaProvider);
     final dbVersion = ref.watch(currentDbVersionProvider);
@@ -219,7 +222,8 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
         area.isLoading ||
         dbVersion.isLoading ||
         autoUpdate.isLoading ||
-        useOldVersion.isLoading) {
+        useOldVersion.isLoading ||
+        appAutoUpdate.isLoading) {
       return Scaffold(body: Center(child: CircularProgressIndicator()));
     }
     final version = packageInfo.value?.version ?? t.unknown;
@@ -256,9 +260,42 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                     .map((lang) => (lang.code, Language.getDisplayName(lang)))
                     .toList(),
                 onSelected: (value) async {
-                  await ref.read(languageProvider.notifier).setLanguage(value);
+                  await ref.read(languageProvider.notifier).set(value);
                 },
                 currentValue: language.value,
+              ),
+              CheckSettings(
+                title: "${t.version}: $version",
+                child: IconButton(
+                  onPressed: () async {
+                    final newer = await fetchLatestRelease();
+                    if (newer != null) {
+                      final version = newer.tag_name.isNotEmpty
+                          ? newer.tag_name
+                          : newer.name;
+                      final packageInfo = ref.read(packageInfoProvider);
+                      final currentVersion = packageInfo.value?.version;
+                      final appAutoUpdate = ref.read(appAutoUpdateProvider);
+                      if (version != currentVersion &&
+                          appAutoUpdate.value == true) {
+                        await showDialog<Widget>(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return GithubUpdateService(newer: newer);
+                          },
+                        );
+                      }
+                    }
+                  },
+                  icon: Icon(Icons.update),
+                ),
+              ),
+              SwitchSettings(
+                title: t.app_check_auto_update,
+                value: appAutoUpdate.value!,
+                onChanged: (bool newValue) {
+                  ref.read(appAutoUpdateProvider.notifier).set(newValue);
+                },
               ),
             ],
           ),
@@ -276,7 +313,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                   (Area.jp, t.jp_server),
                 ],
                 onSelected: (value) async {
-                  ref.read(databaseAreaProvider.notifier).setArea(value);
+                  ref.read(databaseAreaProvider.notifier).set(value);
                 },
                 currentValue: area.value,
               ),
@@ -315,9 +352,9 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                     );
                     if (latestVersion == null) {
                       if (context.mounted) {
-                        ScaffoldMessenger.of(
-                          context,
-                        ).showSnackBar(SnackBar(content: Text('获取最新版本失败')));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(t.checking_update_failed)),
+                        );
                       }
                       return;
                     }
@@ -358,6 +395,29 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                       },
                     ),
               // Example data for "历史版本" dropdown
+            ],
+          ),
+
+          SizedBox(height: 16),
+
+          SubSettingsPage(
+            title: t.restore,
+            children: [
+              CheckSettings(
+                title: t.restore_settings,
+                child: IconButton(
+                  onPressed: () async {
+                    final clearPrefs = ref.read(clearAllPrefsProvider);
+                    await clearPrefs;
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(t.restore_settings_success)),
+                      );
+                    }
+                  },
+                  icon: Icon(Icons.settings_backup_restore),
+                ),
+              ),
             ],
           ),
 

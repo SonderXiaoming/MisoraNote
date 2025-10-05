@@ -6,8 +6,7 @@ class FunctionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final mediaWidth = MediaQuery.of(context).size.width;
 
-    return Text("COMING SOON", style: textTheme.displayLarge);
+    return Center(child: Text("COMING SOON", style: textTheme.displayLarge));
   }
 }

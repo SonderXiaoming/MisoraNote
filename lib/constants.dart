@@ -1,5 +1,8 @@
 import 'package:path/path.dart' as p;
 
+const githubOwner = 'YourUser';
+const githubRepo = 'YourRepo';
+
 enum Area {
   jp("jp"),
   tw("tw"),
