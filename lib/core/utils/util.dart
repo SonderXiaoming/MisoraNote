@@ -5,6 +5,7 @@ import 'package:brotli/brotli.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/network/response_model.dart';
 import 'package:misora_note/core/network/base.dart';
+import 'package:misora_note/core/db/unhash.dart' as unhash_lib;
 
 int longUnitId2Short(int longId) {
   return longId ~/ 100;
@@ -58,7 +59,7 @@ Future<String?> checkDatabaseUpdate(Area area) async {
     );
     if (response.statusCode == 200) {
       final info = LatestDbVersionResponse.fromJson(response.data);
-      return info.data.time;
+      return info.data.time ?? info.data.truthVersion;
     }
     return null;
   } catch (error) {
@@ -81,4 +82,13 @@ Future<void> updatePcrDatabase(
     onProgress: onProgress,
   );
   await decompress(brPath: brPath, outPath: path);
+
+  // 下载完成后尝试 unhash
+  /*
+  try {
+    await unhash_lib.unhashDatabase(path);
+  } catch (e) {
+    print('⚠️  数据库 unhash 失败，将使用原始数据库: $e');
+  }
+  */
 }

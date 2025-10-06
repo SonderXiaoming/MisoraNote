@@ -33,6 +33,7 @@ final kannaIds = [170101, 170201];
     UniqueEquipmentEnhanceData,
     UnlockUnitCondition,
     UnitTalent,
+    UnitEnemyData,
   ],
 )
 class AppDb extends _$AppDb {
@@ -78,6 +79,9 @@ class AppDb extends _$AppDb {
     final result = await query.get();
     return result.map((e) => e.unitId).toList();
   }
+
+  Future<UnitDataData> getUnitData(int unitId) =>
+      (select(unitData)..where((t) => t.unitId.equals(unitId))).getSingle();
 
   Future<List<UnitDataData>> getUnitsData({
     UnitRankType? type,
@@ -551,5 +555,11 @@ class AppDb extends _$AppDb {
       accuracy: row.read(accuracy) ?? 0,
       isTpLimitAction: 0, // 原 SQL 常量 0
     );
+  }
+
+  Future<UnitEnemyDataData?> getEnemyData(int unitId) async {
+    return (select(
+      unitEnemyData,
+    )..where((t) => t.unitId.equals(unitId))).map((e) => e).getSingleOrNull();
   }
 }

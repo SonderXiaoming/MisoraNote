@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/core/db/model.dart';
+import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/tag.dart';
 import 'package:misora_note/features/component/skill/skill_text.dart';
 import 'package:misora_note/features/component/image.dart';
+import 'package:misora_note/features/component/unit_card.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 import 'package:misora_note/features/component/skill/skill_type.dart';
 
@@ -27,6 +30,7 @@ class SkillActionText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
     List<(String, int)> tagStack = [("root", CustomColors.colorBlack)];
     List<(String, int)> parts = []; // 存储 (文本段, 对应颜色) 的列表
     String buffer = ""; // 缓冲普通文本
@@ -76,16 +80,46 @@ class SkillActionText extends StatelessWidget {
         color: Color(CustomColors.colorPrimary).withAlpha(30),
         borderRadius: BorderRadius.circular(6),
       ),
-      child: RichText(
-        text: TextSpan(
-          children: parts.map((e) {
-            return TextSpan(
-              text: e.$1,
-              style: TextStyle(color: Color(e.$2)),
-            );
-          }).toList(),
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          RichText(
+            text: TextSpan(
+              children: parts.map((e) {
+                return TextSpan(
+                  text: e.$1,
+                  style: TextStyle(color: Color(e.$2)),
+                );
+              }).toList(),
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          ),
+          if (summonUnitId != null) ...[
+            const SizedBox(height: 8),
+            TextButton.icon(
+              onPressed: () {
+                // 点击跳转到召唤物角色详情页
+                //final mediaSize = MediaQuery.of(context).size;
+                context.push(
+                  AppRoutes.unitDetail,
+                  extra: UnitCard(
+                    unitId: summonUnitId!,
+                    unitType: UnitType.summon,
+                    size: (double.infinity, 150),
+                  ),
+                );
+              },
+              icon: Icon(Icons.pets, color: Color(CustomColors.colorPrimary)),
+              label: Text(
+                t.summon_unit,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Color(CustomColors.colorPrimary),
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ],
+        ],
       ),
     );
   }
@@ -107,15 +141,11 @@ class SingleSkillInfo extends StatelessWidget {
   });
   List<SkillActionText> getActionDescList(ActionHandler actionHandler) {
     List<SkillActionText> skillActionTextList = [];
-    int? summonUnitId;
     late String desc;
     late bool showCoe;
     late String tag;
     for (var i = 0; i < actions.length; i++) {
       var action = actions[i];
-      if (action.actionType == SkillActionType.summon.value) {
-        summonUnitId = action.actionDetail2;
-      }
       desc = actionHandler.formatDesc(action, skill, level ?? 0, atk ?? 0);
       showCoe = [
         SkillActionType.additive.value,
@@ -136,7 +166,9 @@ class SingleSkillInfo extends StatelessWidget {
           actionId: action.actionId,
           tag: tag,
           actionDesc: desc,
-          summonUnitId: summonUnitId,
+          summonUnitId: action.actionType == SkillActionType.summon.value
+              ? action.actionDetail2
+              : null,
           showCoe: showCoe,
           index: i + 1,
         ),

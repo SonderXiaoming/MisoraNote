@@ -70,6 +70,13 @@ class _HomePageState extends ConsumerState<HomePage> {
                   },
                   child: Text(t.download),
                 ),
+
+                FilledButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(t.close),
+                ),
               ],
             );
           },
@@ -132,6 +139,12 @@ class _HomePageState extends ConsumerState<HomePage> {
                   },
                   child: Text(t.download),
                 ),
+                FilledButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(t.close),
+                ),
               ],
             );
           },
@@ -172,6 +185,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppBar(
+              backgroundColor: Colors.transparent,
               title: InkWell(
                 onTap: () {
                   context.push(AppRoutes.unitSearch, extra: showUnit);
@@ -239,6 +253,54 @@ class _HomePageState extends ConsumerState<HomePage> {
                   },
                 ),
               ),
+            AppBar(
+              backgroundColor: Colors.transparent,
+              title: InkWell(
+                onTap: () {
+                  context.push(AppRoutes.enemySearch);
+                },
+                borderRadius: BorderRadius.circular(8),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(Icons.security),
+                      SizedBox(width: 8),
+                      Text(
+                        t.enemy_character,
+                        style: textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Spacer(),
+                      SizedBox(width: 4),
+                      Icon(Icons.arrow_forward_ios, size: 18),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Wrap(
+                  spacing: 24.0, // 水平间距
+                  runSpacing: 24.0, // 垂直间距
+                  alignment: WrapAlignment.start,
+                  children: List.generate(
+                    10,
+                    (index) => Icon(
+                      Icons.construction,
+                      color: Colors.grey[300],
+                      size: 48,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

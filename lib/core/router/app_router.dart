@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:misora_note/core/router/page_extra.dart';
 import 'package:misora_note/core/router/transition.dart';
 import 'package:flutter/widgets.dart';
-import 'package:misora_note/core/router/page_extra.dart';
+import 'package:misora_note/features/component/base.dart';
+import 'package:misora_note/features/component/unit_card.dart';
 import 'package:misora_note/features/function_page.dart';
 import 'package:misora_note/features/unit_page.dart';
 import 'package:misora_note/features/unit_search.dart';
+import 'package:misora_note/features/enemy_search.dart';
 import 'package:misora_note/core/router/responsive_navigation.dart';
 import '../../features/home_page.dart';
 import '../../features/settings_page.dart';
@@ -46,12 +49,19 @@ final appRouter = GoRouter(
       ),
     ),
     GoRoute(
+      path: AppRoutes.enemySearch,
+      pageBuilder: (ctx, state) {
+        final enemyType = state.extra as EnemyType?;
+        return FadeSlideScaleTransitionPage(
+          child: EnemySearch(searchType: enemyType ?? EnemyType.all),
+        );
+      },
+    ),
+    GoRoute(
       path: AppRoutes.unitDetail,
       pageBuilder: (ctx, state) {
-        final data = state.extra as UnitPageExtra;
-        return FadeSlideScaleTransitionPage(
-          child: UnitPage(card: data.card, unitId: data.unitId),
-        );
+        final extra = state.extra as UnitCard;
+        return FadeSlideScaleTransitionPage(child: UnitPage(card: extra));
       },
     ),
   ],

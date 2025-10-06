@@ -17219,6 +17219,765 @@ class UnitTalentCompanion extends UpdateCompanion<UnitTalentData> {
   }
 }
 
+class $UnitEnemyDataTable extends UnitEnemyData
+    with TableInfo<$UnitEnemyDataTable, UnitEnemyDataData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UnitEnemyDataTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unitNameMeta = const VerificationMeta(
+    'unitName',
+  );
+  @override
+  late final GeneratedColumn<String> unitName = GeneratedColumn<String>(
+    'unit_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _prefabIdMeta = const VerificationMeta(
+    'prefabId',
+  );
+  @override
+  late final GeneratedColumn<int> prefabId = GeneratedColumn<int>(
+    'prefab_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _motionTypeMeta = const VerificationMeta(
+    'motionType',
+  );
+  @override
+  late final GeneratedColumn<int> motionType = GeneratedColumn<int>(
+    'motion_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _seTypeMeta = const VerificationMeta('seType');
+  @override
+  late final GeneratedColumn<int> seType = GeneratedColumn<int>(
+    'se_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _moveSpeedMeta = const VerificationMeta(
+    'moveSpeed',
+  );
+  @override
+  late final GeneratedColumn<int> moveSpeed = GeneratedColumn<int>(
+    'move_speed',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _searchAreaWidthMeta = const VerificationMeta(
+    'searchAreaWidth',
+  );
+  @override
+  late final GeneratedColumn<int> searchAreaWidth = GeneratedColumn<int>(
+    'search_area_width',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _atkTypeMeta = const VerificationMeta(
+    'atkType',
+  );
+  @override
+  late final GeneratedColumn<int> atkType = GeneratedColumn<int>(
+    'atk_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _normalAtkCastTimeMeta = const VerificationMeta(
+    'normalAtkCastTime',
+  );
+  @override
+  late final GeneratedColumn<double> normalAtkCastTime =
+      GeneratedColumn<double>(
+        'normal_atk_cast_time',
+        aliasedName,
+        false,
+        type: DriftSqlType.double,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _cutinMeta = const VerificationMeta('cutin');
+  @override
+  late final GeneratedColumn<int> cutin = GeneratedColumn<int>(
+    'cutin',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _cutinStar6Meta = const VerificationMeta(
+    'cutinStar6',
+  );
+  @override
+  late final GeneratedColumn<int> cutinStar6 = GeneratedColumn<int>(
+    'cutin_star6',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _visualChangeFlagMeta = const VerificationMeta(
+    'visualChangeFlag',
+  );
+  @override
+  late final GeneratedColumn<int> visualChangeFlag = GeneratedColumn<int>(
+    'visual_change_flag',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _commentMeta = const VerificationMeta(
+    'comment',
+  );
+  @override
+  late final GeneratedColumn<String> comment = GeneratedColumn<String>(
+    'comment',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    unitId,
+    unitName,
+    prefabId,
+    motionType,
+    seType,
+    moveSpeed,
+    searchAreaWidth,
+    atkType,
+    normalAtkCastTime,
+    cutin,
+    cutinStar6,
+    visualChangeFlag,
+    comment,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'unit_enemy_data';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UnitEnemyDataData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    }
+    if (data.containsKey('unit_name')) {
+      context.handle(
+        _unitNameMeta,
+        unitName.isAcceptableOrUnknown(data['unit_name']!, _unitNameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitNameMeta);
+    }
+    if (data.containsKey('prefab_id')) {
+      context.handle(
+        _prefabIdMeta,
+        prefabId.isAcceptableOrUnknown(data['prefab_id']!, _prefabIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_prefabIdMeta);
+    }
+    if (data.containsKey('motion_type')) {
+      context.handle(
+        _motionTypeMeta,
+        motionType.isAcceptableOrUnknown(data['motion_type']!, _motionTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_motionTypeMeta);
+    }
+    if (data.containsKey('se_type')) {
+      context.handle(
+        _seTypeMeta,
+        seType.isAcceptableOrUnknown(data['se_type']!, _seTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_seTypeMeta);
+    }
+    if (data.containsKey('move_speed')) {
+      context.handle(
+        _moveSpeedMeta,
+        moveSpeed.isAcceptableOrUnknown(data['move_speed']!, _moveSpeedMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_moveSpeedMeta);
+    }
+    if (data.containsKey('search_area_width')) {
+      context.handle(
+        _searchAreaWidthMeta,
+        searchAreaWidth.isAcceptableOrUnknown(
+          data['search_area_width']!,
+          _searchAreaWidthMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_searchAreaWidthMeta);
+    }
+    if (data.containsKey('atk_type')) {
+      context.handle(
+        _atkTypeMeta,
+        atkType.isAcceptableOrUnknown(data['atk_type']!, _atkTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_atkTypeMeta);
+    }
+    if (data.containsKey('normal_atk_cast_time')) {
+      context.handle(
+        _normalAtkCastTimeMeta,
+        normalAtkCastTime.isAcceptableOrUnknown(
+          data['normal_atk_cast_time']!,
+          _normalAtkCastTimeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_normalAtkCastTimeMeta);
+    }
+    if (data.containsKey('cutin')) {
+      context.handle(
+        _cutinMeta,
+        cutin.isAcceptableOrUnknown(data['cutin']!, _cutinMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_cutinMeta);
+    }
+    if (data.containsKey('cutin_star6')) {
+      context.handle(
+        _cutinStar6Meta,
+        cutinStar6.isAcceptableOrUnknown(data['cutin_star6']!, _cutinStar6Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_cutinStar6Meta);
+    }
+    if (data.containsKey('visual_change_flag')) {
+      context.handle(
+        _visualChangeFlagMeta,
+        visualChangeFlag.isAcceptableOrUnknown(
+          data['visual_change_flag']!,
+          _visualChangeFlagMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_visualChangeFlagMeta);
+    }
+    if (data.containsKey('comment')) {
+      context.handle(
+        _commentMeta,
+        comment.isAcceptableOrUnknown(data['comment']!, _commentMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {unitId};
+  @override
+  UnitEnemyDataData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UnitEnemyDataData(
+      unitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unit_id'],
+      )!,
+      unitName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}unit_name'],
+      )!,
+      prefabId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}prefab_id'],
+      )!,
+      motionType: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}motion_type'],
+      )!,
+      seType: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}se_type'],
+      )!,
+      moveSpeed: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}move_speed'],
+      )!,
+      searchAreaWidth: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}search_area_width'],
+      )!,
+      atkType: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk_type'],
+      )!,
+      normalAtkCastTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}normal_atk_cast_time'],
+      )!,
+      cutin: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}cutin'],
+      )!,
+      cutinStar6: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}cutin_star6'],
+      )!,
+      visualChangeFlag: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}visual_change_flag'],
+      )!,
+      comment: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}comment'],
+      ),
+    );
+  }
+
+  @override
+  $UnitEnemyDataTable createAlias(String alias) {
+    return $UnitEnemyDataTable(attachedDatabase, alias);
+  }
+}
+
+class UnitEnemyDataData extends DataClass
+    implements Insertable<UnitEnemyDataData> {
+  final int unitId;
+  final String unitName;
+  final int prefabId;
+  final int motionType;
+  final int seType;
+  final int moveSpeed;
+  final int searchAreaWidth;
+  final int atkType;
+  final double normalAtkCastTime;
+  final int cutin;
+  final int cutinStar6;
+  final int visualChangeFlag;
+  final String? comment;
+  const UnitEnemyDataData({
+    required this.unitId,
+    required this.unitName,
+    required this.prefabId,
+    required this.motionType,
+    required this.seType,
+    required this.moveSpeed,
+    required this.searchAreaWidth,
+    required this.atkType,
+    required this.normalAtkCastTime,
+    required this.cutin,
+    required this.cutinStar6,
+    required this.visualChangeFlag,
+    this.comment,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['unit_id'] = Variable<int>(unitId);
+    map['unit_name'] = Variable<String>(unitName);
+    map['prefab_id'] = Variable<int>(prefabId);
+    map['motion_type'] = Variable<int>(motionType);
+    map['se_type'] = Variable<int>(seType);
+    map['move_speed'] = Variable<int>(moveSpeed);
+    map['search_area_width'] = Variable<int>(searchAreaWidth);
+    map['atk_type'] = Variable<int>(atkType);
+    map['normal_atk_cast_time'] = Variable<double>(normalAtkCastTime);
+    map['cutin'] = Variable<int>(cutin);
+    map['cutin_star6'] = Variable<int>(cutinStar6);
+    map['visual_change_flag'] = Variable<int>(visualChangeFlag);
+    if (!nullToAbsent || comment != null) {
+      map['comment'] = Variable<String>(comment);
+    }
+    return map;
+  }
+
+  UnitEnemyDataCompanion toCompanion(bool nullToAbsent) {
+    return UnitEnemyDataCompanion(
+      unitId: Value(unitId),
+      unitName: Value(unitName),
+      prefabId: Value(prefabId),
+      motionType: Value(motionType),
+      seType: Value(seType),
+      moveSpeed: Value(moveSpeed),
+      searchAreaWidth: Value(searchAreaWidth),
+      atkType: Value(atkType),
+      normalAtkCastTime: Value(normalAtkCastTime),
+      cutin: Value(cutin),
+      cutinStar6: Value(cutinStar6),
+      visualChangeFlag: Value(visualChangeFlag),
+      comment: comment == null && nullToAbsent
+          ? const Value.absent()
+          : Value(comment),
+    );
+  }
+
+  factory UnitEnemyDataData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UnitEnemyDataData(
+      unitId: serializer.fromJson<int>(json['unitId']),
+      unitName: serializer.fromJson<String>(json['unitName']),
+      prefabId: serializer.fromJson<int>(json['prefabId']),
+      motionType: serializer.fromJson<int>(json['motionType']),
+      seType: serializer.fromJson<int>(json['seType']),
+      moveSpeed: serializer.fromJson<int>(json['moveSpeed']),
+      searchAreaWidth: serializer.fromJson<int>(json['searchAreaWidth']),
+      atkType: serializer.fromJson<int>(json['atkType']),
+      normalAtkCastTime: serializer.fromJson<double>(json['normalAtkCastTime']),
+      cutin: serializer.fromJson<int>(json['cutin']),
+      cutinStar6: serializer.fromJson<int>(json['cutinStar6']),
+      visualChangeFlag: serializer.fromJson<int>(json['visualChangeFlag']),
+      comment: serializer.fromJson<String?>(json['comment']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'unitId': serializer.toJson<int>(unitId),
+      'unitName': serializer.toJson<String>(unitName),
+      'prefabId': serializer.toJson<int>(prefabId),
+      'motionType': serializer.toJson<int>(motionType),
+      'seType': serializer.toJson<int>(seType),
+      'moveSpeed': serializer.toJson<int>(moveSpeed),
+      'searchAreaWidth': serializer.toJson<int>(searchAreaWidth),
+      'atkType': serializer.toJson<int>(atkType),
+      'normalAtkCastTime': serializer.toJson<double>(normalAtkCastTime),
+      'cutin': serializer.toJson<int>(cutin),
+      'cutinStar6': serializer.toJson<int>(cutinStar6),
+      'visualChangeFlag': serializer.toJson<int>(visualChangeFlag),
+      'comment': serializer.toJson<String?>(comment),
+    };
+  }
+
+  UnitEnemyDataData copyWith({
+    int? unitId,
+    String? unitName,
+    int? prefabId,
+    int? motionType,
+    int? seType,
+    int? moveSpeed,
+    int? searchAreaWidth,
+    int? atkType,
+    double? normalAtkCastTime,
+    int? cutin,
+    int? cutinStar6,
+    int? visualChangeFlag,
+    Value<String?> comment = const Value.absent(),
+  }) => UnitEnemyDataData(
+    unitId: unitId ?? this.unitId,
+    unitName: unitName ?? this.unitName,
+    prefabId: prefabId ?? this.prefabId,
+    motionType: motionType ?? this.motionType,
+    seType: seType ?? this.seType,
+    moveSpeed: moveSpeed ?? this.moveSpeed,
+    searchAreaWidth: searchAreaWidth ?? this.searchAreaWidth,
+    atkType: atkType ?? this.atkType,
+    normalAtkCastTime: normalAtkCastTime ?? this.normalAtkCastTime,
+    cutin: cutin ?? this.cutin,
+    cutinStar6: cutinStar6 ?? this.cutinStar6,
+    visualChangeFlag: visualChangeFlag ?? this.visualChangeFlag,
+    comment: comment.present ? comment.value : this.comment,
+  );
+  UnitEnemyDataData copyWithCompanion(UnitEnemyDataCompanion data) {
+    return UnitEnemyDataData(
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      unitName: data.unitName.present ? data.unitName.value : this.unitName,
+      prefabId: data.prefabId.present ? data.prefabId.value : this.prefabId,
+      motionType: data.motionType.present
+          ? data.motionType.value
+          : this.motionType,
+      seType: data.seType.present ? data.seType.value : this.seType,
+      moveSpeed: data.moveSpeed.present ? data.moveSpeed.value : this.moveSpeed,
+      searchAreaWidth: data.searchAreaWidth.present
+          ? data.searchAreaWidth.value
+          : this.searchAreaWidth,
+      atkType: data.atkType.present ? data.atkType.value : this.atkType,
+      normalAtkCastTime: data.normalAtkCastTime.present
+          ? data.normalAtkCastTime.value
+          : this.normalAtkCastTime,
+      cutin: data.cutin.present ? data.cutin.value : this.cutin,
+      cutinStar6: data.cutinStar6.present
+          ? data.cutinStar6.value
+          : this.cutinStar6,
+      visualChangeFlag: data.visualChangeFlag.present
+          ? data.visualChangeFlag.value
+          : this.visualChangeFlag,
+      comment: data.comment.present ? data.comment.value : this.comment,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitEnemyDataData(')
+          ..write('unitId: $unitId, ')
+          ..write('unitName: $unitName, ')
+          ..write('prefabId: $prefabId, ')
+          ..write('motionType: $motionType, ')
+          ..write('seType: $seType, ')
+          ..write('moveSpeed: $moveSpeed, ')
+          ..write('searchAreaWidth: $searchAreaWidth, ')
+          ..write('atkType: $atkType, ')
+          ..write('normalAtkCastTime: $normalAtkCastTime, ')
+          ..write('cutin: $cutin, ')
+          ..write('cutinStar6: $cutinStar6, ')
+          ..write('visualChangeFlag: $visualChangeFlag, ')
+          ..write('comment: $comment')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    unitId,
+    unitName,
+    prefabId,
+    motionType,
+    seType,
+    moveSpeed,
+    searchAreaWidth,
+    atkType,
+    normalAtkCastTime,
+    cutin,
+    cutinStar6,
+    visualChangeFlag,
+    comment,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UnitEnemyDataData &&
+          other.unitId == this.unitId &&
+          other.unitName == this.unitName &&
+          other.prefabId == this.prefabId &&
+          other.motionType == this.motionType &&
+          other.seType == this.seType &&
+          other.moveSpeed == this.moveSpeed &&
+          other.searchAreaWidth == this.searchAreaWidth &&
+          other.atkType == this.atkType &&
+          other.normalAtkCastTime == this.normalAtkCastTime &&
+          other.cutin == this.cutin &&
+          other.cutinStar6 == this.cutinStar6 &&
+          other.visualChangeFlag == this.visualChangeFlag &&
+          other.comment == this.comment);
+}
+
+class UnitEnemyDataCompanion extends UpdateCompanion<UnitEnemyDataData> {
+  final Value<int> unitId;
+  final Value<String> unitName;
+  final Value<int> prefabId;
+  final Value<int> motionType;
+  final Value<int> seType;
+  final Value<int> moveSpeed;
+  final Value<int> searchAreaWidth;
+  final Value<int> atkType;
+  final Value<double> normalAtkCastTime;
+  final Value<int> cutin;
+  final Value<int> cutinStar6;
+  final Value<int> visualChangeFlag;
+  final Value<String?> comment;
+  const UnitEnemyDataCompanion({
+    this.unitId = const Value.absent(),
+    this.unitName = const Value.absent(),
+    this.prefabId = const Value.absent(),
+    this.motionType = const Value.absent(),
+    this.seType = const Value.absent(),
+    this.moveSpeed = const Value.absent(),
+    this.searchAreaWidth = const Value.absent(),
+    this.atkType = const Value.absent(),
+    this.normalAtkCastTime = const Value.absent(),
+    this.cutin = const Value.absent(),
+    this.cutinStar6 = const Value.absent(),
+    this.visualChangeFlag = const Value.absent(),
+    this.comment = const Value.absent(),
+  });
+  UnitEnemyDataCompanion.insert({
+    this.unitId = const Value.absent(),
+    required String unitName,
+    required int prefabId,
+    required int motionType,
+    required int seType,
+    required int moveSpeed,
+    required int searchAreaWidth,
+    required int atkType,
+    required double normalAtkCastTime,
+    required int cutin,
+    required int cutinStar6,
+    required int visualChangeFlag,
+    this.comment = const Value.absent(),
+  }) : unitName = Value(unitName),
+       prefabId = Value(prefabId),
+       motionType = Value(motionType),
+       seType = Value(seType),
+       moveSpeed = Value(moveSpeed),
+       searchAreaWidth = Value(searchAreaWidth),
+       atkType = Value(atkType),
+       normalAtkCastTime = Value(normalAtkCastTime),
+       cutin = Value(cutin),
+       cutinStar6 = Value(cutinStar6),
+       visualChangeFlag = Value(visualChangeFlag);
+  static Insertable<UnitEnemyDataData> custom({
+    Expression<int>? unitId,
+    Expression<String>? unitName,
+    Expression<int>? prefabId,
+    Expression<int>? motionType,
+    Expression<int>? seType,
+    Expression<int>? moveSpeed,
+    Expression<int>? searchAreaWidth,
+    Expression<int>? atkType,
+    Expression<double>? normalAtkCastTime,
+    Expression<int>? cutin,
+    Expression<int>? cutinStar6,
+    Expression<int>? visualChangeFlag,
+    Expression<String>? comment,
+  }) {
+    return RawValuesInsertable({
+      if (unitId != null) 'unit_id': unitId,
+      if (unitName != null) 'unit_name': unitName,
+      if (prefabId != null) 'prefab_id': prefabId,
+      if (motionType != null) 'motion_type': motionType,
+      if (seType != null) 'se_type': seType,
+      if (moveSpeed != null) 'move_speed': moveSpeed,
+      if (searchAreaWidth != null) 'search_area_width': searchAreaWidth,
+      if (atkType != null) 'atk_type': atkType,
+      if (normalAtkCastTime != null) 'normal_atk_cast_time': normalAtkCastTime,
+      if (cutin != null) 'cutin': cutin,
+      if (cutinStar6 != null) 'cutin_star6': cutinStar6,
+      if (visualChangeFlag != null) 'visual_change_flag': visualChangeFlag,
+      if (comment != null) 'comment': comment,
+    });
+  }
+
+  UnitEnemyDataCompanion copyWith({
+    Value<int>? unitId,
+    Value<String>? unitName,
+    Value<int>? prefabId,
+    Value<int>? motionType,
+    Value<int>? seType,
+    Value<int>? moveSpeed,
+    Value<int>? searchAreaWidth,
+    Value<int>? atkType,
+    Value<double>? normalAtkCastTime,
+    Value<int>? cutin,
+    Value<int>? cutinStar6,
+    Value<int>? visualChangeFlag,
+    Value<String?>? comment,
+  }) {
+    return UnitEnemyDataCompanion(
+      unitId: unitId ?? this.unitId,
+      unitName: unitName ?? this.unitName,
+      prefabId: prefabId ?? this.prefabId,
+      motionType: motionType ?? this.motionType,
+      seType: seType ?? this.seType,
+      moveSpeed: moveSpeed ?? this.moveSpeed,
+      searchAreaWidth: searchAreaWidth ?? this.searchAreaWidth,
+      atkType: atkType ?? this.atkType,
+      normalAtkCastTime: normalAtkCastTime ?? this.normalAtkCastTime,
+      cutin: cutin ?? this.cutin,
+      cutinStar6: cutinStar6 ?? this.cutinStar6,
+      visualChangeFlag: visualChangeFlag ?? this.visualChangeFlag,
+      comment: comment ?? this.comment,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (unitName.present) {
+      map['unit_name'] = Variable<String>(unitName.value);
+    }
+    if (prefabId.present) {
+      map['prefab_id'] = Variable<int>(prefabId.value);
+    }
+    if (motionType.present) {
+      map['motion_type'] = Variable<int>(motionType.value);
+    }
+    if (seType.present) {
+      map['se_type'] = Variable<int>(seType.value);
+    }
+    if (moveSpeed.present) {
+      map['move_speed'] = Variable<int>(moveSpeed.value);
+    }
+    if (searchAreaWidth.present) {
+      map['search_area_width'] = Variable<int>(searchAreaWidth.value);
+    }
+    if (atkType.present) {
+      map['atk_type'] = Variable<int>(atkType.value);
+    }
+    if (normalAtkCastTime.present) {
+      map['normal_atk_cast_time'] = Variable<double>(normalAtkCastTime.value);
+    }
+    if (cutin.present) {
+      map['cutin'] = Variable<int>(cutin.value);
+    }
+    if (cutinStar6.present) {
+      map['cutin_star6'] = Variable<int>(cutinStar6.value);
+    }
+    if (visualChangeFlag.present) {
+      map['visual_change_flag'] = Variable<int>(visualChangeFlag.value);
+    }
+    if (comment.present) {
+      map['comment'] = Variable<String>(comment.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitEnemyDataCompanion(')
+          ..write('unitId: $unitId, ')
+          ..write('unitName: $unitName, ')
+          ..write('prefabId: $prefabId, ')
+          ..write('motionType: $motionType, ')
+          ..write('seType: $seType, ')
+          ..write('moveSpeed: $moveSpeed, ')
+          ..write('searchAreaWidth: $searchAreaWidth, ')
+          ..write('atkType: $atkType, ')
+          ..write('normalAtkCastTime: $normalAtkCastTime, ')
+          ..write('cutin: $cutin, ')
+          ..write('cutinStar6: $cutinStar6, ')
+          ..write('visualChangeFlag: $visualChangeFlag, ')
+          ..write('comment: $comment')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDb extends GeneratedDatabase {
   _$AppDb(QueryExecutor e) : super(e);
   $AppDbManager get managers => $AppDbManager(this);
@@ -17256,6 +18015,7 @@ abstract class _$AppDb extends GeneratedDatabase {
   late final $UnlockUnitConditionTable unlockUnitCondition =
       $UnlockUnitConditionTable(this);
   late final $UnitTalentTable unitTalent = $UnitTalentTable(this);
+  late final $UnitEnemyDataTable unitEnemyData = $UnitEnemyDataTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -17280,6 +18040,7 @@ abstract class _$AppDb extends GeneratedDatabase {
     uniqueEquipmentData,
     unlockUnitCondition,
     unitTalent,
+    unitEnemyData,
   ];
 }
 
@@ -25162,6 +25923,362 @@ typedef $$UnitTalentTableProcessedTableManager =
       UnitTalentData,
       PrefetchHooks Function()
     >;
+typedef $$UnitEnemyDataTableCreateCompanionBuilder =
+    UnitEnemyDataCompanion Function({
+      Value<int> unitId,
+      required String unitName,
+      required int prefabId,
+      required int motionType,
+      required int seType,
+      required int moveSpeed,
+      required int searchAreaWidth,
+      required int atkType,
+      required double normalAtkCastTime,
+      required int cutin,
+      required int cutinStar6,
+      required int visualChangeFlag,
+      Value<String?> comment,
+    });
+typedef $$UnitEnemyDataTableUpdateCompanionBuilder =
+    UnitEnemyDataCompanion Function({
+      Value<int> unitId,
+      Value<String> unitName,
+      Value<int> prefabId,
+      Value<int> motionType,
+      Value<int> seType,
+      Value<int> moveSpeed,
+      Value<int> searchAreaWidth,
+      Value<int> atkType,
+      Value<double> normalAtkCastTime,
+      Value<int> cutin,
+      Value<int> cutinStar6,
+      Value<int> visualChangeFlag,
+      Value<String?> comment,
+    });
+
+class $$UnitEnemyDataTableFilterComposer
+    extends Composer<_$AppDb, $UnitEnemyDataTable> {
+  $$UnitEnemyDataTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get unitName => $composableBuilder(
+    column: $table.unitName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get prefabId => $composableBuilder(
+    column: $table.prefabId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get motionType => $composableBuilder(
+    column: $table.motionType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get seType => $composableBuilder(
+    column: $table.seType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get moveSpeed => $composableBuilder(
+    column: $table.moveSpeed,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get searchAreaWidth => $composableBuilder(
+    column: $table.searchAreaWidth,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atkType => $composableBuilder(
+    column: $table.atkType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get normalAtkCastTime => $composableBuilder(
+    column: $table.normalAtkCastTime,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get cutin => $composableBuilder(
+    column: $table.cutin,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get cutinStar6 => $composableBuilder(
+    column: $table.cutinStar6,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get visualChangeFlag => $composableBuilder(
+    column: $table.visualChangeFlag,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get comment => $composableBuilder(
+    column: $table.comment,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$UnitEnemyDataTableOrderingComposer
+    extends Composer<_$AppDb, $UnitEnemyDataTable> {
+  $$UnitEnemyDataTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get unitName => $composableBuilder(
+    column: $table.unitName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get prefabId => $composableBuilder(
+    column: $table.prefabId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get motionType => $composableBuilder(
+    column: $table.motionType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get seType => $composableBuilder(
+    column: $table.seType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get moveSpeed => $composableBuilder(
+    column: $table.moveSpeed,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get searchAreaWidth => $composableBuilder(
+    column: $table.searchAreaWidth,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atkType => $composableBuilder(
+    column: $table.atkType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get normalAtkCastTime => $composableBuilder(
+    column: $table.normalAtkCastTime,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get cutin => $composableBuilder(
+    column: $table.cutin,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get cutinStar6 => $composableBuilder(
+    column: $table.cutinStar6,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get visualChangeFlag => $composableBuilder(
+    column: $table.visualChangeFlag,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get comment => $composableBuilder(
+    column: $table.comment,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$UnitEnemyDataTableAnnotationComposer
+    extends Composer<_$AppDb, $UnitEnemyDataTable> {
+  $$UnitEnemyDataTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<String> get unitName =>
+      $composableBuilder(column: $table.unitName, builder: (column) => column);
+
+  GeneratedColumn<int> get prefabId =>
+      $composableBuilder(column: $table.prefabId, builder: (column) => column);
+
+  GeneratedColumn<int> get motionType => $composableBuilder(
+    column: $table.motionType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get seType =>
+      $composableBuilder(column: $table.seType, builder: (column) => column);
+
+  GeneratedColumn<int> get moveSpeed =>
+      $composableBuilder(column: $table.moveSpeed, builder: (column) => column);
+
+  GeneratedColumn<int> get searchAreaWidth => $composableBuilder(
+    column: $table.searchAreaWidth,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get atkType =>
+      $composableBuilder(column: $table.atkType, builder: (column) => column);
+
+  GeneratedColumn<double> get normalAtkCastTime => $composableBuilder(
+    column: $table.normalAtkCastTime,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get cutin =>
+      $composableBuilder(column: $table.cutin, builder: (column) => column);
+
+  GeneratedColumn<int> get cutinStar6 => $composableBuilder(
+    column: $table.cutinStar6,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get visualChangeFlag => $composableBuilder(
+    column: $table.visualChangeFlag,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get comment =>
+      $composableBuilder(column: $table.comment, builder: (column) => column);
+}
+
+class $$UnitEnemyDataTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $UnitEnemyDataTable,
+          UnitEnemyDataData,
+          $$UnitEnemyDataTableFilterComposer,
+          $$UnitEnemyDataTableOrderingComposer,
+          $$UnitEnemyDataTableAnnotationComposer,
+          $$UnitEnemyDataTableCreateCompanionBuilder,
+          $$UnitEnemyDataTableUpdateCompanionBuilder,
+          (
+            UnitEnemyDataData,
+            BaseReferences<_$AppDb, $UnitEnemyDataTable, UnitEnemyDataData>,
+          ),
+          UnitEnemyDataData,
+          PrefetchHooks Function()
+        > {
+  $$UnitEnemyDataTableTableManager(_$AppDb db, $UnitEnemyDataTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$UnitEnemyDataTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$UnitEnemyDataTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$UnitEnemyDataTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> unitId = const Value.absent(),
+                Value<String> unitName = const Value.absent(),
+                Value<int> prefabId = const Value.absent(),
+                Value<int> motionType = const Value.absent(),
+                Value<int> seType = const Value.absent(),
+                Value<int> moveSpeed = const Value.absent(),
+                Value<int> searchAreaWidth = const Value.absent(),
+                Value<int> atkType = const Value.absent(),
+                Value<double> normalAtkCastTime = const Value.absent(),
+                Value<int> cutin = const Value.absent(),
+                Value<int> cutinStar6 = const Value.absent(),
+                Value<int> visualChangeFlag = const Value.absent(),
+                Value<String?> comment = const Value.absent(),
+              }) => UnitEnemyDataCompanion(
+                unitId: unitId,
+                unitName: unitName,
+                prefabId: prefabId,
+                motionType: motionType,
+                seType: seType,
+                moveSpeed: moveSpeed,
+                searchAreaWidth: searchAreaWidth,
+                atkType: atkType,
+                normalAtkCastTime: normalAtkCastTime,
+                cutin: cutin,
+                cutinStar6: cutinStar6,
+                visualChangeFlag: visualChangeFlag,
+                comment: comment,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> unitId = const Value.absent(),
+                required String unitName,
+                required int prefabId,
+                required int motionType,
+                required int seType,
+                required int moveSpeed,
+                required int searchAreaWidth,
+                required int atkType,
+                required double normalAtkCastTime,
+                required int cutin,
+                required int cutinStar6,
+                required int visualChangeFlag,
+                Value<String?> comment = const Value.absent(),
+              }) => UnitEnemyDataCompanion.insert(
+                unitId: unitId,
+                unitName: unitName,
+                prefabId: prefabId,
+                motionType: motionType,
+                seType: seType,
+                moveSpeed: moveSpeed,
+                searchAreaWidth: searchAreaWidth,
+                atkType: atkType,
+                normalAtkCastTime: normalAtkCastTime,
+                cutin: cutin,
+                cutinStar6: cutinStar6,
+                visualChangeFlag: visualChangeFlag,
+                comment: comment,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$UnitEnemyDataTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $UnitEnemyDataTable,
+      UnitEnemyDataData,
+      $$UnitEnemyDataTableFilterComposer,
+      $$UnitEnemyDataTableOrderingComposer,
+      $$UnitEnemyDataTableAnnotationComposer,
+      $$UnitEnemyDataTableCreateCompanionBuilder,
+      $$UnitEnemyDataTableUpdateCompanionBuilder,
+      (
+        UnitEnemyDataData,
+        BaseReferences<_$AppDb, $UnitEnemyDataTable, UnitEnemyDataData>,
+      ),
+      UnitEnemyDataData,
+      PrefetchHooks Function()
+    >;
 
 class $AppDbManager {
   final _$AppDb _db;
@@ -25211,4 +26328,6 @@ class $AppDbManager {
       $$UnlockUnitConditionTableTableManager(_db, _db.unlockUnitCondition);
   $$UnitTalentTableTableManager get unitTalent =>
       $$UnitTalentTableTableManager(_db, _db.unitTalent);
+  $$UnitEnemyDataTableTableManager get unitEnemyData =>
+      $$UnitEnemyDataTableTableManager(_db, _db.unitEnemyData);
 }

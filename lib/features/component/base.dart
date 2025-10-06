@@ -221,6 +221,10 @@ enum UnitGetType {
   }
 }
 
+enum EnemyType { all, clanBattle }
+
+enum UnitType { unit, enemy, summon }
+
 enum Talent {
   fire(1),
   water(2),

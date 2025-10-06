@@ -238,6 +238,12 @@ abstract class AppLocalizations {
   /// **'技能信息'**
   String get skill_info;
 
+  /// No description provided for @summon_unit.
+  ///
+  /// In zh, this message translates to:
+  /// **'召唤物'**
+  String get summon_unit;
+
   /// No description provided for @sp_skill.
   ///
   /// In zh, this message translates to:
@@ -615,6 +621,18 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'应用检查自动更新'**
   String get app_check_auto_update;
+
+  /// No description provided for @enemy_character.
+  ///
+  /// In zh, this message translates to:
+  /// **'敌方角色'**
+  String get enemy_character;
+
+  /// No description provided for @no_data_error.
+  ///
+  /// In zh, this message translates to:
+  /// **'未找到单位数据'**
+  String get no_data_error;
 
   /// No description provided for @talent_fire.
   ///

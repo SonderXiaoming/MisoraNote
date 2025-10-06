@@ -56,6 +56,21 @@ final unitInfoProvider = FutureProvider.family<UnitInfo?, int>((
   return db.getUnitInfo(unitId);
 });
 
+final unitDataProvider = FutureProvider.family<UnitDataData, int>((
+  ref,
+  unitId,
+) async {
+  final db = ref.watch(dbProvider);
+  return db.getUnitData(unitId);
+});
+
+final enemyDataProvider = FutureProvider.family<UnitEnemyDataData?, int>((
+  ref,
+  unitId,
+) async {
+  final db = ref.watch(dbProvider);
+  return db.getEnemyData(unitId);
+});
 final unitUniqueEquipProvider =
     FutureProvider.family<UniqueEquipInfo?, UnitUniqueEquipParameter>((
       ref,

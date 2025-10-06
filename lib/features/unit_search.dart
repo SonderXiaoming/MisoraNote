@@ -246,23 +246,23 @@ class UnitSearch extends ConsumerStatefulWidget {
 }
 
 class _UnitSearchState extends ConsumerState<UnitSearch> {
-  final SearchController _searchController = SearchController();
-  final FocusNode _searchFocusNode = FocusNode();
+  final SearchController searchController = SearchController();
+  final FocusNode searchFocusNode = FocusNode();
   List<int> results = []; // 统一的结果列表，包含默认和搜索结果
   List<int>? defaultResult;
-  String _searchQuery = '';
+  String searchQuery = '';
   bool isSearching = false; // 是否正在搜索
-  bool _isSearchById = false; // 是否按ID搜索
-  bool _isAscending = false; // 是否正序排列
-  UnitRankType _rankType = UnitRankType.lastUpdate; // 排序方式
-  UnitSearchData _searchData = UnitSearchData();
+  bool isSearchById = false; // 是否按ID搜索
+  bool isAscending = false; // 是否正序排列
+  UnitRankType rankType = UnitRankType.lastUpdate; // 排序方式
+  UnitSearchData searchData = UnitSearchData();
 
   @override
   void initState() {
     results = widget.perUnitIds;
     super.initState();
     final db = ref.read(dbProvider);
-    db.getUnitsData(type: _rankType, isDesc: !_isAscending).then((units) {
+    db.getUnitsData(type: rankType, isDesc: !isAscending).then((units) {
       if (mounted) {
         setState(() {
           results = units.map((e) => e.unitId).toList();
@@ -274,141 +274,136 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
 
   @override
   void dispose() {
-    _searchController.dispose();
-    _searchFocusNode.dispose();
+    searchController.dispose();
+    searchFocusNode.dispose();
     super.dispose();
   }
 
-  void _onSearchChanged(String query) {
-    _searchQuery = query.trim();
+  void onSearchChanged(String query) {
+    searchQuery = query.trim();
     setState(() {
-      if (_isSearchById) {
+      if (isSearchById) {
         // 按ID搜索
-        _searchData.unitId = _searchQuery.isEmpty
+        searchData.unitId = searchQuery.isEmpty
             ? null
-            : int.tryParse(_searchQuery);
-        _searchData.unitName = null;
+            : int.tryParse(searchQuery);
+        searchData.unitName = null;
       } else {
         // 按角色名搜索
-        _searchData.unitName = _searchQuery.isEmpty ? null : _searchQuery;
-        _searchData.unitId = null;
+        searchData.unitName = searchQuery.isEmpty ? null : searchQuery;
+        searchData.unitId = null;
       }
     });
-    _performSearchWithFilters();
+    performSearchWithFilters();
   }
 
-  void _toggleSearchMode() {
+  void toggleSearchMode() {
     setState(() {
-      _isSearchById = !_isSearchById;
-      _searchController.clear();
-      _searchQuery = '';
-      _searchData.unitId = null;
-      _searchData.unitName = null;
+      isSearchById = !isSearchById;
+      searchController.clear();
+      searchQuery = '';
+      searchData.unitId = null;
+      searchData.unitName = null;
     });
-    _loadDefaultResults();
-    _searchFocusNode.requestFocus();
+    loadDefaultResults();
+    searchFocusNode.requestFocus();
   }
 
-  void _loadDefaultResults() async {
-    final db = ref.read(dbProvider);
-    final units = await db.getUnitsData(type: _rankType, isDesc: !_isAscending);
+  void loadDefaultResults() async {
     if (mounted) {
       setState(() {
-        results = units.map((e) => e.unitId).toList();
-        defaultResult = results.toList(growable: false);
+        results = defaultResult ?? [];
         isSearching = false;
       });
     }
   }
 
-  void _toggleSortOrder() {
+  void toggleSortOrder() {
     setState(() {
-      _isAscending = !_isAscending;
+      isAscending = !isAscending;
     });
-    if (_searchQuery.isEmpty && !_hasActiveFilters()) {
-      _loadDefaultResults();
+    if (searchQuery.isEmpty && !hasActiveFilters()) {
+      loadDefaultResults();
     } else {
-      _performSearchWithFilters();
+      performSearchWithFilters();
     }
   }
 
-  void _changeRankType(UnitRankType? newRankType) {
-    if (newRankType != null && newRankType != _rankType) {
+  void changeRankType(UnitRankType? newRankType) {
+    if (newRankType != null && newRankType != rankType) {
       setState(() {
-        _rankType = newRankType;
+        rankType = newRankType;
       });
-      if (_searchQuery.isEmpty && !_hasActiveFilters()) {
-        _loadDefaultResults();
+      if (searchQuery.isEmpty && !hasActiveFilters()) {
+        loadDefaultResults();
       } else {
-        _performSearchWithFilters();
+        performSearchWithFilters();
       }
     }
   }
 
-  Future<void> _performSearch(String query) async {
-    try {
-      final db = ref.read(dbProvider);
-      final searchResults = await db.getUnitsData(
-        type: _rankType,
-        searchData: _searchData,
-        isDesc: !_isAscending,
-      );
-      if (mounted) {
-        setState(() {
-          results = searchResults.map((e) => e.unitId).toList();
-          isSearching = false;
-        });
-      }
-    } catch (e) {
-      if (mounted) {
-        setState(() {
-          results = [];
-          isSearching = false;
-        });
-      }
-    }
-  }
-
-  void _clearSearch() {
-    _searchController.clear();
+  void clearSearch() {
+    searchController.clear();
     setState(() {
-      _searchQuery = '';
-      _searchData.clear();
+      searchQuery = '';
+      searchData.clear();
     });
-    _loadDefaultResults();
-    _searchFocusNode.requestFocus();
+    loadDefaultResults();
+    searchFocusNode.requestFocus();
   }
 
-  void _performSearchWithFilters() {
-    if (_searchQuery.isEmpty && _searchData.isEmpty()) {
-      _loadDefaultResults();
+  void performSearchWithFilters() {
+    if (searchQuery.isEmpty && searchData.isEmpty()) {
+      loadDefaultResults();
     } else {
       setState(() {
         isSearching = true;
       });
-      _performSearch(_searchQuery);
+      final db = ref.read(dbProvider);
+      db
+          .getUnitsData(
+            type: rankType,
+            searchData: searchData,
+            isDesc: !isAscending,
+          )
+          .then((units) {
+            if (mounted) {
+              setState(() {
+                results = units.map((e) => e.unitId).toList();
+                isSearching = false;
+              });
+            }
+          })
+          .catchError((e) {
+            if (mounted) {
+              setState(() {
+                results = [];
+                isSearching = false;
+              });
+            }
+          });
     }
   }
 
-  bool _hasActiveFilters() {
-    return _searchData.searchAreaWidth != null ||
-        _searchData.atkType != null ||
-        _searchData.isR6 != null ||
-        _searchData.hasUnique1 != null ||
-        _searchData.hasUnique2 != null ||
-        _searchData.talent != null;
+  bool hasActiveFilters() {
+    return searchData.searchAreaWidth != null ||
+        searchData.atkType != null ||
+        searchData.isR6 != null ||
+        searchData.hasUnique1 != null ||
+        searchData.hasUnique2 != null ||
+        searchData.talent != null;
   }
 
-  void _clearFilters() {
+  void clearFilters() {
     setState(() {
-      _searchData.searchAreaWidth = null;
-      _searchData.atkType = null;
-      _searchData.isR6 = null;
-      _searchData.hasUnique1 = null;
-      _searchData.hasUnique2 = null;
-      _searchData.talent = null;
+      searchData.searchAreaWidth = null;
+      searchData.atkType = null;
+      searchData.isR6 = null;
+      searchData.hasUnique1 = null;
+      searchData.hasUnique2 = null;
+      searchData.talent = null;
     });
-    _performSearchWithFilters();
+    performSearchWithFilters();
   }
 
   @override
@@ -447,37 +442,37 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                 // 搜索框
                 Expanded(
                   child: SearchBar(
-                    controller: _searchController,
-                    hintText: _isSearchById
+                    controller: searchController,
+                    hintText: isSearchById
                         ? t.search_hit_id
                         : t.search_hit_name,
-                    onChanged: _onSearchChanged,
+                    onChanged: onSearchChanged,
                     textInputAction: TextInputAction.search,
-                    keyboardType: _isSearchById
+                    keyboardType: isSearchById
                         ? TextInputType.number
                         : TextInputType.text,
                     leading: Icon(
                       Icons.search,
                       color: Color(CustomColors.colorPrimary),
                     ),
-                    trailing: _searchQuery.isNotEmpty || _hasActiveFilters()
+                    trailing: searchQuery.isNotEmpty || hasActiveFilters()
                         ? [
-                            if (_hasActiveFilters())
+                            if (hasActiveFilters())
                               IconButton(
                                 icon: Icon(
                                   Icons.filter_list_off,
                                   color: Color(CustomColors.colorOrange),
                                   size: 20,
                                 ),
-                                onPressed: _clearFilters,
+                                onPressed: clearFilters,
                               ),
-                            if (_searchQuery.isNotEmpty)
+                            if (searchQuery.isNotEmpty)
                               IconButton(
                                 icon: Icon(
                                   Icons.clear,
                                   color: Color(CustomColors.colorGray),
                                 ),
-                                onPressed: _clearSearch,
+                                onPressed: clearSearch,
                               ),
                           ]
                         : <Widget>[],
@@ -512,16 +507,16 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                 const SizedBox(width: 4),
                 CustomIconButton(
                   backgroundColor: Colors.transparent,
-                  onTap: _toggleSearchMode,
+                  onTap: toggleSearchMode,
                   child: Icon(
-                    _isSearchById ? Icons.tag : Icons.person,
+                    isSearchById ? Icons.tag : Icons.person,
                     color: Color(CustomColors.colorPrimary),
                     size: 25,
                   ),
                 ),
                 const SizedBox(width: 4),
                 PopupMenuButton<UnitRankType>(
-                  onSelected: _changeRankType,
+                  onSelected: changeRankType,
                   position: PopupMenuPosition.under,
                   elevation: 8,
                   shape: RoundedRectangleBorder(
@@ -535,7 +530,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                   ),
                   itemBuilder: (BuildContext context) {
                     return UnitRankType.values.map((UnitRankType type) {
-                      final isSelected = type == _rankType;
+                      final isSelected = type == rankType;
                       return PopupMenuItem<UnitRankType>(
                         value: type,
                         child: Row(
@@ -573,9 +568,9 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                 const SizedBox(width: 4),
                 CustomIconButton(
                   backgroundColor: Colors.transparent,
-                  onTap: _toggleSortOrder,
+                  onTap: toggleSortOrder,
                   child: Icon(
-                    _isAscending ? Icons.arrow_upward : Icons.arrow_downward,
+                    isAscending ? Icons.arrow_upward : Icons.arrow_downward,
                     color: Color(CustomColors.colorPrimary),
                     size: 25,
                   ),
@@ -588,12 +583,12 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             color: Colors.white,
             child: SearchFilters(
-              searchData: _searchData,
+              searchData: searchData,
               onSearchDataChanged: (newSearchData) {
                 setState(() {
-                  _searchData = newSearchData;
+                  searchData = newSearchData;
                 });
-                _performSearchWithFilters();
+                performSearchWithFilters();
               },
             ),
           ),
@@ -603,7 +598,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
               unitIds: results,
               r6Units: r6Units,
               isSearching: isSearching,
-              searchQuery: _searchQuery,
+              searchQuery: searchQuery,
             ),
           ),
         ],

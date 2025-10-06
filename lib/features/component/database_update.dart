@@ -16,11 +16,12 @@ Future<void> updateDatabase(
       context,
       title: t.database_updating,
       task: (updateProgress) async {
-        final area = ref.read(databaseAreaProvider);
+        // 等待 area 加载完成
+        final area = await ref.read(databaseAreaProvider.future);
         final db = ref.read(dbProvider);
         await db.close(); // 关闭现有数据库连接
         await updatePcrDatabase(
-          area.value!,
+          area,
           onProgress: (received, total) {
             if (total > 0) {
               final progress = received / total;

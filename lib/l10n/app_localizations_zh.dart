@@ -95,6 +95,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get skill_info => '技能信息';
 
   @override
+  String get summon_unit => '召唤物';
+
+  @override
   String get sp_skill => 'SP技能';
 
   @override
@@ -292,6 +295,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get app_check_auto_update => '应用检查自动更新';
+
+  @override
+  String get enemy_character => '敌方角色';
+
+  @override
+  String get no_data_error => '未找到单位数据';
 
   @override
   String get talent_fire => '火';

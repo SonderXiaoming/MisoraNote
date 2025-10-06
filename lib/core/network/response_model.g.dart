@@ -10,9 +10,9 @@ LatestDbVersionDataInfo _$LatestDbVersionDataInfoFromJson(
   Map<String, dynamic> json,
 ) => LatestDbVersionDataInfo(
   prefabVer: json['PrefabVer'] as String?,
-  desc: json['desc'] as String,
+  desc: json['desc'] as String?,
   hash: json['hash'] as String,
-  time: json['time'] as String,
+  time: json['time'] as String?,
   truthVersion: json['truthVersion'] as String,
 );
 

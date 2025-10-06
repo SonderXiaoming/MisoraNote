@@ -534,3 +534,24 @@ class UnitTalent extends Table {
   IntColumn get unitId => integer().named("unit_id")();
   IntColumn get talentId => integer().named("talent_id")();
 }
+
+class UnitEnemyData extends Table {
+  @override
+  String get tableName => "unit_enemy_data";
+  @override
+  Set<Column> get primaryKey => {unitId};
+
+  IntColumn get unitId => integer().named("unit_id")();
+  TextColumn get unitName => text().named("unit_name")();
+  IntColumn get prefabId => integer().named("prefab_id")();
+  IntColumn get motionType => integer().named("motion_type")();
+  IntColumn get seType => integer().named("se_type")();
+  IntColumn get moveSpeed => integer().named("move_speed")();
+  IntColumn get searchAreaWidth => integer().named("search_area_width")();
+  IntColumn get atkType => integer().named("atk_type")();
+  RealColumn get normalAtkCastTime => real().named("normal_atk_cast_time")();
+  IntColumn get cutin => integer().named("cutin")();
+  IntColumn get cutinStar6 => integer().named("cutin_star6")();
+  IntColumn get visualChangeFlag => integer().named("visual_change_flag")();
+  TextColumn get comment => text().named("comment").nullable()();
+}

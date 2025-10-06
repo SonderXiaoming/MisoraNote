@@ -68,8 +68,14 @@ class FetchUrl {
 
   static String dbLatestVersion = "${FetchUrl.wtheeBase}/pcr/api/v1/db/info/v2";
 
-  static String db(Area area) =>
-      "${FetchUrl.wtheeBase}/db/redive_${area.name}.db.br";
+  static String db(Area area) {
+    /*
+    if (area == Area.cn) {
+      return "${FetchUrl.estertionBase}/db/redive_${area.name}.db.br";
+    }
+    */
+    return "${FetchUrl.wtheeBase}/db/redive_${area.name}.db.br";
+  }
 
   static String teaser(Area area, int teaserId) =>
       "${FetchUrl.wtheeBase}/redive/${area.name}/resource/event/teaser/$teaserId.webp";
@@ -109,6 +115,7 @@ class AppRoutes {
   static const about = '/about';
   static const unitDetail = '/unitDetail';
   static const unitSearch = '/unitSearch';
+  static const enemySearch = '/enemySearch';
 }
 
 class CustomColors {

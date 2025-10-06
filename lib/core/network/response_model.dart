@@ -6,9 +6,9 @@ part 'response_model.g.dart';
 class LatestDbVersionDataInfo {
   @JsonKey(name: 'PrefabVer')
   final String? prefabVer;
-  final String desc;
+  final String? desc;
   final String hash;
-  final String time;
+  final String? time;
   final String truthVersion;
 
   LatestDbVersionDataInfo({
@@ -24,15 +24,6 @@ class LatestDbVersionDataInfo {
       _$LatestDbVersionDataInfoFromJson(json);
 
   Map<String, dynamic> toJson() => _$LatestDbVersionDataInfoToJson(this);
-
-  // 便捷的 getter：获取格式化的时间
-  DateTime? get dateTime {
-    try {
-      return DateTime.parse(time.replaceAll(' ', 'T'));
-    } catch (_) {
-      return null;
-    }
-  }
 
   @override
   String toString() {
