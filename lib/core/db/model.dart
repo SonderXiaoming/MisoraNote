@@ -264,3 +264,23 @@ class UnitSearchData {
         talent == null;
   }
 }
+
+class EnemyWeaknessInfo {
+  final int enemyId;
+  final int resistId;
+  final int talent1;
+  final int talent2;
+  final int talent3;
+  final int talent4;
+  final int talent5;
+
+  EnemyWeaknessInfo({
+    required this.enemyId,
+    required this.resistId,
+    required this.talent1,
+    required this.talent2,
+    required this.talent3,
+    required this.talent4,
+    required this.talent5,
+  });
+}

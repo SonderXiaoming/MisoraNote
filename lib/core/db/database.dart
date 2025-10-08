@@ -41,6 +41,9 @@ final kannaIds = [170101, 170201];
     TowerEnemyParameter,
     SevenEnemyParameter,
     EnemyParameter,
+    EnemyTalentWeakness,
+    TalentWeakness,
+    EnemyParameter,
   ],
 )
 class AppDb extends _$AppDb {
@@ -568,6 +571,37 @@ class AppDb extends _$AppDb {
     return (select(
       unitEnemyData,
     )..where((t) => t.unitId.equals(unitId))).map((e) => e).getSingleOrNull();
+  }
+
+  Future<EnemyWeaknessInfo?> getEnemyTalentWeakness(int enemyId) async {
+    final row =
+        select(talentWeakness).join([
+            leftOuterJoin(
+              enemyTalentWeakness,
+              enemyTalentWeakness.resistId.equalsExp(talentWeakness.resistId),
+            ),
+          ])
+          ..addColumns([enemyTalentWeakness.enemyId])
+          ..where(enemyTalentWeakness.enemyId.equals(enemyId))
+          ..limit(1);
+    final result = await row.getSingleOrNull();
+    if (result == null) return null;
+    final tw = result.readTable(talentWeakness);
+    return EnemyWeaknessInfo(
+      enemyId: result.read(enemyTalentWeakness.enemyId) ?? enemyId,
+      resistId: tw.resistId,
+      talent1: tw.talent1,
+      talent2: tw.talent2,
+      talent3: tw.talent3,
+      talent4: tw.talent4,
+      talent5: tw.talent5,
+    );
+  }
+
+  Future<EnemyParameterData?> getEnemyParameters(int enemyId) async {
+    return (select(
+      enemyParameter,
+    )..where((t) => t.enemyId.equals(enemyId))).getSingleOrNull();
   }
 
   Future<EnemyParameterData?> getEnemyParameter(int enemyId) async {
