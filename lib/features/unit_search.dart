@@ -5,7 +5,7 @@ import 'package:misora_note/core/db/model.dart';
 import 'package:misora_note/core/di/di.dart';
 import 'package:misora_note/features/component/custom_icon.dart';
 import 'package:misora_note/features/component/base.dart';
-import 'package:misora_note/features/component/unit_card.dart';
+import 'package:misora_note/features/component/card/unit_card.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 
 import 'package:misora_note/features/component/filter.dart';

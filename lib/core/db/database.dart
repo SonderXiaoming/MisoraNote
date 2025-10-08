@@ -34,6 +34,13 @@ final kannaIds = [170101, 170201];
     UnlockUnitCondition,
     UnitTalent,
     UnitEnemyData,
+    EventEnemyParameter,
+    TalentQuestEnemyParameter,
+    ShioriEnemyParameter,
+    SreEnemyParameter,
+    TowerEnemyParameter,
+    SevenEnemyParameter,
+    EnemyParameter,
   ],
 )
 class AppDb extends _$AppDb {
@@ -561,5 +568,49 @@ class AppDb extends _$AppDb {
     return (select(
       unitEnemyData,
     )..where((t) => t.unitId.equals(unitId))).map((e) => e).getSingleOrNull();
+  }
+
+  Future<EnemyParameterData?> getEnemyParameter(int enemyId) async {
+    return (select(
+      enemyParameter,
+    )..where((t) => t.enemyId.equals(enemyId))).map((e) => e).getSingleOrNull();
+  }
+
+  Future<EventEnemyParameterData?> getEventEnemyParameter(int enemyId) async {
+    return (select(
+      eventEnemyParameter,
+    )..where((t) => t.enemyId.equals(enemyId))).map((e) => e).getSingleOrNull();
+  }
+
+  Future<TalentQuestEnemyParameterData?> getTalentQuestEnemyParameter(
+    int enemyId,
+  ) async {
+    return (select(
+      talentQuestEnemyParameter,
+    )..where((t) => t.enemyId.equals(enemyId))).map((e) => e).getSingleOrNull();
+  }
+
+  Future<ShioriEnemyParameterData?> getShioriEnemyParameter(int enemyId) async {
+    return (select(
+      shioriEnemyParameter,
+    )..where((t) => t.enemyId.equals(enemyId))).map((e) => e).getSingleOrNull();
+  }
+
+  Future<SreEnemyParameterData?> getSreEnemyParameter(int enemyId) async {
+    return (select(
+      sreEnemyParameter,
+    )..where((t) => t.enemyId.equals(enemyId))).map((e) => e).getSingleOrNull();
+  }
+
+  Future<TowerEnemyParameterData?> getTowerEnemyParameter(int enemyId) async {
+    return (select(
+      towerEnemyParameter,
+    )..where((t) => t.enemyId.equals(enemyId))).map((e) => e).getSingleOrNull();
+  }
+
+  Future<SevenEnemyParameterData?> getSevenEnemyParameter(int enemyId) async {
+    return (select(
+      sevenEnemyParameter,
+    )..where((t) => t.enemyId.equals(enemyId))).map((e) => e).getSingleOrNull();
   }
 }

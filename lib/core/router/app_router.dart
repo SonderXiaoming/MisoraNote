@@ -4,7 +4,7 @@ import 'package:misora_note/core/router/page_extra.dart';
 import 'package:misora_note/core/router/transition.dart';
 import 'package:flutter/widgets.dart';
 import 'package:misora_note/features/component/base.dart';
-import 'package:misora_note/features/component/unit_card.dart';
+import 'package:misora_note/features/component/card/unit_card.dart';
 import 'package:misora_note/features/function_page.dart';
 import 'package:misora_note/features/unit_page.dart';
 import 'package:misora_note/features/unit_search.dart';

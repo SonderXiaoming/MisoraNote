@@ -7,7 +7,7 @@ import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/tag.dart';
 import 'package:misora_note/features/component/skill/skill_text.dart';
 import 'package:misora_note/features/component/image.dart';
-import 'package:misora_note/features/component/unit_card.dart';
+import 'package:misora_note/features/component/card/unit_card.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 import 'package:misora_note/features/component/skill/skill_type.dart';
 
@@ -18,6 +18,7 @@ class SkillActionText extends StatelessWidget {
   final int? summonUnitId;
   final bool showCoe;
   final int index;
+  final UnitType unitType;
   const SkillActionText({
     super.key,
     required this.actionId,
@@ -25,6 +26,7 @@ class SkillActionText extends StatelessWidget {
     required this.actionDesc,
     required this.showCoe,
     required this.index,
+    required this.unitType,
     this.summonUnitId,
   });
 
@@ -104,7 +106,9 @@ class SkillActionText extends StatelessWidget {
                   AppRoutes.unitDetail,
                   extra: UnitCard(
                     unitId: summonUnitId!,
-                    unitType: UnitType.summon,
+                    unitType: unitType == UnitType.enemy
+                        ? UnitType.enemySummon
+                        : UnitType.summon,
                     size: (double.infinity, 150),
                   ),
                 );
@@ -131,11 +135,13 @@ class SingleSkillInfo extends StatelessWidget {
   final SkillTextType skillType;
   final int? level;
   final int? atk;
+  final UnitType unitType;
   const SingleSkillInfo({
     super.key,
     required this.skill,
     required this.actions,
     required this.skillType,
+    required this.unitType,
     this.level,
     this.atk,
   });
@@ -171,6 +177,7 @@ class SingleSkillInfo extends StatelessWidget {
               : null,
           showCoe: showCoe,
           index: i + 1,
+          unitType: unitType,
         ),
       );
     }
@@ -283,8 +290,13 @@ class SingleSkillInfo extends StatelessWidget {
 
 class AllSkillInfo extends StatelessWidget {
   final UnitSkillList skillIdList;
+  final UnitType unitType;
 
-  const AllSkillInfo({super.key, required this.skillIdList});
+  const AllSkillInfo({
+    super.key,
+    required this.skillIdList,
+    required this.unitType,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -305,6 +317,8 @@ class AllSkillInfo extends StatelessWidget {
               skill: e.data,
               actions: e.actions,
               skillType: e.type,
+              level: e.level,
+              unitType: unitType,
             ),
           ),
           if (skillIdList.sp.isNotEmpty) ...[
@@ -322,6 +336,8 @@ class AllSkillInfo extends StatelessWidget {
               skill: e.data,
               actions: e.actions,
               skillType: e.type,
+              level: e.level,
+              unitType: unitType,
             ),
           ),
         ],

@@ -17978,6 +17978,16088 @@ class UnitEnemyDataCompanion extends UpdateCompanion<UnitEnemyDataData> {
   }
 }
 
+class $EventEnemyParameterTable extends EventEnemyParameter
+    with TableInfo<$EventEnemyParameterTable, EventEnemyParameterData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $EventEnemyParameterTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _enemyIdMeta = const VerificationMeta(
+    'enemyId',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId = GeneratedColumn<int>(
+    'enemy_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _levelMeta = const VerificationMeta('level');
+  @override
+  late final GeneratedColumn<int> level = GeneratedColumn<int>(
+    'level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rarityMeta = const VerificationMeta('rarity');
+  @override
+  late final GeneratedColumn<int> rarity = GeneratedColumn<int>(
+    'rarity',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _promotionLevelMeta = const VerificationMeta(
+    'promotionLevel',
+  );
+  @override
+  late final GeneratedColumn<int> promotionLevel = GeneratedColumn<int>(
+    'promotion_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpMeta = const VerificationMeta('hp');
+  @override
+  late final GeneratedColumn<int> hp = GeneratedColumn<int>(
+    'hp',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _atkMeta = const VerificationMeta('atk');
+  @override
+  late final GeneratedColumn<int> atk = GeneratedColumn<int>(
+    'atk',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicStrMeta = const VerificationMeta(
+    'magicStr',
+  );
+  @override
+  late final GeneratedColumn<int> magicStr = GeneratedColumn<int>(
+    'magic_str',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _def_Meta = const VerificationMeta('def_');
+  @override
+  late final GeneratedColumn<double> def_ = GeneratedColumn<double>(
+    'def',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicDefMeta = const VerificationMeta(
+    'magicDef',
+  );
+  @override
+  late final GeneratedColumn<int> magicDef = GeneratedColumn<int>(
+    'magic_def',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalCriticalMeta = const VerificationMeta(
+    'physicalCritical',
+  );
+  @override
+  late final GeneratedColumn<int> physicalCritical = GeneratedColumn<int>(
+    'physical_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicCriticalMeta = const VerificationMeta(
+    'magicCritical',
+  );
+  @override
+  late final GeneratedColumn<int> magicCritical = GeneratedColumn<int>(
+    'magic_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveHpRecoveryMeta = const VerificationMeta(
+    'waveHpRecovery',
+  );
+  @override
+  late final GeneratedColumn<int> waveHpRecovery = GeneratedColumn<int>(
+    'wave_hp_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveEnergyRecoveryMeta =
+      const VerificationMeta('waveEnergyRecovery');
+  @override
+  late final GeneratedColumn<int> waveEnergyRecovery = GeneratedColumn<int>(
+    'wave_energy_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dodgeMeta = const VerificationMeta('dodge');
+  @override
+  late final GeneratedColumn<int> dodge = GeneratedColumn<int>(
+    'dodge',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalPenetrateMeta = const VerificationMeta(
+    'physicalPenetrate',
+  );
+  @override
+  late final GeneratedColumn<int> physicalPenetrate = GeneratedColumn<int>(
+    'physical_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicPenetrateMeta = const VerificationMeta(
+    'magicPenetrate',
+  );
+  @override
+  late final GeneratedColumn<int> magicPenetrate = GeneratedColumn<int>(
+    'magic_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _lifeStealMeta = const VerificationMeta(
+    'lifeSteal',
+  );
+  @override
+  late final GeneratedColumn<int> lifeSteal = GeneratedColumn<int>(
+    'life_steal',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpRecoveryRateMeta = const VerificationMeta(
+    'hpRecoveryRate',
+  );
+  @override
+  late final GeneratedColumn<int> hpRecoveryRate = GeneratedColumn<int>(
+    'hp_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyRecoveryRateMeta =
+      const VerificationMeta('energyRecoveryRate');
+  @override
+  late final GeneratedColumn<int> energyRecoveryRate = GeneratedColumn<int>(
+    'energy_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyReduceRateMeta = const VerificationMeta(
+    'energyReduceRate',
+  );
+  @override
+  late final GeneratedColumn<int> energyReduceRate = GeneratedColumn<int>(
+    'energy_reduce_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _unionBurstLevelMeta = const VerificationMeta(
+    'unionBurstLevel',
+  );
+  @override
+  late final GeneratedColumn<int> unionBurstLevel = GeneratedColumn<int>(
+    'union_burst_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv1Meta = const VerificationMeta(
+    'mainSkillLv1',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv1 = GeneratedColumn<int>(
+    'main_skill_lv_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv2Meta = const VerificationMeta(
+    'mainSkillLv2',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv2 = GeneratedColumn<int>(
+    'main_skill_lv_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv3Meta = const VerificationMeta(
+    'mainSkillLv3',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv3 = GeneratedColumn<int>(
+    'main_skill_lv_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv4Meta = const VerificationMeta(
+    'mainSkillLv4',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv4 = GeneratedColumn<int>(
+    'main_skill_lv_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv5Meta = const VerificationMeta(
+    'mainSkillLv5',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv5 = GeneratedColumn<int>(
+    'main_skill_lv_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv6Meta = const VerificationMeta(
+    'mainSkillLv6',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv6 = GeneratedColumn<int>(
+    'main_skill_lv_6',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv7Meta = const VerificationMeta(
+    'mainSkillLv7',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv7 = GeneratedColumn<int>(
+    'main_skill_lv_7',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv8Meta = const VerificationMeta(
+    'mainSkillLv8',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv8 = GeneratedColumn<int>(
+    'main_skill_lv_8',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv9Meta = const VerificationMeta(
+    'mainSkillLv9',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv9 = GeneratedColumn<int>(
+    'main_skill_lv_9',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv10Meta = const VerificationMeta(
+    'mainSkillLv10',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv10 = GeneratedColumn<int>(
+    'main_skill_lv_10',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv1Meta = const VerificationMeta(
+    'exSkillLv1',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv1 = GeneratedColumn<int>(
+    'ex_skill_lv_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv2Meta = const VerificationMeta(
+    'exSkillLv2',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv2 = GeneratedColumn<int>(
+    'ex_skill_lv_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv3Meta = const VerificationMeta(
+    'exSkillLv3',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv3 = GeneratedColumn<int>(
+    'ex_skill_lv_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv4Meta = const VerificationMeta(
+    'exSkillLv4',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv4 = GeneratedColumn<int>(
+    'ex_skill_lv_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv5Meta = const VerificationMeta(
+    'exSkillLv5',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv5 = GeneratedColumn<int>(
+    'ex_skill_lv_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resistStatusIdMeta = const VerificationMeta(
+    'resistStatusId',
+  );
+  @override
+  late final GeneratedColumn<int> resistStatusId = GeneratedColumn<int>(
+    'resist_status_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resistVariationIdMeta = const VerificationMeta(
+    'resistVariationId',
+  );
+  @override
+  late final GeneratedColumn<int> resistVariationId = GeneratedColumn<int>(
+    'resist_variation_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _accuracyMeta = const VerificationMeta(
+    'accuracy',
+  );
+  @override
+  late final GeneratedColumn<int> accuracy = GeneratedColumn<int>(
+    'accuracy',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    enemyId,
+    unitId,
+    level,
+    rarity,
+    promotionLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    unionBurstLevel,
+    mainSkillLv1,
+    mainSkillLv2,
+    mainSkillLv3,
+    mainSkillLv4,
+    mainSkillLv5,
+    mainSkillLv6,
+    mainSkillLv7,
+    mainSkillLv8,
+    mainSkillLv9,
+    mainSkillLv10,
+    exSkillLv1,
+    exSkillLv2,
+    exSkillLv3,
+    exSkillLv4,
+    exSkillLv5,
+    resistStatusId,
+    resistVariationId,
+    accuracy,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'event_enemy_parameter';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<EventEnemyParameterData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('enemy_id')) {
+      context.handle(
+        _enemyIdMeta,
+        enemyId.isAcceptableOrUnknown(data['enemy_id']!, _enemyIdMeta),
+      );
+    }
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('level')) {
+      context.handle(
+        _levelMeta,
+        level.isAcceptableOrUnknown(data['level']!, _levelMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_levelMeta);
+    }
+    if (data.containsKey('rarity')) {
+      context.handle(
+        _rarityMeta,
+        rarity.isAcceptableOrUnknown(data['rarity']!, _rarityMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_rarityMeta);
+    }
+    if (data.containsKey('promotion_level')) {
+      context.handle(
+        _promotionLevelMeta,
+        promotionLevel.isAcceptableOrUnknown(
+          data['promotion_level']!,
+          _promotionLevelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_promotionLevelMeta);
+    }
+    if (data.containsKey('hp')) {
+      context.handle(_hpMeta, hp.isAcceptableOrUnknown(data['hp']!, _hpMeta));
+    } else if (isInserting) {
+      context.missing(_hpMeta);
+    }
+    if (data.containsKey('atk')) {
+      context.handle(
+        _atkMeta,
+        atk.isAcceptableOrUnknown(data['atk']!, _atkMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_atkMeta);
+    }
+    if (data.containsKey('magic_str')) {
+      context.handle(
+        _magicStrMeta,
+        magicStr.isAcceptableOrUnknown(data['magic_str']!, _magicStrMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicStrMeta);
+    }
+    if (data.containsKey('def')) {
+      context.handle(
+        _def_Meta,
+        def_.isAcceptableOrUnknown(data['def']!, _def_Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_def_Meta);
+    }
+    if (data.containsKey('magic_def')) {
+      context.handle(
+        _magicDefMeta,
+        magicDef.isAcceptableOrUnknown(data['magic_def']!, _magicDefMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicDefMeta);
+    }
+    if (data.containsKey('physical_critical')) {
+      context.handle(
+        _physicalCriticalMeta,
+        physicalCritical.isAcceptableOrUnknown(
+          data['physical_critical']!,
+          _physicalCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalCriticalMeta);
+    }
+    if (data.containsKey('magic_critical')) {
+      context.handle(
+        _magicCriticalMeta,
+        magicCritical.isAcceptableOrUnknown(
+          data['magic_critical']!,
+          _magicCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicCriticalMeta);
+    }
+    if (data.containsKey('wave_hp_recovery')) {
+      context.handle(
+        _waveHpRecoveryMeta,
+        waveHpRecovery.isAcceptableOrUnknown(
+          data['wave_hp_recovery']!,
+          _waveHpRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveHpRecoveryMeta);
+    }
+    if (data.containsKey('wave_energy_recovery')) {
+      context.handle(
+        _waveEnergyRecoveryMeta,
+        waveEnergyRecovery.isAcceptableOrUnknown(
+          data['wave_energy_recovery']!,
+          _waveEnergyRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveEnergyRecoveryMeta);
+    }
+    if (data.containsKey('dodge')) {
+      context.handle(
+        _dodgeMeta,
+        dodge.isAcceptableOrUnknown(data['dodge']!, _dodgeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dodgeMeta);
+    }
+    if (data.containsKey('physical_penetrate')) {
+      context.handle(
+        _physicalPenetrateMeta,
+        physicalPenetrate.isAcceptableOrUnknown(
+          data['physical_penetrate']!,
+          _physicalPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalPenetrateMeta);
+    }
+    if (data.containsKey('magic_penetrate')) {
+      context.handle(
+        _magicPenetrateMeta,
+        magicPenetrate.isAcceptableOrUnknown(
+          data['magic_penetrate']!,
+          _magicPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicPenetrateMeta);
+    }
+    if (data.containsKey('life_steal')) {
+      context.handle(
+        _lifeStealMeta,
+        lifeSteal.isAcceptableOrUnknown(data['life_steal']!, _lifeStealMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_lifeStealMeta);
+    }
+    if (data.containsKey('hp_recovery_rate')) {
+      context.handle(
+        _hpRecoveryRateMeta,
+        hpRecoveryRate.isAcceptableOrUnknown(
+          data['hp_recovery_rate']!,
+          _hpRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_hpRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_recovery_rate')) {
+      context.handle(
+        _energyRecoveryRateMeta,
+        energyRecoveryRate.isAcceptableOrUnknown(
+          data['energy_recovery_rate']!,
+          _energyRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_reduce_rate')) {
+      context.handle(
+        _energyReduceRateMeta,
+        energyReduceRate.isAcceptableOrUnknown(
+          data['energy_reduce_rate']!,
+          _energyReduceRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyReduceRateMeta);
+    }
+    if (data.containsKey('union_burst_level')) {
+      context.handle(
+        _unionBurstLevelMeta,
+        unionBurstLevel.isAcceptableOrUnknown(
+          data['union_burst_level']!,
+          _unionBurstLevelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_unionBurstLevelMeta);
+    }
+    if (data.containsKey('main_skill_lv_1')) {
+      context.handle(
+        _mainSkillLv1Meta,
+        mainSkillLv1.isAcceptableOrUnknown(
+          data['main_skill_lv_1']!,
+          _mainSkillLv1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv1Meta);
+    }
+    if (data.containsKey('main_skill_lv_2')) {
+      context.handle(
+        _mainSkillLv2Meta,
+        mainSkillLv2.isAcceptableOrUnknown(
+          data['main_skill_lv_2']!,
+          _mainSkillLv2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv2Meta);
+    }
+    if (data.containsKey('main_skill_lv_3')) {
+      context.handle(
+        _mainSkillLv3Meta,
+        mainSkillLv3.isAcceptableOrUnknown(
+          data['main_skill_lv_3']!,
+          _mainSkillLv3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv3Meta);
+    }
+    if (data.containsKey('main_skill_lv_4')) {
+      context.handle(
+        _mainSkillLv4Meta,
+        mainSkillLv4.isAcceptableOrUnknown(
+          data['main_skill_lv_4']!,
+          _mainSkillLv4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv4Meta);
+    }
+    if (data.containsKey('main_skill_lv_5')) {
+      context.handle(
+        _mainSkillLv5Meta,
+        mainSkillLv5.isAcceptableOrUnknown(
+          data['main_skill_lv_5']!,
+          _mainSkillLv5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv5Meta);
+    }
+    if (data.containsKey('main_skill_lv_6')) {
+      context.handle(
+        _mainSkillLv6Meta,
+        mainSkillLv6.isAcceptableOrUnknown(
+          data['main_skill_lv_6']!,
+          _mainSkillLv6Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv6Meta);
+    }
+    if (data.containsKey('main_skill_lv_7')) {
+      context.handle(
+        _mainSkillLv7Meta,
+        mainSkillLv7.isAcceptableOrUnknown(
+          data['main_skill_lv_7']!,
+          _mainSkillLv7Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv7Meta);
+    }
+    if (data.containsKey('main_skill_lv_8')) {
+      context.handle(
+        _mainSkillLv8Meta,
+        mainSkillLv8.isAcceptableOrUnknown(
+          data['main_skill_lv_8']!,
+          _mainSkillLv8Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv8Meta);
+    }
+    if (data.containsKey('main_skill_lv_9')) {
+      context.handle(
+        _mainSkillLv9Meta,
+        mainSkillLv9.isAcceptableOrUnknown(
+          data['main_skill_lv_9']!,
+          _mainSkillLv9Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv9Meta);
+    }
+    if (data.containsKey('main_skill_lv_10')) {
+      context.handle(
+        _mainSkillLv10Meta,
+        mainSkillLv10.isAcceptableOrUnknown(
+          data['main_skill_lv_10']!,
+          _mainSkillLv10Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv10Meta);
+    }
+    if (data.containsKey('ex_skill_lv_1')) {
+      context.handle(
+        _exSkillLv1Meta,
+        exSkillLv1.isAcceptableOrUnknown(
+          data['ex_skill_lv_1']!,
+          _exSkillLv1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv1Meta);
+    }
+    if (data.containsKey('ex_skill_lv_2')) {
+      context.handle(
+        _exSkillLv2Meta,
+        exSkillLv2.isAcceptableOrUnknown(
+          data['ex_skill_lv_2']!,
+          _exSkillLv2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv2Meta);
+    }
+    if (data.containsKey('ex_skill_lv_3')) {
+      context.handle(
+        _exSkillLv3Meta,
+        exSkillLv3.isAcceptableOrUnknown(
+          data['ex_skill_lv_3']!,
+          _exSkillLv3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv3Meta);
+    }
+    if (data.containsKey('ex_skill_lv_4')) {
+      context.handle(
+        _exSkillLv4Meta,
+        exSkillLv4.isAcceptableOrUnknown(
+          data['ex_skill_lv_4']!,
+          _exSkillLv4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv4Meta);
+    }
+    if (data.containsKey('ex_skill_lv_5')) {
+      context.handle(
+        _exSkillLv5Meta,
+        exSkillLv5.isAcceptableOrUnknown(
+          data['ex_skill_lv_5']!,
+          _exSkillLv5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv5Meta);
+    }
+    if (data.containsKey('resist_status_id')) {
+      context.handle(
+        _resistStatusIdMeta,
+        resistStatusId.isAcceptableOrUnknown(
+          data['resist_status_id']!,
+          _resistStatusIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resistStatusIdMeta);
+    }
+    if (data.containsKey('resist_variation_id')) {
+      context.handle(
+        _resistVariationIdMeta,
+        resistVariationId.isAcceptableOrUnknown(
+          data['resist_variation_id']!,
+          _resistVariationIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resistVariationIdMeta);
+    }
+    if (data.containsKey('accuracy')) {
+      context.handle(
+        _accuracyMeta,
+        accuracy.isAcceptableOrUnknown(data['accuracy']!, _accuracyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_accuracyMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {enemyId};
+  @override
+  EventEnemyParameterData map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return EventEnemyParameterData(
+      enemyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id'],
+      )!,
+      unitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unit_id'],
+      )!,
+      level: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}level'],
+      )!,
+      rarity: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}rarity'],
+      )!,
+      promotionLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}promotion_level'],
+      )!,
+      hp: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hp'],
+      )!,
+      atk: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk'],
+      )!,
+      magicStr: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_str'],
+      )!,
+      def_: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}def'],
+      )!,
+      magicDef: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_def'],
+      )!,
+      physicalCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}physical_critical'],
+      )!,
+      magicCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_critical'],
+      )!,
+      waveHpRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_hp_recovery'],
+      )!,
+      waveEnergyRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_energy_recovery'],
+      )!,
+      dodge: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}dodge'],
+      )!,
+      physicalPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}physical_penetrate'],
+      )!,
+      magicPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_penetrate'],
+      )!,
+      lifeSteal: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}life_steal'],
+      )!,
+      hpRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hp_recovery_rate'],
+      )!,
+      energyRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy_recovery_rate'],
+      )!,
+      energyReduceRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy_reduce_rate'],
+      )!,
+      unionBurstLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}union_burst_level'],
+      )!,
+      mainSkillLv1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_1'],
+      )!,
+      mainSkillLv2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_2'],
+      )!,
+      mainSkillLv3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_3'],
+      )!,
+      mainSkillLv4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_4'],
+      )!,
+      mainSkillLv5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_5'],
+      )!,
+      mainSkillLv6: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_6'],
+      )!,
+      mainSkillLv7: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_7'],
+      )!,
+      mainSkillLv8: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_8'],
+      )!,
+      mainSkillLv9: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_9'],
+      )!,
+      mainSkillLv10: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_10'],
+      )!,
+      exSkillLv1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_1'],
+      )!,
+      exSkillLv2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_2'],
+      )!,
+      exSkillLv3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_3'],
+      )!,
+      exSkillLv4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_4'],
+      )!,
+      exSkillLv5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_5'],
+      )!,
+      resistStatusId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resist_status_id'],
+      )!,
+      resistVariationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resist_variation_id'],
+      )!,
+      accuracy: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}accuracy'],
+      )!,
+    );
+  }
+
+  @override
+  $EventEnemyParameterTable createAlias(String alias) {
+    return $EventEnemyParameterTable(attachedDatabase, alias);
+  }
+}
+
+class EventEnemyParameterData extends DataClass
+    implements Insertable<EventEnemyParameterData> {
+  final int enemyId;
+  final int unitId;
+  final int level;
+  final int rarity;
+  final int promotionLevel;
+  final int hp;
+  final int atk;
+  final int magicStr;
+  final double def_;
+  final int magicDef;
+  final int physicalCritical;
+  final int magicCritical;
+  final int waveHpRecovery;
+  final int waveEnergyRecovery;
+  final int dodge;
+  final int physicalPenetrate;
+  final int magicPenetrate;
+  final int lifeSteal;
+  final int hpRecoveryRate;
+  final int energyRecoveryRate;
+  final int energyReduceRate;
+  final int unionBurstLevel;
+  final int mainSkillLv1;
+  final int mainSkillLv2;
+  final int mainSkillLv3;
+  final int mainSkillLv4;
+  final int mainSkillLv5;
+  final int mainSkillLv6;
+  final int mainSkillLv7;
+  final int mainSkillLv8;
+  final int mainSkillLv9;
+  final int mainSkillLv10;
+  final int exSkillLv1;
+  final int exSkillLv2;
+  final int exSkillLv3;
+  final int exSkillLv4;
+  final int exSkillLv5;
+  final int resistStatusId;
+  final int resistVariationId;
+  final int accuracy;
+  const EventEnemyParameterData({
+    required this.enemyId,
+    required this.unitId,
+    required this.level,
+    required this.rarity,
+    required this.promotionLevel,
+    required this.hp,
+    required this.atk,
+    required this.magicStr,
+    required this.def_,
+    required this.magicDef,
+    required this.physicalCritical,
+    required this.magicCritical,
+    required this.waveHpRecovery,
+    required this.waveEnergyRecovery,
+    required this.dodge,
+    required this.physicalPenetrate,
+    required this.magicPenetrate,
+    required this.lifeSteal,
+    required this.hpRecoveryRate,
+    required this.energyRecoveryRate,
+    required this.energyReduceRate,
+    required this.unionBurstLevel,
+    required this.mainSkillLv1,
+    required this.mainSkillLv2,
+    required this.mainSkillLv3,
+    required this.mainSkillLv4,
+    required this.mainSkillLv5,
+    required this.mainSkillLv6,
+    required this.mainSkillLv7,
+    required this.mainSkillLv8,
+    required this.mainSkillLv9,
+    required this.mainSkillLv10,
+    required this.exSkillLv1,
+    required this.exSkillLv2,
+    required this.exSkillLv3,
+    required this.exSkillLv4,
+    required this.exSkillLv5,
+    required this.resistStatusId,
+    required this.resistVariationId,
+    required this.accuracy,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['enemy_id'] = Variable<int>(enemyId);
+    map['unit_id'] = Variable<int>(unitId);
+    map['level'] = Variable<int>(level);
+    map['rarity'] = Variable<int>(rarity);
+    map['promotion_level'] = Variable<int>(promotionLevel);
+    map['hp'] = Variable<int>(hp);
+    map['atk'] = Variable<int>(atk);
+    map['magic_str'] = Variable<int>(magicStr);
+    map['def'] = Variable<double>(def_);
+    map['magic_def'] = Variable<int>(magicDef);
+    map['physical_critical'] = Variable<int>(physicalCritical);
+    map['magic_critical'] = Variable<int>(magicCritical);
+    map['wave_hp_recovery'] = Variable<int>(waveHpRecovery);
+    map['wave_energy_recovery'] = Variable<int>(waveEnergyRecovery);
+    map['dodge'] = Variable<int>(dodge);
+    map['physical_penetrate'] = Variable<int>(physicalPenetrate);
+    map['magic_penetrate'] = Variable<int>(magicPenetrate);
+    map['life_steal'] = Variable<int>(lifeSteal);
+    map['hp_recovery_rate'] = Variable<int>(hpRecoveryRate);
+    map['energy_recovery_rate'] = Variable<int>(energyRecoveryRate);
+    map['energy_reduce_rate'] = Variable<int>(energyReduceRate);
+    map['union_burst_level'] = Variable<int>(unionBurstLevel);
+    map['main_skill_lv_1'] = Variable<int>(mainSkillLv1);
+    map['main_skill_lv_2'] = Variable<int>(mainSkillLv2);
+    map['main_skill_lv_3'] = Variable<int>(mainSkillLv3);
+    map['main_skill_lv_4'] = Variable<int>(mainSkillLv4);
+    map['main_skill_lv_5'] = Variable<int>(mainSkillLv5);
+    map['main_skill_lv_6'] = Variable<int>(mainSkillLv6);
+    map['main_skill_lv_7'] = Variable<int>(mainSkillLv7);
+    map['main_skill_lv_8'] = Variable<int>(mainSkillLv8);
+    map['main_skill_lv_9'] = Variable<int>(mainSkillLv9);
+    map['main_skill_lv_10'] = Variable<int>(mainSkillLv10);
+    map['ex_skill_lv_1'] = Variable<int>(exSkillLv1);
+    map['ex_skill_lv_2'] = Variable<int>(exSkillLv2);
+    map['ex_skill_lv_3'] = Variable<int>(exSkillLv3);
+    map['ex_skill_lv_4'] = Variable<int>(exSkillLv4);
+    map['ex_skill_lv_5'] = Variable<int>(exSkillLv5);
+    map['resist_status_id'] = Variable<int>(resistStatusId);
+    map['resist_variation_id'] = Variable<int>(resistVariationId);
+    map['accuracy'] = Variable<int>(accuracy);
+    return map;
+  }
+
+  EventEnemyParameterCompanion toCompanion(bool nullToAbsent) {
+    return EventEnemyParameterCompanion(
+      enemyId: Value(enemyId),
+      unitId: Value(unitId),
+      level: Value(level),
+      rarity: Value(rarity),
+      promotionLevel: Value(promotionLevel),
+      hp: Value(hp),
+      atk: Value(atk),
+      magicStr: Value(magicStr),
+      def_: Value(def_),
+      magicDef: Value(magicDef),
+      physicalCritical: Value(physicalCritical),
+      magicCritical: Value(magicCritical),
+      waveHpRecovery: Value(waveHpRecovery),
+      waveEnergyRecovery: Value(waveEnergyRecovery),
+      dodge: Value(dodge),
+      physicalPenetrate: Value(physicalPenetrate),
+      magicPenetrate: Value(magicPenetrate),
+      lifeSteal: Value(lifeSteal),
+      hpRecoveryRate: Value(hpRecoveryRate),
+      energyRecoveryRate: Value(energyRecoveryRate),
+      energyReduceRate: Value(energyReduceRate),
+      unionBurstLevel: Value(unionBurstLevel),
+      mainSkillLv1: Value(mainSkillLv1),
+      mainSkillLv2: Value(mainSkillLv2),
+      mainSkillLv3: Value(mainSkillLv3),
+      mainSkillLv4: Value(mainSkillLv4),
+      mainSkillLv5: Value(mainSkillLv5),
+      mainSkillLv6: Value(mainSkillLv6),
+      mainSkillLv7: Value(mainSkillLv7),
+      mainSkillLv8: Value(mainSkillLv8),
+      mainSkillLv9: Value(mainSkillLv9),
+      mainSkillLv10: Value(mainSkillLv10),
+      exSkillLv1: Value(exSkillLv1),
+      exSkillLv2: Value(exSkillLv2),
+      exSkillLv3: Value(exSkillLv3),
+      exSkillLv4: Value(exSkillLv4),
+      exSkillLv5: Value(exSkillLv5),
+      resistStatusId: Value(resistStatusId),
+      resistVariationId: Value(resistVariationId),
+      accuracy: Value(accuracy),
+    );
+  }
+
+  factory EventEnemyParameterData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return EventEnemyParameterData(
+      enemyId: serializer.fromJson<int>(json['enemyId']),
+      unitId: serializer.fromJson<int>(json['unitId']),
+      level: serializer.fromJson<int>(json['level']),
+      rarity: serializer.fromJson<int>(json['rarity']),
+      promotionLevel: serializer.fromJson<int>(json['promotionLevel']),
+      hp: serializer.fromJson<int>(json['hp']),
+      atk: serializer.fromJson<int>(json['atk']),
+      magicStr: serializer.fromJson<int>(json['magicStr']),
+      def_: serializer.fromJson<double>(json['def_']),
+      magicDef: serializer.fromJson<int>(json['magicDef']),
+      physicalCritical: serializer.fromJson<int>(json['physicalCritical']),
+      magicCritical: serializer.fromJson<int>(json['magicCritical']),
+      waveHpRecovery: serializer.fromJson<int>(json['waveHpRecovery']),
+      waveEnergyRecovery: serializer.fromJson<int>(json['waveEnergyRecovery']),
+      dodge: serializer.fromJson<int>(json['dodge']),
+      physicalPenetrate: serializer.fromJson<int>(json['physicalPenetrate']),
+      magicPenetrate: serializer.fromJson<int>(json['magicPenetrate']),
+      lifeSteal: serializer.fromJson<int>(json['lifeSteal']),
+      hpRecoveryRate: serializer.fromJson<int>(json['hpRecoveryRate']),
+      energyRecoveryRate: serializer.fromJson<int>(json['energyRecoveryRate']),
+      energyReduceRate: serializer.fromJson<int>(json['energyReduceRate']),
+      unionBurstLevel: serializer.fromJson<int>(json['unionBurstLevel']),
+      mainSkillLv1: serializer.fromJson<int>(json['mainSkillLv1']),
+      mainSkillLv2: serializer.fromJson<int>(json['mainSkillLv2']),
+      mainSkillLv3: serializer.fromJson<int>(json['mainSkillLv3']),
+      mainSkillLv4: serializer.fromJson<int>(json['mainSkillLv4']),
+      mainSkillLv5: serializer.fromJson<int>(json['mainSkillLv5']),
+      mainSkillLv6: serializer.fromJson<int>(json['mainSkillLv6']),
+      mainSkillLv7: serializer.fromJson<int>(json['mainSkillLv7']),
+      mainSkillLv8: serializer.fromJson<int>(json['mainSkillLv8']),
+      mainSkillLv9: serializer.fromJson<int>(json['mainSkillLv9']),
+      mainSkillLv10: serializer.fromJson<int>(json['mainSkillLv10']),
+      exSkillLv1: serializer.fromJson<int>(json['exSkillLv1']),
+      exSkillLv2: serializer.fromJson<int>(json['exSkillLv2']),
+      exSkillLv3: serializer.fromJson<int>(json['exSkillLv3']),
+      exSkillLv4: serializer.fromJson<int>(json['exSkillLv4']),
+      exSkillLv5: serializer.fromJson<int>(json['exSkillLv5']),
+      resistStatusId: serializer.fromJson<int>(json['resistStatusId']),
+      resistVariationId: serializer.fromJson<int>(json['resistVariationId']),
+      accuracy: serializer.fromJson<int>(json['accuracy']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'enemyId': serializer.toJson<int>(enemyId),
+      'unitId': serializer.toJson<int>(unitId),
+      'level': serializer.toJson<int>(level),
+      'rarity': serializer.toJson<int>(rarity),
+      'promotionLevel': serializer.toJson<int>(promotionLevel),
+      'hp': serializer.toJson<int>(hp),
+      'atk': serializer.toJson<int>(atk),
+      'magicStr': serializer.toJson<int>(magicStr),
+      'def_': serializer.toJson<double>(def_),
+      'magicDef': serializer.toJson<int>(magicDef),
+      'physicalCritical': serializer.toJson<int>(physicalCritical),
+      'magicCritical': serializer.toJson<int>(magicCritical),
+      'waveHpRecovery': serializer.toJson<int>(waveHpRecovery),
+      'waveEnergyRecovery': serializer.toJson<int>(waveEnergyRecovery),
+      'dodge': serializer.toJson<int>(dodge),
+      'physicalPenetrate': serializer.toJson<int>(physicalPenetrate),
+      'magicPenetrate': serializer.toJson<int>(magicPenetrate),
+      'lifeSteal': serializer.toJson<int>(lifeSteal),
+      'hpRecoveryRate': serializer.toJson<int>(hpRecoveryRate),
+      'energyRecoveryRate': serializer.toJson<int>(energyRecoveryRate),
+      'energyReduceRate': serializer.toJson<int>(energyReduceRate),
+      'unionBurstLevel': serializer.toJson<int>(unionBurstLevel),
+      'mainSkillLv1': serializer.toJson<int>(mainSkillLv1),
+      'mainSkillLv2': serializer.toJson<int>(mainSkillLv2),
+      'mainSkillLv3': serializer.toJson<int>(mainSkillLv3),
+      'mainSkillLv4': serializer.toJson<int>(mainSkillLv4),
+      'mainSkillLv5': serializer.toJson<int>(mainSkillLv5),
+      'mainSkillLv6': serializer.toJson<int>(mainSkillLv6),
+      'mainSkillLv7': serializer.toJson<int>(mainSkillLv7),
+      'mainSkillLv8': serializer.toJson<int>(mainSkillLv8),
+      'mainSkillLv9': serializer.toJson<int>(mainSkillLv9),
+      'mainSkillLv10': serializer.toJson<int>(mainSkillLv10),
+      'exSkillLv1': serializer.toJson<int>(exSkillLv1),
+      'exSkillLv2': serializer.toJson<int>(exSkillLv2),
+      'exSkillLv3': serializer.toJson<int>(exSkillLv3),
+      'exSkillLv4': serializer.toJson<int>(exSkillLv4),
+      'exSkillLv5': serializer.toJson<int>(exSkillLv5),
+      'resistStatusId': serializer.toJson<int>(resistStatusId),
+      'resistVariationId': serializer.toJson<int>(resistVariationId),
+      'accuracy': serializer.toJson<int>(accuracy),
+    };
+  }
+
+  EventEnemyParameterData copyWith({
+    int? enemyId,
+    int? unitId,
+    int? level,
+    int? rarity,
+    int? promotionLevel,
+    int? hp,
+    int? atk,
+    int? magicStr,
+    double? def_,
+    int? magicDef,
+    int? physicalCritical,
+    int? magicCritical,
+    int? waveHpRecovery,
+    int? waveEnergyRecovery,
+    int? dodge,
+    int? physicalPenetrate,
+    int? magicPenetrate,
+    int? lifeSteal,
+    int? hpRecoveryRate,
+    int? energyRecoveryRate,
+    int? energyReduceRate,
+    int? unionBurstLevel,
+    int? mainSkillLv1,
+    int? mainSkillLv2,
+    int? mainSkillLv3,
+    int? mainSkillLv4,
+    int? mainSkillLv5,
+    int? mainSkillLv6,
+    int? mainSkillLv7,
+    int? mainSkillLv8,
+    int? mainSkillLv9,
+    int? mainSkillLv10,
+    int? exSkillLv1,
+    int? exSkillLv2,
+    int? exSkillLv3,
+    int? exSkillLv4,
+    int? exSkillLv5,
+    int? resistStatusId,
+    int? resistVariationId,
+    int? accuracy,
+  }) => EventEnemyParameterData(
+    enemyId: enemyId ?? this.enemyId,
+    unitId: unitId ?? this.unitId,
+    level: level ?? this.level,
+    rarity: rarity ?? this.rarity,
+    promotionLevel: promotionLevel ?? this.promotionLevel,
+    hp: hp ?? this.hp,
+    atk: atk ?? this.atk,
+    magicStr: magicStr ?? this.magicStr,
+    def_: def_ ?? this.def_,
+    magicDef: magicDef ?? this.magicDef,
+    physicalCritical: physicalCritical ?? this.physicalCritical,
+    magicCritical: magicCritical ?? this.magicCritical,
+    waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+    waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+    dodge: dodge ?? this.dodge,
+    physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+    magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+    lifeSteal: lifeSteal ?? this.lifeSteal,
+    hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+    energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+    energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+    unionBurstLevel: unionBurstLevel ?? this.unionBurstLevel,
+    mainSkillLv1: mainSkillLv1 ?? this.mainSkillLv1,
+    mainSkillLv2: mainSkillLv2 ?? this.mainSkillLv2,
+    mainSkillLv3: mainSkillLv3 ?? this.mainSkillLv3,
+    mainSkillLv4: mainSkillLv4 ?? this.mainSkillLv4,
+    mainSkillLv5: mainSkillLv5 ?? this.mainSkillLv5,
+    mainSkillLv6: mainSkillLv6 ?? this.mainSkillLv6,
+    mainSkillLv7: mainSkillLv7 ?? this.mainSkillLv7,
+    mainSkillLv8: mainSkillLv8 ?? this.mainSkillLv8,
+    mainSkillLv9: mainSkillLv9 ?? this.mainSkillLv9,
+    mainSkillLv10: mainSkillLv10 ?? this.mainSkillLv10,
+    exSkillLv1: exSkillLv1 ?? this.exSkillLv1,
+    exSkillLv2: exSkillLv2 ?? this.exSkillLv2,
+    exSkillLv3: exSkillLv3 ?? this.exSkillLv3,
+    exSkillLv4: exSkillLv4 ?? this.exSkillLv4,
+    exSkillLv5: exSkillLv5 ?? this.exSkillLv5,
+    resistStatusId: resistStatusId ?? this.resistStatusId,
+    resistVariationId: resistVariationId ?? this.resistVariationId,
+    accuracy: accuracy ?? this.accuracy,
+  );
+  EventEnemyParameterData copyWithCompanion(EventEnemyParameterCompanion data) {
+    return EventEnemyParameterData(
+      enemyId: data.enemyId.present ? data.enemyId.value : this.enemyId,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      level: data.level.present ? data.level.value : this.level,
+      rarity: data.rarity.present ? data.rarity.value : this.rarity,
+      promotionLevel: data.promotionLevel.present
+          ? data.promotionLevel.value
+          : this.promotionLevel,
+      hp: data.hp.present ? data.hp.value : this.hp,
+      atk: data.atk.present ? data.atk.value : this.atk,
+      magicStr: data.magicStr.present ? data.magicStr.value : this.magicStr,
+      def_: data.def_.present ? data.def_.value : this.def_,
+      magicDef: data.magicDef.present ? data.magicDef.value : this.magicDef,
+      physicalCritical: data.physicalCritical.present
+          ? data.physicalCritical.value
+          : this.physicalCritical,
+      magicCritical: data.magicCritical.present
+          ? data.magicCritical.value
+          : this.magicCritical,
+      waveHpRecovery: data.waveHpRecovery.present
+          ? data.waveHpRecovery.value
+          : this.waveHpRecovery,
+      waveEnergyRecovery: data.waveEnergyRecovery.present
+          ? data.waveEnergyRecovery.value
+          : this.waveEnergyRecovery,
+      dodge: data.dodge.present ? data.dodge.value : this.dodge,
+      physicalPenetrate: data.physicalPenetrate.present
+          ? data.physicalPenetrate.value
+          : this.physicalPenetrate,
+      magicPenetrate: data.magicPenetrate.present
+          ? data.magicPenetrate.value
+          : this.magicPenetrate,
+      lifeSteal: data.lifeSteal.present ? data.lifeSteal.value : this.lifeSteal,
+      hpRecoveryRate: data.hpRecoveryRate.present
+          ? data.hpRecoveryRate.value
+          : this.hpRecoveryRate,
+      energyRecoveryRate: data.energyRecoveryRate.present
+          ? data.energyRecoveryRate.value
+          : this.energyRecoveryRate,
+      energyReduceRate: data.energyReduceRate.present
+          ? data.energyReduceRate.value
+          : this.energyReduceRate,
+      unionBurstLevel: data.unionBurstLevel.present
+          ? data.unionBurstLevel.value
+          : this.unionBurstLevel,
+      mainSkillLv1: data.mainSkillLv1.present
+          ? data.mainSkillLv1.value
+          : this.mainSkillLv1,
+      mainSkillLv2: data.mainSkillLv2.present
+          ? data.mainSkillLv2.value
+          : this.mainSkillLv2,
+      mainSkillLv3: data.mainSkillLv3.present
+          ? data.mainSkillLv3.value
+          : this.mainSkillLv3,
+      mainSkillLv4: data.mainSkillLv4.present
+          ? data.mainSkillLv4.value
+          : this.mainSkillLv4,
+      mainSkillLv5: data.mainSkillLv5.present
+          ? data.mainSkillLv5.value
+          : this.mainSkillLv5,
+      mainSkillLv6: data.mainSkillLv6.present
+          ? data.mainSkillLv6.value
+          : this.mainSkillLv6,
+      mainSkillLv7: data.mainSkillLv7.present
+          ? data.mainSkillLv7.value
+          : this.mainSkillLv7,
+      mainSkillLv8: data.mainSkillLv8.present
+          ? data.mainSkillLv8.value
+          : this.mainSkillLv8,
+      mainSkillLv9: data.mainSkillLv9.present
+          ? data.mainSkillLv9.value
+          : this.mainSkillLv9,
+      mainSkillLv10: data.mainSkillLv10.present
+          ? data.mainSkillLv10.value
+          : this.mainSkillLv10,
+      exSkillLv1: data.exSkillLv1.present
+          ? data.exSkillLv1.value
+          : this.exSkillLv1,
+      exSkillLv2: data.exSkillLv2.present
+          ? data.exSkillLv2.value
+          : this.exSkillLv2,
+      exSkillLv3: data.exSkillLv3.present
+          ? data.exSkillLv3.value
+          : this.exSkillLv3,
+      exSkillLv4: data.exSkillLv4.present
+          ? data.exSkillLv4.value
+          : this.exSkillLv4,
+      exSkillLv5: data.exSkillLv5.present
+          ? data.exSkillLv5.value
+          : this.exSkillLv5,
+      resistStatusId: data.resistStatusId.present
+          ? data.resistStatusId.value
+          : this.resistStatusId,
+      resistVariationId: data.resistVariationId.present
+          ? data.resistVariationId.value
+          : this.resistVariationId,
+      accuracy: data.accuracy.present ? data.accuracy.value : this.accuracy,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('EventEnemyParameterData(')
+          ..write('enemyId: $enemyId, ')
+          ..write('unitId: $unitId, ')
+          ..write('level: $level, ')
+          ..write('rarity: $rarity, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('unionBurstLevel: $unionBurstLevel, ')
+          ..write('mainSkillLv1: $mainSkillLv1, ')
+          ..write('mainSkillLv2: $mainSkillLv2, ')
+          ..write('mainSkillLv3: $mainSkillLv3, ')
+          ..write('mainSkillLv4: $mainSkillLv4, ')
+          ..write('mainSkillLv5: $mainSkillLv5, ')
+          ..write('mainSkillLv6: $mainSkillLv6, ')
+          ..write('mainSkillLv7: $mainSkillLv7, ')
+          ..write('mainSkillLv8: $mainSkillLv8, ')
+          ..write('mainSkillLv9: $mainSkillLv9, ')
+          ..write('mainSkillLv10: $mainSkillLv10, ')
+          ..write('exSkillLv1: $exSkillLv1, ')
+          ..write('exSkillLv2: $exSkillLv2, ')
+          ..write('exSkillLv3: $exSkillLv3, ')
+          ..write('exSkillLv4: $exSkillLv4, ')
+          ..write('exSkillLv5: $exSkillLv5, ')
+          ..write('resistStatusId: $resistStatusId, ')
+          ..write('resistVariationId: $resistVariationId, ')
+          ..write('accuracy: $accuracy')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    enemyId,
+    unitId,
+    level,
+    rarity,
+    promotionLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    unionBurstLevel,
+    mainSkillLv1,
+    mainSkillLv2,
+    mainSkillLv3,
+    mainSkillLv4,
+    mainSkillLv5,
+    mainSkillLv6,
+    mainSkillLv7,
+    mainSkillLv8,
+    mainSkillLv9,
+    mainSkillLv10,
+    exSkillLv1,
+    exSkillLv2,
+    exSkillLv3,
+    exSkillLv4,
+    exSkillLv5,
+    resistStatusId,
+    resistVariationId,
+    accuracy,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is EventEnemyParameterData &&
+          other.enemyId == this.enemyId &&
+          other.unitId == this.unitId &&
+          other.level == this.level &&
+          other.rarity == this.rarity &&
+          other.promotionLevel == this.promotionLevel &&
+          other.hp == this.hp &&
+          other.atk == this.atk &&
+          other.magicStr == this.magicStr &&
+          other.def_ == this.def_ &&
+          other.magicDef == this.magicDef &&
+          other.physicalCritical == this.physicalCritical &&
+          other.magicCritical == this.magicCritical &&
+          other.waveHpRecovery == this.waveHpRecovery &&
+          other.waveEnergyRecovery == this.waveEnergyRecovery &&
+          other.dodge == this.dodge &&
+          other.physicalPenetrate == this.physicalPenetrate &&
+          other.magicPenetrate == this.magicPenetrate &&
+          other.lifeSteal == this.lifeSteal &&
+          other.hpRecoveryRate == this.hpRecoveryRate &&
+          other.energyRecoveryRate == this.energyRecoveryRate &&
+          other.energyReduceRate == this.energyReduceRate &&
+          other.unionBurstLevel == this.unionBurstLevel &&
+          other.mainSkillLv1 == this.mainSkillLv1 &&
+          other.mainSkillLv2 == this.mainSkillLv2 &&
+          other.mainSkillLv3 == this.mainSkillLv3 &&
+          other.mainSkillLv4 == this.mainSkillLv4 &&
+          other.mainSkillLv5 == this.mainSkillLv5 &&
+          other.mainSkillLv6 == this.mainSkillLv6 &&
+          other.mainSkillLv7 == this.mainSkillLv7 &&
+          other.mainSkillLv8 == this.mainSkillLv8 &&
+          other.mainSkillLv9 == this.mainSkillLv9 &&
+          other.mainSkillLv10 == this.mainSkillLv10 &&
+          other.exSkillLv1 == this.exSkillLv1 &&
+          other.exSkillLv2 == this.exSkillLv2 &&
+          other.exSkillLv3 == this.exSkillLv3 &&
+          other.exSkillLv4 == this.exSkillLv4 &&
+          other.exSkillLv5 == this.exSkillLv5 &&
+          other.resistStatusId == this.resistStatusId &&
+          other.resistVariationId == this.resistVariationId &&
+          other.accuracy == this.accuracy);
+}
+
+class EventEnemyParameterCompanion
+    extends UpdateCompanion<EventEnemyParameterData> {
+  final Value<int> enemyId;
+  final Value<int> unitId;
+  final Value<int> level;
+  final Value<int> rarity;
+  final Value<int> promotionLevel;
+  final Value<int> hp;
+  final Value<int> atk;
+  final Value<int> magicStr;
+  final Value<double> def_;
+  final Value<int> magicDef;
+  final Value<int> physicalCritical;
+  final Value<int> magicCritical;
+  final Value<int> waveHpRecovery;
+  final Value<int> waveEnergyRecovery;
+  final Value<int> dodge;
+  final Value<int> physicalPenetrate;
+  final Value<int> magicPenetrate;
+  final Value<int> lifeSteal;
+  final Value<int> hpRecoveryRate;
+  final Value<int> energyRecoveryRate;
+  final Value<int> energyReduceRate;
+  final Value<int> unionBurstLevel;
+  final Value<int> mainSkillLv1;
+  final Value<int> mainSkillLv2;
+  final Value<int> mainSkillLv3;
+  final Value<int> mainSkillLv4;
+  final Value<int> mainSkillLv5;
+  final Value<int> mainSkillLv6;
+  final Value<int> mainSkillLv7;
+  final Value<int> mainSkillLv8;
+  final Value<int> mainSkillLv9;
+  final Value<int> mainSkillLv10;
+  final Value<int> exSkillLv1;
+  final Value<int> exSkillLv2;
+  final Value<int> exSkillLv3;
+  final Value<int> exSkillLv4;
+  final Value<int> exSkillLv5;
+  final Value<int> resistStatusId;
+  final Value<int> resistVariationId;
+  final Value<int> accuracy;
+  const EventEnemyParameterCompanion({
+    this.enemyId = const Value.absent(),
+    this.unitId = const Value.absent(),
+    this.level = const Value.absent(),
+    this.rarity = const Value.absent(),
+    this.promotionLevel = const Value.absent(),
+    this.hp = const Value.absent(),
+    this.atk = const Value.absent(),
+    this.magicStr = const Value.absent(),
+    this.def_ = const Value.absent(),
+    this.magicDef = const Value.absent(),
+    this.physicalCritical = const Value.absent(),
+    this.magicCritical = const Value.absent(),
+    this.waveHpRecovery = const Value.absent(),
+    this.waveEnergyRecovery = const Value.absent(),
+    this.dodge = const Value.absent(),
+    this.physicalPenetrate = const Value.absent(),
+    this.magicPenetrate = const Value.absent(),
+    this.lifeSteal = const Value.absent(),
+    this.hpRecoveryRate = const Value.absent(),
+    this.energyRecoveryRate = const Value.absent(),
+    this.energyReduceRate = const Value.absent(),
+    this.unionBurstLevel = const Value.absent(),
+    this.mainSkillLv1 = const Value.absent(),
+    this.mainSkillLv2 = const Value.absent(),
+    this.mainSkillLv3 = const Value.absent(),
+    this.mainSkillLv4 = const Value.absent(),
+    this.mainSkillLv5 = const Value.absent(),
+    this.mainSkillLv6 = const Value.absent(),
+    this.mainSkillLv7 = const Value.absent(),
+    this.mainSkillLv8 = const Value.absent(),
+    this.mainSkillLv9 = const Value.absent(),
+    this.mainSkillLv10 = const Value.absent(),
+    this.exSkillLv1 = const Value.absent(),
+    this.exSkillLv2 = const Value.absent(),
+    this.exSkillLv3 = const Value.absent(),
+    this.exSkillLv4 = const Value.absent(),
+    this.exSkillLv5 = const Value.absent(),
+    this.resistStatusId = const Value.absent(),
+    this.resistVariationId = const Value.absent(),
+    this.accuracy = const Value.absent(),
+  });
+  EventEnemyParameterCompanion.insert({
+    this.enemyId = const Value.absent(),
+    required int unitId,
+    required int level,
+    required int rarity,
+    required int promotionLevel,
+    required int hp,
+    required int atk,
+    required int magicStr,
+    required double def_,
+    required int magicDef,
+    required int physicalCritical,
+    required int magicCritical,
+    required int waveHpRecovery,
+    required int waveEnergyRecovery,
+    required int dodge,
+    required int physicalPenetrate,
+    required int magicPenetrate,
+    required int lifeSteal,
+    required int hpRecoveryRate,
+    required int energyRecoveryRate,
+    required int energyReduceRate,
+    required int unionBurstLevel,
+    required int mainSkillLv1,
+    required int mainSkillLv2,
+    required int mainSkillLv3,
+    required int mainSkillLv4,
+    required int mainSkillLv5,
+    required int mainSkillLv6,
+    required int mainSkillLv7,
+    required int mainSkillLv8,
+    required int mainSkillLv9,
+    required int mainSkillLv10,
+    required int exSkillLv1,
+    required int exSkillLv2,
+    required int exSkillLv3,
+    required int exSkillLv4,
+    required int exSkillLv5,
+    required int resistStatusId,
+    required int resistVariationId,
+    required int accuracy,
+  }) : unitId = Value(unitId),
+       level = Value(level),
+       rarity = Value(rarity),
+       promotionLevel = Value(promotionLevel),
+       hp = Value(hp),
+       atk = Value(atk),
+       magicStr = Value(magicStr),
+       def_ = Value(def_),
+       magicDef = Value(magicDef),
+       physicalCritical = Value(physicalCritical),
+       magicCritical = Value(magicCritical),
+       waveHpRecovery = Value(waveHpRecovery),
+       waveEnergyRecovery = Value(waveEnergyRecovery),
+       dodge = Value(dodge),
+       physicalPenetrate = Value(physicalPenetrate),
+       magicPenetrate = Value(magicPenetrate),
+       lifeSteal = Value(lifeSteal),
+       hpRecoveryRate = Value(hpRecoveryRate),
+       energyRecoveryRate = Value(energyRecoveryRate),
+       energyReduceRate = Value(energyReduceRate),
+       unionBurstLevel = Value(unionBurstLevel),
+       mainSkillLv1 = Value(mainSkillLv1),
+       mainSkillLv2 = Value(mainSkillLv2),
+       mainSkillLv3 = Value(mainSkillLv3),
+       mainSkillLv4 = Value(mainSkillLv4),
+       mainSkillLv5 = Value(mainSkillLv5),
+       mainSkillLv6 = Value(mainSkillLv6),
+       mainSkillLv7 = Value(mainSkillLv7),
+       mainSkillLv8 = Value(mainSkillLv8),
+       mainSkillLv9 = Value(mainSkillLv9),
+       mainSkillLv10 = Value(mainSkillLv10),
+       exSkillLv1 = Value(exSkillLv1),
+       exSkillLv2 = Value(exSkillLv2),
+       exSkillLv3 = Value(exSkillLv3),
+       exSkillLv4 = Value(exSkillLv4),
+       exSkillLv5 = Value(exSkillLv5),
+       resistStatusId = Value(resistStatusId),
+       resistVariationId = Value(resistVariationId),
+       accuracy = Value(accuracy);
+  static Insertable<EventEnemyParameterData> custom({
+    Expression<int>? enemyId,
+    Expression<int>? unitId,
+    Expression<int>? level,
+    Expression<int>? rarity,
+    Expression<int>? promotionLevel,
+    Expression<int>? hp,
+    Expression<int>? atk,
+    Expression<int>? magicStr,
+    Expression<double>? def_,
+    Expression<int>? magicDef,
+    Expression<int>? physicalCritical,
+    Expression<int>? magicCritical,
+    Expression<int>? waveHpRecovery,
+    Expression<int>? waveEnergyRecovery,
+    Expression<int>? dodge,
+    Expression<int>? physicalPenetrate,
+    Expression<int>? magicPenetrate,
+    Expression<int>? lifeSteal,
+    Expression<int>? hpRecoveryRate,
+    Expression<int>? energyRecoveryRate,
+    Expression<int>? energyReduceRate,
+    Expression<int>? unionBurstLevel,
+    Expression<int>? mainSkillLv1,
+    Expression<int>? mainSkillLv2,
+    Expression<int>? mainSkillLv3,
+    Expression<int>? mainSkillLv4,
+    Expression<int>? mainSkillLv5,
+    Expression<int>? mainSkillLv6,
+    Expression<int>? mainSkillLv7,
+    Expression<int>? mainSkillLv8,
+    Expression<int>? mainSkillLv9,
+    Expression<int>? mainSkillLv10,
+    Expression<int>? exSkillLv1,
+    Expression<int>? exSkillLv2,
+    Expression<int>? exSkillLv3,
+    Expression<int>? exSkillLv4,
+    Expression<int>? exSkillLv5,
+    Expression<int>? resistStatusId,
+    Expression<int>? resistVariationId,
+    Expression<int>? accuracy,
+  }) {
+    return RawValuesInsertable({
+      if (enemyId != null) 'enemy_id': enemyId,
+      if (unitId != null) 'unit_id': unitId,
+      if (level != null) 'level': level,
+      if (rarity != null) 'rarity': rarity,
+      if (promotionLevel != null) 'promotion_level': promotionLevel,
+      if (hp != null) 'hp': hp,
+      if (atk != null) 'atk': atk,
+      if (magicStr != null) 'magic_str': magicStr,
+      if (def_ != null) 'def': def_,
+      if (magicDef != null) 'magic_def': magicDef,
+      if (physicalCritical != null) 'physical_critical': physicalCritical,
+      if (magicCritical != null) 'magic_critical': magicCritical,
+      if (waveHpRecovery != null) 'wave_hp_recovery': waveHpRecovery,
+      if (waveEnergyRecovery != null)
+        'wave_energy_recovery': waveEnergyRecovery,
+      if (dodge != null) 'dodge': dodge,
+      if (physicalPenetrate != null) 'physical_penetrate': physicalPenetrate,
+      if (magicPenetrate != null) 'magic_penetrate': magicPenetrate,
+      if (lifeSteal != null) 'life_steal': lifeSteal,
+      if (hpRecoveryRate != null) 'hp_recovery_rate': hpRecoveryRate,
+      if (energyRecoveryRate != null)
+        'energy_recovery_rate': energyRecoveryRate,
+      if (energyReduceRate != null) 'energy_reduce_rate': energyReduceRate,
+      if (unionBurstLevel != null) 'union_burst_level': unionBurstLevel,
+      if (mainSkillLv1 != null) 'main_skill_lv_1': mainSkillLv1,
+      if (mainSkillLv2 != null) 'main_skill_lv_2': mainSkillLv2,
+      if (mainSkillLv3 != null) 'main_skill_lv_3': mainSkillLv3,
+      if (mainSkillLv4 != null) 'main_skill_lv_4': mainSkillLv4,
+      if (mainSkillLv5 != null) 'main_skill_lv_5': mainSkillLv5,
+      if (mainSkillLv6 != null) 'main_skill_lv_6': mainSkillLv6,
+      if (mainSkillLv7 != null) 'main_skill_lv_7': mainSkillLv7,
+      if (mainSkillLv8 != null) 'main_skill_lv_8': mainSkillLv8,
+      if (mainSkillLv9 != null) 'main_skill_lv_9': mainSkillLv9,
+      if (mainSkillLv10 != null) 'main_skill_lv_10': mainSkillLv10,
+      if (exSkillLv1 != null) 'ex_skill_lv_1': exSkillLv1,
+      if (exSkillLv2 != null) 'ex_skill_lv_2': exSkillLv2,
+      if (exSkillLv3 != null) 'ex_skill_lv_3': exSkillLv3,
+      if (exSkillLv4 != null) 'ex_skill_lv_4': exSkillLv4,
+      if (exSkillLv5 != null) 'ex_skill_lv_5': exSkillLv5,
+      if (resistStatusId != null) 'resist_status_id': resistStatusId,
+      if (resistVariationId != null) 'resist_variation_id': resistVariationId,
+      if (accuracy != null) 'accuracy': accuracy,
+    });
+  }
+
+  EventEnemyParameterCompanion copyWith({
+    Value<int>? enemyId,
+    Value<int>? unitId,
+    Value<int>? level,
+    Value<int>? rarity,
+    Value<int>? promotionLevel,
+    Value<int>? hp,
+    Value<int>? atk,
+    Value<int>? magicStr,
+    Value<double>? def_,
+    Value<int>? magicDef,
+    Value<int>? physicalCritical,
+    Value<int>? magicCritical,
+    Value<int>? waveHpRecovery,
+    Value<int>? waveEnergyRecovery,
+    Value<int>? dodge,
+    Value<int>? physicalPenetrate,
+    Value<int>? magicPenetrate,
+    Value<int>? lifeSteal,
+    Value<int>? hpRecoveryRate,
+    Value<int>? energyRecoveryRate,
+    Value<int>? energyReduceRate,
+    Value<int>? unionBurstLevel,
+    Value<int>? mainSkillLv1,
+    Value<int>? mainSkillLv2,
+    Value<int>? mainSkillLv3,
+    Value<int>? mainSkillLv4,
+    Value<int>? mainSkillLv5,
+    Value<int>? mainSkillLv6,
+    Value<int>? mainSkillLv7,
+    Value<int>? mainSkillLv8,
+    Value<int>? mainSkillLv9,
+    Value<int>? mainSkillLv10,
+    Value<int>? exSkillLv1,
+    Value<int>? exSkillLv2,
+    Value<int>? exSkillLv3,
+    Value<int>? exSkillLv4,
+    Value<int>? exSkillLv5,
+    Value<int>? resistStatusId,
+    Value<int>? resistVariationId,
+    Value<int>? accuracy,
+  }) {
+    return EventEnemyParameterCompanion(
+      enemyId: enemyId ?? this.enemyId,
+      unitId: unitId ?? this.unitId,
+      level: level ?? this.level,
+      rarity: rarity ?? this.rarity,
+      promotionLevel: promotionLevel ?? this.promotionLevel,
+      hp: hp ?? this.hp,
+      atk: atk ?? this.atk,
+      magicStr: magicStr ?? this.magicStr,
+      def_: def_ ?? this.def_,
+      magicDef: magicDef ?? this.magicDef,
+      physicalCritical: physicalCritical ?? this.physicalCritical,
+      magicCritical: magicCritical ?? this.magicCritical,
+      waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+      waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+      dodge: dodge ?? this.dodge,
+      physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+      magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+      lifeSteal: lifeSteal ?? this.lifeSteal,
+      hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+      energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+      energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+      unionBurstLevel: unionBurstLevel ?? this.unionBurstLevel,
+      mainSkillLv1: mainSkillLv1 ?? this.mainSkillLv1,
+      mainSkillLv2: mainSkillLv2 ?? this.mainSkillLv2,
+      mainSkillLv3: mainSkillLv3 ?? this.mainSkillLv3,
+      mainSkillLv4: mainSkillLv4 ?? this.mainSkillLv4,
+      mainSkillLv5: mainSkillLv5 ?? this.mainSkillLv5,
+      mainSkillLv6: mainSkillLv6 ?? this.mainSkillLv6,
+      mainSkillLv7: mainSkillLv7 ?? this.mainSkillLv7,
+      mainSkillLv8: mainSkillLv8 ?? this.mainSkillLv8,
+      mainSkillLv9: mainSkillLv9 ?? this.mainSkillLv9,
+      mainSkillLv10: mainSkillLv10 ?? this.mainSkillLv10,
+      exSkillLv1: exSkillLv1 ?? this.exSkillLv1,
+      exSkillLv2: exSkillLv2 ?? this.exSkillLv2,
+      exSkillLv3: exSkillLv3 ?? this.exSkillLv3,
+      exSkillLv4: exSkillLv4 ?? this.exSkillLv4,
+      exSkillLv5: exSkillLv5 ?? this.exSkillLv5,
+      resistStatusId: resistStatusId ?? this.resistStatusId,
+      resistVariationId: resistVariationId ?? this.resistVariationId,
+      accuracy: accuracy ?? this.accuracy,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (enemyId.present) {
+      map['enemy_id'] = Variable<int>(enemyId.value);
+    }
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (level.present) {
+      map['level'] = Variable<int>(level.value);
+    }
+    if (rarity.present) {
+      map['rarity'] = Variable<int>(rarity.value);
+    }
+    if (promotionLevel.present) {
+      map['promotion_level'] = Variable<int>(promotionLevel.value);
+    }
+    if (hp.present) {
+      map['hp'] = Variable<int>(hp.value);
+    }
+    if (atk.present) {
+      map['atk'] = Variable<int>(atk.value);
+    }
+    if (magicStr.present) {
+      map['magic_str'] = Variable<int>(magicStr.value);
+    }
+    if (def_.present) {
+      map['def'] = Variable<double>(def_.value);
+    }
+    if (magicDef.present) {
+      map['magic_def'] = Variable<int>(magicDef.value);
+    }
+    if (physicalCritical.present) {
+      map['physical_critical'] = Variable<int>(physicalCritical.value);
+    }
+    if (magicCritical.present) {
+      map['magic_critical'] = Variable<int>(magicCritical.value);
+    }
+    if (waveHpRecovery.present) {
+      map['wave_hp_recovery'] = Variable<int>(waveHpRecovery.value);
+    }
+    if (waveEnergyRecovery.present) {
+      map['wave_energy_recovery'] = Variable<int>(waveEnergyRecovery.value);
+    }
+    if (dodge.present) {
+      map['dodge'] = Variable<int>(dodge.value);
+    }
+    if (physicalPenetrate.present) {
+      map['physical_penetrate'] = Variable<int>(physicalPenetrate.value);
+    }
+    if (magicPenetrate.present) {
+      map['magic_penetrate'] = Variable<int>(magicPenetrate.value);
+    }
+    if (lifeSteal.present) {
+      map['life_steal'] = Variable<int>(lifeSteal.value);
+    }
+    if (hpRecoveryRate.present) {
+      map['hp_recovery_rate'] = Variable<int>(hpRecoveryRate.value);
+    }
+    if (energyRecoveryRate.present) {
+      map['energy_recovery_rate'] = Variable<int>(energyRecoveryRate.value);
+    }
+    if (energyReduceRate.present) {
+      map['energy_reduce_rate'] = Variable<int>(energyReduceRate.value);
+    }
+    if (unionBurstLevel.present) {
+      map['union_burst_level'] = Variable<int>(unionBurstLevel.value);
+    }
+    if (mainSkillLv1.present) {
+      map['main_skill_lv_1'] = Variable<int>(mainSkillLv1.value);
+    }
+    if (mainSkillLv2.present) {
+      map['main_skill_lv_2'] = Variable<int>(mainSkillLv2.value);
+    }
+    if (mainSkillLv3.present) {
+      map['main_skill_lv_3'] = Variable<int>(mainSkillLv3.value);
+    }
+    if (mainSkillLv4.present) {
+      map['main_skill_lv_4'] = Variable<int>(mainSkillLv4.value);
+    }
+    if (mainSkillLv5.present) {
+      map['main_skill_lv_5'] = Variable<int>(mainSkillLv5.value);
+    }
+    if (mainSkillLv6.present) {
+      map['main_skill_lv_6'] = Variable<int>(mainSkillLv6.value);
+    }
+    if (mainSkillLv7.present) {
+      map['main_skill_lv_7'] = Variable<int>(mainSkillLv7.value);
+    }
+    if (mainSkillLv8.present) {
+      map['main_skill_lv_8'] = Variable<int>(mainSkillLv8.value);
+    }
+    if (mainSkillLv9.present) {
+      map['main_skill_lv_9'] = Variable<int>(mainSkillLv9.value);
+    }
+    if (mainSkillLv10.present) {
+      map['main_skill_lv_10'] = Variable<int>(mainSkillLv10.value);
+    }
+    if (exSkillLv1.present) {
+      map['ex_skill_lv_1'] = Variable<int>(exSkillLv1.value);
+    }
+    if (exSkillLv2.present) {
+      map['ex_skill_lv_2'] = Variable<int>(exSkillLv2.value);
+    }
+    if (exSkillLv3.present) {
+      map['ex_skill_lv_3'] = Variable<int>(exSkillLv3.value);
+    }
+    if (exSkillLv4.present) {
+      map['ex_skill_lv_4'] = Variable<int>(exSkillLv4.value);
+    }
+    if (exSkillLv5.present) {
+      map['ex_skill_lv_5'] = Variable<int>(exSkillLv5.value);
+    }
+    if (resistStatusId.present) {
+      map['resist_status_id'] = Variable<int>(resistStatusId.value);
+    }
+    if (resistVariationId.present) {
+      map['resist_variation_id'] = Variable<int>(resistVariationId.value);
+    }
+    if (accuracy.present) {
+      map['accuracy'] = Variable<int>(accuracy.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('EventEnemyParameterCompanion(')
+          ..write('enemyId: $enemyId, ')
+          ..write('unitId: $unitId, ')
+          ..write('level: $level, ')
+          ..write('rarity: $rarity, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('unionBurstLevel: $unionBurstLevel, ')
+          ..write('mainSkillLv1: $mainSkillLv1, ')
+          ..write('mainSkillLv2: $mainSkillLv2, ')
+          ..write('mainSkillLv3: $mainSkillLv3, ')
+          ..write('mainSkillLv4: $mainSkillLv4, ')
+          ..write('mainSkillLv5: $mainSkillLv5, ')
+          ..write('mainSkillLv6: $mainSkillLv6, ')
+          ..write('mainSkillLv7: $mainSkillLv7, ')
+          ..write('mainSkillLv8: $mainSkillLv8, ')
+          ..write('mainSkillLv9: $mainSkillLv9, ')
+          ..write('mainSkillLv10: $mainSkillLv10, ')
+          ..write('exSkillLv1: $exSkillLv1, ')
+          ..write('exSkillLv2: $exSkillLv2, ')
+          ..write('exSkillLv3: $exSkillLv3, ')
+          ..write('exSkillLv4: $exSkillLv4, ')
+          ..write('exSkillLv5: $exSkillLv5, ')
+          ..write('resistStatusId: $resistStatusId, ')
+          ..write('resistVariationId: $resistVariationId, ')
+          ..write('accuracy: $accuracy')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $TalentQuestEnemyParameterTable extends TalentQuestEnemyParameter
+    with
+        TableInfo<
+          $TalentQuestEnemyParameterTable,
+          TalentQuestEnemyParameterData
+        > {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $TalentQuestEnemyParameterTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _enemyIdMeta = const VerificationMeta(
+    'enemyId',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId = GeneratedColumn<int>(
+    'enemy_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _levelMeta = const VerificationMeta('level');
+  @override
+  late final GeneratedColumn<int> level = GeneratedColumn<int>(
+    'level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rarityMeta = const VerificationMeta('rarity');
+  @override
+  late final GeneratedColumn<int> rarity = GeneratedColumn<int>(
+    'rarity',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _promotionLevelMeta = const VerificationMeta(
+    'promotionLevel',
+  );
+  @override
+  late final GeneratedColumn<int> promotionLevel = GeneratedColumn<int>(
+    'promotion_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpMeta = const VerificationMeta('hp');
+  @override
+  late final GeneratedColumn<int> hp = GeneratedColumn<int>(
+    'hp',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _atkMeta = const VerificationMeta('atk');
+  @override
+  late final GeneratedColumn<int> atk = GeneratedColumn<int>(
+    'atk',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicStrMeta = const VerificationMeta(
+    'magicStr',
+  );
+  @override
+  late final GeneratedColumn<int> magicStr = GeneratedColumn<int>(
+    'magic_str',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _def_Meta = const VerificationMeta('def_');
+  @override
+  late final GeneratedColumn<double> def_ = GeneratedColumn<double>(
+    'def',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicDefMeta = const VerificationMeta(
+    'magicDef',
+  );
+  @override
+  late final GeneratedColumn<int> magicDef = GeneratedColumn<int>(
+    'magic_def',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalCriticalMeta = const VerificationMeta(
+    'physicalCritical',
+  );
+  @override
+  late final GeneratedColumn<int> physicalCritical = GeneratedColumn<int>(
+    'physical_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicCriticalMeta = const VerificationMeta(
+    'magicCritical',
+  );
+  @override
+  late final GeneratedColumn<int> magicCritical = GeneratedColumn<int>(
+    'magic_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveHpRecoveryMeta = const VerificationMeta(
+    'waveHpRecovery',
+  );
+  @override
+  late final GeneratedColumn<int> waveHpRecovery = GeneratedColumn<int>(
+    'wave_hp_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveEnergyRecoveryMeta =
+      const VerificationMeta('waveEnergyRecovery');
+  @override
+  late final GeneratedColumn<int> waveEnergyRecovery = GeneratedColumn<int>(
+    'wave_energy_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dodgeMeta = const VerificationMeta('dodge');
+  @override
+  late final GeneratedColumn<int> dodge = GeneratedColumn<int>(
+    'dodge',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalPenetrateMeta = const VerificationMeta(
+    'physicalPenetrate',
+  );
+  @override
+  late final GeneratedColumn<int> physicalPenetrate = GeneratedColumn<int>(
+    'physical_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicPenetrateMeta = const VerificationMeta(
+    'magicPenetrate',
+  );
+  @override
+  late final GeneratedColumn<int> magicPenetrate = GeneratedColumn<int>(
+    'magic_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _lifeStealMeta = const VerificationMeta(
+    'lifeSteal',
+  );
+  @override
+  late final GeneratedColumn<int> lifeSteal = GeneratedColumn<int>(
+    'life_steal',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpRecoveryRateMeta = const VerificationMeta(
+    'hpRecoveryRate',
+  );
+  @override
+  late final GeneratedColumn<int> hpRecoveryRate = GeneratedColumn<int>(
+    'hp_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyRecoveryRateMeta =
+      const VerificationMeta('energyRecoveryRate');
+  @override
+  late final GeneratedColumn<int> energyRecoveryRate = GeneratedColumn<int>(
+    'energy_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyReduceRateMeta = const VerificationMeta(
+    'energyReduceRate',
+  );
+  @override
+  late final GeneratedColumn<int> energyReduceRate = GeneratedColumn<int>(
+    'energy_reduce_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _unionBurstLevelMeta = const VerificationMeta(
+    'unionBurstLevel',
+  );
+  @override
+  late final GeneratedColumn<int> unionBurstLevel = GeneratedColumn<int>(
+    'union_burst_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv1Meta = const VerificationMeta(
+    'mainSkillLv1',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv1 = GeneratedColumn<int>(
+    'main_skill_lv_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv2Meta = const VerificationMeta(
+    'mainSkillLv2',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv2 = GeneratedColumn<int>(
+    'main_skill_lv_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv3Meta = const VerificationMeta(
+    'mainSkillLv3',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv3 = GeneratedColumn<int>(
+    'main_skill_lv_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv4Meta = const VerificationMeta(
+    'mainSkillLv4',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv4 = GeneratedColumn<int>(
+    'main_skill_lv_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv5Meta = const VerificationMeta(
+    'mainSkillLv5',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv5 = GeneratedColumn<int>(
+    'main_skill_lv_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv6Meta = const VerificationMeta(
+    'mainSkillLv6',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv6 = GeneratedColumn<int>(
+    'main_skill_lv_6',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv7Meta = const VerificationMeta(
+    'mainSkillLv7',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv7 = GeneratedColumn<int>(
+    'main_skill_lv_7',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv8Meta = const VerificationMeta(
+    'mainSkillLv8',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv8 = GeneratedColumn<int>(
+    'main_skill_lv_8',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv9Meta = const VerificationMeta(
+    'mainSkillLv9',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv9 = GeneratedColumn<int>(
+    'main_skill_lv_9',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv10Meta = const VerificationMeta(
+    'mainSkillLv10',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv10 = GeneratedColumn<int>(
+    'main_skill_lv_10',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv1Meta = const VerificationMeta(
+    'exSkillLv1',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv1 = GeneratedColumn<int>(
+    'ex_skill_lv_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv2Meta = const VerificationMeta(
+    'exSkillLv2',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv2 = GeneratedColumn<int>(
+    'ex_skill_lv_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv3Meta = const VerificationMeta(
+    'exSkillLv3',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv3 = GeneratedColumn<int>(
+    'ex_skill_lv_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv4Meta = const VerificationMeta(
+    'exSkillLv4',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv4 = GeneratedColumn<int>(
+    'ex_skill_lv_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv5Meta = const VerificationMeta(
+    'exSkillLv5',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv5 = GeneratedColumn<int>(
+    'ex_skill_lv_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resistStatusIdMeta = const VerificationMeta(
+    'resistStatusId',
+  );
+  @override
+  late final GeneratedColumn<int> resistStatusId = GeneratedColumn<int>(
+    'resist_status_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resistVariationIdMeta = const VerificationMeta(
+    'resistVariationId',
+  );
+  @override
+  late final GeneratedColumn<int> resistVariationId = GeneratedColumn<int>(
+    'resist_variation_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _accuracyMeta = const VerificationMeta(
+    'accuracy',
+  );
+  @override
+  late final GeneratedColumn<int> accuracy = GeneratedColumn<int>(
+    'accuracy',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _breakDurabilityMeta = const VerificationMeta(
+    'breakDurability',
+  );
+  @override
+  late final GeneratedColumn<int> breakDurability = GeneratedColumn<int>(
+    'break_durability',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _uniqueEquipmentFlag1Meta =
+      const VerificationMeta('uniqueEquipmentFlag1');
+  @override
+  late final GeneratedColumn<int> uniqueEquipmentFlag1 = GeneratedColumn<int>(
+    'unique_equipment_flag_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _virtualHpMeta = const VerificationMeta(
+    'virtualHp',
+  );
+  @override
+  late final GeneratedColumn<int> virtualHp = GeneratedColumn<int>(
+    'virtual_hp',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    enemyId,
+    unitId,
+    name,
+    level,
+    rarity,
+    promotionLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    unionBurstLevel,
+    mainSkillLv1,
+    mainSkillLv2,
+    mainSkillLv3,
+    mainSkillLv4,
+    mainSkillLv5,
+    mainSkillLv6,
+    mainSkillLv7,
+    mainSkillLv8,
+    mainSkillLv9,
+    mainSkillLv10,
+    exSkillLv1,
+    exSkillLv2,
+    exSkillLv3,
+    exSkillLv4,
+    exSkillLv5,
+    resistStatusId,
+    resistVariationId,
+    accuracy,
+    breakDurability,
+    uniqueEquipmentFlag1,
+    virtualHp,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'talent_quest_enemy_parameter';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TalentQuestEnemyParameterData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('enemy_id')) {
+      context.handle(
+        _enemyIdMeta,
+        enemyId.isAcceptableOrUnknown(data['enemy_id']!, _enemyIdMeta),
+      );
+    }
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('level')) {
+      context.handle(
+        _levelMeta,
+        level.isAcceptableOrUnknown(data['level']!, _levelMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_levelMeta);
+    }
+    if (data.containsKey('rarity')) {
+      context.handle(
+        _rarityMeta,
+        rarity.isAcceptableOrUnknown(data['rarity']!, _rarityMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_rarityMeta);
+    }
+    if (data.containsKey('promotion_level')) {
+      context.handle(
+        _promotionLevelMeta,
+        promotionLevel.isAcceptableOrUnknown(
+          data['promotion_level']!,
+          _promotionLevelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_promotionLevelMeta);
+    }
+    if (data.containsKey('hp')) {
+      context.handle(_hpMeta, hp.isAcceptableOrUnknown(data['hp']!, _hpMeta));
+    } else if (isInserting) {
+      context.missing(_hpMeta);
+    }
+    if (data.containsKey('atk')) {
+      context.handle(
+        _atkMeta,
+        atk.isAcceptableOrUnknown(data['atk']!, _atkMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_atkMeta);
+    }
+    if (data.containsKey('magic_str')) {
+      context.handle(
+        _magicStrMeta,
+        magicStr.isAcceptableOrUnknown(data['magic_str']!, _magicStrMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicStrMeta);
+    }
+    if (data.containsKey('def')) {
+      context.handle(
+        _def_Meta,
+        def_.isAcceptableOrUnknown(data['def']!, _def_Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_def_Meta);
+    }
+    if (data.containsKey('magic_def')) {
+      context.handle(
+        _magicDefMeta,
+        magicDef.isAcceptableOrUnknown(data['magic_def']!, _magicDefMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicDefMeta);
+    }
+    if (data.containsKey('physical_critical')) {
+      context.handle(
+        _physicalCriticalMeta,
+        physicalCritical.isAcceptableOrUnknown(
+          data['physical_critical']!,
+          _physicalCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalCriticalMeta);
+    }
+    if (data.containsKey('magic_critical')) {
+      context.handle(
+        _magicCriticalMeta,
+        magicCritical.isAcceptableOrUnknown(
+          data['magic_critical']!,
+          _magicCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicCriticalMeta);
+    }
+    if (data.containsKey('wave_hp_recovery')) {
+      context.handle(
+        _waveHpRecoveryMeta,
+        waveHpRecovery.isAcceptableOrUnknown(
+          data['wave_hp_recovery']!,
+          _waveHpRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveHpRecoveryMeta);
+    }
+    if (data.containsKey('wave_energy_recovery')) {
+      context.handle(
+        _waveEnergyRecoveryMeta,
+        waveEnergyRecovery.isAcceptableOrUnknown(
+          data['wave_energy_recovery']!,
+          _waveEnergyRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveEnergyRecoveryMeta);
+    }
+    if (data.containsKey('dodge')) {
+      context.handle(
+        _dodgeMeta,
+        dodge.isAcceptableOrUnknown(data['dodge']!, _dodgeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dodgeMeta);
+    }
+    if (data.containsKey('physical_penetrate')) {
+      context.handle(
+        _physicalPenetrateMeta,
+        physicalPenetrate.isAcceptableOrUnknown(
+          data['physical_penetrate']!,
+          _physicalPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalPenetrateMeta);
+    }
+    if (data.containsKey('magic_penetrate')) {
+      context.handle(
+        _magicPenetrateMeta,
+        magicPenetrate.isAcceptableOrUnknown(
+          data['magic_penetrate']!,
+          _magicPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicPenetrateMeta);
+    }
+    if (data.containsKey('life_steal')) {
+      context.handle(
+        _lifeStealMeta,
+        lifeSteal.isAcceptableOrUnknown(data['life_steal']!, _lifeStealMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_lifeStealMeta);
+    }
+    if (data.containsKey('hp_recovery_rate')) {
+      context.handle(
+        _hpRecoveryRateMeta,
+        hpRecoveryRate.isAcceptableOrUnknown(
+          data['hp_recovery_rate']!,
+          _hpRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_hpRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_recovery_rate')) {
+      context.handle(
+        _energyRecoveryRateMeta,
+        energyRecoveryRate.isAcceptableOrUnknown(
+          data['energy_recovery_rate']!,
+          _energyRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_reduce_rate')) {
+      context.handle(
+        _energyReduceRateMeta,
+        energyReduceRate.isAcceptableOrUnknown(
+          data['energy_reduce_rate']!,
+          _energyReduceRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyReduceRateMeta);
+    }
+    if (data.containsKey('union_burst_level')) {
+      context.handle(
+        _unionBurstLevelMeta,
+        unionBurstLevel.isAcceptableOrUnknown(
+          data['union_burst_level']!,
+          _unionBurstLevelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_unionBurstLevelMeta);
+    }
+    if (data.containsKey('main_skill_lv_1')) {
+      context.handle(
+        _mainSkillLv1Meta,
+        mainSkillLv1.isAcceptableOrUnknown(
+          data['main_skill_lv_1']!,
+          _mainSkillLv1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv1Meta);
+    }
+    if (data.containsKey('main_skill_lv_2')) {
+      context.handle(
+        _mainSkillLv2Meta,
+        mainSkillLv2.isAcceptableOrUnknown(
+          data['main_skill_lv_2']!,
+          _mainSkillLv2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv2Meta);
+    }
+    if (data.containsKey('main_skill_lv_3')) {
+      context.handle(
+        _mainSkillLv3Meta,
+        mainSkillLv3.isAcceptableOrUnknown(
+          data['main_skill_lv_3']!,
+          _mainSkillLv3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv3Meta);
+    }
+    if (data.containsKey('main_skill_lv_4')) {
+      context.handle(
+        _mainSkillLv4Meta,
+        mainSkillLv4.isAcceptableOrUnknown(
+          data['main_skill_lv_4']!,
+          _mainSkillLv4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv4Meta);
+    }
+    if (data.containsKey('main_skill_lv_5')) {
+      context.handle(
+        _mainSkillLv5Meta,
+        mainSkillLv5.isAcceptableOrUnknown(
+          data['main_skill_lv_5']!,
+          _mainSkillLv5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv5Meta);
+    }
+    if (data.containsKey('main_skill_lv_6')) {
+      context.handle(
+        _mainSkillLv6Meta,
+        mainSkillLv6.isAcceptableOrUnknown(
+          data['main_skill_lv_6']!,
+          _mainSkillLv6Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv6Meta);
+    }
+    if (data.containsKey('main_skill_lv_7')) {
+      context.handle(
+        _mainSkillLv7Meta,
+        mainSkillLv7.isAcceptableOrUnknown(
+          data['main_skill_lv_7']!,
+          _mainSkillLv7Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv7Meta);
+    }
+    if (data.containsKey('main_skill_lv_8')) {
+      context.handle(
+        _mainSkillLv8Meta,
+        mainSkillLv8.isAcceptableOrUnknown(
+          data['main_skill_lv_8']!,
+          _mainSkillLv8Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv8Meta);
+    }
+    if (data.containsKey('main_skill_lv_9')) {
+      context.handle(
+        _mainSkillLv9Meta,
+        mainSkillLv9.isAcceptableOrUnknown(
+          data['main_skill_lv_9']!,
+          _mainSkillLv9Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv9Meta);
+    }
+    if (data.containsKey('main_skill_lv_10')) {
+      context.handle(
+        _mainSkillLv10Meta,
+        mainSkillLv10.isAcceptableOrUnknown(
+          data['main_skill_lv_10']!,
+          _mainSkillLv10Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv10Meta);
+    }
+    if (data.containsKey('ex_skill_lv_1')) {
+      context.handle(
+        _exSkillLv1Meta,
+        exSkillLv1.isAcceptableOrUnknown(
+          data['ex_skill_lv_1']!,
+          _exSkillLv1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv1Meta);
+    }
+    if (data.containsKey('ex_skill_lv_2')) {
+      context.handle(
+        _exSkillLv2Meta,
+        exSkillLv2.isAcceptableOrUnknown(
+          data['ex_skill_lv_2']!,
+          _exSkillLv2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv2Meta);
+    }
+    if (data.containsKey('ex_skill_lv_3')) {
+      context.handle(
+        _exSkillLv3Meta,
+        exSkillLv3.isAcceptableOrUnknown(
+          data['ex_skill_lv_3']!,
+          _exSkillLv3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv3Meta);
+    }
+    if (data.containsKey('ex_skill_lv_4')) {
+      context.handle(
+        _exSkillLv4Meta,
+        exSkillLv4.isAcceptableOrUnknown(
+          data['ex_skill_lv_4']!,
+          _exSkillLv4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv4Meta);
+    }
+    if (data.containsKey('ex_skill_lv_5')) {
+      context.handle(
+        _exSkillLv5Meta,
+        exSkillLv5.isAcceptableOrUnknown(
+          data['ex_skill_lv_5']!,
+          _exSkillLv5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv5Meta);
+    }
+    if (data.containsKey('resist_status_id')) {
+      context.handle(
+        _resistStatusIdMeta,
+        resistStatusId.isAcceptableOrUnknown(
+          data['resist_status_id']!,
+          _resistStatusIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resistStatusIdMeta);
+    }
+    if (data.containsKey('resist_variation_id')) {
+      context.handle(
+        _resistVariationIdMeta,
+        resistVariationId.isAcceptableOrUnknown(
+          data['resist_variation_id']!,
+          _resistVariationIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resistVariationIdMeta);
+    }
+    if (data.containsKey('accuracy')) {
+      context.handle(
+        _accuracyMeta,
+        accuracy.isAcceptableOrUnknown(data['accuracy']!, _accuracyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_accuracyMeta);
+    }
+    if (data.containsKey('break_durability')) {
+      context.handle(
+        _breakDurabilityMeta,
+        breakDurability.isAcceptableOrUnknown(
+          data['break_durability']!,
+          _breakDurabilityMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_breakDurabilityMeta);
+    }
+    if (data.containsKey('unique_equipment_flag_1')) {
+      context.handle(
+        _uniqueEquipmentFlag1Meta,
+        uniqueEquipmentFlag1.isAcceptableOrUnknown(
+          data['unique_equipment_flag_1']!,
+          _uniqueEquipmentFlag1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_uniqueEquipmentFlag1Meta);
+    }
+    if (data.containsKey('virtual_hp')) {
+      context.handle(
+        _virtualHpMeta,
+        virtualHp.isAcceptableOrUnknown(data['virtual_hp']!, _virtualHpMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_virtualHpMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {enemyId};
+  @override
+  TalentQuestEnemyParameterData map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TalentQuestEnemyParameterData(
+      enemyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id'],
+      )!,
+      unitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unit_id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      level: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}level'],
+      )!,
+      rarity: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}rarity'],
+      )!,
+      promotionLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}promotion_level'],
+      )!,
+      hp: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hp'],
+      )!,
+      atk: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk'],
+      )!,
+      magicStr: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_str'],
+      )!,
+      def_: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}def'],
+      )!,
+      magicDef: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_def'],
+      )!,
+      physicalCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}physical_critical'],
+      )!,
+      magicCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_critical'],
+      )!,
+      waveHpRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_hp_recovery'],
+      )!,
+      waveEnergyRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_energy_recovery'],
+      )!,
+      dodge: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}dodge'],
+      )!,
+      physicalPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}physical_penetrate'],
+      )!,
+      magicPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_penetrate'],
+      )!,
+      lifeSteal: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}life_steal'],
+      )!,
+      hpRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hp_recovery_rate'],
+      )!,
+      energyRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy_recovery_rate'],
+      )!,
+      energyReduceRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy_reduce_rate'],
+      )!,
+      unionBurstLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}union_burst_level'],
+      )!,
+      mainSkillLv1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_1'],
+      )!,
+      mainSkillLv2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_2'],
+      )!,
+      mainSkillLv3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_3'],
+      )!,
+      mainSkillLv4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_4'],
+      )!,
+      mainSkillLv5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_5'],
+      )!,
+      mainSkillLv6: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_6'],
+      )!,
+      mainSkillLv7: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_7'],
+      )!,
+      mainSkillLv8: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_8'],
+      )!,
+      mainSkillLv9: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_9'],
+      )!,
+      mainSkillLv10: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_10'],
+      )!,
+      exSkillLv1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_1'],
+      )!,
+      exSkillLv2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_2'],
+      )!,
+      exSkillLv3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_3'],
+      )!,
+      exSkillLv4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_4'],
+      )!,
+      exSkillLv5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_5'],
+      )!,
+      resistStatusId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resist_status_id'],
+      )!,
+      resistVariationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resist_variation_id'],
+      )!,
+      accuracy: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}accuracy'],
+      )!,
+      breakDurability: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}break_durability'],
+      )!,
+      uniqueEquipmentFlag1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unique_equipment_flag_1'],
+      )!,
+      virtualHp: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}virtual_hp'],
+      )!,
+    );
+  }
+
+  @override
+  $TalentQuestEnemyParameterTable createAlias(String alias) {
+    return $TalentQuestEnemyParameterTable(attachedDatabase, alias);
+  }
+}
+
+class TalentQuestEnemyParameterData extends DataClass
+    implements Insertable<TalentQuestEnemyParameterData> {
+  final int enemyId;
+  final int unitId;
+  final String name;
+  final int level;
+  final int rarity;
+  final int promotionLevel;
+  final int hp;
+  final int atk;
+  final int magicStr;
+  final double def_;
+  final int magicDef;
+  final int physicalCritical;
+  final int magicCritical;
+  final int waveHpRecovery;
+  final int waveEnergyRecovery;
+  final int dodge;
+  final int physicalPenetrate;
+  final int magicPenetrate;
+  final int lifeSteal;
+  final int hpRecoveryRate;
+  final int energyRecoveryRate;
+  final int energyReduceRate;
+  final int unionBurstLevel;
+  final int mainSkillLv1;
+  final int mainSkillLv2;
+  final int mainSkillLv3;
+  final int mainSkillLv4;
+  final int mainSkillLv5;
+  final int mainSkillLv6;
+  final int mainSkillLv7;
+  final int mainSkillLv8;
+  final int mainSkillLv9;
+  final int mainSkillLv10;
+  final int exSkillLv1;
+  final int exSkillLv2;
+  final int exSkillLv3;
+  final int exSkillLv4;
+  final int exSkillLv5;
+  final int resistStatusId;
+  final int resistVariationId;
+  final int accuracy;
+  final int breakDurability;
+  final int uniqueEquipmentFlag1;
+  final int virtualHp;
+  const TalentQuestEnemyParameterData({
+    required this.enemyId,
+    required this.unitId,
+    required this.name,
+    required this.level,
+    required this.rarity,
+    required this.promotionLevel,
+    required this.hp,
+    required this.atk,
+    required this.magicStr,
+    required this.def_,
+    required this.magicDef,
+    required this.physicalCritical,
+    required this.magicCritical,
+    required this.waveHpRecovery,
+    required this.waveEnergyRecovery,
+    required this.dodge,
+    required this.physicalPenetrate,
+    required this.magicPenetrate,
+    required this.lifeSteal,
+    required this.hpRecoveryRate,
+    required this.energyRecoveryRate,
+    required this.energyReduceRate,
+    required this.unionBurstLevel,
+    required this.mainSkillLv1,
+    required this.mainSkillLv2,
+    required this.mainSkillLv3,
+    required this.mainSkillLv4,
+    required this.mainSkillLv5,
+    required this.mainSkillLv6,
+    required this.mainSkillLv7,
+    required this.mainSkillLv8,
+    required this.mainSkillLv9,
+    required this.mainSkillLv10,
+    required this.exSkillLv1,
+    required this.exSkillLv2,
+    required this.exSkillLv3,
+    required this.exSkillLv4,
+    required this.exSkillLv5,
+    required this.resistStatusId,
+    required this.resistVariationId,
+    required this.accuracy,
+    required this.breakDurability,
+    required this.uniqueEquipmentFlag1,
+    required this.virtualHp,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['enemy_id'] = Variable<int>(enemyId);
+    map['unit_id'] = Variable<int>(unitId);
+    map['name'] = Variable<String>(name);
+    map['level'] = Variable<int>(level);
+    map['rarity'] = Variable<int>(rarity);
+    map['promotion_level'] = Variable<int>(promotionLevel);
+    map['hp'] = Variable<int>(hp);
+    map['atk'] = Variable<int>(atk);
+    map['magic_str'] = Variable<int>(magicStr);
+    map['def'] = Variable<double>(def_);
+    map['magic_def'] = Variable<int>(magicDef);
+    map['physical_critical'] = Variable<int>(physicalCritical);
+    map['magic_critical'] = Variable<int>(magicCritical);
+    map['wave_hp_recovery'] = Variable<int>(waveHpRecovery);
+    map['wave_energy_recovery'] = Variable<int>(waveEnergyRecovery);
+    map['dodge'] = Variable<int>(dodge);
+    map['physical_penetrate'] = Variable<int>(physicalPenetrate);
+    map['magic_penetrate'] = Variable<int>(magicPenetrate);
+    map['life_steal'] = Variable<int>(lifeSteal);
+    map['hp_recovery_rate'] = Variable<int>(hpRecoveryRate);
+    map['energy_recovery_rate'] = Variable<int>(energyRecoveryRate);
+    map['energy_reduce_rate'] = Variable<int>(energyReduceRate);
+    map['union_burst_level'] = Variable<int>(unionBurstLevel);
+    map['main_skill_lv_1'] = Variable<int>(mainSkillLv1);
+    map['main_skill_lv_2'] = Variable<int>(mainSkillLv2);
+    map['main_skill_lv_3'] = Variable<int>(mainSkillLv3);
+    map['main_skill_lv_4'] = Variable<int>(mainSkillLv4);
+    map['main_skill_lv_5'] = Variable<int>(mainSkillLv5);
+    map['main_skill_lv_6'] = Variable<int>(mainSkillLv6);
+    map['main_skill_lv_7'] = Variable<int>(mainSkillLv7);
+    map['main_skill_lv_8'] = Variable<int>(mainSkillLv8);
+    map['main_skill_lv_9'] = Variable<int>(mainSkillLv9);
+    map['main_skill_lv_10'] = Variable<int>(mainSkillLv10);
+    map['ex_skill_lv_1'] = Variable<int>(exSkillLv1);
+    map['ex_skill_lv_2'] = Variable<int>(exSkillLv2);
+    map['ex_skill_lv_3'] = Variable<int>(exSkillLv3);
+    map['ex_skill_lv_4'] = Variable<int>(exSkillLv4);
+    map['ex_skill_lv_5'] = Variable<int>(exSkillLv5);
+    map['resist_status_id'] = Variable<int>(resistStatusId);
+    map['resist_variation_id'] = Variable<int>(resistVariationId);
+    map['accuracy'] = Variable<int>(accuracy);
+    map['break_durability'] = Variable<int>(breakDurability);
+    map['unique_equipment_flag_1'] = Variable<int>(uniqueEquipmentFlag1);
+    map['virtual_hp'] = Variable<int>(virtualHp);
+    return map;
+  }
+
+  TalentQuestEnemyParameterCompanion toCompanion(bool nullToAbsent) {
+    return TalentQuestEnemyParameterCompanion(
+      enemyId: Value(enemyId),
+      unitId: Value(unitId),
+      name: Value(name),
+      level: Value(level),
+      rarity: Value(rarity),
+      promotionLevel: Value(promotionLevel),
+      hp: Value(hp),
+      atk: Value(atk),
+      magicStr: Value(magicStr),
+      def_: Value(def_),
+      magicDef: Value(magicDef),
+      physicalCritical: Value(physicalCritical),
+      magicCritical: Value(magicCritical),
+      waveHpRecovery: Value(waveHpRecovery),
+      waveEnergyRecovery: Value(waveEnergyRecovery),
+      dodge: Value(dodge),
+      physicalPenetrate: Value(physicalPenetrate),
+      magicPenetrate: Value(magicPenetrate),
+      lifeSteal: Value(lifeSteal),
+      hpRecoveryRate: Value(hpRecoveryRate),
+      energyRecoveryRate: Value(energyRecoveryRate),
+      energyReduceRate: Value(energyReduceRate),
+      unionBurstLevel: Value(unionBurstLevel),
+      mainSkillLv1: Value(mainSkillLv1),
+      mainSkillLv2: Value(mainSkillLv2),
+      mainSkillLv3: Value(mainSkillLv3),
+      mainSkillLv4: Value(mainSkillLv4),
+      mainSkillLv5: Value(mainSkillLv5),
+      mainSkillLv6: Value(mainSkillLv6),
+      mainSkillLv7: Value(mainSkillLv7),
+      mainSkillLv8: Value(mainSkillLv8),
+      mainSkillLv9: Value(mainSkillLv9),
+      mainSkillLv10: Value(mainSkillLv10),
+      exSkillLv1: Value(exSkillLv1),
+      exSkillLv2: Value(exSkillLv2),
+      exSkillLv3: Value(exSkillLv3),
+      exSkillLv4: Value(exSkillLv4),
+      exSkillLv5: Value(exSkillLv5),
+      resistStatusId: Value(resistStatusId),
+      resistVariationId: Value(resistVariationId),
+      accuracy: Value(accuracy),
+      breakDurability: Value(breakDurability),
+      uniqueEquipmentFlag1: Value(uniqueEquipmentFlag1),
+      virtualHp: Value(virtualHp),
+    );
+  }
+
+  factory TalentQuestEnemyParameterData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TalentQuestEnemyParameterData(
+      enemyId: serializer.fromJson<int>(json['enemyId']),
+      unitId: serializer.fromJson<int>(json['unitId']),
+      name: serializer.fromJson<String>(json['name']),
+      level: serializer.fromJson<int>(json['level']),
+      rarity: serializer.fromJson<int>(json['rarity']),
+      promotionLevel: serializer.fromJson<int>(json['promotionLevel']),
+      hp: serializer.fromJson<int>(json['hp']),
+      atk: serializer.fromJson<int>(json['atk']),
+      magicStr: serializer.fromJson<int>(json['magicStr']),
+      def_: serializer.fromJson<double>(json['def_']),
+      magicDef: serializer.fromJson<int>(json['magicDef']),
+      physicalCritical: serializer.fromJson<int>(json['physicalCritical']),
+      magicCritical: serializer.fromJson<int>(json['magicCritical']),
+      waveHpRecovery: serializer.fromJson<int>(json['waveHpRecovery']),
+      waveEnergyRecovery: serializer.fromJson<int>(json['waveEnergyRecovery']),
+      dodge: serializer.fromJson<int>(json['dodge']),
+      physicalPenetrate: serializer.fromJson<int>(json['physicalPenetrate']),
+      magicPenetrate: serializer.fromJson<int>(json['magicPenetrate']),
+      lifeSteal: serializer.fromJson<int>(json['lifeSteal']),
+      hpRecoveryRate: serializer.fromJson<int>(json['hpRecoveryRate']),
+      energyRecoveryRate: serializer.fromJson<int>(json['energyRecoveryRate']),
+      energyReduceRate: serializer.fromJson<int>(json['energyReduceRate']),
+      unionBurstLevel: serializer.fromJson<int>(json['unionBurstLevel']),
+      mainSkillLv1: serializer.fromJson<int>(json['mainSkillLv1']),
+      mainSkillLv2: serializer.fromJson<int>(json['mainSkillLv2']),
+      mainSkillLv3: serializer.fromJson<int>(json['mainSkillLv3']),
+      mainSkillLv4: serializer.fromJson<int>(json['mainSkillLv4']),
+      mainSkillLv5: serializer.fromJson<int>(json['mainSkillLv5']),
+      mainSkillLv6: serializer.fromJson<int>(json['mainSkillLv6']),
+      mainSkillLv7: serializer.fromJson<int>(json['mainSkillLv7']),
+      mainSkillLv8: serializer.fromJson<int>(json['mainSkillLv8']),
+      mainSkillLv9: serializer.fromJson<int>(json['mainSkillLv9']),
+      mainSkillLv10: serializer.fromJson<int>(json['mainSkillLv10']),
+      exSkillLv1: serializer.fromJson<int>(json['exSkillLv1']),
+      exSkillLv2: serializer.fromJson<int>(json['exSkillLv2']),
+      exSkillLv3: serializer.fromJson<int>(json['exSkillLv3']),
+      exSkillLv4: serializer.fromJson<int>(json['exSkillLv4']),
+      exSkillLv5: serializer.fromJson<int>(json['exSkillLv5']),
+      resistStatusId: serializer.fromJson<int>(json['resistStatusId']),
+      resistVariationId: serializer.fromJson<int>(json['resistVariationId']),
+      accuracy: serializer.fromJson<int>(json['accuracy']),
+      breakDurability: serializer.fromJson<int>(json['breakDurability']),
+      uniqueEquipmentFlag1: serializer.fromJson<int>(
+        json['uniqueEquipmentFlag1'],
+      ),
+      virtualHp: serializer.fromJson<int>(json['virtualHp']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'enemyId': serializer.toJson<int>(enemyId),
+      'unitId': serializer.toJson<int>(unitId),
+      'name': serializer.toJson<String>(name),
+      'level': serializer.toJson<int>(level),
+      'rarity': serializer.toJson<int>(rarity),
+      'promotionLevel': serializer.toJson<int>(promotionLevel),
+      'hp': serializer.toJson<int>(hp),
+      'atk': serializer.toJson<int>(atk),
+      'magicStr': serializer.toJson<int>(magicStr),
+      'def_': serializer.toJson<double>(def_),
+      'magicDef': serializer.toJson<int>(magicDef),
+      'physicalCritical': serializer.toJson<int>(physicalCritical),
+      'magicCritical': serializer.toJson<int>(magicCritical),
+      'waveHpRecovery': serializer.toJson<int>(waveHpRecovery),
+      'waveEnergyRecovery': serializer.toJson<int>(waveEnergyRecovery),
+      'dodge': serializer.toJson<int>(dodge),
+      'physicalPenetrate': serializer.toJson<int>(physicalPenetrate),
+      'magicPenetrate': serializer.toJson<int>(magicPenetrate),
+      'lifeSteal': serializer.toJson<int>(lifeSteal),
+      'hpRecoveryRate': serializer.toJson<int>(hpRecoveryRate),
+      'energyRecoveryRate': serializer.toJson<int>(energyRecoveryRate),
+      'energyReduceRate': serializer.toJson<int>(energyReduceRate),
+      'unionBurstLevel': serializer.toJson<int>(unionBurstLevel),
+      'mainSkillLv1': serializer.toJson<int>(mainSkillLv1),
+      'mainSkillLv2': serializer.toJson<int>(mainSkillLv2),
+      'mainSkillLv3': serializer.toJson<int>(mainSkillLv3),
+      'mainSkillLv4': serializer.toJson<int>(mainSkillLv4),
+      'mainSkillLv5': serializer.toJson<int>(mainSkillLv5),
+      'mainSkillLv6': serializer.toJson<int>(mainSkillLv6),
+      'mainSkillLv7': serializer.toJson<int>(mainSkillLv7),
+      'mainSkillLv8': serializer.toJson<int>(mainSkillLv8),
+      'mainSkillLv9': serializer.toJson<int>(mainSkillLv9),
+      'mainSkillLv10': serializer.toJson<int>(mainSkillLv10),
+      'exSkillLv1': serializer.toJson<int>(exSkillLv1),
+      'exSkillLv2': serializer.toJson<int>(exSkillLv2),
+      'exSkillLv3': serializer.toJson<int>(exSkillLv3),
+      'exSkillLv4': serializer.toJson<int>(exSkillLv4),
+      'exSkillLv5': serializer.toJson<int>(exSkillLv5),
+      'resistStatusId': serializer.toJson<int>(resistStatusId),
+      'resistVariationId': serializer.toJson<int>(resistVariationId),
+      'accuracy': serializer.toJson<int>(accuracy),
+      'breakDurability': serializer.toJson<int>(breakDurability),
+      'uniqueEquipmentFlag1': serializer.toJson<int>(uniqueEquipmentFlag1),
+      'virtualHp': serializer.toJson<int>(virtualHp),
+    };
+  }
+
+  TalentQuestEnemyParameterData copyWith({
+    int? enemyId,
+    int? unitId,
+    String? name,
+    int? level,
+    int? rarity,
+    int? promotionLevel,
+    int? hp,
+    int? atk,
+    int? magicStr,
+    double? def_,
+    int? magicDef,
+    int? physicalCritical,
+    int? magicCritical,
+    int? waveHpRecovery,
+    int? waveEnergyRecovery,
+    int? dodge,
+    int? physicalPenetrate,
+    int? magicPenetrate,
+    int? lifeSteal,
+    int? hpRecoveryRate,
+    int? energyRecoveryRate,
+    int? energyReduceRate,
+    int? unionBurstLevel,
+    int? mainSkillLv1,
+    int? mainSkillLv2,
+    int? mainSkillLv3,
+    int? mainSkillLv4,
+    int? mainSkillLv5,
+    int? mainSkillLv6,
+    int? mainSkillLv7,
+    int? mainSkillLv8,
+    int? mainSkillLv9,
+    int? mainSkillLv10,
+    int? exSkillLv1,
+    int? exSkillLv2,
+    int? exSkillLv3,
+    int? exSkillLv4,
+    int? exSkillLv5,
+    int? resistStatusId,
+    int? resistVariationId,
+    int? accuracy,
+    int? breakDurability,
+    int? uniqueEquipmentFlag1,
+    int? virtualHp,
+  }) => TalentQuestEnemyParameterData(
+    enemyId: enemyId ?? this.enemyId,
+    unitId: unitId ?? this.unitId,
+    name: name ?? this.name,
+    level: level ?? this.level,
+    rarity: rarity ?? this.rarity,
+    promotionLevel: promotionLevel ?? this.promotionLevel,
+    hp: hp ?? this.hp,
+    atk: atk ?? this.atk,
+    magicStr: magicStr ?? this.magicStr,
+    def_: def_ ?? this.def_,
+    magicDef: magicDef ?? this.magicDef,
+    physicalCritical: physicalCritical ?? this.physicalCritical,
+    magicCritical: magicCritical ?? this.magicCritical,
+    waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+    waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+    dodge: dodge ?? this.dodge,
+    physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+    magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+    lifeSteal: lifeSteal ?? this.lifeSteal,
+    hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+    energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+    energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+    unionBurstLevel: unionBurstLevel ?? this.unionBurstLevel,
+    mainSkillLv1: mainSkillLv1 ?? this.mainSkillLv1,
+    mainSkillLv2: mainSkillLv2 ?? this.mainSkillLv2,
+    mainSkillLv3: mainSkillLv3 ?? this.mainSkillLv3,
+    mainSkillLv4: mainSkillLv4 ?? this.mainSkillLv4,
+    mainSkillLv5: mainSkillLv5 ?? this.mainSkillLv5,
+    mainSkillLv6: mainSkillLv6 ?? this.mainSkillLv6,
+    mainSkillLv7: mainSkillLv7 ?? this.mainSkillLv7,
+    mainSkillLv8: mainSkillLv8 ?? this.mainSkillLv8,
+    mainSkillLv9: mainSkillLv9 ?? this.mainSkillLv9,
+    mainSkillLv10: mainSkillLv10 ?? this.mainSkillLv10,
+    exSkillLv1: exSkillLv1 ?? this.exSkillLv1,
+    exSkillLv2: exSkillLv2 ?? this.exSkillLv2,
+    exSkillLv3: exSkillLv3 ?? this.exSkillLv3,
+    exSkillLv4: exSkillLv4 ?? this.exSkillLv4,
+    exSkillLv5: exSkillLv5 ?? this.exSkillLv5,
+    resistStatusId: resistStatusId ?? this.resistStatusId,
+    resistVariationId: resistVariationId ?? this.resistVariationId,
+    accuracy: accuracy ?? this.accuracy,
+    breakDurability: breakDurability ?? this.breakDurability,
+    uniqueEquipmentFlag1: uniqueEquipmentFlag1 ?? this.uniqueEquipmentFlag1,
+    virtualHp: virtualHp ?? this.virtualHp,
+  );
+  TalentQuestEnemyParameterData copyWithCompanion(
+    TalentQuestEnemyParameterCompanion data,
+  ) {
+    return TalentQuestEnemyParameterData(
+      enemyId: data.enemyId.present ? data.enemyId.value : this.enemyId,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      name: data.name.present ? data.name.value : this.name,
+      level: data.level.present ? data.level.value : this.level,
+      rarity: data.rarity.present ? data.rarity.value : this.rarity,
+      promotionLevel: data.promotionLevel.present
+          ? data.promotionLevel.value
+          : this.promotionLevel,
+      hp: data.hp.present ? data.hp.value : this.hp,
+      atk: data.atk.present ? data.atk.value : this.atk,
+      magicStr: data.magicStr.present ? data.magicStr.value : this.magicStr,
+      def_: data.def_.present ? data.def_.value : this.def_,
+      magicDef: data.magicDef.present ? data.magicDef.value : this.magicDef,
+      physicalCritical: data.physicalCritical.present
+          ? data.physicalCritical.value
+          : this.physicalCritical,
+      magicCritical: data.magicCritical.present
+          ? data.magicCritical.value
+          : this.magicCritical,
+      waveHpRecovery: data.waveHpRecovery.present
+          ? data.waveHpRecovery.value
+          : this.waveHpRecovery,
+      waveEnergyRecovery: data.waveEnergyRecovery.present
+          ? data.waveEnergyRecovery.value
+          : this.waveEnergyRecovery,
+      dodge: data.dodge.present ? data.dodge.value : this.dodge,
+      physicalPenetrate: data.physicalPenetrate.present
+          ? data.physicalPenetrate.value
+          : this.physicalPenetrate,
+      magicPenetrate: data.magicPenetrate.present
+          ? data.magicPenetrate.value
+          : this.magicPenetrate,
+      lifeSteal: data.lifeSteal.present ? data.lifeSteal.value : this.lifeSteal,
+      hpRecoveryRate: data.hpRecoveryRate.present
+          ? data.hpRecoveryRate.value
+          : this.hpRecoveryRate,
+      energyRecoveryRate: data.energyRecoveryRate.present
+          ? data.energyRecoveryRate.value
+          : this.energyRecoveryRate,
+      energyReduceRate: data.energyReduceRate.present
+          ? data.energyReduceRate.value
+          : this.energyReduceRate,
+      unionBurstLevel: data.unionBurstLevel.present
+          ? data.unionBurstLevel.value
+          : this.unionBurstLevel,
+      mainSkillLv1: data.mainSkillLv1.present
+          ? data.mainSkillLv1.value
+          : this.mainSkillLv1,
+      mainSkillLv2: data.mainSkillLv2.present
+          ? data.mainSkillLv2.value
+          : this.mainSkillLv2,
+      mainSkillLv3: data.mainSkillLv3.present
+          ? data.mainSkillLv3.value
+          : this.mainSkillLv3,
+      mainSkillLv4: data.mainSkillLv4.present
+          ? data.mainSkillLv4.value
+          : this.mainSkillLv4,
+      mainSkillLv5: data.mainSkillLv5.present
+          ? data.mainSkillLv5.value
+          : this.mainSkillLv5,
+      mainSkillLv6: data.mainSkillLv6.present
+          ? data.mainSkillLv6.value
+          : this.mainSkillLv6,
+      mainSkillLv7: data.mainSkillLv7.present
+          ? data.mainSkillLv7.value
+          : this.mainSkillLv7,
+      mainSkillLv8: data.mainSkillLv8.present
+          ? data.mainSkillLv8.value
+          : this.mainSkillLv8,
+      mainSkillLv9: data.mainSkillLv9.present
+          ? data.mainSkillLv9.value
+          : this.mainSkillLv9,
+      mainSkillLv10: data.mainSkillLv10.present
+          ? data.mainSkillLv10.value
+          : this.mainSkillLv10,
+      exSkillLv1: data.exSkillLv1.present
+          ? data.exSkillLv1.value
+          : this.exSkillLv1,
+      exSkillLv2: data.exSkillLv2.present
+          ? data.exSkillLv2.value
+          : this.exSkillLv2,
+      exSkillLv3: data.exSkillLv3.present
+          ? data.exSkillLv3.value
+          : this.exSkillLv3,
+      exSkillLv4: data.exSkillLv4.present
+          ? data.exSkillLv4.value
+          : this.exSkillLv4,
+      exSkillLv5: data.exSkillLv5.present
+          ? data.exSkillLv5.value
+          : this.exSkillLv5,
+      resistStatusId: data.resistStatusId.present
+          ? data.resistStatusId.value
+          : this.resistStatusId,
+      resistVariationId: data.resistVariationId.present
+          ? data.resistVariationId.value
+          : this.resistVariationId,
+      accuracy: data.accuracy.present ? data.accuracy.value : this.accuracy,
+      breakDurability: data.breakDurability.present
+          ? data.breakDurability.value
+          : this.breakDurability,
+      uniqueEquipmentFlag1: data.uniqueEquipmentFlag1.present
+          ? data.uniqueEquipmentFlag1.value
+          : this.uniqueEquipmentFlag1,
+      virtualHp: data.virtualHp.present ? data.virtualHp.value : this.virtualHp,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestEnemyParameterData(')
+          ..write('enemyId: $enemyId, ')
+          ..write('unitId: $unitId, ')
+          ..write('name: $name, ')
+          ..write('level: $level, ')
+          ..write('rarity: $rarity, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('unionBurstLevel: $unionBurstLevel, ')
+          ..write('mainSkillLv1: $mainSkillLv1, ')
+          ..write('mainSkillLv2: $mainSkillLv2, ')
+          ..write('mainSkillLv3: $mainSkillLv3, ')
+          ..write('mainSkillLv4: $mainSkillLv4, ')
+          ..write('mainSkillLv5: $mainSkillLv5, ')
+          ..write('mainSkillLv6: $mainSkillLv6, ')
+          ..write('mainSkillLv7: $mainSkillLv7, ')
+          ..write('mainSkillLv8: $mainSkillLv8, ')
+          ..write('mainSkillLv9: $mainSkillLv9, ')
+          ..write('mainSkillLv10: $mainSkillLv10, ')
+          ..write('exSkillLv1: $exSkillLv1, ')
+          ..write('exSkillLv2: $exSkillLv2, ')
+          ..write('exSkillLv3: $exSkillLv3, ')
+          ..write('exSkillLv4: $exSkillLv4, ')
+          ..write('exSkillLv5: $exSkillLv5, ')
+          ..write('resistStatusId: $resistStatusId, ')
+          ..write('resistVariationId: $resistVariationId, ')
+          ..write('accuracy: $accuracy, ')
+          ..write('breakDurability: $breakDurability, ')
+          ..write('uniqueEquipmentFlag1: $uniqueEquipmentFlag1, ')
+          ..write('virtualHp: $virtualHp')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    enemyId,
+    unitId,
+    name,
+    level,
+    rarity,
+    promotionLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    unionBurstLevel,
+    mainSkillLv1,
+    mainSkillLv2,
+    mainSkillLv3,
+    mainSkillLv4,
+    mainSkillLv5,
+    mainSkillLv6,
+    mainSkillLv7,
+    mainSkillLv8,
+    mainSkillLv9,
+    mainSkillLv10,
+    exSkillLv1,
+    exSkillLv2,
+    exSkillLv3,
+    exSkillLv4,
+    exSkillLv5,
+    resistStatusId,
+    resistVariationId,
+    accuracy,
+    breakDurability,
+    uniqueEquipmentFlag1,
+    virtualHp,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TalentQuestEnemyParameterData &&
+          other.enemyId == this.enemyId &&
+          other.unitId == this.unitId &&
+          other.name == this.name &&
+          other.level == this.level &&
+          other.rarity == this.rarity &&
+          other.promotionLevel == this.promotionLevel &&
+          other.hp == this.hp &&
+          other.atk == this.atk &&
+          other.magicStr == this.magicStr &&
+          other.def_ == this.def_ &&
+          other.magicDef == this.magicDef &&
+          other.physicalCritical == this.physicalCritical &&
+          other.magicCritical == this.magicCritical &&
+          other.waveHpRecovery == this.waveHpRecovery &&
+          other.waveEnergyRecovery == this.waveEnergyRecovery &&
+          other.dodge == this.dodge &&
+          other.physicalPenetrate == this.physicalPenetrate &&
+          other.magicPenetrate == this.magicPenetrate &&
+          other.lifeSteal == this.lifeSteal &&
+          other.hpRecoveryRate == this.hpRecoveryRate &&
+          other.energyRecoveryRate == this.energyRecoveryRate &&
+          other.energyReduceRate == this.energyReduceRate &&
+          other.unionBurstLevel == this.unionBurstLevel &&
+          other.mainSkillLv1 == this.mainSkillLv1 &&
+          other.mainSkillLv2 == this.mainSkillLv2 &&
+          other.mainSkillLv3 == this.mainSkillLv3 &&
+          other.mainSkillLv4 == this.mainSkillLv4 &&
+          other.mainSkillLv5 == this.mainSkillLv5 &&
+          other.mainSkillLv6 == this.mainSkillLv6 &&
+          other.mainSkillLv7 == this.mainSkillLv7 &&
+          other.mainSkillLv8 == this.mainSkillLv8 &&
+          other.mainSkillLv9 == this.mainSkillLv9 &&
+          other.mainSkillLv10 == this.mainSkillLv10 &&
+          other.exSkillLv1 == this.exSkillLv1 &&
+          other.exSkillLv2 == this.exSkillLv2 &&
+          other.exSkillLv3 == this.exSkillLv3 &&
+          other.exSkillLv4 == this.exSkillLv4 &&
+          other.exSkillLv5 == this.exSkillLv5 &&
+          other.resistStatusId == this.resistStatusId &&
+          other.resistVariationId == this.resistVariationId &&
+          other.accuracy == this.accuracy &&
+          other.breakDurability == this.breakDurability &&
+          other.uniqueEquipmentFlag1 == this.uniqueEquipmentFlag1 &&
+          other.virtualHp == this.virtualHp);
+}
+
+class TalentQuestEnemyParameterCompanion
+    extends UpdateCompanion<TalentQuestEnemyParameterData> {
+  final Value<int> enemyId;
+  final Value<int> unitId;
+  final Value<String> name;
+  final Value<int> level;
+  final Value<int> rarity;
+  final Value<int> promotionLevel;
+  final Value<int> hp;
+  final Value<int> atk;
+  final Value<int> magicStr;
+  final Value<double> def_;
+  final Value<int> magicDef;
+  final Value<int> physicalCritical;
+  final Value<int> magicCritical;
+  final Value<int> waveHpRecovery;
+  final Value<int> waveEnergyRecovery;
+  final Value<int> dodge;
+  final Value<int> physicalPenetrate;
+  final Value<int> magicPenetrate;
+  final Value<int> lifeSteal;
+  final Value<int> hpRecoveryRate;
+  final Value<int> energyRecoveryRate;
+  final Value<int> energyReduceRate;
+  final Value<int> unionBurstLevel;
+  final Value<int> mainSkillLv1;
+  final Value<int> mainSkillLv2;
+  final Value<int> mainSkillLv3;
+  final Value<int> mainSkillLv4;
+  final Value<int> mainSkillLv5;
+  final Value<int> mainSkillLv6;
+  final Value<int> mainSkillLv7;
+  final Value<int> mainSkillLv8;
+  final Value<int> mainSkillLv9;
+  final Value<int> mainSkillLv10;
+  final Value<int> exSkillLv1;
+  final Value<int> exSkillLv2;
+  final Value<int> exSkillLv3;
+  final Value<int> exSkillLv4;
+  final Value<int> exSkillLv5;
+  final Value<int> resistStatusId;
+  final Value<int> resistVariationId;
+  final Value<int> accuracy;
+  final Value<int> breakDurability;
+  final Value<int> uniqueEquipmentFlag1;
+  final Value<int> virtualHp;
+  const TalentQuestEnemyParameterCompanion({
+    this.enemyId = const Value.absent(),
+    this.unitId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.level = const Value.absent(),
+    this.rarity = const Value.absent(),
+    this.promotionLevel = const Value.absent(),
+    this.hp = const Value.absent(),
+    this.atk = const Value.absent(),
+    this.magicStr = const Value.absent(),
+    this.def_ = const Value.absent(),
+    this.magicDef = const Value.absent(),
+    this.physicalCritical = const Value.absent(),
+    this.magicCritical = const Value.absent(),
+    this.waveHpRecovery = const Value.absent(),
+    this.waveEnergyRecovery = const Value.absent(),
+    this.dodge = const Value.absent(),
+    this.physicalPenetrate = const Value.absent(),
+    this.magicPenetrate = const Value.absent(),
+    this.lifeSteal = const Value.absent(),
+    this.hpRecoveryRate = const Value.absent(),
+    this.energyRecoveryRate = const Value.absent(),
+    this.energyReduceRate = const Value.absent(),
+    this.unionBurstLevel = const Value.absent(),
+    this.mainSkillLv1 = const Value.absent(),
+    this.mainSkillLv2 = const Value.absent(),
+    this.mainSkillLv3 = const Value.absent(),
+    this.mainSkillLv4 = const Value.absent(),
+    this.mainSkillLv5 = const Value.absent(),
+    this.mainSkillLv6 = const Value.absent(),
+    this.mainSkillLv7 = const Value.absent(),
+    this.mainSkillLv8 = const Value.absent(),
+    this.mainSkillLv9 = const Value.absent(),
+    this.mainSkillLv10 = const Value.absent(),
+    this.exSkillLv1 = const Value.absent(),
+    this.exSkillLv2 = const Value.absent(),
+    this.exSkillLv3 = const Value.absent(),
+    this.exSkillLv4 = const Value.absent(),
+    this.exSkillLv5 = const Value.absent(),
+    this.resistStatusId = const Value.absent(),
+    this.resistVariationId = const Value.absent(),
+    this.accuracy = const Value.absent(),
+    this.breakDurability = const Value.absent(),
+    this.uniqueEquipmentFlag1 = const Value.absent(),
+    this.virtualHp = const Value.absent(),
+  });
+  TalentQuestEnemyParameterCompanion.insert({
+    this.enemyId = const Value.absent(),
+    required int unitId,
+    required String name,
+    required int level,
+    required int rarity,
+    required int promotionLevel,
+    required int hp,
+    required int atk,
+    required int magicStr,
+    required double def_,
+    required int magicDef,
+    required int physicalCritical,
+    required int magicCritical,
+    required int waveHpRecovery,
+    required int waveEnergyRecovery,
+    required int dodge,
+    required int physicalPenetrate,
+    required int magicPenetrate,
+    required int lifeSteal,
+    required int hpRecoveryRate,
+    required int energyRecoveryRate,
+    required int energyReduceRate,
+    required int unionBurstLevel,
+    required int mainSkillLv1,
+    required int mainSkillLv2,
+    required int mainSkillLv3,
+    required int mainSkillLv4,
+    required int mainSkillLv5,
+    required int mainSkillLv6,
+    required int mainSkillLv7,
+    required int mainSkillLv8,
+    required int mainSkillLv9,
+    required int mainSkillLv10,
+    required int exSkillLv1,
+    required int exSkillLv2,
+    required int exSkillLv3,
+    required int exSkillLv4,
+    required int exSkillLv5,
+    required int resistStatusId,
+    required int resistVariationId,
+    required int accuracy,
+    required int breakDurability,
+    required int uniqueEquipmentFlag1,
+    required int virtualHp,
+  }) : unitId = Value(unitId),
+       name = Value(name),
+       level = Value(level),
+       rarity = Value(rarity),
+       promotionLevel = Value(promotionLevel),
+       hp = Value(hp),
+       atk = Value(atk),
+       magicStr = Value(magicStr),
+       def_ = Value(def_),
+       magicDef = Value(magicDef),
+       physicalCritical = Value(physicalCritical),
+       magicCritical = Value(magicCritical),
+       waveHpRecovery = Value(waveHpRecovery),
+       waveEnergyRecovery = Value(waveEnergyRecovery),
+       dodge = Value(dodge),
+       physicalPenetrate = Value(physicalPenetrate),
+       magicPenetrate = Value(magicPenetrate),
+       lifeSteal = Value(lifeSteal),
+       hpRecoveryRate = Value(hpRecoveryRate),
+       energyRecoveryRate = Value(energyRecoveryRate),
+       energyReduceRate = Value(energyReduceRate),
+       unionBurstLevel = Value(unionBurstLevel),
+       mainSkillLv1 = Value(mainSkillLv1),
+       mainSkillLv2 = Value(mainSkillLv2),
+       mainSkillLv3 = Value(mainSkillLv3),
+       mainSkillLv4 = Value(mainSkillLv4),
+       mainSkillLv5 = Value(mainSkillLv5),
+       mainSkillLv6 = Value(mainSkillLv6),
+       mainSkillLv7 = Value(mainSkillLv7),
+       mainSkillLv8 = Value(mainSkillLv8),
+       mainSkillLv9 = Value(mainSkillLv9),
+       mainSkillLv10 = Value(mainSkillLv10),
+       exSkillLv1 = Value(exSkillLv1),
+       exSkillLv2 = Value(exSkillLv2),
+       exSkillLv3 = Value(exSkillLv3),
+       exSkillLv4 = Value(exSkillLv4),
+       exSkillLv5 = Value(exSkillLv5),
+       resistStatusId = Value(resistStatusId),
+       resistVariationId = Value(resistVariationId),
+       accuracy = Value(accuracy),
+       breakDurability = Value(breakDurability),
+       uniqueEquipmentFlag1 = Value(uniqueEquipmentFlag1),
+       virtualHp = Value(virtualHp);
+  static Insertable<TalentQuestEnemyParameterData> custom({
+    Expression<int>? enemyId,
+    Expression<int>? unitId,
+    Expression<String>? name,
+    Expression<int>? level,
+    Expression<int>? rarity,
+    Expression<int>? promotionLevel,
+    Expression<int>? hp,
+    Expression<int>? atk,
+    Expression<int>? magicStr,
+    Expression<double>? def_,
+    Expression<int>? magicDef,
+    Expression<int>? physicalCritical,
+    Expression<int>? magicCritical,
+    Expression<int>? waveHpRecovery,
+    Expression<int>? waveEnergyRecovery,
+    Expression<int>? dodge,
+    Expression<int>? physicalPenetrate,
+    Expression<int>? magicPenetrate,
+    Expression<int>? lifeSteal,
+    Expression<int>? hpRecoveryRate,
+    Expression<int>? energyRecoveryRate,
+    Expression<int>? energyReduceRate,
+    Expression<int>? unionBurstLevel,
+    Expression<int>? mainSkillLv1,
+    Expression<int>? mainSkillLv2,
+    Expression<int>? mainSkillLv3,
+    Expression<int>? mainSkillLv4,
+    Expression<int>? mainSkillLv5,
+    Expression<int>? mainSkillLv6,
+    Expression<int>? mainSkillLv7,
+    Expression<int>? mainSkillLv8,
+    Expression<int>? mainSkillLv9,
+    Expression<int>? mainSkillLv10,
+    Expression<int>? exSkillLv1,
+    Expression<int>? exSkillLv2,
+    Expression<int>? exSkillLv3,
+    Expression<int>? exSkillLv4,
+    Expression<int>? exSkillLv5,
+    Expression<int>? resistStatusId,
+    Expression<int>? resistVariationId,
+    Expression<int>? accuracy,
+    Expression<int>? breakDurability,
+    Expression<int>? uniqueEquipmentFlag1,
+    Expression<int>? virtualHp,
+  }) {
+    return RawValuesInsertable({
+      if (enemyId != null) 'enemy_id': enemyId,
+      if (unitId != null) 'unit_id': unitId,
+      if (name != null) 'name': name,
+      if (level != null) 'level': level,
+      if (rarity != null) 'rarity': rarity,
+      if (promotionLevel != null) 'promotion_level': promotionLevel,
+      if (hp != null) 'hp': hp,
+      if (atk != null) 'atk': atk,
+      if (magicStr != null) 'magic_str': magicStr,
+      if (def_ != null) 'def': def_,
+      if (magicDef != null) 'magic_def': magicDef,
+      if (physicalCritical != null) 'physical_critical': physicalCritical,
+      if (magicCritical != null) 'magic_critical': magicCritical,
+      if (waveHpRecovery != null) 'wave_hp_recovery': waveHpRecovery,
+      if (waveEnergyRecovery != null)
+        'wave_energy_recovery': waveEnergyRecovery,
+      if (dodge != null) 'dodge': dodge,
+      if (physicalPenetrate != null) 'physical_penetrate': physicalPenetrate,
+      if (magicPenetrate != null) 'magic_penetrate': magicPenetrate,
+      if (lifeSteal != null) 'life_steal': lifeSteal,
+      if (hpRecoveryRate != null) 'hp_recovery_rate': hpRecoveryRate,
+      if (energyRecoveryRate != null)
+        'energy_recovery_rate': energyRecoveryRate,
+      if (energyReduceRate != null) 'energy_reduce_rate': energyReduceRate,
+      if (unionBurstLevel != null) 'union_burst_level': unionBurstLevel,
+      if (mainSkillLv1 != null) 'main_skill_lv_1': mainSkillLv1,
+      if (mainSkillLv2 != null) 'main_skill_lv_2': mainSkillLv2,
+      if (mainSkillLv3 != null) 'main_skill_lv_3': mainSkillLv3,
+      if (mainSkillLv4 != null) 'main_skill_lv_4': mainSkillLv4,
+      if (mainSkillLv5 != null) 'main_skill_lv_5': mainSkillLv5,
+      if (mainSkillLv6 != null) 'main_skill_lv_6': mainSkillLv6,
+      if (mainSkillLv7 != null) 'main_skill_lv_7': mainSkillLv7,
+      if (mainSkillLv8 != null) 'main_skill_lv_8': mainSkillLv8,
+      if (mainSkillLv9 != null) 'main_skill_lv_9': mainSkillLv9,
+      if (mainSkillLv10 != null) 'main_skill_lv_10': mainSkillLv10,
+      if (exSkillLv1 != null) 'ex_skill_lv_1': exSkillLv1,
+      if (exSkillLv2 != null) 'ex_skill_lv_2': exSkillLv2,
+      if (exSkillLv3 != null) 'ex_skill_lv_3': exSkillLv3,
+      if (exSkillLv4 != null) 'ex_skill_lv_4': exSkillLv4,
+      if (exSkillLv5 != null) 'ex_skill_lv_5': exSkillLv5,
+      if (resistStatusId != null) 'resist_status_id': resistStatusId,
+      if (resistVariationId != null) 'resist_variation_id': resistVariationId,
+      if (accuracy != null) 'accuracy': accuracy,
+      if (breakDurability != null) 'break_durability': breakDurability,
+      if (uniqueEquipmentFlag1 != null)
+        'unique_equipment_flag_1': uniqueEquipmentFlag1,
+      if (virtualHp != null) 'virtual_hp': virtualHp,
+    });
+  }
+
+  TalentQuestEnemyParameterCompanion copyWith({
+    Value<int>? enemyId,
+    Value<int>? unitId,
+    Value<String>? name,
+    Value<int>? level,
+    Value<int>? rarity,
+    Value<int>? promotionLevel,
+    Value<int>? hp,
+    Value<int>? atk,
+    Value<int>? magicStr,
+    Value<double>? def_,
+    Value<int>? magicDef,
+    Value<int>? physicalCritical,
+    Value<int>? magicCritical,
+    Value<int>? waveHpRecovery,
+    Value<int>? waveEnergyRecovery,
+    Value<int>? dodge,
+    Value<int>? physicalPenetrate,
+    Value<int>? magicPenetrate,
+    Value<int>? lifeSteal,
+    Value<int>? hpRecoveryRate,
+    Value<int>? energyRecoveryRate,
+    Value<int>? energyReduceRate,
+    Value<int>? unionBurstLevel,
+    Value<int>? mainSkillLv1,
+    Value<int>? mainSkillLv2,
+    Value<int>? mainSkillLv3,
+    Value<int>? mainSkillLv4,
+    Value<int>? mainSkillLv5,
+    Value<int>? mainSkillLv6,
+    Value<int>? mainSkillLv7,
+    Value<int>? mainSkillLv8,
+    Value<int>? mainSkillLv9,
+    Value<int>? mainSkillLv10,
+    Value<int>? exSkillLv1,
+    Value<int>? exSkillLv2,
+    Value<int>? exSkillLv3,
+    Value<int>? exSkillLv4,
+    Value<int>? exSkillLv5,
+    Value<int>? resistStatusId,
+    Value<int>? resistVariationId,
+    Value<int>? accuracy,
+    Value<int>? breakDurability,
+    Value<int>? uniqueEquipmentFlag1,
+    Value<int>? virtualHp,
+  }) {
+    return TalentQuestEnemyParameterCompanion(
+      enemyId: enemyId ?? this.enemyId,
+      unitId: unitId ?? this.unitId,
+      name: name ?? this.name,
+      level: level ?? this.level,
+      rarity: rarity ?? this.rarity,
+      promotionLevel: promotionLevel ?? this.promotionLevel,
+      hp: hp ?? this.hp,
+      atk: atk ?? this.atk,
+      magicStr: magicStr ?? this.magicStr,
+      def_: def_ ?? this.def_,
+      magicDef: magicDef ?? this.magicDef,
+      physicalCritical: physicalCritical ?? this.physicalCritical,
+      magicCritical: magicCritical ?? this.magicCritical,
+      waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+      waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+      dodge: dodge ?? this.dodge,
+      physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+      magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+      lifeSteal: lifeSteal ?? this.lifeSteal,
+      hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+      energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+      energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+      unionBurstLevel: unionBurstLevel ?? this.unionBurstLevel,
+      mainSkillLv1: mainSkillLv1 ?? this.mainSkillLv1,
+      mainSkillLv2: mainSkillLv2 ?? this.mainSkillLv2,
+      mainSkillLv3: mainSkillLv3 ?? this.mainSkillLv3,
+      mainSkillLv4: mainSkillLv4 ?? this.mainSkillLv4,
+      mainSkillLv5: mainSkillLv5 ?? this.mainSkillLv5,
+      mainSkillLv6: mainSkillLv6 ?? this.mainSkillLv6,
+      mainSkillLv7: mainSkillLv7 ?? this.mainSkillLv7,
+      mainSkillLv8: mainSkillLv8 ?? this.mainSkillLv8,
+      mainSkillLv9: mainSkillLv9 ?? this.mainSkillLv9,
+      mainSkillLv10: mainSkillLv10 ?? this.mainSkillLv10,
+      exSkillLv1: exSkillLv1 ?? this.exSkillLv1,
+      exSkillLv2: exSkillLv2 ?? this.exSkillLv2,
+      exSkillLv3: exSkillLv3 ?? this.exSkillLv3,
+      exSkillLv4: exSkillLv4 ?? this.exSkillLv4,
+      exSkillLv5: exSkillLv5 ?? this.exSkillLv5,
+      resistStatusId: resistStatusId ?? this.resistStatusId,
+      resistVariationId: resistVariationId ?? this.resistVariationId,
+      accuracy: accuracy ?? this.accuracy,
+      breakDurability: breakDurability ?? this.breakDurability,
+      uniqueEquipmentFlag1: uniqueEquipmentFlag1 ?? this.uniqueEquipmentFlag1,
+      virtualHp: virtualHp ?? this.virtualHp,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (enemyId.present) {
+      map['enemy_id'] = Variable<int>(enemyId.value);
+    }
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (level.present) {
+      map['level'] = Variable<int>(level.value);
+    }
+    if (rarity.present) {
+      map['rarity'] = Variable<int>(rarity.value);
+    }
+    if (promotionLevel.present) {
+      map['promotion_level'] = Variable<int>(promotionLevel.value);
+    }
+    if (hp.present) {
+      map['hp'] = Variable<int>(hp.value);
+    }
+    if (atk.present) {
+      map['atk'] = Variable<int>(atk.value);
+    }
+    if (magicStr.present) {
+      map['magic_str'] = Variable<int>(magicStr.value);
+    }
+    if (def_.present) {
+      map['def'] = Variable<double>(def_.value);
+    }
+    if (magicDef.present) {
+      map['magic_def'] = Variable<int>(magicDef.value);
+    }
+    if (physicalCritical.present) {
+      map['physical_critical'] = Variable<int>(physicalCritical.value);
+    }
+    if (magicCritical.present) {
+      map['magic_critical'] = Variable<int>(magicCritical.value);
+    }
+    if (waveHpRecovery.present) {
+      map['wave_hp_recovery'] = Variable<int>(waveHpRecovery.value);
+    }
+    if (waveEnergyRecovery.present) {
+      map['wave_energy_recovery'] = Variable<int>(waveEnergyRecovery.value);
+    }
+    if (dodge.present) {
+      map['dodge'] = Variable<int>(dodge.value);
+    }
+    if (physicalPenetrate.present) {
+      map['physical_penetrate'] = Variable<int>(physicalPenetrate.value);
+    }
+    if (magicPenetrate.present) {
+      map['magic_penetrate'] = Variable<int>(magicPenetrate.value);
+    }
+    if (lifeSteal.present) {
+      map['life_steal'] = Variable<int>(lifeSteal.value);
+    }
+    if (hpRecoveryRate.present) {
+      map['hp_recovery_rate'] = Variable<int>(hpRecoveryRate.value);
+    }
+    if (energyRecoveryRate.present) {
+      map['energy_recovery_rate'] = Variable<int>(energyRecoveryRate.value);
+    }
+    if (energyReduceRate.present) {
+      map['energy_reduce_rate'] = Variable<int>(energyReduceRate.value);
+    }
+    if (unionBurstLevel.present) {
+      map['union_burst_level'] = Variable<int>(unionBurstLevel.value);
+    }
+    if (mainSkillLv1.present) {
+      map['main_skill_lv_1'] = Variable<int>(mainSkillLv1.value);
+    }
+    if (mainSkillLv2.present) {
+      map['main_skill_lv_2'] = Variable<int>(mainSkillLv2.value);
+    }
+    if (mainSkillLv3.present) {
+      map['main_skill_lv_3'] = Variable<int>(mainSkillLv3.value);
+    }
+    if (mainSkillLv4.present) {
+      map['main_skill_lv_4'] = Variable<int>(mainSkillLv4.value);
+    }
+    if (mainSkillLv5.present) {
+      map['main_skill_lv_5'] = Variable<int>(mainSkillLv5.value);
+    }
+    if (mainSkillLv6.present) {
+      map['main_skill_lv_6'] = Variable<int>(mainSkillLv6.value);
+    }
+    if (mainSkillLv7.present) {
+      map['main_skill_lv_7'] = Variable<int>(mainSkillLv7.value);
+    }
+    if (mainSkillLv8.present) {
+      map['main_skill_lv_8'] = Variable<int>(mainSkillLv8.value);
+    }
+    if (mainSkillLv9.present) {
+      map['main_skill_lv_9'] = Variable<int>(mainSkillLv9.value);
+    }
+    if (mainSkillLv10.present) {
+      map['main_skill_lv_10'] = Variable<int>(mainSkillLv10.value);
+    }
+    if (exSkillLv1.present) {
+      map['ex_skill_lv_1'] = Variable<int>(exSkillLv1.value);
+    }
+    if (exSkillLv2.present) {
+      map['ex_skill_lv_2'] = Variable<int>(exSkillLv2.value);
+    }
+    if (exSkillLv3.present) {
+      map['ex_skill_lv_3'] = Variable<int>(exSkillLv3.value);
+    }
+    if (exSkillLv4.present) {
+      map['ex_skill_lv_4'] = Variable<int>(exSkillLv4.value);
+    }
+    if (exSkillLv5.present) {
+      map['ex_skill_lv_5'] = Variable<int>(exSkillLv5.value);
+    }
+    if (resistStatusId.present) {
+      map['resist_status_id'] = Variable<int>(resistStatusId.value);
+    }
+    if (resistVariationId.present) {
+      map['resist_variation_id'] = Variable<int>(resistVariationId.value);
+    }
+    if (accuracy.present) {
+      map['accuracy'] = Variable<int>(accuracy.value);
+    }
+    if (breakDurability.present) {
+      map['break_durability'] = Variable<int>(breakDurability.value);
+    }
+    if (uniqueEquipmentFlag1.present) {
+      map['unique_equipment_flag_1'] = Variable<int>(
+        uniqueEquipmentFlag1.value,
+      );
+    }
+    if (virtualHp.present) {
+      map['virtual_hp'] = Variable<int>(virtualHp.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestEnemyParameterCompanion(')
+          ..write('enemyId: $enemyId, ')
+          ..write('unitId: $unitId, ')
+          ..write('name: $name, ')
+          ..write('level: $level, ')
+          ..write('rarity: $rarity, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('unionBurstLevel: $unionBurstLevel, ')
+          ..write('mainSkillLv1: $mainSkillLv1, ')
+          ..write('mainSkillLv2: $mainSkillLv2, ')
+          ..write('mainSkillLv3: $mainSkillLv3, ')
+          ..write('mainSkillLv4: $mainSkillLv4, ')
+          ..write('mainSkillLv5: $mainSkillLv5, ')
+          ..write('mainSkillLv6: $mainSkillLv6, ')
+          ..write('mainSkillLv7: $mainSkillLv7, ')
+          ..write('mainSkillLv8: $mainSkillLv8, ')
+          ..write('mainSkillLv9: $mainSkillLv9, ')
+          ..write('mainSkillLv10: $mainSkillLv10, ')
+          ..write('exSkillLv1: $exSkillLv1, ')
+          ..write('exSkillLv2: $exSkillLv2, ')
+          ..write('exSkillLv3: $exSkillLv3, ')
+          ..write('exSkillLv4: $exSkillLv4, ')
+          ..write('exSkillLv5: $exSkillLv5, ')
+          ..write('resistStatusId: $resistStatusId, ')
+          ..write('resistVariationId: $resistVariationId, ')
+          ..write('accuracy: $accuracy, ')
+          ..write('breakDurability: $breakDurability, ')
+          ..write('uniqueEquipmentFlag1: $uniqueEquipmentFlag1, ')
+          ..write('virtualHp: $virtualHp')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $ShioriEnemyParameterTable extends ShioriEnemyParameter
+    with TableInfo<$ShioriEnemyParameterTable, ShioriEnemyParameterData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ShioriEnemyParameterTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _enemyIdMeta = const VerificationMeta(
+    'enemyId',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId = GeneratedColumn<int>(
+    'enemy_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _levelMeta = const VerificationMeta('level');
+  @override
+  late final GeneratedColumn<int> level = GeneratedColumn<int>(
+    'level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rarityMeta = const VerificationMeta('rarity');
+  @override
+  late final GeneratedColumn<int> rarity = GeneratedColumn<int>(
+    'rarity',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _promotionLevelMeta = const VerificationMeta(
+    'promotionLevel',
+  );
+  @override
+  late final GeneratedColumn<int> promotionLevel = GeneratedColumn<int>(
+    'promotion_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpMeta = const VerificationMeta('hp');
+  @override
+  late final GeneratedColumn<int> hp = GeneratedColumn<int>(
+    'hp',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _atkMeta = const VerificationMeta('atk');
+  @override
+  late final GeneratedColumn<int> atk = GeneratedColumn<int>(
+    'atk',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicStrMeta = const VerificationMeta(
+    'magicStr',
+  );
+  @override
+  late final GeneratedColumn<int> magicStr = GeneratedColumn<int>(
+    'magic_str',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _def_Meta = const VerificationMeta('def_');
+  @override
+  late final GeneratedColumn<double> def_ = GeneratedColumn<double>(
+    'def',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicDefMeta = const VerificationMeta(
+    'magicDef',
+  );
+  @override
+  late final GeneratedColumn<int> magicDef = GeneratedColumn<int>(
+    'magic_def',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalCriticalMeta = const VerificationMeta(
+    'physicalCritical',
+  );
+  @override
+  late final GeneratedColumn<int> physicalCritical = GeneratedColumn<int>(
+    'physical_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicCriticalMeta = const VerificationMeta(
+    'magicCritical',
+  );
+  @override
+  late final GeneratedColumn<int> magicCritical = GeneratedColumn<int>(
+    'magic_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveHpRecoveryMeta = const VerificationMeta(
+    'waveHpRecovery',
+  );
+  @override
+  late final GeneratedColumn<int> waveHpRecovery = GeneratedColumn<int>(
+    'wave_hp_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveEnergyRecoveryMeta =
+      const VerificationMeta('waveEnergyRecovery');
+  @override
+  late final GeneratedColumn<int> waveEnergyRecovery = GeneratedColumn<int>(
+    'wave_energy_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dodgeMeta = const VerificationMeta('dodge');
+  @override
+  late final GeneratedColumn<int> dodge = GeneratedColumn<int>(
+    'dodge',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalPenetrateMeta = const VerificationMeta(
+    'physicalPenetrate',
+  );
+  @override
+  late final GeneratedColumn<int> physicalPenetrate = GeneratedColumn<int>(
+    'physical_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicPenetrateMeta = const VerificationMeta(
+    'magicPenetrate',
+  );
+  @override
+  late final GeneratedColumn<int> magicPenetrate = GeneratedColumn<int>(
+    'magic_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _lifeStealMeta = const VerificationMeta(
+    'lifeSteal',
+  );
+  @override
+  late final GeneratedColumn<int> lifeSteal = GeneratedColumn<int>(
+    'life_steal',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpRecoveryRateMeta = const VerificationMeta(
+    'hpRecoveryRate',
+  );
+  @override
+  late final GeneratedColumn<int> hpRecoveryRate = GeneratedColumn<int>(
+    'hp_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyRecoveryRateMeta =
+      const VerificationMeta('energyRecoveryRate');
+  @override
+  late final GeneratedColumn<int> energyRecoveryRate = GeneratedColumn<int>(
+    'energy_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyReduceRateMeta = const VerificationMeta(
+    'energyReduceRate',
+  );
+  @override
+  late final GeneratedColumn<int> energyReduceRate = GeneratedColumn<int>(
+    'energy_reduce_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _unionBurstLevelMeta = const VerificationMeta(
+    'unionBurstLevel',
+  );
+  @override
+  late final GeneratedColumn<int> unionBurstLevel = GeneratedColumn<int>(
+    'union_burst_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv1Meta = const VerificationMeta(
+    'mainSkillLv1',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv1 = GeneratedColumn<int>(
+    'main_skill_lv_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv2Meta = const VerificationMeta(
+    'mainSkillLv2',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv2 = GeneratedColumn<int>(
+    'main_skill_lv_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv3Meta = const VerificationMeta(
+    'mainSkillLv3',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv3 = GeneratedColumn<int>(
+    'main_skill_lv_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv4Meta = const VerificationMeta(
+    'mainSkillLv4',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv4 = GeneratedColumn<int>(
+    'main_skill_lv_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv5Meta = const VerificationMeta(
+    'mainSkillLv5',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv5 = GeneratedColumn<int>(
+    'main_skill_lv_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv6Meta = const VerificationMeta(
+    'mainSkillLv6',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv6 = GeneratedColumn<int>(
+    'main_skill_lv_6',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv7Meta = const VerificationMeta(
+    'mainSkillLv7',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv7 = GeneratedColumn<int>(
+    'main_skill_lv_7',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv8Meta = const VerificationMeta(
+    'mainSkillLv8',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv8 = GeneratedColumn<int>(
+    'main_skill_lv_8',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv9Meta = const VerificationMeta(
+    'mainSkillLv9',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv9 = GeneratedColumn<int>(
+    'main_skill_lv_9',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv10Meta = const VerificationMeta(
+    'mainSkillLv10',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv10 = GeneratedColumn<int>(
+    'main_skill_lv_10',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv1Meta = const VerificationMeta(
+    'exSkillLv1',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv1 = GeneratedColumn<int>(
+    'ex_skill_lv_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv2Meta = const VerificationMeta(
+    'exSkillLv2',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv2 = GeneratedColumn<int>(
+    'ex_skill_lv_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv3Meta = const VerificationMeta(
+    'exSkillLv3',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv3 = GeneratedColumn<int>(
+    'ex_skill_lv_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv4Meta = const VerificationMeta(
+    'exSkillLv4',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv4 = GeneratedColumn<int>(
+    'ex_skill_lv_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv5Meta = const VerificationMeta(
+    'exSkillLv5',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv5 = GeneratedColumn<int>(
+    'ex_skill_lv_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resistStatusIdMeta = const VerificationMeta(
+    'resistStatusId',
+  );
+  @override
+  late final GeneratedColumn<int> resistStatusId = GeneratedColumn<int>(
+    'resist_status_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resistVariationIdMeta = const VerificationMeta(
+    'resistVariationId',
+  );
+  @override
+  late final GeneratedColumn<int> resistVariationId = GeneratedColumn<int>(
+    'resist_variation_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _accuracyMeta = const VerificationMeta(
+    'accuracy',
+  );
+  @override
+  late final GeneratedColumn<int> accuracy = GeneratedColumn<int>(
+    'accuracy',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    enemyId,
+    unitId,
+    level,
+    rarity,
+    promotionLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    unionBurstLevel,
+    mainSkillLv1,
+    mainSkillLv2,
+    mainSkillLv3,
+    mainSkillLv4,
+    mainSkillLv5,
+    mainSkillLv6,
+    mainSkillLv7,
+    mainSkillLv8,
+    mainSkillLv9,
+    mainSkillLv10,
+    exSkillLv1,
+    exSkillLv2,
+    exSkillLv3,
+    exSkillLv4,
+    exSkillLv5,
+    resistStatusId,
+    resistVariationId,
+    accuracy,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'shiori_enemy_parameter';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ShioriEnemyParameterData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('enemy_id')) {
+      context.handle(
+        _enemyIdMeta,
+        enemyId.isAcceptableOrUnknown(data['enemy_id']!, _enemyIdMeta),
+      );
+    }
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('level')) {
+      context.handle(
+        _levelMeta,
+        level.isAcceptableOrUnknown(data['level']!, _levelMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_levelMeta);
+    }
+    if (data.containsKey('rarity')) {
+      context.handle(
+        _rarityMeta,
+        rarity.isAcceptableOrUnknown(data['rarity']!, _rarityMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_rarityMeta);
+    }
+    if (data.containsKey('promotion_level')) {
+      context.handle(
+        _promotionLevelMeta,
+        promotionLevel.isAcceptableOrUnknown(
+          data['promotion_level']!,
+          _promotionLevelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_promotionLevelMeta);
+    }
+    if (data.containsKey('hp')) {
+      context.handle(_hpMeta, hp.isAcceptableOrUnknown(data['hp']!, _hpMeta));
+    } else if (isInserting) {
+      context.missing(_hpMeta);
+    }
+    if (data.containsKey('atk')) {
+      context.handle(
+        _atkMeta,
+        atk.isAcceptableOrUnknown(data['atk']!, _atkMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_atkMeta);
+    }
+    if (data.containsKey('magic_str')) {
+      context.handle(
+        _magicStrMeta,
+        magicStr.isAcceptableOrUnknown(data['magic_str']!, _magicStrMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicStrMeta);
+    }
+    if (data.containsKey('def')) {
+      context.handle(
+        _def_Meta,
+        def_.isAcceptableOrUnknown(data['def']!, _def_Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_def_Meta);
+    }
+    if (data.containsKey('magic_def')) {
+      context.handle(
+        _magicDefMeta,
+        magicDef.isAcceptableOrUnknown(data['magic_def']!, _magicDefMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicDefMeta);
+    }
+    if (data.containsKey('physical_critical')) {
+      context.handle(
+        _physicalCriticalMeta,
+        physicalCritical.isAcceptableOrUnknown(
+          data['physical_critical']!,
+          _physicalCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalCriticalMeta);
+    }
+    if (data.containsKey('magic_critical')) {
+      context.handle(
+        _magicCriticalMeta,
+        magicCritical.isAcceptableOrUnknown(
+          data['magic_critical']!,
+          _magicCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicCriticalMeta);
+    }
+    if (data.containsKey('wave_hp_recovery')) {
+      context.handle(
+        _waveHpRecoveryMeta,
+        waveHpRecovery.isAcceptableOrUnknown(
+          data['wave_hp_recovery']!,
+          _waveHpRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveHpRecoveryMeta);
+    }
+    if (data.containsKey('wave_energy_recovery')) {
+      context.handle(
+        _waveEnergyRecoveryMeta,
+        waveEnergyRecovery.isAcceptableOrUnknown(
+          data['wave_energy_recovery']!,
+          _waveEnergyRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveEnergyRecoveryMeta);
+    }
+    if (data.containsKey('dodge')) {
+      context.handle(
+        _dodgeMeta,
+        dodge.isAcceptableOrUnknown(data['dodge']!, _dodgeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dodgeMeta);
+    }
+    if (data.containsKey('physical_penetrate')) {
+      context.handle(
+        _physicalPenetrateMeta,
+        physicalPenetrate.isAcceptableOrUnknown(
+          data['physical_penetrate']!,
+          _physicalPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalPenetrateMeta);
+    }
+    if (data.containsKey('magic_penetrate')) {
+      context.handle(
+        _magicPenetrateMeta,
+        magicPenetrate.isAcceptableOrUnknown(
+          data['magic_penetrate']!,
+          _magicPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicPenetrateMeta);
+    }
+    if (data.containsKey('life_steal')) {
+      context.handle(
+        _lifeStealMeta,
+        lifeSteal.isAcceptableOrUnknown(data['life_steal']!, _lifeStealMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_lifeStealMeta);
+    }
+    if (data.containsKey('hp_recovery_rate')) {
+      context.handle(
+        _hpRecoveryRateMeta,
+        hpRecoveryRate.isAcceptableOrUnknown(
+          data['hp_recovery_rate']!,
+          _hpRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_hpRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_recovery_rate')) {
+      context.handle(
+        _energyRecoveryRateMeta,
+        energyRecoveryRate.isAcceptableOrUnknown(
+          data['energy_recovery_rate']!,
+          _energyRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_reduce_rate')) {
+      context.handle(
+        _energyReduceRateMeta,
+        energyReduceRate.isAcceptableOrUnknown(
+          data['energy_reduce_rate']!,
+          _energyReduceRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyReduceRateMeta);
+    }
+    if (data.containsKey('union_burst_level')) {
+      context.handle(
+        _unionBurstLevelMeta,
+        unionBurstLevel.isAcceptableOrUnknown(
+          data['union_burst_level']!,
+          _unionBurstLevelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_unionBurstLevelMeta);
+    }
+    if (data.containsKey('main_skill_lv_1')) {
+      context.handle(
+        _mainSkillLv1Meta,
+        mainSkillLv1.isAcceptableOrUnknown(
+          data['main_skill_lv_1']!,
+          _mainSkillLv1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv1Meta);
+    }
+    if (data.containsKey('main_skill_lv_2')) {
+      context.handle(
+        _mainSkillLv2Meta,
+        mainSkillLv2.isAcceptableOrUnknown(
+          data['main_skill_lv_2']!,
+          _mainSkillLv2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv2Meta);
+    }
+    if (data.containsKey('main_skill_lv_3')) {
+      context.handle(
+        _mainSkillLv3Meta,
+        mainSkillLv3.isAcceptableOrUnknown(
+          data['main_skill_lv_3']!,
+          _mainSkillLv3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv3Meta);
+    }
+    if (data.containsKey('main_skill_lv_4')) {
+      context.handle(
+        _mainSkillLv4Meta,
+        mainSkillLv4.isAcceptableOrUnknown(
+          data['main_skill_lv_4']!,
+          _mainSkillLv4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv4Meta);
+    }
+    if (data.containsKey('main_skill_lv_5')) {
+      context.handle(
+        _mainSkillLv5Meta,
+        mainSkillLv5.isAcceptableOrUnknown(
+          data['main_skill_lv_5']!,
+          _mainSkillLv5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv5Meta);
+    }
+    if (data.containsKey('main_skill_lv_6')) {
+      context.handle(
+        _mainSkillLv6Meta,
+        mainSkillLv6.isAcceptableOrUnknown(
+          data['main_skill_lv_6']!,
+          _mainSkillLv6Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv6Meta);
+    }
+    if (data.containsKey('main_skill_lv_7')) {
+      context.handle(
+        _mainSkillLv7Meta,
+        mainSkillLv7.isAcceptableOrUnknown(
+          data['main_skill_lv_7']!,
+          _mainSkillLv7Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv7Meta);
+    }
+    if (data.containsKey('main_skill_lv_8')) {
+      context.handle(
+        _mainSkillLv8Meta,
+        mainSkillLv8.isAcceptableOrUnknown(
+          data['main_skill_lv_8']!,
+          _mainSkillLv8Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv8Meta);
+    }
+    if (data.containsKey('main_skill_lv_9')) {
+      context.handle(
+        _mainSkillLv9Meta,
+        mainSkillLv9.isAcceptableOrUnknown(
+          data['main_skill_lv_9']!,
+          _mainSkillLv9Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv9Meta);
+    }
+    if (data.containsKey('main_skill_lv_10')) {
+      context.handle(
+        _mainSkillLv10Meta,
+        mainSkillLv10.isAcceptableOrUnknown(
+          data['main_skill_lv_10']!,
+          _mainSkillLv10Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv10Meta);
+    }
+    if (data.containsKey('ex_skill_lv_1')) {
+      context.handle(
+        _exSkillLv1Meta,
+        exSkillLv1.isAcceptableOrUnknown(
+          data['ex_skill_lv_1']!,
+          _exSkillLv1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv1Meta);
+    }
+    if (data.containsKey('ex_skill_lv_2')) {
+      context.handle(
+        _exSkillLv2Meta,
+        exSkillLv2.isAcceptableOrUnknown(
+          data['ex_skill_lv_2']!,
+          _exSkillLv2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv2Meta);
+    }
+    if (data.containsKey('ex_skill_lv_3')) {
+      context.handle(
+        _exSkillLv3Meta,
+        exSkillLv3.isAcceptableOrUnknown(
+          data['ex_skill_lv_3']!,
+          _exSkillLv3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv3Meta);
+    }
+    if (data.containsKey('ex_skill_lv_4')) {
+      context.handle(
+        _exSkillLv4Meta,
+        exSkillLv4.isAcceptableOrUnknown(
+          data['ex_skill_lv_4']!,
+          _exSkillLv4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv4Meta);
+    }
+    if (data.containsKey('ex_skill_lv_5')) {
+      context.handle(
+        _exSkillLv5Meta,
+        exSkillLv5.isAcceptableOrUnknown(
+          data['ex_skill_lv_5']!,
+          _exSkillLv5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv5Meta);
+    }
+    if (data.containsKey('resist_status_id')) {
+      context.handle(
+        _resistStatusIdMeta,
+        resistStatusId.isAcceptableOrUnknown(
+          data['resist_status_id']!,
+          _resistStatusIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resistStatusIdMeta);
+    }
+    if (data.containsKey('resist_variation_id')) {
+      context.handle(
+        _resistVariationIdMeta,
+        resistVariationId.isAcceptableOrUnknown(
+          data['resist_variation_id']!,
+          _resistVariationIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resistVariationIdMeta);
+    }
+    if (data.containsKey('accuracy')) {
+      context.handle(
+        _accuracyMeta,
+        accuracy.isAcceptableOrUnknown(data['accuracy']!, _accuracyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_accuracyMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {enemyId};
+  @override
+  ShioriEnemyParameterData map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ShioriEnemyParameterData(
+      enemyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id'],
+      )!,
+      unitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unit_id'],
+      )!,
+      level: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}level'],
+      )!,
+      rarity: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}rarity'],
+      )!,
+      promotionLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}promotion_level'],
+      )!,
+      hp: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hp'],
+      )!,
+      atk: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk'],
+      )!,
+      magicStr: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_str'],
+      )!,
+      def_: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}def'],
+      )!,
+      magicDef: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_def'],
+      )!,
+      physicalCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}physical_critical'],
+      )!,
+      magicCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_critical'],
+      )!,
+      waveHpRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_hp_recovery'],
+      )!,
+      waveEnergyRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_energy_recovery'],
+      )!,
+      dodge: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}dodge'],
+      )!,
+      physicalPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}physical_penetrate'],
+      )!,
+      magicPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_penetrate'],
+      )!,
+      lifeSteal: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}life_steal'],
+      )!,
+      hpRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hp_recovery_rate'],
+      )!,
+      energyRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy_recovery_rate'],
+      )!,
+      energyReduceRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy_reduce_rate'],
+      )!,
+      unionBurstLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}union_burst_level'],
+      )!,
+      mainSkillLv1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_1'],
+      )!,
+      mainSkillLv2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_2'],
+      )!,
+      mainSkillLv3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_3'],
+      )!,
+      mainSkillLv4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_4'],
+      )!,
+      mainSkillLv5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_5'],
+      )!,
+      mainSkillLv6: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_6'],
+      )!,
+      mainSkillLv7: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_7'],
+      )!,
+      mainSkillLv8: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_8'],
+      )!,
+      mainSkillLv9: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_9'],
+      )!,
+      mainSkillLv10: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_10'],
+      )!,
+      exSkillLv1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_1'],
+      )!,
+      exSkillLv2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_2'],
+      )!,
+      exSkillLv3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_3'],
+      )!,
+      exSkillLv4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_4'],
+      )!,
+      exSkillLv5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_5'],
+      )!,
+      resistStatusId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resist_status_id'],
+      )!,
+      resistVariationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resist_variation_id'],
+      )!,
+      accuracy: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}accuracy'],
+      )!,
+    );
+  }
+
+  @override
+  $ShioriEnemyParameterTable createAlias(String alias) {
+    return $ShioriEnemyParameterTable(attachedDatabase, alias);
+  }
+}
+
+class ShioriEnemyParameterData extends DataClass
+    implements Insertable<ShioriEnemyParameterData> {
+  final int enemyId;
+  final int unitId;
+  final int level;
+  final int rarity;
+  final int promotionLevel;
+  final int hp;
+  final int atk;
+  final int magicStr;
+  final double def_;
+  final int magicDef;
+  final int physicalCritical;
+  final int magicCritical;
+  final int waveHpRecovery;
+  final int waveEnergyRecovery;
+  final int dodge;
+  final int physicalPenetrate;
+  final int magicPenetrate;
+  final int lifeSteal;
+  final int hpRecoveryRate;
+  final int energyRecoveryRate;
+  final int energyReduceRate;
+  final int unionBurstLevel;
+  final int mainSkillLv1;
+  final int mainSkillLv2;
+  final int mainSkillLv3;
+  final int mainSkillLv4;
+  final int mainSkillLv5;
+  final int mainSkillLv6;
+  final int mainSkillLv7;
+  final int mainSkillLv8;
+  final int mainSkillLv9;
+  final int mainSkillLv10;
+  final int exSkillLv1;
+  final int exSkillLv2;
+  final int exSkillLv3;
+  final int exSkillLv4;
+  final int exSkillLv5;
+  final int resistStatusId;
+  final int resistVariationId;
+  final int accuracy;
+  const ShioriEnemyParameterData({
+    required this.enemyId,
+    required this.unitId,
+    required this.level,
+    required this.rarity,
+    required this.promotionLevel,
+    required this.hp,
+    required this.atk,
+    required this.magicStr,
+    required this.def_,
+    required this.magicDef,
+    required this.physicalCritical,
+    required this.magicCritical,
+    required this.waveHpRecovery,
+    required this.waveEnergyRecovery,
+    required this.dodge,
+    required this.physicalPenetrate,
+    required this.magicPenetrate,
+    required this.lifeSteal,
+    required this.hpRecoveryRate,
+    required this.energyRecoveryRate,
+    required this.energyReduceRate,
+    required this.unionBurstLevel,
+    required this.mainSkillLv1,
+    required this.mainSkillLv2,
+    required this.mainSkillLv3,
+    required this.mainSkillLv4,
+    required this.mainSkillLv5,
+    required this.mainSkillLv6,
+    required this.mainSkillLv7,
+    required this.mainSkillLv8,
+    required this.mainSkillLv9,
+    required this.mainSkillLv10,
+    required this.exSkillLv1,
+    required this.exSkillLv2,
+    required this.exSkillLv3,
+    required this.exSkillLv4,
+    required this.exSkillLv5,
+    required this.resistStatusId,
+    required this.resistVariationId,
+    required this.accuracy,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['enemy_id'] = Variable<int>(enemyId);
+    map['unit_id'] = Variable<int>(unitId);
+    map['level'] = Variable<int>(level);
+    map['rarity'] = Variable<int>(rarity);
+    map['promotion_level'] = Variable<int>(promotionLevel);
+    map['hp'] = Variable<int>(hp);
+    map['atk'] = Variable<int>(atk);
+    map['magic_str'] = Variable<int>(magicStr);
+    map['def'] = Variable<double>(def_);
+    map['magic_def'] = Variable<int>(magicDef);
+    map['physical_critical'] = Variable<int>(physicalCritical);
+    map['magic_critical'] = Variable<int>(magicCritical);
+    map['wave_hp_recovery'] = Variable<int>(waveHpRecovery);
+    map['wave_energy_recovery'] = Variable<int>(waveEnergyRecovery);
+    map['dodge'] = Variable<int>(dodge);
+    map['physical_penetrate'] = Variable<int>(physicalPenetrate);
+    map['magic_penetrate'] = Variable<int>(magicPenetrate);
+    map['life_steal'] = Variable<int>(lifeSteal);
+    map['hp_recovery_rate'] = Variable<int>(hpRecoveryRate);
+    map['energy_recovery_rate'] = Variable<int>(energyRecoveryRate);
+    map['energy_reduce_rate'] = Variable<int>(energyReduceRate);
+    map['union_burst_level'] = Variable<int>(unionBurstLevel);
+    map['main_skill_lv_1'] = Variable<int>(mainSkillLv1);
+    map['main_skill_lv_2'] = Variable<int>(mainSkillLv2);
+    map['main_skill_lv_3'] = Variable<int>(mainSkillLv3);
+    map['main_skill_lv_4'] = Variable<int>(mainSkillLv4);
+    map['main_skill_lv_5'] = Variable<int>(mainSkillLv5);
+    map['main_skill_lv_6'] = Variable<int>(mainSkillLv6);
+    map['main_skill_lv_7'] = Variable<int>(mainSkillLv7);
+    map['main_skill_lv_8'] = Variable<int>(mainSkillLv8);
+    map['main_skill_lv_9'] = Variable<int>(mainSkillLv9);
+    map['main_skill_lv_10'] = Variable<int>(mainSkillLv10);
+    map['ex_skill_lv_1'] = Variable<int>(exSkillLv1);
+    map['ex_skill_lv_2'] = Variable<int>(exSkillLv2);
+    map['ex_skill_lv_3'] = Variable<int>(exSkillLv3);
+    map['ex_skill_lv_4'] = Variable<int>(exSkillLv4);
+    map['ex_skill_lv_5'] = Variable<int>(exSkillLv5);
+    map['resist_status_id'] = Variable<int>(resistStatusId);
+    map['resist_variation_id'] = Variable<int>(resistVariationId);
+    map['accuracy'] = Variable<int>(accuracy);
+    return map;
+  }
+
+  ShioriEnemyParameterCompanion toCompanion(bool nullToAbsent) {
+    return ShioriEnemyParameterCompanion(
+      enemyId: Value(enemyId),
+      unitId: Value(unitId),
+      level: Value(level),
+      rarity: Value(rarity),
+      promotionLevel: Value(promotionLevel),
+      hp: Value(hp),
+      atk: Value(atk),
+      magicStr: Value(magicStr),
+      def_: Value(def_),
+      magicDef: Value(magicDef),
+      physicalCritical: Value(physicalCritical),
+      magicCritical: Value(magicCritical),
+      waveHpRecovery: Value(waveHpRecovery),
+      waveEnergyRecovery: Value(waveEnergyRecovery),
+      dodge: Value(dodge),
+      physicalPenetrate: Value(physicalPenetrate),
+      magicPenetrate: Value(magicPenetrate),
+      lifeSteal: Value(lifeSteal),
+      hpRecoveryRate: Value(hpRecoveryRate),
+      energyRecoveryRate: Value(energyRecoveryRate),
+      energyReduceRate: Value(energyReduceRate),
+      unionBurstLevel: Value(unionBurstLevel),
+      mainSkillLv1: Value(mainSkillLv1),
+      mainSkillLv2: Value(mainSkillLv2),
+      mainSkillLv3: Value(mainSkillLv3),
+      mainSkillLv4: Value(mainSkillLv4),
+      mainSkillLv5: Value(mainSkillLv5),
+      mainSkillLv6: Value(mainSkillLv6),
+      mainSkillLv7: Value(mainSkillLv7),
+      mainSkillLv8: Value(mainSkillLv8),
+      mainSkillLv9: Value(mainSkillLv9),
+      mainSkillLv10: Value(mainSkillLv10),
+      exSkillLv1: Value(exSkillLv1),
+      exSkillLv2: Value(exSkillLv2),
+      exSkillLv3: Value(exSkillLv3),
+      exSkillLv4: Value(exSkillLv4),
+      exSkillLv5: Value(exSkillLv5),
+      resistStatusId: Value(resistStatusId),
+      resistVariationId: Value(resistVariationId),
+      accuracy: Value(accuracy),
+    );
+  }
+
+  factory ShioriEnemyParameterData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ShioriEnemyParameterData(
+      enemyId: serializer.fromJson<int>(json['enemyId']),
+      unitId: serializer.fromJson<int>(json['unitId']),
+      level: serializer.fromJson<int>(json['level']),
+      rarity: serializer.fromJson<int>(json['rarity']),
+      promotionLevel: serializer.fromJson<int>(json['promotionLevel']),
+      hp: serializer.fromJson<int>(json['hp']),
+      atk: serializer.fromJson<int>(json['atk']),
+      magicStr: serializer.fromJson<int>(json['magicStr']),
+      def_: serializer.fromJson<double>(json['def_']),
+      magicDef: serializer.fromJson<int>(json['magicDef']),
+      physicalCritical: serializer.fromJson<int>(json['physicalCritical']),
+      magicCritical: serializer.fromJson<int>(json['magicCritical']),
+      waveHpRecovery: serializer.fromJson<int>(json['waveHpRecovery']),
+      waveEnergyRecovery: serializer.fromJson<int>(json['waveEnergyRecovery']),
+      dodge: serializer.fromJson<int>(json['dodge']),
+      physicalPenetrate: serializer.fromJson<int>(json['physicalPenetrate']),
+      magicPenetrate: serializer.fromJson<int>(json['magicPenetrate']),
+      lifeSteal: serializer.fromJson<int>(json['lifeSteal']),
+      hpRecoveryRate: serializer.fromJson<int>(json['hpRecoveryRate']),
+      energyRecoveryRate: serializer.fromJson<int>(json['energyRecoveryRate']),
+      energyReduceRate: serializer.fromJson<int>(json['energyReduceRate']),
+      unionBurstLevel: serializer.fromJson<int>(json['unionBurstLevel']),
+      mainSkillLv1: serializer.fromJson<int>(json['mainSkillLv1']),
+      mainSkillLv2: serializer.fromJson<int>(json['mainSkillLv2']),
+      mainSkillLv3: serializer.fromJson<int>(json['mainSkillLv3']),
+      mainSkillLv4: serializer.fromJson<int>(json['mainSkillLv4']),
+      mainSkillLv5: serializer.fromJson<int>(json['mainSkillLv5']),
+      mainSkillLv6: serializer.fromJson<int>(json['mainSkillLv6']),
+      mainSkillLv7: serializer.fromJson<int>(json['mainSkillLv7']),
+      mainSkillLv8: serializer.fromJson<int>(json['mainSkillLv8']),
+      mainSkillLv9: serializer.fromJson<int>(json['mainSkillLv9']),
+      mainSkillLv10: serializer.fromJson<int>(json['mainSkillLv10']),
+      exSkillLv1: serializer.fromJson<int>(json['exSkillLv1']),
+      exSkillLv2: serializer.fromJson<int>(json['exSkillLv2']),
+      exSkillLv3: serializer.fromJson<int>(json['exSkillLv3']),
+      exSkillLv4: serializer.fromJson<int>(json['exSkillLv4']),
+      exSkillLv5: serializer.fromJson<int>(json['exSkillLv5']),
+      resistStatusId: serializer.fromJson<int>(json['resistStatusId']),
+      resistVariationId: serializer.fromJson<int>(json['resistVariationId']),
+      accuracy: serializer.fromJson<int>(json['accuracy']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'enemyId': serializer.toJson<int>(enemyId),
+      'unitId': serializer.toJson<int>(unitId),
+      'level': serializer.toJson<int>(level),
+      'rarity': serializer.toJson<int>(rarity),
+      'promotionLevel': serializer.toJson<int>(promotionLevel),
+      'hp': serializer.toJson<int>(hp),
+      'atk': serializer.toJson<int>(atk),
+      'magicStr': serializer.toJson<int>(magicStr),
+      'def_': serializer.toJson<double>(def_),
+      'magicDef': serializer.toJson<int>(magicDef),
+      'physicalCritical': serializer.toJson<int>(physicalCritical),
+      'magicCritical': serializer.toJson<int>(magicCritical),
+      'waveHpRecovery': serializer.toJson<int>(waveHpRecovery),
+      'waveEnergyRecovery': serializer.toJson<int>(waveEnergyRecovery),
+      'dodge': serializer.toJson<int>(dodge),
+      'physicalPenetrate': serializer.toJson<int>(physicalPenetrate),
+      'magicPenetrate': serializer.toJson<int>(magicPenetrate),
+      'lifeSteal': serializer.toJson<int>(lifeSteal),
+      'hpRecoveryRate': serializer.toJson<int>(hpRecoveryRate),
+      'energyRecoveryRate': serializer.toJson<int>(energyRecoveryRate),
+      'energyReduceRate': serializer.toJson<int>(energyReduceRate),
+      'unionBurstLevel': serializer.toJson<int>(unionBurstLevel),
+      'mainSkillLv1': serializer.toJson<int>(mainSkillLv1),
+      'mainSkillLv2': serializer.toJson<int>(mainSkillLv2),
+      'mainSkillLv3': serializer.toJson<int>(mainSkillLv3),
+      'mainSkillLv4': serializer.toJson<int>(mainSkillLv4),
+      'mainSkillLv5': serializer.toJson<int>(mainSkillLv5),
+      'mainSkillLv6': serializer.toJson<int>(mainSkillLv6),
+      'mainSkillLv7': serializer.toJson<int>(mainSkillLv7),
+      'mainSkillLv8': serializer.toJson<int>(mainSkillLv8),
+      'mainSkillLv9': serializer.toJson<int>(mainSkillLv9),
+      'mainSkillLv10': serializer.toJson<int>(mainSkillLv10),
+      'exSkillLv1': serializer.toJson<int>(exSkillLv1),
+      'exSkillLv2': serializer.toJson<int>(exSkillLv2),
+      'exSkillLv3': serializer.toJson<int>(exSkillLv3),
+      'exSkillLv4': serializer.toJson<int>(exSkillLv4),
+      'exSkillLv5': serializer.toJson<int>(exSkillLv5),
+      'resistStatusId': serializer.toJson<int>(resistStatusId),
+      'resistVariationId': serializer.toJson<int>(resistVariationId),
+      'accuracy': serializer.toJson<int>(accuracy),
+    };
+  }
+
+  ShioriEnemyParameterData copyWith({
+    int? enemyId,
+    int? unitId,
+    int? level,
+    int? rarity,
+    int? promotionLevel,
+    int? hp,
+    int? atk,
+    int? magicStr,
+    double? def_,
+    int? magicDef,
+    int? physicalCritical,
+    int? magicCritical,
+    int? waveHpRecovery,
+    int? waveEnergyRecovery,
+    int? dodge,
+    int? physicalPenetrate,
+    int? magicPenetrate,
+    int? lifeSteal,
+    int? hpRecoveryRate,
+    int? energyRecoveryRate,
+    int? energyReduceRate,
+    int? unionBurstLevel,
+    int? mainSkillLv1,
+    int? mainSkillLv2,
+    int? mainSkillLv3,
+    int? mainSkillLv4,
+    int? mainSkillLv5,
+    int? mainSkillLv6,
+    int? mainSkillLv7,
+    int? mainSkillLv8,
+    int? mainSkillLv9,
+    int? mainSkillLv10,
+    int? exSkillLv1,
+    int? exSkillLv2,
+    int? exSkillLv3,
+    int? exSkillLv4,
+    int? exSkillLv5,
+    int? resistStatusId,
+    int? resistVariationId,
+    int? accuracy,
+  }) => ShioriEnemyParameterData(
+    enemyId: enemyId ?? this.enemyId,
+    unitId: unitId ?? this.unitId,
+    level: level ?? this.level,
+    rarity: rarity ?? this.rarity,
+    promotionLevel: promotionLevel ?? this.promotionLevel,
+    hp: hp ?? this.hp,
+    atk: atk ?? this.atk,
+    magicStr: magicStr ?? this.magicStr,
+    def_: def_ ?? this.def_,
+    magicDef: magicDef ?? this.magicDef,
+    physicalCritical: physicalCritical ?? this.physicalCritical,
+    magicCritical: magicCritical ?? this.magicCritical,
+    waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+    waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+    dodge: dodge ?? this.dodge,
+    physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+    magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+    lifeSteal: lifeSteal ?? this.lifeSteal,
+    hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+    energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+    energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+    unionBurstLevel: unionBurstLevel ?? this.unionBurstLevel,
+    mainSkillLv1: mainSkillLv1 ?? this.mainSkillLv1,
+    mainSkillLv2: mainSkillLv2 ?? this.mainSkillLv2,
+    mainSkillLv3: mainSkillLv3 ?? this.mainSkillLv3,
+    mainSkillLv4: mainSkillLv4 ?? this.mainSkillLv4,
+    mainSkillLv5: mainSkillLv5 ?? this.mainSkillLv5,
+    mainSkillLv6: mainSkillLv6 ?? this.mainSkillLv6,
+    mainSkillLv7: mainSkillLv7 ?? this.mainSkillLv7,
+    mainSkillLv8: mainSkillLv8 ?? this.mainSkillLv8,
+    mainSkillLv9: mainSkillLv9 ?? this.mainSkillLv9,
+    mainSkillLv10: mainSkillLv10 ?? this.mainSkillLv10,
+    exSkillLv1: exSkillLv1 ?? this.exSkillLv1,
+    exSkillLv2: exSkillLv2 ?? this.exSkillLv2,
+    exSkillLv3: exSkillLv3 ?? this.exSkillLv3,
+    exSkillLv4: exSkillLv4 ?? this.exSkillLv4,
+    exSkillLv5: exSkillLv5 ?? this.exSkillLv5,
+    resistStatusId: resistStatusId ?? this.resistStatusId,
+    resistVariationId: resistVariationId ?? this.resistVariationId,
+    accuracy: accuracy ?? this.accuracy,
+  );
+  ShioriEnemyParameterData copyWithCompanion(
+    ShioriEnemyParameterCompanion data,
+  ) {
+    return ShioriEnemyParameterData(
+      enemyId: data.enemyId.present ? data.enemyId.value : this.enemyId,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      level: data.level.present ? data.level.value : this.level,
+      rarity: data.rarity.present ? data.rarity.value : this.rarity,
+      promotionLevel: data.promotionLevel.present
+          ? data.promotionLevel.value
+          : this.promotionLevel,
+      hp: data.hp.present ? data.hp.value : this.hp,
+      atk: data.atk.present ? data.atk.value : this.atk,
+      magicStr: data.magicStr.present ? data.magicStr.value : this.magicStr,
+      def_: data.def_.present ? data.def_.value : this.def_,
+      magicDef: data.magicDef.present ? data.magicDef.value : this.magicDef,
+      physicalCritical: data.physicalCritical.present
+          ? data.physicalCritical.value
+          : this.physicalCritical,
+      magicCritical: data.magicCritical.present
+          ? data.magicCritical.value
+          : this.magicCritical,
+      waveHpRecovery: data.waveHpRecovery.present
+          ? data.waveHpRecovery.value
+          : this.waveHpRecovery,
+      waveEnergyRecovery: data.waveEnergyRecovery.present
+          ? data.waveEnergyRecovery.value
+          : this.waveEnergyRecovery,
+      dodge: data.dodge.present ? data.dodge.value : this.dodge,
+      physicalPenetrate: data.physicalPenetrate.present
+          ? data.physicalPenetrate.value
+          : this.physicalPenetrate,
+      magicPenetrate: data.magicPenetrate.present
+          ? data.magicPenetrate.value
+          : this.magicPenetrate,
+      lifeSteal: data.lifeSteal.present ? data.lifeSteal.value : this.lifeSteal,
+      hpRecoveryRate: data.hpRecoveryRate.present
+          ? data.hpRecoveryRate.value
+          : this.hpRecoveryRate,
+      energyRecoveryRate: data.energyRecoveryRate.present
+          ? data.energyRecoveryRate.value
+          : this.energyRecoveryRate,
+      energyReduceRate: data.energyReduceRate.present
+          ? data.energyReduceRate.value
+          : this.energyReduceRate,
+      unionBurstLevel: data.unionBurstLevel.present
+          ? data.unionBurstLevel.value
+          : this.unionBurstLevel,
+      mainSkillLv1: data.mainSkillLv1.present
+          ? data.mainSkillLv1.value
+          : this.mainSkillLv1,
+      mainSkillLv2: data.mainSkillLv2.present
+          ? data.mainSkillLv2.value
+          : this.mainSkillLv2,
+      mainSkillLv3: data.mainSkillLv3.present
+          ? data.mainSkillLv3.value
+          : this.mainSkillLv3,
+      mainSkillLv4: data.mainSkillLv4.present
+          ? data.mainSkillLv4.value
+          : this.mainSkillLv4,
+      mainSkillLv5: data.mainSkillLv5.present
+          ? data.mainSkillLv5.value
+          : this.mainSkillLv5,
+      mainSkillLv6: data.mainSkillLv6.present
+          ? data.mainSkillLv6.value
+          : this.mainSkillLv6,
+      mainSkillLv7: data.mainSkillLv7.present
+          ? data.mainSkillLv7.value
+          : this.mainSkillLv7,
+      mainSkillLv8: data.mainSkillLv8.present
+          ? data.mainSkillLv8.value
+          : this.mainSkillLv8,
+      mainSkillLv9: data.mainSkillLv9.present
+          ? data.mainSkillLv9.value
+          : this.mainSkillLv9,
+      mainSkillLv10: data.mainSkillLv10.present
+          ? data.mainSkillLv10.value
+          : this.mainSkillLv10,
+      exSkillLv1: data.exSkillLv1.present
+          ? data.exSkillLv1.value
+          : this.exSkillLv1,
+      exSkillLv2: data.exSkillLv2.present
+          ? data.exSkillLv2.value
+          : this.exSkillLv2,
+      exSkillLv3: data.exSkillLv3.present
+          ? data.exSkillLv3.value
+          : this.exSkillLv3,
+      exSkillLv4: data.exSkillLv4.present
+          ? data.exSkillLv4.value
+          : this.exSkillLv4,
+      exSkillLv5: data.exSkillLv5.present
+          ? data.exSkillLv5.value
+          : this.exSkillLv5,
+      resistStatusId: data.resistStatusId.present
+          ? data.resistStatusId.value
+          : this.resistStatusId,
+      resistVariationId: data.resistVariationId.present
+          ? data.resistVariationId.value
+          : this.resistVariationId,
+      accuracy: data.accuracy.present ? data.accuracy.value : this.accuracy,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ShioriEnemyParameterData(')
+          ..write('enemyId: $enemyId, ')
+          ..write('unitId: $unitId, ')
+          ..write('level: $level, ')
+          ..write('rarity: $rarity, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('unionBurstLevel: $unionBurstLevel, ')
+          ..write('mainSkillLv1: $mainSkillLv1, ')
+          ..write('mainSkillLv2: $mainSkillLv2, ')
+          ..write('mainSkillLv3: $mainSkillLv3, ')
+          ..write('mainSkillLv4: $mainSkillLv4, ')
+          ..write('mainSkillLv5: $mainSkillLv5, ')
+          ..write('mainSkillLv6: $mainSkillLv6, ')
+          ..write('mainSkillLv7: $mainSkillLv7, ')
+          ..write('mainSkillLv8: $mainSkillLv8, ')
+          ..write('mainSkillLv9: $mainSkillLv9, ')
+          ..write('mainSkillLv10: $mainSkillLv10, ')
+          ..write('exSkillLv1: $exSkillLv1, ')
+          ..write('exSkillLv2: $exSkillLv2, ')
+          ..write('exSkillLv3: $exSkillLv3, ')
+          ..write('exSkillLv4: $exSkillLv4, ')
+          ..write('exSkillLv5: $exSkillLv5, ')
+          ..write('resistStatusId: $resistStatusId, ')
+          ..write('resistVariationId: $resistVariationId, ')
+          ..write('accuracy: $accuracy')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    enemyId,
+    unitId,
+    level,
+    rarity,
+    promotionLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    unionBurstLevel,
+    mainSkillLv1,
+    mainSkillLv2,
+    mainSkillLv3,
+    mainSkillLv4,
+    mainSkillLv5,
+    mainSkillLv6,
+    mainSkillLv7,
+    mainSkillLv8,
+    mainSkillLv9,
+    mainSkillLv10,
+    exSkillLv1,
+    exSkillLv2,
+    exSkillLv3,
+    exSkillLv4,
+    exSkillLv5,
+    resistStatusId,
+    resistVariationId,
+    accuracy,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ShioriEnemyParameterData &&
+          other.enemyId == this.enemyId &&
+          other.unitId == this.unitId &&
+          other.level == this.level &&
+          other.rarity == this.rarity &&
+          other.promotionLevel == this.promotionLevel &&
+          other.hp == this.hp &&
+          other.atk == this.atk &&
+          other.magicStr == this.magicStr &&
+          other.def_ == this.def_ &&
+          other.magicDef == this.magicDef &&
+          other.physicalCritical == this.physicalCritical &&
+          other.magicCritical == this.magicCritical &&
+          other.waveHpRecovery == this.waveHpRecovery &&
+          other.waveEnergyRecovery == this.waveEnergyRecovery &&
+          other.dodge == this.dodge &&
+          other.physicalPenetrate == this.physicalPenetrate &&
+          other.magicPenetrate == this.magicPenetrate &&
+          other.lifeSteal == this.lifeSteal &&
+          other.hpRecoveryRate == this.hpRecoveryRate &&
+          other.energyRecoveryRate == this.energyRecoveryRate &&
+          other.energyReduceRate == this.energyReduceRate &&
+          other.unionBurstLevel == this.unionBurstLevel &&
+          other.mainSkillLv1 == this.mainSkillLv1 &&
+          other.mainSkillLv2 == this.mainSkillLv2 &&
+          other.mainSkillLv3 == this.mainSkillLv3 &&
+          other.mainSkillLv4 == this.mainSkillLv4 &&
+          other.mainSkillLv5 == this.mainSkillLv5 &&
+          other.mainSkillLv6 == this.mainSkillLv6 &&
+          other.mainSkillLv7 == this.mainSkillLv7 &&
+          other.mainSkillLv8 == this.mainSkillLv8 &&
+          other.mainSkillLv9 == this.mainSkillLv9 &&
+          other.mainSkillLv10 == this.mainSkillLv10 &&
+          other.exSkillLv1 == this.exSkillLv1 &&
+          other.exSkillLv2 == this.exSkillLv2 &&
+          other.exSkillLv3 == this.exSkillLv3 &&
+          other.exSkillLv4 == this.exSkillLv4 &&
+          other.exSkillLv5 == this.exSkillLv5 &&
+          other.resistStatusId == this.resistStatusId &&
+          other.resistVariationId == this.resistVariationId &&
+          other.accuracy == this.accuracy);
+}
+
+class ShioriEnemyParameterCompanion
+    extends UpdateCompanion<ShioriEnemyParameterData> {
+  final Value<int> enemyId;
+  final Value<int> unitId;
+  final Value<int> level;
+  final Value<int> rarity;
+  final Value<int> promotionLevel;
+  final Value<int> hp;
+  final Value<int> atk;
+  final Value<int> magicStr;
+  final Value<double> def_;
+  final Value<int> magicDef;
+  final Value<int> physicalCritical;
+  final Value<int> magicCritical;
+  final Value<int> waveHpRecovery;
+  final Value<int> waveEnergyRecovery;
+  final Value<int> dodge;
+  final Value<int> physicalPenetrate;
+  final Value<int> magicPenetrate;
+  final Value<int> lifeSteal;
+  final Value<int> hpRecoveryRate;
+  final Value<int> energyRecoveryRate;
+  final Value<int> energyReduceRate;
+  final Value<int> unionBurstLevel;
+  final Value<int> mainSkillLv1;
+  final Value<int> mainSkillLv2;
+  final Value<int> mainSkillLv3;
+  final Value<int> mainSkillLv4;
+  final Value<int> mainSkillLv5;
+  final Value<int> mainSkillLv6;
+  final Value<int> mainSkillLv7;
+  final Value<int> mainSkillLv8;
+  final Value<int> mainSkillLv9;
+  final Value<int> mainSkillLv10;
+  final Value<int> exSkillLv1;
+  final Value<int> exSkillLv2;
+  final Value<int> exSkillLv3;
+  final Value<int> exSkillLv4;
+  final Value<int> exSkillLv5;
+  final Value<int> resistStatusId;
+  final Value<int> resistVariationId;
+  final Value<int> accuracy;
+  const ShioriEnemyParameterCompanion({
+    this.enemyId = const Value.absent(),
+    this.unitId = const Value.absent(),
+    this.level = const Value.absent(),
+    this.rarity = const Value.absent(),
+    this.promotionLevel = const Value.absent(),
+    this.hp = const Value.absent(),
+    this.atk = const Value.absent(),
+    this.magicStr = const Value.absent(),
+    this.def_ = const Value.absent(),
+    this.magicDef = const Value.absent(),
+    this.physicalCritical = const Value.absent(),
+    this.magicCritical = const Value.absent(),
+    this.waveHpRecovery = const Value.absent(),
+    this.waveEnergyRecovery = const Value.absent(),
+    this.dodge = const Value.absent(),
+    this.physicalPenetrate = const Value.absent(),
+    this.magicPenetrate = const Value.absent(),
+    this.lifeSteal = const Value.absent(),
+    this.hpRecoveryRate = const Value.absent(),
+    this.energyRecoveryRate = const Value.absent(),
+    this.energyReduceRate = const Value.absent(),
+    this.unionBurstLevel = const Value.absent(),
+    this.mainSkillLv1 = const Value.absent(),
+    this.mainSkillLv2 = const Value.absent(),
+    this.mainSkillLv3 = const Value.absent(),
+    this.mainSkillLv4 = const Value.absent(),
+    this.mainSkillLv5 = const Value.absent(),
+    this.mainSkillLv6 = const Value.absent(),
+    this.mainSkillLv7 = const Value.absent(),
+    this.mainSkillLv8 = const Value.absent(),
+    this.mainSkillLv9 = const Value.absent(),
+    this.mainSkillLv10 = const Value.absent(),
+    this.exSkillLv1 = const Value.absent(),
+    this.exSkillLv2 = const Value.absent(),
+    this.exSkillLv3 = const Value.absent(),
+    this.exSkillLv4 = const Value.absent(),
+    this.exSkillLv5 = const Value.absent(),
+    this.resistStatusId = const Value.absent(),
+    this.resistVariationId = const Value.absent(),
+    this.accuracy = const Value.absent(),
+  });
+  ShioriEnemyParameterCompanion.insert({
+    this.enemyId = const Value.absent(),
+    required int unitId,
+    required int level,
+    required int rarity,
+    required int promotionLevel,
+    required int hp,
+    required int atk,
+    required int magicStr,
+    required double def_,
+    required int magicDef,
+    required int physicalCritical,
+    required int magicCritical,
+    required int waveHpRecovery,
+    required int waveEnergyRecovery,
+    required int dodge,
+    required int physicalPenetrate,
+    required int magicPenetrate,
+    required int lifeSteal,
+    required int hpRecoveryRate,
+    required int energyRecoveryRate,
+    required int energyReduceRate,
+    required int unionBurstLevel,
+    required int mainSkillLv1,
+    required int mainSkillLv2,
+    required int mainSkillLv3,
+    required int mainSkillLv4,
+    required int mainSkillLv5,
+    required int mainSkillLv6,
+    required int mainSkillLv7,
+    required int mainSkillLv8,
+    required int mainSkillLv9,
+    required int mainSkillLv10,
+    required int exSkillLv1,
+    required int exSkillLv2,
+    required int exSkillLv3,
+    required int exSkillLv4,
+    required int exSkillLv5,
+    required int resistStatusId,
+    required int resistVariationId,
+    required int accuracy,
+  }) : unitId = Value(unitId),
+       level = Value(level),
+       rarity = Value(rarity),
+       promotionLevel = Value(promotionLevel),
+       hp = Value(hp),
+       atk = Value(atk),
+       magicStr = Value(magicStr),
+       def_ = Value(def_),
+       magicDef = Value(magicDef),
+       physicalCritical = Value(physicalCritical),
+       magicCritical = Value(magicCritical),
+       waveHpRecovery = Value(waveHpRecovery),
+       waveEnergyRecovery = Value(waveEnergyRecovery),
+       dodge = Value(dodge),
+       physicalPenetrate = Value(physicalPenetrate),
+       magicPenetrate = Value(magicPenetrate),
+       lifeSteal = Value(lifeSteal),
+       hpRecoveryRate = Value(hpRecoveryRate),
+       energyRecoveryRate = Value(energyRecoveryRate),
+       energyReduceRate = Value(energyReduceRate),
+       unionBurstLevel = Value(unionBurstLevel),
+       mainSkillLv1 = Value(mainSkillLv1),
+       mainSkillLv2 = Value(mainSkillLv2),
+       mainSkillLv3 = Value(mainSkillLv3),
+       mainSkillLv4 = Value(mainSkillLv4),
+       mainSkillLv5 = Value(mainSkillLv5),
+       mainSkillLv6 = Value(mainSkillLv6),
+       mainSkillLv7 = Value(mainSkillLv7),
+       mainSkillLv8 = Value(mainSkillLv8),
+       mainSkillLv9 = Value(mainSkillLv9),
+       mainSkillLv10 = Value(mainSkillLv10),
+       exSkillLv1 = Value(exSkillLv1),
+       exSkillLv2 = Value(exSkillLv2),
+       exSkillLv3 = Value(exSkillLv3),
+       exSkillLv4 = Value(exSkillLv4),
+       exSkillLv5 = Value(exSkillLv5),
+       resistStatusId = Value(resistStatusId),
+       resistVariationId = Value(resistVariationId),
+       accuracy = Value(accuracy);
+  static Insertable<ShioriEnemyParameterData> custom({
+    Expression<int>? enemyId,
+    Expression<int>? unitId,
+    Expression<int>? level,
+    Expression<int>? rarity,
+    Expression<int>? promotionLevel,
+    Expression<int>? hp,
+    Expression<int>? atk,
+    Expression<int>? magicStr,
+    Expression<double>? def_,
+    Expression<int>? magicDef,
+    Expression<int>? physicalCritical,
+    Expression<int>? magicCritical,
+    Expression<int>? waveHpRecovery,
+    Expression<int>? waveEnergyRecovery,
+    Expression<int>? dodge,
+    Expression<int>? physicalPenetrate,
+    Expression<int>? magicPenetrate,
+    Expression<int>? lifeSteal,
+    Expression<int>? hpRecoveryRate,
+    Expression<int>? energyRecoveryRate,
+    Expression<int>? energyReduceRate,
+    Expression<int>? unionBurstLevel,
+    Expression<int>? mainSkillLv1,
+    Expression<int>? mainSkillLv2,
+    Expression<int>? mainSkillLv3,
+    Expression<int>? mainSkillLv4,
+    Expression<int>? mainSkillLv5,
+    Expression<int>? mainSkillLv6,
+    Expression<int>? mainSkillLv7,
+    Expression<int>? mainSkillLv8,
+    Expression<int>? mainSkillLv9,
+    Expression<int>? mainSkillLv10,
+    Expression<int>? exSkillLv1,
+    Expression<int>? exSkillLv2,
+    Expression<int>? exSkillLv3,
+    Expression<int>? exSkillLv4,
+    Expression<int>? exSkillLv5,
+    Expression<int>? resistStatusId,
+    Expression<int>? resistVariationId,
+    Expression<int>? accuracy,
+  }) {
+    return RawValuesInsertable({
+      if (enemyId != null) 'enemy_id': enemyId,
+      if (unitId != null) 'unit_id': unitId,
+      if (level != null) 'level': level,
+      if (rarity != null) 'rarity': rarity,
+      if (promotionLevel != null) 'promotion_level': promotionLevel,
+      if (hp != null) 'hp': hp,
+      if (atk != null) 'atk': atk,
+      if (magicStr != null) 'magic_str': magicStr,
+      if (def_ != null) 'def': def_,
+      if (magicDef != null) 'magic_def': magicDef,
+      if (physicalCritical != null) 'physical_critical': physicalCritical,
+      if (magicCritical != null) 'magic_critical': magicCritical,
+      if (waveHpRecovery != null) 'wave_hp_recovery': waveHpRecovery,
+      if (waveEnergyRecovery != null)
+        'wave_energy_recovery': waveEnergyRecovery,
+      if (dodge != null) 'dodge': dodge,
+      if (physicalPenetrate != null) 'physical_penetrate': physicalPenetrate,
+      if (magicPenetrate != null) 'magic_penetrate': magicPenetrate,
+      if (lifeSteal != null) 'life_steal': lifeSteal,
+      if (hpRecoveryRate != null) 'hp_recovery_rate': hpRecoveryRate,
+      if (energyRecoveryRate != null)
+        'energy_recovery_rate': energyRecoveryRate,
+      if (energyReduceRate != null) 'energy_reduce_rate': energyReduceRate,
+      if (unionBurstLevel != null) 'union_burst_level': unionBurstLevel,
+      if (mainSkillLv1 != null) 'main_skill_lv_1': mainSkillLv1,
+      if (mainSkillLv2 != null) 'main_skill_lv_2': mainSkillLv2,
+      if (mainSkillLv3 != null) 'main_skill_lv_3': mainSkillLv3,
+      if (mainSkillLv4 != null) 'main_skill_lv_4': mainSkillLv4,
+      if (mainSkillLv5 != null) 'main_skill_lv_5': mainSkillLv5,
+      if (mainSkillLv6 != null) 'main_skill_lv_6': mainSkillLv6,
+      if (mainSkillLv7 != null) 'main_skill_lv_7': mainSkillLv7,
+      if (mainSkillLv8 != null) 'main_skill_lv_8': mainSkillLv8,
+      if (mainSkillLv9 != null) 'main_skill_lv_9': mainSkillLv9,
+      if (mainSkillLv10 != null) 'main_skill_lv_10': mainSkillLv10,
+      if (exSkillLv1 != null) 'ex_skill_lv_1': exSkillLv1,
+      if (exSkillLv2 != null) 'ex_skill_lv_2': exSkillLv2,
+      if (exSkillLv3 != null) 'ex_skill_lv_3': exSkillLv3,
+      if (exSkillLv4 != null) 'ex_skill_lv_4': exSkillLv4,
+      if (exSkillLv5 != null) 'ex_skill_lv_5': exSkillLv5,
+      if (resistStatusId != null) 'resist_status_id': resistStatusId,
+      if (resistVariationId != null) 'resist_variation_id': resistVariationId,
+      if (accuracy != null) 'accuracy': accuracy,
+    });
+  }
+
+  ShioriEnemyParameterCompanion copyWith({
+    Value<int>? enemyId,
+    Value<int>? unitId,
+    Value<int>? level,
+    Value<int>? rarity,
+    Value<int>? promotionLevel,
+    Value<int>? hp,
+    Value<int>? atk,
+    Value<int>? magicStr,
+    Value<double>? def_,
+    Value<int>? magicDef,
+    Value<int>? physicalCritical,
+    Value<int>? magicCritical,
+    Value<int>? waveHpRecovery,
+    Value<int>? waveEnergyRecovery,
+    Value<int>? dodge,
+    Value<int>? physicalPenetrate,
+    Value<int>? magicPenetrate,
+    Value<int>? lifeSteal,
+    Value<int>? hpRecoveryRate,
+    Value<int>? energyRecoveryRate,
+    Value<int>? energyReduceRate,
+    Value<int>? unionBurstLevel,
+    Value<int>? mainSkillLv1,
+    Value<int>? mainSkillLv2,
+    Value<int>? mainSkillLv3,
+    Value<int>? mainSkillLv4,
+    Value<int>? mainSkillLv5,
+    Value<int>? mainSkillLv6,
+    Value<int>? mainSkillLv7,
+    Value<int>? mainSkillLv8,
+    Value<int>? mainSkillLv9,
+    Value<int>? mainSkillLv10,
+    Value<int>? exSkillLv1,
+    Value<int>? exSkillLv2,
+    Value<int>? exSkillLv3,
+    Value<int>? exSkillLv4,
+    Value<int>? exSkillLv5,
+    Value<int>? resistStatusId,
+    Value<int>? resistVariationId,
+    Value<int>? accuracy,
+  }) {
+    return ShioriEnemyParameterCompanion(
+      enemyId: enemyId ?? this.enemyId,
+      unitId: unitId ?? this.unitId,
+      level: level ?? this.level,
+      rarity: rarity ?? this.rarity,
+      promotionLevel: promotionLevel ?? this.promotionLevel,
+      hp: hp ?? this.hp,
+      atk: atk ?? this.atk,
+      magicStr: magicStr ?? this.magicStr,
+      def_: def_ ?? this.def_,
+      magicDef: magicDef ?? this.magicDef,
+      physicalCritical: physicalCritical ?? this.physicalCritical,
+      magicCritical: magicCritical ?? this.magicCritical,
+      waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+      waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+      dodge: dodge ?? this.dodge,
+      physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+      magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+      lifeSteal: lifeSteal ?? this.lifeSteal,
+      hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+      energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+      energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+      unionBurstLevel: unionBurstLevel ?? this.unionBurstLevel,
+      mainSkillLv1: mainSkillLv1 ?? this.mainSkillLv1,
+      mainSkillLv2: mainSkillLv2 ?? this.mainSkillLv2,
+      mainSkillLv3: mainSkillLv3 ?? this.mainSkillLv3,
+      mainSkillLv4: mainSkillLv4 ?? this.mainSkillLv4,
+      mainSkillLv5: mainSkillLv5 ?? this.mainSkillLv5,
+      mainSkillLv6: mainSkillLv6 ?? this.mainSkillLv6,
+      mainSkillLv7: mainSkillLv7 ?? this.mainSkillLv7,
+      mainSkillLv8: mainSkillLv8 ?? this.mainSkillLv8,
+      mainSkillLv9: mainSkillLv9 ?? this.mainSkillLv9,
+      mainSkillLv10: mainSkillLv10 ?? this.mainSkillLv10,
+      exSkillLv1: exSkillLv1 ?? this.exSkillLv1,
+      exSkillLv2: exSkillLv2 ?? this.exSkillLv2,
+      exSkillLv3: exSkillLv3 ?? this.exSkillLv3,
+      exSkillLv4: exSkillLv4 ?? this.exSkillLv4,
+      exSkillLv5: exSkillLv5 ?? this.exSkillLv5,
+      resistStatusId: resistStatusId ?? this.resistStatusId,
+      resistVariationId: resistVariationId ?? this.resistVariationId,
+      accuracy: accuracy ?? this.accuracy,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (enemyId.present) {
+      map['enemy_id'] = Variable<int>(enemyId.value);
+    }
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (level.present) {
+      map['level'] = Variable<int>(level.value);
+    }
+    if (rarity.present) {
+      map['rarity'] = Variable<int>(rarity.value);
+    }
+    if (promotionLevel.present) {
+      map['promotion_level'] = Variable<int>(promotionLevel.value);
+    }
+    if (hp.present) {
+      map['hp'] = Variable<int>(hp.value);
+    }
+    if (atk.present) {
+      map['atk'] = Variable<int>(atk.value);
+    }
+    if (magicStr.present) {
+      map['magic_str'] = Variable<int>(magicStr.value);
+    }
+    if (def_.present) {
+      map['def'] = Variable<double>(def_.value);
+    }
+    if (magicDef.present) {
+      map['magic_def'] = Variable<int>(magicDef.value);
+    }
+    if (physicalCritical.present) {
+      map['physical_critical'] = Variable<int>(physicalCritical.value);
+    }
+    if (magicCritical.present) {
+      map['magic_critical'] = Variable<int>(magicCritical.value);
+    }
+    if (waveHpRecovery.present) {
+      map['wave_hp_recovery'] = Variable<int>(waveHpRecovery.value);
+    }
+    if (waveEnergyRecovery.present) {
+      map['wave_energy_recovery'] = Variable<int>(waveEnergyRecovery.value);
+    }
+    if (dodge.present) {
+      map['dodge'] = Variable<int>(dodge.value);
+    }
+    if (physicalPenetrate.present) {
+      map['physical_penetrate'] = Variable<int>(physicalPenetrate.value);
+    }
+    if (magicPenetrate.present) {
+      map['magic_penetrate'] = Variable<int>(magicPenetrate.value);
+    }
+    if (lifeSteal.present) {
+      map['life_steal'] = Variable<int>(lifeSteal.value);
+    }
+    if (hpRecoveryRate.present) {
+      map['hp_recovery_rate'] = Variable<int>(hpRecoveryRate.value);
+    }
+    if (energyRecoveryRate.present) {
+      map['energy_recovery_rate'] = Variable<int>(energyRecoveryRate.value);
+    }
+    if (energyReduceRate.present) {
+      map['energy_reduce_rate'] = Variable<int>(energyReduceRate.value);
+    }
+    if (unionBurstLevel.present) {
+      map['union_burst_level'] = Variable<int>(unionBurstLevel.value);
+    }
+    if (mainSkillLv1.present) {
+      map['main_skill_lv_1'] = Variable<int>(mainSkillLv1.value);
+    }
+    if (mainSkillLv2.present) {
+      map['main_skill_lv_2'] = Variable<int>(mainSkillLv2.value);
+    }
+    if (mainSkillLv3.present) {
+      map['main_skill_lv_3'] = Variable<int>(mainSkillLv3.value);
+    }
+    if (mainSkillLv4.present) {
+      map['main_skill_lv_4'] = Variable<int>(mainSkillLv4.value);
+    }
+    if (mainSkillLv5.present) {
+      map['main_skill_lv_5'] = Variable<int>(mainSkillLv5.value);
+    }
+    if (mainSkillLv6.present) {
+      map['main_skill_lv_6'] = Variable<int>(mainSkillLv6.value);
+    }
+    if (mainSkillLv7.present) {
+      map['main_skill_lv_7'] = Variable<int>(mainSkillLv7.value);
+    }
+    if (mainSkillLv8.present) {
+      map['main_skill_lv_8'] = Variable<int>(mainSkillLv8.value);
+    }
+    if (mainSkillLv9.present) {
+      map['main_skill_lv_9'] = Variable<int>(mainSkillLv9.value);
+    }
+    if (mainSkillLv10.present) {
+      map['main_skill_lv_10'] = Variable<int>(mainSkillLv10.value);
+    }
+    if (exSkillLv1.present) {
+      map['ex_skill_lv_1'] = Variable<int>(exSkillLv1.value);
+    }
+    if (exSkillLv2.present) {
+      map['ex_skill_lv_2'] = Variable<int>(exSkillLv2.value);
+    }
+    if (exSkillLv3.present) {
+      map['ex_skill_lv_3'] = Variable<int>(exSkillLv3.value);
+    }
+    if (exSkillLv4.present) {
+      map['ex_skill_lv_4'] = Variable<int>(exSkillLv4.value);
+    }
+    if (exSkillLv5.present) {
+      map['ex_skill_lv_5'] = Variable<int>(exSkillLv5.value);
+    }
+    if (resistStatusId.present) {
+      map['resist_status_id'] = Variable<int>(resistStatusId.value);
+    }
+    if (resistVariationId.present) {
+      map['resist_variation_id'] = Variable<int>(resistVariationId.value);
+    }
+    if (accuracy.present) {
+      map['accuracy'] = Variable<int>(accuracy.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ShioriEnemyParameterCompanion(')
+          ..write('enemyId: $enemyId, ')
+          ..write('unitId: $unitId, ')
+          ..write('level: $level, ')
+          ..write('rarity: $rarity, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('unionBurstLevel: $unionBurstLevel, ')
+          ..write('mainSkillLv1: $mainSkillLv1, ')
+          ..write('mainSkillLv2: $mainSkillLv2, ')
+          ..write('mainSkillLv3: $mainSkillLv3, ')
+          ..write('mainSkillLv4: $mainSkillLv4, ')
+          ..write('mainSkillLv5: $mainSkillLv5, ')
+          ..write('mainSkillLv6: $mainSkillLv6, ')
+          ..write('mainSkillLv7: $mainSkillLv7, ')
+          ..write('mainSkillLv8: $mainSkillLv8, ')
+          ..write('mainSkillLv9: $mainSkillLv9, ')
+          ..write('mainSkillLv10: $mainSkillLv10, ')
+          ..write('exSkillLv1: $exSkillLv1, ')
+          ..write('exSkillLv2: $exSkillLv2, ')
+          ..write('exSkillLv3: $exSkillLv3, ')
+          ..write('exSkillLv4: $exSkillLv4, ')
+          ..write('exSkillLv5: $exSkillLv5, ')
+          ..write('resistStatusId: $resistStatusId, ')
+          ..write('resistVariationId: $resistVariationId, ')
+          ..write('accuracy: $accuracy')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $SreEnemyParameterTable extends SreEnemyParameter
+    with TableInfo<$SreEnemyParameterTable, SreEnemyParameterData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $SreEnemyParameterTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _enemyIdMeta = const VerificationMeta(
+    'enemyId',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId = GeneratedColumn<int>(
+    'enemy_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _levelMeta = const VerificationMeta('level');
+  @override
+  late final GeneratedColumn<int> level = GeneratedColumn<int>(
+    'level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rarityMeta = const VerificationMeta('rarity');
+  @override
+  late final GeneratedColumn<int> rarity = GeneratedColumn<int>(
+    'rarity',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _promotionLevelMeta = const VerificationMeta(
+    'promotionLevel',
+  );
+  @override
+  late final GeneratedColumn<int> promotionLevel = GeneratedColumn<int>(
+    'promotion_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpMeta = const VerificationMeta('hp');
+  @override
+  late final GeneratedColumn<int> hp = GeneratedColumn<int>(
+    'hp',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _atkMeta = const VerificationMeta('atk');
+  @override
+  late final GeneratedColumn<int> atk = GeneratedColumn<int>(
+    'atk',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicStrMeta = const VerificationMeta(
+    'magicStr',
+  );
+  @override
+  late final GeneratedColumn<int> magicStr = GeneratedColumn<int>(
+    'magic_str',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _def_Meta = const VerificationMeta('def_');
+  @override
+  late final GeneratedColumn<double> def_ = GeneratedColumn<double>(
+    'def',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicDefMeta = const VerificationMeta(
+    'magicDef',
+  );
+  @override
+  late final GeneratedColumn<int> magicDef = GeneratedColumn<int>(
+    'magic_def',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalCriticalMeta = const VerificationMeta(
+    'physicalCritical',
+  );
+  @override
+  late final GeneratedColumn<int> physicalCritical = GeneratedColumn<int>(
+    'physical_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicCriticalMeta = const VerificationMeta(
+    'magicCritical',
+  );
+  @override
+  late final GeneratedColumn<int> magicCritical = GeneratedColumn<int>(
+    'magic_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveHpRecoveryMeta = const VerificationMeta(
+    'waveHpRecovery',
+  );
+  @override
+  late final GeneratedColumn<int> waveHpRecovery = GeneratedColumn<int>(
+    'wave_hp_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveEnergyRecoveryMeta =
+      const VerificationMeta('waveEnergyRecovery');
+  @override
+  late final GeneratedColumn<int> waveEnergyRecovery = GeneratedColumn<int>(
+    'wave_energy_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dodgeMeta = const VerificationMeta('dodge');
+  @override
+  late final GeneratedColumn<int> dodge = GeneratedColumn<int>(
+    'dodge',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalPenetrateMeta = const VerificationMeta(
+    'physicalPenetrate',
+  );
+  @override
+  late final GeneratedColumn<int> physicalPenetrate = GeneratedColumn<int>(
+    'physical_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicPenetrateMeta = const VerificationMeta(
+    'magicPenetrate',
+  );
+  @override
+  late final GeneratedColumn<int> magicPenetrate = GeneratedColumn<int>(
+    'magic_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _lifeStealMeta = const VerificationMeta(
+    'lifeSteal',
+  );
+  @override
+  late final GeneratedColumn<int> lifeSteal = GeneratedColumn<int>(
+    'life_steal',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpRecoveryRateMeta = const VerificationMeta(
+    'hpRecoveryRate',
+  );
+  @override
+  late final GeneratedColumn<int> hpRecoveryRate = GeneratedColumn<int>(
+    'hp_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyRecoveryRateMeta =
+      const VerificationMeta('energyRecoveryRate');
+  @override
+  late final GeneratedColumn<int> energyRecoveryRate = GeneratedColumn<int>(
+    'energy_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyReduceRateMeta = const VerificationMeta(
+    'energyReduceRate',
+  );
+  @override
+  late final GeneratedColumn<int> energyReduceRate = GeneratedColumn<int>(
+    'energy_reduce_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _unionBurstLevelMeta = const VerificationMeta(
+    'unionBurstLevel',
+  );
+  @override
+  late final GeneratedColumn<int> unionBurstLevel = GeneratedColumn<int>(
+    'union_burst_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv1Meta = const VerificationMeta(
+    'mainSkillLv1',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv1 = GeneratedColumn<int>(
+    'main_skill_lv_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv2Meta = const VerificationMeta(
+    'mainSkillLv2',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv2 = GeneratedColumn<int>(
+    'main_skill_lv_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv3Meta = const VerificationMeta(
+    'mainSkillLv3',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv3 = GeneratedColumn<int>(
+    'main_skill_lv_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv4Meta = const VerificationMeta(
+    'mainSkillLv4',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv4 = GeneratedColumn<int>(
+    'main_skill_lv_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv5Meta = const VerificationMeta(
+    'mainSkillLv5',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv5 = GeneratedColumn<int>(
+    'main_skill_lv_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv6Meta = const VerificationMeta(
+    'mainSkillLv6',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv6 = GeneratedColumn<int>(
+    'main_skill_lv_6',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv7Meta = const VerificationMeta(
+    'mainSkillLv7',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv7 = GeneratedColumn<int>(
+    'main_skill_lv_7',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv8Meta = const VerificationMeta(
+    'mainSkillLv8',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv8 = GeneratedColumn<int>(
+    'main_skill_lv_8',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv9Meta = const VerificationMeta(
+    'mainSkillLv9',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv9 = GeneratedColumn<int>(
+    'main_skill_lv_9',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv10Meta = const VerificationMeta(
+    'mainSkillLv10',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv10 = GeneratedColumn<int>(
+    'main_skill_lv_10',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv1Meta = const VerificationMeta(
+    'exSkillLv1',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv1 = GeneratedColumn<int>(
+    'ex_skill_lv_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv2Meta = const VerificationMeta(
+    'exSkillLv2',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv2 = GeneratedColumn<int>(
+    'ex_skill_lv_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv3Meta = const VerificationMeta(
+    'exSkillLv3',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv3 = GeneratedColumn<int>(
+    'ex_skill_lv_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv4Meta = const VerificationMeta(
+    'exSkillLv4',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv4 = GeneratedColumn<int>(
+    'ex_skill_lv_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv5Meta = const VerificationMeta(
+    'exSkillLv5',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv5 = GeneratedColumn<int>(
+    'ex_skill_lv_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resistStatusIdMeta = const VerificationMeta(
+    'resistStatusId',
+  );
+  @override
+  late final GeneratedColumn<int> resistStatusId = GeneratedColumn<int>(
+    'resist_status_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resistVariationIdMeta = const VerificationMeta(
+    'resistVariationId',
+  );
+  @override
+  late final GeneratedColumn<int> resistVariationId = GeneratedColumn<int>(
+    'resist_variation_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _accuracyMeta = const VerificationMeta(
+    'accuracy',
+  );
+  @override
+  late final GeneratedColumn<int> accuracy = GeneratedColumn<int>(
+    'accuracy',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _breakDurabilityMeta = const VerificationMeta(
+    'breakDurability',
+  );
+  @override
+  late final GeneratedColumn<int> breakDurability = GeneratedColumn<int>(
+    'break_durability',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _uniqueEquipmentFlag1Meta =
+      const VerificationMeta('uniqueEquipmentFlag1');
+  @override
+  late final GeneratedColumn<int> uniqueEquipmentFlag1 = GeneratedColumn<int>(
+    'unique_equipment_flag_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _virtualHpMeta = const VerificationMeta(
+    'virtualHp',
+  );
+  @override
+  late final GeneratedColumn<int> virtualHp = GeneratedColumn<int>(
+    'virtual_hp',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    enemyId,
+    unitId,
+    name,
+    level,
+    rarity,
+    promotionLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    unionBurstLevel,
+    mainSkillLv1,
+    mainSkillLv2,
+    mainSkillLv3,
+    mainSkillLv4,
+    mainSkillLv5,
+    mainSkillLv6,
+    mainSkillLv7,
+    mainSkillLv8,
+    mainSkillLv9,
+    mainSkillLv10,
+    exSkillLv1,
+    exSkillLv2,
+    exSkillLv3,
+    exSkillLv4,
+    exSkillLv5,
+    resistStatusId,
+    resistVariationId,
+    accuracy,
+    breakDurability,
+    uniqueEquipmentFlag1,
+    virtualHp,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'sre_enemy_parameter';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<SreEnemyParameterData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('enemy_id')) {
+      context.handle(
+        _enemyIdMeta,
+        enemyId.isAcceptableOrUnknown(data['enemy_id']!, _enemyIdMeta),
+      );
+    }
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('level')) {
+      context.handle(
+        _levelMeta,
+        level.isAcceptableOrUnknown(data['level']!, _levelMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_levelMeta);
+    }
+    if (data.containsKey('rarity')) {
+      context.handle(
+        _rarityMeta,
+        rarity.isAcceptableOrUnknown(data['rarity']!, _rarityMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_rarityMeta);
+    }
+    if (data.containsKey('promotion_level')) {
+      context.handle(
+        _promotionLevelMeta,
+        promotionLevel.isAcceptableOrUnknown(
+          data['promotion_level']!,
+          _promotionLevelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_promotionLevelMeta);
+    }
+    if (data.containsKey('hp')) {
+      context.handle(_hpMeta, hp.isAcceptableOrUnknown(data['hp']!, _hpMeta));
+    } else if (isInserting) {
+      context.missing(_hpMeta);
+    }
+    if (data.containsKey('atk')) {
+      context.handle(
+        _atkMeta,
+        atk.isAcceptableOrUnknown(data['atk']!, _atkMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_atkMeta);
+    }
+    if (data.containsKey('magic_str')) {
+      context.handle(
+        _magicStrMeta,
+        magicStr.isAcceptableOrUnknown(data['magic_str']!, _magicStrMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicStrMeta);
+    }
+    if (data.containsKey('def')) {
+      context.handle(
+        _def_Meta,
+        def_.isAcceptableOrUnknown(data['def']!, _def_Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_def_Meta);
+    }
+    if (data.containsKey('magic_def')) {
+      context.handle(
+        _magicDefMeta,
+        magicDef.isAcceptableOrUnknown(data['magic_def']!, _magicDefMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicDefMeta);
+    }
+    if (data.containsKey('physical_critical')) {
+      context.handle(
+        _physicalCriticalMeta,
+        physicalCritical.isAcceptableOrUnknown(
+          data['physical_critical']!,
+          _physicalCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalCriticalMeta);
+    }
+    if (data.containsKey('magic_critical')) {
+      context.handle(
+        _magicCriticalMeta,
+        magicCritical.isAcceptableOrUnknown(
+          data['magic_critical']!,
+          _magicCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicCriticalMeta);
+    }
+    if (data.containsKey('wave_hp_recovery')) {
+      context.handle(
+        _waveHpRecoveryMeta,
+        waveHpRecovery.isAcceptableOrUnknown(
+          data['wave_hp_recovery']!,
+          _waveHpRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveHpRecoveryMeta);
+    }
+    if (data.containsKey('wave_energy_recovery')) {
+      context.handle(
+        _waveEnergyRecoveryMeta,
+        waveEnergyRecovery.isAcceptableOrUnknown(
+          data['wave_energy_recovery']!,
+          _waveEnergyRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveEnergyRecoveryMeta);
+    }
+    if (data.containsKey('dodge')) {
+      context.handle(
+        _dodgeMeta,
+        dodge.isAcceptableOrUnknown(data['dodge']!, _dodgeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dodgeMeta);
+    }
+    if (data.containsKey('physical_penetrate')) {
+      context.handle(
+        _physicalPenetrateMeta,
+        physicalPenetrate.isAcceptableOrUnknown(
+          data['physical_penetrate']!,
+          _physicalPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalPenetrateMeta);
+    }
+    if (data.containsKey('magic_penetrate')) {
+      context.handle(
+        _magicPenetrateMeta,
+        magicPenetrate.isAcceptableOrUnknown(
+          data['magic_penetrate']!,
+          _magicPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicPenetrateMeta);
+    }
+    if (data.containsKey('life_steal')) {
+      context.handle(
+        _lifeStealMeta,
+        lifeSteal.isAcceptableOrUnknown(data['life_steal']!, _lifeStealMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_lifeStealMeta);
+    }
+    if (data.containsKey('hp_recovery_rate')) {
+      context.handle(
+        _hpRecoveryRateMeta,
+        hpRecoveryRate.isAcceptableOrUnknown(
+          data['hp_recovery_rate']!,
+          _hpRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_hpRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_recovery_rate')) {
+      context.handle(
+        _energyRecoveryRateMeta,
+        energyRecoveryRate.isAcceptableOrUnknown(
+          data['energy_recovery_rate']!,
+          _energyRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_reduce_rate')) {
+      context.handle(
+        _energyReduceRateMeta,
+        energyReduceRate.isAcceptableOrUnknown(
+          data['energy_reduce_rate']!,
+          _energyReduceRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyReduceRateMeta);
+    }
+    if (data.containsKey('union_burst_level')) {
+      context.handle(
+        _unionBurstLevelMeta,
+        unionBurstLevel.isAcceptableOrUnknown(
+          data['union_burst_level']!,
+          _unionBurstLevelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_unionBurstLevelMeta);
+    }
+    if (data.containsKey('main_skill_lv_1')) {
+      context.handle(
+        _mainSkillLv1Meta,
+        mainSkillLv1.isAcceptableOrUnknown(
+          data['main_skill_lv_1']!,
+          _mainSkillLv1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv1Meta);
+    }
+    if (data.containsKey('main_skill_lv_2')) {
+      context.handle(
+        _mainSkillLv2Meta,
+        mainSkillLv2.isAcceptableOrUnknown(
+          data['main_skill_lv_2']!,
+          _mainSkillLv2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv2Meta);
+    }
+    if (data.containsKey('main_skill_lv_3')) {
+      context.handle(
+        _mainSkillLv3Meta,
+        mainSkillLv3.isAcceptableOrUnknown(
+          data['main_skill_lv_3']!,
+          _mainSkillLv3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv3Meta);
+    }
+    if (data.containsKey('main_skill_lv_4')) {
+      context.handle(
+        _mainSkillLv4Meta,
+        mainSkillLv4.isAcceptableOrUnknown(
+          data['main_skill_lv_4']!,
+          _mainSkillLv4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv4Meta);
+    }
+    if (data.containsKey('main_skill_lv_5')) {
+      context.handle(
+        _mainSkillLv5Meta,
+        mainSkillLv5.isAcceptableOrUnknown(
+          data['main_skill_lv_5']!,
+          _mainSkillLv5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv5Meta);
+    }
+    if (data.containsKey('main_skill_lv_6')) {
+      context.handle(
+        _mainSkillLv6Meta,
+        mainSkillLv6.isAcceptableOrUnknown(
+          data['main_skill_lv_6']!,
+          _mainSkillLv6Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv6Meta);
+    }
+    if (data.containsKey('main_skill_lv_7')) {
+      context.handle(
+        _mainSkillLv7Meta,
+        mainSkillLv7.isAcceptableOrUnknown(
+          data['main_skill_lv_7']!,
+          _mainSkillLv7Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv7Meta);
+    }
+    if (data.containsKey('main_skill_lv_8')) {
+      context.handle(
+        _mainSkillLv8Meta,
+        mainSkillLv8.isAcceptableOrUnknown(
+          data['main_skill_lv_8']!,
+          _mainSkillLv8Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv8Meta);
+    }
+    if (data.containsKey('main_skill_lv_9')) {
+      context.handle(
+        _mainSkillLv9Meta,
+        mainSkillLv9.isAcceptableOrUnknown(
+          data['main_skill_lv_9']!,
+          _mainSkillLv9Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv9Meta);
+    }
+    if (data.containsKey('main_skill_lv_10')) {
+      context.handle(
+        _mainSkillLv10Meta,
+        mainSkillLv10.isAcceptableOrUnknown(
+          data['main_skill_lv_10']!,
+          _mainSkillLv10Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv10Meta);
+    }
+    if (data.containsKey('ex_skill_lv_1')) {
+      context.handle(
+        _exSkillLv1Meta,
+        exSkillLv1.isAcceptableOrUnknown(
+          data['ex_skill_lv_1']!,
+          _exSkillLv1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv1Meta);
+    }
+    if (data.containsKey('ex_skill_lv_2')) {
+      context.handle(
+        _exSkillLv2Meta,
+        exSkillLv2.isAcceptableOrUnknown(
+          data['ex_skill_lv_2']!,
+          _exSkillLv2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv2Meta);
+    }
+    if (data.containsKey('ex_skill_lv_3')) {
+      context.handle(
+        _exSkillLv3Meta,
+        exSkillLv3.isAcceptableOrUnknown(
+          data['ex_skill_lv_3']!,
+          _exSkillLv3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv3Meta);
+    }
+    if (data.containsKey('ex_skill_lv_4')) {
+      context.handle(
+        _exSkillLv4Meta,
+        exSkillLv4.isAcceptableOrUnknown(
+          data['ex_skill_lv_4']!,
+          _exSkillLv4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv4Meta);
+    }
+    if (data.containsKey('ex_skill_lv_5')) {
+      context.handle(
+        _exSkillLv5Meta,
+        exSkillLv5.isAcceptableOrUnknown(
+          data['ex_skill_lv_5']!,
+          _exSkillLv5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv5Meta);
+    }
+    if (data.containsKey('resist_status_id')) {
+      context.handle(
+        _resistStatusIdMeta,
+        resistStatusId.isAcceptableOrUnknown(
+          data['resist_status_id']!,
+          _resistStatusIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resistStatusIdMeta);
+    }
+    if (data.containsKey('resist_variation_id')) {
+      context.handle(
+        _resistVariationIdMeta,
+        resistVariationId.isAcceptableOrUnknown(
+          data['resist_variation_id']!,
+          _resistVariationIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resistVariationIdMeta);
+    }
+    if (data.containsKey('accuracy')) {
+      context.handle(
+        _accuracyMeta,
+        accuracy.isAcceptableOrUnknown(data['accuracy']!, _accuracyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_accuracyMeta);
+    }
+    if (data.containsKey('break_durability')) {
+      context.handle(
+        _breakDurabilityMeta,
+        breakDurability.isAcceptableOrUnknown(
+          data['break_durability']!,
+          _breakDurabilityMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_breakDurabilityMeta);
+    }
+    if (data.containsKey('unique_equipment_flag_1')) {
+      context.handle(
+        _uniqueEquipmentFlag1Meta,
+        uniqueEquipmentFlag1.isAcceptableOrUnknown(
+          data['unique_equipment_flag_1']!,
+          _uniqueEquipmentFlag1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_uniqueEquipmentFlag1Meta);
+    }
+    if (data.containsKey('virtual_hp')) {
+      context.handle(
+        _virtualHpMeta,
+        virtualHp.isAcceptableOrUnknown(data['virtual_hp']!, _virtualHpMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_virtualHpMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {enemyId};
+  @override
+  SreEnemyParameterData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return SreEnemyParameterData(
+      enemyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id'],
+      )!,
+      unitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unit_id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      level: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}level'],
+      )!,
+      rarity: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}rarity'],
+      )!,
+      promotionLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}promotion_level'],
+      )!,
+      hp: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hp'],
+      )!,
+      atk: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk'],
+      )!,
+      magicStr: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_str'],
+      )!,
+      def_: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}def'],
+      )!,
+      magicDef: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_def'],
+      )!,
+      physicalCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}physical_critical'],
+      )!,
+      magicCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_critical'],
+      )!,
+      waveHpRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_hp_recovery'],
+      )!,
+      waveEnergyRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_energy_recovery'],
+      )!,
+      dodge: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}dodge'],
+      )!,
+      physicalPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}physical_penetrate'],
+      )!,
+      magicPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_penetrate'],
+      )!,
+      lifeSteal: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}life_steal'],
+      )!,
+      hpRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hp_recovery_rate'],
+      )!,
+      energyRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy_recovery_rate'],
+      )!,
+      energyReduceRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy_reduce_rate'],
+      )!,
+      unionBurstLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}union_burst_level'],
+      )!,
+      mainSkillLv1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_1'],
+      )!,
+      mainSkillLv2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_2'],
+      )!,
+      mainSkillLv3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_3'],
+      )!,
+      mainSkillLv4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_4'],
+      )!,
+      mainSkillLv5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_5'],
+      )!,
+      mainSkillLv6: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_6'],
+      )!,
+      mainSkillLv7: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_7'],
+      )!,
+      mainSkillLv8: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_8'],
+      )!,
+      mainSkillLv9: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_9'],
+      )!,
+      mainSkillLv10: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_10'],
+      )!,
+      exSkillLv1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_1'],
+      )!,
+      exSkillLv2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_2'],
+      )!,
+      exSkillLv3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_3'],
+      )!,
+      exSkillLv4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_4'],
+      )!,
+      exSkillLv5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_5'],
+      )!,
+      resistStatusId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resist_status_id'],
+      )!,
+      resistVariationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resist_variation_id'],
+      )!,
+      accuracy: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}accuracy'],
+      )!,
+      breakDurability: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}break_durability'],
+      )!,
+      uniqueEquipmentFlag1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unique_equipment_flag_1'],
+      )!,
+      virtualHp: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}virtual_hp'],
+      )!,
+    );
+  }
+
+  @override
+  $SreEnemyParameterTable createAlias(String alias) {
+    return $SreEnemyParameterTable(attachedDatabase, alias);
+  }
+}
+
+class SreEnemyParameterData extends DataClass
+    implements Insertable<SreEnemyParameterData> {
+  final int enemyId;
+  final int unitId;
+  final String name;
+  final int level;
+  final int rarity;
+  final int promotionLevel;
+  final int hp;
+  final int atk;
+  final int magicStr;
+  final double def_;
+  final int magicDef;
+  final int physicalCritical;
+  final int magicCritical;
+  final int waveHpRecovery;
+  final int waveEnergyRecovery;
+  final int dodge;
+  final int physicalPenetrate;
+  final int magicPenetrate;
+  final int lifeSteal;
+  final int hpRecoveryRate;
+  final int energyRecoveryRate;
+  final int energyReduceRate;
+  final int unionBurstLevel;
+  final int mainSkillLv1;
+  final int mainSkillLv2;
+  final int mainSkillLv3;
+  final int mainSkillLv4;
+  final int mainSkillLv5;
+  final int mainSkillLv6;
+  final int mainSkillLv7;
+  final int mainSkillLv8;
+  final int mainSkillLv9;
+  final int mainSkillLv10;
+  final int exSkillLv1;
+  final int exSkillLv2;
+  final int exSkillLv3;
+  final int exSkillLv4;
+  final int exSkillLv5;
+  final int resistStatusId;
+  final int resistVariationId;
+  final int accuracy;
+  final int breakDurability;
+  final int uniqueEquipmentFlag1;
+  final int virtualHp;
+  const SreEnemyParameterData({
+    required this.enemyId,
+    required this.unitId,
+    required this.name,
+    required this.level,
+    required this.rarity,
+    required this.promotionLevel,
+    required this.hp,
+    required this.atk,
+    required this.magicStr,
+    required this.def_,
+    required this.magicDef,
+    required this.physicalCritical,
+    required this.magicCritical,
+    required this.waveHpRecovery,
+    required this.waveEnergyRecovery,
+    required this.dodge,
+    required this.physicalPenetrate,
+    required this.magicPenetrate,
+    required this.lifeSteal,
+    required this.hpRecoveryRate,
+    required this.energyRecoveryRate,
+    required this.energyReduceRate,
+    required this.unionBurstLevel,
+    required this.mainSkillLv1,
+    required this.mainSkillLv2,
+    required this.mainSkillLv3,
+    required this.mainSkillLv4,
+    required this.mainSkillLv5,
+    required this.mainSkillLv6,
+    required this.mainSkillLv7,
+    required this.mainSkillLv8,
+    required this.mainSkillLv9,
+    required this.mainSkillLv10,
+    required this.exSkillLv1,
+    required this.exSkillLv2,
+    required this.exSkillLv3,
+    required this.exSkillLv4,
+    required this.exSkillLv5,
+    required this.resistStatusId,
+    required this.resistVariationId,
+    required this.accuracy,
+    required this.breakDurability,
+    required this.uniqueEquipmentFlag1,
+    required this.virtualHp,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['enemy_id'] = Variable<int>(enemyId);
+    map['unit_id'] = Variable<int>(unitId);
+    map['name'] = Variable<String>(name);
+    map['level'] = Variable<int>(level);
+    map['rarity'] = Variable<int>(rarity);
+    map['promotion_level'] = Variable<int>(promotionLevel);
+    map['hp'] = Variable<int>(hp);
+    map['atk'] = Variable<int>(atk);
+    map['magic_str'] = Variable<int>(magicStr);
+    map['def'] = Variable<double>(def_);
+    map['magic_def'] = Variable<int>(magicDef);
+    map['physical_critical'] = Variable<int>(physicalCritical);
+    map['magic_critical'] = Variable<int>(magicCritical);
+    map['wave_hp_recovery'] = Variable<int>(waveHpRecovery);
+    map['wave_energy_recovery'] = Variable<int>(waveEnergyRecovery);
+    map['dodge'] = Variable<int>(dodge);
+    map['physical_penetrate'] = Variable<int>(physicalPenetrate);
+    map['magic_penetrate'] = Variable<int>(magicPenetrate);
+    map['life_steal'] = Variable<int>(lifeSteal);
+    map['hp_recovery_rate'] = Variable<int>(hpRecoveryRate);
+    map['energy_recovery_rate'] = Variable<int>(energyRecoveryRate);
+    map['energy_reduce_rate'] = Variable<int>(energyReduceRate);
+    map['union_burst_level'] = Variable<int>(unionBurstLevel);
+    map['main_skill_lv_1'] = Variable<int>(mainSkillLv1);
+    map['main_skill_lv_2'] = Variable<int>(mainSkillLv2);
+    map['main_skill_lv_3'] = Variable<int>(mainSkillLv3);
+    map['main_skill_lv_4'] = Variable<int>(mainSkillLv4);
+    map['main_skill_lv_5'] = Variable<int>(mainSkillLv5);
+    map['main_skill_lv_6'] = Variable<int>(mainSkillLv6);
+    map['main_skill_lv_7'] = Variable<int>(mainSkillLv7);
+    map['main_skill_lv_8'] = Variable<int>(mainSkillLv8);
+    map['main_skill_lv_9'] = Variable<int>(mainSkillLv9);
+    map['main_skill_lv_10'] = Variable<int>(mainSkillLv10);
+    map['ex_skill_lv_1'] = Variable<int>(exSkillLv1);
+    map['ex_skill_lv_2'] = Variable<int>(exSkillLv2);
+    map['ex_skill_lv_3'] = Variable<int>(exSkillLv3);
+    map['ex_skill_lv_4'] = Variable<int>(exSkillLv4);
+    map['ex_skill_lv_5'] = Variable<int>(exSkillLv5);
+    map['resist_status_id'] = Variable<int>(resistStatusId);
+    map['resist_variation_id'] = Variable<int>(resistVariationId);
+    map['accuracy'] = Variable<int>(accuracy);
+    map['break_durability'] = Variable<int>(breakDurability);
+    map['unique_equipment_flag_1'] = Variable<int>(uniqueEquipmentFlag1);
+    map['virtual_hp'] = Variable<int>(virtualHp);
+    return map;
+  }
+
+  SreEnemyParameterCompanion toCompanion(bool nullToAbsent) {
+    return SreEnemyParameterCompanion(
+      enemyId: Value(enemyId),
+      unitId: Value(unitId),
+      name: Value(name),
+      level: Value(level),
+      rarity: Value(rarity),
+      promotionLevel: Value(promotionLevel),
+      hp: Value(hp),
+      atk: Value(atk),
+      magicStr: Value(magicStr),
+      def_: Value(def_),
+      magicDef: Value(magicDef),
+      physicalCritical: Value(physicalCritical),
+      magicCritical: Value(magicCritical),
+      waveHpRecovery: Value(waveHpRecovery),
+      waveEnergyRecovery: Value(waveEnergyRecovery),
+      dodge: Value(dodge),
+      physicalPenetrate: Value(physicalPenetrate),
+      magicPenetrate: Value(magicPenetrate),
+      lifeSteal: Value(lifeSteal),
+      hpRecoveryRate: Value(hpRecoveryRate),
+      energyRecoveryRate: Value(energyRecoveryRate),
+      energyReduceRate: Value(energyReduceRate),
+      unionBurstLevel: Value(unionBurstLevel),
+      mainSkillLv1: Value(mainSkillLv1),
+      mainSkillLv2: Value(mainSkillLv2),
+      mainSkillLv3: Value(mainSkillLv3),
+      mainSkillLv4: Value(mainSkillLv4),
+      mainSkillLv5: Value(mainSkillLv5),
+      mainSkillLv6: Value(mainSkillLv6),
+      mainSkillLv7: Value(mainSkillLv7),
+      mainSkillLv8: Value(mainSkillLv8),
+      mainSkillLv9: Value(mainSkillLv9),
+      mainSkillLv10: Value(mainSkillLv10),
+      exSkillLv1: Value(exSkillLv1),
+      exSkillLv2: Value(exSkillLv2),
+      exSkillLv3: Value(exSkillLv3),
+      exSkillLv4: Value(exSkillLv4),
+      exSkillLv5: Value(exSkillLv5),
+      resistStatusId: Value(resistStatusId),
+      resistVariationId: Value(resistVariationId),
+      accuracy: Value(accuracy),
+      breakDurability: Value(breakDurability),
+      uniqueEquipmentFlag1: Value(uniqueEquipmentFlag1),
+      virtualHp: Value(virtualHp),
+    );
+  }
+
+  factory SreEnemyParameterData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return SreEnemyParameterData(
+      enemyId: serializer.fromJson<int>(json['enemyId']),
+      unitId: serializer.fromJson<int>(json['unitId']),
+      name: serializer.fromJson<String>(json['name']),
+      level: serializer.fromJson<int>(json['level']),
+      rarity: serializer.fromJson<int>(json['rarity']),
+      promotionLevel: serializer.fromJson<int>(json['promotionLevel']),
+      hp: serializer.fromJson<int>(json['hp']),
+      atk: serializer.fromJson<int>(json['atk']),
+      magicStr: serializer.fromJson<int>(json['magicStr']),
+      def_: serializer.fromJson<double>(json['def_']),
+      magicDef: serializer.fromJson<int>(json['magicDef']),
+      physicalCritical: serializer.fromJson<int>(json['physicalCritical']),
+      magicCritical: serializer.fromJson<int>(json['magicCritical']),
+      waveHpRecovery: serializer.fromJson<int>(json['waveHpRecovery']),
+      waveEnergyRecovery: serializer.fromJson<int>(json['waveEnergyRecovery']),
+      dodge: serializer.fromJson<int>(json['dodge']),
+      physicalPenetrate: serializer.fromJson<int>(json['physicalPenetrate']),
+      magicPenetrate: serializer.fromJson<int>(json['magicPenetrate']),
+      lifeSteal: serializer.fromJson<int>(json['lifeSteal']),
+      hpRecoveryRate: serializer.fromJson<int>(json['hpRecoveryRate']),
+      energyRecoveryRate: serializer.fromJson<int>(json['energyRecoveryRate']),
+      energyReduceRate: serializer.fromJson<int>(json['energyReduceRate']),
+      unionBurstLevel: serializer.fromJson<int>(json['unionBurstLevel']),
+      mainSkillLv1: serializer.fromJson<int>(json['mainSkillLv1']),
+      mainSkillLv2: serializer.fromJson<int>(json['mainSkillLv2']),
+      mainSkillLv3: serializer.fromJson<int>(json['mainSkillLv3']),
+      mainSkillLv4: serializer.fromJson<int>(json['mainSkillLv4']),
+      mainSkillLv5: serializer.fromJson<int>(json['mainSkillLv5']),
+      mainSkillLv6: serializer.fromJson<int>(json['mainSkillLv6']),
+      mainSkillLv7: serializer.fromJson<int>(json['mainSkillLv7']),
+      mainSkillLv8: serializer.fromJson<int>(json['mainSkillLv8']),
+      mainSkillLv9: serializer.fromJson<int>(json['mainSkillLv9']),
+      mainSkillLv10: serializer.fromJson<int>(json['mainSkillLv10']),
+      exSkillLv1: serializer.fromJson<int>(json['exSkillLv1']),
+      exSkillLv2: serializer.fromJson<int>(json['exSkillLv2']),
+      exSkillLv3: serializer.fromJson<int>(json['exSkillLv3']),
+      exSkillLv4: serializer.fromJson<int>(json['exSkillLv4']),
+      exSkillLv5: serializer.fromJson<int>(json['exSkillLv5']),
+      resistStatusId: serializer.fromJson<int>(json['resistStatusId']),
+      resistVariationId: serializer.fromJson<int>(json['resistVariationId']),
+      accuracy: serializer.fromJson<int>(json['accuracy']),
+      breakDurability: serializer.fromJson<int>(json['breakDurability']),
+      uniqueEquipmentFlag1: serializer.fromJson<int>(
+        json['uniqueEquipmentFlag1'],
+      ),
+      virtualHp: serializer.fromJson<int>(json['virtualHp']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'enemyId': serializer.toJson<int>(enemyId),
+      'unitId': serializer.toJson<int>(unitId),
+      'name': serializer.toJson<String>(name),
+      'level': serializer.toJson<int>(level),
+      'rarity': serializer.toJson<int>(rarity),
+      'promotionLevel': serializer.toJson<int>(promotionLevel),
+      'hp': serializer.toJson<int>(hp),
+      'atk': serializer.toJson<int>(atk),
+      'magicStr': serializer.toJson<int>(magicStr),
+      'def_': serializer.toJson<double>(def_),
+      'magicDef': serializer.toJson<int>(magicDef),
+      'physicalCritical': serializer.toJson<int>(physicalCritical),
+      'magicCritical': serializer.toJson<int>(magicCritical),
+      'waveHpRecovery': serializer.toJson<int>(waveHpRecovery),
+      'waveEnergyRecovery': serializer.toJson<int>(waveEnergyRecovery),
+      'dodge': serializer.toJson<int>(dodge),
+      'physicalPenetrate': serializer.toJson<int>(physicalPenetrate),
+      'magicPenetrate': serializer.toJson<int>(magicPenetrate),
+      'lifeSteal': serializer.toJson<int>(lifeSteal),
+      'hpRecoveryRate': serializer.toJson<int>(hpRecoveryRate),
+      'energyRecoveryRate': serializer.toJson<int>(energyRecoveryRate),
+      'energyReduceRate': serializer.toJson<int>(energyReduceRate),
+      'unionBurstLevel': serializer.toJson<int>(unionBurstLevel),
+      'mainSkillLv1': serializer.toJson<int>(mainSkillLv1),
+      'mainSkillLv2': serializer.toJson<int>(mainSkillLv2),
+      'mainSkillLv3': serializer.toJson<int>(mainSkillLv3),
+      'mainSkillLv4': serializer.toJson<int>(mainSkillLv4),
+      'mainSkillLv5': serializer.toJson<int>(mainSkillLv5),
+      'mainSkillLv6': serializer.toJson<int>(mainSkillLv6),
+      'mainSkillLv7': serializer.toJson<int>(mainSkillLv7),
+      'mainSkillLv8': serializer.toJson<int>(mainSkillLv8),
+      'mainSkillLv9': serializer.toJson<int>(mainSkillLv9),
+      'mainSkillLv10': serializer.toJson<int>(mainSkillLv10),
+      'exSkillLv1': serializer.toJson<int>(exSkillLv1),
+      'exSkillLv2': serializer.toJson<int>(exSkillLv2),
+      'exSkillLv3': serializer.toJson<int>(exSkillLv3),
+      'exSkillLv4': serializer.toJson<int>(exSkillLv4),
+      'exSkillLv5': serializer.toJson<int>(exSkillLv5),
+      'resistStatusId': serializer.toJson<int>(resistStatusId),
+      'resistVariationId': serializer.toJson<int>(resistVariationId),
+      'accuracy': serializer.toJson<int>(accuracy),
+      'breakDurability': serializer.toJson<int>(breakDurability),
+      'uniqueEquipmentFlag1': serializer.toJson<int>(uniqueEquipmentFlag1),
+      'virtualHp': serializer.toJson<int>(virtualHp),
+    };
+  }
+
+  SreEnemyParameterData copyWith({
+    int? enemyId,
+    int? unitId,
+    String? name,
+    int? level,
+    int? rarity,
+    int? promotionLevel,
+    int? hp,
+    int? atk,
+    int? magicStr,
+    double? def_,
+    int? magicDef,
+    int? physicalCritical,
+    int? magicCritical,
+    int? waveHpRecovery,
+    int? waveEnergyRecovery,
+    int? dodge,
+    int? physicalPenetrate,
+    int? magicPenetrate,
+    int? lifeSteal,
+    int? hpRecoveryRate,
+    int? energyRecoveryRate,
+    int? energyReduceRate,
+    int? unionBurstLevel,
+    int? mainSkillLv1,
+    int? mainSkillLv2,
+    int? mainSkillLv3,
+    int? mainSkillLv4,
+    int? mainSkillLv5,
+    int? mainSkillLv6,
+    int? mainSkillLv7,
+    int? mainSkillLv8,
+    int? mainSkillLv9,
+    int? mainSkillLv10,
+    int? exSkillLv1,
+    int? exSkillLv2,
+    int? exSkillLv3,
+    int? exSkillLv4,
+    int? exSkillLv5,
+    int? resistStatusId,
+    int? resistVariationId,
+    int? accuracy,
+    int? breakDurability,
+    int? uniqueEquipmentFlag1,
+    int? virtualHp,
+  }) => SreEnemyParameterData(
+    enemyId: enemyId ?? this.enemyId,
+    unitId: unitId ?? this.unitId,
+    name: name ?? this.name,
+    level: level ?? this.level,
+    rarity: rarity ?? this.rarity,
+    promotionLevel: promotionLevel ?? this.promotionLevel,
+    hp: hp ?? this.hp,
+    atk: atk ?? this.atk,
+    magicStr: magicStr ?? this.magicStr,
+    def_: def_ ?? this.def_,
+    magicDef: magicDef ?? this.magicDef,
+    physicalCritical: physicalCritical ?? this.physicalCritical,
+    magicCritical: magicCritical ?? this.magicCritical,
+    waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+    waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+    dodge: dodge ?? this.dodge,
+    physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+    magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+    lifeSteal: lifeSteal ?? this.lifeSteal,
+    hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+    energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+    energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+    unionBurstLevel: unionBurstLevel ?? this.unionBurstLevel,
+    mainSkillLv1: mainSkillLv1 ?? this.mainSkillLv1,
+    mainSkillLv2: mainSkillLv2 ?? this.mainSkillLv2,
+    mainSkillLv3: mainSkillLv3 ?? this.mainSkillLv3,
+    mainSkillLv4: mainSkillLv4 ?? this.mainSkillLv4,
+    mainSkillLv5: mainSkillLv5 ?? this.mainSkillLv5,
+    mainSkillLv6: mainSkillLv6 ?? this.mainSkillLv6,
+    mainSkillLv7: mainSkillLv7 ?? this.mainSkillLv7,
+    mainSkillLv8: mainSkillLv8 ?? this.mainSkillLv8,
+    mainSkillLv9: mainSkillLv9 ?? this.mainSkillLv9,
+    mainSkillLv10: mainSkillLv10 ?? this.mainSkillLv10,
+    exSkillLv1: exSkillLv1 ?? this.exSkillLv1,
+    exSkillLv2: exSkillLv2 ?? this.exSkillLv2,
+    exSkillLv3: exSkillLv3 ?? this.exSkillLv3,
+    exSkillLv4: exSkillLv4 ?? this.exSkillLv4,
+    exSkillLv5: exSkillLv5 ?? this.exSkillLv5,
+    resistStatusId: resistStatusId ?? this.resistStatusId,
+    resistVariationId: resistVariationId ?? this.resistVariationId,
+    accuracy: accuracy ?? this.accuracy,
+    breakDurability: breakDurability ?? this.breakDurability,
+    uniqueEquipmentFlag1: uniqueEquipmentFlag1 ?? this.uniqueEquipmentFlag1,
+    virtualHp: virtualHp ?? this.virtualHp,
+  );
+  SreEnemyParameterData copyWithCompanion(SreEnemyParameterCompanion data) {
+    return SreEnemyParameterData(
+      enemyId: data.enemyId.present ? data.enemyId.value : this.enemyId,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      name: data.name.present ? data.name.value : this.name,
+      level: data.level.present ? data.level.value : this.level,
+      rarity: data.rarity.present ? data.rarity.value : this.rarity,
+      promotionLevel: data.promotionLevel.present
+          ? data.promotionLevel.value
+          : this.promotionLevel,
+      hp: data.hp.present ? data.hp.value : this.hp,
+      atk: data.atk.present ? data.atk.value : this.atk,
+      magicStr: data.magicStr.present ? data.magicStr.value : this.magicStr,
+      def_: data.def_.present ? data.def_.value : this.def_,
+      magicDef: data.magicDef.present ? data.magicDef.value : this.magicDef,
+      physicalCritical: data.physicalCritical.present
+          ? data.physicalCritical.value
+          : this.physicalCritical,
+      magicCritical: data.magicCritical.present
+          ? data.magicCritical.value
+          : this.magicCritical,
+      waveHpRecovery: data.waveHpRecovery.present
+          ? data.waveHpRecovery.value
+          : this.waveHpRecovery,
+      waveEnergyRecovery: data.waveEnergyRecovery.present
+          ? data.waveEnergyRecovery.value
+          : this.waveEnergyRecovery,
+      dodge: data.dodge.present ? data.dodge.value : this.dodge,
+      physicalPenetrate: data.physicalPenetrate.present
+          ? data.physicalPenetrate.value
+          : this.physicalPenetrate,
+      magicPenetrate: data.magicPenetrate.present
+          ? data.magicPenetrate.value
+          : this.magicPenetrate,
+      lifeSteal: data.lifeSteal.present ? data.lifeSteal.value : this.lifeSteal,
+      hpRecoveryRate: data.hpRecoveryRate.present
+          ? data.hpRecoveryRate.value
+          : this.hpRecoveryRate,
+      energyRecoveryRate: data.energyRecoveryRate.present
+          ? data.energyRecoveryRate.value
+          : this.energyRecoveryRate,
+      energyReduceRate: data.energyReduceRate.present
+          ? data.energyReduceRate.value
+          : this.energyReduceRate,
+      unionBurstLevel: data.unionBurstLevel.present
+          ? data.unionBurstLevel.value
+          : this.unionBurstLevel,
+      mainSkillLv1: data.mainSkillLv1.present
+          ? data.mainSkillLv1.value
+          : this.mainSkillLv1,
+      mainSkillLv2: data.mainSkillLv2.present
+          ? data.mainSkillLv2.value
+          : this.mainSkillLv2,
+      mainSkillLv3: data.mainSkillLv3.present
+          ? data.mainSkillLv3.value
+          : this.mainSkillLv3,
+      mainSkillLv4: data.mainSkillLv4.present
+          ? data.mainSkillLv4.value
+          : this.mainSkillLv4,
+      mainSkillLv5: data.mainSkillLv5.present
+          ? data.mainSkillLv5.value
+          : this.mainSkillLv5,
+      mainSkillLv6: data.mainSkillLv6.present
+          ? data.mainSkillLv6.value
+          : this.mainSkillLv6,
+      mainSkillLv7: data.mainSkillLv7.present
+          ? data.mainSkillLv7.value
+          : this.mainSkillLv7,
+      mainSkillLv8: data.mainSkillLv8.present
+          ? data.mainSkillLv8.value
+          : this.mainSkillLv8,
+      mainSkillLv9: data.mainSkillLv9.present
+          ? data.mainSkillLv9.value
+          : this.mainSkillLv9,
+      mainSkillLv10: data.mainSkillLv10.present
+          ? data.mainSkillLv10.value
+          : this.mainSkillLv10,
+      exSkillLv1: data.exSkillLv1.present
+          ? data.exSkillLv1.value
+          : this.exSkillLv1,
+      exSkillLv2: data.exSkillLv2.present
+          ? data.exSkillLv2.value
+          : this.exSkillLv2,
+      exSkillLv3: data.exSkillLv3.present
+          ? data.exSkillLv3.value
+          : this.exSkillLv3,
+      exSkillLv4: data.exSkillLv4.present
+          ? data.exSkillLv4.value
+          : this.exSkillLv4,
+      exSkillLv5: data.exSkillLv5.present
+          ? data.exSkillLv5.value
+          : this.exSkillLv5,
+      resistStatusId: data.resistStatusId.present
+          ? data.resistStatusId.value
+          : this.resistStatusId,
+      resistVariationId: data.resistVariationId.present
+          ? data.resistVariationId.value
+          : this.resistVariationId,
+      accuracy: data.accuracy.present ? data.accuracy.value : this.accuracy,
+      breakDurability: data.breakDurability.present
+          ? data.breakDurability.value
+          : this.breakDurability,
+      uniqueEquipmentFlag1: data.uniqueEquipmentFlag1.present
+          ? data.uniqueEquipmentFlag1.value
+          : this.uniqueEquipmentFlag1,
+      virtualHp: data.virtualHp.present ? data.virtualHp.value : this.virtualHp,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SreEnemyParameterData(')
+          ..write('enemyId: $enemyId, ')
+          ..write('unitId: $unitId, ')
+          ..write('name: $name, ')
+          ..write('level: $level, ')
+          ..write('rarity: $rarity, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('unionBurstLevel: $unionBurstLevel, ')
+          ..write('mainSkillLv1: $mainSkillLv1, ')
+          ..write('mainSkillLv2: $mainSkillLv2, ')
+          ..write('mainSkillLv3: $mainSkillLv3, ')
+          ..write('mainSkillLv4: $mainSkillLv4, ')
+          ..write('mainSkillLv5: $mainSkillLv5, ')
+          ..write('mainSkillLv6: $mainSkillLv6, ')
+          ..write('mainSkillLv7: $mainSkillLv7, ')
+          ..write('mainSkillLv8: $mainSkillLv8, ')
+          ..write('mainSkillLv9: $mainSkillLv9, ')
+          ..write('mainSkillLv10: $mainSkillLv10, ')
+          ..write('exSkillLv1: $exSkillLv1, ')
+          ..write('exSkillLv2: $exSkillLv2, ')
+          ..write('exSkillLv3: $exSkillLv3, ')
+          ..write('exSkillLv4: $exSkillLv4, ')
+          ..write('exSkillLv5: $exSkillLv5, ')
+          ..write('resistStatusId: $resistStatusId, ')
+          ..write('resistVariationId: $resistVariationId, ')
+          ..write('accuracy: $accuracy, ')
+          ..write('breakDurability: $breakDurability, ')
+          ..write('uniqueEquipmentFlag1: $uniqueEquipmentFlag1, ')
+          ..write('virtualHp: $virtualHp')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    enemyId,
+    unitId,
+    name,
+    level,
+    rarity,
+    promotionLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    unionBurstLevel,
+    mainSkillLv1,
+    mainSkillLv2,
+    mainSkillLv3,
+    mainSkillLv4,
+    mainSkillLv5,
+    mainSkillLv6,
+    mainSkillLv7,
+    mainSkillLv8,
+    mainSkillLv9,
+    mainSkillLv10,
+    exSkillLv1,
+    exSkillLv2,
+    exSkillLv3,
+    exSkillLv4,
+    exSkillLv5,
+    resistStatusId,
+    resistVariationId,
+    accuracy,
+    breakDurability,
+    uniqueEquipmentFlag1,
+    virtualHp,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is SreEnemyParameterData &&
+          other.enemyId == this.enemyId &&
+          other.unitId == this.unitId &&
+          other.name == this.name &&
+          other.level == this.level &&
+          other.rarity == this.rarity &&
+          other.promotionLevel == this.promotionLevel &&
+          other.hp == this.hp &&
+          other.atk == this.atk &&
+          other.magicStr == this.magicStr &&
+          other.def_ == this.def_ &&
+          other.magicDef == this.magicDef &&
+          other.physicalCritical == this.physicalCritical &&
+          other.magicCritical == this.magicCritical &&
+          other.waveHpRecovery == this.waveHpRecovery &&
+          other.waveEnergyRecovery == this.waveEnergyRecovery &&
+          other.dodge == this.dodge &&
+          other.physicalPenetrate == this.physicalPenetrate &&
+          other.magicPenetrate == this.magicPenetrate &&
+          other.lifeSteal == this.lifeSteal &&
+          other.hpRecoveryRate == this.hpRecoveryRate &&
+          other.energyRecoveryRate == this.energyRecoveryRate &&
+          other.energyReduceRate == this.energyReduceRate &&
+          other.unionBurstLevel == this.unionBurstLevel &&
+          other.mainSkillLv1 == this.mainSkillLv1 &&
+          other.mainSkillLv2 == this.mainSkillLv2 &&
+          other.mainSkillLv3 == this.mainSkillLv3 &&
+          other.mainSkillLv4 == this.mainSkillLv4 &&
+          other.mainSkillLv5 == this.mainSkillLv5 &&
+          other.mainSkillLv6 == this.mainSkillLv6 &&
+          other.mainSkillLv7 == this.mainSkillLv7 &&
+          other.mainSkillLv8 == this.mainSkillLv8 &&
+          other.mainSkillLv9 == this.mainSkillLv9 &&
+          other.mainSkillLv10 == this.mainSkillLv10 &&
+          other.exSkillLv1 == this.exSkillLv1 &&
+          other.exSkillLv2 == this.exSkillLv2 &&
+          other.exSkillLv3 == this.exSkillLv3 &&
+          other.exSkillLv4 == this.exSkillLv4 &&
+          other.exSkillLv5 == this.exSkillLv5 &&
+          other.resistStatusId == this.resistStatusId &&
+          other.resistVariationId == this.resistVariationId &&
+          other.accuracy == this.accuracy &&
+          other.breakDurability == this.breakDurability &&
+          other.uniqueEquipmentFlag1 == this.uniqueEquipmentFlag1 &&
+          other.virtualHp == this.virtualHp);
+}
+
+class SreEnemyParameterCompanion
+    extends UpdateCompanion<SreEnemyParameterData> {
+  final Value<int> enemyId;
+  final Value<int> unitId;
+  final Value<String> name;
+  final Value<int> level;
+  final Value<int> rarity;
+  final Value<int> promotionLevel;
+  final Value<int> hp;
+  final Value<int> atk;
+  final Value<int> magicStr;
+  final Value<double> def_;
+  final Value<int> magicDef;
+  final Value<int> physicalCritical;
+  final Value<int> magicCritical;
+  final Value<int> waveHpRecovery;
+  final Value<int> waveEnergyRecovery;
+  final Value<int> dodge;
+  final Value<int> physicalPenetrate;
+  final Value<int> magicPenetrate;
+  final Value<int> lifeSteal;
+  final Value<int> hpRecoveryRate;
+  final Value<int> energyRecoveryRate;
+  final Value<int> energyReduceRate;
+  final Value<int> unionBurstLevel;
+  final Value<int> mainSkillLv1;
+  final Value<int> mainSkillLv2;
+  final Value<int> mainSkillLv3;
+  final Value<int> mainSkillLv4;
+  final Value<int> mainSkillLv5;
+  final Value<int> mainSkillLv6;
+  final Value<int> mainSkillLv7;
+  final Value<int> mainSkillLv8;
+  final Value<int> mainSkillLv9;
+  final Value<int> mainSkillLv10;
+  final Value<int> exSkillLv1;
+  final Value<int> exSkillLv2;
+  final Value<int> exSkillLv3;
+  final Value<int> exSkillLv4;
+  final Value<int> exSkillLv5;
+  final Value<int> resistStatusId;
+  final Value<int> resistVariationId;
+  final Value<int> accuracy;
+  final Value<int> breakDurability;
+  final Value<int> uniqueEquipmentFlag1;
+  final Value<int> virtualHp;
+  const SreEnemyParameterCompanion({
+    this.enemyId = const Value.absent(),
+    this.unitId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.level = const Value.absent(),
+    this.rarity = const Value.absent(),
+    this.promotionLevel = const Value.absent(),
+    this.hp = const Value.absent(),
+    this.atk = const Value.absent(),
+    this.magicStr = const Value.absent(),
+    this.def_ = const Value.absent(),
+    this.magicDef = const Value.absent(),
+    this.physicalCritical = const Value.absent(),
+    this.magicCritical = const Value.absent(),
+    this.waveHpRecovery = const Value.absent(),
+    this.waveEnergyRecovery = const Value.absent(),
+    this.dodge = const Value.absent(),
+    this.physicalPenetrate = const Value.absent(),
+    this.magicPenetrate = const Value.absent(),
+    this.lifeSteal = const Value.absent(),
+    this.hpRecoveryRate = const Value.absent(),
+    this.energyRecoveryRate = const Value.absent(),
+    this.energyReduceRate = const Value.absent(),
+    this.unionBurstLevel = const Value.absent(),
+    this.mainSkillLv1 = const Value.absent(),
+    this.mainSkillLv2 = const Value.absent(),
+    this.mainSkillLv3 = const Value.absent(),
+    this.mainSkillLv4 = const Value.absent(),
+    this.mainSkillLv5 = const Value.absent(),
+    this.mainSkillLv6 = const Value.absent(),
+    this.mainSkillLv7 = const Value.absent(),
+    this.mainSkillLv8 = const Value.absent(),
+    this.mainSkillLv9 = const Value.absent(),
+    this.mainSkillLv10 = const Value.absent(),
+    this.exSkillLv1 = const Value.absent(),
+    this.exSkillLv2 = const Value.absent(),
+    this.exSkillLv3 = const Value.absent(),
+    this.exSkillLv4 = const Value.absent(),
+    this.exSkillLv5 = const Value.absent(),
+    this.resistStatusId = const Value.absent(),
+    this.resistVariationId = const Value.absent(),
+    this.accuracy = const Value.absent(),
+    this.breakDurability = const Value.absent(),
+    this.uniqueEquipmentFlag1 = const Value.absent(),
+    this.virtualHp = const Value.absent(),
+  });
+  SreEnemyParameterCompanion.insert({
+    this.enemyId = const Value.absent(),
+    required int unitId,
+    required String name,
+    required int level,
+    required int rarity,
+    required int promotionLevel,
+    required int hp,
+    required int atk,
+    required int magicStr,
+    required double def_,
+    required int magicDef,
+    required int physicalCritical,
+    required int magicCritical,
+    required int waveHpRecovery,
+    required int waveEnergyRecovery,
+    required int dodge,
+    required int physicalPenetrate,
+    required int magicPenetrate,
+    required int lifeSteal,
+    required int hpRecoveryRate,
+    required int energyRecoveryRate,
+    required int energyReduceRate,
+    required int unionBurstLevel,
+    required int mainSkillLv1,
+    required int mainSkillLv2,
+    required int mainSkillLv3,
+    required int mainSkillLv4,
+    required int mainSkillLv5,
+    required int mainSkillLv6,
+    required int mainSkillLv7,
+    required int mainSkillLv8,
+    required int mainSkillLv9,
+    required int mainSkillLv10,
+    required int exSkillLv1,
+    required int exSkillLv2,
+    required int exSkillLv3,
+    required int exSkillLv4,
+    required int exSkillLv5,
+    required int resistStatusId,
+    required int resistVariationId,
+    required int accuracy,
+    required int breakDurability,
+    required int uniqueEquipmentFlag1,
+    required int virtualHp,
+  }) : unitId = Value(unitId),
+       name = Value(name),
+       level = Value(level),
+       rarity = Value(rarity),
+       promotionLevel = Value(promotionLevel),
+       hp = Value(hp),
+       atk = Value(atk),
+       magicStr = Value(magicStr),
+       def_ = Value(def_),
+       magicDef = Value(magicDef),
+       physicalCritical = Value(physicalCritical),
+       magicCritical = Value(magicCritical),
+       waveHpRecovery = Value(waveHpRecovery),
+       waveEnergyRecovery = Value(waveEnergyRecovery),
+       dodge = Value(dodge),
+       physicalPenetrate = Value(physicalPenetrate),
+       magicPenetrate = Value(magicPenetrate),
+       lifeSteal = Value(lifeSteal),
+       hpRecoveryRate = Value(hpRecoveryRate),
+       energyRecoveryRate = Value(energyRecoveryRate),
+       energyReduceRate = Value(energyReduceRate),
+       unionBurstLevel = Value(unionBurstLevel),
+       mainSkillLv1 = Value(mainSkillLv1),
+       mainSkillLv2 = Value(mainSkillLv2),
+       mainSkillLv3 = Value(mainSkillLv3),
+       mainSkillLv4 = Value(mainSkillLv4),
+       mainSkillLv5 = Value(mainSkillLv5),
+       mainSkillLv6 = Value(mainSkillLv6),
+       mainSkillLv7 = Value(mainSkillLv7),
+       mainSkillLv8 = Value(mainSkillLv8),
+       mainSkillLv9 = Value(mainSkillLv9),
+       mainSkillLv10 = Value(mainSkillLv10),
+       exSkillLv1 = Value(exSkillLv1),
+       exSkillLv2 = Value(exSkillLv2),
+       exSkillLv3 = Value(exSkillLv3),
+       exSkillLv4 = Value(exSkillLv4),
+       exSkillLv5 = Value(exSkillLv5),
+       resistStatusId = Value(resistStatusId),
+       resistVariationId = Value(resistVariationId),
+       accuracy = Value(accuracy),
+       breakDurability = Value(breakDurability),
+       uniqueEquipmentFlag1 = Value(uniqueEquipmentFlag1),
+       virtualHp = Value(virtualHp);
+  static Insertable<SreEnemyParameterData> custom({
+    Expression<int>? enemyId,
+    Expression<int>? unitId,
+    Expression<String>? name,
+    Expression<int>? level,
+    Expression<int>? rarity,
+    Expression<int>? promotionLevel,
+    Expression<int>? hp,
+    Expression<int>? atk,
+    Expression<int>? magicStr,
+    Expression<double>? def_,
+    Expression<int>? magicDef,
+    Expression<int>? physicalCritical,
+    Expression<int>? magicCritical,
+    Expression<int>? waveHpRecovery,
+    Expression<int>? waveEnergyRecovery,
+    Expression<int>? dodge,
+    Expression<int>? physicalPenetrate,
+    Expression<int>? magicPenetrate,
+    Expression<int>? lifeSteal,
+    Expression<int>? hpRecoveryRate,
+    Expression<int>? energyRecoveryRate,
+    Expression<int>? energyReduceRate,
+    Expression<int>? unionBurstLevel,
+    Expression<int>? mainSkillLv1,
+    Expression<int>? mainSkillLv2,
+    Expression<int>? mainSkillLv3,
+    Expression<int>? mainSkillLv4,
+    Expression<int>? mainSkillLv5,
+    Expression<int>? mainSkillLv6,
+    Expression<int>? mainSkillLv7,
+    Expression<int>? mainSkillLv8,
+    Expression<int>? mainSkillLv9,
+    Expression<int>? mainSkillLv10,
+    Expression<int>? exSkillLv1,
+    Expression<int>? exSkillLv2,
+    Expression<int>? exSkillLv3,
+    Expression<int>? exSkillLv4,
+    Expression<int>? exSkillLv5,
+    Expression<int>? resistStatusId,
+    Expression<int>? resistVariationId,
+    Expression<int>? accuracy,
+    Expression<int>? breakDurability,
+    Expression<int>? uniqueEquipmentFlag1,
+    Expression<int>? virtualHp,
+  }) {
+    return RawValuesInsertable({
+      if (enemyId != null) 'enemy_id': enemyId,
+      if (unitId != null) 'unit_id': unitId,
+      if (name != null) 'name': name,
+      if (level != null) 'level': level,
+      if (rarity != null) 'rarity': rarity,
+      if (promotionLevel != null) 'promotion_level': promotionLevel,
+      if (hp != null) 'hp': hp,
+      if (atk != null) 'atk': atk,
+      if (magicStr != null) 'magic_str': magicStr,
+      if (def_ != null) 'def': def_,
+      if (magicDef != null) 'magic_def': magicDef,
+      if (physicalCritical != null) 'physical_critical': physicalCritical,
+      if (magicCritical != null) 'magic_critical': magicCritical,
+      if (waveHpRecovery != null) 'wave_hp_recovery': waveHpRecovery,
+      if (waveEnergyRecovery != null)
+        'wave_energy_recovery': waveEnergyRecovery,
+      if (dodge != null) 'dodge': dodge,
+      if (physicalPenetrate != null) 'physical_penetrate': physicalPenetrate,
+      if (magicPenetrate != null) 'magic_penetrate': magicPenetrate,
+      if (lifeSteal != null) 'life_steal': lifeSteal,
+      if (hpRecoveryRate != null) 'hp_recovery_rate': hpRecoveryRate,
+      if (energyRecoveryRate != null)
+        'energy_recovery_rate': energyRecoveryRate,
+      if (energyReduceRate != null) 'energy_reduce_rate': energyReduceRate,
+      if (unionBurstLevel != null) 'union_burst_level': unionBurstLevel,
+      if (mainSkillLv1 != null) 'main_skill_lv_1': mainSkillLv1,
+      if (mainSkillLv2 != null) 'main_skill_lv_2': mainSkillLv2,
+      if (mainSkillLv3 != null) 'main_skill_lv_3': mainSkillLv3,
+      if (mainSkillLv4 != null) 'main_skill_lv_4': mainSkillLv4,
+      if (mainSkillLv5 != null) 'main_skill_lv_5': mainSkillLv5,
+      if (mainSkillLv6 != null) 'main_skill_lv_6': mainSkillLv6,
+      if (mainSkillLv7 != null) 'main_skill_lv_7': mainSkillLv7,
+      if (mainSkillLv8 != null) 'main_skill_lv_8': mainSkillLv8,
+      if (mainSkillLv9 != null) 'main_skill_lv_9': mainSkillLv9,
+      if (mainSkillLv10 != null) 'main_skill_lv_10': mainSkillLv10,
+      if (exSkillLv1 != null) 'ex_skill_lv_1': exSkillLv1,
+      if (exSkillLv2 != null) 'ex_skill_lv_2': exSkillLv2,
+      if (exSkillLv3 != null) 'ex_skill_lv_3': exSkillLv3,
+      if (exSkillLv4 != null) 'ex_skill_lv_4': exSkillLv4,
+      if (exSkillLv5 != null) 'ex_skill_lv_5': exSkillLv5,
+      if (resistStatusId != null) 'resist_status_id': resistStatusId,
+      if (resistVariationId != null) 'resist_variation_id': resistVariationId,
+      if (accuracy != null) 'accuracy': accuracy,
+      if (breakDurability != null) 'break_durability': breakDurability,
+      if (uniqueEquipmentFlag1 != null)
+        'unique_equipment_flag_1': uniqueEquipmentFlag1,
+      if (virtualHp != null) 'virtual_hp': virtualHp,
+    });
+  }
+
+  SreEnemyParameterCompanion copyWith({
+    Value<int>? enemyId,
+    Value<int>? unitId,
+    Value<String>? name,
+    Value<int>? level,
+    Value<int>? rarity,
+    Value<int>? promotionLevel,
+    Value<int>? hp,
+    Value<int>? atk,
+    Value<int>? magicStr,
+    Value<double>? def_,
+    Value<int>? magicDef,
+    Value<int>? physicalCritical,
+    Value<int>? magicCritical,
+    Value<int>? waveHpRecovery,
+    Value<int>? waveEnergyRecovery,
+    Value<int>? dodge,
+    Value<int>? physicalPenetrate,
+    Value<int>? magicPenetrate,
+    Value<int>? lifeSteal,
+    Value<int>? hpRecoveryRate,
+    Value<int>? energyRecoveryRate,
+    Value<int>? energyReduceRate,
+    Value<int>? unionBurstLevel,
+    Value<int>? mainSkillLv1,
+    Value<int>? mainSkillLv2,
+    Value<int>? mainSkillLv3,
+    Value<int>? mainSkillLv4,
+    Value<int>? mainSkillLv5,
+    Value<int>? mainSkillLv6,
+    Value<int>? mainSkillLv7,
+    Value<int>? mainSkillLv8,
+    Value<int>? mainSkillLv9,
+    Value<int>? mainSkillLv10,
+    Value<int>? exSkillLv1,
+    Value<int>? exSkillLv2,
+    Value<int>? exSkillLv3,
+    Value<int>? exSkillLv4,
+    Value<int>? exSkillLv5,
+    Value<int>? resistStatusId,
+    Value<int>? resistVariationId,
+    Value<int>? accuracy,
+    Value<int>? breakDurability,
+    Value<int>? uniqueEquipmentFlag1,
+    Value<int>? virtualHp,
+  }) {
+    return SreEnemyParameterCompanion(
+      enemyId: enemyId ?? this.enemyId,
+      unitId: unitId ?? this.unitId,
+      name: name ?? this.name,
+      level: level ?? this.level,
+      rarity: rarity ?? this.rarity,
+      promotionLevel: promotionLevel ?? this.promotionLevel,
+      hp: hp ?? this.hp,
+      atk: atk ?? this.atk,
+      magicStr: magicStr ?? this.magicStr,
+      def_: def_ ?? this.def_,
+      magicDef: magicDef ?? this.magicDef,
+      physicalCritical: physicalCritical ?? this.physicalCritical,
+      magicCritical: magicCritical ?? this.magicCritical,
+      waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+      waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+      dodge: dodge ?? this.dodge,
+      physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+      magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+      lifeSteal: lifeSteal ?? this.lifeSteal,
+      hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+      energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+      energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+      unionBurstLevel: unionBurstLevel ?? this.unionBurstLevel,
+      mainSkillLv1: mainSkillLv1 ?? this.mainSkillLv1,
+      mainSkillLv2: mainSkillLv2 ?? this.mainSkillLv2,
+      mainSkillLv3: mainSkillLv3 ?? this.mainSkillLv3,
+      mainSkillLv4: mainSkillLv4 ?? this.mainSkillLv4,
+      mainSkillLv5: mainSkillLv5 ?? this.mainSkillLv5,
+      mainSkillLv6: mainSkillLv6 ?? this.mainSkillLv6,
+      mainSkillLv7: mainSkillLv7 ?? this.mainSkillLv7,
+      mainSkillLv8: mainSkillLv8 ?? this.mainSkillLv8,
+      mainSkillLv9: mainSkillLv9 ?? this.mainSkillLv9,
+      mainSkillLv10: mainSkillLv10 ?? this.mainSkillLv10,
+      exSkillLv1: exSkillLv1 ?? this.exSkillLv1,
+      exSkillLv2: exSkillLv2 ?? this.exSkillLv2,
+      exSkillLv3: exSkillLv3 ?? this.exSkillLv3,
+      exSkillLv4: exSkillLv4 ?? this.exSkillLv4,
+      exSkillLv5: exSkillLv5 ?? this.exSkillLv5,
+      resistStatusId: resistStatusId ?? this.resistStatusId,
+      resistVariationId: resistVariationId ?? this.resistVariationId,
+      accuracy: accuracy ?? this.accuracy,
+      breakDurability: breakDurability ?? this.breakDurability,
+      uniqueEquipmentFlag1: uniqueEquipmentFlag1 ?? this.uniqueEquipmentFlag1,
+      virtualHp: virtualHp ?? this.virtualHp,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (enemyId.present) {
+      map['enemy_id'] = Variable<int>(enemyId.value);
+    }
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (level.present) {
+      map['level'] = Variable<int>(level.value);
+    }
+    if (rarity.present) {
+      map['rarity'] = Variable<int>(rarity.value);
+    }
+    if (promotionLevel.present) {
+      map['promotion_level'] = Variable<int>(promotionLevel.value);
+    }
+    if (hp.present) {
+      map['hp'] = Variable<int>(hp.value);
+    }
+    if (atk.present) {
+      map['atk'] = Variable<int>(atk.value);
+    }
+    if (magicStr.present) {
+      map['magic_str'] = Variable<int>(magicStr.value);
+    }
+    if (def_.present) {
+      map['def'] = Variable<double>(def_.value);
+    }
+    if (magicDef.present) {
+      map['magic_def'] = Variable<int>(magicDef.value);
+    }
+    if (physicalCritical.present) {
+      map['physical_critical'] = Variable<int>(physicalCritical.value);
+    }
+    if (magicCritical.present) {
+      map['magic_critical'] = Variable<int>(magicCritical.value);
+    }
+    if (waveHpRecovery.present) {
+      map['wave_hp_recovery'] = Variable<int>(waveHpRecovery.value);
+    }
+    if (waveEnergyRecovery.present) {
+      map['wave_energy_recovery'] = Variable<int>(waveEnergyRecovery.value);
+    }
+    if (dodge.present) {
+      map['dodge'] = Variable<int>(dodge.value);
+    }
+    if (physicalPenetrate.present) {
+      map['physical_penetrate'] = Variable<int>(physicalPenetrate.value);
+    }
+    if (magicPenetrate.present) {
+      map['magic_penetrate'] = Variable<int>(magicPenetrate.value);
+    }
+    if (lifeSteal.present) {
+      map['life_steal'] = Variable<int>(lifeSteal.value);
+    }
+    if (hpRecoveryRate.present) {
+      map['hp_recovery_rate'] = Variable<int>(hpRecoveryRate.value);
+    }
+    if (energyRecoveryRate.present) {
+      map['energy_recovery_rate'] = Variable<int>(energyRecoveryRate.value);
+    }
+    if (energyReduceRate.present) {
+      map['energy_reduce_rate'] = Variable<int>(energyReduceRate.value);
+    }
+    if (unionBurstLevel.present) {
+      map['union_burst_level'] = Variable<int>(unionBurstLevel.value);
+    }
+    if (mainSkillLv1.present) {
+      map['main_skill_lv_1'] = Variable<int>(mainSkillLv1.value);
+    }
+    if (mainSkillLv2.present) {
+      map['main_skill_lv_2'] = Variable<int>(mainSkillLv2.value);
+    }
+    if (mainSkillLv3.present) {
+      map['main_skill_lv_3'] = Variable<int>(mainSkillLv3.value);
+    }
+    if (mainSkillLv4.present) {
+      map['main_skill_lv_4'] = Variable<int>(mainSkillLv4.value);
+    }
+    if (mainSkillLv5.present) {
+      map['main_skill_lv_5'] = Variable<int>(mainSkillLv5.value);
+    }
+    if (mainSkillLv6.present) {
+      map['main_skill_lv_6'] = Variable<int>(mainSkillLv6.value);
+    }
+    if (mainSkillLv7.present) {
+      map['main_skill_lv_7'] = Variable<int>(mainSkillLv7.value);
+    }
+    if (mainSkillLv8.present) {
+      map['main_skill_lv_8'] = Variable<int>(mainSkillLv8.value);
+    }
+    if (mainSkillLv9.present) {
+      map['main_skill_lv_9'] = Variable<int>(mainSkillLv9.value);
+    }
+    if (mainSkillLv10.present) {
+      map['main_skill_lv_10'] = Variable<int>(mainSkillLv10.value);
+    }
+    if (exSkillLv1.present) {
+      map['ex_skill_lv_1'] = Variable<int>(exSkillLv1.value);
+    }
+    if (exSkillLv2.present) {
+      map['ex_skill_lv_2'] = Variable<int>(exSkillLv2.value);
+    }
+    if (exSkillLv3.present) {
+      map['ex_skill_lv_3'] = Variable<int>(exSkillLv3.value);
+    }
+    if (exSkillLv4.present) {
+      map['ex_skill_lv_4'] = Variable<int>(exSkillLv4.value);
+    }
+    if (exSkillLv5.present) {
+      map['ex_skill_lv_5'] = Variable<int>(exSkillLv5.value);
+    }
+    if (resistStatusId.present) {
+      map['resist_status_id'] = Variable<int>(resistStatusId.value);
+    }
+    if (resistVariationId.present) {
+      map['resist_variation_id'] = Variable<int>(resistVariationId.value);
+    }
+    if (accuracy.present) {
+      map['accuracy'] = Variable<int>(accuracy.value);
+    }
+    if (breakDurability.present) {
+      map['break_durability'] = Variable<int>(breakDurability.value);
+    }
+    if (uniqueEquipmentFlag1.present) {
+      map['unique_equipment_flag_1'] = Variable<int>(
+        uniqueEquipmentFlag1.value,
+      );
+    }
+    if (virtualHp.present) {
+      map['virtual_hp'] = Variable<int>(virtualHp.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SreEnemyParameterCompanion(')
+          ..write('enemyId: $enemyId, ')
+          ..write('unitId: $unitId, ')
+          ..write('name: $name, ')
+          ..write('level: $level, ')
+          ..write('rarity: $rarity, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('unionBurstLevel: $unionBurstLevel, ')
+          ..write('mainSkillLv1: $mainSkillLv1, ')
+          ..write('mainSkillLv2: $mainSkillLv2, ')
+          ..write('mainSkillLv3: $mainSkillLv3, ')
+          ..write('mainSkillLv4: $mainSkillLv4, ')
+          ..write('mainSkillLv5: $mainSkillLv5, ')
+          ..write('mainSkillLv6: $mainSkillLv6, ')
+          ..write('mainSkillLv7: $mainSkillLv7, ')
+          ..write('mainSkillLv8: $mainSkillLv8, ')
+          ..write('mainSkillLv9: $mainSkillLv9, ')
+          ..write('mainSkillLv10: $mainSkillLv10, ')
+          ..write('exSkillLv1: $exSkillLv1, ')
+          ..write('exSkillLv2: $exSkillLv2, ')
+          ..write('exSkillLv3: $exSkillLv3, ')
+          ..write('exSkillLv4: $exSkillLv4, ')
+          ..write('exSkillLv5: $exSkillLv5, ')
+          ..write('resistStatusId: $resistStatusId, ')
+          ..write('resistVariationId: $resistVariationId, ')
+          ..write('accuracy: $accuracy, ')
+          ..write('breakDurability: $breakDurability, ')
+          ..write('uniqueEquipmentFlag1: $uniqueEquipmentFlag1, ')
+          ..write('virtualHp: $virtualHp')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $TowerEnemyParameterTable extends TowerEnemyParameter
+    with TableInfo<$TowerEnemyParameterTable, TowerEnemyParameterData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $TowerEnemyParameterTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _enemyIdMeta = const VerificationMeta(
+    'enemyId',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId = GeneratedColumn<int>(
+    'enemy_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _levelMeta = const VerificationMeta('level');
+  @override
+  late final GeneratedColumn<int> level = GeneratedColumn<int>(
+    'level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rarityMeta = const VerificationMeta('rarity');
+  @override
+  late final GeneratedColumn<int> rarity = GeneratedColumn<int>(
+    'rarity',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _promotionLevelMeta = const VerificationMeta(
+    'promotionLevel',
+  );
+  @override
+  late final GeneratedColumn<int> promotionLevel = GeneratedColumn<int>(
+    'promotion_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpMeta = const VerificationMeta('hp');
+  @override
+  late final GeneratedColumn<int> hp = GeneratedColumn<int>(
+    'hp',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _atkMeta = const VerificationMeta('atk');
+  @override
+  late final GeneratedColumn<int> atk = GeneratedColumn<int>(
+    'atk',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicStrMeta = const VerificationMeta(
+    'magicStr',
+  );
+  @override
+  late final GeneratedColumn<int> magicStr = GeneratedColumn<int>(
+    'magic_str',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _def_Meta = const VerificationMeta('def_');
+  @override
+  late final GeneratedColumn<double> def_ = GeneratedColumn<double>(
+    'def',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicDefMeta = const VerificationMeta(
+    'magicDef',
+  );
+  @override
+  late final GeneratedColumn<int> magicDef = GeneratedColumn<int>(
+    'magic_def',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalCriticalMeta = const VerificationMeta(
+    'physicalCritical',
+  );
+  @override
+  late final GeneratedColumn<int> physicalCritical = GeneratedColumn<int>(
+    'physical_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicCriticalMeta = const VerificationMeta(
+    'magicCritical',
+  );
+  @override
+  late final GeneratedColumn<int> magicCritical = GeneratedColumn<int>(
+    'magic_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveHpRecoveryMeta = const VerificationMeta(
+    'waveHpRecovery',
+  );
+  @override
+  late final GeneratedColumn<int> waveHpRecovery = GeneratedColumn<int>(
+    'wave_hp_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveEnergyRecoveryMeta =
+      const VerificationMeta('waveEnergyRecovery');
+  @override
+  late final GeneratedColumn<int> waveEnergyRecovery = GeneratedColumn<int>(
+    'wave_energy_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dodgeMeta = const VerificationMeta('dodge');
+  @override
+  late final GeneratedColumn<int> dodge = GeneratedColumn<int>(
+    'dodge',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalPenetrateMeta = const VerificationMeta(
+    'physicalPenetrate',
+  );
+  @override
+  late final GeneratedColumn<int> physicalPenetrate = GeneratedColumn<int>(
+    'physical_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicPenetrateMeta = const VerificationMeta(
+    'magicPenetrate',
+  );
+  @override
+  late final GeneratedColumn<int> magicPenetrate = GeneratedColumn<int>(
+    'magic_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _lifeStealMeta = const VerificationMeta(
+    'lifeSteal',
+  );
+  @override
+  late final GeneratedColumn<int> lifeSteal = GeneratedColumn<int>(
+    'life_steal',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpRecoveryRateMeta = const VerificationMeta(
+    'hpRecoveryRate',
+  );
+  @override
+  late final GeneratedColumn<int> hpRecoveryRate = GeneratedColumn<int>(
+    'hp_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyRecoveryRateMeta =
+      const VerificationMeta('energyRecoveryRate');
+  @override
+  late final GeneratedColumn<int> energyRecoveryRate = GeneratedColumn<int>(
+    'energy_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyReduceRateMeta = const VerificationMeta(
+    'energyReduceRate',
+  );
+  @override
+  late final GeneratedColumn<int> energyReduceRate = GeneratedColumn<int>(
+    'energy_reduce_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _unionBurstLevelMeta = const VerificationMeta(
+    'unionBurstLevel',
+  );
+  @override
+  late final GeneratedColumn<int> unionBurstLevel = GeneratedColumn<int>(
+    'union_burst_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv1Meta = const VerificationMeta(
+    'mainSkillLv1',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv1 = GeneratedColumn<int>(
+    'main_skill_lv_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv2Meta = const VerificationMeta(
+    'mainSkillLv2',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv2 = GeneratedColumn<int>(
+    'main_skill_lv_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv3Meta = const VerificationMeta(
+    'mainSkillLv3',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv3 = GeneratedColumn<int>(
+    'main_skill_lv_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv4Meta = const VerificationMeta(
+    'mainSkillLv4',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv4 = GeneratedColumn<int>(
+    'main_skill_lv_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv5Meta = const VerificationMeta(
+    'mainSkillLv5',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv5 = GeneratedColumn<int>(
+    'main_skill_lv_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv6Meta = const VerificationMeta(
+    'mainSkillLv6',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv6 = GeneratedColumn<int>(
+    'main_skill_lv_6',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv7Meta = const VerificationMeta(
+    'mainSkillLv7',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv7 = GeneratedColumn<int>(
+    'main_skill_lv_7',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv8Meta = const VerificationMeta(
+    'mainSkillLv8',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv8 = GeneratedColumn<int>(
+    'main_skill_lv_8',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv9Meta = const VerificationMeta(
+    'mainSkillLv9',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv9 = GeneratedColumn<int>(
+    'main_skill_lv_9',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv10Meta = const VerificationMeta(
+    'mainSkillLv10',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv10 = GeneratedColumn<int>(
+    'main_skill_lv_10',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv1Meta = const VerificationMeta(
+    'exSkillLv1',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv1 = GeneratedColumn<int>(
+    'ex_skill_lv_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv2Meta = const VerificationMeta(
+    'exSkillLv2',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv2 = GeneratedColumn<int>(
+    'ex_skill_lv_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv3Meta = const VerificationMeta(
+    'exSkillLv3',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv3 = GeneratedColumn<int>(
+    'ex_skill_lv_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv4Meta = const VerificationMeta(
+    'exSkillLv4',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv4 = GeneratedColumn<int>(
+    'ex_skill_lv_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv5Meta = const VerificationMeta(
+    'exSkillLv5',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv5 = GeneratedColumn<int>(
+    'ex_skill_lv_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resistStatusIdMeta = const VerificationMeta(
+    'resistStatusId',
+  );
+  @override
+  late final GeneratedColumn<int> resistStatusId = GeneratedColumn<int>(
+    'resist_status_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resistVariationIdMeta = const VerificationMeta(
+    'resistVariationId',
+  );
+  @override
+  late final GeneratedColumn<int> resistVariationId = GeneratedColumn<int>(
+    'resist_variation_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _accuracyMeta = const VerificationMeta(
+    'accuracy',
+  );
+  @override
+  late final GeneratedColumn<int> accuracy = GeneratedColumn<int>(
+    'accuracy',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _enemyColorMeta = const VerificationMeta(
+    'enemyColor',
+  );
+  @override
+  late final GeneratedColumn<int> enemyColor = GeneratedColumn<int>(
+    'enemy_color',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    enemyId,
+    unitId,
+    name,
+    level,
+    rarity,
+    promotionLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    unionBurstLevel,
+    mainSkillLv1,
+    mainSkillLv2,
+    mainSkillLv3,
+    mainSkillLv4,
+    mainSkillLv5,
+    mainSkillLv6,
+    mainSkillLv7,
+    mainSkillLv8,
+    mainSkillLv9,
+    mainSkillLv10,
+    exSkillLv1,
+    exSkillLv2,
+    exSkillLv3,
+    exSkillLv4,
+    exSkillLv5,
+    resistStatusId,
+    resistVariationId,
+    accuracy,
+    enemyColor,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'tower_enemy_parameter';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TowerEnemyParameterData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('enemy_id')) {
+      context.handle(
+        _enemyIdMeta,
+        enemyId.isAcceptableOrUnknown(data['enemy_id']!, _enemyIdMeta),
+      );
+    }
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('level')) {
+      context.handle(
+        _levelMeta,
+        level.isAcceptableOrUnknown(data['level']!, _levelMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_levelMeta);
+    }
+    if (data.containsKey('rarity')) {
+      context.handle(
+        _rarityMeta,
+        rarity.isAcceptableOrUnknown(data['rarity']!, _rarityMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_rarityMeta);
+    }
+    if (data.containsKey('promotion_level')) {
+      context.handle(
+        _promotionLevelMeta,
+        promotionLevel.isAcceptableOrUnknown(
+          data['promotion_level']!,
+          _promotionLevelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_promotionLevelMeta);
+    }
+    if (data.containsKey('hp')) {
+      context.handle(_hpMeta, hp.isAcceptableOrUnknown(data['hp']!, _hpMeta));
+    } else if (isInserting) {
+      context.missing(_hpMeta);
+    }
+    if (data.containsKey('atk')) {
+      context.handle(
+        _atkMeta,
+        atk.isAcceptableOrUnknown(data['atk']!, _atkMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_atkMeta);
+    }
+    if (data.containsKey('magic_str')) {
+      context.handle(
+        _magicStrMeta,
+        magicStr.isAcceptableOrUnknown(data['magic_str']!, _magicStrMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicStrMeta);
+    }
+    if (data.containsKey('def')) {
+      context.handle(
+        _def_Meta,
+        def_.isAcceptableOrUnknown(data['def']!, _def_Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_def_Meta);
+    }
+    if (data.containsKey('magic_def')) {
+      context.handle(
+        _magicDefMeta,
+        magicDef.isAcceptableOrUnknown(data['magic_def']!, _magicDefMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicDefMeta);
+    }
+    if (data.containsKey('physical_critical')) {
+      context.handle(
+        _physicalCriticalMeta,
+        physicalCritical.isAcceptableOrUnknown(
+          data['physical_critical']!,
+          _physicalCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalCriticalMeta);
+    }
+    if (data.containsKey('magic_critical')) {
+      context.handle(
+        _magicCriticalMeta,
+        magicCritical.isAcceptableOrUnknown(
+          data['magic_critical']!,
+          _magicCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicCriticalMeta);
+    }
+    if (data.containsKey('wave_hp_recovery')) {
+      context.handle(
+        _waveHpRecoveryMeta,
+        waveHpRecovery.isAcceptableOrUnknown(
+          data['wave_hp_recovery']!,
+          _waveHpRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveHpRecoveryMeta);
+    }
+    if (data.containsKey('wave_energy_recovery')) {
+      context.handle(
+        _waveEnergyRecoveryMeta,
+        waveEnergyRecovery.isAcceptableOrUnknown(
+          data['wave_energy_recovery']!,
+          _waveEnergyRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveEnergyRecoveryMeta);
+    }
+    if (data.containsKey('dodge')) {
+      context.handle(
+        _dodgeMeta,
+        dodge.isAcceptableOrUnknown(data['dodge']!, _dodgeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dodgeMeta);
+    }
+    if (data.containsKey('physical_penetrate')) {
+      context.handle(
+        _physicalPenetrateMeta,
+        physicalPenetrate.isAcceptableOrUnknown(
+          data['physical_penetrate']!,
+          _physicalPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalPenetrateMeta);
+    }
+    if (data.containsKey('magic_penetrate')) {
+      context.handle(
+        _magicPenetrateMeta,
+        magicPenetrate.isAcceptableOrUnknown(
+          data['magic_penetrate']!,
+          _magicPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicPenetrateMeta);
+    }
+    if (data.containsKey('life_steal')) {
+      context.handle(
+        _lifeStealMeta,
+        lifeSteal.isAcceptableOrUnknown(data['life_steal']!, _lifeStealMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_lifeStealMeta);
+    }
+    if (data.containsKey('hp_recovery_rate')) {
+      context.handle(
+        _hpRecoveryRateMeta,
+        hpRecoveryRate.isAcceptableOrUnknown(
+          data['hp_recovery_rate']!,
+          _hpRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_hpRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_recovery_rate')) {
+      context.handle(
+        _energyRecoveryRateMeta,
+        energyRecoveryRate.isAcceptableOrUnknown(
+          data['energy_recovery_rate']!,
+          _energyRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_reduce_rate')) {
+      context.handle(
+        _energyReduceRateMeta,
+        energyReduceRate.isAcceptableOrUnknown(
+          data['energy_reduce_rate']!,
+          _energyReduceRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyReduceRateMeta);
+    }
+    if (data.containsKey('union_burst_level')) {
+      context.handle(
+        _unionBurstLevelMeta,
+        unionBurstLevel.isAcceptableOrUnknown(
+          data['union_burst_level']!,
+          _unionBurstLevelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_unionBurstLevelMeta);
+    }
+    if (data.containsKey('main_skill_lv_1')) {
+      context.handle(
+        _mainSkillLv1Meta,
+        mainSkillLv1.isAcceptableOrUnknown(
+          data['main_skill_lv_1']!,
+          _mainSkillLv1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv1Meta);
+    }
+    if (data.containsKey('main_skill_lv_2')) {
+      context.handle(
+        _mainSkillLv2Meta,
+        mainSkillLv2.isAcceptableOrUnknown(
+          data['main_skill_lv_2']!,
+          _mainSkillLv2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv2Meta);
+    }
+    if (data.containsKey('main_skill_lv_3')) {
+      context.handle(
+        _mainSkillLv3Meta,
+        mainSkillLv3.isAcceptableOrUnknown(
+          data['main_skill_lv_3']!,
+          _mainSkillLv3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv3Meta);
+    }
+    if (data.containsKey('main_skill_lv_4')) {
+      context.handle(
+        _mainSkillLv4Meta,
+        mainSkillLv4.isAcceptableOrUnknown(
+          data['main_skill_lv_4']!,
+          _mainSkillLv4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv4Meta);
+    }
+    if (data.containsKey('main_skill_lv_5')) {
+      context.handle(
+        _mainSkillLv5Meta,
+        mainSkillLv5.isAcceptableOrUnknown(
+          data['main_skill_lv_5']!,
+          _mainSkillLv5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv5Meta);
+    }
+    if (data.containsKey('main_skill_lv_6')) {
+      context.handle(
+        _mainSkillLv6Meta,
+        mainSkillLv6.isAcceptableOrUnknown(
+          data['main_skill_lv_6']!,
+          _mainSkillLv6Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv6Meta);
+    }
+    if (data.containsKey('main_skill_lv_7')) {
+      context.handle(
+        _mainSkillLv7Meta,
+        mainSkillLv7.isAcceptableOrUnknown(
+          data['main_skill_lv_7']!,
+          _mainSkillLv7Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv7Meta);
+    }
+    if (data.containsKey('main_skill_lv_8')) {
+      context.handle(
+        _mainSkillLv8Meta,
+        mainSkillLv8.isAcceptableOrUnknown(
+          data['main_skill_lv_8']!,
+          _mainSkillLv8Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv8Meta);
+    }
+    if (data.containsKey('main_skill_lv_9')) {
+      context.handle(
+        _mainSkillLv9Meta,
+        mainSkillLv9.isAcceptableOrUnknown(
+          data['main_skill_lv_9']!,
+          _mainSkillLv9Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv9Meta);
+    }
+    if (data.containsKey('main_skill_lv_10')) {
+      context.handle(
+        _mainSkillLv10Meta,
+        mainSkillLv10.isAcceptableOrUnknown(
+          data['main_skill_lv_10']!,
+          _mainSkillLv10Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv10Meta);
+    }
+    if (data.containsKey('ex_skill_lv_1')) {
+      context.handle(
+        _exSkillLv1Meta,
+        exSkillLv1.isAcceptableOrUnknown(
+          data['ex_skill_lv_1']!,
+          _exSkillLv1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv1Meta);
+    }
+    if (data.containsKey('ex_skill_lv_2')) {
+      context.handle(
+        _exSkillLv2Meta,
+        exSkillLv2.isAcceptableOrUnknown(
+          data['ex_skill_lv_2']!,
+          _exSkillLv2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv2Meta);
+    }
+    if (data.containsKey('ex_skill_lv_3')) {
+      context.handle(
+        _exSkillLv3Meta,
+        exSkillLv3.isAcceptableOrUnknown(
+          data['ex_skill_lv_3']!,
+          _exSkillLv3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv3Meta);
+    }
+    if (data.containsKey('ex_skill_lv_4')) {
+      context.handle(
+        _exSkillLv4Meta,
+        exSkillLv4.isAcceptableOrUnknown(
+          data['ex_skill_lv_4']!,
+          _exSkillLv4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv4Meta);
+    }
+    if (data.containsKey('ex_skill_lv_5')) {
+      context.handle(
+        _exSkillLv5Meta,
+        exSkillLv5.isAcceptableOrUnknown(
+          data['ex_skill_lv_5']!,
+          _exSkillLv5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv5Meta);
+    }
+    if (data.containsKey('resist_status_id')) {
+      context.handle(
+        _resistStatusIdMeta,
+        resistStatusId.isAcceptableOrUnknown(
+          data['resist_status_id']!,
+          _resistStatusIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resistStatusIdMeta);
+    }
+    if (data.containsKey('resist_variation_id')) {
+      context.handle(
+        _resistVariationIdMeta,
+        resistVariationId.isAcceptableOrUnknown(
+          data['resist_variation_id']!,
+          _resistVariationIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resistVariationIdMeta);
+    }
+    if (data.containsKey('accuracy')) {
+      context.handle(
+        _accuracyMeta,
+        accuracy.isAcceptableOrUnknown(data['accuracy']!, _accuracyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_accuracyMeta);
+    }
+    if (data.containsKey('enemy_color')) {
+      context.handle(
+        _enemyColorMeta,
+        enemyColor.isAcceptableOrUnknown(data['enemy_color']!, _enemyColorMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_enemyColorMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {enemyId};
+  @override
+  TowerEnemyParameterData map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TowerEnemyParameterData(
+      enemyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id'],
+      )!,
+      unitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unit_id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      level: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}level'],
+      )!,
+      rarity: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}rarity'],
+      )!,
+      promotionLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}promotion_level'],
+      )!,
+      hp: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hp'],
+      )!,
+      atk: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk'],
+      )!,
+      magicStr: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_str'],
+      )!,
+      def_: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}def'],
+      )!,
+      magicDef: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_def'],
+      )!,
+      physicalCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}physical_critical'],
+      )!,
+      magicCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_critical'],
+      )!,
+      waveHpRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_hp_recovery'],
+      )!,
+      waveEnergyRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_energy_recovery'],
+      )!,
+      dodge: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}dodge'],
+      )!,
+      physicalPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}physical_penetrate'],
+      )!,
+      magicPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_penetrate'],
+      )!,
+      lifeSteal: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}life_steal'],
+      )!,
+      hpRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hp_recovery_rate'],
+      )!,
+      energyRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy_recovery_rate'],
+      )!,
+      energyReduceRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy_reduce_rate'],
+      )!,
+      unionBurstLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}union_burst_level'],
+      )!,
+      mainSkillLv1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_1'],
+      )!,
+      mainSkillLv2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_2'],
+      )!,
+      mainSkillLv3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_3'],
+      )!,
+      mainSkillLv4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_4'],
+      )!,
+      mainSkillLv5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_5'],
+      )!,
+      mainSkillLv6: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_6'],
+      )!,
+      mainSkillLv7: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_7'],
+      )!,
+      mainSkillLv8: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_8'],
+      )!,
+      mainSkillLv9: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_9'],
+      )!,
+      mainSkillLv10: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_10'],
+      )!,
+      exSkillLv1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_1'],
+      )!,
+      exSkillLv2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_2'],
+      )!,
+      exSkillLv3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_3'],
+      )!,
+      exSkillLv4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_4'],
+      )!,
+      exSkillLv5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_5'],
+      )!,
+      resistStatusId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resist_status_id'],
+      )!,
+      resistVariationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resist_variation_id'],
+      )!,
+      accuracy: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}accuracy'],
+      )!,
+      enemyColor: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_color'],
+      )!,
+    );
+  }
+
+  @override
+  $TowerEnemyParameterTable createAlias(String alias) {
+    return $TowerEnemyParameterTable(attachedDatabase, alias);
+  }
+}
+
+class TowerEnemyParameterData extends DataClass
+    implements Insertable<TowerEnemyParameterData> {
+  final int enemyId;
+  final int unitId;
+  final String name;
+  final int level;
+  final int rarity;
+  final int promotionLevel;
+  final int hp;
+  final int atk;
+  final int magicStr;
+  final double def_;
+  final int magicDef;
+  final int physicalCritical;
+  final int magicCritical;
+  final int waveHpRecovery;
+  final int waveEnergyRecovery;
+  final int dodge;
+  final int physicalPenetrate;
+  final int magicPenetrate;
+  final int lifeSteal;
+  final int hpRecoveryRate;
+  final int energyRecoveryRate;
+  final int energyReduceRate;
+  final int unionBurstLevel;
+  final int mainSkillLv1;
+  final int mainSkillLv2;
+  final int mainSkillLv3;
+  final int mainSkillLv4;
+  final int mainSkillLv5;
+  final int mainSkillLv6;
+  final int mainSkillLv7;
+  final int mainSkillLv8;
+  final int mainSkillLv9;
+  final int mainSkillLv10;
+  final int exSkillLv1;
+  final int exSkillLv2;
+  final int exSkillLv3;
+  final int exSkillLv4;
+  final int exSkillLv5;
+  final int resistStatusId;
+  final int resistVariationId;
+  final int accuracy;
+  final int enemyColor;
+  const TowerEnemyParameterData({
+    required this.enemyId,
+    required this.unitId,
+    required this.name,
+    required this.level,
+    required this.rarity,
+    required this.promotionLevel,
+    required this.hp,
+    required this.atk,
+    required this.magicStr,
+    required this.def_,
+    required this.magicDef,
+    required this.physicalCritical,
+    required this.magicCritical,
+    required this.waveHpRecovery,
+    required this.waveEnergyRecovery,
+    required this.dodge,
+    required this.physicalPenetrate,
+    required this.magicPenetrate,
+    required this.lifeSteal,
+    required this.hpRecoveryRate,
+    required this.energyRecoveryRate,
+    required this.energyReduceRate,
+    required this.unionBurstLevel,
+    required this.mainSkillLv1,
+    required this.mainSkillLv2,
+    required this.mainSkillLv3,
+    required this.mainSkillLv4,
+    required this.mainSkillLv5,
+    required this.mainSkillLv6,
+    required this.mainSkillLv7,
+    required this.mainSkillLv8,
+    required this.mainSkillLv9,
+    required this.mainSkillLv10,
+    required this.exSkillLv1,
+    required this.exSkillLv2,
+    required this.exSkillLv3,
+    required this.exSkillLv4,
+    required this.exSkillLv5,
+    required this.resistStatusId,
+    required this.resistVariationId,
+    required this.accuracy,
+    required this.enemyColor,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['enemy_id'] = Variable<int>(enemyId);
+    map['unit_id'] = Variable<int>(unitId);
+    map['name'] = Variable<String>(name);
+    map['level'] = Variable<int>(level);
+    map['rarity'] = Variable<int>(rarity);
+    map['promotion_level'] = Variable<int>(promotionLevel);
+    map['hp'] = Variable<int>(hp);
+    map['atk'] = Variable<int>(atk);
+    map['magic_str'] = Variable<int>(magicStr);
+    map['def'] = Variable<double>(def_);
+    map['magic_def'] = Variable<int>(magicDef);
+    map['physical_critical'] = Variable<int>(physicalCritical);
+    map['magic_critical'] = Variable<int>(magicCritical);
+    map['wave_hp_recovery'] = Variable<int>(waveHpRecovery);
+    map['wave_energy_recovery'] = Variable<int>(waveEnergyRecovery);
+    map['dodge'] = Variable<int>(dodge);
+    map['physical_penetrate'] = Variable<int>(physicalPenetrate);
+    map['magic_penetrate'] = Variable<int>(magicPenetrate);
+    map['life_steal'] = Variable<int>(lifeSteal);
+    map['hp_recovery_rate'] = Variable<int>(hpRecoveryRate);
+    map['energy_recovery_rate'] = Variable<int>(energyRecoveryRate);
+    map['energy_reduce_rate'] = Variable<int>(energyReduceRate);
+    map['union_burst_level'] = Variable<int>(unionBurstLevel);
+    map['main_skill_lv_1'] = Variable<int>(mainSkillLv1);
+    map['main_skill_lv_2'] = Variable<int>(mainSkillLv2);
+    map['main_skill_lv_3'] = Variable<int>(mainSkillLv3);
+    map['main_skill_lv_4'] = Variable<int>(mainSkillLv4);
+    map['main_skill_lv_5'] = Variable<int>(mainSkillLv5);
+    map['main_skill_lv_6'] = Variable<int>(mainSkillLv6);
+    map['main_skill_lv_7'] = Variable<int>(mainSkillLv7);
+    map['main_skill_lv_8'] = Variable<int>(mainSkillLv8);
+    map['main_skill_lv_9'] = Variable<int>(mainSkillLv9);
+    map['main_skill_lv_10'] = Variable<int>(mainSkillLv10);
+    map['ex_skill_lv_1'] = Variable<int>(exSkillLv1);
+    map['ex_skill_lv_2'] = Variable<int>(exSkillLv2);
+    map['ex_skill_lv_3'] = Variable<int>(exSkillLv3);
+    map['ex_skill_lv_4'] = Variable<int>(exSkillLv4);
+    map['ex_skill_lv_5'] = Variable<int>(exSkillLv5);
+    map['resist_status_id'] = Variable<int>(resistStatusId);
+    map['resist_variation_id'] = Variable<int>(resistVariationId);
+    map['accuracy'] = Variable<int>(accuracy);
+    map['enemy_color'] = Variable<int>(enemyColor);
+    return map;
+  }
+
+  TowerEnemyParameterCompanion toCompanion(bool nullToAbsent) {
+    return TowerEnemyParameterCompanion(
+      enemyId: Value(enemyId),
+      unitId: Value(unitId),
+      name: Value(name),
+      level: Value(level),
+      rarity: Value(rarity),
+      promotionLevel: Value(promotionLevel),
+      hp: Value(hp),
+      atk: Value(atk),
+      magicStr: Value(magicStr),
+      def_: Value(def_),
+      magicDef: Value(magicDef),
+      physicalCritical: Value(physicalCritical),
+      magicCritical: Value(magicCritical),
+      waveHpRecovery: Value(waveHpRecovery),
+      waveEnergyRecovery: Value(waveEnergyRecovery),
+      dodge: Value(dodge),
+      physicalPenetrate: Value(physicalPenetrate),
+      magicPenetrate: Value(magicPenetrate),
+      lifeSteal: Value(lifeSteal),
+      hpRecoveryRate: Value(hpRecoveryRate),
+      energyRecoveryRate: Value(energyRecoveryRate),
+      energyReduceRate: Value(energyReduceRate),
+      unionBurstLevel: Value(unionBurstLevel),
+      mainSkillLv1: Value(mainSkillLv1),
+      mainSkillLv2: Value(mainSkillLv2),
+      mainSkillLv3: Value(mainSkillLv3),
+      mainSkillLv4: Value(mainSkillLv4),
+      mainSkillLv5: Value(mainSkillLv5),
+      mainSkillLv6: Value(mainSkillLv6),
+      mainSkillLv7: Value(mainSkillLv7),
+      mainSkillLv8: Value(mainSkillLv8),
+      mainSkillLv9: Value(mainSkillLv9),
+      mainSkillLv10: Value(mainSkillLv10),
+      exSkillLv1: Value(exSkillLv1),
+      exSkillLv2: Value(exSkillLv2),
+      exSkillLv3: Value(exSkillLv3),
+      exSkillLv4: Value(exSkillLv4),
+      exSkillLv5: Value(exSkillLv5),
+      resistStatusId: Value(resistStatusId),
+      resistVariationId: Value(resistVariationId),
+      accuracy: Value(accuracy),
+      enemyColor: Value(enemyColor),
+    );
+  }
+
+  factory TowerEnemyParameterData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TowerEnemyParameterData(
+      enemyId: serializer.fromJson<int>(json['enemyId']),
+      unitId: serializer.fromJson<int>(json['unitId']),
+      name: serializer.fromJson<String>(json['name']),
+      level: serializer.fromJson<int>(json['level']),
+      rarity: serializer.fromJson<int>(json['rarity']),
+      promotionLevel: serializer.fromJson<int>(json['promotionLevel']),
+      hp: serializer.fromJson<int>(json['hp']),
+      atk: serializer.fromJson<int>(json['atk']),
+      magicStr: serializer.fromJson<int>(json['magicStr']),
+      def_: serializer.fromJson<double>(json['def_']),
+      magicDef: serializer.fromJson<int>(json['magicDef']),
+      physicalCritical: serializer.fromJson<int>(json['physicalCritical']),
+      magicCritical: serializer.fromJson<int>(json['magicCritical']),
+      waveHpRecovery: serializer.fromJson<int>(json['waveHpRecovery']),
+      waveEnergyRecovery: serializer.fromJson<int>(json['waveEnergyRecovery']),
+      dodge: serializer.fromJson<int>(json['dodge']),
+      physicalPenetrate: serializer.fromJson<int>(json['physicalPenetrate']),
+      magicPenetrate: serializer.fromJson<int>(json['magicPenetrate']),
+      lifeSteal: serializer.fromJson<int>(json['lifeSteal']),
+      hpRecoveryRate: serializer.fromJson<int>(json['hpRecoveryRate']),
+      energyRecoveryRate: serializer.fromJson<int>(json['energyRecoveryRate']),
+      energyReduceRate: serializer.fromJson<int>(json['energyReduceRate']),
+      unionBurstLevel: serializer.fromJson<int>(json['unionBurstLevel']),
+      mainSkillLv1: serializer.fromJson<int>(json['mainSkillLv1']),
+      mainSkillLv2: serializer.fromJson<int>(json['mainSkillLv2']),
+      mainSkillLv3: serializer.fromJson<int>(json['mainSkillLv3']),
+      mainSkillLv4: serializer.fromJson<int>(json['mainSkillLv4']),
+      mainSkillLv5: serializer.fromJson<int>(json['mainSkillLv5']),
+      mainSkillLv6: serializer.fromJson<int>(json['mainSkillLv6']),
+      mainSkillLv7: serializer.fromJson<int>(json['mainSkillLv7']),
+      mainSkillLv8: serializer.fromJson<int>(json['mainSkillLv8']),
+      mainSkillLv9: serializer.fromJson<int>(json['mainSkillLv9']),
+      mainSkillLv10: serializer.fromJson<int>(json['mainSkillLv10']),
+      exSkillLv1: serializer.fromJson<int>(json['exSkillLv1']),
+      exSkillLv2: serializer.fromJson<int>(json['exSkillLv2']),
+      exSkillLv3: serializer.fromJson<int>(json['exSkillLv3']),
+      exSkillLv4: serializer.fromJson<int>(json['exSkillLv4']),
+      exSkillLv5: serializer.fromJson<int>(json['exSkillLv5']),
+      resistStatusId: serializer.fromJson<int>(json['resistStatusId']),
+      resistVariationId: serializer.fromJson<int>(json['resistVariationId']),
+      accuracy: serializer.fromJson<int>(json['accuracy']),
+      enemyColor: serializer.fromJson<int>(json['enemyColor']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'enemyId': serializer.toJson<int>(enemyId),
+      'unitId': serializer.toJson<int>(unitId),
+      'name': serializer.toJson<String>(name),
+      'level': serializer.toJson<int>(level),
+      'rarity': serializer.toJson<int>(rarity),
+      'promotionLevel': serializer.toJson<int>(promotionLevel),
+      'hp': serializer.toJson<int>(hp),
+      'atk': serializer.toJson<int>(atk),
+      'magicStr': serializer.toJson<int>(magicStr),
+      'def_': serializer.toJson<double>(def_),
+      'magicDef': serializer.toJson<int>(magicDef),
+      'physicalCritical': serializer.toJson<int>(physicalCritical),
+      'magicCritical': serializer.toJson<int>(magicCritical),
+      'waveHpRecovery': serializer.toJson<int>(waveHpRecovery),
+      'waveEnergyRecovery': serializer.toJson<int>(waveEnergyRecovery),
+      'dodge': serializer.toJson<int>(dodge),
+      'physicalPenetrate': serializer.toJson<int>(physicalPenetrate),
+      'magicPenetrate': serializer.toJson<int>(magicPenetrate),
+      'lifeSteal': serializer.toJson<int>(lifeSteal),
+      'hpRecoveryRate': serializer.toJson<int>(hpRecoveryRate),
+      'energyRecoveryRate': serializer.toJson<int>(energyRecoveryRate),
+      'energyReduceRate': serializer.toJson<int>(energyReduceRate),
+      'unionBurstLevel': serializer.toJson<int>(unionBurstLevel),
+      'mainSkillLv1': serializer.toJson<int>(mainSkillLv1),
+      'mainSkillLv2': serializer.toJson<int>(mainSkillLv2),
+      'mainSkillLv3': serializer.toJson<int>(mainSkillLv3),
+      'mainSkillLv4': serializer.toJson<int>(mainSkillLv4),
+      'mainSkillLv5': serializer.toJson<int>(mainSkillLv5),
+      'mainSkillLv6': serializer.toJson<int>(mainSkillLv6),
+      'mainSkillLv7': serializer.toJson<int>(mainSkillLv7),
+      'mainSkillLv8': serializer.toJson<int>(mainSkillLv8),
+      'mainSkillLv9': serializer.toJson<int>(mainSkillLv9),
+      'mainSkillLv10': serializer.toJson<int>(mainSkillLv10),
+      'exSkillLv1': serializer.toJson<int>(exSkillLv1),
+      'exSkillLv2': serializer.toJson<int>(exSkillLv2),
+      'exSkillLv3': serializer.toJson<int>(exSkillLv3),
+      'exSkillLv4': serializer.toJson<int>(exSkillLv4),
+      'exSkillLv5': serializer.toJson<int>(exSkillLv5),
+      'resistStatusId': serializer.toJson<int>(resistStatusId),
+      'resistVariationId': serializer.toJson<int>(resistVariationId),
+      'accuracy': serializer.toJson<int>(accuracy),
+      'enemyColor': serializer.toJson<int>(enemyColor),
+    };
+  }
+
+  TowerEnemyParameterData copyWith({
+    int? enemyId,
+    int? unitId,
+    String? name,
+    int? level,
+    int? rarity,
+    int? promotionLevel,
+    int? hp,
+    int? atk,
+    int? magicStr,
+    double? def_,
+    int? magicDef,
+    int? physicalCritical,
+    int? magicCritical,
+    int? waveHpRecovery,
+    int? waveEnergyRecovery,
+    int? dodge,
+    int? physicalPenetrate,
+    int? magicPenetrate,
+    int? lifeSteal,
+    int? hpRecoveryRate,
+    int? energyRecoveryRate,
+    int? energyReduceRate,
+    int? unionBurstLevel,
+    int? mainSkillLv1,
+    int? mainSkillLv2,
+    int? mainSkillLv3,
+    int? mainSkillLv4,
+    int? mainSkillLv5,
+    int? mainSkillLv6,
+    int? mainSkillLv7,
+    int? mainSkillLv8,
+    int? mainSkillLv9,
+    int? mainSkillLv10,
+    int? exSkillLv1,
+    int? exSkillLv2,
+    int? exSkillLv3,
+    int? exSkillLv4,
+    int? exSkillLv5,
+    int? resistStatusId,
+    int? resistVariationId,
+    int? accuracy,
+    int? enemyColor,
+  }) => TowerEnemyParameterData(
+    enemyId: enemyId ?? this.enemyId,
+    unitId: unitId ?? this.unitId,
+    name: name ?? this.name,
+    level: level ?? this.level,
+    rarity: rarity ?? this.rarity,
+    promotionLevel: promotionLevel ?? this.promotionLevel,
+    hp: hp ?? this.hp,
+    atk: atk ?? this.atk,
+    magicStr: magicStr ?? this.magicStr,
+    def_: def_ ?? this.def_,
+    magicDef: magicDef ?? this.magicDef,
+    physicalCritical: physicalCritical ?? this.physicalCritical,
+    magicCritical: magicCritical ?? this.magicCritical,
+    waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+    waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+    dodge: dodge ?? this.dodge,
+    physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+    magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+    lifeSteal: lifeSteal ?? this.lifeSteal,
+    hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+    energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+    energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+    unionBurstLevel: unionBurstLevel ?? this.unionBurstLevel,
+    mainSkillLv1: mainSkillLv1 ?? this.mainSkillLv1,
+    mainSkillLv2: mainSkillLv2 ?? this.mainSkillLv2,
+    mainSkillLv3: mainSkillLv3 ?? this.mainSkillLv3,
+    mainSkillLv4: mainSkillLv4 ?? this.mainSkillLv4,
+    mainSkillLv5: mainSkillLv5 ?? this.mainSkillLv5,
+    mainSkillLv6: mainSkillLv6 ?? this.mainSkillLv6,
+    mainSkillLv7: mainSkillLv7 ?? this.mainSkillLv7,
+    mainSkillLv8: mainSkillLv8 ?? this.mainSkillLv8,
+    mainSkillLv9: mainSkillLv9 ?? this.mainSkillLv9,
+    mainSkillLv10: mainSkillLv10 ?? this.mainSkillLv10,
+    exSkillLv1: exSkillLv1 ?? this.exSkillLv1,
+    exSkillLv2: exSkillLv2 ?? this.exSkillLv2,
+    exSkillLv3: exSkillLv3 ?? this.exSkillLv3,
+    exSkillLv4: exSkillLv4 ?? this.exSkillLv4,
+    exSkillLv5: exSkillLv5 ?? this.exSkillLv5,
+    resistStatusId: resistStatusId ?? this.resistStatusId,
+    resistVariationId: resistVariationId ?? this.resistVariationId,
+    accuracy: accuracy ?? this.accuracy,
+    enemyColor: enemyColor ?? this.enemyColor,
+  );
+  TowerEnemyParameterData copyWithCompanion(TowerEnemyParameterCompanion data) {
+    return TowerEnemyParameterData(
+      enemyId: data.enemyId.present ? data.enemyId.value : this.enemyId,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      name: data.name.present ? data.name.value : this.name,
+      level: data.level.present ? data.level.value : this.level,
+      rarity: data.rarity.present ? data.rarity.value : this.rarity,
+      promotionLevel: data.promotionLevel.present
+          ? data.promotionLevel.value
+          : this.promotionLevel,
+      hp: data.hp.present ? data.hp.value : this.hp,
+      atk: data.atk.present ? data.atk.value : this.atk,
+      magicStr: data.magicStr.present ? data.magicStr.value : this.magicStr,
+      def_: data.def_.present ? data.def_.value : this.def_,
+      magicDef: data.magicDef.present ? data.magicDef.value : this.magicDef,
+      physicalCritical: data.physicalCritical.present
+          ? data.physicalCritical.value
+          : this.physicalCritical,
+      magicCritical: data.magicCritical.present
+          ? data.magicCritical.value
+          : this.magicCritical,
+      waveHpRecovery: data.waveHpRecovery.present
+          ? data.waveHpRecovery.value
+          : this.waveHpRecovery,
+      waveEnergyRecovery: data.waveEnergyRecovery.present
+          ? data.waveEnergyRecovery.value
+          : this.waveEnergyRecovery,
+      dodge: data.dodge.present ? data.dodge.value : this.dodge,
+      physicalPenetrate: data.physicalPenetrate.present
+          ? data.physicalPenetrate.value
+          : this.physicalPenetrate,
+      magicPenetrate: data.magicPenetrate.present
+          ? data.magicPenetrate.value
+          : this.magicPenetrate,
+      lifeSteal: data.lifeSteal.present ? data.lifeSteal.value : this.lifeSteal,
+      hpRecoveryRate: data.hpRecoveryRate.present
+          ? data.hpRecoveryRate.value
+          : this.hpRecoveryRate,
+      energyRecoveryRate: data.energyRecoveryRate.present
+          ? data.energyRecoveryRate.value
+          : this.energyRecoveryRate,
+      energyReduceRate: data.energyReduceRate.present
+          ? data.energyReduceRate.value
+          : this.energyReduceRate,
+      unionBurstLevel: data.unionBurstLevel.present
+          ? data.unionBurstLevel.value
+          : this.unionBurstLevel,
+      mainSkillLv1: data.mainSkillLv1.present
+          ? data.mainSkillLv1.value
+          : this.mainSkillLv1,
+      mainSkillLv2: data.mainSkillLv2.present
+          ? data.mainSkillLv2.value
+          : this.mainSkillLv2,
+      mainSkillLv3: data.mainSkillLv3.present
+          ? data.mainSkillLv3.value
+          : this.mainSkillLv3,
+      mainSkillLv4: data.mainSkillLv4.present
+          ? data.mainSkillLv4.value
+          : this.mainSkillLv4,
+      mainSkillLv5: data.mainSkillLv5.present
+          ? data.mainSkillLv5.value
+          : this.mainSkillLv5,
+      mainSkillLv6: data.mainSkillLv6.present
+          ? data.mainSkillLv6.value
+          : this.mainSkillLv6,
+      mainSkillLv7: data.mainSkillLv7.present
+          ? data.mainSkillLv7.value
+          : this.mainSkillLv7,
+      mainSkillLv8: data.mainSkillLv8.present
+          ? data.mainSkillLv8.value
+          : this.mainSkillLv8,
+      mainSkillLv9: data.mainSkillLv9.present
+          ? data.mainSkillLv9.value
+          : this.mainSkillLv9,
+      mainSkillLv10: data.mainSkillLv10.present
+          ? data.mainSkillLv10.value
+          : this.mainSkillLv10,
+      exSkillLv1: data.exSkillLv1.present
+          ? data.exSkillLv1.value
+          : this.exSkillLv1,
+      exSkillLv2: data.exSkillLv2.present
+          ? data.exSkillLv2.value
+          : this.exSkillLv2,
+      exSkillLv3: data.exSkillLv3.present
+          ? data.exSkillLv3.value
+          : this.exSkillLv3,
+      exSkillLv4: data.exSkillLv4.present
+          ? data.exSkillLv4.value
+          : this.exSkillLv4,
+      exSkillLv5: data.exSkillLv5.present
+          ? data.exSkillLv5.value
+          : this.exSkillLv5,
+      resistStatusId: data.resistStatusId.present
+          ? data.resistStatusId.value
+          : this.resistStatusId,
+      resistVariationId: data.resistVariationId.present
+          ? data.resistVariationId.value
+          : this.resistVariationId,
+      accuracy: data.accuracy.present ? data.accuracy.value : this.accuracy,
+      enemyColor: data.enemyColor.present
+          ? data.enemyColor.value
+          : this.enemyColor,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TowerEnemyParameterData(')
+          ..write('enemyId: $enemyId, ')
+          ..write('unitId: $unitId, ')
+          ..write('name: $name, ')
+          ..write('level: $level, ')
+          ..write('rarity: $rarity, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('unionBurstLevel: $unionBurstLevel, ')
+          ..write('mainSkillLv1: $mainSkillLv1, ')
+          ..write('mainSkillLv2: $mainSkillLv2, ')
+          ..write('mainSkillLv3: $mainSkillLv3, ')
+          ..write('mainSkillLv4: $mainSkillLv4, ')
+          ..write('mainSkillLv5: $mainSkillLv5, ')
+          ..write('mainSkillLv6: $mainSkillLv6, ')
+          ..write('mainSkillLv7: $mainSkillLv7, ')
+          ..write('mainSkillLv8: $mainSkillLv8, ')
+          ..write('mainSkillLv9: $mainSkillLv9, ')
+          ..write('mainSkillLv10: $mainSkillLv10, ')
+          ..write('exSkillLv1: $exSkillLv1, ')
+          ..write('exSkillLv2: $exSkillLv2, ')
+          ..write('exSkillLv3: $exSkillLv3, ')
+          ..write('exSkillLv4: $exSkillLv4, ')
+          ..write('exSkillLv5: $exSkillLv5, ')
+          ..write('resistStatusId: $resistStatusId, ')
+          ..write('resistVariationId: $resistVariationId, ')
+          ..write('accuracy: $accuracy, ')
+          ..write('enemyColor: $enemyColor')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    enemyId,
+    unitId,
+    name,
+    level,
+    rarity,
+    promotionLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    unionBurstLevel,
+    mainSkillLv1,
+    mainSkillLv2,
+    mainSkillLv3,
+    mainSkillLv4,
+    mainSkillLv5,
+    mainSkillLv6,
+    mainSkillLv7,
+    mainSkillLv8,
+    mainSkillLv9,
+    mainSkillLv10,
+    exSkillLv1,
+    exSkillLv2,
+    exSkillLv3,
+    exSkillLv4,
+    exSkillLv5,
+    resistStatusId,
+    resistVariationId,
+    accuracy,
+    enemyColor,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TowerEnemyParameterData &&
+          other.enemyId == this.enemyId &&
+          other.unitId == this.unitId &&
+          other.name == this.name &&
+          other.level == this.level &&
+          other.rarity == this.rarity &&
+          other.promotionLevel == this.promotionLevel &&
+          other.hp == this.hp &&
+          other.atk == this.atk &&
+          other.magicStr == this.magicStr &&
+          other.def_ == this.def_ &&
+          other.magicDef == this.magicDef &&
+          other.physicalCritical == this.physicalCritical &&
+          other.magicCritical == this.magicCritical &&
+          other.waveHpRecovery == this.waveHpRecovery &&
+          other.waveEnergyRecovery == this.waveEnergyRecovery &&
+          other.dodge == this.dodge &&
+          other.physicalPenetrate == this.physicalPenetrate &&
+          other.magicPenetrate == this.magicPenetrate &&
+          other.lifeSteal == this.lifeSteal &&
+          other.hpRecoveryRate == this.hpRecoveryRate &&
+          other.energyRecoveryRate == this.energyRecoveryRate &&
+          other.energyReduceRate == this.energyReduceRate &&
+          other.unionBurstLevel == this.unionBurstLevel &&
+          other.mainSkillLv1 == this.mainSkillLv1 &&
+          other.mainSkillLv2 == this.mainSkillLv2 &&
+          other.mainSkillLv3 == this.mainSkillLv3 &&
+          other.mainSkillLv4 == this.mainSkillLv4 &&
+          other.mainSkillLv5 == this.mainSkillLv5 &&
+          other.mainSkillLv6 == this.mainSkillLv6 &&
+          other.mainSkillLv7 == this.mainSkillLv7 &&
+          other.mainSkillLv8 == this.mainSkillLv8 &&
+          other.mainSkillLv9 == this.mainSkillLv9 &&
+          other.mainSkillLv10 == this.mainSkillLv10 &&
+          other.exSkillLv1 == this.exSkillLv1 &&
+          other.exSkillLv2 == this.exSkillLv2 &&
+          other.exSkillLv3 == this.exSkillLv3 &&
+          other.exSkillLv4 == this.exSkillLv4 &&
+          other.exSkillLv5 == this.exSkillLv5 &&
+          other.resistStatusId == this.resistStatusId &&
+          other.resistVariationId == this.resistVariationId &&
+          other.accuracy == this.accuracy &&
+          other.enemyColor == this.enemyColor);
+}
+
+class TowerEnemyParameterCompanion
+    extends UpdateCompanion<TowerEnemyParameterData> {
+  final Value<int> enemyId;
+  final Value<int> unitId;
+  final Value<String> name;
+  final Value<int> level;
+  final Value<int> rarity;
+  final Value<int> promotionLevel;
+  final Value<int> hp;
+  final Value<int> atk;
+  final Value<int> magicStr;
+  final Value<double> def_;
+  final Value<int> magicDef;
+  final Value<int> physicalCritical;
+  final Value<int> magicCritical;
+  final Value<int> waveHpRecovery;
+  final Value<int> waveEnergyRecovery;
+  final Value<int> dodge;
+  final Value<int> physicalPenetrate;
+  final Value<int> magicPenetrate;
+  final Value<int> lifeSteal;
+  final Value<int> hpRecoveryRate;
+  final Value<int> energyRecoveryRate;
+  final Value<int> energyReduceRate;
+  final Value<int> unionBurstLevel;
+  final Value<int> mainSkillLv1;
+  final Value<int> mainSkillLv2;
+  final Value<int> mainSkillLv3;
+  final Value<int> mainSkillLv4;
+  final Value<int> mainSkillLv5;
+  final Value<int> mainSkillLv6;
+  final Value<int> mainSkillLv7;
+  final Value<int> mainSkillLv8;
+  final Value<int> mainSkillLv9;
+  final Value<int> mainSkillLv10;
+  final Value<int> exSkillLv1;
+  final Value<int> exSkillLv2;
+  final Value<int> exSkillLv3;
+  final Value<int> exSkillLv4;
+  final Value<int> exSkillLv5;
+  final Value<int> resistStatusId;
+  final Value<int> resistVariationId;
+  final Value<int> accuracy;
+  final Value<int> enemyColor;
+  const TowerEnemyParameterCompanion({
+    this.enemyId = const Value.absent(),
+    this.unitId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.level = const Value.absent(),
+    this.rarity = const Value.absent(),
+    this.promotionLevel = const Value.absent(),
+    this.hp = const Value.absent(),
+    this.atk = const Value.absent(),
+    this.magicStr = const Value.absent(),
+    this.def_ = const Value.absent(),
+    this.magicDef = const Value.absent(),
+    this.physicalCritical = const Value.absent(),
+    this.magicCritical = const Value.absent(),
+    this.waveHpRecovery = const Value.absent(),
+    this.waveEnergyRecovery = const Value.absent(),
+    this.dodge = const Value.absent(),
+    this.physicalPenetrate = const Value.absent(),
+    this.magicPenetrate = const Value.absent(),
+    this.lifeSteal = const Value.absent(),
+    this.hpRecoveryRate = const Value.absent(),
+    this.energyRecoveryRate = const Value.absent(),
+    this.energyReduceRate = const Value.absent(),
+    this.unionBurstLevel = const Value.absent(),
+    this.mainSkillLv1 = const Value.absent(),
+    this.mainSkillLv2 = const Value.absent(),
+    this.mainSkillLv3 = const Value.absent(),
+    this.mainSkillLv4 = const Value.absent(),
+    this.mainSkillLv5 = const Value.absent(),
+    this.mainSkillLv6 = const Value.absent(),
+    this.mainSkillLv7 = const Value.absent(),
+    this.mainSkillLv8 = const Value.absent(),
+    this.mainSkillLv9 = const Value.absent(),
+    this.mainSkillLv10 = const Value.absent(),
+    this.exSkillLv1 = const Value.absent(),
+    this.exSkillLv2 = const Value.absent(),
+    this.exSkillLv3 = const Value.absent(),
+    this.exSkillLv4 = const Value.absent(),
+    this.exSkillLv5 = const Value.absent(),
+    this.resistStatusId = const Value.absent(),
+    this.resistVariationId = const Value.absent(),
+    this.accuracy = const Value.absent(),
+    this.enemyColor = const Value.absent(),
+  });
+  TowerEnemyParameterCompanion.insert({
+    this.enemyId = const Value.absent(),
+    required int unitId,
+    required String name,
+    required int level,
+    required int rarity,
+    required int promotionLevel,
+    required int hp,
+    required int atk,
+    required int magicStr,
+    required double def_,
+    required int magicDef,
+    required int physicalCritical,
+    required int magicCritical,
+    required int waveHpRecovery,
+    required int waveEnergyRecovery,
+    required int dodge,
+    required int physicalPenetrate,
+    required int magicPenetrate,
+    required int lifeSteal,
+    required int hpRecoveryRate,
+    required int energyRecoveryRate,
+    required int energyReduceRate,
+    required int unionBurstLevel,
+    required int mainSkillLv1,
+    required int mainSkillLv2,
+    required int mainSkillLv3,
+    required int mainSkillLv4,
+    required int mainSkillLv5,
+    required int mainSkillLv6,
+    required int mainSkillLv7,
+    required int mainSkillLv8,
+    required int mainSkillLv9,
+    required int mainSkillLv10,
+    required int exSkillLv1,
+    required int exSkillLv2,
+    required int exSkillLv3,
+    required int exSkillLv4,
+    required int exSkillLv5,
+    required int resistStatusId,
+    required int resistVariationId,
+    required int accuracy,
+    required int enemyColor,
+  }) : unitId = Value(unitId),
+       name = Value(name),
+       level = Value(level),
+       rarity = Value(rarity),
+       promotionLevel = Value(promotionLevel),
+       hp = Value(hp),
+       atk = Value(atk),
+       magicStr = Value(magicStr),
+       def_ = Value(def_),
+       magicDef = Value(magicDef),
+       physicalCritical = Value(physicalCritical),
+       magicCritical = Value(magicCritical),
+       waveHpRecovery = Value(waveHpRecovery),
+       waveEnergyRecovery = Value(waveEnergyRecovery),
+       dodge = Value(dodge),
+       physicalPenetrate = Value(physicalPenetrate),
+       magicPenetrate = Value(magicPenetrate),
+       lifeSteal = Value(lifeSteal),
+       hpRecoveryRate = Value(hpRecoveryRate),
+       energyRecoveryRate = Value(energyRecoveryRate),
+       energyReduceRate = Value(energyReduceRate),
+       unionBurstLevel = Value(unionBurstLevel),
+       mainSkillLv1 = Value(mainSkillLv1),
+       mainSkillLv2 = Value(mainSkillLv2),
+       mainSkillLv3 = Value(mainSkillLv3),
+       mainSkillLv4 = Value(mainSkillLv4),
+       mainSkillLv5 = Value(mainSkillLv5),
+       mainSkillLv6 = Value(mainSkillLv6),
+       mainSkillLv7 = Value(mainSkillLv7),
+       mainSkillLv8 = Value(mainSkillLv8),
+       mainSkillLv9 = Value(mainSkillLv9),
+       mainSkillLv10 = Value(mainSkillLv10),
+       exSkillLv1 = Value(exSkillLv1),
+       exSkillLv2 = Value(exSkillLv2),
+       exSkillLv3 = Value(exSkillLv3),
+       exSkillLv4 = Value(exSkillLv4),
+       exSkillLv5 = Value(exSkillLv5),
+       resistStatusId = Value(resistStatusId),
+       resistVariationId = Value(resistVariationId),
+       accuracy = Value(accuracy),
+       enemyColor = Value(enemyColor);
+  static Insertable<TowerEnemyParameterData> custom({
+    Expression<int>? enemyId,
+    Expression<int>? unitId,
+    Expression<String>? name,
+    Expression<int>? level,
+    Expression<int>? rarity,
+    Expression<int>? promotionLevel,
+    Expression<int>? hp,
+    Expression<int>? atk,
+    Expression<int>? magicStr,
+    Expression<double>? def_,
+    Expression<int>? magicDef,
+    Expression<int>? physicalCritical,
+    Expression<int>? magicCritical,
+    Expression<int>? waveHpRecovery,
+    Expression<int>? waveEnergyRecovery,
+    Expression<int>? dodge,
+    Expression<int>? physicalPenetrate,
+    Expression<int>? magicPenetrate,
+    Expression<int>? lifeSteal,
+    Expression<int>? hpRecoveryRate,
+    Expression<int>? energyRecoveryRate,
+    Expression<int>? energyReduceRate,
+    Expression<int>? unionBurstLevel,
+    Expression<int>? mainSkillLv1,
+    Expression<int>? mainSkillLv2,
+    Expression<int>? mainSkillLv3,
+    Expression<int>? mainSkillLv4,
+    Expression<int>? mainSkillLv5,
+    Expression<int>? mainSkillLv6,
+    Expression<int>? mainSkillLv7,
+    Expression<int>? mainSkillLv8,
+    Expression<int>? mainSkillLv9,
+    Expression<int>? mainSkillLv10,
+    Expression<int>? exSkillLv1,
+    Expression<int>? exSkillLv2,
+    Expression<int>? exSkillLv3,
+    Expression<int>? exSkillLv4,
+    Expression<int>? exSkillLv5,
+    Expression<int>? resistStatusId,
+    Expression<int>? resistVariationId,
+    Expression<int>? accuracy,
+    Expression<int>? enemyColor,
+  }) {
+    return RawValuesInsertable({
+      if (enemyId != null) 'enemy_id': enemyId,
+      if (unitId != null) 'unit_id': unitId,
+      if (name != null) 'name': name,
+      if (level != null) 'level': level,
+      if (rarity != null) 'rarity': rarity,
+      if (promotionLevel != null) 'promotion_level': promotionLevel,
+      if (hp != null) 'hp': hp,
+      if (atk != null) 'atk': atk,
+      if (magicStr != null) 'magic_str': magicStr,
+      if (def_ != null) 'def': def_,
+      if (magicDef != null) 'magic_def': magicDef,
+      if (physicalCritical != null) 'physical_critical': physicalCritical,
+      if (magicCritical != null) 'magic_critical': magicCritical,
+      if (waveHpRecovery != null) 'wave_hp_recovery': waveHpRecovery,
+      if (waveEnergyRecovery != null)
+        'wave_energy_recovery': waveEnergyRecovery,
+      if (dodge != null) 'dodge': dodge,
+      if (physicalPenetrate != null) 'physical_penetrate': physicalPenetrate,
+      if (magicPenetrate != null) 'magic_penetrate': magicPenetrate,
+      if (lifeSteal != null) 'life_steal': lifeSteal,
+      if (hpRecoveryRate != null) 'hp_recovery_rate': hpRecoveryRate,
+      if (energyRecoveryRate != null)
+        'energy_recovery_rate': energyRecoveryRate,
+      if (energyReduceRate != null) 'energy_reduce_rate': energyReduceRate,
+      if (unionBurstLevel != null) 'union_burst_level': unionBurstLevel,
+      if (mainSkillLv1 != null) 'main_skill_lv_1': mainSkillLv1,
+      if (mainSkillLv2 != null) 'main_skill_lv_2': mainSkillLv2,
+      if (mainSkillLv3 != null) 'main_skill_lv_3': mainSkillLv3,
+      if (mainSkillLv4 != null) 'main_skill_lv_4': mainSkillLv4,
+      if (mainSkillLv5 != null) 'main_skill_lv_5': mainSkillLv5,
+      if (mainSkillLv6 != null) 'main_skill_lv_6': mainSkillLv6,
+      if (mainSkillLv7 != null) 'main_skill_lv_7': mainSkillLv7,
+      if (mainSkillLv8 != null) 'main_skill_lv_8': mainSkillLv8,
+      if (mainSkillLv9 != null) 'main_skill_lv_9': mainSkillLv9,
+      if (mainSkillLv10 != null) 'main_skill_lv_10': mainSkillLv10,
+      if (exSkillLv1 != null) 'ex_skill_lv_1': exSkillLv1,
+      if (exSkillLv2 != null) 'ex_skill_lv_2': exSkillLv2,
+      if (exSkillLv3 != null) 'ex_skill_lv_3': exSkillLv3,
+      if (exSkillLv4 != null) 'ex_skill_lv_4': exSkillLv4,
+      if (exSkillLv5 != null) 'ex_skill_lv_5': exSkillLv5,
+      if (resistStatusId != null) 'resist_status_id': resistStatusId,
+      if (resistVariationId != null) 'resist_variation_id': resistVariationId,
+      if (accuracy != null) 'accuracy': accuracy,
+      if (enemyColor != null) 'enemy_color': enemyColor,
+    });
+  }
+
+  TowerEnemyParameterCompanion copyWith({
+    Value<int>? enemyId,
+    Value<int>? unitId,
+    Value<String>? name,
+    Value<int>? level,
+    Value<int>? rarity,
+    Value<int>? promotionLevel,
+    Value<int>? hp,
+    Value<int>? atk,
+    Value<int>? magicStr,
+    Value<double>? def_,
+    Value<int>? magicDef,
+    Value<int>? physicalCritical,
+    Value<int>? magicCritical,
+    Value<int>? waveHpRecovery,
+    Value<int>? waveEnergyRecovery,
+    Value<int>? dodge,
+    Value<int>? physicalPenetrate,
+    Value<int>? magicPenetrate,
+    Value<int>? lifeSteal,
+    Value<int>? hpRecoveryRate,
+    Value<int>? energyRecoveryRate,
+    Value<int>? energyReduceRate,
+    Value<int>? unionBurstLevel,
+    Value<int>? mainSkillLv1,
+    Value<int>? mainSkillLv2,
+    Value<int>? mainSkillLv3,
+    Value<int>? mainSkillLv4,
+    Value<int>? mainSkillLv5,
+    Value<int>? mainSkillLv6,
+    Value<int>? mainSkillLv7,
+    Value<int>? mainSkillLv8,
+    Value<int>? mainSkillLv9,
+    Value<int>? mainSkillLv10,
+    Value<int>? exSkillLv1,
+    Value<int>? exSkillLv2,
+    Value<int>? exSkillLv3,
+    Value<int>? exSkillLv4,
+    Value<int>? exSkillLv5,
+    Value<int>? resistStatusId,
+    Value<int>? resistVariationId,
+    Value<int>? accuracy,
+    Value<int>? enemyColor,
+  }) {
+    return TowerEnemyParameterCompanion(
+      enemyId: enemyId ?? this.enemyId,
+      unitId: unitId ?? this.unitId,
+      name: name ?? this.name,
+      level: level ?? this.level,
+      rarity: rarity ?? this.rarity,
+      promotionLevel: promotionLevel ?? this.promotionLevel,
+      hp: hp ?? this.hp,
+      atk: atk ?? this.atk,
+      magicStr: magicStr ?? this.magicStr,
+      def_: def_ ?? this.def_,
+      magicDef: magicDef ?? this.magicDef,
+      physicalCritical: physicalCritical ?? this.physicalCritical,
+      magicCritical: magicCritical ?? this.magicCritical,
+      waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+      waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+      dodge: dodge ?? this.dodge,
+      physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+      magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+      lifeSteal: lifeSteal ?? this.lifeSteal,
+      hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+      energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+      energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+      unionBurstLevel: unionBurstLevel ?? this.unionBurstLevel,
+      mainSkillLv1: mainSkillLv1 ?? this.mainSkillLv1,
+      mainSkillLv2: mainSkillLv2 ?? this.mainSkillLv2,
+      mainSkillLv3: mainSkillLv3 ?? this.mainSkillLv3,
+      mainSkillLv4: mainSkillLv4 ?? this.mainSkillLv4,
+      mainSkillLv5: mainSkillLv5 ?? this.mainSkillLv5,
+      mainSkillLv6: mainSkillLv6 ?? this.mainSkillLv6,
+      mainSkillLv7: mainSkillLv7 ?? this.mainSkillLv7,
+      mainSkillLv8: mainSkillLv8 ?? this.mainSkillLv8,
+      mainSkillLv9: mainSkillLv9 ?? this.mainSkillLv9,
+      mainSkillLv10: mainSkillLv10 ?? this.mainSkillLv10,
+      exSkillLv1: exSkillLv1 ?? this.exSkillLv1,
+      exSkillLv2: exSkillLv2 ?? this.exSkillLv2,
+      exSkillLv3: exSkillLv3 ?? this.exSkillLv3,
+      exSkillLv4: exSkillLv4 ?? this.exSkillLv4,
+      exSkillLv5: exSkillLv5 ?? this.exSkillLv5,
+      resistStatusId: resistStatusId ?? this.resistStatusId,
+      resistVariationId: resistVariationId ?? this.resistVariationId,
+      accuracy: accuracy ?? this.accuracy,
+      enemyColor: enemyColor ?? this.enemyColor,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (enemyId.present) {
+      map['enemy_id'] = Variable<int>(enemyId.value);
+    }
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (level.present) {
+      map['level'] = Variable<int>(level.value);
+    }
+    if (rarity.present) {
+      map['rarity'] = Variable<int>(rarity.value);
+    }
+    if (promotionLevel.present) {
+      map['promotion_level'] = Variable<int>(promotionLevel.value);
+    }
+    if (hp.present) {
+      map['hp'] = Variable<int>(hp.value);
+    }
+    if (atk.present) {
+      map['atk'] = Variable<int>(atk.value);
+    }
+    if (magicStr.present) {
+      map['magic_str'] = Variable<int>(magicStr.value);
+    }
+    if (def_.present) {
+      map['def'] = Variable<double>(def_.value);
+    }
+    if (magicDef.present) {
+      map['magic_def'] = Variable<int>(magicDef.value);
+    }
+    if (physicalCritical.present) {
+      map['physical_critical'] = Variable<int>(physicalCritical.value);
+    }
+    if (magicCritical.present) {
+      map['magic_critical'] = Variable<int>(magicCritical.value);
+    }
+    if (waveHpRecovery.present) {
+      map['wave_hp_recovery'] = Variable<int>(waveHpRecovery.value);
+    }
+    if (waveEnergyRecovery.present) {
+      map['wave_energy_recovery'] = Variable<int>(waveEnergyRecovery.value);
+    }
+    if (dodge.present) {
+      map['dodge'] = Variable<int>(dodge.value);
+    }
+    if (physicalPenetrate.present) {
+      map['physical_penetrate'] = Variable<int>(physicalPenetrate.value);
+    }
+    if (magicPenetrate.present) {
+      map['magic_penetrate'] = Variable<int>(magicPenetrate.value);
+    }
+    if (lifeSteal.present) {
+      map['life_steal'] = Variable<int>(lifeSteal.value);
+    }
+    if (hpRecoveryRate.present) {
+      map['hp_recovery_rate'] = Variable<int>(hpRecoveryRate.value);
+    }
+    if (energyRecoveryRate.present) {
+      map['energy_recovery_rate'] = Variable<int>(energyRecoveryRate.value);
+    }
+    if (energyReduceRate.present) {
+      map['energy_reduce_rate'] = Variable<int>(energyReduceRate.value);
+    }
+    if (unionBurstLevel.present) {
+      map['union_burst_level'] = Variable<int>(unionBurstLevel.value);
+    }
+    if (mainSkillLv1.present) {
+      map['main_skill_lv_1'] = Variable<int>(mainSkillLv1.value);
+    }
+    if (mainSkillLv2.present) {
+      map['main_skill_lv_2'] = Variable<int>(mainSkillLv2.value);
+    }
+    if (mainSkillLv3.present) {
+      map['main_skill_lv_3'] = Variable<int>(mainSkillLv3.value);
+    }
+    if (mainSkillLv4.present) {
+      map['main_skill_lv_4'] = Variable<int>(mainSkillLv4.value);
+    }
+    if (mainSkillLv5.present) {
+      map['main_skill_lv_5'] = Variable<int>(mainSkillLv5.value);
+    }
+    if (mainSkillLv6.present) {
+      map['main_skill_lv_6'] = Variable<int>(mainSkillLv6.value);
+    }
+    if (mainSkillLv7.present) {
+      map['main_skill_lv_7'] = Variable<int>(mainSkillLv7.value);
+    }
+    if (mainSkillLv8.present) {
+      map['main_skill_lv_8'] = Variable<int>(mainSkillLv8.value);
+    }
+    if (mainSkillLv9.present) {
+      map['main_skill_lv_9'] = Variable<int>(mainSkillLv9.value);
+    }
+    if (mainSkillLv10.present) {
+      map['main_skill_lv_10'] = Variable<int>(mainSkillLv10.value);
+    }
+    if (exSkillLv1.present) {
+      map['ex_skill_lv_1'] = Variable<int>(exSkillLv1.value);
+    }
+    if (exSkillLv2.present) {
+      map['ex_skill_lv_2'] = Variable<int>(exSkillLv2.value);
+    }
+    if (exSkillLv3.present) {
+      map['ex_skill_lv_3'] = Variable<int>(exSkillLv3.value);
+    }
+    if (exSkillLv4.present) {
+      map['ex_skill_lv_4'] = Variable<int>(exSkillLv4.value);
+    }
+    if (exSkillLv5.present) {
+      map['ex_skill_lv_5'] = Variable<int>(exSkillLv5.value);
+    }
+    if (resistStatusId.present) {
+      map['resist_status_id'] = Variable<int>(resistStatusId.value);
+    }
+    if (resistVariationId.present) {
+      map['resist_variation_id'] = Variable<int>(resistVariationId.value);
+    }
+    if (accuracy.present) {
+      map['accuracy'] = Variable<int>(accuracy.value);
+    }
+    if (enemyColor.present) {
+      map['enemy_color'] = Variable<int>(enemyColor.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TowerEnemyParameterCompanion(')
+          ..write('enemyId: $enemyId, ')
+          ..write('unitId: $unitId, ')
+          ..write('name: $name, ')
+          ..write('level: $level, ')
+          ..write('rarity: $rarity, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('unionBurstLevel: $unionBurstLevel, ')
+          ..write('mainSkillLv1: $mainSkillLv1, ')
+          ..write('mainSkillLv2: $mainSkillLv2, ')
+          ..write('mainSkillLv3: $mainSkillLv3, ')
+          ..write('mainSkillLv4: $mainSkillLv4, ')
+          ..write('mainSkillLv5: $mainSkillLv5, ')
+          ..write('mainSkillLv6: $mainSkillLv6, ')
+          ..write('mainSkillLv7: $mainSkillLv7, ')
+          ..write('mainSkillLv8: $mainSkillLv8, ')
+          ..write('mainSkillLv9: $mainSkillLv9, ')
+          ..write('mainSkillLv10: $mainSkillLv10, ')
+          ..write('exSkillLv1: $exSkillLv1, ')
+          ..write('exSkillLv2: $exSkillLv2, ')
+          ..write('exSkillLv3: $exSkillLv3, ')
+          ..write('exSkillLv4: $exSkillLv4, ')
+          ..write('exSkillLv5: $exSkillLv5, ')
+          ..write('resistStatusId: $resistStatusId, ')
+          ..write('resistVariationId: $resistVariationId, ')
+          ..write('accuracy: $accuracy, ')
+          ..write('enemyColor: $enemyColor')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $SevenEnemyParameterTable extends SevenEnemyParameter
+    with TableInfo<$SevenEnemyParameterTable, SevenEnemyParameterData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $SevenEnemyParameterTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _enemyIdMeta = const VerificationMeta(
+    'enemyId',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId = GeneratedColumn<int>(
+    'enemy_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _levelMeta = const VerificationMeta('level');
+  @override
+  late final GeneratedColumn<int> level = GeneratedColumn<int>(
+    'level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rarityMeta = const VerificationMeta('rarity');
+  @override
+  late final GeneratedColumn<int> rarity = GeneratedColumn<int>(
+    'rarity',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _promotionLevelMeta = const VerificationMeta(
+    'promotionLevel',
+  );
+  @override
+  late final GeneratedColumn<int> promotionLevel = GeneratedColumn<int>(
+    'promotion_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpMeta = const VerificationMeta('hp');
+  @override
+  late final GeneratedColumn<int> hp = GeneratedColumn<int>(
+    'hp',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _atkMeta = const VerificationMeta('atk');
+  @override
+  late final GeneratedColumn<int> atk = GeneratedColumn<int>(
+    'atk',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicStrMeta = const VerificationMeta(
+    'magicStr',
+  );
+  @override
+  late final GeneratedColumn<int> magicStr = GeneratedColumn<int>(
+    'magic_str',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _def_Meta = const VerificationMeta('def_');
+  @override
+  late final GeneratedColumn<double> def_ = GeneratedColumn<double>(
+    'def',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicDefMeta = const VerificationMeta(
+    'magicDef',
+  );
+  @override
+  late final GeneratedColumn<int> magicDef = GeneratedColumn<int>(
+    'magic_def',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalCriticalMeta = const VerificationMeta(
+    'physicalCritical',
+  );
+  @override
+  late final GeneratedColumn<int> physicalCritical = GeneratedColumn<int>(
+    'physical_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicCriticalMeta = const VerificationMeta(
+    'magicCritical',
+  );
+  @override
+  late final GeneratedColumn<int> magicCritical = GeneratedColumn<int>(
+    'magic_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveHpRecoveryMeta = const VerificationMeta(
+    'waveHpRecovery',
+  );
+  @override
+  late final GeneratedColumn<int> waveHpRecovery = GeneratedColumn<int>(
+    'wave_hp_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveEnergyRecoveryMeta =
+      const VerificationMeta('waveEnergyRecovery');
+  @override
+  late final GeneratedColumn<int> waveEnergyRecovery = GeneratedColumn<int>(
+    'wave_energy_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dodgeMeta = const VerificationMeta('dodge');
+  @override
+  late final GeneratedColumn<int> dodge = GeneratedColumn<int>(
+    'dodge',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalPenetrateMeta = const VerificationMeta(
+    'physicalPenetrate',
+  );
+  @override
+  late final GeneratedColumn<int> physicalPenetrate = GeneratedColumn<int>(
+    'physical_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicPenetrateMeta = const VerificationMeta(
+    'magicPenetrate',
+  );
+  @override
+  late final GeneratedColumn<int> magicPenetrate = GeneratedColumn<int>(
+    'magic_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _lifeStealMeta = const VerificationMeta(
+    'lifeSteal',
+  );
+  @override
+  late final GeneratedColumn<int> lifeSteal = GeneratedColumn<int>(
+    'life_steal',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpRecoveryRateMeta = const VerificationMeta(
+    'hpRecoveryRate',
+  );
+  @override
+  late final GeneratedColumn<int> hpRecoveryRate = GeneratedColumn<int>(
+    'hp_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyRecoveryRateMeta =
+      const VerificationMeta('energyRecoveryRate');
+  @override
+  late final GeneratedColumn<int> energyRecoveryRate = GeneratedColumn<int>(
+    'energy_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyReduceRateMeta = const VerificationMeta(
+    'energyReduceRate',
+  );
+  @override
+  late final GeneratedColumn<int> energyReduceRate = GeneratedColumn<int>(
+    'energy_reduce_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _unionBurstLevelMeta = const VerificationMeta(
+    'unionBurstLevel',
+  );
+  @override
+  late final GeneratedColumn<int> unionBurstLevel = GeneratedColumn<int>(
+    'union_burst_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv1Meta = const VerificationMeta(
+    'mainSkillLv1',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv1 = GeneratedColumn<int>(
+    'main_skill_lv_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv2Meta = const VerificationMeta(
+    'mainSkillLv2',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv2 = GeneratedColumn<int>(
+    'main_skill_lv_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv3Meta = const VerificationMeta(
+    'mainSkillLv3',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv3 = GeneratedColumn<int>(
+    'main_skill_lv_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv4Meta = const VerificationMeta(
+    'mainSkillLv4',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv4 = GeneratedColumn<int>(
+    'main_skill_lv_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv5Meta = const VerificationMeta(
+    'mainSkillLv5',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv5 = GeneratedColumn<int>(
+    'main_skill_lv_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv6Meta = const VerificationMeta(
+    'mainSkillLv6',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv6 = GeneratedColumn<int>(
+    'main_skill_lv_6',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv7Meta = const VerificationMeta(
+    'mainSkillLv7',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv7 = GeneratedColumn<int>(
+    'main_skill_lv_7',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv8Meta = const VerificationMeta(
+    'mainSkillLv8',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv8 = GeneratedColumn<int>(
+    'main_skill_lv_8',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv9Meta = const VerificationMeta(
+    'mainSkillLv9',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv9 = GeneratedColumn<int>(
+    'main_skill_lv_9',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv10Meta = const VerificationMeta(
+    'mainSkillLv10',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv10 = GeneratedColumn<int>(
+    'main_skill_lv_10',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv1Meta = const VerificationMeta(
+    'exSkillLv1',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv1 = GeneratedColumn<int>(
+    'ex_skill_lv_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv2Meta = const VerificationMeta(
+    'exSkillLv2',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv2 = GeneratedColumn<int>(
+    'ex_skill_lv_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv3Meta = const VerificationMeta(
+    'exSkillLv3',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv3 = GeneratedColumn<int>(
+    'ex_skill_lv_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv4Meta = const VerificationMeta(
+    'exSkillLv4',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv4 = GeneratedColumn<int>(
+    'ex_skill_lv_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv5Meta = const VerificationMeta(
+    'exSkillLv5',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv5 = GeneratedColumn<int>(
+    'ex_skill_lv_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resistStatusIdMeta = const VerificationMeta(
+    'resistStatusId',
+  );
+  @override
+  late final GeneratedColumn<int> resistStatusId = GeneratedColumn<int>(
+    'resist_status_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resistVariationIdMeta = const VerificationMeta(
+    'resistVariationId',
+  );
+  @override
+  late final GeneratedColumn<int> resistVariationId = GeneratedColumn<int>(
+    'resist_variation_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _accuracyMeta = const VerificationMeta(
+    'accuracy',
+  );
+  @override
+  late final GeneratedColumn<int> accuracy = GeneratedColumn<int>(
+    'accuracy',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _breakDurabilityMeta = const VerificationMeta(
+    'breakDurability',
+  );
+  @override
+  late final GeneratedColumn<int> breakDurability = GeneratedColumn<int>(
+    'break_durability',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _uniqueEquipmentFlag1Meta =
+      const VerificationMeta('uniqueEquipmentFlag1');
+  @override
+  late final GeneratedColumn<int> uniqueEquipmentFlag1 = GeneratedColumn<int>(
+    'unique_equipment_flag_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _virtualHpMeta = const VerificationMeta(
+    'virtualHp',
+  );
+  @override
+  late final GeneratedColumn<int> virtualHp = GeneratedColumn<int>(
+    'virtual_hp',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    enemyId,
+    unitId,
+    name,
+    level,
+    rarity,
+    promotionLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    unionBurstLevel,
+    mainSkillLv1,
+    mainSkillLv2,
+    mainSkillLv3,
+    mainSkillLv4,
+    mainSkillLv5,
+    mainSkillLv6,
+    mainSkillLv7,
+    mainSkillLv8,
+    mainSkillLv9,
+    mainSkillLv10,
+    exSkillLv1,
+    exSkillLv2,
+    exSkillLv3,
+    exSkillLv4,
+    exSkillLv5,
+    resistStatusId,
+    resistVariationId,
+    accuracy,
+    breakDurability,
+    uniqueEquipmentFlag1,
+    virtualHp,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'seven_enemy_parameter';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<SevenEnemyParameterData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('enemy_id')) {
+      context.handle(
+        _enemyIdMeta,
+        enemyId.isAcceptableOrUnknown(data['enemy_id']!, _enemyIdMeta),
+      );
+    }
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('level')) {
+      context.handle(
+        _levelMeta,
+        level.isAcceptableOrUnknown(data['level']!, _levelMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_levelMeta);
+    }
+    if (data.containsKey('rarity')) {
+      context.handle(
+        _rarityMeta,
+        rarity.isAcceptableOrUnknown(data['rarity']!, _rarityMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_rarityMeta);
+    }
+    if (data.containsKey('promotion_level')) {
+      context.handle(
+        _promotionLevelMeta,
+        promotionLevel.isAcceptableOrUnknown(
+          data['promotion_level']!,
+          _promotionLevelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_promotionLevelMeta);
+    }
+    if (data.containsKey('hp')) {
+      context.handle(_hpMeta, hp.isAcceptableOrUnknown(data['hp']!, _hpMeta));
+    } else if (isInserting) {
+      context.missing(_hpMeta);
+    }
+    if (data.containsKey('atk')) {
+      context.handle(
+        _atkMeta,
+        atk.isAcceptableOrUnknown(data['atk']!, _atkMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_atkMeta);
+    }
+    if (data.containsKey('magic_str')) {
+      context.handle(
+        _magicStrMeta,
+        magicStr.isAcceptableOrUnknown(data['magic_str']!, _magicStrMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicStrMeta);
+    }
+    if (data.containsKey('def')) {
+      context.handle(
+        _def_Meta,
+        def_.isAcceptableOrUnknown(data['def']!, _def_Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_def_Meta);
+    }
+    if (data.containsKey('magic_def')) {
+      context.handle(
+        _magicDefMeta,
+        magicDef.isAcceptableOrUnknown(data['magic_def']!, _magicDefMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicDefMeta);
+    }
+    if (data.containsKey('physical_critical')) {
+      context.handle(
+        _physicalCriticalMeta,
+        physicalCritical.isAcceptableOrUnknown(
+          data['physical_critical']!,
+          _physicalCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalCriticalMeta);
+    }
+    if (data.containsKey('magic_critical')) {
+      context.handle(
+        _magicCriticalMeta,
+        magicCritical.isAcceptableOrUnknown(
+          data['magic_critical']!,
+          _magicCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicCriticalMeta);
+    }
+    if (data.containsKey('wave_hp_recovery')) {
+      context.handle(
+        _waveHpRecoveryMeta,
+        waveHpRecovery.isAcceptableOrUnknown(
+          data['wave_hp_recovery']!,
+          _waveHpRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveHpRecoveryMeta);
+    }
+    if (data.containsKey('wave_energy_recovery')) {
+      context.handle(
+        _waveEnergyRecoveryMeta,
+        waveEnergyRecovery.isAcceptableOrUnknown(
+          data['wave_energy_recovery']!,
+          _waveEnergyRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveEnergyRecoveryMeta);
+    }
+    if (data.containsKey('dodge')) {
+      context.handle(
+        _dodgeMeta,
+        dodge.isAcceptableOrUnknown(data['dodge']!, _dodgeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dodgeMeta);
+    }
+    if (data.containsKey('physical_penetrate')) {
+      context.handle(
+        _physicalPenetrateMeta,
+        physicalPenetrate.isAcceptableOrUnknown(
+          data['physical_penetrate']!,
+          _physicalPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalPenetrateMeta);
+    }
+    if (data.containsKey('magic_penetrate')) {
+      context.handle(
+        _magicPenetrateMeta,
+        magicPenetrate.isAcceptableOrUnknown(
+          data['magic_penetrate']!,
+          _magicPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicPenetrateMeta);
+    }
+    if (data.containsKey('life_steal')) {
+      context.handle(
+        _lifeStealMeta,
+        lifeSteal.isAcceptableOrUnknown(data['life_steal']!, _lifeStealMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_lifeStealMeta);
+    }
+    if (data.containsKey('hp_recovery_rate')) {
+      context.handle(
+        _hpRecoveryRateMeta,
+        hpRecoveryRate.isAcceptableOrUnknown(
+          data['hp_recovery_rate']!,
+          _hpRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_hpRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_recovery_rate')) {
+      context.handle(
+        _energyRecoveryRateMeta,
+        energyRecoveryRate.isAcceptableOrUnknown(
+          data['energy_recovery_rate']!,
+          _energyRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_reduce_rate')) {
+      context.handle(
+        _energyReduceRateMeta,
+        energyReduceRate.isAcceptableOrUnknown(
+          data['energy_reduce_rate']!,
+          _energyReduceRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyReduceRateMeta);
+    }
+    if (data.containsKey('union_burst_level')) {
+      context.handle(
+        _unionBurstLevelMeta,
+        unionBurstLevel.isAcceptableOrUnknown(
+          data['union_burst_level']!,
+          _unionBurstLevelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_unionBurstLevelMeta);
+    }
+    if (data.containsKey('main_skill_lv_1')) {
+      context.handle(
+        _mainSkillLv1Meta,
+        mainSkillLv1.isAcceptableOrUnknown(
+          data['main_skill_lv_1']!,
+          _mainSkillLv1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv1Meta);
+    }
+    if (data.containsKey('main_skill_lv_2')) {
+      context.handle(
+        _mainSkillLv2Meta,
+        mainSkillLv2.isAcceptableOrUnknown(
+          data['main_skill_lv_2']!,
+          _mainSkillLv2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv2Meta);
+    }
+    if (data.containsKey('main_skill_lv_3')) {
+      context.handle(
+        _mainSkillLv3Meta,
+        mainSkillLv3.isAcceptableOrUnknown(
+          data['main_skill_lv_3']!,
+          _mainSkillLv3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv3Meta);
+    }
+    if (data.containsKey('main_skill_lv_4')) {
+      context.handle(
+        _mainSkillLv4Meta,
+        mainSkillLv4.isAcceptableOrUnknown(
+          data['main_skill_lv_4']!,
+          _mainSkillLv4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv4Meta);
+    }
+    if (data.containsKey('main_skill_lv_5')) {
+      context.handle(
+        _mainSkillLv5Meta,
+        mainSkillLv5.isAcceptableOrUnknown(
+          data['main_skill_lv_5']!,
+          _mainSkillLv5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv5Meta);
+    }
+    if (data.containsKey('main_skill_lv_6')) {
+      context.handle(
+        _mainSkillLv6Meta,
+        mainSkillLv6.isAcceptableOrUnknown(
+          data['main_skill_lv_6']!,
+          _mainSkillLv6Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv6Meta);
+    }
+    if (data.containsKey('main_skill_lv_7')) {
+      context.handle(
+        _mainSkillLv7Meta,
+        mainSkillLv7.isAcceptableOrUnknown(
+          data['main_skill_lv_7']!,
+          _mainSkillLv7Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv7Meta);
+    }
+    if (data.containsKey('main_skill_lv_8')) {
+      context.handle(
+        _mainSkillLv8Meta,
+        mainSkillLv8.isAcceptableOrUnknown(
+          data['main_skill_lv_8']!,
+          _mainSkillLv8Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv8Meta);
+    }
+    if (data.containsKey('main_skill_lv_9')) {
+      context.handle(
+        _mainSkillLv9Meta,
+        mainSkillLv9.isAcceptableOrUnknown(
+          data['main_skill_lv_9']!,
+          _mainSkillLv9Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv9Meta);
+    }
+    if (data.containsKey('main_skill_lv_10')) {
+      context.handle(
+        _mainSkillLv10Meta,
+        mainSkillLv10.isAcceptableOrUnknown(
+          data['main_skill_lv_10']!,
+          _mainSkillLv10Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv10Meta);
+    }
+    if (data.containsKey('ex_skill_lv_1')) {
+      context.handle(
+        _exSkillLv1Meta,
+        exSkillLv1.isAcceptableOrUnknown(
+          data['ex_skill_lv_1']!,
+          _exSkillLv1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv1Meta);
+    }
+    if (data.containsKey('ex_skill_lv_2')) {
+      context.handle(
+        _exSkillLv2Meta,
+        exSkillLv2.isAcceptableOrUnknown(
+          data['ex_skill_lv_2']!,
+          _exSkillLv2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv2Meta);
+    }
+    if (data.containsKey('ex_skill_lv_3')) {
+      context.handle(
+        _exSkillLv3Meta,
+        exSkillLv3.isAcceptableOrUnknown(
+          data['ex_skill_lv_3']!,
+          _exSkillLv3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv3Meta);
+    }
+    if (data.containsKey('ex_skill_lv_4')) {
+      context.handle(
+        _exSkillLv4Meta,
+        exSkillLv4.isAcceptableOrUnknown(
+          data['ex_skill_lv_4']!,
+          _exSkillLv4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv4Meta);
+    }
+    if (data.containsKey('ex_skill_lv_5')) {
+      context.handle(
+        _exSkillLv5Meta,
+        exSkillLv5.isAcceptableOrUnknown(
+          data['ex_skill_lv_5']!,
+          _exSkillLv5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv5Meta);
+    }
+    if (data.containsKey('resist_status_id')) {
+      context.handle(
+        _resistStatusIdMeta,
+        resistStatusId.isAcceptableOrUnknown(
+          data['resist_status_id']!,
+          _resistStatusIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resistStatusIdMeta);
+    }
+    if (data.containsKey('resist_variation_id')) {
+      context.handle(
+        _resistVariationIdMeta,
+        resistVariationId.isAcceptableOrUnknown(
+          data['resist_variation_id']!,
+          _resistVariationIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resistVariationIdMeta);
+    }
+    if (data.containsKey('accuracy')) {
+      context.handle(
+        _accuracyMeta,
+        accuracy.isAcceptableOrUnknown(data['accuracy']!, _accuracyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_accuracyMeta);
+    }
+    if (data.containsKey('break_durability')) {
+      context.handle(
+        _breakDurabilityMeta,
+        breakDurability.isAcceptableOrUnknown(
+          data['break_durability']!,
+          _breakDurabilityMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_breakDurabilityMeta);
+    }
+    if (data.containsKey('unique_equipment_flag_1')) {
+      context.handle(
+        _uniqueEquipmentFlag1Meta,
+        uniqueEquipmentFlag1.isAcceptableOrUnknown(
+          data['unique_equipment_flag_1']!,
+          _uniqueEquipmentFlag1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_uniqueEquipmentFlag1Meta);
+    }
+    if (data.containsKey('virtual_hp')) {
+      context.handle(
+        _virtualHpMeta,
+        virtualHp.isAcceptableOrUnknown(data['virtual_hp']!, _virtualHpMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_virtualHpMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {enemyId};
+  @override
+  SevenEnemyParameterData map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return SevenEnemyParameterData(
+      enemyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id'],
+      )!,
+      unitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unit_id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      level: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}level'],
+      )!,
+      rarity: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}rarity'],
+      )!,
+      promotionLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}promotion_level'],
+      )!,
+      hp: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hp'],
+      )!,
+      atk: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk'],
+      )!,
+      magicStr: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_str'],
+      )!,
+      def_: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}def'],
+      )!,
+      magicDef: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_def'],
+      )!,
+      physicalCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}physical_critical'],
+      )!,
+      magicCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_critical'],
+      )!,
+      waveHpRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_hp_recovery'],
+      )!,
+      waveEnergyRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_energy_recovery'],
+      )!,
+      dodge: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}dodge'],
+      )!,
+      physicalPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}physical_penetrate'],
+      )!,
+      magicPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_penetrate'],
+      )!,
+      lifeSteal: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}life_steal'],
+      )!,
+      hpRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hp_recovery_rate'],
+      )!,
+      energyRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy_recovery_rate'],
+      )!,
+      energyReduceRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy_reduce_rate'],
+      )!,
+      unionBurstLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}union_burst_level'],
+      )!,
+      mainSkillLv1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_1'],
+      )!,
+      mainSkillLv2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_2'],
+      )!,
+      mainSkillLv3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_3'],
+      )!,
+      mainSkillLv4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_4'],
+      )!,
+      mainSkillLv5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_5'],
+      )!,
+      mainSkillLv6: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_6'],
+      )!,
+      mainSkillLv7: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_7'],
+      )!,
+      mainSkillLv8: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_8'],
+      )!,
+      mainSkillLv9: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_9'],
+      )!,
+      mainSkillLv10: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_10'],
+      )!,
+      exSkillLv1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_1'],
+      )!,
+      exSkillLv2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_2'],
+      )!,
+      exSkillLv3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_3'],
+      )!,
+      exSkillLv4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_4'],
+      )!,
+      exSkillLv5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_5'],
+      )!,
+      resistStatusId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resist_status_id'],
+      )!,
+      resistVariationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resist_variation_id'],
+      )!,
+      accuracy: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}accuracy'],
+      )!,
+      breakDurability: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}break_durability'],
+      )!,
+      uniqueEquipmentFlag1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unique_equipment_flag_1'],
+      )!,
+      virtualHp: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}virtual_hp'],
+      )!,
+    );
+  }
+
+  @override
+  $SevenEnemyParameterTable createAlias(String alias) {
+    return $SevenEnemyParameterTable(attachedDatabase, alias);
+  }
+}
+
+class SevenEnemyParameterData extends DataClass
+    implements Insertable<SevenEnemyParameterData> {
+  final int enemyId;
+  final int unitId;
+  final String name;
+  final int level;
+  final int rarity;
+  final int promotionLevel;
+  final int hp;
+  final int atk;
+  final int magicStr;
+  final double def_;
+  final int magicDef;
+  final int physicalCritical;
+  final int magicCritical;
+  final int waveHpRecovery;
+  final int waveEnergyRecovery;
+  final int dodge;
+  final int physicalPenetrate;
+  final int magicPenetrate;
+  final int lifeSteal;
+  final int hpRecoveryRate;
+  final int energyRecoveryRate;
+  final int energyReduceRate;
+  final int unionBurstLevel;
+  final int mainSkillLv1;
+  final int mainSkillLv2;
+  final int mainSkillLv3;
+  final int mainSkillLv4;
+  final int mainSkillLv5;
+  final int mainSkillLv6;
+  final int mainSkillLv7;
+  final int mainSkillLv8;
+  final int mainSkillLv9;
+  final int mainSkillLv10;
+  final int exSkillLv1;
+  final int exSkillLv2;
+  final int exSkillLv3;
+  final int exSkillLv4;
+  final int exSkillLv5;
+  final int resistStatusId;
+  final int resistVariationId;
+  final int accuracy;
+  final int breakDurability;
+  final int uniqueEquipmentFlag1;
+  final int virtualHp;
+  const SevenEnemyParameterData({
+    required this.enemyId,
+    required this.unitId,
+    required this.name,
+    required this.level,
+    required this.rarity,
+    required this.promotionLevel,
+    required this.hp,
+    required this.atk,
+    required this.magicStr,
+    required this.def_,
+    required this.magicDef,
+    required this.physicalCritical,
+    required this.magicCritical,
+    required this.waveHpRecovery,
+    required this.waveEnergyRecovery,
+    required this.dodge,
+    required this.physicalPenetrate,
+    required this.magicPenetrate,
+    required this.lifeSteal,
+    required this.hpRecoveryRate,
+    required this.energyRecoveryRate,
+    required this.energyReduceRate,
+    required this.unionBurstLevel,
+    required this.mainSkillLv1,
+    required this.mainSkillLv2,
+    required this.mainSkillLv3,
+    required this.mainSkillLv4,
+    required this.mainSkillLv5,
+    required this.mainSkillLv6,
+    required this.mainSkillLv7,
+    required this.mainSkillLv8,
+    required this.mainSkillLv9,
+    required this.mainSkillLv10,
+    required this.exSkillLv1,
+    required this.exSkillLv2,
+    required this.exSkillLv3,
+    required this.exSkillLv4,
+    required this.exSkillLv5,
+    required this.resistStatusId,
+    required this.resistVariationId,
+    required this.accuracy,
+    required this.breakDurability,
+    required this.uniqueEquipmentFlag1,
+    required this.virtualHp,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['enemy_id'] = Variable<int>(enemyId);
+    map['unit_id'] = Variable<int>(unitId);
+    map['name'] = Variable<String>(name);
+    map['level'] = Variable<int>(level);
+    map['rarity'] = Variable<int>(rarity);
+    map['promotion_level'] = Variable<int>(promotionLevel);
+    map['hp'] = Variable<int>(hp);
+    map['atk'] = Variable<int>(atk);
+    map['magic_str'] = Variable<int>(magicStr);
+    map['def'] = Variable<double>(def_);
+    map['magic_def'] = Variable<int>(magicDef);
+    map['physical_critical'] = Variable<int>(physicalCritical);
+    map['magic_critical'] = Variable<int>(magicCritical);
+    map['wave_hp_recovery'] = Variable<int>(waveHpRecovery);
+    map['wave_energy_recovery'] = Variable<int>(waveEnergyRecovery);
+    map['dodge'] = Variable<int>(dodge);
+    map['physical_penetrate'] = Variable<int>(physicalPenetrate);
+    map['magic_penetrate'] = Variable<int>(magicPenetrate);
+    map['life_steal'] = Variable<int>(lifeSteal);
+    map['hp_recovery_rate'] = Variable<int>(hpRecoveryRate);
+    map['energy_recovery_rate'] = Variable<int>(energyRecoveryRate);
+    map['energy_reduce_rate'] = Variable<int>(energyReduceRate);
+    map['union_burst_level'] = Variable<int>(unionBurstLevel);
+    map['main_skill_lv_1'] = Variable<int>(mainSkillLv1);
+    map['main_skill_lv_2'] = Variable<int>(mainSkillLv2);
+    map['main_skill_lv_3'] = Variable<int>(mainSkillLv3);
+    map['main_skill_lv_4'] = Variable<int>(mainSkillLv4);
+    map['main_skill_lv_5'] = Variable<int>(mainSkillLv5);
+    map['main_skill_lv_6'] = Variable<int>(mainSkillLv6);
+    map['main_skill_lv_7'] = Variable<int>(mainSkillLv7);
+    map['main_skill_lv_8'] = Variable<int>(mainSkillLv8);
+    map['main_skill_lv_9'] = Variable<int>(mainSkillLv9);
+    map['main_skill_lv_10'] = Variable<int>(mainSkillLv10);
+    map['ex_skill_lv_1'] = Variable<int>(exSkillLv1);
+    map['ex_skill_lv_2'] = Variable<int>(exSkillLv2);
+    map['ex_skill_lv_3'] = Variable<int>(exSkillLv3);
+    map['ex_skill_lv_4'] = Variable<int>(exSkillLv4);
+    map['ex_skill_lv_5'] = Variable<int>(exSkillLv5);
+    map['resist_status_id'] = Variable<int>(resistStatusId);
+    map['resist_variation_id'] = Variable<int>(resistVariationId);
+    map['accuracy'] = Variable<int>(accuracy);
+    map['break_durability'] = Variable<int>(breakDurability);
+    map['unique_equipment_flag_1'] = Variable<int>(uniqueEquipmentFlag1);
+    map['virtual_hp'] = Variable<int>(virtualHp);
+    return map;
+  }
+
+  SevenEnemyParameterCompanion toCompanion(bool nullToAbsent) {
+    return SevenEnemyParameterCompanion(
+      enemyId: Value(enemyId),
+      unitId: Value(unitId),
+      name: Value(name),
+      level: Value(level),
+      rarity: Value(rarity),
+      promotionLevel: Value(promotionLevel),
+      hp: Value(hp),
+      atk: Value(atk),
+      magicStr: Value(magicStr),
+      def_: Value(def_),
+      magicDef: Value(magicDef),
+      physicalCritical: Value(physicalCritical),
+      magicCritical: Value(magicCritical),
+      waveHpRecovery: Value(waveHpRecovery),
+      waveEnergyRecovery: Value(waveEnergyRecovery),
+      dodge: Value(dodge),
+      physicalPenetrate: Value(physicalPenetrate),
+      magicPenetrate: Value(magicPenetrate),
+      lifeSteal: Value(lifeSteal),
+      hpRecoveryRate: Value(hpRecoveryRate),
+      energyRecoveryRate: Value(energyRecoveryRate),
+      energyReduceRate: Value(energyReduceRate),
+      unionBurstLevel: Value(unionBurstLevel),
+      mainSkillLv1: Value(mainSkillLv1),
+      mainSkillLv2: Value(mainSkillLv2),
+      mainSkillLv3: Value(mainSkillLv3),
+      mainSkillLv4: Value(mainSkillLv4),
+      mainSkillLv5: Value(mainSkillLv5),
+      mainSkillLv6: Value(mainSkillLv6),
+      mainSkillLv7: Value(mainSkillLv7),
+      mainSkillLv8: Value(mainSkillLv8),
+      mainSkillLv9: Value(mainSkillLv9),
+      mainSkillLv10: Value(mainSkillLv10),
+      exSkillLv1: Value(exSkillLv1),
+      exSkillLv2: Value(exSkillLv2),
+      exSkillLv3: Value(exSkillLv3),
+      exSkillLv4: Value(exSkillLv4),
+      exSkillLv5: Value(exSkillLv5),
+      resistStatusId: Value(resistStatusId),
+      resistVariationId: Value(resistVariationId),
+      accuracy: Value(accuracy),
+      breakDurability: Value(breakDurability),
+      uniqueEquipmentFlag1: Value(uniqueEquipmentFlag1),
+      virtualHp: Value(virtualHp),
+    );
+  }
+
+  factory SevenEnemyParameterData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return SevenEnemyParameterData(
+      enemyId: serializer.fromJson<int>(json['enemyId']),
+      unitId: serializer.fromJson<int>(json['unitId']),
+      name: serializer.fromJson<String>(json['name']),
+      level: serializer.fromJson<int>(json['level']),
+      rarity: serializer.fromJson<int>(json['rarity']),
+      promotionLevel: serializer.fromJson<int>(json['promotionLevel']),
+      hp: serializer.fromJson<int>(json['hp']),
+      atk: serializer.fromJson<int>(json['atk']),
+      magicStr: serializer.fromJson<int>(json['magicStr']),
+      def_: serializer.fromJson<double>(json['def_']),
+      magicDef: serializer.fromJson<int>(json['magicDef']),
+      physicalCritical: serializer.fromJson<int>(json['physicalCritical']),
+      magicCritical: serializer.fromJson<int>(json['magicCritical']),
+      waveHpRecovery: serializer.fromJson<int>(json['waveHpRecovery']),
+      waveEnergyRecovery: serializer.fromJson<int>(json['waveEnergyRecovery']),
+      dodge: serializer.fromJson<int>(json['dodge']),
+      physicalPenetrate: serializer.fromJson<int>(json['physicalPenetrate']),
+      magicPenetrate: serializer.fromJson<int>(json['magicPenetrate']),
+      lifeSteal: serializer.fromJson<int>(json['lifeSteal']),
+      hpRecoveryRate: serializer.fromJson<int>(json['hpRecoveryRate']),
+      energyRecoveryRate: serializer.fromJson<int>(json['energyRecoveryRate']),
+      energyReduceRate: serializer.fromJson<int>(json['energyReduceRate']),
+      unionBurstLevel: serializer.fromJson<int>(json['unionBurstLevel']),
+      mainSkillLv1: serializer.fromJson<int>(json['mainSkillLv1']),
+      mainSkillLv2: serializer.fromJson<int>(json['mainSkillLv2']),
+      mainSkillLv3: serializer.fromJson<int>(json['mainSkillLv3']),
+      mainSkillLv4: serializer.fromJson<int>(json['mainSkillLv4']),
+      mainSkillLv5: serializer.fromJson<int>(json['mainSkillLv5']),
+      mainSkillLv6: serializer.fromJson<int>(json['mainSkillLv6']),
+      mainSkillLv7: serializer.fromJson<int>(json['mainSkillLv7']),
+      mainSkillLv8: serializer.fromJson<int>(json['mainSkillLv8']),
+      mainSkillLv9: serializer.fromJson<int>(json['mainSkillLv9']),
+      mainSkillLv10: serializer.fromJson<int>(json['mainSkillLv10']),
+      exSkillLv1: serializer.fromJson<int>(json['exSkillLv1']),
+      exSkillLv2: serializer.fromJson<int>(json['exSkillLv2']),
+      exSkillLv3: serializer.fromJson<int>(json['exSkillLv3']),
+      exSkillLv4: serializer.fromJson<int>(json['exSkillLv4']),
+      exSkillLv5: serializer.fromJson<int>(json['exSkillLv5']),
+      resistStatusId: serializer.fromJson<int>(json['resistStatusId']),
+      resistVariationId: serializer.fromJson<int>(json['resistVariationId']),
+      accuracy: serializer.fromJson<int>(json['accuracy']),
+      breakDurability: serializer.fromJson<int>(json['breakDurability']),
+      uniqueEquipmentFlag1: serializer.fromJson<int>(
+        json['uniqueEquipmentFlag1'],
+      ),
+      virtualHp: serializer.fromJson<int>(json['virtualHp']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'enemyId': serializer.toJson<int>(enemyId),
+      'unitId': serializer.toJson<int>(unitId),
+      'name': serializer.toJson<String>(name),
+      'level': serializer.toJson<int>(level),
+      'rarity': serializer.toJson<int>(rarity),
+      'promotionLevel': serializer.toJson<int>(promotionLevel),
+      'hp': serializer.toJson<int>(hp),
+      'atk': serializer.toJson<int>(atk),
+      'magicStr': serializer.toJson<int>(magicStr),
+      'def_': serializer.toJson<double>(def_),
+      'magicDef': serializer.toJson<int>(magicDef),
+      'physicalCritical': serializer.toJson<int>(physicalCritical),
+      'magicCritical': serializer.toJson<int>(magicCritical),
+      'waveHpRecovery': serializer.toJson<int>(waveHpRecovery),
+      'waveEnergyRecovery': serializer.toJson<int>(waveEnergyRecovery),
+      'dodge': serializer.toJson<int>(dodge),
+      'physicalPenetrate': serializer.toJson<int>(physicalPenetrate),
+      'magicPenetrate': serializer.toJson<int>(magicPenetrate),
+      'lifeSteal': serializer.toJson<int>(lifeSteal),
+      'hpRecoveryRate': serializer.toJson<int>(hpRecoveryRate),
+      'energyRecoveryRate': serializer.toJson<int>(energyRecoveryRate),
+      'energyReduceRate': serializer.toJson<int>(energyReduceRate),
+      'unionBurstLevel': serializer.toJson<int>(unionBurstLevel),
+      'mainSkillLv1': serializer.toJson<int>(mainSkillLv1),
+      'mainSkillLv2': serializer.toJson<int>(mainSkillLv2),
+      'mainSkillLv3': serializer.toJson<int>(mainSkillLv3),
+      'mainSkillLv4': serializer.toJson<int>(mainSkillLv4),
+      'mainSkillLv5': serializer.toJson<int>(mainSkillLv5),
+      'mainSkillLv6': serializer.toJson<int>(mainSkillLv6),
+      'mainSkillLv7': serializer.toJson<int>(mainSkillLv7),
+      'mainSkillLv8': serializer.toJson<int>(mainSkillLv8),
+      'mainSkillLv9': serializer.toJson<int>(mainSkillLv9),
+      'mainSkillLv10': serializer.toJson<int>(mainSkillLv10),
+      'exSkillLv1': serializer.toJson<int>(exSkillLv1),
+      'exSkillLv2': serializer.toJson<int>(exSkillLv2),
+      'exSkillLv3': serializer.toJson<int>(exSkillLv3),
+      'exSkillLv4': serializer.toJson<int>(exSkillLv4),
+      'exSkillLv5': serializer.toJson<int>(exSkillLv5),
+      'resistStatusId': serializer.toJson<int>(resistStatusId),
+      'resistVariationId': serializer.toJson<int>(resistVariationId),
+      'accuracy': serializer.toJson<int>(accuracy),
+      'breakDurability': serializer.toJson<int>(breakDurability),
+      'uniqueEquipmentFlag1': serializer.toJson<int>(uniqueEquipmentFlag1),
+      'virtualHp': serializer.toJson<int>(virtualHp),
+    };
+  }
+
+  SevenEnemyParameterData copyWith({
+    int? enemyId,
+    int? unitId,
+    String? name,
+    int? level,
+    int? rarity,
+    int? promotionLevel,
+    int? hp,
+    int? atk,
+    int? magicStr,
+    double? def_,
+    int? magicDef,
+    int? physicalCritical,
+    int? magicCritical,
+    int? waveHpRecovery,
+    int? waveEnergyRecovery,
+    int? dodge,
+    int? physicalPenetrate,
+    int? magicPenetrate,
+    int? lifeSteal,
+    int? hpRecoveryRate,
+    int? energyRecoveryRate,
+    int? energyReduceRate,
+    int? unionBurstLevel,
+    int? mainSkillLv1,
+    int? mainSkillLv2,
+    int? mainSkillLv3,
+    int? mainSkillLv4,
+    int? mainSkillLv5,
+    int? mainSkillLv6,
+    int? mainSkillLv7,
+    int? mainSkillLv8,
+    int? mainSkillLv9,
+    int? mainSkillLv10,
+    int? exSkillLv1,
+    int? exSkillLv2,
+    int? exSkillLv3,
+    int? exSkillLv4,
+    int? exSkillLv5,
+    int? resistStatusId,
+    int? resistVariationId,
+    int? accuracy,
+    int? breakDurability,
+    int? uniqueEquipmentFlag1,
+    int? virtualHp,
+  }) => SevenEnemyParameterData(
+    enemyId: enemyId ?? this.enemyId,
+    unitId: unitId ?? this.unitId,
+    name: name ?? this.name,
+    level: level ?? this.level,
+    rarity: rarity ?? this.rarity,
+    promotionLevel: promotionLevel ?? this.promotionLevel,
+    hp: hp ?? this.hp,
+    atk: atk ?? this.atk,
+    magicStr: magicStr ?? this.magicStr,
+    def_: def_ ?? this.def_,
+    magicDef: magicDef ?? this.magicDef,
+    physicalCritical: physicalCritical ?? this.physicalCritical,
+    magicCritical: magicCritical ?? this.magicCritical,
+    waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+    waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+    dodge: dodge ?? this.dodge,
+    physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+    magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+    lifeSteal: lifeSteal ?? this.lifeSteal,
+    hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+    energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+    energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+    unionBurstLevel: unionBurstLevel ?? this.unionBurstLevel,
+    mainSkillLv1: mainSkillLv1 ?? this.mainSkillLv1,
+    mainSkillLv2: mainSkillLv2 ?? this.mainSkillLv2,
+    mainSkillLv3: mainSkillLv3 ?? this.mainSkillLv3,
+    mainSkillLv4: mainSkillLv4 ?? this.mainSkillLv4,
+    mainSkillLv5: mainSkillLv5 ?? this.mainSkillLv5,
+    mainSkillLv6: mainSkillLv6 ?? this.mainSkillLv6,
+    mainSkillLv7: mainSkillLv7 ?? this.mainSkillLv7,
+    mainSkillLv8: mainSkillLv8 ?? this.mainSkillLv8,
+    mainSkillLv9: mainSkillLv9 ?? this.mainSkillLv9,
+    mainSkillLv10: mainSkillLv10 ?? this.mainSkillLv10,
+    exSkillLv1: exSkillLv1 ?? this.exSkillLv1,
+    exSkillLv2: exSkillLv2 ?? this.exSkillLv2,
+    exSkillLv3: exSkillLv3 ?? this.exSkillLv3,
+    exSkillLv4: exSkillLv4 ?? this.exSkillLv4,
+    exSkillLv5: exSkillLv5 ?? this.exSkillLv5,
+    resistStatusId: resistStatusId ?? this.resistStatusId,
+    resistVariationId: resistVariationId ?? this.resistVariationId,
+    accuracy: accuracy ?? this.accuracy,
+    breakDurability: breakDurability ?? this.breakDurability,
+    uniqueEquipmentFlag1: uniqueEquipmentFlag1 ?? this.uniqueEquipmentFlag1,
+    virtualHp: virtualHp ?? this.virtualHp,
+  );
+  SevenEnemyParameterData copyWithCompanion(SevenEnemyParameterCompanion data) {
+    return SevenEnemyParameterData(
+      enemyId: data.enemyId.present ? data.enemyId.value : this.enemyId,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      name: data.name.present ? data.name.value : this.name,
+      level: data.level.present ? data.level.value : this.level,
+      rarity: data.rarity.present ? data.rarity.value : this.rarity,
+      promotionLevel: data.promotionLevel.present
+          ? data.promotionLevel.value
+          : this.promotionLevel,
+      hp: data.hp.present ? data.hp.value : this.hp,
+      atk: data.atk.present ? data.atk.value : this.atk,
+      magicStr: data.magicStr.present ? data.magicStr.value : this.magicStr,
+      def_: data.def_.present ? data.def_.value : this.def_,
+      magicDef: data.magicDef.present ? data.magicDef.value : this.magicDef,
+      physicalCritical: data.physicalCritical.present
+          ? data.physicalCritical.value
+          : this.physicalCritical,
+      magicCritical: data.magicCritical.present
+          ? data.magicCritical.value
+          : this.magicCritical,
+      waveHpRecovery: data.waveHpRecovery.present
+          ? data.waveHpRecovery.value
+          : this.waveHpRecovery,
+      waveEnergyRecovery: data.waveEnergyRecovery.present
+          ? data.waveEnergyRecovery.value
+          : this.waveEnergyRecovery,
+      dodge: data.dodge.present ? data.dodge.value : this.dodge,
+      physicalPenetrate: data.physicalPenetrate.present
+          ? data.physicalPenetrate.value
+          : this.physicalPenetrate,
+      magicPenetrate: data.magicPenetrate.present
+          ? data.magicPenetrate.value
+          : this.magicPenetrate,
+      lifeSteal: data.lifeSteal.present ? data.lifeSteal.value : this.lifeSteal,
+      hpRecoveryRate: data.hpRecoveryRate.present
+          ? data.hpRecoveryRate.value
+          : this.hpRecoveryRate,
+      energyRecoveryRate: data.energyRecoveryRate.present
+          ? data.energyRecoveryRate.value
+          : this.energyRecoveryRate,
+      energyReduceRate: data.energyReduceRate.present
+          ? data.energyReduceRate.value
+          : this.energyReduceRate,
+      unionBurstLevel: data.unionBurstLevel.present
+          ? data.unionBurstLevel.value
+          : this.unionBurstLevel,
+      mainSkillLv1: data.mainSkillLv1.present
+          ? data.mainSkillLv1.value
+          : this.mainSkillLv1,
+      mainSkillLv2: data.mainSkillLv2.present
+          ? data.mainSkillLv2.value
+          : this.mainSkillLv2,
+      mainSkillLv3: data.mainSkillLv3.present
+          ? data.mainSkillLv3.value
+          : this.mainSkillLv3,
+      mainSkillLv4: data.mainSkillLv4.present
+          ? data.mainSkillLv4.value
+          : this.mainSkillLv4,
+      mainSkillLv5: data.mainSkillLv5.present
+          ? data.mainSkillLv5.value
+          : this.mainSkillLv5,
+      mainSkillLv6: data.mainSkillLv6.present
+          ? data.mainSkillLv6.value
+          : this.mainSkillLv6,
+      mainSkillLv7: data.mainSkillLv7.present
+          ? data.mainSkillLv7.value
+          : this.mainSkillLv7,
+      mainSkillLv8: data.mainSkillLv8.present
+          ? data.mainSkillLv8.value
+          : this.mainSkillLv8,
+      mainSkillLv9: data.mainSkillLv9.present
+          ? data.mainSkillLv9.value
+          : this.mainSkillLv9,
+      mainSkillLv10: data.mainSkillLv10.present
+          ? data.mainSkillLv10.value
+          : this.mainSkillLv10,
+      exSkillLv1: data.exSkillLv1.present
+          ? data.exSkillLv1.value
+          : this.exSkillLv1,
+      exSkillLv2: data.exSkillLv2.present
+          ? data.exSkillLv2.value
+          : this.exSkillLv2,
+      exSkillLv3: data.exSkillLv3.present
+          ? data.exSkillLv3.value
+          : this.exSkillLv3,
+      exSkillLv4: data.exSkillLv4.present
+          ? data.exSkillLv4.value
+          : this.exSkillLv4,
+      exSkillLv5: data.exSkillLv5.present
+          ? data.exSkillLv5.value
+          : this.exSkillLv5,
+      resistStatusId: data.resistStatusId.present
+          ? data.resistStatusId.value
+          : this.resistStatusId,
+      resistVariationId: data.resistVariationId.present
+          ? data.resistVariationId.value
+          : this.resistVariationId,
+      accuracy: data.accuracy.present ? data.accuracy.value : this.accuracy,
+      breakDurability: data.breakDurability.present
+          ? data.breakDurability.value
+          : this.breakDurability,
+      uniqueEquipmentFlag1: data.uniqueEquipmentFlag1.present
+          ? data.uniqueEquipmentFlag1.value
+          : this.uniqueEquipmentFlag1,
+      virtualHp: data.virtualHp.present ? data.virtualHp.value : this.virtualHp,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SevenEnemyParameterData(')
+          ..write('enemyId: $enemyId, ')
+          ..write('unitId: $unitId, ')
+          ..write('name: $name, ')
+          ..write('level: $level, ')
+          ..write('rarity: $rarity, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('unionBurstLevel: $unionBurstLevel, ')
+          ..write('mainSkillLv1: $mainSkillLv1, ')
+          ..write('mainSkillLv2: $mainSkillLv2, ')
+          ..write('mainSkillLv3: $mainSkillLv3, ')
+          ..write('mainSkillLv4: $mainSkillLv4, ')
+          ..write('mainSkillLv5: $mainSkillLv5, ')
+          ..write('mainSkillLv6: $mainSkillLv6, ')
+          ..write('mainSkillLv7: $mainSkillLv7, ')
+          ..write('mainSkillLv8: $mainSkillLv8, ')
+          ..write('mainSkillLv9: $mainSkillLv9, ')
+          ..write('mainSkillLv10: $mainSkillLv10, ')
+          ..write('exSkillLv1: $exSkillLv1, ')
+          ..write('exSkillLv2: $exSkillLv2, ')
+          ..write('exSkillLv3: $exSkillLv3, ')
+          ..write('exSkillLv4: $exSkillLv4, ')
+          ..write('exSkillLv5: $exSkillLv5, ')
+          ..write('resistStatusId: $resistStatusId, ')
+          ..write('resistVariationId: $resistVariationId, ')
+          ..write('accuracy: $accuracy, ')
+          ..write('breakDurability: $breakDurability, ')
+          ..write('uniqueEquipmentFlag1: $uniqueEquipmentFlag1, ')
+          ..write('virtualHp: $virtualHp')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    enemyId,
+    unitId,
+    name,
+    level,
+    rarity,
+    promotionLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    unionBurstLevel,
+    mainSkillLv1,
+    mainSkillLv2,
+    mainSkillLv3,
+    mainSkillLv4,
+    mainSkillLv5,
+    mainSkillLv6,
+    mainSkillLv7,
+    mainSkillLv8,
+    mainSkillLv9,
+    mainSkillLv10,
+    exSkillLv1,
+    exSkillLv2,
+    exSkillLv3,
+    exSkillLv4,
+    exSkillLv5,
+    resistStatusId,
+    resistVariationId,
+    accuracy,
+    breakDurability,
+    uniqueEquipmentFlag1,
+    virtualHp,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is SevenEnemyParameterData &&
+          other.enemyId == this.enemyId &&
+          other.unitId == this.unitId &&
+          other.name == this.name &&
+          other.level == this.level &&
+          other.rarity == this.rarity &&
+          other.promotionLevel == this.promotionLevel &&
+          other.hp == this.hp &&
+          other.atk == this.atk &&
+          other.magicStr == this.magicStr &&
+          other.def_ == this.def_ &&
+          other.magicDef == this.magicDef &&
+          other.physicalCritical == this.physicalCritical &&
+          other.magicCritical == this.magicCritical &&
+          other.waveHpRecovery == this.waveHpRecovery &&
+          other.waveEnergyRecovery == this.waveEnergyRecovery &&
+          other.dodge == this.dodge &&
+          other.physicalPenetrate == this.physicalPenetrate &&
+          other.magicPenetrate == this.magicPenetrate &&
+          other.lifeSteal == this.lifeSteal &&
+          other.hpRecoveryRate == this.hpRecoveryRate &&
+          other.energyRecoveryRate == this.energyRecoveryRate &&
+          other.energyReduceRate == this.energyReduceRate &&
+          other.unionBurstLevel == this.unionBurstLevel &&
+          other.mainSkillLv1 == this.mainSkillLv1 &&
+          other.mainSkillLv2 == this.mainSkillLv2 &&
+          other.mainSkillLv3 == this.mainSkillLv3 &&
+          other.mainSkillLv4 == this.mainSkillLv4 &&
+          other.mainSkillLv5 == this.mainSkillLv5 &&
+          other.mainSkillLv6 == this.mainSkillLv6 &&
+          other.mainSkillLv7 == this.mainSkillLv7 &&
+          other.mainSkillLv8 == this.mainSkillLv8 &&
+          other.mainSkillLv9 == this.mainSkillLv9 &&
+          other.mainSkillLv10 == this.mainSkillLv10 &&
+          other.exSkillLv1 == this.exSkillLv1 &&
+          other.exSkillLv2 == this.exSkillLv2 &&
+          other.exSkillLv3 == this.exSkillLv3 &&
+          other.exSkillLv4 == this.exSkillLv4 &&
+          other.exSkillLv5 == this.exSkillLv5 &&
+          other.resistStatusId == this.resistStatusId &&
+          other.resistVariationId == this.resistVariationId &&
+          other.accuracy == this.accuracy &&
+          other.breakDurability == this.breakDurability &&
+          other.uniqueEquipmentFlag1 == this.uniqueEquipmentFlag1 &&
+          other.virtualHp == this.virtualHp);
+}
+
+class SevenEnemyParameterCompanion
+    extends UpdateCompanion<SevenEnemyParameterData> {
+  final Value<int> enemyId;
+  final Value<int> unitId;
+  final Value<String> name;
+  final Value<int> level;
+  final Value<int> rarity;
+  final Value<int> promotionLevel;
+  final Value<int> hp;
+  final Value<int> atk;
+  final Value<int> magicStr;
+  final Value<double> def_;
+  final Value<int> magicDef;
+  final Value<int> physicalCritical;
+  final Value<int> magicCritical;
+  final Value<int> waveHpRecovery;
+  final Value<int> waveEnergyRecovery;
+  final Value<int> dodge;
+  final Value<int> physicalPenetrate;
+  final Value<int> magicPenetrate;
+  final Value<int> lifeSteal;
+  final Value<int> hpRecoveryRate;
+  final Value<int> energyRecoveryRate;
+  final Value<int> energyReduceRate;
+  final Value<int> unionBurstLevel;
+  final Value<int> mainSkillLv1;
+  final Value<int> mainSkillLv2;
+  final Value<int> mainSkillLv3;
+  final Value<int> mainSkillLv4;
+  final Value<int> mainSkillLv5;
+  final Value<int> mainSkillLv6;
+  final Value<int> mainSkillLv7;
+  final Value<int> mainSkillLv8;
+  final Value<int> mainSkillLv9;
+  final Value<int> mainSkillLv10;
+  final Value<int> exSkillLv1;
+  final Value<int> exSkillLv2;
+  final Value<int> exSkillLv3;
+  final Value<int> exSkillLv4;
+  final Value<int> exSkillLv5;
+  final Value<int> resistStatusId;
+  final Value<int> resistVariationId;
+  final Value<int> accuracy;
+  final Value<int> breakDurability;
+  final Value<int> uniqueEquipmentFlag1;
+  final Value<int> virtualHp;
+  const SevenEnemyParameterCompanion({
+    this.enemyId = const Value.absent(),
+    this.unitId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.level = const Value.absent(),
+    this.rarity = const Value.absent(),
+    this.promotionLevel = const Value.absent(),
+    this.hp = const Value.absent(),
+    this.atk = const Value.absent(),
+    this.magicStr = const Value.absent(),
+    this.def_ = const Value.absent(),
+    this.magicDef = const Value.absent(),
+    this.physicalCritical = const Value.absent(),
+    this.magicCritical = const Value.absent(),
+    this.waveHpRecovery = const Value.absent(),
+    this.waveEnergyRecovery = const Value.absent(),
+    this.dodge = const Value.absent(),
+    this.physicalPenetrate = const Value.absent(),
+    this.magicPenetrate = const Value.absent(),
+    this.lifeSteal = const Value.absent(),
+    this.hpRecoveryRate = const Value.absent(),
+    this.energyRecoveryRate = const Value.absent(),
+    this.energyReduceRate = const Value.absent(),
+    this.unionBurstLevel = const Value.absent(),
+    this.mainSkillLv1 = const Value.absent(),
+    this.mainSkillLv2 = const Value.absent(),
+    this.mainSkillLv3 = const Value.absent(),
+    this.mainSkillLv4 = const Value.absent(),
+    this.mainSkillLv5 = const Value.absent(),
+    this.mainSkillLv6 = const Value.absent(),
+    this.mainSkillLv7 = const Value.absent(),
+    this.mainSkillLv8 = const Value.absent(),
+    this.mainSkillLv9 = const Value.absent(),
+    this.mainSkillLv10 = const Value.absent(),
+    this.exSkillLv1 = const Value.absent(),
+    this.exSkillLv2 = const Value.absent(),
+    this.exSkillLv3 = const Value.absent(),
+    this.exSkillLv4 = const Value.absent(),
+    this.exSkillLv5 = const Value.absent(),
+    this.resistStatusId = const Value.absent(),
+    this.resistVariationId = const Value.absent(),
+    this.accuracy = const Value.absent(),
+    this.breakDurability = const Value.absent(),
+    this.uniqueEquipmentFlag1 = const Value.absent(),
+    this.virtualHp = const Value.absent(),
+  });
+  SevenEnemyParameterCompanion.insert({
+    this.enemyId = const Value.absent(),
+    required int unitId,
+    required String name,
+    required int level,
+    required int rarity,
+    required int promotionLevel,
+    required int hp,
+    required int atk,
+    required int magicStr,
+    required double def_,
+    required int magicDef,
+    required int physicalCritical,
+    required int magicCritical,
+    required int waveHpRecovery,
+    required int waveEnergyRecovery,
+    required int dodge,
+    required int physicalPenetrate,
+    required int magicPenetrate,
+    required int lifeSteal,
+    required int hpRecoveryRate,
+    required int energyRecoveryRate,
+    required int energyReduceRate,
+    required int unionBurstLevel,
+    required int mainSkillLv1,
+    required int mainSkillLv2,
+    required int mainSkillLv3,
+    required int mainSkillLv4,
+    required int mainSkillLv5,
+    required int mainSkillLv6,
+    required int mainSkillLv7,
+    required int mainSkillLv8,
+    required int mainSkillLv9,
+    required int mainSkillLv10,
+    required int exSkillLv1,
+    required int exSkillLv2,
+    required int exSkillLv3,
+    required int exSkillLv4,
+    required int exSkillLv5,
+    required int resistStatusId,
+    required int resistVariationId,
+    required int accuracy,
+    required int breakDurability,
+    required int uniqueEquipmentFlag1,
+    required int virtualHp,
+  }) : unitId = Value(unitId),
+       name = Value(name),
+       level = Value(level),
+       rarity = Value(rarity),
+       promotionLevel = Value(promotionLevel),
+       hp = Value(hp),
+       atk = Value(atk),
+       magicStr = Value(magicStr),
+       def_ = Value(def_),
+       magicDef = Value(magicDef),
+       physicalCritical = Value(physicalCritical),
+       magicCritical = Value(magicCritical),
+       waveHpRecovery = Value(waveHpRecovery),
+       waveEnergyRecovery = Value(waveEnergyRecovery),
+       dodge = Value(dodge),
+       physicalPenetrate = Value(physicalPenetrate),
+       magicPenetrate = Value(magicPenetrate),
+       lifeSteal = Value(lifeSteal),
+       hpRecoveryRate = Value(hpRecoveryRate),
+       energyRecoveryRate = Value(energyRecoveryRate),
+       energyReduceRate = Value(energyReduceRate),
+       unionBurstLevel = Value(unionBurstLevel),
+       mainSkillLv1 = Value(mainSkillLv1),
+       mainSkillLv2 = Value(mainSkillLv2),
+       mainSkillLv3 = Value(mainSkillLv3),
+       mainSkillLv4 = Value(mainSkillLv4),
+       mainSkillLv5 = Value(mainSkillLv5),
+       mainSkillLv6 = Value(mainSkillLv6),
+       mainSkillLv7 = Value(mainSkillLv7),
+       mainSkillLv8 = Value(mainSkillLv8),
+       mainSkillLv9 = Value(mainSkillLv9),
+       mainSkillLv10 = Value(mainSkillLv10),
+       exSkillLv1 = Value(exSkillLv1),
+       exSkillLv2 = Value(exSkillLv2),
+       exSkillLv3 = Value(exSkillLv3),
+       exSkillLv4 = Value(exSkillLv4),
+       exSkillLv5 = Value(exSkillLv5),
+       resistStatusId = Value(resistStatusId),
+       resistVariationId = Value(resistVariationId),
+       accuracy = Value(accuracy),
+       breakDurability = Value(breakDurability),
+       uniqueEquipmentFlag1 = Value(uniqueEquipmentFlag1),
+       virtualHp = Value(virtualHp);
+  static Insertable<SevenEnemyParameterData> custom({
+    Expression<int>? enemyId,
+    Expression<int>? unitId,
+    Expression<String>? name,
+    Expression<int>? level,
+    Expression<int>? rarity,
+    Expression<int>? promotionLevel,
+    Expression<int>? hp,
+    Expression<int>? atk,
+    Expression<int>? magicStr,
+    Expression<double>? def_,
+    Expression<int>? magicDef,
+    Expression<int>? physicalCritical,
+    Expression<int>? magicCritical,
+    Expression<int>? waveHpRecovery,
+    Expression<int>? waveEnergyRecovery,
+    Expression<int>? dodge,
+    Expression<int>? physicalPenetrate,
+    Expression<int>? magicPenetrate,
+    Expression<int>? lifeSteal,
+    Expression<int>? hpRecoveryRate,
+    Expression<int>? energyRecoveryRate,
+    Expression<int>? energyReduceRate,
+    Expression<int>? unionBurstLevel,
+    Expression<int>? mainSkillLv1,
+    Expression<int>? mainSkillLv2,
+    Expression<int>? mainSkillLv3,
+    Expression<int>? mainSkillLv4,
+    Expression<int>? mainSkillLv5,
+    Expression<int>? mainSkillLv6,
+    Expression<int>? mainSkillLv7,
+    Expression<int>? mainSkillLv8,
+    Expression<int>? mainSkillLv9,
+    Expression<int>? mainSkillLv10,
+    Expression<int>? exSkillLv1,
+    Expression<int>? exSkillLv2,
+    Expression<int>? exSkillLv3,
+    Expression<int>? exSkillLv4,
+    Expression<int>? exSkillLv5,
+    Expression<int>? resistStatusId,
+    Expression<int>? resistVariationId,
+    Expression<int>? accuracy,
+    Expression<int>? breakDurability,
+    Expression<int>? uniqueEquipmentFlag1,
+    Expression<int>? virtualHp,
+  }) {
+    return RawValuesInsertable({
+      if (enemyId != null) 'enemy_id': enemyId,
+      if (unitId != null) 'unit_id': unitId,
+      if (name != null) 'name': name,
+      if (level != null) 'level': level,
+      if (rarity != null) 'rarity': rarity,
+      if (promotionLevel != null) 'promotion_level': promotionLevel,
+      if (hp != null) 'hp': hp,
+      if (atk != null) 'atk': atk,
+      if (magicStr != null) 'magic_str': magicStr,
+      if (def_ != null) 'def': def_,
+      if (magicDef != null) 'magic_def': magicDef,
+      if (physicalCritical != null) 'physical_critical': physicalCritical,
+      if (magicCritical != null) 'magic_critical': magicCritical,
+      if (waveHpRecovery != null) 'wave_hp_recovery': waveHpRecovery,
+      if (waveEnergyRecovery != null)
+        'wave_energy_recovery': waveEnergyRecovery,
+      if (dodge != null) 'dodge': dodge,
+      if (physicalPenetrate != null) 'physical_penetrate': physicalPenetrate,
+      if (magicPenetrate != null) 'magic_penetrate': magicPenetrate,
+      if (lifeSteal != null) 'life_steal': lifeSteal,
+      if (hpRecoveryRate != null) 'hp_recovery_rate': hpRecoveryRate,
+      if (energyRecoveryRate != null)
+        'energy_recovery_rate': energyRecoveryRate,
+      if (energyReduceRate != null) 'energy_reduce_rate': energyReduceRate,
+      if (unionBurstLevel != null) 'union_burst_level': unionBurstLevel,
+      if (mainSkillLv1 != null) 'main_skill_lv_1': mainSkillLv1,
+      if (mainSkillLv2 != null) 'main_skill_lv_2': mainSkillLv2,
+      if (mainSkillLv3 != null) 'main_skill_lv_3': mainSkillLv3,
+      if (mainSkillLv4 != null) 'main_skill_lv_4': mainSkillLv4,
+      if (mainSkillLv5 != null) 'main_skill_lv_5': mainSkillLv5,
+      if (mainSkillLv6 != null) 'main_skill_lv_6': mainSkillLv6,
+      if (mainSkillLv7 != null) 'main_skill_lv_7': mainSkillLv7,
+      if (mainSkillLv8 != null) 'main_skill_lv_8': mainSkillLv8,
+      if (mainSkillLv9 != null) 'main_skill_lv_9': mainSkillLv9,
+      if (mainSkillLv10 != null) 'main_skill_lv_10': mainSkillLv10,
+      if (exSkillLv1 != null) 'ex_skill_lv_1': exSkillLv1,
+      if (exSkillLv2 != null) 'ex_skill_lv_2': exSkillLv2,
+      if (exSkillLv3 != null) 'ex_skill_lv_3': exSkillLv3,
+      if (exSkillLv4 != null) 'ex_skill_lv_4': exSkillLv4,
+      if (exSkillLv5 != null) 'ex_skill_lv_5': exSkillLv5,
+      if (resistStatusId != null) 'resist_status_id': resistStatusId,
+      if (resistVariationId != null) 'resist_variation_id': resistVariationId,
+      if (accuracy != null) 'accuracy': accuracy,
+      if (breakDurability != null) 'break_durability': breakDurability,
+      if (uniqueEquipmentFlag1 != null)
+        'unique_equipment_flag_1': uniqueEquipmentFlag1,
+      if (virtualHp != null) 'virtual_hp': virtualHp,
+    });
+  }
+
+  SevenEnemyParameterCompanion copyWith({
+    Value<int>? enemyId,
+    Value<int>? unitId,
+    Value<String>? name,
+    Value<int>? level,
+    Value<int>? rarity,
+    Value<int>? promotionLevel,
+    Value<int>? hp,
+    Value<int>? atk,
+    Value<int>? magicStr,
+    Value<double>? def_,
+    Value<int>? magicDef,
+    Value<int>? physicalCritical,
+    Value<int>? magicCritical,
+    Value<int>? waveHpRecovery,
+    Value<int>? waveEnergyRecovery,
+    Value<int>? dodge,
+    Value<int>? physicalPenetrate,
+    Value<int>? magicPenetrate,
+    Value<int>? lifeSteal,
+    Value<int>? hpRecoveryRate,
+    Value<int>? energyRecoveryRate,
+    Value<int>? energyReduceRate,
+    Value<int>? unionBurstLevel,
+    Value<int>? mainSkillLv1,
+    Value<int>? mainSkillLv2,
+    Value<int>? mainSkillLv3,
+    Value<int>? mainSkillLv4,
+    Value<int>? mainSkillLv5,
+    Value<int>? mainSkillLv6,
+    Value<int>? mainSkillLv7,
+    Value<int>? mainSkillLv8,
+    Value<int>? mainSkillLv9,
+    Value<int>? mainSkillLv10,
+    Value<int>? exSkillLv1,
+    Value<int>? exSkillLv2,
+    Value<int>? exSkillLv3,
+    Value<int>? exSkillLv4,
+    Value<int>? exSkillLv5,
+    Value<int>? resistStatusId,
+    Value<int>? resistVariationId,
+    Value<int>? accuracy,
+    Value<int>? breakDurability,
+    Value<int>? uniqueEquipmentFlag1,
+    Value<int>? virtualHp,
+  }) {
+    return SevenEnemyParameterCompanion(
+      enemyId: enemyId ?? this.enemyId,
+      unitId: unitId ?? this.unitId,
+      name: name ?? this.name,
+      level: level ?? this.level,
+      rarity: rarity ?? this.rarity,
+      promotionLevel: promotionLevel ?? this.promotionLevel,
+      hp: hp ?? this.hp,
+      atk: atk ?? this.atk,
+      magicStr: magicStr ?? this.magicStr,
+      def_: def_ ?? this.def_,
+      magicDef: magicDef ?? this.magicDef,
+      physicalCritical: physicalCritical ?? this.physicalCritical,
+      magicCritical: magicCritical ?? this.magicCritical,
+      waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+      waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+      dodge: dodge ?? this.dodge,
+      physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+      magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+      lifeSteal: lifeSteal ?? this.lifeSteal,
+      hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+      energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+      energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+      unionBurstLevel: unionBurstLevel ?? this.unionBurstLevel,
+      mainSkillLv1: mainSkillLv1 ?? this.mainSkillLv1,
+      mainSkillLv2: mainSkillLv2 ?? this.mainSkillLv2,
+      mainSkillLv3: mainSkillLv3 ?? this.mainSkillLv3,
+      mainSkillLv4: mainSkillLv4 ?? this.mainSkillLv4,
+      mainSkillLv5: mainSkillLv5 ?? this.mainSkillLv5,
+      mainSkillLv6: mainSkillLv6 ?? this.mainSkillLv6,
+      mainSkillLv7: mainSkillLv7 ?? this.mainSkillLv7,
+      mainSkillLv8: mainSkillLv8 ?? this.mainSkillLv8,
+      mainSkillLv9: mainSkillLv9 ?? this.mainSkillLv9,
+      mainSkillLv10: mainSkillLv10 ?? this.mainSkillLv10,
+      exSkillLv1: exSkillLv1 ?? this.exSkillLv1,
+      exSkillLv2: exSkillLv2 ?? this.exSkillLv2,
+      exSkillLv3: exSkillLv3 ?? this.exSkillLv3,
+      exSkillLv4: exSkillLv4 ?? this.exSkillLv4,
+      exSkillLv5: exSkillLv5 ?? this.exSkillLv5,
+      resistStatusId: resistStatusId ?? this.resistStatusId,
+      resistVariationId: resistVariationId ?? this.resistVariationId,
+      accuracy: accuracy ?? this.accuracy,
+      breakDurability: breakDurability ?? this.breakDurability,
+      uniqueEquipmentFlag1: uniqueEquipmentFlag1 ?? this.uniqueEquipmentFlag1,
+      virtualHp: virtualHp ?? this.virtualHp,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (enemyId.present) {
+      map['enemy_id'] = Variable<int>(enemyId.value);
+    }
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (level.present) {
+      map['level'] = Variable<int>(level.value);
+    }
+    if (rarity.present) {
+      map['rarity'] = Variable<int>(rarity.value);
+    }
+    if (promotionLevel.present) {
+      map['promotion_level'] = Variable<int>(promotionLevel.value);
+    }
+    if (hp.present) {
+      map['hp'] = Variable<int>(hp.value);
+    }
+    if (atk.present) {
+      map['atk'] = Variable<int>(atk.value);
+    }
+    if (magicStr.present) {
+      map['magic_str'] = Variable<int>(magicStr.value);
+    }
+    if (def_.present) {
+      map['def'] = Variable<double>(def_.value);
+    }
+    if (magicDef.present) {
+      map['magic_def'] = Variable<int>(magicDef.value);
+    }
+    if (physicalCritical.present) {
+      map['physical_critical'] = Variable<int>(physicalCritical.value);
+    }
+    if (magicCritical.present) {
+      map['magic_critical'] = Variable<int>(magicCritical.value);
+    }
+    if (waveHpRecovery.present) {
+      map['wave_hp_recovery'] = Variable<int>(waveHpRecovery.value);
+    }
+    if (waveEnergyRecovery.present) {
+      map['wave_energy_recovery'] = Variable<int>(waveEnergyRecovery.value);
+    }
+    if (dodge.present) {
+      map['dodge'] = Variable<int>(dodge.value);
+    }
+    if (physicalPenetrate.present) {
+      map['physical_penetrate'] = Variable<int>(physicalPenetrate.value);
+    }
+    if (magicPenetrate.present) {
+      map['magic_penetrate'] = Variable<int>(magicPenetrate.value);
+    }
+    if (lifeSteal.present) {
+      map['life_steal'] = Variable<int>(lifeSteal.value);
+    }
+    if (hpRecoveryRate.present) {
+      map['hp_recovery_rate'] = Variable<int>(hpRecoveryRate.value);
+    }
+    if (energyRecoveryRate.present) {
+      map['energy_recovery_rate'] = Variable<int>(energyRecoveryRate.value);
+    }
+    if (energyReduceRate.present) {
+      map['energy_reduce_rate'] = Variable<int>(energyReduceRate.value);
+    }
+    if (unionBurstLevel.present) {
+      map['union_burst_level'] = Variable<int>(unionBurstLevel.value);
+    }
+    if (mainSkillLv1.present) {
+      map['main_skill_lv_1'] = Variable<int>(mainSkillLv1.value);
+    }
+    if (mainSkillLv2.present) {
+      map['main_skill_lv_2'] = Variable<int>(mainSkillLv2.value);
+    }
+    if (mainSkillLv3.present) {
+      map['main_skill_lv_3'] = Variable<int>(mainSkillLv3.value);
+    }
+    if (mainSkillLv4.present) {
+      map['main_skill_lv_4'] = Variable<int>(mainSkillLv4.value);
+    }
+    if (mainSkillLv5.present) {
+      map['main_skill_lv_5'] = Variable<int>(mainSkillLv5.value);
+    }
+    if (mainSkillLv6.present) {
+      map['main_skill_lv_6'] = Variable<int>(mainSkillLv6.value);
+    }
+    if (mainSkillLv7.present) {
+      map['main_skill_lv_7'] = Variable<int>(mainSkillLv7.value);
+    }
+    if (mainSkillLv8.present) {
+      map['main_skill_lv_8'] = Variable<int>(mainSkillLv8.value);
+    }
+    if (mainSkillLv9.present) {
+      map['main_skill_lv_9'] = Variable<int>(mainSkillLv9.value);
+    }
+    if (mainSkillLv10.present) {
+      map['main_skill_lv_10'] = Variable<int>(mainSkillLv10.value);
+    }
+    if (exSkillLv1.present) {
+      map['ex_skill_lv_1'] = Variable<int>(exSkillLv1.value);
+    }
+    if (exSkillLv2.present) {
+      map['ex_skill_lv_2'] = Variable<int>(exSkillLv2.value);
+    }
+    if (exSkillLv3.present) {
+      map['ex_skill_lv_3'] = Variable<int>(exSkillLv3.value);
+    }
+    if (exSkillLv4.present) {
+      map['ex_skill_lv_4'] = Variable<int>(exSkillLv4.value);
+    }
+    if (exSkillLv5.present) {
+      map['ex_skill_lv_5'] = Variable<int>(exSkillLv5.value);
+    }
+    if (resistStatusId.present) {
+      map['resist_status_id'] = Variable<int>(resistStatusId.value);
+    }
+    if (resistVariationId.present) {
+      map['resist_variation_id'] = Variable<int>(resistVariationId.value);
+    }
+    if (accuracy.present) {
+      map['accuracy'] = Variable<int>(accuracy.value);
+    }
+    if (breakDurability.present) {
+      map['break_durability'] = Variable<int>(breakDurability.value);
+    }
+    if (uniqueEquipmentFlag1.present) {
+      map['unique_equipment_flag_1'] = Variable<int>(
+        uniqueEquipmentFlag1.value,
+      );
+    }
+    if (virtualHp.present) {
+      map['virtual_hp'] = Variable<int>(virtualHp.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SevenEnemyParameterCompanion(')
+          ..write('enemyId: $enemyId, ')
+          ..write('unitId: $unitId, ')
+          ..write('name: $name, ')
+          ..write('level: $level, ')
+          ..write('rarity: $rarity, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('unionBurstLevel: $unionBurstLevel, ')
+          ..write('mainSkillLv1: $mainSkillLv1, ')
+          ..write('mainSkillLv2: $mainSkillLv2, ')
+          ..write('mainSkillLv3: $mainSkillLv3, ')
+          ..write('mainSkillLv4: $mainSkillLv4, ')
+          ..write('mainSkillLv5: $mainSkillLv5, ')
+          ..write('mainSkillLv6: $mainSkillLv6, ')
+          ..write('mainSkillLv7: $mainSkillLv7, ')
+          ..write('mainSkillLv8: $mainSkillLv8, ')
+          ..write('mainSkillLv9: $mainSkillLv9, ')
+          ..write('mainSkillLv10: $mainSkillLv10, ')
+          ..write('exSkillLv1: $exSkillLv1, ')
+          ..write('exSkillLv2: $exSkillLv2, ')
+          ..write('exSkillLv3: $exSkillLv3, ')
+          ..write('exSkillLv4: $exSkillLv4, ')
+          ..write('exSkillLv5: $exSkillLv5, ')
+          ..write('resistStatusId: $resistStatusId, ')
+          ..write('resistVariationId: $resistVariationId, ')
+          ..write('accuracy: $accuracy, ')
+          ..write('breakDurability: $breakDurability, ')
+          ..write('uniqueEquipmentFlag1: $uniqueEquipmentFlag1, ')
+          ..write('virtualHp: $virtualHp')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $EnemyParameterTable extends EnemyParameter
+    with TableInfo<$EnemyParameterTable, EnemyParameterData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $EnemyParameterTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _enemyIdMeta = const VerificationMeta(
+    'enemyId',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId = GeneratedColumn<int>(
+    'enemy_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _levelMeta = const VerificationMeta('level');
+  @override
+  late final GeneratedColumn<int> level = GeneratedColumn<int>(
+    'level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rarityMeta = const VerificationMeta('rarity');
+  @override
+  late final GeneratedColumn<int> rarity = GeneratedColumn<int>(
+    'rarity',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _promotionLevelMeta = const VerificationMeta(
+    'promotionLevel',
+  );
+  @override
+  late final GeneratedColumn<int> promotionLevel = GeneratedColumn<int>(
+    'promotion_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpMeta = const VerificationMeta('hp');
+  @override
+  late final GeneratedColumn<int> hp = GeneratedColumn<int>(
+    'hp',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _atkMeta = const VerificationMeta('atk');
+  @override
+  late final GeneratedColumn<int> atk = GeneratedColumn<int>(
+    'atk',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicStrMeta = const VerificationMeta(
+    'magicStr',
+  );
+  @override
+  late final GeneratedColumn<int> magicStr = GeneratedColumn<int>(
+    'magic_str',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _def_Meta = const VerificationMeta('def_');
+  @override
+  late final GeneratedColumn<double> def_ = GeneratedColumn<double>(
+    'def',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicDefMeta = const VerificationMeta(
+    'magicDef',
+  );
+  @override
+  late final GeneratedColumn<int> magicDef = GeneratedColumn<int>(
+    'magic_def',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalCriticalMeta = const VerificationMeta(
+    'physicalCritical',
+  );
+  @override
+  late final GeneratedColumn<int> physicalCritical = GeneratedColumn<int>(
+    'physical_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicCriticalMeta = const VerificationMeta(
+    'magicCritical',
+  );
+  @override
+  late final GeneratedColumn<int> magicCritical = GeneratedColumn<int>(
+    'magic_critical',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveHpRecoveryMeta = const VerificationMeta(
+    'waveHpRecovery',
+  );
+  @override
+  late final GeneratedColumn<int> waveHpRecovery = GeneratedColumn<int>(
+    'wave_hp_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveEnergyRecoveryMeta =
+      const VerificationMeta('waveEnergyRecovery');
+  @override
+  late final GeneratedColumn<int> waveEnergyRecovery = GeneratedColumn<int>(
+    'wave_energy_recovery',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dodgeMeta = const VerificationMeta('dodge');
+  @override
+  late final GeneratedColumn<int> dodge = GeneratedColumn<int>(
+    'dodge',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _physicalPenetrateMeta = const VerificationMeta(
+    'physicalPenetrate',
+  );
+  @override
+  late final GeneratedColumn<int> physicalPenetrate = GeneratedColumn<int>(
+    'physical_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _magicPenetrateMeta = const VerificationMeta(
+    'magicPenetrate',
+  );
+  @override
+  late final GeneratedColumn<int> magicPenetrate = GeneratedColumn<int>(
+    'magic_penetrate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _lifeStealMeta = const VerificationMeta(
+    'lifeSteal',
+  );
+  @override
+  late final GeneratedColumn<int> lifeSteal = GeneratedColumn<int>(
+    'life_steal',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _hpRecoveryRateMeta = const VerificationMeta(
+    'hpRecoveryRate',
+  );
+  @override
+  late final GeneratedColumn<int> hpRecoveryRate = GeneratedColumn<int>(
+    'hp_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyRecoveryRateMeta =
+      const VerificationMeta('energyRecoveryRate');
+  @override
+  late final GeneratedColumn<int> energyRecoveryRate = GeneratedColumn<int>(
+    'energy_recovery_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _energyReduceRateMeta = const VerificationMeta(
+    'energyReduceRate',
+  );
+  @override
+  late final GeneratedColumn<int> energyReduceRate = GeneratedColumn<int>(
+    'energy_reduce_rate',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _unionBurstLevelMeta = const VerificationMeta(
+    'unionBurstLevel',
+  );
+  @override
+  late final GeneratedColumn<int> unionBurstLevel = GeneratedColumn<int>(
+    'union_burst_level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv1Meta = const VerificationMeta(
+    'mainSkillLv1',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv1 = GeneratedColumn<int>(
+    'main_skill_lv_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv2Meta = const VerificationMeta(
+    'mainSkillLv2',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv2 = GeneratedColumn<int>(
+    'main_skill_lv_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv3Meta = const VerificationMeta(
+    'mainSkillLv3',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv3 = GeneratedColumn<int>(
+    'main_skill_lv_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv4Meta = const VerificationMeta(
+    'mainSkillLv4',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv4 = GeneratedColumn<int>(
+    'main_skill_lv_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv5Meta = const VerificationMeta(
+    'mainSkillLv5',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv5 = GeneratedColumn<int>(
+    'main_skill_lv_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv6Meta = const VerificationMeta(
+    'mainSkillLv6',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv6 = GeneratedColumn<int>(
+    'main_skill_lv_6',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv7Meta = const VerificationMeta(
+    'mainSkillLv7',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv7 = GeneratedColumn<int>(
+    'main_skill_lv_7',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv8Meta = const VerificationMeta(
+    'mainSkillLv8',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv8 = GeneratedColumn<int>(
+    'main_skill_lv_8',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv9Meta = const VerificationMeta(
+    'mainSkillLv9',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv9 = GeneratedColumn<int>(
+    'main_skill_lv_9',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mainSkillLv10Meta = const VerificationMeta(
+    'mainSkillLv10',
+  );
+  @override
+  late final GeneratedColumn<int> mainSkillLv10 = GeneratedColumn<int>(
+    'main_skill_lv_10',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv1Meta = const VerificationMeta(
+    'exSkillLv1',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv1 = GeneratedColumn<int>(
+    'ex_skill_lv_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv2Meta = const VerificationMeta(
+    'exSkillLv2',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv2 = GeneratedColumn<int>(
+    'ex_skill_lv_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv3Meta = const VerificationMeta(
+    'exSkillLv3',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv3 = GeneratedColumn<int>(
+    'ex_skill_lv_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv4Meta = const VerificationMeta(
+    'exSkillLv4',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv4 = GeneratedColumn<int>(
+    'ex_skill_lv_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exSkillLv5Meta = const VerificationMeta(
+    'exSkillLv5',
+  );
+  @override
+  late final GeneratedColumn<int> exSkillLv5 = GeneratedColumn<int>(
+    'ex_skill_lv_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resistStatusIdMeta = const VerificationMeta(
+    'resistStatusId',
+  );
+  @override
+  late final GeneratedColumn<int> resistStatusId = GeneratedColumn<int>(
+    'resist_status_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resistVariationIdMeta = const VerificationMeta(
+    'resistVariationId',
+  );
+  @override
+  late final GeneratedColumn<int> resistVariationId = GeneratedColumn<int>(
+    'resist_variation_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _accuracyMeta = const VerificationMeta(
+    'accuracy',
+  );
+  @override
+  late final GeneratedColumn<int> accuracy = GeneratedColumn<int>(
+    'accuracy',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _breakDurabilityMeta = const VerificationMeta(
+    'breakDurability',
+  );
+  @override
+  late final GeneratedColumn<int> breakDurability = GeneratedColumn<int>(
+    'break_durability',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _uniqueEquipmentFlag1Meta =
+      const VerificationMeta('uniqueEquipmentFlag1');
+  @override
+  late final GeneratedColumn<int> uniqueEquipmentFlag1 = GeneratedColumn<int>(
+    'unique_equipment_flag_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _virtualHpMeta = const VerificationMeta(
+    'virtualHp',
+  );
+  @override
+  late final GeneratedColumn<int> virtualHp = GeneratedColumn<int>(
+    'virtual_hp',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    enemyId,
+    unitId,
+    name,
+    level,
+    rarity,
+    promotionLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    unionBurstLevel,
+    mainSkillLv1,
+    mainSkillLv2,
+    mainSkillLv3,
+    mainSkillLv4,
+    mainSkillLv5,
+    mainSkillLv6,
+    mainSkillLv7,
+    mainSkillLv8,
+    mainSkillLv9,
+    mainSkillLv10,
+    exSkillLv1,
+    exSkillLv2,
+    exSkillLv3,
+    exSkillLv4,
+    exSkillLv5,
+    resistStatusId,
+    resistVariationId,
+    accuracy,
+    breakDurability,
+    uniqueEquipmentFlag1,
+    virtualHp,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'enemy_parameter';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<EnemyParameterData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('enemy_id')) {
+      context.handle(
+        _enemyIdMeta,
+        enemyId.isAcceptableOrUnknown(data['enemy_id']!, _enemyIdMeta),
+      );
+    }
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('level')) {
+      context.handle(
+        _levelMeta,
+        level.isAcceptableOrUnknown(data['level']!, _levelMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_levelMeta);
+    }
+    if (data.containsKey('rarity')) {
+      context.handle(
+        _rarityMeta,
+        rarity.isAcceptableOrUnknown(data['rarity']!, _rarityMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_rarityMeta);
+    }
+    if (data.containsKey('promotion_level')) {
+      context.handle(
+        _promotionLevelMeta,
+        promotionLevel.isAcceptableOrUnknown(
+          data['promotion_level']!,
+          _promotionLevelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_promotionLevelMeta);
+    }
+    if (data.containsKey('hp')) {
+      context.handle(_hpMeta, hp.isAcceptableOrUnknown(data['hp']!, _hpMeta));
+    } else if (isInserting) {
+      context.missing(_hpMeta);
+    }
+    if (data.containsKey('atk')) {
+      context.handle(
+        _atkMeta,
+        atk.isAcceptableOrUnknown(data['atk']!, _atkMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_atkMeta);
+    }
+    if (data.containsKey('magic_str')) {
+      context.handle(
+        _magicStrMeta,
+        magicStr.isAcceptableOrUnknown(data['magic_str']!, _magicStrMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicStrMeta);
+    }
+    if (data.containsKey('def')) {
+      context.handle(
+        _def_Meta,
+        def_.isAcceptableOrUnknown(data['def']!, _def_Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_def_Meta);
+    }
+    if (data.containsKey('magic_def')) {
+      context.handle(
+        _magicDefMeta,
+        magicDef.isAcceptableOrUnknown(data['magic_def']!, _magicDefMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_magicDefMeta);
+    }
+    if (data.containsKey('physical_critical')) {
+      context.handle(
+        _physicalCriticalMeta,
+        physicalCritical.isAcceptableOrUnknown(
+          data['physical_critical']!,
+          _physicalCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalCriticalMeta);
+    }
+    if (data.containsKey('magic_critical')) {
+      context.handle(
+        _magicCriticalMeta,
+        magicCritical.isAcceptableOrUnknown(
+          data['magic_critical']!,
+          _magicCriticalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicCriticalMeta);
+    }
+    if (data.containsKey('wave_hp_recovery')) {
+      context.handle(
+        _waveHpRecoveryMeta,
+        waveHpRecovery.isAcceptableOrUnknown(
+          data['wave_hp_recovery']!,
+          _waveHpRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveHpRecoveryMeta);
+    }
+    if (data.containsKey('wave_energy_recovery')) {
+      context.handle(
+        _waveEnergyRecoveryMeta,
+        waveEnergyRecovery.isAcceptableOrUnknown(
+          data['wave_energy_recovery']!,
+          _waveEnergyRecoveryMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveEnergyRecoveryMeta);
+    }
+    if (data.containsKey('dodge')) {
+      context.handle(
+        _dodgeMeta,
+        dodge.isAcceptableOrUnknown(data['dodge']!, _dodgeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dodgeMeta);
+    }
+    if (data.containsKey('physical_penetrate')) {
+      context.handle(
+        _physicalPenetrateMeta,
+        physicalPenetrate.isAcceptableOrUnknown(
+          data['physical_penetrate']!,
+          _physicalPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_physicalPenetrateMeta);
+    }
+    if (data.containsKey('magic_penetrate')) {
+      context.handle(
+        _magicPenetrateMeta,
+        magicPenetrate.isAcceptableOrUnknown(
+          data['magic_penetrate']!,
+          _magicPenetrateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_magicPenetrateMeta);
+    }
+    if (data.containsKey('life_steal')) {
+      context.handle(
+        _lifeStealMeta,
+        lifeSteal.isAcceptableOrUnknown(data['life_steal']!, _lifeStealMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_lifeStealMeta);
+    }
+    if (data.containsKey('hp_recovery_rate')) {
+      context.handle(
+        _hpRecoveryRateMeta,
+        hpRecoveryRate.isAcceptableOrUnknown(
+          data['hp_recovery_rate']!,
+          _hpRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_hpRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_recovery_rate')) {
+      context.handle(
+        _energyRecoveryRateMeta,
+        energyRecoveryRate.isAcceptableOrUnknown(
+          data['energy_recovery_rate']!,
+          _energyRecoveryRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyRecoveryRateMeta);
+    }
+    if (data.containsKey('energy_reduce_rate')) {
+      context.handle(
+        _energyReduceRateMeta,
+        energyReduceRate.isAcceptableOrUnknown(
+          data['energy_reduce_rate']!,
+          _energyReduceRateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_energyReduceRateMeta);
+    }
+    if (data.containsKey('union_burst_level')) {
+      context.handle(
+        _unionBurstLevelMeta,
+        unionBurstLevel.isAcceptableOrUnknown(
+          data['union_burst_level']!,
+          _unionBurstLevelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_unionBurstLevelMeta);
+    }
+    if (data.containsKey('main_skill_lv_1')) {
+      context.handle(
+        _mainSkillLv1Meta,
+        mainSkillLv1.isAcceptableOrUnknown(
+          data['main_skill_lv_1']!,
+          _mainSkillLv1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv1Meta);
+    }
+    if (data.containsKey('main_skill_lv_2')) {
+      context.handle(
+        _mainSkillLv2Meta,
+        mainSkillLv2.isAcceptableOrUnknown(
+          data['main_skill_lv_2']!,
+          _mainSkillLv2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv2Meta);
+    }
+    if (data.containsKey('main_skill_lv_3')) {
+      context.handle(
+        _mainSkillLv3Meta,
+        mainSkillLv3.isAcceptableOrUnknown(
+          data['main_skill_lv_3']!,
+          _mainSkillLv3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv3Meta);
+    }
+    if (data.containsKey('main_skill_lv_4')) {
+      context.handle(
+        _mainSkillLv4Meta,
+        mainSkillLv4.isAcceptableOrUnknown(
+          data['main_skill_lv_4']!,
+          _mainSkillLv4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv4Meta);
+    }
+    if (data.containsKey('main_skill_lv_5')) {
+      context.handle(
+        _mainSkillLv5Meta,
+        mainSkillLv5.isAcceptableOrUnknown(
+          data['main_skill_lv_5']!,
+          _mainSkillLv5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv5Meta);
+    }
+    if (data.containsKey('main_skill_lv_6')) {
+      context.handle(
+        _mainSkillLv6Meta,
+        mainSkillLv6.isAcceptableOrUnknown(
+          data['main_skill_lv_6']!,
+          _mainSkillLv6Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv6Meta);
+    }
+    if (data.containsKey('main_skill_lv_7')) {
+      context.handle(
+        _mainSkillLv7Meta,
+        mainSkillLv7.isAcceptableOrUnknown(
+          data['main_skill_lv_7']!,
+          _mainSkillLv7Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv7Meta);
+    }
+    if (data.containsKey('main_skill_lv_8')) {
+      context.handle(
+        _mainSkillLv8Meta,
+        mainSkillLv8.isAcceptableOrUnknown(
+          data['main_skill_lv_8']!,
+          _mainSkillLv8Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv8Meta);
+    }
+    if (data.containsKey('main_skill_lv_9')) {
+      context.handle(
+        _mainSkillLv9Meta,
+        mainSkillLv9.isAcceptableOrUnknown(
+          data['main_skill_lv_9']!,
+          _mainSkillLv9Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv9Meta);
+    }
+    if (data.containsKey('main_skill_lv_10')) {
+      context.handle(
+        _mainSkillLv10Meta,
+        mainSkillLv10.isAcceptableOrUnknown(
+          data['main_skill_lv_10']!,
+          _mainSkillLv10Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mainSkillLv10Meta);
+    }
+    if (data.containsKey('ex_skill_lv_1')) {
+      context.handle(
+        _exSkillLv1Meta,
+        exSkillLv1.isAcceptableOrUnknown(
+          data['ex_skill_lv_1']!,
+          _exSkillLv1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv1Meta);
+    }
+    if (data.containsKey('ex_skill_lv_2')) {
+      context.handle(
+        _exSkillLv2Meta,
+        exSkillLv2.isAcceptableOrUnknown(
+          data['ex_skill_lv_2']!,
+          _exSkillLv2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv2Meta);
+    }
+    if (data.containsKey('ex_skill_lv_3')) {
+      context.handle(
+        _exSkillLv3Meta,
+        exSkillLv3.isAcceptableOrUnknown(
+          data['ex_skill_lv_3']!,
+          _exSkillLv3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv3Meta);
+    }
+    if (data.containsKey('ex_skill_lv_4')) {
+      context.handle(
+        _exSkillLv4Meta,
+        exSkillLv4.isAcceptableOrUnknown(
+          data['ex_skill_lv_4']!,
+          _exSkillLv4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv4Meta);
+    }
+    if (data.containsKey('ex_skill_lv_5')) {
+      context.handle(
+        _exSkillLv5Meta,
+        exSkillLv5.isAcceptableOrUnknown(
+          data['ex_skill_lv_5']!,
+          _exSkillLv5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_exSkillLv5Meta);
+    }
+    if (data.containsKey('resist_status_id')) {
+      context.handle(
+        _resistStatusIdMeta,
+        resistStatusId.isAcceptableOrUnknown(
+          data['resist_status_id']!,
+          _resistStatusIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resistStatusIdMeta);
+    }
+    if (data.containsKey('resist_variation_id')) {
+      context.handle(
+        _resistVariationIdMeta,
+        resistVariationId.isAcceptableOrUnknown(
+          data['resist_variation_id']!,
+          _resistVariationIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resistVariationIdMeta);
+    }
+    if (data.containsKey('accuracy')) {
+      context.handle(
+        _accuracyMeta,
+        accuracy.isAcceptableOrUnknown(data['accuracy']!, _accuracyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_accuracyMeta);
+    }
+    if (data.containsKey('break_durability')) {
+      context.handle(
+        _breakDurabilityMeta,
+        breakDurability.isAcceptableOrUnknown(
+          data['break_durability']!,
+          _breakDurabilityMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_breakDurabilityMeta);
+    }
+    if (data.containsKey('unique_equipment_flag_1')) {
+      context.handle(
+        _uniqueEquipmentFlag1Meta,
+        uniqueEquipmentFlag1.isAcceptableOrUnknown(
+          data['unique_equipment_flag_1']!,
+          _uniqueEquipmentFlag1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_uniqueEquipmentFlag1Meta);
+    }
+    if (data.containsKey('virtual_hp')) {
+      context.handle(
+        _virtualHpMeta,
+        virtualHp.isAcceptableOrUnknown(data['virtual_hp']!, _virtualHpMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_virtualHpMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {enemyId};
+  @override
+  EnemyParameterData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return EnemyParameterData(
+      enemyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id'],
+      )!,
+      unitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unit_id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      level: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}level'],
+      )!,
+      rarity: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}rarity'],
+      )!,
+      promotionLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}promotion_level'],
+      )!,
+      hp: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hp'],
+      )!,
+      atk: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}atk'],
+      )!,
+      magicStr: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_str'],
+      )!,
+      def_: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}def'],
+      )!,
+      magicDef: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_def'],
+      )!,
+      physicalCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}physical_critical'],
+      )!,
+      magicCritical: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_critical'],
+      )!,
+      waveHpRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_hp_recovery'],
+      )!,
+      waveEnergyRecovery: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_energy_recovery'],
+      )!,
+      dodge: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}dodge'],
+      )!,
+      physicalPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}physical_penetrate'],
+      )!,
+      magicPenetrate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}magic_penetrate'],
+      )!,
+      lifeSteal: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}life_steal'],
+      )!,
+      hpRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}hp_recovery_rate'],
+      )!,
+      energyRecoveryRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy_recovery_rate'],
+      )!,
+      energyReduceRate: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}energy_reduce_rate'],
+      )!,
+      unionBurstLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}union_burst_level'],
+      )!,
+      mainSkillLv1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_1'],
+      )!,
+      mainSkillLv2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_2'],
+      )!,
+      mainSkillLv3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_3'],
+      )!,
+      mainSkillLv4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_4'],
+      )!,
+      mainSkillLv5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_5'],
+      )!,
+      mainSkillLv6: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_6'],
+      )!,
+      mainSkillLv7: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_7'],
+      )!,
+      mainSkillLv8: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_8'],
+      )!,
+      mainSkillLv9: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_9'],
+      )!,
+      mainSkillLv10: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_lv_10'],
+      )!,
+      exSkillLv1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_1'],
+      )!,
+      exSkillLv2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_2'],
+      )!,
+      exSkillLv3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_3'],
+      )!,
+      exSkillLv4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_4'],
+      )!,
+      exSkillLv5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ex_skill_lv_5'],
+      )!,
+      resistStatusId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resist_status_id'],
+      )!,
+      resistVariationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resist_variation_id'],
+      )!,
+      accuracy: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}accuracy'],
+      )!,
+      breakDurability: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}break_durability'],
+      )!,
+      uniqueEquipmentFlag1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unique_equipment_flag_1'],
+      )!,
+      virtualHp: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}virtual_hp'],
+      )!,
+    );
+  }
+
+  @override
+  $EnemyParameterTable createAlias(String alias) {
+    return $EnemyParameterTable(attachedDatabase, alias);
+  }
+}
+
+class EnemyParameterData extends DataClass
+    implements Insertable<EnemyParameterData> {
+  final int enemyId;
+  final int unitId;
+  final String name;
+  final int level;
+  final int rarity;
+  final int promotionLevel;
+  final int hp;
+  final int atk;
+  final int magicStr;
+  final double def_;
+  final int magicDef;
+  final int physicalCritical;
+  final int magicCritical;
+  final int waveHpRecovery;
+  final int waveEnergyRecovery;
+  final int dodge;
+  final int physicalPenetrate;
+  final int magicPenetrate;
+  final int lifeSteal;
+  final int hpRecoveryRate;
+  final int energyRecoveryRate;
+  final int energyReduceRate;
+  final int unionBurstLevel;
+  final int mainSkillLv1;
+  final int mainSkillLv2;
+  final int mainSkillLv3;
+  final int mainSkillLv4;
+  final int mainSkillLv5;
+  final int mainSkillLv6;
+  final int mainSkillLv7;
+  final int mainSkillLv8;
+  final int mainSkillLv9;
+  final int mainSkillLv10;
+  final int exSkillLv1;
+  final int exSkillLv2;
+  final int exSkillLv3;
+  final int exSkillLv4;
+  final int exSkillLv5;
+  final int resistStatusId;
+  final int resistVariationId;
+  final int accuracy;
+  final int breakDurability;
+  final int uniqueEquipmentFlag1;
+  final int virtualHp;
+  const EnemyParameterData({
+    required this.enemyId,
+    required this.unitId,
+    required this.name,
+    required this.level,
+    required this.rarity,
+    required this.promotionLevel,
+    required this.hp,
+    required this.atk,
+    required this.magicStr,
+    required this.def_,
+    required this.magicDef,
+    required this.physicalCritical,
+    required this.magicCritical,
+    required this.waveHpRecovery,
+    required this.waveEnergyRecovery,
+    required this.dodge,
+    required this.physicalPenetrate,
+    required this.magicPenetrate,
+    required this.lifeSteal,
+    required this.hpRecoveryRate,
+    required this.energyRecoveryRate,
+    required this.energyReduceRate,
+    required this.unionBurstLevel,
+    required this.mainSkillLv1,
+    required this.mainSkillLv2,
+    required this.mainSkillLv3,
+    required this.mainSkillLv4,
+    required this.mainSkillLv5,
+    required this.mainSkillLv6,
+    required this.mainSkillLv7,
+    required this.mainSkillLv8,
+    required this.mainSkillLv9,
+    required this.mainSkillLv10,
+    required this.exSkillLv1,
+    required this.exSkillLv2,
+    required this.exSkillLv3,
+    required this.exSkillLv4,
+    required this.exSkillLv5,
+    required this.resistStatusId,
+    required this.resistVariationId,
+    required this.accuracy,
+    required this.breakDurability,
+    required this.uniqueEquipmentFlag1,
+    required this.virtualHp,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['enemy_id'] = Variable<int>(enemyId);
+    map['unit_id'] = Variable<int>(unitId);
+    map['name'] = Variable<String>(name);
+    map['level'] = Variable<int>(level);
+    map['rarity'] = Variable<int>(rarity);
+    map['promotion_level'] = Variable<int>(promotionLevel);
+    map['hp'] = Variable<int>(hp);
+    map['atk'] = Variable<int>(atk);
+    map['magic_str'] = Variable<int>(magicStr);
+    map['def'] = Variable<double>(def_);
+    map['magic_def'] = Variable<int>(magicDef);
+    map['physical_critical'] = Variable<int>(physicalCritical);
+    map['magic_critical'] = Variable<int>(magicCritical);
+    map['wave_hp_recovery'] = Variable<int>(waveHpRecovery);
+    map['wave_energy_recovery'] = Variable<int>(waveEnergyRecovery);
+    map['dodge'] = Variable<int>(dodge);
+    map['physical_penetrate'] = Variable<int>(physicalPenetrate);
+    map['magic_penetrate'] = Variable<int>(magicPenetrate);
+    map['life_steal'] = Variable<int>(lifeSteal);
+    map['hp_recovery_rate'] = Variable<int>(hpRecoveryRate);
+    map['energy_recovery_rate'] = Variable<int>(energyRecoveryRate);
+    map['energy_reduce_rate'] = Variable<int>(energyReduceRate);
+    map['union_burst_level'] = Variable<int>(unionBurstLevel);
+    map['main_skill_lv_1'] = Variable<int>(mainSkillLv1);
+    map['main_skill_lv_2'] = Variable<int>(mainSkillLv2);
+    map['main_skill_lv_3'] = Variable<int>(mainSkillLv3);
+    map['main_skill_lv_4'] = Variable<int>(mainSkillLv4);
+    map['main_skill_lv_5'] = Variable<int>(mainSkillLv5);
+    map['main_skill_lv_6'] = Variable<int>(mainSkillLv6);
+    map['main_skill_lv_7'] = Variable<int>(mainSkillLv7);
+    map['main_skill_lv_8'] = Variable<int>(mainSkillLv8);
+    map['main_skill_lv_9'] = Variable<int>(mainSkillLv9);
+    map['main_skill_lv_10'] = Variable<int>(mainSkillLv10);
+    map['ex_skill_lv_1'] = Variable<int>(exSkillLv1);
+    map['ex_skill_lv_2'] = Variable<int>(exSkillLv2);
+    map['ex_skill_lv_3'] = Variable<int>(exSkillLv3);
+    map['ex_skill_lv_4'] = Variable<int>(exSkillLv4);
+    map['ex_skill_lv_5'] = Variable<int>(exSkillLv5);
+    map['resist_status_id'] = Variable<int>(resistStatusId);
+    map['resist_variation_id'] = Variable<int>(resistVariationId);
+    map['accuracy'] = Variable<int>(accuracy);
+    map['break_durability'] = Variable<int>(breakDurability);
+    map['unique_equipment_flag_1'] = Variable<int>(uniqueEquipmentFlag1);
+    map['virtual_hp'] = Variable<int>(virtualHp);
+    return map;
+  }
+
+  EnemyParameterCompanion toCompanion(bool nullToAbsent) {
+    return EnemyParameterCompanion(
+      enemyId: Value(enemyId),
+      unitId: Value(unitId),
+      name: Value(name),
+      level: Value(level),
+      rarity: Value(rarity),
+      promotionLevel: Value(promotionLevel),
+      hp: Value(hp),
+      atk: Value(atk),
+      magicStr: Value(magicStr),
+      def_: Value(def_),
+      magicDef: Value(magicDef),
+      physicalCritical: Value(physicalCritical),
+      magicCritical: Value(magicCritical),
+      waveHpRecovery: Value(waveHpRecovery),
+      waveEnergyRecovery: Value(waveEnergyRecovery),
+      dodge: Value(dodge),
+      physicalPenetrate: Value(physicalPenetrate),
+      magicPenetrate: Value(magicPenetrate),
+      lifeSteal: Value(lifeSteal),
+      hpRecoveryRate: Value(hpRecoveryRate),
+      energyRecoveryRate: Value(energyRecoveryRate),
+      energyReduceRate: Value(energyReduceRate),
+      unionBurstLevel: Value(unionBurstLevel),
+      mainSkillLv1: Value(mainSkillLv1),
+      mainSkillLv2: Value(mainSkillLv2),
+      mainSkillLv3: Value(mainSkillLv3),
+      mainSkillLv4: Value(mainSkillLv4),
+      mainSkillLv5: Value(mainSkillLv5),
+      mainSkillLv6: Value(mainSkillLv6),
+      mainSkillLv7: Value(mainSkillLv7),
+      mainSkillLv8: Value(mainSkillLv8),
+      mainSkillLv9: Value(mainSkillLv9),
+      mainSkillLv10: Value(mainSkillLv10),
+      exSkillLv1: Value(exSkillLv1),
+      exSkillLv2: Value(exSkillLv2),
+      exSkillLv3: Value(exSkillLv3),
+      exSkillLv4: Value(exSkillLv4),
+      exSkillLv5: Value(exSkillLv5),
+      resistStatusId: Value(resistStatusId),
+      resistVariationId: Value(resistVariationId),
+      accuracy: Value(accuracy),
+      breakDurability: Value(breakDurability),
+      uniqueEquipmentFlag1: Value(uniqueEquipmentFlag1),
+      virtualHp: Value(virtualHp),
+    );
+  }
+
+  factory EnemyParameterData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return EnemyParameterData(
+      enemyId: serializer.fromJson<int>(json['enemyId']),
+      unitId: serializer.fromJson<int>(json['unitId']),
+      name: serializer.fromJson<String>(json['name']),
+      level: serializer.fromJson<int>(json['level']),
+      rarity: serializer.fromJson<int>(json['rarity']),
+      promotionLevel: serializer.fromJson<int>(json['promotionLevel']),
+      hp: serializer.fromJson<int>(json['hp']),
+      atk: serializer.fromJson<int>(json['atk']),
+      magicStr: serializer.fromJson<int>(json['magicStr']),
+      def_: serializer.fromJson<double>(json['def_']),
+      magicDef: serializer.fromJson<int>(json['magicDef']),
+      physicalCritical: serializer.fromJson<int>(json['physicalCritical']),
+      magicCritical: serializer.fromJson<int>(json['magicCritical']),
+      waveHpRecovery: serializer.fromJson<int>(json['waveHpRecovery']),
+      waveEnergyRecovery: serializer.fromJson<int>(json['waveEnergyRecovery']),
+      dodge: serializer.fromJson<int>(json['dodge']),
+      physicalPenetrate: serializer.fromJson<int>(json['physicalPenetrate']),
+      magicPenetrate: serializer.fromJson<int>(json['magicPenetrate']),
+      lifeSteal: serializer.fromJson<int>(json['lifeSteal']),
+      hpRecoveryRate: serializer.fromJson<int>(json['hpRecoveryRate']),
+      energyRecoveryRate: serializer.fromJson<int>(json['energyRecoveryRate']),
+      energyReduceRate: serializer.fromJson<int>(json['energyReduceRate']),
+      unionBurstLevel: serializer.fromJson<int>(json['unionBurstLevel']),
+      mainSkillLv1: serializer.fromJson<int>(json['mainSkillLv1']),
+      mainSkillLv2: serializer.fromJson<int>(json['mainSkillLv2']),
+      mainSkillLv3: serializer.fromJson<int>(json['mainSkillLv3']),
+      mainSkillLv4: serializer.fromJson<int>(json['mainSkillLv4']),
+      mainSkillLv5: serializer.fromJson<int>(json['mainSkillLv5']),
+      mainSkillLv6: serializer.fromJson<int>(json['mainSkillLv6']),
+      mainSkillLv7: serializer.fromJson<int>(json['mainSkillLv7']),
+      mainSkillLv8: serializer.fromJson<int>(json['mainSkillLv8']),
+      mainSkillLv9: serializer.fromJson<int>(json['mainSkillLv9']),
+      mainSkillLv10: serializer.fromJson<int>(json['mainSkillLv10']),
+      exSkillLv1: serializer.fromJson<int>(json['exSkillLv1']),
+      exSkillLv2: serializer.fromJson<int>(json['exSkillLv2']),
+      exSkillLv3: serializer.fromJson<int>(json['exSkillLv3']),
+      exSkillLv4: serializer.fromJson<int>(json['exSkillLv4']),
+      exSkillLv5: serializer.fromJson<int>(json['exSkillLv5']),
+      resistStatusId: serializer.fromJson<int>(json['resistStatusId']),
+      resistVariationId: serializer.fromJson<int>(json['resistVariationId']),
+      accuracy: serializer.fromJson<int>(json['accuracy']),
+      breakDurability: serializer.fromJson<int>(json['breakDurability']),
+      uniqueEquipmentFlag1: serializer.fromJson<int>(
+        json['uniqueEquipmentFlag1'],
+      ),
+      virtualHp: serializer.fromJson<int>(json['virtualHp']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'enemyId': serializer.toJson<int>(enemyId),
+      'unitId': serializer.toJson<int>(unitId),
+      'name': serializer.toJson<String>(name),
+      'level': serializer.toJson<int>(level),
+      'rarity': serializer.toJson<int>(rarity),
+      'promotionLevel': serializer.toJson<int>(promotionLevel),
+      'hp': serializer.toJson<int>(hp),
+      'atk': serializer.toJson<int>(atk),
+      'magicStr': serializer.toJson<int>(magicStr),
+      'def_': serializer.toJson<double>(def_),
+      'magicDef': serializer.toJson<int>(magicDef),
+      'physicalCritical': serializer.toJson<int>(physicalCritical),
+      'magicCritical': serializer.toJson<int>(magicCritical),
+      'waveHpRecovery': serializer.toJson<int>(waveHpRecovery),
+      'waveEnergyRecovery': serializer.toJson<int>(waveEnergyRecovery),
+      'dodge': serializer.toJson<int>(dodge),
+      'physicalPenetrate': serializer.toJson<int>(physicalPenetrate),
+      'magicPenetrate': serializer.toJson<int>(magicPenetrate),
+      'lifeSteal': serializer.toJson<int>(lifeSteal),
+      'hpRecoveryRate': serializer.toJson<int>(hpRecoveryRate),
+      'energyRecoveryRate': serializer.toJson<int>(energyRecoveryRate),
+      'energyReduceRate': serializer.toJson<int>(energyReduceRate),
+      'unionBurstLevel': serializer.toJson<int>(unionBurstLevel),
+      'mainSkillLv1': serializer.toJson<int>(mainSkillLv1),
+      'mainSkillLv2': serializer.toJson<int>(mainSkillLv2),
+      'mainSkillLv3': serializer.toJson<int>(mainSkillLv3),
+      'mainSkillLv4': serializer.toJson<int>(mainSkillLv4),
+      'mainSkillLv5': serializer.toJson<int>(mainSkillLv5),
+      'mainSkillLv6': serializer.toJson<int>(mainSkillLv6),
+      'mainSkillLv7': serializer.toJson<int>(mainSkillLv7),
+      'mainSkillLv8': serializer.toJson<int>(mainSkillLv8),
+      'mainSkillLv9': serializer.toJson<int>(mainSkillLv9),
+      'mainSkillLv10': serializer.toJson<int>(mainSkillLv10),
+      'exSkillLv1': serializer.toJson<int>(exSkillLv1),
+      'exSkillLv2': serializer.toJson<int>(exSkillLv2),
+      'exSkillLv3': serializer.toJson<int>(exSkillLv3),
+      'exSkillLv4': serializer.toJson<int>(exSkillLv4),
+      'exSkillLv5': serializer.toJson<int>(exSkillLv5),
+      'resistStatusId': serializer.toJson<int>(resistStatusId),
+      'resistVariationId': serializer.toJson<int>(resistVariationId),
+      'accuracy': serializer.toJson<int>(accuracy),
+      'breakDurability': serializer.toJson<int>(breakDurability),
+      'uniqueEquipmentFlag1': serializer.toJson<int>(uniqueEquipmentFlag1),
+      'virtualHp': serializer.toJson<int>(virtualHp),
+    };
+  }
+
+  EnemyParameterData copyWith({
+    int? enemyId,
+    int? unitId,
+    String? name,
+    int? level,
+    int? rarity,
+    int? promotionLevel,
+    int? hp,
+    int? atk,
+    int? magicStr,
+    double? def_,
+    int? magicDef,
+    int? physicalCritical,
+    int? magicCritical,
+    int? waveHpRecovery,
+    int? waveEnergyRecovery,
+    int? dodge,
+    int? physicalPenetrate,
+    int? magicPenetrate,
+    int? lifeSteal,
+    int? hpRecoveryRate,
+    int? energyRecoveryRate,
+    int? energyReduceRate,
+    int? unionBurstLevel,
+    int? mainSkillLv1,
+    int? mainSkillLv2,
+    int? mainSkillLv3,
+    int? mainSkillLv4,
+    int? mainSkillLv5,
+    int? mainSkillLv6,
+    int? mainSkillLv7,
+    int? mainSkillLv8,
+    int? mainSkillLv9,
+    int? mainSkillLv10,
+    int? exSkillLv1,
+    int? exSkillLv2,
+    int? exSkillLv3,
+    int? exSkillLv4,
+    int? exSkillLv5,
+    int? resistStatusId,
+    int? resistVariationId,
+    int? accuracy,
+    int? breakDurability,
+    int? uniqueEquipmentFlag1,
+    int? virtualHp,
+  }) => EnemyParameterData(
+    enemyId: enemyId ?? this.enemyId,
+    unitId: unitId ?? this.unitId,
+    name: name ?? this.name,
+    level: level ?? this.level,
+    rarity: rarity ?? this.rarity,
+    promotionLevel: promotionLevel ?? this.promotionLevel,
+    hp: hp ?? this.hp,
+    atk: atk ?? this.atk,
+    magicStr: magicStr ?? this.magicStr,
+    def_: def_ ?? this.def_,
+    magicDef: magicDef ?? this.magicDef,
+    physicalCritical: physicalCritical ?? this.physicalCritical,
+    magicCritical: magicCritical ?? this.magicCritical,
+    waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+    waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+    dodge: dodge ?? this.dodge,
+    physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+    magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+    lifeSteal: lifeSteal ?? this.lifeSteal,
+    hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+    energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+    energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+    unionBurstLevel: unionBurstLevel ?? this.unionBurstLevel,
+    mainSkillLv1: mainSkillLv1 ?? this.mainSkillLv1,
+    mainSkillLv2: mainSkillLv2 ?? this.mainSkillLv2,
+    mainSkillLv3: mainSkillLv3 ?? this.mainSkillLv3,
+    mainSkillLv4: mainSkillLv4 ?? this.mainSkillLv4,
+    mainSkillLv5: mainSkillLv5 ?? this.mainSkillLv5,
+    mainSkillLv6: mainSkillLv6 ?? this.mainSkillLv6,
+    mainSkillLv7: mainSkillLv7 ?? this.mainSkillLv7,
+    mainSkillLv8: mainSkillLv8 ?? this.mainSkillLv8,
+    mainSkillLv9: mainSkillLv9 ?? this.mainSkillLv9,
+    mainSkillLv10: mainSkillLv10 ?? this.mainSkillLv10,
+    exSkillLv1: exSkillLv1 ?? this.exSkillLv1,
+    exSkillLv2: exSkillLv2 ?? this.exSkillLv2,
+    exSkillLv3: exSkillLv3 ?? this.exSkillLv3,
+    exSkillLv4: exSkillLv4 ?? this.exSkillLv4,
+    exSkillLv5: exSkillLv5 ?? this.exSkillLv5,
+    resistStatusId: resistStatusId ?? this.resistStatusId,
+    resistVariationId: resistVariationId ?? this.resistVariationId,
+    accuracy: accuracy ?? this.accuracy,
+    breakDurability: breakDurability ?? this.breakDurability,
+    uniqueEquipmentFlag1: uniqueEquipmentFlag1 ?? this.uniqueEquipmentFlag1,
+    virtualHp: virtualHp ?? this.virtualHp,
+  );
+  EnemyParameterData copyWithCompanion(EnemyParameterCompanion data) {
+    return EnemyParameterData(
+      enemyId: data.enemyId.present ? data.enemyId.value : this.enemyId,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      name: data.name.present ? data.name.value : this.name,
+      level: data.level.present ? data.level.value : this.level,
+      rarity: data.rarity.present ? data.rarity.value : this.rarity,
+      promotionLevel: data.promotionLevel.present
+          ? data.promotionLevel.value
+          : this.promotionLevel,
+      hp: data.hp.present ? data.hp.value : this.hp,
+      atk: data.atk.present ? data.atk.value : this.atk,
+      magicStr: data.magicStr.present ? data.magicStr.value : this.magicStr,
+      def_: data.def_.present ? data.def_.value : this.def_,
+      magicDef: data.magicDef.present ? data.magicDef.value : this.magicDef,
+      physicalCritical: data.physicalCritical.present
+          ? data.physicalCritical.value
+          : this.physicalCritical,
+      magicCritical: data.magicCritical.present
+          ? data.magicCritical.value
+          : this.magicCritical,
+      waveHpRecovery: data.waveHpRecovery.present
+          ? data.waveHpRecovery.value
+          : this.waveHpRecovery,
+      waveEnergyRecovery: data.waveEnergyRecovery.present
+          ? data.waveEnergyRecovery.value
+          : this.waveEnergyRecovery,
+      dodge: data.dodge.present ? data.dodge.value : this.dodge,
+      physicalPenetrate: data.physicalPenetrate.present
+          ? data.physicalPenetrate.value
+          : this.physicalPenetrate,
+      magicPenetrate: data.magicPenetrate.present
+          ? data.magicPenetrate.value
+          : this.magicPenetrate,
+      lifeSteal: data.lifeSteal.present ? data.lifeSteal.value : this.lifeSteal,
+      hpRecoveryRate: data.hpRecoveryRate.present
+          ? data.hpRecoveryRate.value
+          : this.hpRecoveryRate,
+      energyRecoveryRate: data.energyRecoveryRate.present
+          ? data.energyRecoveryRate.value
+          : this.energyRecoveryRate,
+      energyReduceRate: data.energyReduceRate.present
+          ? data.energyReduceRate.value
+          : this.energyReduceRate,
+      unionBurstLevel: data.unionBurstLevel.present
+          ? data.unionBurstLevel.value
+          : this.unionBurstLevel,
+      mainSkillLv1: data.mainSkillLv1.present
+          ? data.mainSkillLv1.value
+          : this.mainSkillLv1,
+      mainSkillLv2: data.mainSkillLv2.present
+          ? data.mainSkillLv2.value
+          : this.mainSkillLv2,
+      mainSkillLv3: data.mainSkillLv3.present
+          ? data.mainSkillLv3.value
+          : this.mainSkillLv3,
+      mainSkillLv4: data.mainSkillLv4.present
+          ? data.mainSkillLv4.value
+          : this.mainSkillLv4,
+      mainSkillLv5: data.mainSkillLv5.present
+          ? data.mainSkillLv5.value
+          : this.mainSkillLv5,
+      mainSkillLv6: data.mainSkillLv6.present
+          ? data.mainSkillLv6.value
+          : this.mainSkillLv6,
+      mainSkillLv7: data.mainSkillLv7.present
+          ? data.mainSkillLv7.value
+          : this.mainSkillLv7,
+      mainSkillLv8: data.mainSkillLv8.present
+          ? data.mainSkillLv8.value
+          : this.mainSkillLv8,
+      mainSkillLv9: data.mainSkillLv9.present
+          ? data.mainSkillLv9.value
+          : this.mainSkillLv9,
+      mainSkillLv10: data.mainSkillLv10.present
+          ? data.mainSkillLv10.value
+          : this.mainSkillLv10,
+      exSkillLv1: data.exSkillLv1.present
+          ? data.exSkillLv1.value
+          : this.exSkillLv1,
+      exSkillLv2: data.exSkillLv2.present
+          ? data.exSkillLv2.value
+          : this.exSkillLv2,
+      exSkillLv3: data.exSkillLv3.present
+          ? data.exSkillLv3.value
+          : this.exSkillLv3,
+      exSkillLv4: data.exSkillLv4.present
+          ? data.exSkillLv4.value
+          : this.exSkillLv4,
+      exSkillLv5: data.exSkillLv5.present
+          ? data.exSkillLv5.value
+          : this.exSkillLv5,
+      resistStatusId: data.resistStatusId.present
+          ? data.resistStatusId.value
+          : this.resistStatusId,
+      resistVariationId: data.resistVariationId.present
+          ? data.resistVariationId.value
+          : this.resistVariationId,
+      accuracy: data.accuracy.present ? data.accuracy.value : this.accuracy,
+      breakDurability: data.breakDurability.present
+          ? data.breakDurability.value
+          : this.breakDurability,
+      uniqueEquipmentFlag1: data.uniqueEquipmentFlag1.present
+          ? data.uniqueEquipmentFlag1.value
+          : this.uniqueEquipmentFlag1,
+      virtualHp: data.virtualHp.present ? data.virtualHp.value : this.virtualHp,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('EnemyParameterData(')
+          ..write('enemyId: $enemyId, ')
+          ..write('unitId: $unitId, ')
+          ..write('name: $name, ')
+          ..write('level: $level, ')
+          ..write('rarity: $rarity, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('unionBurstLevel: $unionBurstLevel, ')
+          ..write('mainSkillLv1: $mainSkillLv1, ')
+          ..write('mainSkillLv2: $mainSkillLv2, ')
+          ..write('mainSkillLv3: $mainSkillLv3, ')
+          ..write('mainSkillLv4: $mainSkillLv4, ')
+          ..write('mainSkillLv5: $mainSkillLv5, ')
+          ..write('mainSkillLv6: $mainSkillLv6, ')
+          ..write('mainSkillLv7: $mainSkillLv7, ')
+          ..write('mainSkillLv8: $mainSkillLv8, ')
+          ..write('mainSkillLv9: $mainSkillLv9, ')
+          ..write('mainSkillLv10: $mainSkillLv10, ')
+          ..write('exSkillLv1: $exSkillLv1, ')
+          ..write('exSkillLv2: $exSkillLv2, ')
+          ..write('exSkillLv3: $exSkillLv3, ')
+          ..write('exSkillLv4: $exSkillLv4, ')
+          ..write('exSkillLv5: $exSkillLv5, ')
+          ..write('resistStatusId: $resistStatusId, ')
+          ..write('resistVariationId: $resistVariationId, ')
+          ..write('accuracy: $accuracy, ')
+          ..write('breakDurability: $breakDurability, ')
+          ..write('uniqueEquipmentFlag1: $uniqueEquipmentFlag1, ')
+          ..write('virtualHp: $virtualHp')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    enemyId,
+    unitId,
+    name,
+    level,
+    rarity,
+    promotionLevel,
+    hp,
+    atk,
+    magicStr,
+    def_,
+    magicDef,
+    physicalCritical,
+    magicCritical,
+    waveHpRecovery,
+    waveEnergyRecovery,
+    dodge,
+    physicalPenetrate,
+    magicPenetrate,
+    lifeSteal,
+    hpRecoveryRate,
+    energyRecoveryRate,
+    energyReduceRate,
+    unionBurstLevel,
+    mainSkillLv1,
+    mainSkillLv2,
+    mainSkillLv3,
+    mainSkillLv4,
+    mainSkillLv5,
+    mainSkillLv6,
+    mainSkillLv7,
+    mainSkillLv8,
+    mainSkillLv9,
+    mainSkillLv10,
+    exSkillLv1,
+    exSkillLv2,
+    exSkillLv3,
+    exSkillLv4,
+    exSkillLv5,
+    resistStatusId,
+    resistVariationId,
+    accuracy,
+    breakDurability,
+    uniqueEquipmentFlag1,
+    virtualHp,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is EnemyParameterData &&
+          other.enemyId == this.enemyId &&
+          other.unitId == this.unitId &&
+          other.name == this.name &&
+          other.level == this.level &&
+          other.rarity == this.rarity &&
+          other.promotionLevel == this.promotionLevel &&
+          other.hp == this.hp &&
+          other.atk == this.atk &&
+          other.magicStr == this.magicStr &&
+          other.def_ == this.def_ &&
+          other.magicDef == this.magicDef &&
+          other.physicalCritical == this.physicalCritical &&
+          other.magicCritical == this.magicCritical &&
+          other.waveHpRecovery == this.waveHpRecovery &&
+          other.waveEnergyRecovery == this.waveEnergyRecovery &&
+          other.dodge == this.dodge &&
+          other.physicalPenetrate == this.physicalPenetrate &&
+          other.magicPenetrate == this.magicPenetrate &&
+          other.lifeSteal == this.lifeSteal &&
+          other.hpRecoveryRate == this.hpRecoveryRate &&
+          other.energyRecoveryRate == this.energyRecoveryRate &&
+          other.energyReduceRate == this.energyReduceRate &&
+          other.unionBurstLevel == this.unionBurstLevel &&
+          other.mainSkillLv1 == this.mainSkillLv1 &&
+          other.mainSkillLv2 == this.mainSkillLv2 &&
+          other.mainSkillLv3 == this.mainSkillLv3 &&
+          other.mainSkillLv4 == this.mainSkillLv4 &&
+          other.mainSkillLv5 == this.mainSkillLv5 &&
+          other.mainSkillLv6 == this.mainSkillLv6 &&
+          other.mainSkillLv7 == this.mainSkillLv7 &&
+          other.mainSkillLv8 == this.mainSkillLv8 &&
+          other.mainSkillLv9 == this.mainSkillLv9 &&
+          other.mainSkillLv10 == this.mainSkillLv10 &&
+          other.exSkillLv1 == this.exSkillLv1 &&
+          other.exSkillLv2 == this.exSkillLv2 &&
+          other.exSkillLv3 == this.exSkillLv3 &&
+          other.exSkillLv4 == this.exSkillLv4 &&
+          other.exSkillLv5 == this.exSkillLv5 &&
+          other.resistStatusId == this.resistStatusId &&
+          other.resistVariationId == this.resistVariationId &&
+          other.accuracy == this.accuracy &&
+          other.breakDurability == this.breakDurability &&
+          other.uniqueEquipmentFlag1 == this.uniqueEquipmentFlag1 &&
+          other.virtualHp == this.virtualHp);
+}
+
+class EnemyParameterCompanion extends UpdateCompanion<EnemyParameterData> {
+  final Value<int> enemyId;
+  final Value<int> unitId;
+  final Value<String> name;
+  final Value<int> level;
+  final Value<int> rarity;
+  final Value<int> promotionLevel;
+  final Value<int> hp;
+  final Value<int> atk;
+  final Value<int> magicStr;
+  final Value<double> def_;
+  final Value<int> magicDef;
+  final Value<int> physicalCritical;
+  final Value<int> magicCritical;
+  final Value<int> waveHpRecovery;
+  final Value<int> waveEnergyRecovery;
+  final Value<int> dodge;
+  final Value<int> physicalPenetrate;
+  final Value<int> magicPenetrate;
+  final Value<int> lifeSteal;
+  final Value<int> hpRecoveryRate;
+  final Value<int> energyRecoveryRate;
+  final Value<int> energyReduceRate;
+  final Value<int> unionBurstLevel;
+  final Value<int> mainSkillLv1;
+  final Value<int> mainSkillLv2;
+  final Value<int> mainSkillLv3;
+  final Value<int> mainSkillLv4;
+  final Value<int> mainSkillLv5;
+  final Value<int> mainSkillLv6;
+  final Value<int> mainSkillLv7;
+  final Value<int> mainSkillLv8;
+  final Value<int> mainSkillLv9;
+  final Value<int> mainSkillLv10;
+  final Value<int> exSkillLv1;
+  final Value<int> exSkillLv2;
+  final Value<int> exSkillLv3;
+  final Value<int> exSkillLv4;
+  final Value<int> exSkillLv5;
+  final Value<int> resistStatusId;
+  final Value<int> resistVariationId;
+  final Value<int> accuracy;
+  final Value<int> breakDurability;
+  final Value<int> uniqueEquipmentFlag1;
+  final Value<int> virtualHp;
+  const EnemyParameterCompanion({
+    this.enemyId = const Value.absent(),
+    this.unitId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.level = const Value.absent(),
+    this.rarity = const Value.absent(),
+    this.promotionLevel = const Value.absent(),
+    this.hp = const Value.absent(),
+    this.atk = const Value.absent(),
+    this.magicStr = const Value.absent(),
+    this.def_ = const Value.absent(),
+    this.magicDef = const Value.absent(),
+    this.physicalCritical = const Value.absent(),
+    this.magicCritical = const Value.absent(),
+    this.waveHpRecovery = const Value.absent(),
+    this.waveEnergyRecovery = const Value.absent(),
+    this.dodge = const Value.absent(),
+    this.physicalPenetrate = const Value.absent(),
+    this.magicPenetrate = const Value.absent(),
+    this.lifeSteal = const Value.absent(),
+    this.hpRecoveryRate = const Value.absent(),
+    this.energyRecoveryRate = const Value.absent(),
+    this.energyReduceRate = const Value.absent(),
+    this.unionBurstLevel = const Value.absent(),
+    this.mainSkillLv1 = const Value.absent(),
+    this.mainSkillLv2 = const Value.absent(),
+    this.mainSkillLv3 = const Value.absent(),
+    this.mainSkillLv4 = const Value.absent(),
+    this.mainSkillLv5 = const Value.absent(),
+    this.mainSkillLv6 = const Value.absent(),
+    this.mainSkillLv7 = const Value.absent(),
+    this.mainSkillLv8 = const Value.absent(),
+    this.mainSkillLv9 = const Value.absent(),
+    this.mainSkillLv10 = const Value.absent(),
+    this.exSkillLv1 = const Value.absent(),
+    this.exSkillLv2 = const Value.absent(),
+    this.exSkillLv3 = const Value.absent(),
+    this.exSkillLv4 = const Value.absent(),
+    this.exSkillLv5 = const Value.absent(),
+    this.resistStatusId = const Value.absent(),
+    this.resistVariationId = const Value.absent(),
+    this.accuracy = const Value.absent(),
+    this.breakDurability = const Value.absent(),
+    this.uniqueEquipmentFlag1 = const Value.absent(),
+    this.virtualHp = const Value.absent(),
+  });
+  EnemyParameterCompanion.insert({
+    this.enemyId = const Value.absent(),
+    required int unitId,
+    required String name,
+    required int level,
+    required int rarity,
+    required int promotionLevel,
+    required int hp,
+    required int atk,
+    required int magicStr,
+    required double def_,
+    required int magicDef,
+    required int physicalCritical,
+    required int magicCritical,
+    required int waveHpRecovery,
+    required int waveEnergyRecovery,
+    required int dodge,
+    required int physicalPenetrate,
+    required int magicPenetrate,
+    required int lifeSteal,
+    required int hpRecoveryRate,
+    required int energyRecoveryRate,
+    required int energyReduceRate,
+    required int unionBurstLevel,
+    required int mainSkillLv1,
+    required int mainSkillLv2,
+    required int mainSkillLv3,
+    required int mainSkillLv4,
+    required int mainSkillLv5,
+    required int mainSkillLv6,
+    required int mainSkillLv7,
+    required int mainSkillLv8,
+    required int mainSkillLv9,
+    required int mainSkillLv10,
+    required int exSkillLv1,
+    required int exSkillLv2,
+    required int exSkillLv3,
+    required int exSkillLv4,
+    required int exSkillLv5,
+    required int resistStatusId,
+    required int resistVariationId,
+    required int accuracy,
+    required int breakDurability,
+    required int uniqueEquipmentFlag1,
+    required int virtualHp,
+  }) : unitId = Value(unitId),
+       name = Value(name),
+       level = Value(level),
+       rarity = Value(rarity),
+       promotionLevel = Value(promotionLevel),
+       hp = Value(hp),
+       atk = Value(atk),
+       magicStr = Value(magicStr),
+       def_ = Value(def_),
+       magicDef = Value(magicDef),
+       physicalCritical = Value(physicalCritical),
+       magicCritical = Value(magicCritical),
+       waveHpRecovery = Value(waveHpRecovery),
+       waveEnergyRecovery = Value(waveEnergyRecovery),
+       dodge = Value(dodge),
+       physicalPenetrate = Value(physicalPenetrate),
+       magicPenetrate = Value(magicPenetrate),
+       lifeSteal = Value(lifeSteal),
+       hpRecoveryRate = Value(hpRecoveryRate),
+       energyRecoveryRate = Value(energyRecoveryRate),
+       energyReduceRate = Value(energyReduceRate),
+       unionBurstLevel = Value(unionBurstLevel),
+       mainSkillLv1 = Value(mainSkillLv1),
+       mainSkillLv2 = Value(mainSkillLv2),
+       mainSkillLv3 = Value(mainSkillLv3),
+       mainSkillLv4 = Value(mainSkillLv4),
+       mainSkillLv5 = Value(mainSkillLv5),
+       mainSkillLv6 = Value(mainSkillLv6),
+       mainSkillLv7 = Value(mainSkillLv7),
+       mainSkillLv8 = Value(mainSkillLv8),
+       mainSkillLv9 = Value(mainSkillLv9),
+       mainSkillLv10 = Value(mainSkillLv10),
+       exSkillLv1 = Value(exSkillLv1),
+       exSkillLv2 = Value(exSkillLv2),
+       exSkillLv3 = Value(exSkillLv3),
+       exSkillLv4 = Value(exSkillLv4),
+       exSkillLv5 = Value(exSkillLv5),
+       resistStatusId = Value(resistStatusId),
+       resistVariationId = Value(resistVariationId),
+       accuracy = Value(accuracy),
+       breakDurability = Value(breakDurability),
+       uniqueEquipmentFlag1 = Value(uniqueEquipmentFlag1),
+       virtualHp = Value(virtualHp);
+  static Insertable<EnemyParameterData> custom({
+    Expression<int>? enemyId,
+    Expression<int>? unitId,
+    Expression<String>? name,
+    Expression<int>? level,
+    Expression<int>? rarity,
+    Expression<int>? promotionLevel,
+    Expression<int>? hp,
+    Expression<int>? atk,
+    Expression<int>? magicStr,
+    Expression<double>? def_,
+    Expression<int>? magicDef,
+    Expression<int>? physicalCritical,
+    Expression<int>? magicCritical,
+    Expression<int>? waveHpRecovery,
+    Expression<int>? waveEnergyRecovery,
+    Expression<int>? dodge,
+    Expression<int>? physicalPenetrate,
+    Expression<int>? magicPenetrate,
+    Expression<int>? lifeSteal,
+    Expression<int>? hpRecoveryRate,
+    Expression<int>? energyRecoveryRate,
+    Expression<int>? energyReduceRate,
+    Expression<int>? unionBurstLevel,
+    Expression<int>? mainSkillLv1,
+    Expression<int>? mainSkillLv2,
+    Expression<int>? mainSkillLv3,
+    Expression<int>? mainSkillLv4,
+    Expression<int>? mainSkillLv5,
+    Expression<int>? mainSkillLv6,
+    Expression<int>? mainSkillLv7,
+    Expression<int>? mainSkillLv8,
+    Expression<int>? mainSkillLv9,
+    Expression<int>? mainSkillLv10,
+    Expression<int>? exSkillLv1,
+    Expression<int>? exSkillLv2,
+    Expression<int>? exSkillLv3,
+    Expression<int>? exSkillLv4,
+    Expression<int>? exSkillLv5,
+    Expression<int>? resistStatusId,
+    Expression<int>? resistVariationId,
+    Expression<int>? accuracy,
+    Expression<int>? breakDurability,
+    Expression<int>? uniqueEquipmentFlag1,
+    Expression<int>? virtualHp,
+  }) {
+    return RawValuesInsertable({
+      if (enemyId != null) 'enemy_id': enemyId,
+      if (unitId != null) 'unit_id': unitId,
+      if (name != null) 'name': name,
+      if (level != null) 'level': level,
+      if (rarity != null) 'rarity': rarity,
+      if (promotionLevel != null) 'promotion_level': promotionLevel,
+      if (hp != null) 'hp': hp,
+      if (atk != null) 'atk': atk,
+      if (magicStr != null) 'magic_str': magicStr,
+      if (def_ != null) 'def': def_,
+      if (magicDef != null) 'magic_def': magicDef,
+      if (physicalCritical != null) 'physical_critical': physicalCritical,
+      if (magicCritical != null) 'magic_critical': magicCritical,
+      if (waveHpRecovery != null) 'wave_hp_recovery': waveHpRecovery,
+      if (waveEnergyRecovery != null)
+        'wave_energy_recovery': waveEnergyRecovery,
+      if (dodge != null) 'dodge': dodge,
+      if (physicalPenetrate != null) 'physical_penetrate': physicalPenetrate,
+      if (magicPenetrate != null) 'magic_penetrate': magicPenetrate,
+      if (lifeSteal != null) 'life_steal': lifeSteal,
+      if (hpRecoveryRate != null) 'hp_recovery_rate': hpRecoveryRate,
+      if (energyRecoveryRate != null)
+        'energy_recovery_rate': energyRecoveryRate,
+      if (energyReduceRate != null) 'energy_reduce_rate': energyReduceRate,
+      if (unionBurstLevel != null) 'union_burst_level': unionBurstLevel,
+      if (mainSkillLv1 != null) 'main_skill_lv_1': mainSkillLv1,
+      if (mainSkillLv2 != null) 'main_skill_lv_2': mainSkillLv2,
+      if (mainSkillLv3 != null) 'main_skill_lv_3': mainSkillLv3,
+      if (mainSkillLv4 != null) 'main_skill_lv_4': mainSkillLv4,
+      if (mainSkillLv5 != null) 'main_skill_lv_5': mainSkillLv5,
+      if (mainSkillLv6 != null) 'main_skill_lv_6': mainSkillLv6,
+      if (mainSkillLv7 != null) 'main_skill_lv_7': mainSkillLv7,
+      if (mainSkillLv8 != null) 'main_skill_lv_8': mainSkillLv8,
+      if (mainSkillLv9 != null) 'main_skill_lv_9': mainSkillLv9,
+      if (mainSkillLv10 != null) 'main_skill_lv_10': mainSkillLv10,
+      if (exSkillLv1 != null) 'ex_skill_lv_1': exSkillLv1,
+      if (exSkillLv2 != null) 'ex_skill_lv_2': exSkillLv2,
+      if (exSkillLv3 != null) 'ex_skill_lv_3': exSkillLv3,
+      if (exSkillLv4 != null) 'ex_skill_lv_4': exSkillLv4,
+      if (exSkillLv5 != null) 'ex_skill_lv_5': exSkillLv5,
+      if (resistStatusId != null) 'resist_status_id': resistStatusId,
+      if (resistVariationId != null) 'resist_variation_id': resistVariationId,
+      if (accuracy != null) 'accuracy': accuracy,
+      if (breakDurability != null) 'break_durability': breakDurability,
+      if (uniqueEquipmentFlag1 != null)
+        'unique_equipment_flag_1': uniqueEquipmentFlag1,
+      if (virtualHp != null) 'virtual_hp': virtualHp,
+    });
+  }
+
+  EnemyParameterCompanion copyWith({
+    Value<int>? enemyId,
+    Value<int>? unitId,
+    Value<String>? name,
+    Value<int>? level,
+    Value<int>? rarity,
+    Value<int>? promotionLevel,
+    Value<int>? hp,
+    Value<int>? atk,
+    Value<int>? magicStr,
+    Value<double>? def_,
+    Value<int>? magicDef,
+    Value<int>? physicalCritical,
+    Value<int>? magicCritical,
+    Value<int>? waveHpRecovery,
+    Value<int>? waveEnergyRecovery,
+    Value<int>? dodge,
+    Value<int>? physicalPenetrate,
+    Value<int>? magicPenetrate,
+    Value<int>? lifeSteal,
+    Value<int>? hpRecoveryRate,
+    Value<int>? energyRecoveryRate,
+    Value<int>? energyReduceRate,
+    Value<int>? unionBurstLevel,
+    Value<int>? mainSkillLv1,
+    Value<int>? mainSkillLv2,
+    Value<int>? mainSkillLv3,
+    Value<int>? mainSkillLv4,
+    Value<int>? mainSkillLv5,
+    Value<int>? mainSkillLv6,
+    Value<int>? mainSkillLv7,
+    Value<int>? mainSkillLv8,
+    Value<int>? mainSkillLv9,
+    Value<int>? mainSkillLv10,
+    Value<int>? exSkillLv1,
+    Value<int>? exSkillLv2,
+    Value<int>? exSkillLv3,
+    Value<int>? exSkillLv4,
+    Value<int>? exSkillLv5,
+    Value<int>? resistStatusId,
+    Value<int>? resistVariationId,
+    Value<int>? accuracy,
+    Value<int>? breakDurability,
+    Value<int>? uniqueEquipmentFlag1,
+    Value<int>? virtualHp,
+  }) {
+    return EnemyParameterCompanion(
+      enemyId: enemyId ?? this.enemyId,
+      unitId: unitId ?? this.unitId,
+      name: name ?? this.name,
+      level: level ?? this.level,
+      rarity: rarity ?? this.rarity,
+      promotionLevel: promotionLevel ?? this.promotionLevel,
+      hp: hp ?? this.hp,
+      atk: atk ?? this.atk,
+      magicStr: magicStr ?? this.magicStr,
+      def_: def_ ?? this.def_,
+      magicDef: magicDef ?? this.magicDef,
+      physicalCritical: physicalCritical ?? this.physicalCritical,
+      magicCritical: magicCritical ?? this.magicCritical,
+      waveHpRecovery: waveHpRecovery ?? this.waveHpRecovery,
+      waveEnergyRecovery: waveEnergyRecovery ?? this.waveEnergyRecovery,
+      dodge: dodge ?? this.dodge,
+      physicalPenetrate: physicalPenetrate ?? this.physicalPenetrate,
+      magicPenetrate: magicPenetrate ?? this.magicPenetrate,
+      lifeSteal: lifeSteal ?? this.lifeSteal,
+      hpRecoveryRate: hpRecoveryRate ?? this.hpRecoveryRate,
+      energyRecoveryRate: energyRecoveryRate ?? this.energyRecoveryRate,
+      energyReduceRate: energyReduceRate ?? this.energyReduceRate,
+      unionBurstLevel: unionBurstLevel ?? this.unionBurstLevel,
+      mainSkillLv1: mainSkillLv1 ?? this.mainSkillLv1,
+      mainSkillLv2: mainSkillLv2 ?? this.mainSkillLv2,
+      mainSkillLv3: mainSkillLv3 ?? this.mainSkillLv3,
+      mainSkillLv4: mainSkillLv4 ?? this.mainSkillLv4,
+      mainSkillLv5: mainSkillLv5 ?? this.mainSkillLv5,
+      mainSkillLv6: mainSkillLv6 ?? this.mainSkillLv6,
+      mainSkillLv7: mainSkillLv7 ?? this.mainSkillLv7,
+      mainSkillLv8: mainSkillLv8 ?? this.mainSkillLv8,
+      mainSkillLv9: mainSkillLv9 ?? this.mainSkillLv9,
+      mainSkillLv10: mainSkillLv10 ?? this.mainSkillLv10,
+      exSkillLv1: exSkillLv1 ?? this.exSkillLv1,
+      exSkillLv2: exSkillLv2 ?? this.exSkillLv2,
+      exSkillLv3: exSkillLv3 ?? this.exSkillLv3,
+      exSkillLv4: exSkillLv4 ?? this.exSkillLv4,
+      exSkillLv5: exSkillLv5 ?? this.exSkillLv5,
+      resistStatusId: resistStatusId ?? this.resistStatusId,
+      resistVariationId: resistVariationId ?? this.resistVariationId,
+      accuracy: accuracy ?? this.accuracy,
+      breakDurability: breakDurability ?? this.breakDurability,
+      uniqueEquipmentFlag1: uniqueEquipmentFlag1 ?? this.uniqueEquipmentFlag1,
+      virtualHp: virtualHp ?? this.virtualHp,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (enemyId.present) {
+      map['enemy_id'] = Variable<int>(enemyId.value);
+    }
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (level.present) {
+      map['level'] = Variable<int>(level.value);
+    }
+    if (rarity.present) {
+      map['rarity'] = Variable<int>(rarity.value);
+    }
+    if (promotionLevel.present) {
+      map['promotion_level'] = Variable<int>(promotionLevel.value);
+    }
+    if (hp.present) {
+      map['hp'] = Variable<int>(hp.value);
+    }
+    if (atk.present) {
+      map['atk'] = Variable<int>(atk.value);
+    }
+    if (magicStr.present) {
+      map['magic_str'] = Variable<int>(magicStr.value);
+    }
+    if (def_.present) {
+      map['def'] = Variable<double>(def_.value);
+    }
+    if (magicDef.present) {
+      map['magic_def'] = Variable<int>(magicDef.value);
+    }
+    if (physicalCritical.present) {
+      map['physical_critical'] = Variable<int>(physicalCritical.value);
+    }
+    if (magicCritical.present) {
+      map['magic_critical'] = Variable<int>(magicCritical.value);
+    }
+    if (waveHpRecovery.present) {
+      map['wave_hp_recovery'] = Variable<int>(waveHpRecovery.value);
+    }
+    if (waveEnergyRecovery.present) {
+      map['wave_energy_recovery'] = Variable<int>(waveEnergyRecovery.value);
+    }
+    if (dodge.present) {
+      map['dodge'] = Variable<int>(dodge.value);
+    }
+    if (physicalPenetrate.present) {
+      map['physical_penetrate'] = Variable<int>(physicalPenetrate.value);
+    }
+    if (magicPenetrate.present) {
+      map['magic_penetrate'] = Variable<int>(magicPenetrate.value);
+    }
+    if (lifeSteal.present) {
+      map['life_steal'] = Variable<int>(lifeSteal.value);
+    }
+    if (hpRecoveryRate.present) {
+      map['hp_recovery_rate'] = Variable<int>(hpRecoveryRate.value);
+    }
+    if (energyRecoveryRate.present) {
+      map['energy_recovery_rate'] = Variable<int>(energyRecoveryRate.value);
+    }
+    if (energyReduceRate.present) {
+      map['energy_reduce_rate'] = Variable<int>(energyReduceRate.value);
+    }
+    if (unionBurstLevel.present) {
+      map['union_burst_level'] = Variable<int>(unionBurstLevel.value);
+    }
+    if (mainSkillLv1.present) {
+      map['main_skill_lv_1'] = Variable<int>(mainSkillLv1.value);
+    }
+    if (mainSkillLv2.present) {
+      map['main_skill_lv_2'] = Variable<int>(mainSkillLv2.value);
+    }
+    if (mainSkillLv3.present) {
+      map['main_skill_lv_3'] = Variable<int>(mainSkillLv3.value);
+    }
+    if (mainSkillLv4.present) {
+      map['main_skill_lv_4'] = Variable<int>(mainSkillLv4.value);
+    }
+    if (mainSkillLv5.present) {
+      map['main_skill_lv_5'] = Variable<int>(mainSkillLv5.value);
+    }
+    if (mainSkillLv6.present) {
+      map['main_skill_lv_6'] = Variable<int>(mainSkillLv6.value);
+    }
+    if (mainSkillLv7.present) {
+      map['main_skill_lv_7'] = Variable<int>(mainSkillLv7.value);
+    }
+    if (mainSkillLv8.present) {
+      map['main_skill_lv_8'] = Variable<int>(mainSkillLv8.value);
+    }
+    if (mainSkillLv9.present) {
+      map['main_skill_lv_9'] = Variable<int>(mainSkillLv9.value);
+    }
+    if (mainSkillLv10.present) {
+      map['main_skill_lv_10'] = Variable<int>(mainSkillLv10.value);
+    }
+    if (exSkillLv1.present) {
+      map['ex_skill_lv_1'] = Variable<int>(exSkillLv1.value);
+    }
+    if (exSkillLv2.present) {
+      map['ex_skill_lv_2'] = Variable<int>(exSkillLv2.value);
+    }
+    if (exSkillLv3.present) {
+      map['ex_skill_lv_3'] = Variable<int>(exSkillLv3.value);
+    }
+    if (exSkillLv4.present) {
+      map['ex_skill_lv_4'] = Variable<int>(exSkillLv4.value);
+    }
+    if (exSkillLv5.present) {
+      map['ex_skill_lv_5'] = Variable<int>(exSkillLv5.value);
+    }
+    if (resistStatusId.present) {
+      map['resist_status_id'] = Variable<int>(resistStatusId.value);
+    }
+    if (resistVariationId.present) {
+      map['resist_variation_id'] = Variable<int>(resistVariationId.value);
+    }
+    if (accuracy.present) {
+      map['accuracy'] = Variable<int>(accuracy.value);
+    }
+    if (breakDurability.present) {
+      map['break_durability'] = Variable<int>(breakDurability.value);
+    }
+    if (uniqueEquipmentFlag1.present) {
+      map['unique_equipment_flag_1'] = Variable<int>(
+        uniqueEquipmentFlag1.value,
+      );
+    }
+    if (virtualHp.present) {
+      map['virtual_hp'] = Variable<int>(virtualHp.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('EnemyParameterCompanion(')
+          ..write('enemyId: $enemyId, ')
+          ..write('unitId: $unitId, ')
+          ..write('name: $name, ')
+          ..write('level: $level, ')
+          ..write('rarity: $rarity, ')
+          ..write('promotionLevel: $promotionLevel, ')
+          ..write('hp: $hp, ')
+          ..write('atk: $atk, ')
+          ..write('magicStr: $magicStr, ')
+          ..write('def_: $def_, ')
+          ..write('magicDef: $magicDef, ')
+          ..write('physicalCritical: $physicalCritical, ')
+          ..write('magicCritical: $magicCritical, ')
+          ..write('waveHpRecovery: $waveHpRecovery, ')
+          ..write('waveEnergyRecovery: $waveEnergyRecovery, ')
+          ..write('dodge: $dodge, ')
+          ..write('physicalPenetrate: $physicalPenetrate, ')
+          ..write('magicPenetrate: $magicPenetrate, ')
+          ..write('lifeSteal: $lifeSteal, ')
+          ..write('hpRecoveryRate: $hpRecoveryRate, ')
+          ..write('energyRecoveryRate: $energyRecoveryRate, ')
+          ..write('energyReduceRate: $energyReduceRate, ')
+          ..write('unionBurstLevel: $unionBurstLevel, ')
+          ..write('mainSkillLv1: $mainSkillLv1, ')
+          ..write('mainSkillLv2: $mainSkillLv2, ')
+          ..write('mainSkillLv3: $mainSkillLv3, ')
+          ..write('mainSkillLv4: $mainSkillLv4, ')
+          ..write('mainSkillLv5: $mainSkillLv5, ')
+          ..write('mainSkillLv6: $mainSkillLv6, ')
+          ..write('mainSkillLv7: $mainSkillLv7, ')
+          ..write('mainSkillLv8: $mainSkillLv8, ')
+          ..write('mainSkillLv9: $mainSkillLv9, ')
+          ..write('mainSkillLv10: $mainSkillLv10, ')
+          ..write('exSkillLv1: $exSkillLv1, ')
+          ..write('exSkillLv2: $exSkillLv2, ')
+          ..write('exSkillLv3: $exSkillLv3, ')
+          ..write('exSkillLv4: $exSkillLv4, ')
+          ..write('exSkillLv5: $exSkillLv5, ')
+          ..write('resistStatusId: $resistStatusId, ')
+          ..write('resistVariationId: $resistVariationId, ')
+          ..write('accuracy: $accuracy, ')
+          ..write('breakDurability: $breakDurability, ')
+          ..write('uniqueEquipmentFlag1: $uniqueEquipmentFlag1, ')
+          ..write('virtualHp: $virtualHp')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDb extends GeneratedDatabase {
   _$AppDb(QueryExecutor e) : super(e);
   $AppDbManager get managers => $AppDbManager(this);
@@ -18016,6 +34098,19 @@ abstract class _$AppDb extends GeneratedDatabase {
       $UnlockUnitConditionTable(this);
   late final $UnitTalentTable unitTalent = $UnitTalentTable(this);
   late final $UnitEnemyDataTable unitEnemyData = $UnitEnemyDataTable(this);
+  late final $EventEnemyParameterTable eventEnemyParameter =
+      $EventEnemyParameterTable(this);
+  late final $TalentQuestEnemyParameterTable talentQuestEnemyParameter =
+      $TalentQuestEnemyParameterTable(this);
+  late final $ShioriEnemyParameterTable shioriEnemyParameter =
+      $ShioriEnemyParameterTable(this);
+  late final $SreEnemyParameterTable sreEnemyParameter =
+      $SreEnemyParameterTable(this);
+  late final $TowerEnemyParameterTable towerEnemyParameter =
+      $TowerEnemyParameterTable(this);
+  late final $SevenEnemyParameterTable sevenEnemyParameter =
+      $SevenEnemyParameterTable(this);
+  late final $EnemyParameterTable enemyParameter = $EnemyParameterTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -18041,6 +34136,13 @@ abstract class _$AppDb extends GeneratedDatabase {
     unlockUnitCondition,
     unitTalent,
     unitEnemyData,
+    eventEnemyParameter,
+    talentQuestEnemyParameter,
+    shioriEnemyParameter,
+    sreEnemyParameter,
+    towerEnemyParameter,
+    sevenEnemyParameter,
+    enemyParameter,
   ];
 }
 
@@ -26279,6 +42381,6863 @@ typedef $$UnitEnemyDataTableProcessedTableManager =
       UnitEnemyDataData,
       PrefetchHooks Function()
     >;
+typedef $$EventEnemyParameterTableCreateCompanionBuilder =
+    EventEnemyParameterCompanion Function({
+      Value<int> enemyId,
+      required int unitId,
+      required int level,
+      required int rarity,
+      required int promotionLevel,
+      required int hp,
+      required int atk,
+      required int magicStr,
+      required double def_,
+      required int magicDef,
+      required int physicalCritical,
+      required int magicCritical,
+      required int waveHpRecovery,
+      required int waveEnergyRecovery,
+      required int dodge,
+      required int physicalPenetrate,
+      required int magicPenetrate,
+      required int lifeSteal,
+      required int hpRecoveryRate,
+      required int energyRecoveryRate,
+      required int energyReduceRate,
+      required int unionBurstLevel,
+      required int mainSkillLv1,
+      required int mainSkillLv2,
+      required int mainSkillLv3,
+      required int mainSkillLv4,
+      required int mainSkillLv5,
+      required int mainSkillLv6,
+      required int mainSkillLv7,
+      required int mainSkillLv8,
+      required int mainSkillLv9,
+      required int mainSkillLv10,
+      required int exSkillLv1,
+      required int exSkillLv2,
+      required int exSkillLv3,
+      required int exSkillLv4,
+      required int exSkillLv5,
+      required int resistStatusId,
+      required int resistVariationId,
+      required int accuracy,
+    });
+typedef $$EventEnemyParameterTableUpdateCompanionBuilder =
+    EventEnemyParameterCompanion Function({
+      Value<int> enemyId,
+      Value<int> unitId,
+      Value<int> level,
+      Value<int> rarity,
+      Value<int> promotionLevel,
+      Value<int> hp,
+      Value<int> atk,
+      Value<int> magicStr,
+      Value<double> def_,
+      Value<int> magicDef,
+      Value<int> physicalCritical,
+      Value<int> magicCritical,
+      Value<int> waveHpRecovery,
+      Value<int> waveEnergyRecovery,
+      Value<int> dodge,
+      Value<int> physicalPenetrate,
+      Value<int> magicPenetrate,
+      Value<int> lifeSteal,
+      Value<int> hpRecoveryRate,
+      Value<int> energyRecoveryRate,
+      Value<int> energyReduceRate,
+      Value<int> unionBurstLevel,
+      Value<int> mainSkillLv1,
+      Value<int> mainSkillLv2,
+      Value<int> mainSkillLv3,
+      Value<int> mainSkillLv4,
+      Value<int> mainSkillLv5,
+      Value<int> mainSkillLv6,
+      Value<int> mainSkillLv7,
+      Value<int> mainSkillLv8,
+      Value<int> mainSkillLv9,
+      Value<int> mainSkillLv10,
+      Value<int> exSkillLv1,
+      Value<int> exSkillLv2,
+      Value<int> exSkillLv3,
+      Value<int> exSkillLv4,
+      Value<int> exSkillLv5,
+      Value<int> resistStatusId,
+      Value<int> resistVariationId,
+      Value<int> accuracy,
+    });
+
+class $$EventEnemyParameterTableFilterComposer
+    extends Composer<_$AppDb, $EventEnemyParameterTable> {
+  $$EventEnemyParameterTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rarity => $composableBuilder(
+    column: $table.rarity,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$EventEnemyParameterTableOrderingComposer
+    extends Composer<_$AppDb, $EventEnemyParameterTable> {
+  $$EventEnemyParameterTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rarity => $composableBuilder(
+    column: $table.rarity,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$EventEnemyParameterTableAnnotationComposer
+    extends Composer<_$AppDb, $EventEnemyParameterTable> {
+  $$EventEnemyParameterTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get enemyId =>
+      $composableBuilder(column: $table.enemyId, builder: (column) => column);
+
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<int> get level =>
+      $composableBuilder(column: $table.level, builder: (column) => column);
+
+  GeneratedColumn<int> get rarity =>
+      $composableBuilder(column: $table.rarity, builder: (column) => column);
+
+  GeneratedColumn<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get hp =>
+      $composableBuilder(column: $table.hp, builder: (column) => column);
+
+  GeneratedColumn<int> get atk =>
+      $composableBuilder(column: $table.atk, builder: (column) => column);
+
+  GeneratedColumn<int> get magicStr =>
+      $composableBuilder(column: $table.magicStr, builder: (column) => column);
+
+  GeneratedColumn<double> get def_ =>
+      $composableBuilder(column: $table.def_, builder: (column) => column);
+
+  GeneratedColumn<int> get magicDef =>
+      $composableBuilder(column: $table.magicDef, builder: (column) => column);
+
+  GeneratedColumn<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get dodge =>
+      $composableBuilder(column: $table.dodge, builder: (column) => column);
+
+  GeneratedColumn<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get lifeSteal =>
+      $composableBuilder(column: $table.lifeSteal, builder: (column) => column);
+
+  GeneratedColumn<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get accuracy =>
+      $composableBuilder(column: $table.accuracy, builder: (column) => column);
+}
+
+class $$EventEnemyParameterTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $EventEnemyParameterTable,
+          EventEnemyParameterData,
+          $$EventEnemyParameterTableFilterComposer,
+          $$EventEnemyParameterTableOrderingComposer,
+          $$EventEnemyParameterTableAnnotationComposer,
+          $$EventEnemyParameterTableCreateCompanionBuilder,
+          $$EventEnemyParameterTableUpdateCompanionBuilder,
+          (
+            EventEnemyParameterData,
+            BaseReferences<
+              _$AppDb,
+              $EventEnemyParameterTable,
+              EventEnemyParameterData
+            >,
+          ),
+          EventEnemyParameterData,
+          PrefetchHooks Function()
+        > {
+  $$EventEnemyParameterTableTableManager(
+    _$AppDb db,
+    $EventEnemyParameterTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$EventEnemyParameterTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$EventEnemyParameterTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$EventEnemyParameterTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                Value<int> unitId = const Value.absent(),
+                Value<int> level = const Value.absent(),
+                Value<int> rarity = const Value.absent(),
+                Value<int> promotionLevel = const Value.absent(),
+                Value<int> hp = const Value.absent(),
+                Value<int> atk = const Value.absent(),
+                Value<int> magicStr = const Value.absent(),
+                Value<double> def_ = const Value.absent(),
+                Value<int> magicDef = const Value.absent(),
+                Value<int> physicalCritical = const Value.absent(),
+                Value<int> magicCritical = const Value.absent(),
+                Value<int> waveHpRecovery = const Value.absent(),
+                Value<int> waveEnergyRecovery = const Value.absent(),
+                Value<int> dodge = const Value.absent(),
+                Value<int> physicalPenetrate = const Value.absent(),
+                Value<int> magicPenetrate = const Value.absent(),
+                Value<int> lifeSteal = const Value.absent(),
+                Value<int> hpRecoveryRate = const Value.absent(),
+                Value<int> energyRecoveryRate = const Value.absent(),
+                Value<int> energyReduceRate = const Value.absent(),
+                Value<int> unionBurstLevel = const Value.absent(),
+                Value<int> mainSkillLv1 = const Value.absent(),
+                Value<int> mainSkillLv2 = const Value.absent(),
+                Value<int> mainSkillLv3 = const Value.absent(),
+                Value<int> mainSkillLv4 = const Value.absent(),
+                Value<int> mainSkillLv5 = const Value.absent(),
+                Value<int> mainSkillLv6 = const Value.absent(),
+                Value<int> mainSkillLv7 = const Value.absent(),
+                Value<int> mainSkillLv8 = const Value.absent(),
+                Value<int> mainSkillLv9 = const Value.absent(),
+                Value<int> mainSkillLv10 = const Value.absent(),
+                Value<int> exSkillLv1 = const Value.absent(),
+                Value<int> exSkillLv2 = const Value.absent(),
+                Value<int> exSkillLv3 = const Value.absent(),
+                Value<int> exSkillLv4 = const Value.absent(),
+                Value<int> exSkillLv5 = const Value.absent(),
+                Value<int> resistStatusId = const Value.absent(),
+                Value<int> resistVariationId = const Value.absent(),
+                Value<int> accuracy = const Value.absent(),
+              }) => EventEnemyParameterCompanion(
+                enemyId: enemyId,
+                unitId: unitId,
+                level: level,
+                rarity: rarity,
+                promotionLevel: promotionLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                unionBurstLevel: unionBurstLevel,
+                mainSkillLv1: mainSkillLv1,
+                mainSkillLv2: mainSkillLv2,
+                mainSkillLv3: mainSkillLv3,
+                mainSkillLv4: mainSkillLv4,
+                mainSkillLv5: mainSkillLv5,
+                mainSkillLv6: mainSkillLv6,
+                mainSkillLv7: mainSkillLv7,
+                mainSkillLv8: mainSkillLv8,
+                mainSkillLv9: mainSkillLv9,
+                mainSkillLv10: mainSkillLv10,
+                exSkillLv1: exSkillLv1,
+                exSkillLv2: exSkillLv2,
+                exSkillLv3: exSkillLv3,
+                exSkillLv4: exSkillLv4,
+                exSkillLv5: exSkillLv5,
+                resistStatusId: resistStatusId,
+                resistVariationId: resistVariationId,
+                accuracy: accuracy,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                required int unitId,
+                required int level,
+                required int rarity,
+                required int promotionLevel,
+                required int hp,
+                required int atk,
+                required int magicStr,
+                required double def_,
+                required int magicDef,
+                required int physicalCritical,
+                required int magicCritical,
+                required int waveHpRecovery,
+                required int waveEnergyRecovery,
+                required int dodge,
+                required int physicalPenetrate,
+                required int magicPenetrate,
+                required int lifeSteal,
+                required int hpRecoveryRate,
+                required int energyRecoveryRate,
+                required int energyReduceRate,
+                required int unionBurstLevel,
+                required int mainSkillLv1,
+                required int mainSkillLv2,
+                required int mainSkillLv3,
+                required int mainSkillLv4,
+                required int mainSkillLv5,
+                required int mainSkillLv6,
+                required int mainSkillLv7,
+                required int mainSkillLv8,
+                required int mainSkillLv9,
+                required int mainSkillLv10,
+                required int exSkillLv1,
+                required int exSkillLv2,
+                required int exSkillLv3,
+                required int exSkillLv4,
+                required int exSkillLv5,
+                required int resistStatusId,
+                required int resistVariationId,
+                required int accuracy,
+              }) => EventEnemyParameterCompanion.insert(
+                enemyId: enemyId,
+                unitId: unitId,
+                level: level,
+                rarity: rarity,
+                promotionLevel: promotionLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                unionBurstLevel: unionBurstLevel,
+                mainSkillLv1: mainSkillLv1,
+                mainSkillLv2: mainSkillLv2,
+                mainSkillLv3: mainSkillLv3,
+                mainSkillLv4: mainSkillLv4,
+                mainSkillLv5: mainSkillLv5,
+                mainSkillLv6: mainSkillLv6,
+                mainSkillLv7: mainSkillLv7,
+                mainSkillLv8: mainSkillLv8,
+                mainSkillLv9: mainSkillLv9,
+                mainSkillLv10: mainSkillLv10,
+                exSkillLv1: exSkillLv1,
+                exSkillLv2: exSkillLv2,
+                exSkillLv3: exSkillLv3,
+                exSkillLv4: exSkillLv4,
+                exSkillLv5: exSkillLv5,
+                resistStatusId: resistStatusId,
+                resistVariationId: resistVariationId,
+                accuracy: accuracy,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$EventEnemyParameterTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $EventEnemyParameterTable,
+      EventEnemyParameterData,
+      $$EventEnemyParameterTableFilterComposer,
+      $$EventEnemyParameterTableOrderingComposer,
+      $$EventEnemyParameterTableAnnotationComposer,
+      $$EventEnemyParameterTableCreateCompanionBuilder,
+      $$EventEnemyParameterTableUpdateCompanionBuilder,
+      (
+        EventEnemyParameterData,
+        BaseReferences<
+          _$AppDb,
+          $EventEnemyParameterTable,
+          EventEnemyParameterData
+        >,
+      ),
+      EventEnemyParameterData,
+      PrefetchHooks Function()
+    >;
+typedef $$TalentQuestEnemyParameterTableCreateCompanionBuilder =
+    TalentQuestEnemyParameterCompanion Function({
+      Value<int> enemyId,
+      required int unitId,
+      required String name,
+      required int level,
+      required int rarity,
+      required int promotionLevel,
+      required int hp,
+      required int atk,
+      required int magicStr,
+      required double def_,
+      required int magicDef,
+      required int physicalCritical,
+      required int magicCritical,
+      required int waveHpRecovery,
+      required int waveEnergyRecovery,
+      required int dodge,
+      required int physicalPenetrate,
+      required int magicPenetrate,
+      required int lifeSteal,
+      required int hpRecoveryRate,
+      required int energyRecoveryRate,
+      required int energyReduceRate,
+      required int unionBurstLevel,
+      required int mainSkillLv1,
+      required int mainSkillLv2,
+      required int mainSkillLv3,
+      required int mainSkillLv4,
+      required int mainSkillLv5,
+      required int mainSkillLv6,
+      required int mainSkillLv7,
+      required int mainSkillLv8,
+      required int mainSkillLv9,
+      required int mainSkillLv10,
+      required int exSkillLv1,
+      required int exSkillLv2,
+      required int exSkillLv3,
+      required int exSkillLv4,
+      required int exSkillLv5,
+      required int resistStatusId,
+      required int resistVariationId,
+      required int accuracy,
+      required int breakDurability,
+      required int uniqueEquipmentFlag1,
+      required int virtualHp,
+    });
+typedef $$TalentQuestEnemyParameterTableUpdateCompanionBuilder =
+    TalentQuestEnemyParameterCompanion Function({
+      Value<int> enemyId,
+      Value<int> unitId,
+      Value<String> name,
+      Value<int> level,
+      Value<int> rarity,
+      Value<int> promotionLevel,
+      Value<int> hp,
+      Value<int> atk,
+      Value<int> magicStr,
+      Value<double> def_,
+      Value<int> magicDef,
+      Value<int> physicalCritical,
+      Value<int> magicCritical,
+      Value<int> waveHpRecovery,
+      Value<int> waveEnergyRecovery,
+      Value<int> dodge,
+      Value<int> physicalPenetrate,
+      Value<int> magicPenetrate,
+      Value<int> lifeSteal,
+      Value<int> hpRecoveryRate,
+      Value<int> energyRecoveryRate,
+      Value<int> energyReduceRate,
+      Value<int> unionBurstLevel,
+      Value<int> mainSkillLv1,
+      Value<int> mainSkillLv2,
+      Value<int> mainSkillLv3,
+      Value<int> mainSkillLv4,
+      Value<int> mainSkillLv5,
+      Value<int> mainSkillLv6,
+      Value<int> mainSkillLv7,
+      Value<int> mainSkillLv8,
+      Value<int> mainSkillLv9,
+      Value<int> mainSkillLv10,
+      Value<int> exSkillLv1,
+      Value<int> exSkillLv2,
+      Value<int> exSkillLv3,
+      Value<int> exSkillLv4,
+      Value<int> exSkillLv5,
+      Value<int> resistStatusId,
+      Value<int> resistVariationId,
+      Value<int> accuracy,
+      Value<int> breakDurability,
+      Value<int> uniqueEquipmentFlag1,
+      Value<int> virtualHp,
+    });
+
+class $$TalentQuestEnemyParameterTableFilterComposer
+    extends Composer<_$AppDb, $TalentQuestEnemyParameterTable> {
+  $$TalentQuestEnemyParameterTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rarity => $composableBuilder(
+    column: $table.rarity,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get breakDurability => $composableBuilder(
+    column: $table.breakDurability,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get uniqueEquipmentFlag1 => $composableBuilder(
+    column: $table.uniqueEquipmentFlag1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get virtualHp => $composableBuilder(
+    column: $table.virtualHp,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$TalentQuestEnemyParameterTableOrderingComposer
+    extends Composer<_$AppDb, $TalentQuestEnemyParameterTable> {
+  $$TalentQuestEnemyParameterTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rarity => $composableBuilder(
+    column: $table.rarity,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get breakDurability => $composableBuilder(
+    column: $table.breakDurability,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get uniqueEquipmentFlag1 => $composableBuilder(
+    column: $table.uniqueEquipmentFlag1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get virtualHp => $composableBuilder(
+    column: $table.virtualHp,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$TalentQuestEnemyParameterTableAnnotationComposer
+    extends Composer<_$AppDb, $TalentQuestEnemyParameterTable> {
+  $$TalentQuestEnemyParameterTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get enemyId =>
+      $composableBuilder(column: $table.enemyId, builder: (column) => column);
+
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<int> get level =>
+      $composableBuilder(column: $table.level, builder: (column) => column);
+
+  GeneratedColumn<int> get rarity =>
+      $composableBuilder(column: $table.rarity, builder: (column) => column);
+
+  GeneratedColumn<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get hp =>
+      $composableBuilder(column: $table.hp, builder: (column) => column);
+
+  GeneratedColumn<int> get atk =>
+      $composableBuilder(column: $table.atk, builder: (column) => column);
+
+  GeneratedColumn<int> get magicStr =>
+      $composableBuilder(column: $table.magicStr, builder: (column) => column);
+
+  GeneratedColumn<double> get def_ =>
+      $composableBuilder(column: $table.def_, builder: (column) => column);
+
+  GeneratedColumn<int> get magicDef =>
+      $composableBuilder(column: $table.magicDef, builder: (column) => column);
+
+  GeneratedColumn<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get dodge =>
+      $composableBuilder(column: $table.dodge, builder: (column) => column);
+
+  GeneratedColumn<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get lifeSteal =>
+      $composableBuilder(column: $table.lifeSteal, builder: (column) => column);
+
+  GeneratedColumn<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get accuracy =>
+      $composableBuilder(column: $table.accuracy, builder: (column) => column);
+
+  GeneratedColumn<int> get breakDurability => $composableBuilder(
+    column: $table.breakDurability,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get uniqueEquipmentFlag1 => $composableBuilder(
+    column: $table.uniqueEquipmentFlag1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get virtualHp =>
+      $composableBuilder(column: $table.virtualHp, builder: (column) => column);
+}
+
+class $$TalentQuestEnemyParameterTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $TalentQuestEnemyParameterTable,
+          TalentQuestEnemyParameterData,
+          $$TalentQuestEnemyParameterTableFilterComposer,
+          $$TalentQuestEnemyParameterTableOrderingComposer,
+          $$TalentQuestEnemyParameterTableAnnotationComposer,
+          $$TalentQuestEnemyParameterTableCreateCompanionBuilder,
+          $$TalentQuestEnemyParameterTableUpdateCompanionBuilder,
+          (
+            TalentQuestEnemyParameterData,
+            BaseReferences<
+              _$AppDb,
+              $TalentQuestEnemyParameterTable,
+              TalentQuestEnemyParameterData
+            >,
+          ),
+          TalentQuestEnemyParameterData,
+          PrefetchHooks Function()
+        > {
+  $$TalentQuestEnemyParameterTableTableManager(
+    _$AppDb db,
+    $TalentQuestEnemyParameterTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TalentQuestEnemyParameterTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $$TalentQuestEnemyParameterTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$TalentQuestEnemyParameterTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                Value<int> unitId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<int> level = const Value.absent(),
+                Value<int> rarity = const Value.absent(),
+                Value<int> promotionLevel = const Value.absent(),
+                Value<int> hp = const Value.absent(),
+                Value<int> atk = const Value.absent(),
+                Value<int> magicStr = const Value.absent(),
+                Value<double> def_ = const Value.absent(),
+                Value<int> magicDef = const Value.absent(),
+                Value<int> physicalCritical = const Value.absent(),
+                Value<int> magicCritical = const Value.absent(),
+                Value<int> waveHpRecovery = const Value.absent(),
+                Value<int> waveEnergyRecovery = const Value.absent(),
+                Value<int> dodge = const Value.absent(),
+                Value<int> physicalPenetrate = const Value.absent(),
+                Value<int> magicPenetrate = const Value.absent(),
+                Value<int> lifeSteal = const Value.absent(),
+                Value<int> hpRecoveryRate = const Value.absent(),
+                Value<int> energyRecoveryRate = const Value.absent(),
+                Value<int> energyReduceRate = const Value.absent(),
+                Value<int> unionBurstLevel = const Value.absent(),
+                Value<int> mainSkillLv1 = const Value.absent(),
+                Value<int> mainSkillLv2 = const Value.absent(),
+                Value<int> mainSkillLv3 = const Value.absent(),
+                Value<int> mainSkillLv4 = const Value.absent(),
+                Value<int> mainSkillLv5 = const Value.absent(),
+                Value<int> mainSkillLv6 = const Value.absent(),
+                Value<int> mainSkillLv7 = const Value.absent(),
+                Value<int> mainSkillLv8 = const Value.absent(),
+                Value<int> mainSkillLv9 = const Value.absent(),
+                Value<int> mainSkillLv10 = const Value.absent(),
+                Value<int> exSkillLv1 = const Value.absent(),
+                Value<int> exSkillLv2 = const Value.absent(),
+                Value<int> exSkillLv3 = const Value.absent(),
+                Value<int> exSkillLv4 = const Value.absent(),
+                Value<int> exSkillLv5 = const Value.absent(),
+                Value<int> resistStatusId = const Value.absent(),
+                Value<int> resistVariationId = const Value.absent(),
+                Value<int> accuracy = const Value.absent(),
+                Value<int> breakDurability = const Value.absent(),
+                Value<int> uniqueEquipmentFlag1 = const Value.absent(),
+                Value<int> virtualHp = const Value.absent(),
+              }) => TalentQuestEnemyParameterCompanion(
+                enemyId: enemyId,
+                unitId: unitId,
+                name: name,
+                level: level,
+                rarity: rarity,
+                promotionLevel: promotionLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                unionBurstLevel: unionBurstLevel,
+                mainSkillLv1: mainSkillLv1,
+                mainSkillLv2: mainSkillLv2,
+                mainSkillLv3: mainSkillLv3,
+                mainSkillLv4: mainSkillLv4,
+                mainSkillLv5: mainSkillLv5,
+                mainSkillLv6: mainSkillLv6,
+                mainSkillLv7: mainSkillLv7,
+                mainSkillLv8: mainSkillLv8,
+                mainSkillLv9: mainSkillLv9,
+                mainSkillLv10: mainSkillLv10,
+                exSkillLv1: exSkillLv1,
+                exSkillLv2: exSkillLv2,
+                exSkillLv3: exSkillLv3,
+                exSkillLv4: exSkillLv4,
+                exSkillLv5: exSkillLv5,
+                resistStatusId: resistStatusId,
+                resistVariationId: resistVariationId,
+                accuracy: accuracy,
+                breakDurability: breakDurability,
+                uniqueEquipmentFlag1: uniqueEquipmentFlag1,
+                virtualHp: virtualHp,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                required int unitId,
+                required String name,
+                required int level,
+                required int rarity,
+                required int promotionLevel,
+                required int hp,
+                required int atk,
+                required int magicStr,
+                required double def_,
+                required int magicDef,
+                required int physicalCritical,
+                required int magicCritical,
+                required int waveHpRecovery,
+                required int waveEnergyRecovery,
+                required int dodge,
+                required int physicalPenetrate,
+                required int magicPenetrate,
+                required int lifeSteal,
+                required int hpRecoveryRate,
+                required int energyRecoveryRate,
+                required int energyReduceRate,
+                required int unionBurstLevel,
+                required int mainSkillLv1,
+                required int mainSkillLv2,
+                required int mainSkillLv3,
+                required int mainSkillLv4,
+                required int mainSkillLv5,
+                required int mainSkillLv6,
+                required int mainSkillLv7,
+                required int mainSkillLv8,
+                required int mainSkillLv9,
+                required int mainSkillLv10,
+                required int exSkillLv1,
+                required int exSkillLv2,
+                required int exSkillLv3,
+                required int exSkillLv4,
+                required int exSkillLv5,
+                required int resistStatusId,
+                required int resistVariationId,
+                required int accuracy,
+                required int breakDurability,
+                required int uniqueEquipmentFlag1,
+                required int virtualHp,
+              }) => TalentQuestEnemyParameterCompanion.insert(
+                enemyId: enemyId,
+                unitId: unitId,
+                name: name,
+                level: level,
+                rarity: rarity,
+                promotionLevel: promotionLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                unionBurstLevel: unionBurstLevel,
+                mainSkillLv1: mainSkillLv1,
+                mainSkillLv2: mainSkillLv2,
+                mainSkillLv3: mainSkillLv3,
+                mainSkillLv4: mainSkillLv4,
+                mainSkillLv5: mainSkillLv5,
+                mainSkillLv6: mainSkillLv6,
+                mainSkillLv7: mainSkillLv7,
+                mainSkillLv8: mainSkillLv8,
+                mainSkillLv9: mainSkillLv9,
+                mainSkillLv10: mainSkillLv10,
+                exSkillLv1: exSkillLv1,
+                exSkillLv2: exSkillLv2,
+                exSkillLv3: exSkillLv3,
+                exSkillLv4: exSkillLv4,
+                exSkillLv5: exSkillLv5,
+                resistStatusId: resistStatusId,
+                resistVariationId: resistVariationId,
+                accuracy: accuracy,
+                breakDurability: breakDurability,
+                uniqueEquipmentFlag1: uniqueEquipmentFlag1,
+                virtualHp: virtualHp,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$TalentQuestEnemyParameterTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $TalentQuestEnemyParameterTable,
+      TalentQuestEnemyParameterData,
+      $$TalentQuestEnemyParameterTableFilterComposer,
+      $$TalentQuestEnemyParameterTableOrderingComposer,
+      $$TalentQuestEnemyParameterTableAnnotationComposer,
+      $$TalentQuestEnemyParameterTableCreateCompanionBuilder,
+      $$TalentQuestEnemyParameterTableUpdateCompanionBuilder,
+      (
+        TalentQuestEnemyParameterData,
+        BaseReferences<
+          _$AppDb,
+          $TalentQuestEnemyParameterTable,
+          TalentQuestEnemyParameterData
+        >,
+      ),
+      TalentQuestEnemyParameterData,
+      PrefetchHooks Function()
+    >;
+typedef $$ShioriEnemyParameterTableCreateCompanionBuilder =
+    ShioriEnemyParameterCompanion Function({
+      Value<int> enemyId,
+      required int unitId,
+      required int level,
+      required int rarity,
+      required int promotionLevel,
+      required int hp,
+      required int atk,
+      required int magicStr,
+      required double def_,
+      required int magicDef,
+      required int physicalCritical,
+      required int magicCritical,
+      required int waveHpRecovery,
+      required int waveEnergyRecovery,
+      required int dodge,
+      required int physicalPenetrate,
+      required int magicPenetrate,
+      required int lifeSteal,
+      required int hpRecoveryRate,
+      required int energyRecoveryRate,
+      required int energyReduceRate,
+      required int unionBurstLevel,
+      required int mainSkillLv1,
+      required int mainSkillLv2,
+      required int mainSkillLv3,
+      required int mainSkillLv4,
+      required int mainSkillLv5,
+      required int mainSkillLv6,
+      required int mainSkillLv7,
+      required int mainSkillLv8,
+      required int mainSkillLv9,
+      required int mainSkillLv10,
+      required int exSkillLv1,
+      required int exSkillLv2,
+      required int exSkillLv3,
+      required int exSkillLv4,
+      required int exSkillLv5,
+      required int resistStatusId,
+      required int resistVariationId,
+      required int accuracy,
+    });
+typedef $$ShioriEnemyParameterTableUpdateCompanionBuilder =
+    ShioriEnemyParameterCompanion Function({
+      Value<int> enemyId,
+      Value<int> unitId,
+      Value<int> level,
+      Value<int> rarity,
+      Value<int> promotionLevel,
+      Value<int> hp,
+      Value<int> atk,
+      Value<int> magicStr,
+      Value<double> def_,
+      Value<int> magicDef,
+      Value<int> physicalCritical,
+      Value<int> magicCritical,
+      Value<int> waveHpRecovery,
+      Value<int> waveEnergyRecovery,
+      Value<int> dodge,
+      Value<int> physicalPenetrate,
+      Value<int> magicPenetrate,
+      Value<int> lifeSteal,
+      Value<int> hpRecoveryRate,
+      Value<int> energyRecoveryRate,
+      Value<int> energyReduceRate,
+      Value<int> unionBurstLevel,
+      Value<int> mainSkillLv1,
+      Value<int> mainSkillLv2,
+      Value<int> mainSkillLv3,
+      Value<int> mainSkillLv4,
+      Value<int> mainSkillLv5,
+      Value<int> mainSkillLv6,
+      Value<int> mainSkillLv7,
+      Value<int> mainSkillLv8,
+      Value<int> mainSkillLv9,
+      Value<int> mainSkillLv10,
+      Value<int> exSkillLv1,
+      Value<int> exSkillLv2,
+      Value<int> exSkillLv3,
+      Value<int> exSkillLv4,
+      Value<int> exSkillLv5,
+      Value<int> resistStatusId,
+      Value<int> resistVariationId,
+      Value<int> accuracy,
+    });
+
+class $$ShioriEnemyParameterTableFilterComposer
+    extends Composer<_$AppDb, $ShioriEnemyParameterTable> {
+  $$ShioriEnemyParameterTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rarity => $composableBuilder(
+    column: $table.rarity,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$ShioriEnemyParameterTableOrderingComposer
+    extends Composer<_$AppDb, $ShioriEnemyParameterTable> {
+  $$ShioriEnemyParameterTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rarity => $composableBuilder(
+    column: $table.rarity,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$ShioriEnemyParameterTableAnnotationComposer
+    extends Composer<_$AppDb, $ShioriEnemyParameterTable> {
+  $$ShioriEnemyParameterTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get enemyId =>
+      $composableBuilder(column: $table.enemyId, builder: (column) => column);
+
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<int> get level =>
+      $composableBuilder(column: $table.level, builder: (column) => column);
+
+  GeneratedColumn<int> get rarity =>
+      $composableBuilder(column: $table.rarity, builder: (column) => column);
+
+  GeneratedColumn<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get hp =>
+      $composableBuilder(column: $table.hp, builder: (column) => column);
+
+  GeneratedColumn<int> get atk =>
+      $composableBuilder(column: $table.atk, builder: (column) => column);
+
+  GeneratedColumn<int> get magicStr =>
+      $composableBuilder(column: $table.magicStr, builder: (column) => column);
+
+  GeneratedColumn<double> get def_ =>
+      $composableBuilder(column: $table.def_, builder: (column) => column);
+
+  GeneratedColumn<int> get magicDef =>
+      $composableBuilder(column: $table.magicDef, builder: (column) => column);
+
+  GeneratedColumn<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get dodge =>
+      $composableBuilder(column: $table.dodge, builder: (column) => column);
+
+  GeneratedColumn<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get lifeSteal =>
+      $composableBuilder(column: $table.lifeSteal, builder: (column) => column);
+
+  GeneratedColumn<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get accuracy =>
+      $composableBuilder(column: $table.accuracy, builder: (column) => column);
+}
+
+class $$ShioriEnemyParameterTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $ShioriEnemyParameterTable,
+          ShioriEnemyParameterData,
+          $$ShioriEnemyParameterTableFilterComposer,
+          $$ShioriEnemyParameterTableOrderingComposer,
+          $$ShioriEnemyParameterTableAnnotationComposer,
+          $$ShioriEnemyParameterTableCreateCompanionBuilder,
+          $$ShioriEnemyParameterTableUpdateCompanionBuilder,
+          (
+            ShioriEnemyParameterData,
+            BaseReferences<
+              _$AppDb,
+              $ShioriEnemyParameterTable,
+              ShioriEnemyParameterData
+            >,
+          ),
+          ShioriEnemyParameterData,
+          PrefetchHooks Function()
+        > {
+  $$ShioriEnemyParameterTableTableManager(
+    _$AppDb db,
+    $ShioriEnemyParameterTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ShioriEnemyParameterTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ShioriEnemyParameterTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$ShioriEnemyParameterTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                Value<int> unitId = const Value.absent(),
+                Value<int> level = const Value.absent(),
+                Value<int> rarity = const Value.absent(),
+                Value<int> promotionLevel = const Value.absent(),
+                Value<int> hp = const Value.absent(),
+                Value<int> atk = const Value.absent(),
+                Value<int> magicStr = const Value.absent(),
+                Value<double> def_ = const Value.absent(),
+                Value<int> magicDef = const Value.absent(),
+                Value<int> physicalCritical = const Value.absent(),
+                Value<int> magicCritical = const Value.absent(),
+                Value<int> waveHpRecovery = const Value.absent(),
+                Value<int> waveEnergyRecovery = const Value.absent(),
+                Value<int> dodge = const Value.absent(),
+                Value<int> physicalPenetrate = const Value.absent(),
+                Value<int> magicPenetrate = const Value.absent(),
+                Value<int> lifeSteal = const Value.absent(),
+                Value<int> hpRecoveryRate = const Value.absent(),
+                Value<int> energyRecoveryRate = const Value.absent(),
+                Value<int> energyReduceRate = const Value.absent(),
+                Value<int> unionBurstLevel = const Value.absent(),
+                Value<int> mainSkillLv1 = const Value.absent(),
+                Value<int> mainSkillLv2 = const Value.absent(),
+                Value<int> mainSkillLv3 = const Value.absent(),
+                Value<int> mainSkillLv4 = const Value.absent(),
+                Value<int> mainSkillLv5 = const Value.absent(),
+                Value<int> mainSkillLv6 = const Value.absent(),
+                Value<int> mainSkillLv7 = const Value.absent(),
+                Value<int> mainSkillLv8 = const Value.absent(),
+                Value<int> mainSkillLv9 = const Value.absent(),
+                Value<int> mainSkillLv10 = const Value.absent(),
+                Value<int> exSkillLv1 = const Value.absent(),
+                Value<int> exSkillLv2 = const Value.absent(),
+                Value<int> exSkillLv3 = const Value.absent(),
+                Value<int> exSkillLv4 = const Value.absent(),
+                Value<int> exSkillLv5 = const Value.absent(),
+                Value<int> resistStatusId = const Value.absent(),
+                Value<int> resistVariationId = const Value.absent(),
+                Value<int> accuracy = const Value.absent(),
+              }) => ShioriEnemyParameterCompanion(
+                enemyId: enemyId,
+                unitId: unitId,
+                level: level,
+                rarity: rarity,
+                promotionLevel: promotionLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                unionBurstLevel: unionBurstLevel,
+                mainSkillLv1: mainSkillLv1,
+                mainSkillLv2: mainSkillLv2,
+                mainSkillLv3: mainSkillLv3,
+                mainSkillLv4: mainSkillLv4,
+                mainSkillLv5: mainSkillLv5,
+                mainSkillLv6: mainSkillLv6,
+                mainSkillLv7: mainSkillLv7,
+                mainSkillLv8: mainSkillLv8,
+                mainSkillLv9: mainSkillLv9,
+                mainSkillLv10: mainSkillLv10,
+                exSkillLv1: exSkillLv1,
+                exSkillLv2: exSkillLv2,
+                exSkillLv3: exSkillLv3,
+                exSkillLv4: exSkillLv4,
+                exSkillLv5: exSkillLv5,
+                resistStatusId: resistStatusId,
+                resistVariationId: resistVariationId,
+                accuracy: accuracy,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                required int unitId,
+                required int level,
+                required int rarity,
+                required int promotionLevel,
+                required int hp,
+                required int atk,
+                required int magicStr,
+                required double def_,
+                required int magicDef,
+                required int physicalCritical,
+                required int magicCritical,
+                required int waveHpRecovery,
+                required int waveEnergyRecovery,
+                required int dodge,
+                required int physicalPenetrate,
+                required int magicPenetrate,
+                required int lifeSteal,
+                required int hpRecoveryRate,
+                required int energyRecoveryRate,
+                required int energyReduceRate,
+                required int unionBurstLevel,
+                required int mainSkillLv1,
+                required int mainSkillLv2,
+                required int mainSkillLv3,
+                required int mainSkillLv4,
+                required int mainSkillLv5,
+                required int mainSkillLv6,
+                required int mainSkillLv7,
+                required int mainSkillLv8,
+                required int mainSkillLv9,
+                required int mainSkillLv10,
+                required int exSkillLv1,
+                required int exSkillLv2,
+                required int exSkillLv3,
+                required int exSkillLv4,
+                required int exSkillLv5,
+                required int resistStatusId,
+                required int resistVariationId,
+                required int accuracy,
+              }) => ShioriEnemyParameterCompanion.insert(
+                enemyId: enemyId,
+                unitId: unitId,
+                level: level,
+                rarity: rarity,
+                promotionLevel: promotionLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                unionBurstLevel: unionBurstLevel,
+                mainSkillLv1: mainSkillLv1,
+                mainSkillLv2: mainSkillLv2,
+                mainSkillLv3: mainSkillLv3,
+                mainSkillLv4: mainSkillLv4,
+                mainSkillLv5: mainSkillLv5,
+                mainSkillLv6: mainSkillLv6,
+                mainSkillLv7: mainSkillLv7,
+                mainSkillLv8: mainSkillLv8,
+                mainSkillLv9: mainSkillLv9,
+                mainSkillLv10: mainSkillLv10,
+                exSkillLv1: exSkillLv1,
+                exSkillLv2: exSkillLv2,
+                exSkillLv3: exSkillLv3,
+                exSkillLv4: exSkillLv4,
+                exSkillLv5: exSkillLv5,
+                resistStatusId: resistStatusId,
+                resistVariationId: resistVariationId,
+                accuracy: accuracy,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$ShioriEnemyParameterTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $ShioriEnemyParameterTable,
+      ShioriEnemyParameterData,
+      $$ShioriEnemyParameterTableFilterComposer,
+      $$ShioriEnemyParameterTableOrderingComposer,
+      $$ShioriEnemyParameterTableAnnotationComposer,
+      $$ShioriEnemyParameterTableCreateCompanionBuilder,
+      $$ShioriEnemyParameterTableUpdateCompanionBuilder,
+      (
+        ShioriEnemyParameterData,
+        BaseReferences<
+          _$AppDb,
+          $ShioriEnemyParameterTable,
+          ShioriEnemyParameterData
+        >,
+      ),
+      ShioriEnemyParameterData,
+      PrefetchHooks Function()
+    >;
+typedef $$SreEnemyParameterTableCreateCompanionBuilder =
+    SreEnemyParameterCompanion Function({
+      Value<int> enemyId,
+      required int unitId,
+      required String name,
+      required int level,
+      required int rarity,
+      required int promotionLevel,
+      required int hp,
+      required int atk,
+      required int magicStr,
+      required double def_,
+      required int magicDef,
+      required int physicalCritical,
+      required int magicCritical,
+      required int waveHpRecovery,
+      required int waveEnergyRecovery,
+      required int dodge,
+      required int physicalPenetrate,
+      required int magicPenetrate,
+      required int lifeSteal,
+      required int hpRecoveryRate,
+      required int energyRecoveryRate,
+      required int energyReduceRate,
+      required int unionBurstLevel,
+      required int mainSkillLv1,
+      required int mainSkillLv2,
+      required int mainSkillLv3,
+      required int mainSkillLv4,
+      required int mainSkillLv5,
+      required int mainSkillLv6,
+      required int mainSkillLv7,
+      required int mainSkillLv8,
+      required int mainSkillLv9,
+      required int mainSkillLv10,
+      required int exSkillLv1,
+      required int exSkillLv2,
+      required int exSkillLv3,
+      required int exSkillLv4,
+      required int exSkillLv5,
+      required int resistStatusId,
+      required int resistVariationId,
+      required int accuracy,
+      required int breakDurability,
+      required int uniqueEquipmentFlag1,
+      required int virtualHp,
+    });
+typedef $$SreEnemyParameterTableUpdateCompanionBuilder =
+    SreEnemyParameterCompanion Function({
+      Value<int> enemyId,
+      Value<int> unitId,
+      Value<String> name,
+      Value<int> level,
+      Value<int> rarity,
+      Value<int> promotionLevel,
+      Value<int> hp,
+      Value<int> atk,
+      Value<int> magicStr,
+      Value<double> def_,
+      Value<int> magicDef,
+      Value<int> physicalCritical,
+      Value<int> magicCritical,
+      Value<int> waveHpRecovery,
+      Value<int> waveEnergyRecovery,
+      Value<int> dodge,
+      Value<int> physicalPenetrate,
+      Value<int> magicPenetrate,
+      Value<int> lifeSteal,
+      Value<int> hpRecoveryRate,
+      Value<int> energyRecoveryRate,
+      Value<int> energyReduceRate,
+      Value<int> unionBurstLevel,
+      Value<int> mainSkillLv1,
+      Value<int> mainSkillLv2,
+      Value<int> mainSkillLv3,
+      Value<int> mainSkillLv4,
+      Value<int> mainSkillLv5,
+      Value<int> mainSkillLv6,
+      Value<int> mainSkillLv7,
+      Value<int> mainSkillLv8,
+      Value<int> mainSkillLv9,
+      Value<int> mainSkillLv10,
+      Value<int> exSkillLv1,
+      Value<int> exSkillLv2,
+      Value<int> exSkillLv3,
+      Value<int> exSkillLv4,
+      Value<int> exSkillLv5,
+      Value<int> resistStatusId,
+      Value<int> resistVariationId,
+      Value<int> accuracy,
+      Value<int> breakDurability,
+      Value<int> uniqueEquipmentFlag1,
+      Value<int> virtualHp,
+    });
+
+class $$SreEnemyParameterTableFilterComposer
+    extends Composer<_$AppDb, $SreEnemyParameterTable> {
+  $$SreEnemyParameterTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rarity => $composableBuilder(
+    column: $table.rarity,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get breakDurability => $composableBuilder(
+    column: $table.breakDurability,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get uniqueEquipmentFlag1 => $composableBuilder(
+    column: $table.uniqueEquipmentFlag1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get virtualHp => $composableBuilder(
+    column: $table.virtualHp,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$SreEnemyParameterTableOrderingComposer
+    extends Composer<_$AppDb, $SreEnemyParameterTable> {
+  $$SreEnemyParameterTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rarity => $composableBuilder(
+    column: $table.rarity,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get breakDurability => $composableBuilder(
+    column: $table.breakDurability,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get uniqueEquipmentFlag1 => $composableBuilder(
+    column: $table.uniqueEquipmentFlag1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get virtualHp => $composableBuilder(
+    column: $table.virtualHp,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$SreEnemyParameterTableAnnotationComposer
+    extends Composer<_$AppDb, $SreEnemyParameterTable> {
+  $$SreEnemyParameterTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get enemyId =>
+      $composableBuilder(column: $table.enemyId, builder: (column) => column);
+
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<int> get level =>
+      $composableBuilder(column: $table.level, builder: (column) => column);
+
+  GeneratedColumn<int> get rarity =>
+      $composableBuilder(column: $table.rarity, builder: (column) => column);
+
+  GeneratedColumn<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get hp =>
+      $composableBuilder(column: $table.hp, builder: (column) => column);
+
+  GeneratedColumn<int> get atk =>
+      $composableBuilder(column: $table.atk, builder: (column) => column);
+
+  GeneratedColumn<int> get magicStr =>
+      $composableBuilder(column: $table.magicStr, builder: (column) => column);
+
+  GeneratedColumn<double> get def_ =>
+      $composableBuilder(column: $table.def_, builder: (column) => column);
+
+  GeneratedColumn<int> get magicDef =>
+      $composableBuilder(column: $table.magicDef, builder: (column) => column);
+
+  GeneratedColumn<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get dodge =>
+      $composableBuilder(column: $table.dodge, builder: (column) => column);
+
+  GeneratedColumn<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get lifeSteal =>
+      $composableBuilder(column: $table.lifeSteal, builder: (column) => column);
+
+  GeneratedColumn<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get accuracy =>
+      $composableBuilder(column: $table.accuracy, builder: (column) => column);
+
+  GeneratedColumn<int> get breakDurability => $composableBuilder(
+    column: $table.breakDurability,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get uniqueEquipmentFlag1 => $composableBuilder(
+    column: $table.uniqueEquipmentFlag1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get virtualHp =>
+      $composableBuilder(column: $table.virtualHp, builder: (column) => column);
+}
+
+class $$SreEnemyParameterTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $SreEnemyParameterTable,
+          SreEnemyParameterData,
+          $$SreEnemyParameterTableFilterComposer,
+          $$SreEnemyParameterTableOrderingComposer,
+          $$SreEnemyParameterTableAnnotationComposer,
+          $$SreEnemyParameterTableCreateCompanionBuilder,
+          $$SreEnemyParameterTableUpdateCompanionBuilder,
+          (
+            SreEnemyParameterData,
+            BaseReferences<
+              _$AppDb,
+              $SreEnemyParameterTable,
+              SreEnemyParameterData
+            >,
+          ),
+          SreEnemyParameterData,
+          PrefetchHooks Function()
+        > {
+  $$SreEnemyParameterTableTableManager(
+    _$AppDb db,
+    $SreEnemyParameterTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$SreEnemyParameterTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SreEnemyParameterTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$SreEnemyParameterTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                Value<int> unitId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<int> level = const Value.absent(),
+                Value<int> rarity = const Value.absent(),
+                Value<int> promotionLevel = const Value.absent(),
+                Value<int> hp = const Value.absent(),
+                Value<int> atk = const Value.absent(),
+                Value<int> magicStr = const Value.absent(),
+                Value<double> def_ = const Value.absent(),
+                Value<int> magicDef = const Value.absent(),
+                Value<int> physicalCritical = const Value.absent(),
+                Value<int> magicCritical = const Value.absent(),
+                Value<int> waveHpRecovery = const Value.absent(),
+                Value<int> waveEnergyRecovery = const Value.absent(),
+                Value<int> dodge = const Value.absent(),
+                Value<int> physicalPenetrate = const Value.absent(),
+                Value<int> magicPenetrate = const Value.absent(),
+                Value<int> lifeSteal = const Value.absent(),
+                Value<int> hpRecoveryRate = const Value.absent(),
+                Value<int> energyRecoveryRate = const Value.absent(),
+                Value<int> energyReduceRate = const Value.absent(),
+                Value<int> unionBurstLevel = const Value.absent(),
+                Value<int> mainSkillLv1 = const Value.absent(),
+                Value<int> mainSkillLv2 = const Value.absent(),
+                Value<int> mainSkillLv3 = const Value.absent(),
+                Value<int> mainSkillLv4 = const Value.absent(),
+                Value<int> mainSkillLv5 = const Value.absent(),
+                Value<int> mainSkillLv6 = const Value.absent(),
+                Value<int> mainSkillLv7 = const Value.absent(),
+                Value<int> mainSkillLv8 = const Value.absent(),
+                Value<int> mainSkillLv9 = const Value.absent(),
+                Value<int> mainSkillLv10 = const Value.absent(),
+                Value<int> exSkillLv1 = const Value.absent(),
+                Value<int> exSkillLv2 = const Value.absent(),
+                Value<int> exSkillLv3 = const Value.absent(),
+                Value<int> exSkillLv4 = const Value.absent(),
+                Value<int> exSkillLv5 = const Value.absent(),
+                Value<int> resistStatusId = const Value.absent(),
+                Value<int> resistVariationId = const Value.absent(),
+                Value<int> accuracy = const Value.absent(),
+                Value<int> breakDurability = const Value.absent(),
+                Value<int> uniqueEquipmentFlag1 = const Value.absent(),
+                Value<int> virtualHp = const Value.absent(),
+              }) => SreEnemyParameterCompanion(
+                enemyId: enemyId,
+                unitId: unitId,
+                name: name,
+                level: level,
+                rarity: rarity,
+                promotionLevel: promotionLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                unionBurstLevel: unionBurstLevel,
+                mainSkillLv1: mainSkillLv1,
+                mainSkillLv2: mainSkillLv2,
+                mainSkillLv3: mainSkillLv3,
+                mainSkillLv4: mainSkillLv4,
+                mainSkillLv5: mainSkillLv5,
+                mainSkillLv6: mainSkillLv6,
+                mainSkillLv7: mainSkillLv7,
+                mainSkillLv8: mainSkillLv8,
+                mainSkillLv9: mainSkillLv9,
+                mainSkillLv10: mainSkillLv10,
+                exSkillLv1: exSkillLv1,
+                exSkillLv2: exSkillLv2,
+                exSkillLv3: exSkillLv3,
+                exSkillLv4: exSkillLv4,
+                exSkillLv5: exSkillLv5,
+                resistStatusId: resistStatusId,
+                resistVariationId: resistVariationId,
+                accuracy: accuracy,
+                breakDurability: breakDurability,
+                uniqueEquipmentFlag1: uniqueEquipmentFlag1,
+                virtualHp: virtualHp,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                required int unitId,
+                required String name,
+                required int level,
+                required int rarity,
+                required int promotionLevel,
+                required int hp,
+                required int atk,
+                required int magicStr,
+                required double def_,
+                required int magicDef,
+                required int physicalCritical,
+                required int magicCritical,
+                required int waveHpRecovery,
+                required int waveEnergyRecovery,
+                required int dodge,
+                required int physicalPenetrate,
+                required int magicPenetrate,
+                required int lifeSteal,
+                required int hpRecoveryRate,
+                required int energyRecoveryRate,
+                required int energyReduceRate,
+                required int unionBurstLevel,
+                required int mainSkillLv1,
+                required int mainSkillLv2,
+                required int mainSkillLv3,
+                required int mainSkillLv4,
+                required int mainSkillLv5,
+                required int mainSkillLv6,
+                required int mainSkillLv7,
+                required int mainSkillLv8,
+                required int mainSkillLv9,
+                required int mainSkillLv10,
+                required int exSkillLv1,
+                required int exSkillLv2,
+                required int exSkillLv3,
+                required int exSkillLv4,
+                required int exSkillLv5,
+                required int resistStatusId,
+                required int resistVariationId,
+                required int accuracy,
+                required int breakDurability,
+                required int uniqueEquipmentFlag1,
+                required int virtualHp,
+              }) => SreEnemyParameterCompanion.insert(
+                enemyId: enemyId,
+                unitId: unitId,
+                name: name,
+                level: level,
+                rarity: rarity,
+                promotionLevel: promotionLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                unionBurstLevel: unionBurstLevel,
+                mainSkillLv1: mainSkillLv1,
+                mainSkillLv2: mainSkillLv2,
+                mainSkillLv3: mainSkillLv3,
+                mainSkillLv4: mainSkillLv4,
+                mainSkillLv5: mainSkillLv5,
+                mainSkillLv6: mainSkillLv6,
+                mainSkillLv7: mainSkillLv7,
+                mainSkillLv8: mainSkillLv8,
+                mainSkillLv9: mainSkillLv9,
+                mainSkillLv10: mainSkillLv10,
+                exSkillLv1: exSkillLv1,
+                exSkillLv2: exSkillLv2,
+                exSkillLv3: exSkillLv3,
+                exSkillLv4: exSkillLv4,
+                exSkillLv5: exSkillLv5,
+                resistStatusId: resistStatusId,
+                resistVariationId: resistVariationId,
+                accuracy: accuracy,
+                breakDurability: breakDurability,
+                uniqueEquipmentFlag1: uniqueEquipmentFlag1,
+                virtualHp: virtualHp,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$SreEnemyParameterTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $SreEnemyParameterTable,
+      SreEnemyParameterData,
+      $$SreEnemyParameterTableFilterComposer,
+      $$SreEnemyParameterTableOrderingComposer,
+      $$SreEnemyParameterTableAnnotationComposer,
+      $$SreEnemyParameterTableCreateCompanionBuilder,
+      $$SreEnemyParameterTableUpdateCompanionBuilder,
+      (
+        SreEnemyParameterData,
+        BaseReferences<_$AppDb, $SreEnemyParameterTable, SreEnemyParameterData>,
+      ),
+      SreEnemyParameterData,
+      PrefetchHooks Function()
+    >;
+typedef $$TowerEnemyParameterTableCreateCompanionBuilder =
+    TowerEnemyParameterCompanion Function({
+      Value<int> enemyId,
+      required int unitId,
+      required String name,
+      required int level,
+      required int rarity,
+      required int promotionLevel,
+      required int hp,
+      required int atk,
+      required int magicStr,
+      required double def_,
+      required int magicDef,
+      required int physicalCritical,
+      required int magicCritical,
+      required int waveHpRecovery,
+      required int waveEnergyRecovery,
+      required int dodge,
+      required int physicalPenetrate,
+      required int magicPenetrate,
+      required int lifeSteal,
+      required int hpRecoveryRate,
+      required int energyRecoveryRate,
+      required int energyReduceRate,
+      required int unionBurstLevel,
+      required int mainSkillLv1,
+      required int mainSkillLv2,
+      required int mainSkillLv3,
+      required int mainSkillLv4,
+      required int mainSkillLv5,
+      required int mainSkillLv6,
+      required int mainSkillLv7,
+      required int mainSkillLv8,
+      required int mainSkillLv9,
+      required int mainSkillLv10,
+      required int exSkillLv1,
+      required int exSkillLv2,
+      required int exSkillLv3,
+      required int exSkillLv4,
+      required int exSkillLv5,
+      required int resistStatusId,
+      required int resistVariationId,
+      required int accuracy,
+      required int enemyColor,
+    });
+typedef $$TowerEnemyParameterTableUpdateCompanionBuilder =
+    TowerEnemyParameterCompanion Function({
+      Value<int> enemyId,
+      Value<int> unitId,
+      Value<String> name,
+      Value<int> level,
+      Value<int> rarity,
+      Value<int> promotionLevel,
+      Value<int> hp,
+      Value<int> atk,
+      Value<int> magicStr,
+      Value<double> def_,
+      Value<int> magicDef,
+      Value<int> physicalCritical,
+      Value<int> magicCritical,
+      Value<int> waveHpRecovery,
+      Value<int> waveEnergyRecovery,
+      Value<int> dodge,
+      Value<int> physicalPenetrate,
+      Value<int> magicPenetrate,
+      Value<int> lifeSteal,
+      Value<int> hpRecoveryRate,
+      Value<int> energyRecoveryRate,
+      Value<int> energyReduceRate,
+      Value<int> unionBurstLevel,
+      Value<int> mainSkillLv1,
+      Value<int> mainSkillLv2,
+      Value<int> mainSkillLv3,
+      Value<int> mainSkillLv4,
+      Value<int> mainSkillLv5,
+      Value<int> mainSkillLv6,
+      Value<int> mainSkillLv7,
+      Value<int> mainSkillLv8,
+      Value<int> mainSkillLv9,
+      Value<int> mainSkillLv10,
+      Value<int> exSkillLv1,
+      Value<int> exSkillLv2,
+      Value<int> exSkillLv3,
+      Value<int> exSkillLv4,
+      Value<int> exSkillLv5,
+      Value<int> resistStatusId,
+      Value<int> resistVariationId,
+      Value<int> accuracy,
+      Value<int> enemyColor,
+    });
+
+class $$TowerEnemyParameterTableFilterComposer
+    extends Composer<_$AppDb, $TowerEnemyParameterTable> {
+  $$TowerEnemyParameterTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rarity => $composableBuilder(
+    column: $table.rarity,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get enemyColor => $composableBuilder(
+    column: $table.enemyColor,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$TowerEnemyParameterTableOrderingComposer
+    extends Composer<_$AppDb, $TowerEnemyParameterTable> {
+  $$TowerEnemyParameterTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rarity => $composableBuilder(
+    column: $table.rarity,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get enemyColor => $composableBuilder(
+    column: $table.enemyColor,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$TowerEnemyParameterTableAnnotationComposer
+    extends Composer<_$AppDb, $TowerEnemyParameterTable> {
+  $$TowerEnemyParameterTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get enemyId =>
+      $composableBuilder(column: $table.enemyId, builder: (column) => column);
+
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<int> get level =>
+      $composableBuilder(column: $table.level, builder: (column) => column);
+
+  GeneratedColumn<int> get rarity =>
+      $composableBuilder(column: $table.rarity, builder: (column) => column);
+
+  GeneratedColumn<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get hp =>
+      $composableBuilder(column: $table.hp, builder: (column) => column);
+
+  GeneratedColumn<int> get atk =>
+      $composableBuilder(column: $table.atk, builder: (column) => column);
+
+  GeneratedColumn<int> get magicStr =>
+      $composableBuilder(column: $table.magicStr, builder: (column) => column);
+
+  GeneratedColumn<double> get def_ =>
+      $composableBuilder(column: $table.def_, builder: (column) => column);
+
+  GeneratedColumn<int> get magicDef =>
+      $composableBuilder(column: $table.magicDef, builder: (column) => column);
+
+  GeneratedColumn<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get dodge =>
+      $composableBuilder(column: $table.dodge, builder: (column) => column);
+
+  GeneratedColumn<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get lifeSteal =>
+      $composableBuilder(column: $table.lifeSteal, builder: (column) => column);
+
+  GeneratedColumn<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get accuracy =>
+      $composableBuilder(column: $table.accuracy, builder: (column) => column);
+
+  GeneratedColumn<int> get enemyColor => $composableBuilder(
+    column: $table.enemyColor,
+    builder: (column) => column,
+  );
+}
+
+class $$TowerEnemyParameterTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $TowerEnemyParameterTable,
+          TowerEnemyParameterData,
+          $$TowerEnemyParameterTableFilterComposer,
+          $$TowerEnemyParameterTableOrderingComposer,
+          $$TowerEnemyParameterTableAnnotationComposer,
+          $$TowerEnemyParameterTableCreateCompanionBuilder,
+          $$TowerEnemyParameterTableUpdateCompanionBuilder,
+          (
+            TowerEnemyParameterData,
+            BaseReferences<
+              _$AppDb,
+              $TowerEnemyParameterTable,
+              TowerEnemyParameterData
+            >,
+          ),
+          TowerEnemyParameterData,
+          PrefetchHooks Function()
+        > {
+  $$TowerEnemyParameterTableTableManager(
+    _$AppDb db,
+    $TowerEnemyParameterTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TowerEnemyParameterTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$TowerEnemyParameterTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$TowerEnemyParameterTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                Value<int> unitId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<int> level = const Value.absent(),
+                Value<int> rarity = const Value.absent(),
+                Value<int> promotionLevel = const Value.absent(),
+                Value<int> hp = const Value.absent(),
+                Value<int> atk = const Value.absent(),
+                Value<int> magicStr = const Value.absent(),
+                Value<double> def_ = const Value.absent(),
+                Value<int> magicDef = const Value.absent(),
+                Value<int> physicalCritical = const Value.absent(),
+                Value<int> magicCritical = const Value.absent(),
+                Value<int> waveHpRecovery = const Value.absent(),
+                Value<int> waveEnergyRecovery = const Value.absent(),
+                Value<int> dodge = const Value.absent(),
+                Value<int> physicalPenetrate = const Value.absent(),
+                Value<int> magicPenetrate = const Value.absent(),
+                Value<int> lifeSteal = const Value.absent(),
+                Value<int> hpRecoveryRate = const Value.absent(),
+                Value<int> energyRecoveryRate = const Value.absent(),
+                Value<int> energyReduceRate = const Value.absent(),
+                Value<int> unionBurstLevel = const Value.absent(),
+                Value<int> mainSkillLv1 = const Value.absent(),
+                Value<int> mainSkillLv2 = const Value.absent(),
+                Value<int> mainSkillLv3 = const Value.absent(),
+                Value<int> mainSkillLv4 = const Value.absent(),
+                Value<int> mainSkillLv5 = const Value.absent(),
+                Value<int> mainSkillLv6 = const Value.absent(),
+                Value<int> mainSkillLv7 = const Value.absent(),
+                Value<int> mainSkillLv8 = const Value.absent(),
+                Value<int> mainSkillLv9 = const Value.absent(),
+                Value<int> mainSkillLv10 = const Value.absent(),
+                Value<int> exSkillLv1 = const Value.absent(),
+                Value<int> exSkillLv2 = const Value.absent(),
+                Value<int> exSkillLv3 = const Value.absent(),
+                Value<int> exSkillLv4 = const Value.absent(),
+                Value<int> exSkillLv5 = const Value.absent(),
+                Value<int> resistStatusId = const Value.absent(),
+                Value<int> resistVariationId = const Value.absent(),
+                Value<int> accuracy = const Value.absent(),
+                Value<int> enemyColor = const Value.absent(),
+              }) => TowerEnemyParameterCompanion(
+                enemyId: enemyId,
+                unitId: unitId,
+                name: name,
+                level: level,
+                rarity: rarity,
+                promotionLevel: promotionLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                unionBurstLevel: unionBurstLevel,
+                mainSkillLv1: mainSkillLv1,
+                mainSkillLv2: mainSkillLv2,
+                mainSkillLv3: mainSkillLv3,
+                mainSkillLv4: mainSkillLv4,
+                mainSkillLv5: mainSkillLv5,
+                mainSkillLv6: mainSkillLv6,
+                mainSkillLv7: mainSkillLv7,
+                mainSkillLv8: mainSkillLv8,
+                mainSkillLv9: mainSkillLv9,
+                mainSkillLv10: mainSkillLv10,
+                exSkillLv1: exSkillLv1,
+                exSkillLv2: exSkillLv2,
+                exSkillLv3: exSkillLv3,
+                exSkillLv4: exSkillLv4,
+                exSkillLv5: exSkillLv5,
+                resistStatusId: resistStatusId,
+                resistVariationId: resistVariationId,
+                accuracy: accuracy,
+                enemyColor: enemyColor,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                required int unitId,
+                required String name,
+                required int level,
+                required int rarity,
+                required int promotionLevel,
+                required int hp,
+                required int atk,
+                required int magicStr,
+                required double def_,
+                required int magicDef,
+                required int physicalCritical,
+                required int magicCritical,
+                required int waveHpRecovery,
+                required int waveEnergyRecovery,
+                required int dodge,
+                required int physicalPenetrate,
+                required int magicPenetrate,
+                required int lifeSteal,
+                required int hpRecoveryRate,
+                required int energyRecoveryRate,
+                required int energyReduceRate,
+                required int unionBurstLevel,
+                required int mainSkillLv1,
+                required int mainSkillLv2,
+                required int mainSkillLv3,
+                required int mainSkillLv4,
+                required int mainSkillLv5,
+                required int mainSkillLv6,
+                required int mainSkillLv7,
+                required int mainSkillLv8,
+                required int mainSkillLv9,
+                required int mainSkillLv10,
+                required int exSkillLv1,
+                required int exSkillLv2,
+                required int exSkillLv3,
+                required int exSkillLv4,
+                required int exSkillLv5,
+                required int resistStatusId,
+                required int resistVariationId,
+                required int accuracy,
+                required int enemyColor,
+              }) => TowerEnemyParameterCompanion.insert(
+                enemyId: enemyId,
+                unitId: unitId,
+                name: name,
+                level: level,
+                rarity: rarity,
+                promotionLevel: promotionLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                unionBurstLevel: unionBurstLevel,
+                mainSkillLv1: mainSkillLv1,
+                mainSkillLv2: mainSkillLv2,
+                mainSkillLv3: mainSkillLv3,
+                mainSkillLv4: mainSkillLv4,
+                mainSkillLv5: mainSkillLv5,
+                mainSkillLv6: mainSkillLv6,
+                mainSkillLv7: mainSkillLv7,
+                mainSkillLv8: mainSkillLv8,
+                mainSkillLv9: mainSkillLv9,
+                mainSkillLv10: mainSkillLv10,
+                exSkillLv1: exSkillLv1,
+                exSkillLv2: exSkillLv2,
+                exSkillLv3: exSkillLv3,
+                exSkillLv4: exSkillLv4,
+                exSkillLv5: exSkillLv5,
+                resistStatusId: resistStatusId,
+                resistVariationId: resistVariationId,
+                accuracy: accuracy,
+                enemyColor: enemyColor,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$TowerEnemyParameterTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $TowerEnemyParameterTable,
+      TowerEnemyParameterData,
+      $$TowerEnemyParameterTableFilterComposer,
+      $$TowerEnemyParameterTableOrderingComposer,
+      $$TowerEnemyParameterTableAnnotationComposer,
+      $$TowerEnemyParameterTableCreateCompanionBuilder,
+      $$TowerEnemyParameterTableUpdateCompanionBuilder,
+      (
+        TowerEnemyParameterData,
+        BaseReferences<
+          _$AppDb,
+          $TowerEnemyParameterTable,
+          TowerEnemyParameterData
+        >,
+      ),
+      TowerEnemyParameterData,
+      PrefetchHooks Function()
+    >;
+typedef $$SevenEnemyParameterTableCreateCompanionBuilder =
+    SevenEnemyParameterCompanion Function({
+      Value<int> enemyId,
+      required int unitId,
+      required String name,
+      required int level,
+      required int rarity,
+      required int promotionLevel,
+      required int hp,
+      required int atk,
+      required int magicStr,
+      required double def_,
+      required int magicDef,
+      required int physicalCritical,
+      required int magicCritical,
+      required int waveHpRecovery,
+      required int waveEnergyRecovery,
+      required int dodge,
+      required int physicalPenetrate,
+      required int magicPenetrate,
+      required int lifeSteal,
+      required int hpRecoveryRate,
+      required int energyRecoveryRate,
+      required int energyReduceRate,
+      required int unionBurstLevel,
+      required int mainSkillLv1,
+      required int mainSkillLv2,
+      required int mainSkillLv3,
+      required int mainSkillLv4,
+      required int mainSkillLv5,
+      required int mainSkillLv6,
+      required int mainSkillLv7,
+      required int mainSkillLv8,
+      required int mainSkillLv9,
+      required int mainSkillLv10,
+      required int exSkillLv1,
+      required int exSkillLv2,
+      required int exSkillLv3,
+      required int exSkillLv4,
+      required int exSkillLv5,
+      required int resistStatusId,
+      required int resistVariationId,
+      required int accuracy,
+      required int breakDurability,
+      required int uniqueEquipmentFlag1,
+      required int virtualHp,
+    });
+typedef $$SevenEnemyParameterTableUpdateCompanionBuilder =
+    SevenEnemyParameterCompanion Function({
+      Value<int> enemyId,
+      Value<int> unitId,
+      Value<String> name,
+      Value<int> level,
+      Value<int> rarity,
+      Value<int> promotionLevel,
+      Value<int> hp,
+      Value<int> atk,
+      Value<int> magicStr,
+      Value<double> def_,
+      Value<int> magicDef,
+      Value<int> physicalCritical,
+      Value<int> magicCritical,
+      Value<int> waveHpRecovery,
+      Value<int> waveEnergyRecovery,
+      Value<int> dodge,
+      Value<int> physicalPenetrate,
+      Value<int> magicPenetrate,
+      Value<int> lifeSteal,
+      Value<int> hpRecoveryRate,
+      Value<int> energyRecoveryRate,
+      Value<int> energyReduceRate,
+      Value<int> unionBurstLevel,
+      Value<int> mainSkillLv1,
+      Value<int> mainSkillLv2,
+      Value<int> mainSkillLv3,
+      Value<int> mainSkillLv4,
+      Value<int> mainSkillLv5,
+      Value<int> mainSkillLv6,
+      Value<int> mainSkillLv7,
+      Value<int> mainSkillLv8,
+      Value<int> mainSkillLv9,
+      Value<int> mainSkillLv10,
+      Value<int> exSkillLv1,
+      Value<int> exSkillLv2,
+      Value<int> exSkillLv3,
+      Value<int> exSkillLv4,
+      Value<int> exSkillLv5,
+      Value<int> resistStatusId,
+      Value<int> resistVariationId,
+      Value<int> accuracy,
+      Value<int> breakDurability,
+      Value<int> uniqueEquipmentFlag1,
+      Value<int> virtualHp,
+    });
+
+class $$SevenEnemyParameterTableFilterComposer
+    extends Composer<_$AppDb, $SevenEnemyParameterTable> {
+  $$SevenEnemyParameterTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rarity => $composableBuilder(
+    column: $table.rarity,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get breakDurability => $composableBuilder(
+    column: $table.breakDurability,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get uniqueEquipmentFlag1 => $composableBuilder(
+    column: $table.uniqueEquipmentFlag1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get virtualHp => $composableBuilder(
+    column: $table.virtualHp,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$SevenEnemyParameterTableOrderingComposer
+    extends Composer<_$AppDb, $SevenEnemyParameterTable> {
+  $$SevenEnemyParameterTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rarity => $composableBuilder(
+    column: $table.rarity,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get breakDurability => $composableBuilder(
+    column: $table.breakDurability,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get uniqueEquipmentFlag1 => $composableBuilder(
+    column: $table.uniqueEquipmentFlag1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get virtualHp => $composableBuilder(
+    column: $table.virtualHp,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$SevenEnemyParameterTableAnnotationComposer
+    extends Composer<_$AppDb, $SevenEnemyParameterTable> {
+  $$SevenEnemyParameterTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get enemyId =>
+      $composableBuilder(column: $table.enemyId, builder: (column) => column);
+
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<int> get level =>
+      $composableBuilder(column: $table.level, builder: (column) => column);
+
+  GeneratedColumn<int> get rarity =>
+      $composableBuilder(column: $table.rarity, builder: (column) => column);
+
+  GeneratedColumn<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get hp =>
+      $composableBuilder(column: $table.hp, builder: (column) => column);
+
+  GeneratedColumn<int> get atk =>
+      $composableBuilder(column: $table.atk, builder: (column) => column);
+
+  GeneratedColumn<int> get magicStr =>
+      $composableBuilder(column: $table.magicStr, builder: (column) => column);
+
+  GeneratedColumn<double> get def_ =>
+      $composableBuilder(column: $table.def_, builder: (column) => column);
+
+  GeneratedColumn<int> get magicDef =>
+      $composableBuilder(column: $table.magicDef, builder: (column) => column);
+
+  GeneratedColumn<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get dodge =>
+      $composableBuilder(column: $table.dodge, builder: (column) => column);
+
+  GeneratedColumn<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get lifeSteal =>
+      $composableBuilder(column: $table.lifeSteal, builder: (column) => column);
+
+  GeneratedColumn<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get accuracy =>
+      $composableBuilder(column: $table.accuracy, builder: (column) => column);
+
+  GeneratedColumn<int> get breakDurability => $composableBuilder(
+    column: $table.breakDurability,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get uniqueEquipmentFlag1 => $composableBuilder(
+    column: $table.uniqueEquipmentFlag1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get virtualHp =>
+      $composableBuilder(column: $table.virtualHp, builder: (column) => column);
+}
+
+class $$SevenEnemyParameterTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $SevenEnemyParameterTable,
+          SevenEnemyParameterData,
+          $$SevenEnemyParameterTableFilterComposer,
+          $$SevenEnemyParameterTableOrderingComposer,
+          $$SevenEnemyParameterTableAnnotationComposer,
+          $$SevenEnemyParameterTableCreateCompanionBuilder,
+          $$SevenEnemyParameterTableUpdateCompanionBuilder,
+          (
+            SevenEnemyParameterData,
+            BaseReferences<
+              _$AppDb,
+              $SevenEnemyParameterTable,
+              SevenEnemyParameterData
+            >,
+          ),
+          SevenEnemyParameterData,
+          PrefetchHooks Function()
+        > {
+  $$SevenEnemyParameterTableTableManager(
+    _$AppDb db,
+    $SevenEnemyParameterTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$SevenEnemyParameterTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$SevenEnemyParameterTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$SevenEnemyParameterTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                Value<int> unitId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<int> level = const Value.absent(),
+                Value<int> rarity = const Value.absent(),
+                Value<int> promotionLevel = const Value.absent(),
+                Value<int> hp = const Value.absent(),
+                Value<int> atk = const Value.absent(),
+                Value<int> magicStr = const Value.absent(),
+                Value<double> def_ = const Value.absent(),
+                Value<int> magicDef = const Value.absent(),
+                Value<int> physicalCritical = const Value.absent(),
+                Value<int> magicCritical = const Value.absent(),
+                Value<int> waveHpRecovery = const Value.absent(),
+                Value<int> waveEnergyRecovery = const Value.absent(),
+                Value<int> dodge = const Value.absent(),
+                Value<int> physicalPenetrate = const Value.absent(),
+                Value<int> magicPenetrate = const Value.absent(),
+                Value<int> lifeSteal = const Value.absent(),
+                Value<int> hpRecoveryRate = const Value.absent(),
+                Value<int> energyRecoveryRate = const Value.absent(),
+                Value<int> energyReduceRate = const Value.absent(),
+                Value<int> unionBurstLevel = const Value.absent(),
+                Value<int> mainSkillLv1 = const Value.absent(),
+                Value<int> mainSkillLv2 = const Value.absent(),
+                Value<int> mainSkillLv3 = const Value.absent(),
+                Value<int> mainSkillLv4 = const Value.absent(),
+                Value<int> mainSkillLv5 = const Value.absent(),
+                Value<int> mainSkillLv6 = const Value.absent(),
+                Value<int> mainSkillLv7 = const Value.absent(),
+                Value<int> mainSkillLv8 = const Value.absent(),
+                Value<int> mainSkillLv9 = const Value.absent(),
+                Value<int> mainSkillLv10 = const Value.absent(),
+                Value<int> exSkillLv1 = const Value.absent(),
+                Value<int> exSkillLv2 = const Value.absent(),
+                Value<int> exSkillLv3 = const Value.absent(),
+                Value<int> exSkillLv4 = const Value.absent(),
+                Value<int> exSkillLv5 = const Value.absent(),
+                Value<int> resistStatusId = const Value.absent(),
+                Value<int> resistVariationId = const Value.absent(),
+                Value<int> accuracy = const Value.absent(),
+                Value<int> breakDurability = const Value.absent(),
+                Value<int> uniqueEquipmentFlag1 = const Value.absent(),
+                Value<int> virtualHp = const Value.absent(),
+              }) => SevenEnemyParameterCompanion(
+                enemyId: enemyId,
+                unitId: unitId,
+                name: name,
+                level: level,
+                rarity: rarity,
+                promotionLevel: promotionLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                unionBurstLevel: unionBurstLevel,
+                mainSkillLv1: mainSkillLv1,
+                mainSkillLv2: mainSkillLv2,
+                mainSkillLv3: mainSkillLv3,
+                mainSkillLv4: mainSkillLv4,
+                mainSkillLv5: mainSkillLv5,
+                mainSkillLv6: mainSkillLv6,
+                mainSkillLv7: mainSkillLv7,
+                mainSkillLv8: mainSkillLv8,
+                mainSkillLv9: mainSkillLv9,
+                mainSkillLv10: mainSkillLv10,
+                exSkillLv1: exSkillLv1,
+                exSkillLv2: exSkillLv2,
+                exSkillLv3: exSkillLv3,
+                exSkillLv4: exSkillLv4,
+                exSkillLv5: exSkillLv5,
+                resistStatusId: resistStatusId,
+                resistVariationId: resistVariationId,
+                accuracy: accuracy,
+                breakDurability: breakDurability,
+                uniqueEquipmentFlag1: uniqueEquipmentFlag1,
+                virtualHp: virtualHp,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                required int unitId,
+                required String name,
+                required int level,
+                required int rarity,
+                required int promotionLevel,
+                required int hp,
+                required int atk,
+                required int magicStr,
+                required double def_,
+                required int magicDef,
+                required int physicalCritical,
+                required int magicCritical,
+                required int waveHpRecovery,
+                required int waveEnergyRecovery,
+                required int dodge,
+                required int physicalPenetrate,
+                required int magicPenetrate,
+                required int lifeSteal,
+                required int hpRecoveryRate,
+                required int energyRecoveryRate,
+                required int energyReduceRate,
+                required int unionBurstLevel,
+                required int mainSkillLv1,
+                required int mainSkillLv2,
+                required int mainSkillLv3,
+                required int mainSkillLv4,
+                required int mainSkillLv5,
+                required int mainSkillLv6,
+                required int mainSkillLv7,
+                required int mainSkillLv8,
+                required int mainSkillLv9,
+                required int mainSkillLv10,
+                required int exSkillLv1,
+                required int exSkillLv2,
+                required int exSkillLv3,
+                required int exSkillLv4,
+                required int exSkillLv5,
+                required int resistStatusId,
+                required int resistVariationId,
+                required int accuracy,
+                required int breakDurability,
+                required int uniqueEquipmentFlag1,
+                required int virtualHp,
+              }) => SevenEnemyParameterCompanion.insert(
+                enemyId: enemyId,
+                unitId: unitId,
+                name: name,
+                level: level,
+                rarity: rarity,
+                promotionLevel: promotionLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                unionBurstLevel: unionBurstLevel,
+                mainSkillLv1: mainSkillLv1,
+                mainSkillLv2: mainSkillLv2,
+                mainSkillLv3: mainSkillLv3,
+                mainSkillLv4: mainSkillLv4,
+                mainSkillLv5: mainSkillLv5,
+                mainSkillLv6: mainSkillLv6,
+                mainSkillLv7: mainSkillLv7,
+                mainSkillLv8: mainSkillLv8,
+                mainSkillLv9: mainSkillLv9,
+                mainSkillLv10: mainSkillLv10,
+                exSkillLv1: exSkillLv1,
+                exSkillLv2: exSkillLv2,
+                exSkillLv3: exSkillLv3,
+                exSkillLv4: exSkillLv4,
+                exSkillLv5: exSkillLv5,
+                resistStatusId: resistStatusId,
+                resistVariationId: resistVariationId,
+                accuracy: accuracy,
+                breakDurability: breakDurability,
+                uniqueEquipmentFlag1: uniqueEquipmentFlag1,
+                virtualHp: virtualHp,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$SevenEnemyParameterTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $SevenEnemyParameterTable,
+      SevenEnemyParameterData,
+      $$SevenEnemyParameterTableFilterComposer,
+      $$SevenEnemyParameterTableOrderingComposer,
+      $$SevenEnemyParameterTableAnnotationComposer,
+      $$SevenEnemyParameterTableCreateCompanionBuilder,
+      $$SevenEnemyParameterTableUpdateCompanionBuilder,
+      (
+        SevenEnemyParameterData,
+        BaseReferences<
+          _$AppDb,
+          $SevenEnemyParameterTable,
+          SevenEnemyParameterData
+        >,
+      ),
+      SevenEnemyParameterData,
+      PrefetchHooks Function()
+    >;
+typedef $$EnemyParameterTableCreateCompanionBuilder =
+    EnemyParameterCompanion Function({
+      Value<int> enemyId,
+      required int unitId,
+      required String name,
+      required int level,
+      required int rarity,
+      required int promotionLevel,
+      required int hp,
+      required int atk,
+      required int magicStr,
+      required double def_,
+      required int magicDef,
+      required int physicalCritical,
+      required int magicCritical,
+      required int waveHpRecovery,
+      required int waveEnergyRecovery,
+      required int dodge,
+      required int physicalPenetrate,
+      required int magicPenetrate,
+      required int lifeSteal,
+      required int hpRecoveryRate,
+      required int energyRecoveryRate,
+      required int energyReduceRate,
+      required int unionBurstLevel,
+      required int mainSkillLv1,
+      required int mainSkillLv2,
+      required int mainSkillLv3,
+      required int mainSkillLv4,
+      required int mainSkillLv5,
+      required int mainSkillLv6,
+      required int mainSkillLv7,
+      required int mainSkillLv8,
+      required int mainSkillLv9,
+      required int mainSkillLv10,
+      required int exSkillLv1,
+      required int exSkillLv2,
+      required int exSkillLv3,
+      required int exSkillLv4,
+      required int exSkillLv5,
+      required int resistStatusId,
+      required int resistVariationId,
+      required int accuracy,
+      required int breakDurability,
+      required int uniqueEquipmentFlag1,
+      required int virtualHp,
+    });
+typedef $$EnemyParameterTableUpdateCompanionBuilder =
+    EnemyParameterCompanion Function({
+      Value<int> enemyId,
+      Value<int> unitId,
+      Value<String> name,
+      Value<int> level,
+      Value<int> rarity,
+      Value<int> promotionLevel,
+      Value<int> hp,
+      Value<int> atk,
+      Value<int> magicStr,
+      Value<double> def_,
+      Value<int> magicDef,
+      Value<int> physicalCritical,
+      Value<int> magicCritical,
+      Value<int> waveHpRecovery,
+      Value<int> waveEnergyRecovery,
+      Value<int> dodge,
+      Value<int> physicalPenetrate,
+      Value<int> magicPenetrate,
+      Value<int> lifeSteal,
+      Value<int> hpRecoveryRate,
+      Value<int> energyRecoveryRate,
+      Value<int> energyReduceRate,
+      Value<int> unionBurstLevel,
+      Value<int> mainSkillLv1,
+      Value<int> mainSkillLv2,
+      Value<int> mainSkillLv3,
+      Value<int> mainSkillLv4,
+      Value<int> mainSkillLv5,
+      Value<int> mainSkillLv6,
+      Value<int> mainSkillLv7,
+      Value<int> mainSkillLv8,
+      Value<int> mainSkillLv9,
+      Value<int> mainSkillLv10,
+      Value<int> exSkillLv1,
+      Value<int> exSkillLv2,
+      Value<int> exSkillLv3,
+      Value<int> exSkillLv4,
+      Value<int> exSkillLv5,
+      Value<int> resistStatusId,
+      Value<int> resistVariationId,
+      Value<int> accuracy,
+      Value<int> breakDurability,
+      Value<int> uniqueEquipmentFlag1,
+      Value<int> virtualHp,
+    });
+
+class $$EnemyParameterTableFilterComposer
+    extends Composer<_$AppDb, $EnemyParameterTable> {
+  $$EnemyParameterTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rarity => $composableBuilder(
+    column: $table.rarity,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get breakDurability => $composableBuilder(
+    column: $table.breakDurability,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get uniqueEquipmentFlag1 => $composableBuilder(
+    column: $table.uniqueEquipmentFlag1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get virtualHp => $composableBuilder(
+    column: $table.virtualHp,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$EnemyParameterTableOrderingComposer
+    extends Composer<_$AppDb, $EnemyParameterTable> {
+  $$EnemyParameterTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rarity => $composableBuilder(
+    column: $table.rarity,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hp => $composableBuilder(
+    column: $table.hp,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get atk => $composableBuilder(
+    column: $table.atk,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicStr => $composableBuilder(
+    column: $table.magicStr,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get def_ => $composableBuilder(
+    column: $table.def_,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicDef => $composableBuilder(
+    column: $table.magicDef,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dodge => $composableBuilder(
+    column: $table.dodge,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lifeSteal => $composableBuilder(
+    column: $table.lifeSteal,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get breakDurability => $composableBuilder(
+    column: $table.breakDurability,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get uniqueEquipmentFlag1 => $composableBuilder(
+    column: $table.uniqueEquipmentFlag1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get virtualHp => $composableBuilder(
+    column: $table.virtualHp,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$EnemyParameterTableAnnotationComposer
+    extends Composer<_$AppDb, $EnemyParameterTable> {
+  $$EnemyParameterTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get enemyId =>
+      $composableBuilder(column: $table.enemyId, builder: (column) => column);
+
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<int> get level =>
+      $composableBuilder(column: $table.level, builder: (column) => column);
+
+  GeneratedColumn<int> get rarity =>
+      $composableBuilder(column: $table.rarity, builder: (column) => column);
+
+  GeneratedColumn<int> get promotionLevel => $composableBuilder(
+    column: $table.promotionLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get hp =>
+      $composableBuilder(column: $table.hp, builder: (column) => column);
+
+  GeneratedColumn<int> get atk =>
+      $composableBuilder(column: $table.atk, builder: (column) => column);
+
+  GeneratedColumn<int> get magicStr =>
+      $composableBuilder(column: $table.magicStr, builder: (column) => column);
+
+  GeneratedColumn<double> get def_ =>
+      $composableBuilder(column: $table.def_, builder: (column) => column);
+
+  GeneratedColumn<int> get magicDef =>
+      $composableBuilder(column: $table.magicDef, builder: (column) => column);
+
+  GeneratedColumn<int> get physicalCritical => $composableBuilder(
+    column: $table.physicalCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get magicCritical => $composableBuilder(
+    column: $table.magicCritical,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveHpRecovery => $composableBuilder(
+    column: $table.waveHpRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveEnergyRecovery => $composableBuilder(
+    column: $table.waveEnergyRecovery,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get dodge =>
+      $composableBuilder(column: $table.dodge, builder: (column) => column);
+
+  GeneratedColumn<int> get physicalPenetrate => $composableBuilder(
+    column: $table.physicalPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get magicPenetrate => $composableBuilder(
+    column: $table.magicPenetrate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get lifeSteal =>
+      $composableBuilder(column: $table.lifeSteal, builder: (column) => column);
+
+  GeneratedColumn<int> get hpRecoveryRate => $composableBuilder(
+    column: $table.hpRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get energyRecoveryRate => $composableBuilder(
+    column: $table.energyRecoveryRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get energyReduceRate => $composableBuilder(
+    column: $table.energyReduceRate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get unionBurstLevel => $composableBuilder(
+    column: $table.unionBurstLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv1 => $composableBuilder(
+    column: $table.mainSkillLv1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv2 => $composableBuilder(
+    column: $table.mainSkillLv2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv3 => $composableBuilder(
+    column: $table.mainSkillLv3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv4 => $composableBuilder(
+    column: $table.mainSkillLv4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv5 => $composableBuilder(
+    column: $table.mainSkillLv5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv6 => $composableBuilder(
+    column: $table.mainSkillLv6,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv7 => $composableBuilder(
+    column: $table.mainSkillLv7,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv8 => $composableBuilder(
+    column: $table.mainSkillLv8,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv9 => $composableBuilder(
+    column: $table.mainSkillLv9,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mainSkillLv10 => $composableBuilder(
+    column: $table.mainSkillLv10,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv1 => $composableBuilder(
+    column: $table.exSkillLv1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv2 => $composableBuilder(
+    column: $table.exSkillLv2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv3 => $composableBuilder(
+    column: $table.exSkillLv3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv4 => $composableBuilder(
+    column: $table.exSkillLv4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exSkillLv5 => $composableBuilder(
+    column: $table.exSkillLv5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get resistStatusId => $composableBuilder(
+    column: $table.resistStatusId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get resistVariationId => $composableBuilder(
+    column: $table.resistVariationId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get accuracy =>
+      $composableBuilder(column: $table.accuracy, builder: (column) => column);
+
+  GeneratedColumn<int> get breakDurability => $composableBuilder(
+    column: $table.breakDurability,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get uniqueEquipmentFlag1 => $composableBuilder(
+    column: $table.uniqueEquipmentFlag1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get virtualHp =>
+      $composableBuilder(column: $table.virtualHp, builder: (column) => column);
+}
+
+class $$EnemyParameterTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $EnemyParameterTable,
+          EnemyParameterData,
+          $$EnemyParameterTableFilterComposer,
+          $$EnemyParameterTableOrderingComposer,
+          $$EnemyParameterTableAnnotationComposer,
+          $$EnemyParameterTableCreateCompanionBuilder,
+          $$EnemyParameterTableUpdateCompanionBuilder,
+          (
+            EnemyParameterData,
+            BaseReferences<_$AppDb, $EnemyParameterTable, EnemyParameterData>,
+          ),
+          EnemyParameterData,
+          PrefetchHooks Function()
+        > {
+  $$EnemyParameterTableTableManager(_$AppDb db, $EnemyParameterTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$EnemyParameterTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$EnemyParameterTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$EnemyParameterTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                Value<int> unitId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<int> level = const Value.absent(),
+                Value<int> rarity = const Value.absent(),
+                Value<int> promotionLevel = const Value.absent(),
+                Value<int> hp = const Value.absent(),
+                Value<int> atk = const Value.absent(),
+                Value<int> magicStr = const Value.absent(),
+                Value<double> def_ = const Value.absent(),
+                Value<int> magicDef = const Value.absent(),
+                Value<int> physicalCritical = const Value.absent(),
+                Value<int> magicCritical = const Value.absent(),
+                Value<int> waveHpRecovery = const Value.absent(),
+                Value<int> waveEnergyRecovery = const Value.absent(),
+                Value<int> dodge = const Value.absent(),
+                Value<int> physicalPenetrate = const Value.absent(),
+                Value<int> magicPenetrate = const Value.absent(),
+                Value<int> lifeSteal = const Value.absent(),
+                Value<int> hpRecoveryRate = const Value.absent(),
+                Value<int> energyRecoveryRate = const Value.absent(),
+                Value<int> energyReduceRate = const Value.absent(),
+                Value<int> unionBurstLevel = const Value.absent(),
+                Value<int> mainSkillLv1 = const Value.absent(),
+                Value<int> mainSkillLv2 = const Value.absent(),
+                Value<int> mainSkillLv3 = const Value.absent(),
+                Value<int> mainSkillLv4 = const Value.absent(),
+                Value<int> mainSkillLv5 = const Value.absent(),
+                Value<int> mainSkillLv6 = const Value.absent(),
+                Value<int> mainSkillLv7 = const Value.absent(),
+                Value<int> mainSkillLv8 = const Value.absent(),
+                Value<int> mainSkillLv9 = const Value.absent(),
+                Value<int> mainSkillLv10 = const Value.absent(),
+                Value<int> exSkillLv1 = const Value.absent(),
+                Value<int> exSkillLv2 = const Value.absent(),
+                Value<int> exSkillLv3 = const Value.absent(),
+                Value<int> exSkillLv4 = const Value.absent(),
+                Value<int> exSkillLv5 = const Value.absent(),
+                Value<int> resistStatusId = const Value.absent(),
+                Value<int> resistVariationId = const Value.absent(),
+                Value<int> accuracy = const Value.absent(),
+                Value<int> breakDurability = const Value.absent(),
+                Value<int> uniqueEquipmentFlag1 = const Value.absent(),
+                Value<int> virtualHp = const Value.absent(),
+              }) => EnemyParameterCompanion(
+                enemyId: enemyId,
+                unitId: unitId,
+                name: name,
+                level: level,
+                rarity: rarity,
+                promotionLevel: promotionLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                unionBurstLevel: unionBurstLevel,
+                mainSkillLv1: mainSkillLv1,
+                mainSkillLv2: mainSkillLv2,
+                mainSkillLv3: mainSkillLv3,
+                mainSkillLv4: mainSkillLv4,
+                mainSkillLv5: mainSkillLv5,
+                mainSkillLv6: mainSkillLv6,
+                mainSkillLv7: mainSkillLv7,
+                mainSkillLv8: mainSkillLv8,
+                mainSkillLv9: mainSkillLv9,
+                mainSkillLv10: mainSkillLv10,
+                exSkillLv1: exSkillLv1,
+                exSkillLv2: exSkillLv2,
+                exSkillLv3: exSkillLv3,
+                exSkillLv4: exSkillLv4,
+                exSkillLv5: exSkillLv5,
+                resistStatusId: resistStatusId,
+                resistVariationId: resistVariationId,
+                accuracy: accuracy,
+                breakDurability: breakDurability,
+                uniqueEquipmentFlag1: uniqueEquipmentFlag1,
+                virtualHp: virtualHp,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                required int unitId,
+                required String name,
+                required int level,
+                required int rarity,
+                required int promotionLevel,
+                required int hp,
+                required int atk,
+                required int magicStr,
+                required double def_,
+                required int magicDef,
+                required int physicalCritical,
+                required int magicCritical,
+                required int waveHpRecovery,
+                required int waveEnergyRecovery,
+                required int dodge,
+                required int physicalPenetrate,
+                required int magicPenetrate,
+                required int lifeSteal,
+                required int hpRecoveryRate,
+                required int energyRecoveryRate,
+                required int energyReduceRate,
+                required int unionBurstLevel,
+                required int mainSkillLv1,
+                required int mainSkillLv2,
+                required int mainSkillLv3,
+                required int mainSkillLv4,
+                required int mainSkillLv5,
+                required int mainSkillLv6,
+                required int mainSkillLv7,
+                required int mainSkillLv8,
+                required int mainSkillLv9,
+                required int mainSkillLv10,
+                required int exSkillLv1,
+                required int exSkillLv2,
+                required int exSkillLv3,
+                required int exSkillLv4,
+                required int exSkillLv5,
+                required int resistStatusId,
+                required int resistVariationId,
+                required int accuracy,
+                required int breakDurability,
+                required int uniqueEquipmentFlag1,
+                required int virtualHp,
+              }) => EnemyParameterCompanion.insert(
+                enemyId: enemyId,
+                unitId: unitId,
+                name: name,
+                level: level,
+                rarity: rarity,
+                promotionLevel: promotionLevel,
+                hp: hp,
+                atk: atk,
+                magicStr: magicStr,
+                def_: def_,
+                magicDef: magicDef,
+                physicalCritical: physicalCritical,
+                magicCritical: magicCritical,
+                waveHpRecovery: waveHpRecovery,
+                waveEnergyRecovery: waveEnergyRecovery,
+                dodge: dodge,
+                physicalPenetrate: physicalPenetrate,
+                magicPenetrate: magicPenetrate,
+                lifeSteal: lifeSteal,
+                hpRecoveryRate: hpRecoveryRate,
+                energyRecoveryRate: energyRecoveryRate,
+                energyReduceRate: energyReduceRate,
+                unionBurstLevel: unionBurstLevel,
+                mainSkillLv1: mainSkillLv1,
+                mainSkillLv2: mainSkillLv2,
+                mainSkillLv3: mainSkillLv3,
+                mainSkillLv4: mainSkillLv4,
+                mainSkillLv5: mainSkillLv5,
+                mainSkillLv6: mainSkillLv6,
+                mainSkillLv7: mainSkillLv7,
+                mainSkillLv8: mainSkillLv8,
+                mainSkillLv9: mainSkillLv9,
+                mainSkillLv10: mainSkillLv10,
+                exSkillLv1: exSkillLv1,
+                exSkillLv2: exSkillLv2,
+                exSkillLv3: exSkillLv3,
+                exSkillLv4: exSkillLv4,
+                exSkillLv5: exSkillLv5,
+                resistStatusId: resistStatusId,
+                resistVariationId: resistVariationId,
+                accuracy: accuracy,
+                breakDurability: breakDurability,
+                uniqueEquipmentFlag1: uniqueEquipmentFlag1,
+                virtualHp: virtualHp,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$EnemyParameterTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $EnemyParameterTable,
+      EnemyParameterData,
+      $$EnemyParameterTableFilterComposer,
+      $$EnemyParameterTableOrderingComposer,
+      $$EnemyParameterTableAnnotationComposer,
+      $$EnemyParameterTableCreateCompanionBuilder,
+      $$EnemyParameterTableUpdateCompanionBuilder,
+      (
+        EnemyParameterData,
+        BaseReferences<_$AppDb, $EnemyParameterTable, EnemyParameterData>,
+      ),
+      EnemyParameterData,
+      PrefetchHooks Function()
+    >;
 
 class $AppDbManager {
   final _$AppDb _db;
@@ -26330,4 +49289,21 @@ class $AppDbManager {
       $$UnitTalentTableTableManager(_db, _db.unitTalent);
   $$UnitEnemyDataTableTableManager get unitEnemyData =>
       $$UnitEnemyDataTableTableManager(_db, _db.unitEnemyData);
+  $$EventEnemyParameterTableTableManager get eventEnemyParameter =>
+      $$EventEnemyParameterTableTableManager(_db, _db.eventEnemyParameter);
+  $$TalentQuestEnemyParameterTableTableManager get talentQuestEnemyParameter =>
+      $$TalentQuestEnemyParameterTableTableManager(
+        _db,
+        _db.talentQuestEnemyParameter,
+      );
+  $$ShioriEnemyParameterTableTableManager get shioriEnemyParameter =>
+      $$ShioriEnemyParameterTableTableManager(_db, _db.shioriEnemyParameter);
+  $$SreEnemyParameterTableTableManager get sreEnemyParameter =>
+      $$SreEnemyParameterTableTableManager(_db, _db.sreEnemyParameter);
+  $$TowerEnemyParameterTableTableManager get towerEnemyParameter =>
+      $$TowerEnemyParameterTableTableManager(_db, _db.towerEnemyParameter);
+  $$SevenEnemyParameterTableTableManager get sevenEnemyParameter =>
+      $$SevenEnemyParameterTableTableManager(_db, _db.sevenEnemyParameter);
+  $$EnemyParameterTableTableManager get enemyParameter =>
+      $$EnemyParameterTableTableManager(_db, _db.enemyParameter);
 }

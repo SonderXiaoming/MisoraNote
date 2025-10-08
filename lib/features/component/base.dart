@@ -33,8 +33,8 @@ enum UnitRankType {
 
 enum SearchAreaWidthType {
   front,
-  back,
-  middle;
+  middle,
+  back;
 
   static SearchAreaWidthType getType(int width) {
     if (width < 300) {
@@ -221,9 +221,9 @@ enum UnitGetType {
   }
 }
 
-enum EnemyType { all, clanBattle }
+enum EnemyType { all, normal, event, tower, shiori, sre, talentQuest }
 
-enum UnitType { unit, enemy, summon }
+enum UnitType { unit, enemy, summon, enemySummon }
 
 enum Talent {
   fire(1),

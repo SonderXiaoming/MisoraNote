@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:misora_note/constants.dart';
-import 'package:misora_note/core/db/general.dart';
 import 'package:misora_note/core/di/di.dart';
-import 'package:misora_note/core/router/page_extra.dart';
+import 'package:misora_note/core/di/di_parameter.dart';
 import 'package:misora_note/features/component/custom_icon.dart';
 import 'package:misora_note/features/component/base.dart';
-import 'package:misora_note/features/component/unit_card.dart';
+import 'package:misora_note/features/component/card/unit_card.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
@@ -39,15 +38,6 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
     searchController.dispose();
     searchFocusNode.dispose();
     super.dispose();
-  }
-
-  void _onSearchChanged(String query) {
-    if (isSearchById) {
-      return; // 按ID搜索时不自动触发搜索
-    }
-    _searchQuery = query.trim();
-    setState(() {});
-    performSearch(_searchQuery);
   }
 
   void _onSearchSumbit(String query) {
@@ -84,21 +74,33 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
   Future<void> performSearch(String query) async {
     try {
       final db = ref.read(dbProvider);
-      final searchResults = await db.getEnemyData(int.tryParse(query) ?? -1);
+      final enemyId = int.tryParse(query) ?? -1;
+      final parameter = await ref.read(
+        enemyParameterProvider(
+          EnemyParameterProviderParameter(
+            enemyId: enemyId,
+            enemyType: widget.searchType,
+          ),
+        ).future,
+      );
+
+      if (parameter != null) {
+        final searchResults = await db.getEnemyData(parameter.unitId);
+        if (searchResults != null) {
+          final width = MediaQuery.of(context).size.width;
+          context.push(
+            AppRoutes.unitDetail,
+            extra: UnitCard(
+              unitId: searchResults.unitId,
+              unitType: UnitType.enemy,
+              size: (width, 150),
+            ),
+          );
+        }
+      }
       setState(() {
         isSearching = false;
       });
-      if (searchResults != null) {
-        final width = MediaQuery.of(context).size.width;
-        context.push(
-          AppRoutes.unitDetail,
-          extra: UnitCard(
-            unitId: searchResults.unitId,
-            unitType: UnitType.enemy,
-            size: (width, 150),
-          ),
-        );
-      }
     } catch (e) {
       print('搜索失败: $e');
     }

@@ -3,8 +3,11 @@ import 'dart:ui';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/database.dart';
+import 'package:misora_note/core/db/general.dart';
 import 'package:misora_note/core/db/model.dart';
+import 'package:misora_note/core/db/table.dart';
 import 'package:misora_note/core/di/di_parameter.dart';
+import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/image.dart';
 import 'package:misora_note/features/component/skill/skill_info.dart';
 import 'package:misora_note/features/component/skill/skill_type.dart';
@@ -109,6 +112,72 @@ final unitAttackPatternProvider =
 final packageInfoProvider = FutureProvider<PackageInfo>((ref) async {
   return await PackageInfo.fromPlatform();
 });
+
+final enemyParameterProvider =
+    FutureProvider.family<AllEnemyParameter?, EnemyParameterProviderParameter>((
+      ref,
+      parameter,
+    ) async {
+      final db = ref.watch(dbProvider);
+      final enemyType = parameter.enemyType ?? EnemyType.normal;
+      switch (enemyType) {
+        case EnemyType.normal:
+          return AllEnemyParameter.fromEnemyParameter(
+            await db.getEnemyParameter(parameter.enemyId),
+          );
+        case EnemyType.event:
+          AllEnemyParameter? result = AllEnemyParameter.fromEventEnemyParameter(
+            await db.getEventEnemyParameter(parameter.enemyId),
+          );
+          try {
+            result ??= AllEnemyParameter.fromSevenEnemyParameter(
+              await db.getSevenEnemyParameter(parameter.enemyId),
+            );
+          } catch (e) {}
+          return result;
+        case EnemyType.talentQuest:
+          return AllEnemyParameter.fromTalentQuestEnemyParameter(
+            await db.getTalentQuestEnemyParameter(parameter.enemyId),
+          );
+        case EnemyType.shiori:
+          return AllEnemyParameter.fromShioriEnemyParameter(
+            await db.getShioriEnemyParameter(parameter.enemyId),
+          );
+        case EnemyType.sre:
+          return AllEnemyParameter.fromSreEnemyParameter(
+            await db.getSreEnemyParameter(parameter.enemyId),
+          );
+        case EnemyType.tower:
+          return AllEnemyParameter.fromTowerEnemyParameter(
+            await db.getTowerEnemyParameter(parameter.enemyId),
+          );
+        case EnemyType.all:
+          AllEnemyParameter? result = AllEnemyParameter.fromEnemyParameter(
+            await db.getEnemyParameter(parameter.enemyId),
+          );
+          result ??= AllEnemyParameter.fromEventEnemyParameter(
+            await db.getEventEnemyParameter(parameter.enemyId),
+          );
+          result ??= AllEnemyParameter.fromTalentQuestEnemyParameter(
+            await db.getTalentQuestEnemyParameter(parameter.enemyId),
+          );
+          result ??= AllEnemyParameter.fromShioriEnemyParameter(
+            await db.getShioriEnemyParameter(parameter.enemyId),
+          );
+          result ??= AllEnemyParameter.fromSreEnemyParameter(
+            await db.getSreEnemyParameter(parameter.enemyId),
+          );
+          result ??= AllEnemyParameter.fromTowerEnemyParameter(
+            await db.getTowerEnemyParameter(parameter.enemyId),
+          );
+          try {
+            result ??= AllEnemyParameter.fromSevenEnemyParameter(
+              await db.getSevenEnemyParameter(parameter.enemyId),
+            );
+          } catch (e) {}
+          return result;
+      }
+    });
 
 // 语言设置 Notifier
 class LanguageNotifier extends AsyncNotifier<String> {

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:misora_note/constants.dart';
+import 'package:misora_note/core/db/model.dart';
 import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/image.dart';
+import 'package:misora_note/features/component/shape.dart';
 import 'package:misora_note/features/component/tag.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 
@@ -200,6 +202,135 @@ class UnitNameDisplay extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class CharacterCard extends StatelessWidget {
+  final int uniqueNum;
+  final (Color?, Color?) dominantColors;
+  final (double, double) size;
+  final Function() onTap;
+  final CachedImage unitImage;
+  final UnitInfo unitInfo;
+
+  const CharacterCard({
+    super.key,
+    required this.uniqueNum,
+    required this.dominantColors,
+    required this.size,
+    required this.unitImage,
+    required this.onTap,
+    required this.unitInfo,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    Color colorDomain = dominantColors.$1 ?? Color(CustomColors.colorBlack);
+    Color colorVibrant = dominantColors.$2 ?? Color(CustomColors.colorBlack);
+    final nameRaw = unitInfo.unitName.replaceAll("（", "(").replaceAll("）", ")");
+    String mainTitle = nameRaw;
+    String? subTitle;
+    final idx = nameRaw.indexOf('(');
+    if (idx != -1 && nameRaw.endsWith(')')) {
+      mainTitle = nameRaw.substring(0, idx).trim();
+      subTitle = nameRaw.substring(idx + 1, nameRaw.length - 1).trim();
+    }
+    final getType = UnitGetType.fromValue(unitInfo.limitType ?? 1)!;
+
+    final searchAreaWidthType = SearchAreaWidthType.getType(
+      unitInfo.searchAreaWidth ?? 0,
+    );
+    final atkType = AtkType.fromValue(unitInfo.atkType ?? 0);
+    final talent = Talent.fromValue(unitInfo.talentId ?? 0);
+    final textColor = Color(CustomColors.colorWhite);
+    final textStyle = TextStyle(
+      fontSize: size.$2 * 0.055,
+      fontWeight: FontWeight.w500,
+      color: textColor,
+    );
+    return SizedBox(
+      width: size.$1,
+      height: size.$2,
+      child: GestureDetector(
+        onTap: onTap,
+        child: Card(
+          elevation: 4,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          clipBehavior: Clip.hardEdge,
+          child: Stack(
+            children: [
+              unitImage,
+              Positioned(
+                right: 0,
+                child: ClipPath(
+                  clipper: TrapezoidClipper(),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft, // 渐变开始方向
+                        end: Alignment.bottomRight, // 渐变结束方向
+                        colors: [
+                          colorDomain.withAlpha(100),
+                          colorVibrant.withAlpha(200),
+                        ],
+                      ),
+                    ),
+                    height: size.$2,
+                    width: size.$1 * (1 - ratioGolden),
+                  ),
+                ),
+              ),
+              Positioned(
+                right: size.$1 * 0.03,
+                bottom: size.$2 * 0.13,
+                child: UnitAttributeTags(
+                  size: size,
+                  uniqueNum: uniqueNum,
+                  getType: getType,
+                  searchAreaWidthType: searchAreaWidthType,
+                  searchAreaWidth: unitInfo.searchAreaWidth ?? 0,
+                  atkType: atkType,
+                  talent: talent,
+                ),
+              ),
+              // 名称：上小下大
+              Positioned(
+                bottom: 8,
+                left: 8,
+                child: UnitNameDisplay(
+                  size: size,
+                  mainTitle: mainTitle,
+                  subTitle: subTitle,
+                ),
+              ),
+              Positioned(
+                right: size.$1 * 0.03,
+                top: size.$2 * 0.02,
+                child: UnitBasicInfo(
+                  size: size,
+                  ageInt: unitInfo.ageInt ?? -1,
+                  weightInt: unitInfo.weightInt ?? -1,
+                  heightInt: unitInfo.heightInt ?? -1,
+                  birthMonthInt: unitInfo.birthMonthInt,
+                  birthDayInt: unitInfo.birthDayInt,
+                ),
+              ),
+              Positioned(
+                right: size.$1 * 0.03,
+                bottom: size.$2 * 0.01,
+                child: Text(
+                  unitInfo.unitStartTime.split(" ").first,
+                  style: textStyle.copyWith(
+                    fontSize: size.$2 * 0.05,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

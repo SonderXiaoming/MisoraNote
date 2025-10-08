@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/utils/util.dart';
-import 'package:misora_note/features/component/app_check_update.dart';
-import 'package:misora_note/features/component/database_update.dart';
+import 'package:misora_note/features/component/update/app_check_update.dart';
+import 'package:misora_note/features/component/update/database_update.dart';
 import 'package:misora_note/features/component/image.dart';
 import 'package:misora_note/features/component/tag.dart';
 import 'package:misora_note/l10n/app_localizations.dart';

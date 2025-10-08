@@ -1,4 +1,7 @@
 import 'package:flutter/foundation.dart';
+import 'package:misora_note/core/db/database.dart';
+import 'package:misora_note/core/db/general.dart';
+import 'package:misora_note/features/component/base.dart';
 
 class UnitUniqueEquipParameter {
   final int unitId;
@@ -41,4 +44,25 @@ class UnitSkillListParameter {
 
   @override
   int get hashCode => unitId.hashCode ^ levelMap.hashCode;
+}
+
+class EnemyParameterProviderParameter {
+  final int enemyId;
+  final EnemyType? enemyType;
+
+  const EnemyParameterProviderParameter({
+    required this.enemyId,
+    this.enemyType,
+  });
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is EnemyParameterProviderParameter &&
+        other.enemyId == enemyId &&
+        other.enemyType == enemyType;
+  }
+
+  @override
+  int get hashCode => enemyId.hashCode ^ enemyType.hashCode;
 }
