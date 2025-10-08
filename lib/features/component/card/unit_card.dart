@@ -145,17 +145,27 @@ class _UnitCardState extends ConsumerState<UnitCard> {
 
       case UnitType.enemy:
         final enemyUnit = ref.watch(enemyDataProvider(widget.unitId));
+        final weaknessInfo = ref.watch(
+          enemyTalentWeaknessProvider(widget.unitId),
+        );
+        // if (enemyUnit.isLoading || weaknessInfo.isLoading) {
         if (enemyUnit.isLoading) {
           return CircularProgressIndicator();
         }
-        if (enemyUnit.hasError || enemyUnit.value == null) {
+        if (enemyUnit.hasError || enemyUnit.value == null
+        // || weaknessInfo.hasError
+        ) {
           return SizedBox(
             width: widget.size.$1,
             height: widget.size.$2,
             child: Center(child: Icon(Icons.error, size: widget.size.$2 * 0.2)),
           );
         }
-        return EnemyCard(enemyUnit: enemyUnit.value!, size: widget.size);
+        return EnemyCard(
+          enemyUnit: enemyUnit.value!,
+          size: widget.size,
+          weaknessInfo: null, //weaknessInfo.value,
+        );
     }
   }
 }

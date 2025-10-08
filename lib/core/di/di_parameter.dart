@@ -1,6 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:misora_note/core/db/database.dart';
-import 'package:misora_note/core/db/general.dart';
 import 'package:misora_note/features/component/base.dart';
 
 class UnitUniqueEquipParameter {

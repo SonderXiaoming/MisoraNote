@@ -81,15 +81,6 @@ final enemyTalentWeaknessProvider =
       return db.getEnemyTalentWeakness(enemyId);
     });
 
-final enemyParameterProvider =
-    FutureProvider.family<EnemyParameterData?, EnemyParameterArgs>((
-      ref,
-      args,
-    ) async {
-      final db = ref.watch(dbProvider);
-      return db.getEnemyParameters(args.enemyId);
-    });
-
 final unitUniqueEquipProvider =
     FutureProvider.family<UniqueEquipInfo?, UnitUniqueEquipParameter>((
       ref,

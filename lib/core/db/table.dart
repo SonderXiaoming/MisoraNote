@@ -920,7 +920,7 @@ class EnemyTalentWeakness extends Table {
 
 class TalentWeakness extends Table {
   @override
-  String get tableName => "talent_weakness";
+  String get tableName => "talents_weakness";
   @override
   Set<Column> get primaryKey => {resistId};
 
@@ -930,57 +930,4 @@ class TalentWeakness extends Table {
   IntColumn get talent3 => integer().named("talent_3")();
   IntColumn get talent4 => integer().named("talent_4")();
   IntColumn get talent5 => integer().named("talent_5")();
-}
-
-class EnemyParameter extends Table {
-  @override
-  String get tableName => "enemy_parameter";
-  @override
-  Set<Column> get primaryKey => {enemyId};
-
-  IntColumn get enemyId => integer().named("enemy_id")();
-  IntColumn get unitId => integer().named("unit_id")();
-  TextColumn get name => text().named("name")();
-  IntColumn get level => integer().named("level")();
-  IntColumn get rarity => integer().named("rarity")();
-  IntColumn get promotionLevel => integer().named("promotion_level")();
-  IntColumn get hp => integer().named("hp")();
-  IntColumn get atk => integer().named("atk")();
-  IntColumn get magicStr => integer().named("magic_str")();
-  RealColumn get def_ => real().named("def")();
-  IntColumn get magicDef => integer().named("magic_def")();
-  IntColumn get physicalCritical => integer().named("physical_critical")();
-  IntColumn get magicCritical => integer().named("magic_critical")();
-  IntColumn get waveHpRecovery => integer().named("wave_hp_recovery")();
-  IntColumn get waveEnergyRecovery => integer().named("wave_energy_recovery")();
-  IntColumn get dodge => integer().named("dodge")();
-  IntColumn get physicalPenetrate => integer().named("physical_penetrate")();
-  IntColumn get magicPenetrate => integer().named("magic_penetrate")();
-  IntColumn get lifeSteal => integer().named("life_steal")();
-  IntColumn get hpRecoveryRate => integer().named("hp_recovery_rate")();
-  IntColumn get energyRecoveryRate => integer().named("energy_recovery_rate")();
-  IntColumn get energyReduceRate => integer().named("energy_reduce_rate")();
-  IntColumn get unionBurstLevel => integer().named("union_burst_level")();
-  IntColumn get mainSkillLv1 => integer().named("main_skill_lv_1")();
-  IntColumn get mainSkillLv2 => integer().named("main_skill_lv_2")();
-  IntColumn get mainSkillLv3 => integer().named("main_skill_lv_3")();
-  IntColumn get mainSkillLv4 => integer().named("main_skill_lv_4")();
-  IntColumn get mainSkillLv5 => integer().named("main_skill_lv_5")();
-  IntColumn get mainSkillLv6 => integer().named("main_skill_lv_6")();
-  IntColumn get mainSkillLv7 => integer().named("main_skill_lv_7")();
-  IntColumn get mainSkillLv8 => integer().named("main_skill_lv_8")();
-  IntColumn get mainSkillLv9 => integer().named("main_skill_lv_9")();
-  IntColumn get mainSkillLv10 => integer().named("main_skill_lv_10")();
-  IntColumn get exSkillLv1 => integer().named("ex_skill_lv_1")();
-  IntColumn get exSkillLv2 => integer().named("ex_skill_lv_2")();
-  IntColumn get exSkillLv3 => integer().named("ex_skill_lv_3")();
-  IntColumn get exSkillLv4 => integer().named("ex_skill_lv_4")();
-  IntColumn get exSkillLv5 => integer().named("ex_skill_lv_5")();
-  IntColumn get resistStatusId => integer().named("resist_status_id")();
-  IntColumn get resistVariationId => integer().named("resist_variation_id")();
-  IntColumn get accuracy => integer().named("accuracy")();
-  IntColumn get breakDurability => integer().named("break_durability")();
-  IntColumn get uniqueEquipmentFlag1 =>
-      integer().named("unique_equipment_flag_1")();
-  IntColumn get virtualHp => integer().named("virtual_hp")();
 }
