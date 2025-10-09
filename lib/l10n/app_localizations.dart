@@ -460,6 +460,12 @@ abstract class AppLocalizations {
   /// **'版本'**
   String get version;
 
+  /// No description provided for @database_last_update.
+  ///
+  /// In zh, this message translates to:
+  /// **'数据库最后更新'**
+  String get database_last_update;
+
   /// No description provided for @check_update.
   ///
   /// In zh, this message translates to:

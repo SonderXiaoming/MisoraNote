@@ -8,7 +8,7 @@ import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/card/unit_card.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 
-import 'package:misora_note/features/component/filter.dart';
+import 'package:misora_note/features/component/drop_drown.dart';
 
 class SearchFilters extends StatelessWidget {
   final UnitSearchData searchData;
@@ -29,7 +29,7 @@ class SearchFilters extends StatelessWidget {
       children: [
         // 天赋过滤器
         Expanded(
-          child: FilterDropdownWithRadio<Talent>(
+          child: DropdownWithRadio<Talent>(
             label: t.talent,
             value: searchData.talent,
             selectedValue: searchData.talent,
@@ -51,7 +51,7 @@ class SearchFilters extends StatelessWidget {
         SizedBox(width: 8),
         // 位置过滤器
         Expanded(
-          child: FilterDropdownWithRadio<SearchAreaWidthType>(
+          child: DropdownWithRadio<SearchAreaWidthType>(
             label: t.position,
             value: searchData.searchAreaWidth,
             selectedValue: searchData.searchAreaWidth,
@@ -77,7 +77,7 @@ class SearchFilters extends StatelessWidget {
         SizedBox(width: 8),
         // 攻击类型过滤器
         Expanded(
-          child: FilterDropdownWithRadio<AtkType>(
+          child: DropdownWithRadio<AtkType>(
             label: t.attack_type,
             value: searchData.atkType,
             selectedValue: searchData.atkType,
@@ -99,7 +99,7 @@ class SearchFilters extends StatelessWidget {
         SizedBox(width: 8),
         // 专武过滤器
         Expanded(
-          child: FilterDropdownWithRadio<(bool?, bool?)>(
+          child: DropdownWithRadio<(bool?, bool?)>(
             label: t.tool_unique_equip,
             value: (searchData.hasUnique1, searchData.hasUnique2),
             selectedValue: (searchData.hasUnique1, searchData.hasUnique2),

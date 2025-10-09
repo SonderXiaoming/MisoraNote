@@ -123,6 +123,7 @@
   "tw_server": "台服",
   "jp_server": "日服",
   "version": "版本",
+  "database_last_update": "数据库最后更新",
   "check_update": "检查更新",
   "checking_update_failed": "检查更新失败",
   "latest_version": "已是最新版本",

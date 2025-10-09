@@ -2,37 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:misora_note/constants.dart';
 
 class LeadingDot extends StatelessWidget {
-  final bool visible;
+  final bool selected;
   final Color? color;
   final double size;
   final EdgeInsets margin;
 
   const LeadingDot({
     super.key,
-    this.visible = true,
+    this.selected = true,
     this.color,
-    this.size = 8,
-    this.margin = const EdgeInsets.only(right: 6),
+    this.size = 20,
+    this.margin = const EdgeInsets.only(right: 8),
   });
 
   @override
   Widget build(BuildContext context) {
     final dotColor = color ?? Color(CustomColors.colorPrimary);
-    return AnimatedOpacity(
-      duration: const Duration(milliseconds: 120),
-      opacity: visible ? 1 : 0,
-      child: Container(
-        width: size,
-        height: size,
-        margin: margin,
-        decoration: BoxDecoration(color: dotColor, shape: BoxShape.circle),
-      ),
+    return Container(
+      margin: margin,
+      child: selected
+          ? Icon(Icons.radio_button_checked, size: size, color: dotColor)
+          : Icon(Icons.radio_button_unchecked, size: size, color: dotColor),
     );
   }
 }
 
 /// 开头对齐的下拉菜单（带单选圆点）
-class FilterDropdownWithRadio<T> extends StatefulWidget {
+class DropdownWithRadio<T> extends StatefulWidget {
   final String label;
   final T? value;
   final T? selectedValue;
@@ -61,7 +57,7 @@ class FilterDropdownWithRadio<T> extends StatefulWidget {
 
   final Widget? triggerChild;
 
-  const FilterDropdownWithRadio({
+  const DropdownWithRadio({
     super.key,
     required this.label,
     required this.items,
@@ -80,14 +76,17 @@ class FilterDropdownWithRadio<T> extends StatefulWidget {
   });
 
   @override
-  State<FilterDropdownWithRadio<T>> createState() =>
-      _FilterDropdownWithRadioState<T>();
+  State<DropdownWithRadio<T>> createState() => _DropdownWithRadioState<T>();
 }
 
-class _FilterDropdownWithRadioState<T>
-    extends State<FilterDropdownWithRadio<T>> {
+class _DropdownWithRadioState<T> extends State<DropdownWithRadio<T>> {
   final _triggerKey = GlobalKey();
   double _triggerW = 0;
+
+  String displayText() {
+    final map = {for (final it in widget.items) it.$1: it.$2};
+    return map[widget.value] ?? widget.label;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,11 +102,6 @@ class _FilterDropdownWithRadioState<T>
       }
     });
 
-    String displayText() {
-      final map = {for (final it in widget.items) it.$1: it.$2};
-      return map[widget.value] ?? widget.label;
-    }
-
     // 触发器外观
     final trigger = Container(
       key: _triggerKey,
@@ -116,7 +110,8 @@ class _FilterDropdownWithRadioState<T>
         border: Border.all(color: const Color(0xFF000000).withAlpha(60)),
         borderRadius: BorderRadius.circular(8),
       ),
-      child: widget.triggerChild ??
+      child:
+          widget.triggerChild ??
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -126,9 +121,12 @@ class _FilterDropdownWithRadioState<T>
                   color: Color(CustomColors.colorBlack),
                 ),
               ),
-              const SizedBox(width: 6),
-              Icon(Icons.keyboard_arrow_down,
-                  size: 18, color: Color(CustomColors.colorBlack)),
+              Spacer(),
+              Icon(
+                Icons.keyboard_arrow_down,
+                size: 18,
+                color: Color(CustomColors.colorBlack),
+              ),
             ],
           ),
     );
@@ -171,16 +169,11 @@ class _FilterDropdownWithRadioState<T>
                 padding: widget.itemPadding,
                 child: Row(
                   children: [
-                    Icon(
-                      isChecked
-                          ? Icons.radio_button_checked
-                          : Icons.radio_button_unchecked,
-                      size: 16,
-                      color: isChecked
-                          ? Color(CustomColors.colorPrimary)
-                          : Colors.grey,
-                    ),
-                    const SizedBox(width: 8),
+                    if (widget.showLeadingDot)
+                      LeadingDot(
+                        selected: isChecked,
+                        color: widget.leadingDotColor,
+                      ),
                     Expanded(child: Text(item.$2, style: style)),
                   ],
                 ),

@@ -208,6 +208,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get version => '版本';
 
   @override
+  String get database_last_update => '数据库最后更新';
+
+  @override
   String get check_update => '检查更新';
 
   @override

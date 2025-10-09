@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/utils/util.dart';
+import 'package:misora_note/features/component/drop_drown.dart';
 import 'package:misora_note/features/component/update/app_check_update.dart';
 import 'package:misora_note/features/component/update/database_update.dart';
 import 'package:misora_note/features/component/image.dart';
@@ -23,17 +24,6 @@ class DropDownSettings<T> extends StatelessWidget {
     required this.currentValue,
   });
 
-  // 获取当前值的显示文本
-  String getCurrentDisplayText() {
-    try {
-      final currentItem = items.firstWhere((item) => item.$1 == currentValue);
-      return currentItem.$2;
-    } catch (e) {
-      // 如果找不到匹配的项，返回默认值
-      return "---";
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -41,55 +31,18 @@ class DropDownSettings<T> extends StatelessWidget {
 
     return ListTile(
       title: Text(title, style: textTheme.titleMedium),
-      trailing: PopupMenuButton<T?>(
-        onSelected: (T? value) async {
-          if (value != null) {
-            await onSelected(value);
-          }
-        },
-        offset: Offset(12, 45),
-        color: Color(CustomColors.colorWhite),
-        constraints: BoxConstraints(minWidth: mediaWidth / 7),
-        itemBuilder: (BuildContext context) => items.map((child) {
-          return PopupMenuItem<T?>(
-            value: child.$1,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  child.$2,
-                  style: textTheme.bodyMedium?.copyWith(
-                    fontWeight: child.$1 == currentValue
-                        ? FontWeight.bold
-                        : FontWeight.normal,
-                    color: child.$1 == currentValue
-                        ? Color(CustomColors.colorPrimary)
-                        : null,
-                  ),
-                ),
-                SizedBox(width: mediaWidth / 7),
-              ],
-            ),
-          );
-        }).toList(),
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          decoration: BoxDecoration(
-            border: Border.all(color: Color(CustomColors.colorGray)),
-            borderRadius: BorderRadius.circular(6),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(getCurrentDisplayText(), style: textTheme.bodyMedium),
-              SizedBox(width: mediaWidth / 7),
-              Icon(
-                Icons.keyboard_arrow_down,
-                color: Color(CustomColors.colorGray),
-                size: 20,
-              ),
-            ],
-          ),
+      trailing: SizedBox(
+        width: mediaWidth / 6,
+        child: DropdownWithRadio<T>(
+          showLeadingDot: false,
+          label: title,
+          value: currentValue,
+          items: items,
+          onChanged: (value) async {
+            if (value != null) {
+              await onSelected(value);
+            }
+          },
         ),
       ),
     );
@@ -318,7 +271,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                 currentValue: area.value,
               ),
               CheckSettings(
-                title: "${t.version} ${dbVersion.value ?? ''}",
+                title: "${t.database_last_update} ${dbVersion.value ?? ''}",
                 child: IconButton(
                   onPressed: () async {
                     final latestVersion = await checkDatabaseUpdate(
