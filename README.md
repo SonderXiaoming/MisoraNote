@@ -1,7 +1,7 @@
 # 美空笔记 (MisoraNote)
 
 <div align="center">
-  <img src="./resources/img/app_icon.png" alt="美空笔记" width="128" height="128">
+  <img width="128" height="128" alt="icon" src="https://github.com/user-attachments/assets/0423f6bd-1567-44d5-b4cf-122265bcc544" />
   
   <p><strong>公主连结速查助手</strong></p>
   <p>一个专为《公主连结Re:Dive》玩家打造的游戏资料速查工具</p>
