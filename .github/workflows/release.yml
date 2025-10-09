@@ -3,8 +3,8 @@ name: misora_note Release
 on:
   push:
     tags:
-      - 'v*.*.*'  # 触发条件：推送版本标签，如 v1.0.0
-  workflow_dispatch:  # 允许手动触发
+      - "v*.*.*" # 触发条件：推送版本标签，如 v1.0.0
+  workflow_dispatch: # 允许手动触发
 
 jobs:
   # Windows 构建任务
@@ -17,8 +17,8 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.8.0'  # 指定 Flutter 版本
-          channel: 'stable'
+          flutter-version: "3.35.4" # 与本地开发环境版本一致
+          channel: "stable"
 
       - name: Install dependencies
         run: flutter pub get
@@ -58,8 +58,8 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.8.0'
-          channel: 'stable'
+          flutter-version: "3.35.4"
+          channel: "stable"
 
       - name: Get version from tag
         id: get_version
@@ -82,7 +82,7 @@ jobs:
           VERSION="${{ steps.get_version.outputs.VERSION }}"
           # 安装 create-dmg
           brew install create-dmg
-          
+
           # 创建 DMG
           create-dmg \
             --volname "MisoraNote" \
@@ -92,7 +92,7 @@ jobs:
             --app-drop-link 600 185 \
             "misora_note_${VERSION}_macos.dmg" \
             "build/macos/Build/Products/Release/misora_note.app" || true
-          
+
           # 如果 create-dmg 失败，使用备用方法
           if [ ! -f "misora_note_${VERSION}_macos.dmg" ]; then
             hdiutil create -volname "MisoraNote" -srcfolder "build/macos/Build/Products/Release/misora_note.app" -ov -format UDZO "misora_note_${VERSION}_macos.dmg"
@@ -114,14 +114,14 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
-          java-version: '17'
+          distribution: "zulu"
+          java-version: "17"
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.8.0'
-          channel: 'stable'
+          flutter-version: "3.35.4"
+          channel: "stable"
 
       - name: Get version from tag
         id: get_version
@@ -175,8 +175,8 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.8.0'
-          channel: 'stable'
+          flutter-version: "3.35.4"
+          channel: "stable"
 
       - name: Get version from tag
         id: get_version
@@ -195,7 +195,7 @@ jobs:
         run: |
           VERSION="${{ steps.get_version.outputs.VERSION }}"
           flutter build ios --release --no-codesign
-          
+
           # 创建 IPA (未签名，仅用于分发测试)
           cd build/ios/iphoneos
           mkdir Payload
@@ -224,8 +224,8 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.8.0'
-          channel: 'stable'
+          flutter-version: "3.35.4"
+          channel: "stable"
 
       - name: Get version from tag
         id: get_version
@@ -300,7 +300,7 @@ jobs:
           generate_release_notes: true
           body: |
             ## 🚀 MisoraNote Release ${{ steps.get_version.outputs.VERSION }}
-            
+
             ### 📦 下载说明
             - **Windows**: `misora_note_${{ steps.get_version.outputs.VERSION }}_windows_x64.zip` - 解压后运行 `misora_note.exe`
             - **macOS**: `misora_note_${{ steps.get_version.outputs.VERSION }}_macos.dmg` - 双击安装
@@ -311,7 +311,7 @@ jobs:
               - Google Play: `misora_note_${{ steps.get_version.outputs.VERSION }}.aab`
             - **iOS**: `misora_note_${{ steps.get_version.outputs.VERSION }}_ios_unsigned.ipa` (未签名，需要自行签名)
             - **Linux**: `misora_note_${{ steps.get_version.outputs.VERSION }}_linux_x64.tar.gz` - 解压后运行 `misora_note`
-            
+
             ### 📝 更新内容
             请查看下方的自动生成的发布说明。
         env:
