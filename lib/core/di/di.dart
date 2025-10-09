@@ -5,7 +5,6 @@ import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/core/db/general.dart';
 import 'package:misora_note/core/db/model.dart';
-import 'package:misora_note/core/db/table.dart';
 import 'package:misora_note/core/di/di_parameter.dart';
 import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/image.dart';

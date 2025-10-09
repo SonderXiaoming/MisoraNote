@@ -6,7 +6,7 @@ import 'package:drift/native.dart';
 
 @DriftDatabase(tables: [])
 class _TempDb extends GeneratedDatabase {
-  _TempDb(QueryExecutor e) : super(e);
+  _TempDb(super.e);
   @override
   int get schemaVersion => 1;
   @override

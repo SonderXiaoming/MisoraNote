@@ -5,7 +5,6 @@ import 'package:brotli/brotli.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/network/response_model.dart';
 import 'package:misora_note/core/network/base.dart';
-import 'package:misora_note/core/db/unhash.dart' as unhash_lib;
 
 int longUnitId2Short(int longId) {
   return longId ~/ 100;

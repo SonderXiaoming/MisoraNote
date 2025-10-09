@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:misora_note/core/router/page_extra.dart';
 import 'package:misora_note/core/router/transition.dart';
 import 'package:flutter/widgets.dart';
 import 'package:misora_note/features/component/base.dart';
