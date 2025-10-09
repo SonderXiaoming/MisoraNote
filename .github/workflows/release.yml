@@ -258,6 +258,7 @@ jobs:
   # 创建 GitHub Release
   create-release:
     needs: [build-windows, build-macos, build-android, build-ios, build-linux]
+    if: always() # 即使有构建失败也执行
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -269,6 +270,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: artifacts
+        continue-on-error: true # 即使没有 artifact 也继续
 
       - name: Get version from tag
         id: get_version
@@ -281,38 +283,73 @@ jobs:
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Display structure of downloaded files
-        run: ls -R artifacts
+        run: ls -R artifacts || echo "No artifacts found"
+
+      - name: Collect available files
+        id: collect_files
+        run: |
+          FILES=""
+          # 检查每个文件是否存在，存在则添加到列表
+          [ -f "artifacts/windows-exe/misora_note_${{ steps.get_version.outputs.VERSION }}_windows_x64.zip" ] && FILES="${FILES}artifacts/windows-exe/misora_note_${{ steps.get_version.outputs.VERSION }}_windows_x64.zip"$'\n'
+          [ -f "artifacts/macos-dmg/misora_note_${{ steps.get_version.outputs.VERSION }}_macos.dmg" ] && FILES="${FILES}artifacts/macos-dmg/misora_note_${{ steps.get_version.outputs.VERSION }}_macos.dmg"$'\n'
+          [ -f "artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_armeabi-v7a.apk" ] && FILES="${FILES}artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_armeabi-v7a.apk"$'\n'
+          [ -f "artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_arm64-v8a.apk" ] && FILES="${FILES}artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_arm64-v8a.apk"$'\n'
+          [ -f "artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_x86_64.apk" ] && FILES="${FILES}artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_x86_64.apk"$'\n'
+          [ -f "artifacts/android-aab/misora_note_${{ steps.get_version.outputs.VERSION }}.aab" ] && FILES="${FILES}artifacts/android-aab/misora_note_${{ steps.get_version.outputs.VERSION }}.aab"$'\n'
+          [ -f "artifacts/ios-ipa/misora_note_${{ steps.get_version.outputs.VERSION }}_ios_unsigned.ipa" ] && FILES="${FILES}artifacts/ios-ipa/misora_note_${{ steps.get_version.outputs.VERSION }}_ios_unsigned.ipa"$'\n'
+          [ -f "artifacts/linux-tar/misora_note_${{ steps.get_version.outputs.VERSION }}_linux_x64.tar.gz" ] && FILES="${FILES}artifacts/linux-tar/misora_note_${{ steps.get_version.outputs.VERSION }}_linux_x64.tar.gz"$'\n'
+
+          echo "Available files:"
+          echo "$FILES"
+          echo "FILES<<EOF" >> $GITHUB_OUTPUT
+          echo "$FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
+        if: steps.collect_files.outputs.FILES != ''
         with:
-          files: |
-            artifacts/windows-exe/misora_note_${{ steps.get_version.outputs.VERSION }}_windows_x64.zip
-            artifacts/macos-dmg/misora_note_${{ steps.get_version.outputs.VERSION }}_macos.dmg
-            artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_armeabi-v7a.apk
-            artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_arm64-v8a.apk
-            artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_x86_64.apk
-            artifacts/android-aab/misora_note_${{ steps.get_version.outputs.VERSION }}.aab
-            artifacts/ios-ipa/misora_note_${{ steps.get_version.outputs.VERSION }}_ios_unsigned.ipa
-            artifacts/linux-tar/misora_note_${{ steps.get_version.outputs.VERSION }}_linux_x64.tar.gz
+          files: ${{ steps.collect_files.outputs.FILES }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          fail_on_unmatched_files: false # 不因为找不到文件而失败
+          body: |
+            ## 🚀 MisoraNote Release ${{ steps.get_version.outputs.VERSION }}
+
+            > ⚠️ 注意：本次发布可能只包含部分平台的构建文件。
+
+            ### 📦 可用下载
+
+            请检查下方附件列表，下载您需要的平台版本：
+
+            - **Windows**: `misora_note_${{ steps.get_version.outputs.VERSION }}_windows_x64.zip` - 解压后运行 `misora_note.exe`
+            - **macOS**: `misora_note_${{ steps.get_version.outputs.VERSION }}_macos.dmg` - 双击安装
+            - **Android**: 
+              - ARM64: `misora_note_${{ steps.get_version.outputs.VERSION }}_arm64-v8a.apk` (推荐)
+              - ARMv7: `misora_note_${{ steps.get_version.outputs.VERSION }}_armeabi-v7a.apk`
+              - x86_64: `misora_note_${{ steps.get_version.outputs.VERSION }}_x86_64.apk`
+              - Google Play: `misora_note_${{ steps.get_version.outputs.VERSION }}.aab`
+            - **iOS**: `misora_note_${{ steps.get_version.outputs.VERSION }}_ios_unsigned.ipa` (未签名)
+            - **Linux**: `misora_note_${{ steps.get_version.outputs.VERSION }}_linux_x64.tar.gz`
+
+            ### 📝 更新内容
+            请查看下方的自动生成的发布说明。
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Release (Fallback)
+        uses: softprops/action-gh-release@v1
+        if: steps.collect_files.outputs.FILES == ''
+        with:
           draft: false
           prerelease: false
           generate_release_notes: true
           body: |
             ## 🚀 MisoraNote Release ${{ steps.get_version.outputs.VERSION }}
 
-            ### 📦 下载说明
-            - **Windows**: `misora_note_${{ steps.get_version.outputs.VERSION }}_windows_x64.zip` - 解压后运行 `misora_note.exe`
-            - **macOS**: `misora_note_${{ steps.get_version.outputs.VERSION }}_macos.dmg` - 双击安装
-            - **Android**: 
-              - ARM64: `misora_note_${{ steps.get_version.outputs.VERSION }}_arm64-v8a.apk` (推荐，适用于大多数现代设备)
-              - ARMv7: `misora_note_${{ steps.get_version.outputs.VERSION }}_armeabi-v7a.apk` (适用于较老的设备)
-              - x86_64: `misora_note_${{ steps.get_version.outputs.VERSION }}_x86_64.apk` (适用于模拟器)
-              - Google Play: `misora_note_${{ steps.get_version.outputs.VERSION }}.aab`
-            - **iOS**: `misora_note_${{ steps.get_version.outputs.VERSION }}_ios_unsigned.ipa` (未签名，需要自行签名)
-            - **Linux**: `misora_note_${{ steps.get_version.outputs.VERSION }}_linux_x64.tar.gz` - 解压后运行 `misora_note`
+            > ⚠️ 警告：本次发布没有可用的构建文件。所有平台的构建都失败了。
 
-            ### 📝 更新内容
-            请查看下方的自动生成的发布说明。
+            请查看 [Actions](https://github.com/SonderXiaoming/MisoraNote/actions) 页面了解构建失败的详细信息。
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
