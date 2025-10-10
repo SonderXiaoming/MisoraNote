@@ -21,7 +21,7 @@ class EnemyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final searchAreaWidthType = SearchAreaWidthType.getType(
-      enemyUnit.searchAreaWidth ?? 0,
+      enemyUnit.searchAreaWidth,
     );
     final textColor = Color(CustomColors.colorWhite);
     final textStyle = TextStyle(
@@ -77,7 +77,7 @@ class EnemyCard extends StatelessWidget {
               ],
             ),
           ),
-          /*
+
           if (weaknessList.any((v) => v != 100)) ...[
             SizedBox(height: 8),
             Wrap(
@@ -107,7 +107,6 @@ class EnemyCard extends StatelessWidget {
               }).toList(),
             ),
           ],
-           */
         ],
       ),
     );

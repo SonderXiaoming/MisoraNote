@@ -34357,7 +34357,7 @@ class $TalentWeaknessTable extends TalentWeakness
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
-  static const String $name = 'talents_weakness';
+  static const String $name = 'talent_weakness';
   @override
   VerificationContext validateIntegrity(
     Insertable<TalentWeaknessData> instance, {

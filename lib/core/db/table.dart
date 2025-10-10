@@ -920,7 +920,7 @@ class EnemyTalentWeakness extends Table {
 
 class TalentWeakness extends Table {
   @override
-  String get tableName => "talents_weakness";
+  String get tableName => "talent_weakness";
   @override
   Set<Column> get primaryKey => {resistId};
 

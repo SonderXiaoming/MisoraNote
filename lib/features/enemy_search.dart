@@ -73,31 +73,17 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
 
   Future<void> performSearch(String query) async {
     try {
-      final db = ref.read(dbProvider);
       final enemyId = int.tryParse(query) ?? -1;
-      final parameter = await ref.read(
-        enemyParameterProvider(
-          EnemyParameterProviderParameter(
-            enemyId: enemyId,
-            enemyType: widget.searchType,
-          ),
-        ).future,
+      final width = MediaQuery.of(context).size.width;
+      context.push(
+        AppRoutes.unitDetail,
+        extra: UnitCard(
+          unitId: enemyId,
+          unitType: UnitType.enemy,
+          size: (width, 150),
+        ),
       );
 
-      if (parameter != null) {
-        final searchResults = await db.getEnemyData(parameter.unitId);
-        if (searchResults != null) {
-          final width = MediaQuery.of(context).size.width;
-          context.push(
-            AppRoutes.unitDetail,
-            extra: UnitCard(
-              unitId: searchResults.unitId,
-              unitType: UnitType.enemy,
-              size: (width, 150),
-            ),
-          );
-        }
-      }
       setState(() {
         isSearching = false;
       });

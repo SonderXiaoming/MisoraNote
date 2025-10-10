@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:misora_note/core/db/general.dart';
+import 'package:misora_note/core/db/table.dart';
 import 'package:misora_note/core/di/di.dart';
 import 'package:misora_note/core/di/di_parameter.dart';
 import 'package:misora_note/features/component/base.dart';
@@ -111,7 +112,27 @@ class _UnitCardState extends ConsumerState<UnitCard> {
           unitInfo: unitInfoAsync.value!,
         );
       case UnitType.enemySummon:
-        final enemySummonUnit = ref.watch(enemyDataProvider(widget.unitId));
+        final enemyParameter = ref.read(
+          enemyParameterProvider(
+            EnemyParameterProviderParameter(
+              enemyId: widget.unitId,
+              enemyType: EnemyType.normal,
+            ),
+          ),
+        );
+        if (enemyParameter.isLoading) {
+          return CircularProgressIndicator();
+        }
+        if (enemyParameter.hasError || enemyParameter.value == null) {
+          return SizedBox(
+            width: widget.size.$1,
+            height: widget.size.$2,
+            child: Center(child: Icon(Icons.error, size: widget.size.$2 * 0.2)),
+          );
+        }
+        final enemySummonUnit = ref.watch(
+          enemyDataProvider(enemyParameter.value!.unitId),
+        );
         if (enemySummonUnit.isLoading) {
           return CircularProgressIndicator();
         }
@@ -144,17 +165,36 @@ class _UnitCardState extends ConsumerState<UnitCard> {
         );
 
       case UnitType.enemy:
-        final enemyUnit = ref.watch(enemyDataProvider(widget.unitId));
-        final weaknessInfo = ref.watch(
-          enemyTalentWeaknessProvider(widget.unitId),
+        final enemyParameter = ref.read(
+          enemyParameterProvider(
+            EnemyParameterProviderParameter(
+              enemyId: widget.unitId,
+              enemyType: EnemyType.all,
+            ),
+          ),
         );
-        // if (enemyUnit.isLoading || weaknessInfo.isLoading) {
-        if (enemyUnit.isLoading) {
+        if (enemyParameter.isLoading) {
           return CircularProgressIndicator();
         }
-        if (enemyUnit.hasError || enemyUnit.value == null
-        // || weaknessInfo.hasError
-        ) {
+        if (enemyParameter.hasError || enemyParameter.value == null) {
+          return SizedBox(
+            width: widget.size.$1,
+            height: widget.size.$2,
+            child: Center(child: Icon(Icons.error, size: widget.size.$2 * 0.2)),
+          );
+        }
+        final enemyUnit = ref.watch(
+          enemyDataProvider(enemyParameter.value!.unitId),
+        );
+        final weaknessInfo = ref.watch(
+          enemyTalentWeaknessProvider(enemyParameter.value!.unitId),
+        );
+        if (enemyUnit.isLoading || weaknessInfo.isLoading) {
+          return CircularProgressIndicator();
+        }
+        if (enemyUnit.hasError ||
+            enemyUnit.value == null ||
+            weaknessInfo.hasError) {
           return SizedBox(
             width: widget.size.$1,
             height: widget.size.$2,
@@ -164,7 +204,7 @@ class _UnitCardState extends ConsumerState<UnitCard> {
         return EnemyCard(
           enemyUnit: enemyUnit.value!,
           size: widget.size,
-          weaknessInfo: null, //weaknessInfo.value,
+          weaknessInfo: weaknessInfo.value,
         );
     }
   }

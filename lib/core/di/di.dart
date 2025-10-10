@@ -119,70 +119,73 @@ final packageInfoProvider = FutureProvider<PackageInfo>((ref) async {
   return await PackageInfo.fromPlatform();
 });
 
+/// 敌人参数获取策略
+typedef _EnemyParameterFetcher =
+    Future<AllUnitParameter?> Function(AppDb db, int enemyId);
+
+/// 敌人类型与获取策略的映射
+final _enemyParameterStrategies = <EnemyType, _EnemyParameterFetcher>{
+  EnemyType.normal: (db, id) async =>
+      AllUnitParameter.fromEnemyParameter(await db.getEnemyParameter(id)),
+  EnemyType.event: (db, id) async {
+    var result = AllUnitParameter.fromEventEnemyParameter(
+      await db.getEventEnemyParameter(id),
+    );
+    if (result == null) {
+      try {
+        result = AllUnitParameter.fromSevenEnemyParameter(
+          await db.getSevenEnemyParameter(id),
+        );
+      } catch (_) {}
+    }
+    return result;
+  },
+  EnemyType.talentQuest: (db, id) async =>
+      AllUnitParameter.fromTalentQuestEnemyParameter(
+        await db.getTalentQuestEnemyParameter(id),
+      ),
+  EnemyType.shiori: (db, id) async => AllUnitParameter.fromShioriEnemyParameter(
+    await db.getShioriEnemyParameter(id),
+  ),
+  EnemyType.sre: (db, id) async =>
+      AllUnitParameter.fromSreEnemyParameter(await db.getSreEnemyParameter(id)),
+  EnemyType.tower: (db, id) async => AllUnitParameter.fromTowerEnemyParameter(
+    await db.getTowerEnemyParameter(id),
+  ),
+};
+
 final enemyParameterProvider =
-    FutureProvider.family<AllEnemyParameter?, EnemyParameterProviderParameter>((
+    FutureProvider.family<AllUnitParameter?, EnemyParameterProviderParameter>((
       ref,
       parameter,
     ) async {
       final db = ref.watch(dbProvider);
       final enemyType = parameter.enemyType ?? EnemyType.normal;
-      switch (enemyType) {
-        case EnemyType.normal:
-          return AllEnemyParameter.fromEnemyParameter(
-            await db.getEnemyParameter(parameter.enemyId),
-          );
-        case EnemyType.event:
-          AllEnemyParameter? result = AllEnemyParameter.fromEventEnemyParameter(
-            await db.getEventEnemyParameter(parameter.enemyId),
-          );
-          try {
-            result ??= AllEnemyParameter.fromSevenEnemyParameter(
-              await db.getSevenEnemyParameter(parameter.enemyId),
-            );
-          } catch (e) {}
+
+      // 处理特定类型
+      if (enemyType != EnemyType.all) {
+        final fetcher = _enemyParameterStrategies[enemyType];
+        if (fetcher != null) {
+          final result = await fetcher(db, parameter.enemyId);
           return result;
-        case EnemyType.talentQuest:
-          return AllEnemyParameter.fromTalentQuestEnemyParameter(
-            await db.getTalentQuestEnemyParameter(parameter.enemyId),
-          );
-        case EnemyType.shiori:
-          return AllEnemyParameter.fromShioriEnemyParameter(
-            await db.getShioriEnemyParameter(parameter.enemyId),
-          );
-        case EnemyType.sre:
-          return AllEnemyParameter.fromSreEnemyParameter(
-            await db.getSreEnemyParameter(parameter.enemyId),
-          );
-        case EnemyType.tower:
-          return AllEnemyParameter.fromTowerEnemyParameter(
-            await db.getTowerEnemyParameter(parameter.enemyId),
-          );
-        case EnemyType.all:
-          AllEnemyParameter? result = AllEnemyParameter.fromEnemyParameter(
-            await db.getEnemyParameter(parameter.enemyId),
-          );
-          result ??= AllEnemyParameter.fromEventEnemyParameter(
-            await db.getEventEnemyParameter(parameter.enemyId),
-          );
-          result ??= AllEnemyParameter.fromTalentQuestEnemyParameter(
-            await db.getTalentQuestEnemyParameter(parameter.enemyId),
-          );
-          result ??= AllEnemyParameter.fromShioriEnemyParameter(
-            await db.getShioriEnemyParameter(parameter.enemyId),
-          );
-          result ??= AllEnemyParameter.fromSreEnemyParameter(
-            await db.getSreEnemyParameter(parameter.enemyId),
-          );
-          result ??= AllEnemyParameter.fromTowerEnemyParameter(
-            await db.getTowerEnemyParameter(parameter.enemyId),
-          );
-          try {
-            result ??= AllEnemyParameter.fromSevenEnemyParameter(
-              await db.getSevenEnemyParameter(parameter.enemyId),
-            );
-          } catch (e) {}
-          return result;
+        }
+        return null;
       }
+
+      // 处理 all 类型：按顺序尝试所有策略
+      for (final entry in _enemyParameterStrategies.entries) {
+        try {
+          final result = await entry.value(db, parameter.enemyId);
+          if (result != null) {
+            return result;
+          }
+        } catch (_) {
+          // 继续尝试下一个策略
+          continue;
+        }
+      }
+
+      return null;
     });
 
 // 语言设置 Notifier

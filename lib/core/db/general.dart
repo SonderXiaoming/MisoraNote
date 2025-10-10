@@ -124,7 +124,7 @@ class AllUnitData {
   }
 }
 
-class AllEnemyParameter {
+class AllUnitParameter {
   final int enemyId;
   final int unitId;
   final String name;
@@ -167,7 +167,7 @@ class AllEnemyParameter {
   final int resistVariationId;
   final int accuracy;
   final int enemyColor;
-  const AllEnemyParameter({
+  const AllUnitParameter({
     required this.enemyId,
     required this.unitId,
     required this.name,
@@ -212,9 +212,9 @@ class AllEnemyParameter {
     required this.enemyColor,
   });
 
-  static AllEnemyParameter? fromEnemyParameter(EnemyParameterData? data) {
+  static AllUnitParameter? fromEnemyParameter(EnemyParameterData? data) {
     if (data == null) return null;
-    return AllEnemyParameter(
+    return AllUnitParameter(
       enemyId: data.enemyId,
       unitId: data.unitId,
       name: data.name,
@@ -260,11 +260,11 @@ class AllEnemyParameter {
     );
   }
 
-  static AllEnemyParameter? fromEventEnemyParameter(
+  static AllUnitParameter? fromEventEnemyParameter(
     EventEnemyParameterData? data,
   ) {
     if (data == null) return null;
-    return AllEnemyParameter(
+    return AllUnitParameter(
       enemyId: data.enemyId,
       unitId: data.unitId,
       name: "",
@@ -310,11 +310,11 @@ class AllEnemyParameter {
     );
   }
 
-  static AllEnemyParameter? fromTalentQuestEnemyParameter(
+  static AllUnitParameter? fromTalentQuestEnemyParameter(
     TalentQuestEnemyParameterData? data,
   ) {
     if (data == null) return null;
-    return AllEnemyParameter(
+    return AllUnitParameter(
       enemyId: data.enemyId,
       unitId: data.unitId,
 
@@ -362,11 +362,11 @@ class AllEnemyParameter {
     );
   }
 
-  static AllEnemyParameter? fromShioriEnemyParameter(
+  static AllUnitParameter? fromShioriEnemyParameter(
     ShioriEnemyParameterData? data,
   ) {
     if (data == null) return null;
-    return AllEnemyParameter(
+    return AllUnitParameter(
       enemyId: data.enemyId,
       unitId: data.unitId,
       name: "",
@@ -412,9 +412,9 @@ class AllEnemyParameter {
     );
   }
 
-  static AllEnemyParameter? fromSreEnemyParameter(SreEnemyParameterData? data) {
+  static AllUnitParameter? fromSreEnemyParameter(SreEnemyParameterData? data) {
     if (data == null) return null;
-    return AllEnemyParameter(
+    return AllUnitParameter(
       enemyId: data.enemyId,
       unitId: data.unitId,
       name: data.name,
@@ -461,11 +461,11 @@ class AllEnemyParameter {
     );
   }
 
-  static AllEnemyParameter? fromTowerEnemyParameter(
+  static AllUnitParameter? fromTowerEnemyParameter(
     TowerEnemyParameterData? data,
   ) {
     if (data == null) return null;
-    return AllEnemyParameter(
+    return AllUnitParameter(
       enemyId: data.enemyId,
       unitId: data.unitId,
       name: data.name,
@@ -511,11 +511,11 @@ class AllEnemyParameter {
     );
   }
 
-  static AllEnemyParameter? fromSevenEnemyParameter(
+  static AllUnitParameter? fromSevenEnemyParameter(
     SevenEnemyParameterData? data,
   ) {
     if (data == null) return null;
-    return AllEnemyParameter(
+    return AllUnitParameter(
       enemyId: data.enemyId,
       unitId: data.unitId,
       name: data.name,
