@@ -217,6 +217,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get checking_update_failed => '检查更新失败';
 
   @override
+  String get checking_update => '正在检查更新...';
+
+  @override
   String get latest_version => '已是最新版本';
 
   @override

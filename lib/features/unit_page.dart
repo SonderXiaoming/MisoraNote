@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:misora_note/constants.dart';
-import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/core/db/general.dart';
 import 'package:misora_note/core/di/di_parameter.dart';
 import 'package:misora_note/features/component/custom_icon.dart';
@@ -29,43 +28,57 @@ class _UnitPage extends ConsumerState<UnitPage> {
     final width = MediaQuery.of(context).size.width;
     final t = AppLocalizations.of(context)!;
 
-    final atkPatternAsync = ref.watch(
-      unitAttackPatternProvider(widget.card.unitId),
-    );
-
-    // 根据卡片类型获取数据
-    AsyncValue<UnitDataData?> unitDataAsync = const AsyncValue.data(null);
-    AsyncValue<UnitEnemyDataData?> enemyDataAsync = const AsyncValue.data(null);
-
-    if (widget.card.unitType == UnitType.enemy) {
-      enemyDataAsync = ref.watch(enemyDataProvider(widget.card.unitId));
-    } else {
-      unitDataAsync = ref.watch(unitDataProvider(widget.card.unitId));
+    AllUnitData? unitInfo;
+    AllUnitParameter? parameter;
+    switch (widget.card.unitType) {
+      case UnitType.summon:
+      case UnitType.unit:
+        final characterData = ref.watch(unitDataProvider(widget.card.unitId));
+        if (characterData.isLoading) {
+          return Scaffold(body: Center(child: CircularProgressIndicator()));
+        }
+        if (characterData.hasError) {
+          return Scaffold(
+            body: Center(child: Text('Error: ${characterData.error}')),
+          );
+        }
+        if (characterData.value != null) {
+          unitInfo = AllUnitData.fromUnitData(characterData.value!);
+        }
+      case UnitType.enemySummon:
+      case UnitType.enemy:
+        final enemyParameter = ref.watch(
+          enemyParameterProvider(
+            EnemyParameterProviderParameter(enemyId: widget.card.unitId),
+          ),
+        );
+        if (enemyParameter.isLoading) {
+          return Scaffold(body: Center(child: CircularProgressIndicator()));
+        }
+        if (enemyParameter.hasError) {
+          return Scaffold(
+            body: Center(child: Text('Error: ${enemyParameter.error}')),
+          );
+        }
+        if (enemyParameter.value != null) {
+          parameter = enemyParameter.value!;
+          final enemyData = ref.watch(enemyDataProvider(parameter!.unitId));
+          if (enemyData.isLoading) {
+            return Scaffold(body: Center(child: CircularProgressIndicator()));
+          }
+          if (enemyData.value != null) {
+            unitInfo = AllUnitData.fromUnitEnemyData(enemyData.value!);
+          }
+        }
     }
 
-    // 等待数据加载
-    if (unitDataAsync.isLoading || enemyDataAsync.isLoading) {
-      return Scaffold(body: Center(child: CircularProgressIndicator()));
-    }
-
-    if (unitDataAsync.hasError || enemyDataAsync.hasError) {
-      return Scaffold(
-        body: Center(
-          child: Text('Error: ${unitDataAsync.error ?? enemyDataAsync.error}'),
-        ),
-      );
-    }
-
-    // 获取单位信息
-    final UnitDataData? unitData = unitDataAsync.value;
-    final UnitEnemyDataData? enemyData = enemyDataAsync.value;
-    if (unitData == null && enemyData == null) {
+    if (unitInfo == null) {
       return Scaffold(body: Center(child: Text(t.no_data_error)));
     }
 
-    final unitInfo = (unitData != null)
-        ? AllUnitData.fromUnitData(unitData)
-        : AllUnitData.fromUnitEnemyData(enemyData!);
+    final atkPatternAsync = ref.watch(
+      unitAttackPatternProvider(unitInfo.unitId),
+    );
 
     final unitSkillListAsync = ref.watch(
       unitSkillListProvider(
@@ -78,14 +91,13 @@ class _UnitPage extends ConsumerState<UnitPage> {
     );
 
     final textTheme = Theme.of(context).textTheme;
-    var unitCard = widget.card;
+    final unitCard = widget.card;
 
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           SliverLayoutBuilder(
             builder: (context, constraints) {
-              // 召唤物使用较小的高度
               final double expandedHeight = unitCard.size.$2;
               final double radio =
                   ((constraints.scrollOffset -
@@ -99,7 +111,7 @@ class _UnitPage extends ConsumerState<UnitPage> {
                 title: Opacity(
                   opacity: radio,
                   child: Text(
-                    unitInfo.unitName,
+                    unitInfo!.unitName,
                     style: textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -156,7 +168,6 @@ class _UnitPage extends ConsumerState<UnitPage> {
               ),
             ),
 
-          // SliverToBoxAdapter(child: const SizedBox(height: 0)),
           if (atkPatternAsync.isLoading || unitSkillListAsync.isLoading)
             SliverToBoxAdapter(
               child: Center(child: CircularProgressIndicator()),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:misora_note/core/db/general.dart';
-import 'package:misora_note/core/db/table.dart';
 import 'package:misora_note/core/di/di.dart';
 import 'package:misora_note/core/di/di_parameter.dart';
 import 'package:misora_note/features/component/base.dart';
@@ -111,46 +110,15 @@ class _UnitCardState extends ConsumerState<UnitCard> {
           },
           unitInfo: unitInfoAsync.value!,
         );
-      case UnitType.enemySummon:
-        final enemyParameter = ref.read(
-          enemyParameterProvider(
-            EnemyParameterProviderParameter(
-              enemyId: widget.unitId,
-              enemyType: EnemyType.normal,
-            ),
-          ),
-        );
-        if (enemyParameter.isLoading) {
-          return CircularProgressIndicator();
-        }
-        if (enemyParameter.hasError || enemyParameter.value == null) {
-          return SizedBox(
-            width: widget.size.$1,
-            height: widget.size.$2,
-            child: Center(child: Icon(Icons.error, size: widget.size.$2 * 0.2)),
-          );
-        }
-        final enemySummonUnit = ref.watch(
-          enemyDataProvider(enemyParameter.value!.unitId),
-        );
-        if (enemySummonUnit.isLoading) {
-          return CircularProgressIndicator();
-        }
-        if (enemySummonUnit.hasError || enemySummonUnit.value == null) {
-          return SizedBox(
-            width: widget.size.$1,
-            height: widget.size.$2,
-            child: Center(child: Icon(Icons.error, size: widget.size.$2 * 0.2)),
-          );
-        }
-        return SummonCard(
-          summonUnit: AllUnitData.fromUnitEnemyData(enemySummonUnit.value!),
-          size: widget.size,
-        );
+
       case UnitType.summon:
         final summonUnit = ref.watch(unitDataProvider(widget.unitId));
         if (summonUnit.isLoading) {
-          return CircularProgressIndicator();
+          return SizedBox(
+            width: widget.size.$1,
+            height: widget.size.$2,
+            child: Center(child: CircularProgressIndicator()),
+          );
         }
         if (summonUnit.hasError || summonUnit.value == null) {
           return SizedBox(
@@ -163,9 +131,9 @@ class _UnitCardState extends ConsumerState<UnitCard> {
           summonUnit: AllUnitData.fromUnitData(summonUnit.value!),
           size: widget.size,
         );
-
+      case UnitType.enemySummon:
       case UnitType.enemy:
-        final enemyParameter = ref.read(
+        final enemyParameter = ref.watch(
           enemyParameterProvider(
             EnemyParameterProviderParameter(
               enemyId: widget.unitId,
@@ -187,7 +155,7 @@ class _UnitCardState extends ConsumerState<UnitCard> {
           enemyDataProvider(enemyParameter.value!.unitId),
         );
         final weaknessInfo = ref.watch(
-          enemyTalentWeaknessProvider(enemyParameter.value!.unitId),
+          enemyTalentWeaknessProvider(enemyParameter.value!.enemyId),
         );
         if (enemyUnit.isLoading || weaknessInfo.isLoading) {
           return CircularProgressIndicator();

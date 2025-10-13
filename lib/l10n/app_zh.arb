@@ -126,6 +126,7 @@
   "database_last_update": "数据库最后更新",
   "check_update": "检查更新",
   "checking_update_failed": "检查更新失败",
+  "checking_update": "正在检查更新...",
   "latest_version": "已是最新版本",
   "find_new_version": "发现新版本：{arg1}",
   "can_not_launch_url": "无法打开链接",

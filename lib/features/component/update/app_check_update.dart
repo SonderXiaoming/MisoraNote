@@ -30,6 +30,12 @@ class GithubUpdateService extends StatelessWidget {
   final LatestAppVersionResponse? newer;
   const GithubUpdateService({super.key, required this.newer});
 
+  bool checkUpdate(String? currentVersion) {
+    if (newer == null) return false;
+    final version = newer!.tag_name.isNotEmpty ? newer!.tag_name : newer!.name;
+    return version != currentVersion;
+  }
+
   // 你也可以根据 CPU 架构进一步区分：Platform.version / Platform.environment
   static bool pick(
     AppAsset a,

@@ -3,6 +3,7 @@ import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/core/db/model.dart';
 import 'package:misora_note/features/component/base.dart';
+import 'package:misora_note/features/component/image.dart';
 import 'package:misora_note/features/component/tag.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 
@@ -20,9 +21,6 @@ class EnemyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final searchAreaWidthType = SearchAreaWidthType.getType(
-      enemyUnit.searchAreaWidth,
-    );
     final textColor = Color(CustomColors.colorWhite);
     final textStyle = TextStyle(
       fontSize: size.$2 * 0.055,
@@ -48,6 +46,12 @@ class EnemyCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
+          CachedImageWithHide(
+            url: FetchUrl.unitIconUrl(enemyUnit.unitId),
+            width: size.$1 * 0.08,
+            height: size.$1 * 0.08,
+          ),
+          SizedBox(height: 8),
           Text(
             enemyUnit.unitName,
             style: textTheme.headlineMedium?.copyWith(
@@ -56,6 +60,7 @@ class EnemyCard extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8),
+          /*
           BaseTag(
             backgroundColor: Color(
               SearchAreaWidthType.getColor(searchAreaWidthType),
@@ -77,9 +82,8 @@ class EnemyCard extends StatelessWidget {
               ],
             ),
           ),
-
+          */
           if (weaknessList.any((v) => v != 100)) ...[
-            SizedBox(height: 8),
             Wrap(
               alignment: WrapAlignment.center,
               spacing: 8,
@@ -100,8 +104,8 @@ class EnemyCard extends StatelessWidget {
                     vertical: 1.0,
                   ),
                   child: Text(
-                    "${Talent.getName(t, talent)} $value%",
-                    style: textStyle.copyWith(fontSize: size.$2 * 0.17),
+                    "${Talent.getName(t, talent)}+$value%",
+                    style: textStyle.copyWith(fontSize: size.$2 * 0.1),
                   ),
                 );
               }).toList(),

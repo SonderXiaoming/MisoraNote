@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:misora_note/constants.dart';
+import 'package:misora_note/features/component/custom_dialog.dart';
 import 'package:misora_note/features/component/update/app_check_update.dart';
 import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/update/database_update.dart';
 import 'package:misora_note/features/component/card/unit_card.dart';
 import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/core/di/di.dart';
-import 'package:misora_note/core/storage/prefs.dart';
 import 'package:misora_note/core/utils/util.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 
@@ -24,84 +24,86 @@ class _HomePageState extends ConsumerState<HomePage> {
   AppDb get db => ref.watch(dbProvider); // watch以便db变化时自动刷新
   List<int> showUnit = [];
 
-  Future<void> init() async {
-    final t = AppLocalizations.of(context)!;
-    final newer = await fetchLatestRelease();
-    if (newer != null) {
-      final version = newer.tag_name.isNotEmpty ? newer.tag_name : newer.name;
+  Future<void> checkAppUpdate() async {
+    final appAutoUpdate = ref.read(appAutoUpdateProvider);
+    if (appAutoUpdate.value == true) {
+      final newer = await fetchLatestRelease();
       final packageInfo = ref.read(packageInfoProvider);
       final currentVersion = packageInfo.value?.version;
-      final appAutoUpdate = ref.read(appAutoUpdateProvider);
-      if (version != currentVersion && appAutoUpdate.value == true) {
+      final service = GithubUpdateService(newer: newer);
+      if (service.checkUpdate(currentVersion)) {
         await showDialog<Widget>(
           context: context,
           builder: (BuildContext context) {
-            return GithubUpdateService(newer: newer);
+            return service;
           },
         );
       }
     }
-    // 检查数据库文件是否存在
+  }
+
+  Future<void> checkDbUpdate(Area area) async {
+    final latestVersion = await checkDatabaseUpdate(area);
+    final currentVersion = ref.read(currentDbVersionProvider).value;
+    final service = DatabaseUpdateService(newVersion: latestVersion);
+
+    if (service.checkUpdate(currentVersion)) {
+      await showDialog<bool>(
+        context: context,
+        builder: (BuildContext context) {
+          return service;
+        },
+      );
+    }
+  }
+
+  /// 检查数据库文件是否存在
+  Future<bool> checkDatabaseExists() async {
+    final t = AppLocalizations.of(context)!;
     final dbFile = db.dbFile;
     final area = ref.read(areaProvider);
 
     if (!dbFile.existsSync()) {
-      // 数据库文件不存在，要求强制更新
-      if (mounted && context.mounted) {
-        await showDialog<bool>(
-          context: context,
-          barrierDismissible: false,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text(t.database_missing),
-              content: Text(t.database_missing_hit),
-              actions: [
-                FilledButton(
-                  onPressed: () async {
-                    final latestVersion = await checkDatabaseUpdate(
-                      ref.read(areaProvider),
-                    );
-                    Navigator.of(context).pop();
-                    updateDatabase(
-                      ref,
-                      context,
-                      latestVersion,
-                    ).then((value) => init());
-                  },
-                  child: Text(t.download),
-                ),
-
-                FilledButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Text(t.close),
-                ),
-              ],
-            );
-          },
-        );
-      }
-    }
-
-    // 检查自动更新设置
-    final autoUpdate = await Prefs.needAutoUpdate();
-    if (autoUpdate) {
-      final latestVersion = await checkDatabaseUpdate(area);
-      if (latestVersion != null) {
-        final currentVersion = await Prefs.dbVersion(area);
-
-        if (currentVersion != latestVersion && mounted && context.mounted) {
-          // 有新版本，询问用户是否更新
-          await showDialog<bool>(
-            context: context,
-            builder: (BuildContext context) {
-              return DatabaseUpdateDialog(newVersion: latestVersion);
-            },
+      await showDialog<bool>(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(t.database_missing),
+            content: Text(t.database_missing_hit),
+            actions: [
+              FilledButton(
+                onPressed: () async {
+                  final latestVersion = await LoadingDialog.show(
+                    context,
+                    task: checkDatabaseUpdate(area),
+                    title: t.check_update,
+                  );
+                  Navigator.of(context).pop();
+                  await updateDatabase(ref, context, latestVersion);
+                  await init();
+                },
+                child: Text(t.download),
+              ),
+              FilledButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(t.close),
+              ),
+            ],
           );
-        }
-      }
+        },
+      );
+      return false; // 数据库不存在
     }
+    return true; // 数据库存在
+  }
+
+  /// 初始化数据库并加载数据
+  Future<void> initializeDatabase() async {
+    final t = AppLocalizations.of(context)!;
+    final area = ref.read(areaProvider);
 
     try {
       // 正常初始化数据库
@@ -109,13 +111,14 @@ class _HomePageState extends ConsumerState<HomePage> {
       final units = await db
           .getUnitsData(type: UnitRankType.lastUpdate, limit: 6)
           .then((value) => value.map((e) => e.unitId).toList());
+
       if (mounted) {
         setState(() {
           showUnit = units;
         });
       }
     } catch (e) {
-      // 初始化失败，损坏！
+      // 初始化失败，数据库损坏
       if (mounted && context.mounted) {
         await showDialog<bool>(
           context: context,
@@ -127,15 +130,14 @@ class _HomePageState extends ConsumerState<HomePage> {
               actions: [
                 FilledButton(
                   onPressed: () async {
-                    final latestVersion = await checkDatabaseUpdate(
-                      ref.read(areaProvider),
+                    final latestVersion = await LoadingDialog.show(
+                      context,
+                      task: checkDatabaseUpdate(area),
+                      title: t.check_update,
                     );
                     Navigator.of(context).pop();
-                    updateDatabase(
-                      ref,
-                      context,
-                      latestVersion,
-                    ).then((value) => init());
+                    await updateDatabase(ref, context, latestVersion);
+                    await init();
                   },
                   child: Text(t.download),
                 ),
@@ -151,6 +153,31 @@ class _HomePageState extends ConsumerState<HomePage> {
         );
       }
     }
+  }
+
+  /// 主初始化函数
+  Future<void> init() async {
+    // 1. 检查应用更新
+    final appAutoUpdate = ref.read(appAutoUpdateProvider);
+    if (appAutoUpdate.value == true) {
+      await checkAppUpdate();
+    }
+
+    // 2. 检查数据库文件是否存在
+    final dbExists = await checkDatabaseExists();
+    if (!dbExists) {
+      return; // 数据库不存在，用户需要手动下载
+    }
+
+    // 3. 检查数据库自动更新
+    final area = ref.read(areaProvider);
+    final autoUpdate = ref.read(databaseAutoUpdateProvider);
+    if (autoUpdate.value == true) {
+      await checkDbUpdate(area);
+    }
+
+    // 4. 初始化数据库并加载数据
+    await initializeDatabase();
   }
 
   @override

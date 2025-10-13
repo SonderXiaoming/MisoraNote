@@ -101,7 +101,7 @@ class SkillActionText extends StatelessWidget {
             TextButton.icon(
               onPressed: () {
                 // 点击跳转到召唤物角色详情页
-                //final mediaSize = MediaQuery.of(context).size;
+                final width = MediaQuery.of(context).size.width;
                 context.push(
                   AppRoutes.unitDetail,
                   extra: UnitCard(
@@ -109,7 +109,7 @@ class SkillActionText extends StatelessWidget {
                     unitType: unitType == UnitType.enemy
                         ? UnitType.enemySummon
                         : UnitType.summon,
-                    size: (double.infinity, 150),
+                    size: (width, 150),
                   ),
                 );
               },
@@ -237,7 +237,7 @@ class SingleSkillInfo extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      skill.name,
+                      skill.name.isEmpty ? skillSubTitle : skill.name,
                       style: textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w800,
                         color: Color(SkillTextType.getColor(skillType)),
@@ -255,11 +255,14 @@ class SingleSkillInfo extends StatelessWidget {
           const SizedBox(height: 8),
 
           /// 正文描述
-          Text(
-            skill.description ?? t.no_description,
-            style: textTheme.bodyLarge?.copyWith(height: 1.3),
-          ),
-          const SizedBox(height: 12),
+          if (skill.description != null && skill.description!.isNotEmpty) ...[
+            Text(
+              skill.description!,
+              style: textTheme.bodyLarge?.copyWith(height: 1.3),
+            ),
+            const SizedBox(height: 12),
+          ],
+
           Row(
             spacing: 6,
             children: tags

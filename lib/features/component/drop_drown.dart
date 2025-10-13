@@ -137,6 +137,7 @@ class _DropdownWithRadioState<T> extends State<DropdownWithRadio<T>> {
     final dx = (_triggerW == 0) ? 0.0 : -(menuW - _triggerW);
 
     return PopupMenuButton<T?>(
+      useRootNavigator: true,
       tooltip: '',
       position: PopupMenuPosition.under,
       offset: Offset(dx, widget.verticalOffset), // 关键：左对齐
@@ -151,32 +152,27 @@ class _DropdownWithRadioState<T> extends State<DropdownWithRadio<T>> {
         maxWidth: menuW,
         maxHeight: widget.menuMaxHeight,
       ),
+      onSelected: widget.onChanged,
+      onCanceled: () {},
       itemBuilder: (context) {
         return widget.items.map((item) {
           final isChecked = widget.selectedValue == item.$1;
           final style =
               widget.itemStyleBuilder?.call(item.$1) ?? textStyleDefault;
-
           return PopupMenuItem<T?>(
             value: item.$1,
             padding: EdgeInsets.zero,
-            child: InkWell(
-              onTap: () {
-                Navigator.of(context).pop();
-                widget.onChanged(item.$1);
-              },
-              child: Padding(
-                padding: widget.itemPadding,
-                child: Row(
-                  children: [
-                    if (widget.showLeadingDot)
-                      LeadingDot(
-                        selected: isChecked,
-                        color: widget.leadingDotColor,
-                      ),
-                    Expanded(child: Text(item.$2, style: style)),
-                  ],
-                ),
+            child: Padding(
+              padding: widget.itemPadding,
+              child: Row(
+                children: [
+                  if (widget.showLeadingDot)
+                    LeadingDot(
+                      selected: isChecked,
+                      color: widget.leadingDotColor,
+                    ),
+                  Expanded(child: Text(item.$2, style: style)),
+                ],
               ),
             ),
           );

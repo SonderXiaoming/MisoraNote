@@ -58,10 +58,20 @@ Future<void> updateDatabase(
   }
 }
 
-class DatabaseUpdateDialog extends ConsumerWidget {
+class DatabaseUpdateService extends ConsumerWidget {
   final String? newVersion;
 
-  const DatabaseUpdateDialog({super.key, required this.newVersion});
+  const DatabaseUpdateService({super.key, required this.newVersion});
+
+  bool checkUpdate(String? currentVersion) {
+    if (newVersion == null) {
+      return false;
+    }
+    if (currentVersion == null) {
+      return true;
+    }
+    return currentVersion != newVersion;
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

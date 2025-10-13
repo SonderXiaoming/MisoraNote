@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:path/path.dart' as p;
+import 'package:path_provider/path_provider.dart';
 
 const githubOwner = 'YourUser';
 const githubRepo = 'YourRepo';
@@ -87,24 +89,40 @@ class FetchUrl {
       "${FetchUrl.estertionBase}/icon/skill/$skillIconId.webp";
   static String equipmentIconUrl(int equipmentIconId) =>
       "${FetchUrl.estertionBase}/icon/equipment/$equipmentIconId.webp";
-  static String enemyIconUrl(int enemyIconId) =>
+  static String unitIconUrl(int enemyIconId) =>
       "${FetchUrl.estertionBase}/icon/unit/$enemyIconId.webp";
 }
 
 class FilePath {
-  static final base = "resources";
-  static final img = p.join(base, 'img');
+  // 使用异步方法获取应用文档目录（支持 Android/iOS）
+  static Future<String> get baseDir async {
+    final directory = await getApplicationDocumentsDirectory();
+    final resourcesDir = p.join(directory.path, 'misora_note');
+    // 确保目录存在
+    await Directory(resourcesDir).create(recursive: true);
+    return resourcesDir;
+  }
+
+  static String? _cachedBaseDir;
+
+  /// 初始化并缓存 base 目录路径（建议在 app 启动时调用）
+  static Future<void> init() async {
+    _cachedBaseDir = await baseDir;
+  }
+
+  /// 获取缓存的 base 目录（必须先调用 init()）
+  static String get base {
+    if (_cachedBaseDir == null) {
+      throw StateError('FilePath not initialized. Call FilePath.init() first.');
+    }
+    return _cachedBaseDir!;
+  }
+
+  static String get img => p.join("resources", 'img');
+
   static String db(Area area) => p.join(base, 'db', 'redive_${area.name}.db');
-  static String fullcard(int id, int star) =>
-      p.join(base, 'fullcard', 'fullcard_unit_$id${star}1.png');
+
   static String uniqueNumIcon(int num) => p.join(img, 'unique_$num.png');
-  static String skillIcon(int skillIconId) =>
-      p.join(img, 'skill', '$skillIconId.png');
-  static String equipment(int equipmentIconId) =>
-      p.join(img, 'equipment', '$equipmentIconId.png');
-  static String enemyIcon(int enemyIconId) =>
-      p.join(img, 'unit', '$enemyIconId.png');
-  static String teaser(int teaserId) => p.join(base, 'teaser', '$teaserId.png');
 }
 
 class AppRoutes {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/utils/util.dart';
+import 'package:misora_note/features/component/custom_dialog.dart';
 import 'package:misora_note/features/component/drop_drown.dart';
 import 'package:misora_note/features/component/update/app_check_update.dart';
 import 'package:misora_note/features/component/update/database_update.dart';
@@ -221,24 +222,18 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                 title: "${t.version}: $version",
                 child: IconButton(
                   onPressed: () async {
-                    final newer = await fetchLatestRelease();
-                    if (newer != null) {
-                      final version = newer.tag_name.isNotEmpty
-                          ? newer.tag_name
-                          : newer.name;
-                      final packageInfo = ref.read(packageInfoProvider);
-                      final currentVersion = packageInfo.value?.version;
-                      final appAutoUpdate = ref.read(appAutoUpdateProvider);
-                      if (version != currentVersion &&
-                          appAutoUpdate.value == true) {
-                        await showDialog<Widget>(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return GithubUpdateService(newer: newer);
-                          },
-                        );
-                      }
-                    }
+                    // 显示加载提示
+                    final newer = await LoadingDialog.show(
+                      context,
+                      title: t.checking_update,
+                      task: fetchLatestRelease(),
+                    );
+                    await showDialog<Widget>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return GithubUpdateService(newer: newer);
+                      },
+                    );
                   },
                   icon: Icon(Icons.update),
                 ),
@@ -274,8 +269,10 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                 title: "${t.database_last_update} ${dbVersion.value ?? ''}",
                 child: IconButton(
                   onPressed: () async {
-                    final latestVersion = await checkDatabaseUpdate(
-                      area.value!,
+                    final latestVersion = await LoadingDialog.show(
+                      context,
+                      title: t.checking_update,
+                      task: checkDatabaseUpdate(area.value!),
                     );
                     if (latestVersion == null) {
                       if (context.mounted) {
@@ -288,7 +285,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                     await showDialog<Widget>(
                       context: context,
                       builder: (BuildContext context) {
-                        return DatabaseUpdateDialog(newVersion: latestVersion);
+                        return DatabaseUpdateService(newVersion: latestVersion);
                       },
                     );
                   },
@@ -300,8 +297,10 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                 title: t.force_update,
                 child: IconButton(
                   onPressed: () async {
-                    final latestVersion = await checkDatabaseUpdate(
-                      area.value!,
+                    final latestVersion = await LoadingDialog.show(
+                      context,
+                      title: t.checking_update,
+                      task: checkDatabaseUpdate(area.value!),
                     );
                     if (latestVersion == null) {
                       if (context.mounted) {
@@ -360,8 +359,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                 title: t.restore_settings,
                 child: IconButton(
                   onPressed: () async {
-                    final clearPrefs = ref.read(clearAllPrefsProvider);
-                    await clearPrefs;
+                    await ref.read(resetPrefsProvider);
                     if (context.mounted) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text(t.restore_settings_success)),

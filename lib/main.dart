@@ -10,6 +10,10 @@ import 'app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // 初始化 FilePath（必须在使用 FilePath 之前调用）
+  await FilePath.init();
+
   await Hive.initFlutter();
   // 可在此注册 HiveAdapter、打开 Box、加载配置等
   Area initialArea;
@@ -18,7 +22,10 @@ void main() async {
   } catch (_) {
     initialArea = Area.cn;
   }
-  runApp(ProviderScope(overrides: [
-    areaProvider.overrideWith(() => AreaNotifier(initialArea)),
-  ], child: App()));
+  runApp(
+    ProviderScope(
+      overrides: [areaProvider.overrideWith(() => AreaNotifier(initialArea))],
+      child: App(),
+    ),
+  );
 }

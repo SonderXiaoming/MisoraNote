@@ -320,8 +320,8 @@ final appAutoUpdateProvider =
       return AppAutoUpdateNotifier();
     });
 
-final clearAllPrefsProvider = Provider<Future<void>>((ref) async {
-  await Prefs.clear();
+final resetPrefsProvider = Provider<Future<void>>((ref) async {
+  await Prefs.resetToDefaults();
   ref.invalidate(languageProvider);
   ref.invalidate(databaseAreaProvider);
   ref.invalidate(databaseAutoUpdateProvider);

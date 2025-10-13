@@ -1,6 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:misora_note/constants.dart';
 
+class LoadingDialog extends StatelessWidget {
+  final String title;
+  const LoadingDialog({super.key, required this.title});
+
+  static Future<T?> show<T>(
+    BuildContext context, {
+    required String title,
+    Future<T?>? task,
+    bool autoClose = true,
+  }) async {
+    BuildContext? dialogContext;
+    // 显示弹窗
+    showDialog<T>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext ctx) {
+        dialogContext = ctx; // 保存弹窗的上下文
+        return LoadingDialog(title: title);
+      },
+    );
+    // 执行任务
+    try {
+      final result = await task;
+      // 任务完成，关闭弹窗
+      if (autoClose && dialogContext != null && dialogContext!.mounted) {
+        Navigator.of(dialogContext!).pop(result);
+      }
+      return result;
+    } catch (e) {
+      // 出错时关闭弹窗
+      if (dialogContext != null && dialogContext!.mounted) {
+        Navigator.of(dialogContext!).pop();
+      }
+      rethrow;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text(title),
+      content: Row(
+        children: [
+          CircularProgressIndicator(color: Color(CustomColors.colorPrimary)),
+          SizedBox(width: 16),
+          Expanded(
+            child: Text(title, style: Theme.of(context).textTheme.bodyMedium),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class ProgressDialog extends StatefulWidget {
   final String title;
   final double progress;

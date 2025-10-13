@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/di/di.dart';
-import 'package:misora_note/core/di/di_parameter.dart';
 import 'package:misora_note/features/component/custom_icon.dart';
 import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/card/unit_card.dart';
@@ -80,7 +79,7 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
         extra: UnitCard(
           unitId: enemyId,
           unitType: UnitType.enemy,
-          size: (width, 150),
+          size: (width, 200),
         ),
       );
 

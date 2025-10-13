@@ -478,6 +478,12 @@ abstract class AppLocalizations {
   /// **'检查更新失败'**
   String get checking_update_failed;
 
+  /// No description provided for @checking_update.
+  ///
+  /// In zh, this message translates to:
+  /// **'正在检查更新...'**
+  String get checking_update;
+
   /// No description provided for @latest_version.
   ///
   /// In zh, this message translates to:
