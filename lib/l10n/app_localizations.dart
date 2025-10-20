@@ -1138,17 +1138,11 @@ abstract class AppLocalizations {
   /// **'隐匿状态'**
   String get skill_status_1601;
 
-  /// No description provided for @skill_status_1700_21.
+  /// No description provided for @skill_status_1700.
   ///
   /// In zh, this message translates to:
-  /// **'物理防御减少状态'**
-  String get skill_status_1700_21;
-
-  /// No description provided for @skill_status_1700_41.
-  ///
-  /// In zh, this message translates to:
-  /// **'魔法防御减少状态'**
-  String get skill_status_1700_41;
+  /// **'{arg1}状态'**
+  String skill_status_1700(String arg1);
 
   /// No description provided for @skill_status_721.
   ///
@@ -1221,6 +1215,12 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'召唤物、分身除外'**
   String get skill_area_exclude_summon;
+
+  /// No description provided for @skill_area_include_summon.
+  ///
+  /// In zh, this message translates to:
+  /// **'飞行单位在内'**
+  String get skill_area_include_summon;
 
   /// No description provided for @skill_target_none.
   ///
@@ -1567,8 +1567,14 @@ abstract class AppLocalizations {
   /// No description provided for @skill_fixed.
   ///
   /// In zh, this message translates to:
-  /// **'(固定数值，无法被其他技能效果改变)'**
+  /// **'(固定数值)'**
   String get skill_fixed;
+
+  /// No description provided for @skill_cannot_dispel.
+  ///
+  /// In zh, this message translates to:
+  /// **'(不可驱散)'**
+  String get skill_cannot_dispel;
 
   /// No description provided for @skill_physical_critical_damage.
   ///
@@ -1587,6 +1593,12 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'受到的暴击伤害'**
   String get skill_critical_damage_take;
+
+  /// No description provided for @skill_damage_take.
+  ///
+  /// In zh, this message translates to:
+  /// **'受到的伤害'**
+  String get skill_damage_take;
 
   /// No description provided for @skill_physical_damage_take.
   ///
@@ -2029,6 +2041,12 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'TP回复'**
   String get skill_action_tp_recovery;
+
+  /// No description provided for @skill_action_tp_recovery_fix.
+  ///
+  /// In zh, this message translates to:
+  /// **'TP回复（固定）'**
+  String get skill_action_tp_recovery_fix;
 
   /// No description provided for @skill_action_tp_reduce.
   ///
@@ -3003,8 +3021,13 @@ abstract class AppLocalizations {
   /// No description provided for @skill_action_type_desc_110.
   ///
   /// In zh, this message translates to:
-  /// **'使{arg1}受到持续伤害时，额外承受 {arg2} 的伤害{arg3}'**
-  String skill_action_type_desc_110(String arg1, String arg2, String arg3);
+  /// **'使{arg1}受到持续伤害{arg2}时，伤害提升 [{arg3}] 倍{arg4}'**
+  String skill_action_type_desc_110(
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+  );
 
   /// No description provided for @skill_action_type_desc_111.
   ///
@@ -3207,6 +3230,12 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'咒术'**
   String get skill_dot_5;
+
+  /// No description provided for @skill_dot_9.
+  ///
+  /// In zh, this message translates to:
+  /// **'黑炎'**
+  String get skill_dot_9;
 
   /// No description provided for @skill_dot_11.
   ///

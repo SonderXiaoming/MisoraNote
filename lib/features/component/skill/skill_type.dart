@@ -330,8 +330,8 @@ enum SkillActionType {
     for (var e in SkillActionType.values) e.value: e,
   };
 
-  static String getName(AppLocalizations t, SkillActionType type) {
-    switch (type) {
+  String getName(AppLocalizations t) {
+    switch (this) {
       case SkillActionType.unknown:
         return t.unknown;
       case SkillActionType.damage:
@@ -555,6 +555,136 @@ enum SkillActionType {
   }
 }
 
+enum DotType {
+  dot0,
+  dot1,
+  dot2,
+  dot3,
+  dot4,
+  dot5,
+  dot7,
+  dot8,
+  dot9,
+  dot11,
+  unknown;
+
+  static DotType get(int key) {
+    return DotType.values.firstWhere(
+      (e) => e.name == 'dot$key',
+      orElse: () => DotType.unknown,
+    );
+  }
+
+  String getName(AppLocalizations t) {
+    switch (this) {
+      case DotType.dot0:
+        return t.skill_dot_0;
+      case DotType.dot1:
+        return t.skill_dot_1_7;
+      case DotType.dot2:
+        return t.skill_dot_2;
+      case DotType.dot3:
+        return t.skill_dot_3_8;
+      case DotType.dot4:
+        return t.skill_dot_4;
+      case DotType.dot5:
+        return t.skill_dot_5;
+      case DotType.dot7:
+        return t.skill_dot_1_7;
+      case DotType.dot8:
+        return t.skill_dot_3_8;
+      case DotType.dot9:
+        return t.skill_dot_9;
+      case DotType.dot11:
+        return t.skill_dot_11;
+      case DotType.unknown:
+        return t.unknown;
+    }
+  }
+}
+
+enum BuffType {
+  unknown(-1),
+  atk(1),
+  def(2),
+  magicStr(3),
+  magicDef(4),
+  dodge(5),
+  physicalCritical(6),
+  magicCritical(7),
+  energyRecoveryRate(8),
+  lifeSteal(9),
+  speed(10),
+  physicalCriticalDamage(11),
+  magicCriticalDamage(12),
+  accuracy(13),
+  criticalDamageTake(14),
+  damageTake(15),
+  physicalDamageTake(16),
+  magicDamageTake(17),
+  physicalDamage(18),
+  magicDamage(19),
+  maxHp(100);
+
+  final int value;
+  const BuffType(this.value);
+
+  static final Map<int, BuffType> _typeMap = {
+    for (var e in BuffType.values) e.value: e,
+  };
+
+  static BuffType getByType(int value) {
+    return _typeMap[value] ?? BuffType.unknown;
+  }
+
+  String getName(AppLocalizations t) {
+    switch (this) {
+      case BuffType.unknown:
+        return t.unknown;
+      case BuffType.atk:
+        return t.attr_atk;
+      case BuffType.def:
+        return t.attr_def;
+      case BuffType.magicStr:
+        return t.attr_magic_str;
+      case BuffType.magicDef:
+        return t.attr_magic_def;
+      case BuffType.dodge:
+        return t.attr_dodge;
+      case BuffType.physicalCritical:
+        return t.attr_physical_critical;
+      case BuffType.magicCritical:
+        return t.attr_magic_critical;
+      case BuffType.energyRecoveryRate:
+        return t.attr_energy_recovery_rate;
+      case BuffType.lifeSteal:
+        return t.attr_life_steal;
+      case BuffType.speed:
+        return t.skill_speed;
+      case BuffType.physicalCriticalDamage:
+        return t.skill_physical_critical_damage;
+      case BuffType.magicCriticalDamage:
+        return t.skill_magic_critical_damage;
+      case BuffType.accuracy:
+        return t.attr_accuracy;
+      case BuffType.criticalDamageTake:
+        return t.skill_critical_damage_take;
+      case BuffType.damageTake:
+        return t.skill_damage_take;
+      case BuffType.physicalDamageTake:
+        return t.skill_physical_damage_take;
+      case BuffType.magicDamageTake:
+        return t.skill_magic_damage_take;
+      case BuffType.physicalDamage:
+        return t.skill_physical_damage;
+      case BuffType.magicDamage:
+        return t.skill_magic_damage;
+      case BuffType.maxHp:
+        return t.skill_hp_max;
+    }
+  }
+}
+
 enum SkillTextType {
   normal,
   ub,
@@ -590,8 +720,8 @@ enum SkillTextType {
   spSkill4,
   spSkill5;
 
-  static int getColor(SkillTextType type) {
-    switch (type) {
+  int get color {
+    switch (this) {
       case SkillTextType.ub:
       case SkillTextType.ubPlus:
       case SkillTextType.spUb:
@@ -615,8 +745,8 @@ enum SkillTextType {
     }
   }
 
-  static String getName(AppLocalizations t, SkillTextType type) {
-    switch (type) {
+  String getName(AppLocalizations t) {
+    switch (this) {
       case SkillTextType.normal:
         return t.normal_attack;
       case SkillTextType.ub:

@@ -54,8 +54,8 @@ class UnitAttributeTags extends StatelessWidget {
             uniqueIcon,
             SizedBox(width: size.$2 * 0.03),
             BaseTag(
-              backgroundColor: Color(UnitGetType.getColor(getType)),
-              child: Text(UnitGetType.getName(t, getType), style: textStyle),
+              backgroundColor: Color(getType.color),
+              child: Text(getType.getName(t), style: textStyle),
             ),
           ],
         ),
@@ -63,20 +63,14 @@ class UnitAttributeTags extends StatelessWidget {
         Row(
           children: [
             BaseTag(
-              backgroundColor: Color(
-                SearchAreaWidthType.getColor(searchAreaWidthType),
-              ),
+              backgroundColor: Color(searchAreaWidthType.color),
               padding: const EdgeInsets.symmetric(
                 horizontal: 8.0,
                 vertical: 1.0,
               ),
               child: Row(
                 children: [
-                  SearchAreaWidthType.getIcon(
-                    searchAreaWidthType,
-                    size.$2 * 0.07,
-                    size.$2 * 0.07,
-                  ),
+                  searchAreaWidthType.getIcon(size.$2 * 0.07, size.$2 * 0.07),
                   SizedBox(width: size.$2 * 0.01),
                   Text(
                     "$searchAreaWidth",
@@ -87,12 +81,12 @@ class UnitAttributeTags extends StatelessWidget {
             ),
             SizedBox(width: size.$2 * 0.03),
             BaseTag(
-              backgroundColor: Color(AtkType.getColor(atkType)),
+              backgroundColor: Color(atkType.color),
               child: Row(
                 children: [
-                  AtkType.getIcon(atkType, size.$2 * 0.07, size.$2 * 0.07),
+                  atkType.getIcon(size.$2 * 0.07, size.$2 * 0.07),
                   SizedBox(width: size.$2 * 0.01),
-                  Text(Talent.getName(t, talent), style: textStyle),
+                  Text(talent.getName(t), style: textStyle),
                 ],
               ),
             ),

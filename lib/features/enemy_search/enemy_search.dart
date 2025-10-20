@@ -19,10 +19,11 @@ class EnemySearch extends ConsumerStatefulWidget {
 class _EnemySearchState extends ConsumerState<EnemySearch> {
   final SearchController searchController = SearchController();
   final FocusNode searchFocusNode = FocusNode();
+  late EnemyType searchType;
 
   Map<EnemyType, int> results = {}; // 统一的结果列表，包含默认和搜索结果
   Map<EnemyType, int>? defaultResult;
-  String _searchQuery = '';
+  String searchQuery = '';
   bool isSearching = false; // 是否正在搜索
   bool isSearchById = false; // 是否按ID搜索
   bool isAscending = false; // 是否正序排列
@@ -30,6 +31,7 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
   @override
   void initState() {
     super.initState();
+    searchType = widget.searchType;
   }
 
   @override
@@ -40,16 +42,16 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
   }
 
   void _onSearchSumbit(String query) {
-    _searchQuery = query.trim();
+    searchQuery = query.trim();
     setState(() {});
-    performSearch(_searchQuery);
+    performSearch(searchQuery);
   }
 
   void toggleSearchMode() {
     setState(() {
       isSearchById = !isSearchById;
       searchController.clear();
-      _searchQuery = '';
+      searchQuery = '';
     });
     loadDefaultResults();
     searchFocusNode.requestFocus();
@@ -63,10 +65,31 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
     setState(() {
       isAscending = !isAscending;
     });
-    if (_searchQuery.isEmpty) {
+    if (searchQuery.isEmpty) {
       loadDefaultResults();
     } else {
-      performSearch(_searchQuery);
+      performSearch(searchQuery);
+    }
+  }
+
+  bool hasActiveFilters() {
+    return false;
+  }
+
+  void performSearchWithFilters() {
+    return;
+  }
+
+  void changeEnemyType(EnemyType? newType) {
+    if (newType != null && newType != searchType) {
+      setState(() {
+        searchType = newType;
+      });
+      if (searchQuery.isEmpty && !hasActiveFilters()) {
+        loadDefaultResults();
+      } else {
+        performSearchWithFilters();
+      }
     }
   }
 
@@ -94,7 +117,7 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
   void _clearSearch() {
     searchController.clear();
     setState(() {
-      _searchQuery = '';
+      searchQuery = '';
     });
     loadDefaultResults();
     searchFocusNode.requestFocus();
@@ -108,7 +131,7 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
     for (var id in db.r6Units) {
       r6Units[id] = true;
     }
-    final texttheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       body: Column(
         children: [
@@ -150,9 +173,9 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
                       Icons.search,
                       color: Color(CustomColors.colorPrimary),
                     ),
-                    trailing: _searchQuery.isNotEmpty
+                    trailing: searchQuery.isNotEmpty
                         ? [
-                            if (_searchQuery.isNotEmpty)
+                            if (searchQuery.isNotEmpty)
                               IconButton(
                                 icon: Icon(
                                   Icons.clear,
@@ -201,9 +224,9 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
                   ),
                 ),
                 const SizedBox(width: 4),
-                /*
-                PopupMenuButton<UnitRankType>(
-                  onSelected: _changeRankType,
+
+                PopupMenuButton<EnemyType>(
+                  onSelected: changeEnemyType,
                   position: PopupMenuPosition.under,
                   elevation: 8,
                   shape: RoundedRectangleBorder(
@@ -216,9 +239,9 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
                     maxHeight: 300,
                   ),
                   itemBuilder: (BuildContext context) {
-                    return UnitRankType.values.map((UnitRankType type) {
-                      final isSelected = type == _rankType;
-                      return PopupMenuItem<UnitRankType>(
+                    return EnemyType.values.map((EnemyType type) {
+                      final isSelected = type == searchType;
+                      return PopupMenuItem<EnemyType>(
                         value: type,
                         child: Row(
                           children: [
@@ -234,8 +257,8 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
                             const SizedBox(width: 8),
                             Expanded(
                               child: Text(
-                                UnitRankType.getName(t, type),
-                                style: texttheme.bodyMedium,
+                                type.getName(t),
+                                style: textTheme.bodyMedium,
                               ),
                             ),
                           ],
@@ -252,7 +275,7 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
                     ),
                   ),
                 ),
-                */
+
                 const SizedBox(width: 4),
                 CustomIconButton(
                   backgroundColor: Colors.transparent,

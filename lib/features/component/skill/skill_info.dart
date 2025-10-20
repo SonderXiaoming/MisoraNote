@@ -163,7 +163,7 @@ class SingleSkillInfo extends StatelessWidget {
       if (type == SkillActionType.unknown) {
         tag = actionHandler.tag;
       } else {
-        tag = SkillActionType.getName(actionHandler.t, type);
+        tag = type.getName(actionHandler.t);
       }
       tag = tag.isEmpty ? actionHandler.tag : tag;
 
@@ -191,7 +191,7 @@ class SingleSkillInfo extends StatelessWidget {
     final borderColor = Color(CustomColors.colorGray).withAlpha(50);
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    String skillSubTitle = SkillTextType.getName(t, skillType);
+    String skillSubTitle = skillType.getName(t);
     if (skill.skillCastTime > 0) {
       skillSubTitle +=
           '\t\t\t${t.skill_cooltime(skill.skillCastTime.toString())}';
@@ -240,7 +240,7 @@ class SingleSkillInfo extends StatelessWidget {
                       skill.name.isEmpty ? skillSubTitle : skill.name,
                       style: textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w800,
-                        color: Color(SkillTextType.getColor(skillType)),
+                        color: Color(skillType.color),
                       ),
                     ),
                     const SizedBox(height: 2),

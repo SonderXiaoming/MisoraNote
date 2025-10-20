@@ -7,7 +7,7 @@ import 'package:misora_note/features/component/card/unit_card.dart';
 import 'package:misora_note/features/function_page.dart';
 import 'package:misora_note/features/unit_page.dart';
 import 'package:misora_note/features/unit_search.dart';
-import 'package:misora_note/features/enemy_search.dart';
+import 'package:misora_note/features/enemy_search/enemy_search.dart';
 import 'package:misora_note/core/router/responsive_navigation.dart';
 import '../../features/home_page.dart';
 import '../../features/settings_page.dart';

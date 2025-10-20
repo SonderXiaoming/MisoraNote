@@ -62,7 +62,7 @@ class _UnitPage extends ConsumerState<UnitPage> {
         }
         if (enemyParameter.value != null) {
           parameter = enemyParameter.value!;
-          final enemyData = ref.watch(enemyDataProvider(parameter!.unitId));
+          final enemyData = ref.watch(enemyDataProvider(parameter.unitId));
           if (enemyData.isLoading) {
             return Scaffold(body: Center(child: CircularProgressIndicator()));
           }

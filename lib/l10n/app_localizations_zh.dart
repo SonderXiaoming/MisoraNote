@@ -555,10 +555,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get skill_status_1601 => '隐匿状态';
 
   @override
-  String get skill_status_1700_21 => '物理防御减少状态';
-
-  @override
-  String get skill_status_1700_41 => '魔法防御减少状态';
+  String skill_status_1700(String arg1) {
+    return '$arg1状态';
+  }
 
   @override
   String get skill_status_721 => '特殊标记状态';
@@ -595,6 +594,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get skill_area_exclude_summon => '召唤物、分身除外';
+
+  @override
+  String get skill_area_include_summon => '飞行单位在内';
 
   @override
   String get skill_target_none => '目标';
@@ -774,7 +776,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get skill_reduce => '减少';
 
   @override
-  String get skill_fixed => '(固定数值，无法被其他技能效果改变)';
+  String get skill_fixed => '(固定数值)';
+
+  @override
+  String get skill_cannot_dispel => '(不可驱散)';
 
   @override
   String get skill_physical_critical_damage => '物理暴击伤害';
@@ -784,6 +789,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get skill_critical_damage_take => '受到的暴击伤害';
+
+  @override
+  String get skill_damage_take => '受到的伤害';
 
   @override
   String get skill_physical_damage_take => '受到的物理伤害';
@@ -1078,6 +1086,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get skill_action_tp_recovery => 'TP回复';
+
+  @override
+  String get skill_action_tp_recovery_fix => 'TP回复（固定）';
 
   @override
   String get skill_action_tp_reduce => 'TP减少';
@@ -1862,8 +1873,13 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String skill_action_type_desc_110(String arg1, String arg2, String arg3) {
-    return '使$arg1受到持续伤害时，额外承受 $arg2 的伤害$arg3';
+  String skill_action_type_desc_110(
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+  ) {
+    return '使$arg1受到持续伤害$arg2时，伤害提升 [$arg3] 倍$arg4';
   }
 
   @override
@@ -1994,6 +2010,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get skill_dot_5 => '咒术';
+
+  @override
+  String get skill_dot_9 => '黑炎';
 
   @override
   String get skill_dot_11 => '绝怠灵度';

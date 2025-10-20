@@ -152,6 +152,8 @@ final _enemyParameterStrategies = <EnemyType, _EnemyParameterFetcher>{
   EnemyType.tower: (db, id) async => AllUnitParameter.fromTowerEnemyParameter(
     await db.getTowerEnemyParameter(id),
   ),
+  EnemyType.clan: (db, id) async =>
+      _enemyParameterStrategies[EnemyType.normal]!(db, id),
 };
 
 final enemyParameterProvider =
@@ -189,13 +191,13 @@ final enemyParameterProvider =
     });
 
 // 语言设置 Notifier
-class LanguageNotifier extends AsyncNotifier<String> {
+class LanguageNotifier extends AsyncNotifier<Language> {
   @override
-  Future<String> build() async {
+  Future<Language> build() async {
     return await Prefs.language();
   }
 
-  Future<void> set(String languageCode) async {
+  Future<void> set(Language languageCode) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       await Prefs.setLanguage(languageCode);
@@ -290,7 +292,7 @@ class AppAutoUpdateNotifier extends AsyncNotifier<bool> {
 }
 
 // 用户偏好设置 Provider
-final languageProvider = AsyncNotifierProvider<LanguageNotifier, String>(() {
+final languageProvider = AsyncNotifierProvider<LanguageNotifier, Language>(() {
   return LanguageNotifier();
 });
 

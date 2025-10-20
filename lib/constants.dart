@@ -35,8 +35,8 @@ enum Language {
   const Language(this.code);
   final String code;
 
-  static String getDisplayName(Language language) {
-    switch (language) {
+  String get name {
+    switch (this) {
       case Language.zh:
         return "中文";
       case Language.en:

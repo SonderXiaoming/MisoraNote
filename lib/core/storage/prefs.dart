@@ -1,31 +1,17 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:misora_note/constants.dart';
 
-class PrefsKeys {
-  static const themeMode = 'theme_mode';
-  static const language = 'language';
-  static const databaseArea = 'database_area';
-}
+enum PrefsKeys {
+  themeMode('theme_mode', 0),
+  language('language', Language.zh),
+  databaseArea('database_area', Area.cn),
+  autoUpdate('auto_update', true),
+  useOldVersion('use_old_version', false),
+  appAutoUpdate('app_auto_update', true);
 
-/// 默认偏好设置值
-class DefaultPrefs {
-  /// 主题模式: 0-系统, 1-浅色, 2-深色
-  static const int themeMode = 0;
-
-  // 自动更新
-  static const bool appAutoUpdate = true;
-
-  /// 默认语言: 'zh'-中文, 'en'-英文, 'ja'-日文, ''-系统默认
-  static const Language language = Language.zh;
-
-  /// 默认数据库区域: 中国服务器
-  static const Area databaseArea = Area.cn;
-
-  /// 是否自动检查更新
-  static const bool autoUpdate = true;
-
-  /// 是否使用旧版本的数据库格式
-  static const bool useOldVersion = false;
+  final String key;
+  final Object defaultValue;
+  const PrefsKeys(this.key, this.defaultValue);
 }
 
 class Prefs {
@@ -34,65 +20,73 @@ class Prefs {
 
   static Future<void> setThemeMode(int mode) async {
     final p = await _i;
-    await p.setInt(PrefsKeys.themeMode, mode);
+    await p.setInt(PrefsKeys.themeMode.key, mode);
   }
 
   static Future<int> themeMode() async {
     final p = await _i;
-    return p.getInt(PrefsKeys.themeMode) ?? DefaultPrefs.themeMode;
+    return p.getInt(PrefsKeys.themeMode.key) ??
+        PrefsKeys.themeMode.defaultValue as int;
   }
 
   static Future<void> setAppAutoUpdate(bool value) async {
     final p = await _i;
-    await p.setBool('app_auto_update', value);
+    await p.setBool(PrefsKeys.appAutoUpdate.key, value);
   }
 
   static Future<bool> appAutoUpdate() async {
     final p = await _i;
-    return p.getBool('app_auto_update') ?? DefaultPrefs.appAutoUpdate;
+    return p.getBool(PrefsKeys.appAutoUpdate.key) ??
+        PrefsKeys.appAutoUpdate.defaultValue as bool;
   }
 
   // 语言设置
-  static Future<void> setLanguage(String languageCode) async {
+  static Future<void> setLanguage(Language l) async {
     final p = await _i;
-    await p.setString(PrefsKeys.language, languageCode);
+    await p.setString(PrefsKeys.language.key, l.code);
   }
 
-  static Future<String> language() async {
+  static Future<Language> language() async {
     final p = await _i;
-    return p.getString(PrefsKeys.language) ?? DefaultPrefs.language.code;
+    return p.get(PrefsKeys.language.key) != null
+        ? Language.getType(p.getString(PrefsKeys.language.key)!)
+        : PrefsKeys.language.defaultValue as Language;
   }
 
   // 数据库区域设置
   static Future<void> setDatabaseArea(Area area) async {
     final p = await _i;
-    await p.setString(PrefsKeys.databaseArea, area.name);
+    await p.setString(PrefsKeys.databaseArea.key, area.name);
   }
 
   static Future<Area> databaseArea() async {
     final p = await _i;
-    final areaName = p.getString(PrefsKeys.databaseArea);
-    return Area.getType(areaName ?? DefaultPrefs.databaseArea.name);
+    final areaName = p.getString(PrefsKeys.databaseArea.key);
+    return areaName != null
+        ? Area.getType(areaName)
+        : PrefsKeys.databaseArea.defaultValue as Area;
   }
 
   static Future<bool> needAutoUpdate() async {
     final p = await _i;
-    return p.getBool('auto_update') ?? true;
+    return p.getBool(PrefsKeys.autoUpdate.key) ??
+        (PrefsKeys.autoUpdate.defaultValue as bool);
   }
 
   static Future<void> setAutoUpdate(bool value) async {
     final p = await _i;
-    await p.setBool('auto_update', value);
+    await p.setBool(PrefsKeys.autoUpdate.key, value);
   }
 
   static Future<bool> useOldVersion() async {
     final p = await _i;
-    return p.getBool('use_old_version') ?? false;
+    return p.getBool(PrefsKeys.useOldVersion.key) ??
+        (PrefsKeys.useOldVersion.defaultValue as bool);
   }
 
   static Future<void> setUseOldVersion(bool value) async {
     final p = await _i;
-    await p.setBool('use_old_version', value);
+    await p.setBool(PrefsKeys.useOldVersion.key, value);
   }
 
   static Future<String?> dbVersion(Area area) async {
@@ -113,13 +107,11 @@ class Prefs {
 
   // 恢复所有设置到默认值
   static Future<void> resetToDefaults() async {
-    final p = await _i;
-
-    // 设置默认值而不是清空
-    await p.setInt(PrefsKeys.themeMode, DefaultPrefs.themeMode);
-    await p.setString(PrefsKeys.language, DefaultPrefs.language.code);
-    await p.setString(PrefsKeys.databaseArea, DefaultPrefs.databaseArea.name);
-    await p.setBool('auto_update', DefaultPrefs.autoUpdate); // 默认启用自动更新
-    await p.setBool('use_old_version', DefaultPrefs.useOldVersion); // 默认不使用旧版本
+    await setThemeMode(PrefsKeys.themeMode.defaultValue as int);
+    await setLanguage(PrefsKeys.language.defaultValue as Language);
+    await setDatabaseArea(PrefsKeys.databaseArea.defaultValue as Area);
+    await setAutoUpdate(PrefsKeys.autoUpdate.defaultValue as bool);
+    await setUseOldVersion(PrefsKeys.useOldVersion.defaultValue as bool);
+    await setAppAutoUpdate(PrefsKeys.appAutoUpdate.defaultValue as bool);
   }
 }

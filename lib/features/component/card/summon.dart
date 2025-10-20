@@ -42,18 +42,12 @@ class SummonCard extends StatelessWidget {
           ),
           SizedBox(height: 8),
           BaseTag(
-            backgroundColor: Color(
-              SearchAreaWidthType.getColor(searchAreaWidthType),
-            ),
+            backgroundColor: Color(searchAreaWidthType.color),
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 1.0),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                SearchAreaWidthType.getIcon(
-                  searchAreaWidthType,
-                  size.$2 * 0.15,
-                  size.$2 * 0.15,
-                ),
+                searchAreaWidthType.getIcon(size.$2 * 0.15, size.$2 * 0.15),
                 SizedBox(width: size.$2 * 0.01),
                 Text(
                   "${summonUnit.searchAreaWidth}",

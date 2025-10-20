@@ -11,8 +11,8 @@ enum UnitRankType {
   birthDay,
   searchAreaWidth;
 
-  static String getName(AppLocalizations t, UnitRankType type) {
-    switch (type) {
+  String getName(AppLocalizations t) {
+    switch (this) {
       case UnitRankType.lastUpdate:
         return t.last_update;
       case UnitRankType.age:
@@ -46,8 +46,8 @@ enum SearchAreaWidthType {
     }
   }
 
-  static String getName(AppLocalizations t, SearchAreaWidthType type) {
-    switch (type) {
+  String getName(AppLocalizations t) {
+    switch (this) {
       case SearchAreaWidthType.front:
         return t.position_front;
       case SearchAreaWidthType.back:
@@ -57,8 +57,8 @@ enum SearchAreaWidthType {
     }
   }
 
-  static (int, int) getRange(SearchAreaWidthType type) {
-    switch (type) {
+  (int, int) get range {
+    switch (this) {
       case SearchAreaWidthType.front:
         return (0, 299);
       case SearchAreaWidthType.back:
@@ -68,8 +68,8 @@ enum SearchAreaWidthType {
     }
   }
 
-  static int getColor(SearchAreaWidthType type) {
-    switch (type) {
+  int get color {
+    switch (this) {
       case SearchAreaWidthType.front:
         return CustomColors.colorOrange;
       case SearchAreaWidthType.back:
@@ -79,12 +79,8 @@ enum SearchAreaWidthType {
     }
   }
 
-  static LocalImage getIcon(
-    SearchAreaWidthType type,
-    double width,
-    double height,
-  ) {
-    switch (type) {
+  LocalImage getIcon(double width, double height) {
+    switch (this) {
       case SearchAreaWidthType.front:
         return LocalImage(
           path: "${FilePath.img}/front.svg",
@@ -114,8 +110,8 @@ enum AtkType {
   final int value;
   const AtkType(this.value);
 
-  static int getColor(AtkType type) {
-    switch (type) {
+  int get color {
+    switch (this) {
       case AtkType.physical:
         return CustomColors.colorGold;
       case AtkType.magic:
@@ -123,8 +119,8 @@ enum AtkType {
     }
   }
 
-  static LocalImage getIcon(AtkType type, double width, double height) {
-    switch (type) {
+  LocalImage getIcon(double width, double height) {
+    switch (this) {
       case AtkType.physical:
         return LocalImage(
           path: "${FilePath.img}/physical.png",
@@ -140,8 +136,8 @@ enum AtkType {
     }
   }
 
-  static LocalImage getSkillIcon(AtkType type, double width, double height) {
-    switch (type) {
+  LocalImage getSkillIcon(double width, double height) {
+    switch (this) {
       case AtkType.physical:
         return LocalImage(
           path: "${FilePath.img}/attack.png",
@@ -157,8 +153,8 @@ enum AtkType {
     }
   }
 
-  static String getName(AppLocalizations t, AtkType type) {
-    switch (type) {
+  String getName(AppLocalizations t) {
+    switch (this) {
       case AtkType.physical:
         return t.physical;
       case AtkType.magic:
@@ -194,8 +190,8 @@ enum UnitGetType {
     return null;
   }
 
-  static String getName(AppLocalizations t, UnitGetType type) {
-    switch (type) {
+  String getName(AppLocalizations t) {
+    switch (this) {
       case UnitGetType.normal:
         return t.type_normal;
       case UnitGetType.limit:
@@ -207,8 +203,8 @@ enum UnitGetType {
     }
   }
 
-  static int getColor(UnitGetType type) {
-    switch (type) {
+  int get color {
+    switch (this) {
       case UnitGetType.normal:
         return CustomColors.colorGold;
       case UnitGetType.limit:
@@ -221,7 +217,37 @@ enum UnitGetType {
   }
 }
 
-enum EnemyType { all, normal, event, tower, shiori, sre, talentQuest }
+enum EnemyType {
+  all,
+  normal,
+  event,
+  tower,
+  shiori,
+  sre,
+  clan,
+  talentQuest;
+
+  String getName(AppLocalizations t) {
+    switch (this) {
+      case EnemyType.all:
+        return '全部敌人';
+      case EnemyType.normal:
+        return '普通敌人';
+      case EnemyType.event:
+        return '活动敌人';
+      case EnemyType.tower:
+        return '塔敌人';
+      case EnemyType.shiori:
+        return '诗穗敌人';
+      case EnemyType.sre:
+        return 'SRE敌人';
+      case EnemyType.talentQuest:
+        return '天赋任务敌人';
+      case EnemyType.clan:
+        return '公会战';
+    }
+  }
+}
 
 enum UnitType { unit, enemy, summon, enemySummon }
 
@@ -244,8 +270,8 @@ enum Talent {
     return Talent.fire; // 默认值
   }
 
-  static String getName(AppLocalizations t, Talent type) {
-    switch (type) {
+  String getName(AppLocalizations t) {
+    switch (this) {
       case Talent.fire:
         return t.talent_fire;
       case Talent.water:
@@ -259,8 +285,8 @@ enum Talent {
     }
   }
 
-  static int getColor(Talent type) {
-    switch (type) {
+  int get color {
+    switch (this) {
       case Talent.fire:
         return CustomColors.colorRed;
       case Talent.water:

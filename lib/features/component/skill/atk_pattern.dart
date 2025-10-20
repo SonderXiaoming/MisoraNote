@@ -41,10 +41,8 @@ class PatternSkill extends StatelessWidget {
               ),
         skillIcon,
         Text(
-          SkillTextType.getName(t, skillType),
-          style: textTheme.bodySmall?.copyWith(
-            color: Color(SkillTextType.getColor(skillType)),
-          ),
+          skillType.getName(t),
+          style: textTheme.bodySmall?.copyWith(color: Color((skillType.color))),
         ),
         Text(t.cast_time(coolDown.toString()), style: textTheme.bodySmall),
       ],
@@ -84,64 +82,65 @@ class SinglePattern extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme;
     final t = AppLocalizations.of(context)!;
-    final pattern = [
-      unitAttackPatternData.atkPattern1,
-      unitAttackPatternData.atkPattern2,
-      unitAttackPatternData.atkPattern3,
-      unitAttackPatternData.atkPattern4,
-      unitAttackPatternData.atkPattern5,
-      unitAttackPatternData.atkPattern6,
-      unitAttackPatternData.atkPattern7,
-      unitAttackPatternData.atkPattern8,
-      unitAttackPatternData.atkPattern9,
-      unitAttackPatternData.atkPattern10,
-      unitAttackPatternData.atkPattern11,
-      unitAttackPatternData.atkPattern12,
-      unitAttackPatternData.atkPattern13,
-      unitAttackPatternData.atkPattern14,
-      unitAttackPatternData.atkPattern15,
-      unitAttackPatternData.atkPattern16,
-      unitAttackPatternData.atkPattern17,
-      unitAttackPatternData.atkPattern18,
-      unitAttackPatternData.atkPattern19,
-      unitAttackPatternData.atkPattern20,
-    ]
-        .sublist(0, unitAttackPatternData.loopEnd ?? 1)
-        .asMap()
-        .entries
-        .map((e) {
-          if (e.value == null || e.value! == 0) {
-            return null;
-          }
-          String? text;
-          if (e.key == (unitAttackPatternData.loopEnd ?? 1) - 1 &&
-              (unitAttackPatternData.loopEnd ?? 1) != 1) {
-            text = t.skill_loop_end;
-          } else if (e.key == (unitAttackPatternData.loopStart ?? 1) - 1 &&
-              (unitAttackPatternData.loopEnd ?? 1) != 1) {
-            text = t.skill_loop_start;
-          }
-          final skillInfo = pattern2skillId(
-            e.value!,
-            skillIdList.pureSkill,
-          );
-          return PatternSkill(
-            skillIcon: e.value == 1
-                ? AtkType.getSkillIcon(atkType, 50, 50)
-                : CachedImage(
-                    url: FetchUrl.skillIconUrl(
-                      skillInfo?.data.iconType ?? 0,
-                    ),
-                    width: 50,
-                    height: 50,
-                  ),
-            text: text,
-            coolDown: skillInfo?.data.skillCastTime ?? normalAttackCoolDown,
-            skillType: skillInfo?.type ?? SkillTextType.normal,
-          );
-        })
-        .whereType<PatternSkill>()
-        .toList();
+    final pattern =
+        [
+              unitAttackPatternData.atkPattern1,
+              unitAttackPatternData.atkPattern2,
+              unitAttackPatternData.atkPattern3,
+              unitAttackPatternData.atkPattern4,
+              unitAttackPatternData.atkPattern5,
+              unitAttackPatternData.atkPattern6,
+              unitAttackPatternData.atkPattern7,
+              unitAttackPatternData.atkPattern8,
+              unitAttackPatternData.atkPattern9,
+              unitAttackPatternData.atkPattern10,
+              unitAttackPatternData.atkPattern11,
+              unitAttackPatternData.atkPattern12,
+              unitAttackPatternData.atkPattern13,
+              unitAttackPatternData.atkPattern14,
+              unitAttackPatternData.atkPattern15,
+              unitAttackPatternData.atkPattern16,
+              unitAttackPatternData.atkPattern17,
+              unitAttackPatternData.atkPattern18,
+              unitAttackPatternData.atkPattern19,
+              unitAttackPatternData.atkPattern20,
+            ]
+            .sublist(0, unitAttackPatternData.loopEnd ?? 1)
+            .asMap()
+            .entries
+            .map((e) {
+              if (e.value == null || e.value! == 0) {
+                return null;
+              }
+              String? text;
+              if (e.key == (unitAttackPatternData.loopEnd ?? 1) - 1 &&
+                  (unitAttackPatternData.loopEnd ?? 1) != 1) {
+                text = t.skill_loop_end;
+              } else if (e.key == (unitAttackPatternData.loopStart ?? 1) - 1 &&
+                  (unitAttackPatternData.loopEnd ?? 1) != 1) {
+                text = t.skill_loop_start;
+              }
+              final skillInfo = pattern2skillId(
+                e.value!,
+                skillIdList.pureSkill,
+              );
+              return PatternSkill(
+                skillIcon: e.value == 1
+                    ? atkType.getSkillIcon(50, 50)
+                    : CachedImage(
+                        url: FetchUrl.skillIconUrl(
+                          skillInfo?.data.iconType ?? 0,
+                        ),
+                        width: 50,
+                        height: 50,
+                      ),
+                text: text,
+                coolDown: skillInfo?.data.skillCastTime ?? normalAttackCoolDown,
+                skillType: skillInfo?.type ?? SkillTextType.normal,
+              );
+            })
+            .whereType<PatternSkill>()
+            .toList();
 
     return BaseCard(
       border: Border.all(color: Color(CustomColors.colorGray).withAlpha(50)),
@@ -190,22 +189,22 @@ class AllAtkPattern extends StatelessWidget {
         Text(
           t.attack_pattern,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                color: Color(CustomColors.colorPrimary),
-                fontWeight: FontWeight.w700,
-              ),
+            color: Color(CustomColors.colorPrimary),
+            fontWeight: FontWeight.w700,
+          ),
         ),
         ...patterns.asMap().entries.map(
-              (e) => Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: SinglePattern(
-                  unitAttackPatternData: e.value,
-                  normalAttackCoolDown: normalAttackCoolDown,
-                  skillIdList: skillIdList,
-                  atkType: atkType,
-                  index: patterns.length == 1 ? 0 : e.key + 1,
-                ),
-              ),
+          (e) => Padding(
+            padding: const EdgeInsets.only(bottom: 16),
+            child: SinglePattern(
+              unitAttackPatternData: e.value,
+              normalAttackCoolDown: normalAttackCoolDown,
+              skillIdList: skillIdList,
+              atkType: atkType,
+              index: patterns.length == 1 ? 0 : e.key + 1,
             ),
+          ),
+        ),
       ],
     );
   }

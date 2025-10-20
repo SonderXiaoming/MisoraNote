@@ -35,10 +35,10 @@ class SearchFilters extends StatelessWidget {
             selectedValue: searchData.talent,
             items: [
               (null, t.talent),
-              ...Talent.values.map((type) => (type, Talent.getName(t, type))),
+              ...Talent.values.map((type) => (type, type.getName(t))),
             ],
             itemStyleBuilder: (type) => type != null
-                ? textStyle?.copyWith(color: Color(Talent.getColor(type)))
+                ? textStyle?.copyWith(color: Color(type.color))
                 : textStyle,
             onChanged: (value) {
               if (searchData.talent != value) {
@@ -58,13 +58,11 @@ class SearchFilters extends StatelessWidget {
             items: [
               (null, t.position),
               ...SearchAreaWidthType.values.map(
-                (type) => (type, SearchAreaWidthType.getName(t, type)),
+                (type) => (type, type.getName(t)),
               ),
             ],
             itemStyleBuilder: (type) => type != null
-                ? textStyle?.copyWith(
-                    color: Color(SearchAreaWidthType.getColor(type)),
-                  )
+                ? textStyle?.copyWith(color: Color(type.color))
                 : textStyle,
             onChanged: (value) {
               if (searchData.searchAreaWidth != value) {
@@ -83,10 +81,10 @@ class SearchFilters extends StatelessWidget {
             selectedValue: searchData.atkType,
             items: [
               (null, t.attack_type),
-              ...AtkType.values.map((type) => (type, AtkType.getName(t, type))),
+              ...AtkType.values.map((type) => (type, type.getName(t))),
             ],
             itemStyleBuilder: (type) => type != null
-                ? textStyle?.copyWith(color: Color(AtkType.getColor(type)))
+                ? textStyle?.copyWith(color: Color(type.color))
                 : textStyle,
             onChanged: (value) {
               if (searchData.atkType != value) {
@@ -547,7 +545,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                             const SizedBox(width: 8),
                             Expanded(
                               child: Text(
-                                UnitRankType.getName(t, type),
+                                type.getName(t),
                                 style: texttheme.bodyMedium,
                               ),
                             ),

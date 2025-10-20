@@ -264,8 +264,14 @@
   "skill_status_1400": "变身状态",
   "skill_status_1600": "恐慌状态",
   "skill_status_1601": "隐匿状态",
-  "skill_status_1700_21": "物理防御减少状态",
-  "skill_status_1700_41": "魔法防御减少状态",
+  "skill_status_1700": "{arg1}状态",
+  "@skill_status_1700": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
   "skill_status_721": "特殊标记状态",
   "skill_status_6107": "龙之眼状态",
   "skill_status_1800": "多目标状态",
@@ -278,6 +284,7 @@
   "skill_status_physical_atk": "物理攻击",
   "skill_status_magic_atk": "魔法攻击",
   "skill_area_exclude_summon": "召唤物、分身除外",
+  "skill_area_include_summon": "飞行单位在内",
   "skill_target_none": "目标",
   "skill_target_2_8": "随机",
   "skill_target_3": "最近",
@@ -359,10 +366,12 @@
   "skill_hp_max": "HP最大值",
   "skill_increase": "提升",
   "skill_reduce": "减少",
-  "skill_fixed": "(固定数值，无法被其他技能效果改变)",
+  "skill_fixed": "(固定数值)",
+  "skill_cannot_dispel": "(不可驱散)",
   "skill_physical_critical_damage": "物理暴击伤害",
   "skill_magic_critical_damage": "魔法暴击伤害",
   "skill_critical_damage_take": "受到的暴击伤害",
+  "skill_damage_take": "受到的伤害",
   "skill_physical_damage_take": "受到的物理伤害",
   "skill_magic_damage_take": "受到的魔法伤害",
   "skill_physical_damage": "造成的物理伤害",
@@ -732,6 +741,7 @@
   },
   "skill_action_summon_unit": "，召唤友方单位",
   "skill_action_tp_recovery": "TP回复",
+  "skill_action_tp_recovery_fix": "TP回复（固定）",
   "skill_action_tp_reduce": "TP减少",
   "skill_action_condition": "条件：{arg1}",
   "@skill_action_condition": {
@@ -2249,7 +2259,7 @@
       }
     }
   },
-  "skill_action_type_desc_110": "使{arg1}受到持续伤害时，额外承受 {arg2} 的伤害{arg3}",
+  "skill_action_type_desc_110": "使{arg1}受到持续伤害{arg2}时，伤害提升 [{arg3}] 倍{arg4}",
   "@skill_action_type_desc_110": {
     "placeholders": {
       "arg1": {
@@ -2259,6 +2269,9 @@
         "type": "String"
       },
       "arg3": {
+        "type": "String"
+      },
+      "arg4": {
         "type": "String"
       }
     }
@@ -2415,6 +2428,7 @@
   "skill_dot_3_8": "诅咒",
   "skill_dot_4": "猛毒",
   "skill_dot_5": "咒术",
+  "skill_dot_9": "黑炎",
   "skill_dot_11": "绝怠灵度",
   "attr_hp": "HP",
   "attr_life_steal": "HP吸收",

@@ -96,15 +96,13 @@ class EnemyCard extends StatelessWidget {
                 }
                 final talent = Talent.fromValue(key + 1);
                 return BaseTag(
-                  backgroundColor: Color(
-                    Talent.getColor(talent),
-                  ).withAlpha(200),
+                  backgroundColor: Color(talent.color).withAlpha(200),
                   padding: const EdgeInsets.symmetric(
                     horizontal: 8.0,
                     vertical: 1.0,
                   ),
                   child: Text(
-                    "${Talent.getName(t, talent)}+$value%",
+                    "${talent.getName(t)}+$value%",
                     style: textStyle.copyWith(fontSize: size.$2 * 0.1),
                   ),
                 );

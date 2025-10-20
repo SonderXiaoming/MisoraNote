@@ -194,7 +194,7 @@ class AppDb extends _$AppDb {
         sql = sql..where(unitData.unitName.like('%${searchData.unitName!}%'));
       }
       if (searchData.searchAreaWidth != null) {
-        final range = SearchAreaWidthType.getRange(searchData.searchAreaWidth!);
+        final range = searchData.searchAreaWidth!.range;
         sql = sql
           ..where(
             unitData.searchAreaWidth.isBetween(

@@ -208,10 +208,10 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
           SubSettingsPage(
             title: t.app_settings,
             children: [
-              DropDownSettings<String>(
+              DropDownSettings<Language>(
                 title: t.language,
                 items: Language.values
-                    .map((lang) => (lang.code, Language.getDisplayName(lang)))
+                    .map((lang) => (lang, lang.name))
                     .toList(),
                 onSelected: (value) async {
                   await ref.read(languageProvider.notifier).set(value);
