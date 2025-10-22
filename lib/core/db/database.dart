@@ -44,6 +44,7 @@ final kannaIds = [170101, 170201];
     EnemyTalentWeakness,
     TalentWeakness,
     EnemyParameter,
+    EnemyMParts,
   ],
 )
 class AppDb extends _$AppDb {
@@ -645,6 +646,12 @@ class AppDb extends _$AppDb {
   Future<SevenEnemyParameterData?> getSevenEnemyParameter(int enemyId) async {
     return (select(
       sevenEnemyParameter,
+    )..where((t) => t.enemyId.equals(enemyId))).map((e) => e).getSingleOrNull();
+  }
+
+  Future<EnemyMPartsData?> getEnemyMParts(int enemyId) async {
+    return (select(
+      enemyMParts,
     )..where((t) => t.enemyId.equals(enemyId))).map((e) => e).getSingleOrNull();
   }
 }

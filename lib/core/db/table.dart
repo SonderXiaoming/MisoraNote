@@ -931,3 +931,129 @@ class TalentWeakness extends Table {
   IntColumn get talent4 => integer().named("talent_4")();
   IntColumn get talent5 => integer().named("talent_5")();
 }
+
+class EnemyMParts extends Table {
+  @override
+  String get tableName => "enemy_m_parts";
+  @override
+  Set<Column> get primaryKey => {enemyId};
+
+  IntColumn get enemyId => integer().named("enemy_id")();
+  TextColumn get name => text().named("name")();
+  IntColumn get childEnemyParameter1 =>
+      integer().named("child_enemy_parameter_1")();
+  IntColumn get childEnemyParameter2 =>
+      integer().named("child_enemy_parameter_2")();
+  IntColumn get childEnemyParameter3 =>
+      integer().named("child_enemy_parameter_3")();
+  IntColumn get childEnemyParameter4 =>
+      integer().named("child_enemy_parameter_4")();
+  IntColumn get childEnemyParameter5 =>
+      integer().named("child_enemy_parameter_5")();
+}
+
+class ClanBattle2MapData extends Table {
+  @override
+  String get tableName => "clan_battle_2_map_data";
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named("id")();
+  IntColumn get clanBattleId => integer().named("clan_battle_id")();
+  IntColumn get mapBg => integer().named("map_bg")();
+  IntColumn get difficulty => integer().named("difficulty")();
+  IntColumn get lapNumFrom => integer().named("lap_num_from")();
+  IntColumn get lapNumTo => integer().named("lap_num_to")();
+  IntColumn get bossId1 => integer().named("boss_id_1")();
+  IntColumn get bossId2 => integer().named("boss_id_2")();
+  IntColumn get bossId3 => integer().named("boss_id_3")();
+  IntColumn get bossId4 => integer().named("boss_id_4")();
+  IntColumn get bossId5 => integer().named("boss_id_5")();
+  IntColumn get auraEffect => integer().named("aura_effect")();
+  IntColumn get rslUnlockLap => integer().named("rsl_unlock_lap")();
+  IntColumn get phase => integer().named("phase")();
+  IntColumn get waveGroupId1 => integer().named("wave_group_id_1")();
+  IntColumn get waveGroupId2 => integer().named("wave_group_id_2")();
+  IntColumn get waveGroupId3 => integer().named("wave_group_id_3")();
+  IntColumn get waveGroupId4 => integer().named("wave_group_id_4")();
+  IntColumn get waveGroupId5 => integer().named("wave_group_id_5")();
+  IntColumn get fixRewardId1 => integer().named("fix_reward_id_1")();
+  IntColumn get fixRewardId2 => integer().named("fix_reward_id_2")();
+  IntColumn get fixRewardId3 => integer().named("fix_reward_id_3")();
+  IntColumn get fixRewardId4 => integer().named("fix_reward_id_4")();
+  IntColumn get fixRewardId5 => integer().named("fix_reward_id_5")();
+  IntColumn get damageRankId1 => integer().named("damage_rank_id_1")();
+  IntColumn get damageRankId2 => integer().named("damage_rank_id_2")();
+  IntColumn get damageRankId3 => integer().named("damage_rank_id_3")();
+  IntColumn get damageRankId4 => integer().named("damage_rank_id_4")();
+  IntColumn get damageRankId5 => integer().named("damage_rank_id_5")();
+  RealColumn get rewardGoldCoefficient =>
+      real().named("reward_gold_coefficient")();
+  IntColumn get limitedMana => integer().named("limited_mana").nullable()();
+  IntColumn get lastAttackRewardId => integer().named("last_attack_reward_id")();
+  RealColumn get scoreCoefficient1 => real().named("score_coefficient_1")();
+  RealColumn get scoreCoefficient2 => real().named("score_coefficient_2")();
+  RealColumn get scoreCoefficient3 => real().named("score_coefficient_3")();
+  RealColumn get scoreCoefficient4 => real().named("score_coefficient_4")();
+  RealColumn get scoreCoefficient5 => real().named("score_coefficient_5")();
+  IntColumn get paramAdjustId => integer().named("param_adjust_id")();
+  IntColumn get paramAdjustInterval => integer().named("param_adjust_interval")();  
+
+}
+
+class ClanBattleSchedule extends Table {
+  @override
+  String get tableName => "clan_battle_schedule";
+  @override
+  Set<Column> get primaryKey => {clanBattleId};
+
+  IntColumn get clanBattleId => integer().named("clan_battle_id")();
+  IntColumn get releaseMonth => integer().named("release_month")();
+  IntColumn get lastClanBattleId => integer().named("last_clan_battle_id")();
+  IntColumn get pointPerStamina => integer().named("point_per_stamina")();
+  IntColumn get costGroupId => integer().named("cost_group_id")();
+  IntColumn get costGroupIdS => integer().named("cost_group_id_s")();
+  TextColumn get mapBgm => text().named("map_bgm")();
+  IntColumn get resourceId => integer().named("resource_id")();
+  TextColumn get startTime => text().named("start_time")();
+  TextColumn get endTime => text().named("end_time")();
+  TextColumn get modeChangeStartTime =>
+      text().named("mode_change_start_time")();
+  TextColumn get modeChangeEndTime => text().named("mode_change_end_time")();
+  TextColumn get modeChangeRemindTime =>
+      text().named("mode_change_remind_time")();
+}
+
+class WaveGroupData extends Table {
+  @override
+  String get tableName => "wave_group_data";
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named("id")();
+  IntColumn get waveGroupId => integer().named("wave_group_id")();
+  IntColumn get odds => integer().named("odds")();
+
+  IntColumn get enemyId1 => integer().named("enemy_id_1")();
+  IntColumn get dropGold1 => integer().named("drop_gold_1")();
+  IntColumn get dropRewardId1 => integer().named("drop_reward_id_1")();
+
+  IntColumn get enemyId2 => integer().named("enemy_id_2")();
+  IntColumn get dropGold2 => integer().named("drop_gold_2")();
+  IntColumn get dropRewardId2 => integer().named("drop_reward_id_2")();
+
+  IntColumn get enemyId3 => integer().named("enemy_id_3")();
+  IntColumn get dropGold3 => integer().named("drop_gold_3")();
+  IntColumn get dropRewardId3 => integer().named("drop_reward_id_3")();
+
+  IntColumn get enemyId4 => integer().named("enemy_id_4")();
+  IntColumn get dropGold4 => integer().named("drop_gold_4")();
+  IntColumn get dropRewardId4 => integer().named("drop_reward_id_4")();
+
+  IntColumn get enemyId5 => integer().named("enemy_id_5")();
+  IntColumn get dropGold5 => integer().named("drop_gold_5")();
+  IntColumn get dropRewardId5 => integer().named("drop_reward_id_5")();
+
+  IntColumn get guestEnemyId => integer().named("guest_enemy_id")();
+  IntColumn get guestLane => integer().named("guest_lane")();
+}

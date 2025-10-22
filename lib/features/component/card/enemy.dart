@@ -60,29 +60,6 @@ class EnemyCard extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8),
-          /*
-          BaseTag(
-            backgroundColor: Color(
-              SearchAreaWidthType.getColor(searchAreaWidthType),
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 1.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SearchAreaWidthType.getIcon(
-                  searchAreaWidthType,
-                  size.$2 * 0.15,
-                  size.$2 * 0.15,
-                ),
-                SizedBox(width: size.$2 * 0.01),
-                Text(
-                  "${enemyUnit.searchAreaWidth}",
-                  style: textStyle.copyWith(fontSize: size.$2 * 0.17),
-                ),
-              ],
-            ),
-          ),
-          */
           if (weaknessList.any((v) => v != 100)) ...[
             Wrap(
               alignment: WrapAlignment.center,

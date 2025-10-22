@@ -11,6 +11,7 @@ import 'package:misora_note/features/component/card/unit_card.dart';
 import 'package:misora_note/core/di/di.dart';
 import 'package:misora_note/features/component/skill/atk_pattern.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
+import 'package:misora_note/features/error_page.dart';
 import 'component/skill/skill_info.dart';
 
 class UnitPage extends ConsumerStatefulWidget {
@@ -38,8 +39,10 @@ class _UnitPage extends ConsumerState<UnitPage> {
           return Scaffold(body: Center(child: CircularProgressIndicator()));
         }
         if (characterData.hasError) {
-          return Scaffold(
-            body: Center(child: Text('Error: ${characterData.error}')),
+          return ErrorPage(
+            title: t.no_data_error,
+            message: 'Error: ${characterData.error}',
+            icon: Icons.error_outline,
           );
         }
         if (characterData.value != null) {
@@ -56,8 +59,10 @@ class _UnitPage extends ConsumerState<UnitPage> {
           return Scaffold(body: Center(child: CircularProgressIndicator()));
         }
         if (enemyParameter.hasError) {
-          return Scaffold(
-            body: Center(child: Text('Error: ${enemyParameter.error}')),
+          return ErrorPage(
+            title: t.no_data_error,
+            message: 'Error: ${enemyParameter.error}',
+            icon: Icons.error_outline,
           );
         }
         if (enemyParameter.value != null) {
@@ -73,7 +78,11 @@ class _UnitPage extends ConsumerState<UnitPage> {
     }
 
     if (unitInfo == null) {
-      return Scaffold(body: Center(child: Text(t.no_data_error)));
+      return ErrorPage(
+        title: t.no_data_error,
+        message: 'Unit ID: ${widget.card.unitId}',
+        icon: Icons.search_off,
+      );
     }
 
     final atkPatternAsync = ref.watch(

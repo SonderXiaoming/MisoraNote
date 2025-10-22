@@ -32,9 +32,13 @@ enum UnitRankType {
 }
 
 enum SearchAreaWidthType {
-  front,
-  middle,
-  back;
+  front((0, 299), CustomColors.colorOrange),
+  middle((300, 600), CustomColors.colorGold),
+  back((601, 10000), CustomColors.colorDeepBlue);
+
+  final (int, int) range;
+  final int color;
+  const SearchAreaWidthType(this.range, this.color);
 
   static SearchAreaWidthType getType(int width) {
     if (width < 300) {
@@ -54,28 +58,6 @@ enum SearchAreaWidthType {
         return t.position_back;
       case SearchAreaWidthType.middle:
         return t.position_middle;
-    }
-  }
-
-  (int, int) get range {
-    switch (this) {
-      case SearchAreaWidthType.front:
-        return (0, 299);
-      case SearchAreaWidthType.back:
-        return (601, 10000);
-      case SearchAreaWidthType.middle:
-        return (300, 600);
-    }
-  }
-
-  int get color {
-    switch (this) {
-      case SearchAreaWidthType.front:
-        return CustomColors.colorOrange;
-      case SearchAreaWidthType.back:
-        return CustomColors.colorDeepBlue;
-      case SearchAreaWidthType.middle:
-        return CustomColors.colorGold;
     }
   }
 
@@ -104,20 +86,12 @@ enum SearchAreaWidthType {
 }
 
 enum AtkType {
-  physical(1),
-  magic(2);
+  physical(1, CustomColors.colorGold),
+  magic(2, CustomColors.colorPurple);
 
   final int value;
-  const AtkType(this.value);
-
-  int get color {
-    switch (this) {
-      case AtkType.physical:
-        return CustomColors.colorGold;
-      case AtkType.magic:
-        return CustomColors.colorPurple;
-    }
-  }
+  final int color;
+  const AtkType(this.value, this.color);
 
   LocalImage getIcon(double width, double height) {
     switch (this) {
@@ -173,13 +147,14 @@ enum AtkType {
 }
 
 enum UnitGetType {
-  normal(1),
-  limit(2),
-  event(3),
-  extra(4);
+  normal(1, CustomColors.colorGold),
+  limit(2, CustomColors.colorOrange),
+  event(3, CustomColors.colorGreen),
+  extra(4, CustomColors.colorDeepBlue);
 
   final int value;
-  const UnitGetType(this.value);
+  final int color;
+  const UnitGetType(this.value, this.color);
 
   static UnitGetType? fromValue(int value) {
     for (var type in UnitGetType.values) {
@@ -200,19 +175,6 @@ enum UnitGetType {
         return t.type_event_limit;
       case UnitGetType.extra:
         return t.type_extra_character;
-    }
-  }
-
-  int get color {
-    switch (this) {
-      case UnitGetType.normal:
-        return CustomColors.colorGold;
-      case UnitGetType.limit:
-        return CustomColors.colorOrange;
-      case UnitGetType.event:
-        return CustomColors.colorGreen;
-      case UnitGetType.extra:
-        return CustomColors.colorDeepBlue;
     }
   }
 }
@@ -252,14 +214,15 @@ enum EnemyType {
 enum UnitType { unit, enemy, summon, enemySummon }
 
 enum Talent {
-  fire(1),
-  water(2),
-  wind(3),
-  light(4),
-  dark(5);
+  fire(1, CustomColors.colorRed),
+  water(2, CustomColors.colorDeepBlue),
+  wind(3, CustomColors.colorGreen),
+  light(4, CustomColors.colorGold),
+  dark(5, CustomColors.colorPurple);
 
   final int value;
-  const Talent(this.value);
+  final int color;
+  const Talent(this.value, this.color);
 
   static Talent fromValue(int value) {
     for (var type in Talent.values) {
@@ -282,21 +245,6 @@ enum Talent {
         return t.talent_light;
       case Talent.dark:
         return t.talent_dark;
-    }
-  }
-
-  int get color {
-    switch (this) {
-      case Talent.fire:
-        return CustomColors.colorRed;
-      case Talent.water:
-        return CustomColors.colorDeepBlue;
-      case Talent.wind:
-        return CustomColors.colorGreen;
-      case Talent.light:
-        return CustomColors.colorGold;
-      case Talent.dark:
-        return CustomColors.colorPurple;
     }
   }
 }

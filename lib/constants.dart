@@ -28,23 +28,13 @@ enum Area {
 }
 
 enum Language {
-  zh("zh"),
-  en("en"),
-  ja("ja");
+  zh("zh", "中文"),
+  en("en", "English"),
+  ja("ja", "日本語");
 
-  const Language(this.code);
+  const Language(this.code, this.name);
   final String code;
-
-  String get name {
-    switch (this) {
-      case Language.zh:
-        return "中文";
-      case Language.en:
-        return "English";
-      case Language.ja:
-        return "日本語";
-    }
-  }
+  final String name;
 
   static Language getType(String code) {
     switch (code) {

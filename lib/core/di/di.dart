@@ -124,7 +124,7 @@ typedef _EnemyParameterFetcher =
     Future<AllUnitParameter?> Function(AppDb db, int enemyId);
 
 /// 敌人类型与获取策略的映射
-final _enemyParameterStrategies = <EnemyType, _EnemyParameterFetcher>{
+final Map<EnemyType, _EnemyParameterFetcher> _enemyParameterStrategies = {
   EnemyType.normal: (db, id) async =>
       AllUnitParameter.fromEnemyParameter(await db.getEnemyParameter(id)),
   EnemyType.event: (db, id) async {

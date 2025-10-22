@@ -94,24 +94,20 @@ class _EnemySearchState extends ConsumerState<EnemySearch> {
   }
 
   Future<void> performSearch(String query) async {
-    try {
-      final enemyId = int.tryParse(query) ?? -1;
-      final width = MediaQuery.of(context).size.width;
-      context.push(
-        AppRoutes.unitDetail,
-        extra: UnitCard(
-          unitId: enemyId,
-          unitType: UnitType.enemy,
-          size: (width, 200),
-        ),
-      );
+    final enemyId = int.tryParse(query) ?? -1;
+    final width = MediaQuery.of(context).size.width;
+    context.push(
+      AppRoutes.unitDetail,
+      extra: UnitCard(
+        unitId: enemyId,
+        unitType: UnitType.enemy,
+        size: (width, 200),
+      ),
+    );
 
-      setState(() {
-        isSearching = false;
-      });
-    } catch (e) {
-      print('搜索失败: $e');
-    }
+    setState(() {
+      isSearching = false;
+    });
   }
 
   void _clearSearch() {
