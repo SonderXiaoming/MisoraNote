@@ -3,6 +3,7 @@ import 'package:misora_note/constants.dart';
 
 enum PrefsKeys {
   themeMode('theme_mode', 0),
+  themeSeedColor('theme_seed_color', 0xFF4F6BED),
   language('language', Language.zh),
   databaseArea('database_area', Area.cn),
   autoUpdate('auto_update', true),
@@ -27,6 +28,17 @@ class Prefs {
     final p = await _i;
     return p.getInt(PrefsKeys.themeMode.key) ??
         PrefsKeys.themeMode.defaultValue as int;
+  }
+
+  static Future<void> setThemeSeedColor(int colorValue) async {
+    final p = await _i;
+    await p.setInt(PrefsKeys.themeSeedColor.key, colorValue);
+  }
+
+  static Future<int> themeSeedColor() async {
+    final p = await _i;
+    return p.getInt(PrefsKeys.themeSeedColor.key) ??
+        PrefsKeys.themeSeedColor.defaultValue as int;
   }
 
   static Future<void> setAppAutoUpdate(bool value) async {
@@ -108,6 +120,7 @@ class Prefs {
   // 恢复所有设置到默认值
   static Future<void> resetToDefaults() async {
     await setThemeMode(PrefsKeys.themeMode.defaultValue as int);
+    await setThemeSeedColor(PrefsKeys.themeSeedColor.defaultValue as int);
     await setLanguage(PrefsKeys.language.defaultValue as Language);
     await setDatabaseArea(PrefsKeys.databaseArea.defaultValue as Area);
     await setAutoUpdate(PrefsKeys.autoUpdate.defaultValue as bool);

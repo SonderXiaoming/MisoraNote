@@ -17,6 +17,7 @@ class UnitCard extends ConsumerStatefulWidget {
   final int unitId;
   final bool isR6;
   final UnitType unitType;
+  final EnemyType? enemyType;
   final CachedImage? unitImage;
   UnitCard({
     super.key,
@@ -24,6 +25,7 @@ class UnitCard extends ConsumerStatefulWidget {
     this.isR6 = false,
     this.size = const (1408, 792),
     this.unitType = UnitType.unit,
+    this.enemyType,
   }) : unitImage = unitType != UnitType.unit
            ? null
            : CachedImage(
@@ -44,12 +46,14 @@ class UnitCard extends ConsumerStatefulWidget {
     int? unitId,
     bool? isR6,
     UnitType? unitType,
+    EnemyType? enemyType,
   }) {
     return UnitCard(
       unitId: unitId ?? this.unitId,
       isR6: isR6 ?? this.isR6,
       size: size ?? this.size,
       unitType: unitType ?? this.unitType,
+      enemyType: enemyType ?? this.enemyType,
     );
   }
 }
@@ -137,7 +141,7 @@ class _UnitCardState extends ConsumerState<UnitCard> {
           enemyParameterProvider(
             EnemyParameterProviderParameter(
               enemyId: widget.unitId,
-              enemyType: EnemyType.all,
+              enemyType: widget.enemyType ?? EnemyType.all,
             ),
           ),
         );

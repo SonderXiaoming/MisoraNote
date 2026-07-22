@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/database.dart';
+import 'package:misora_note/core/db/general.dart';
 import 'package:misora_note/core/db/model.dart';
 import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/tag.dart';
@@ -33,74 +34,112 @@ class SkillActionText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
-    List<(String, int)> tagStack = [("root", CustomColors.colorBlack)];
-    List<(String, int)> parts = []; // 存储 (文本段, 对应颜色) 的列表
-    String buffer = ""; // 缓冲普通文本
-    final desc = '($index) $actionDesc';
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+    final tagStack = <(String, Color)>[("root", colors.onSurface)];
+    final parts = <(String, Color)>[];
+    var buffer = "";
+    final desc = actionDesc;
     for (var char in desc.characters) {
       if (SkillTag.tagPairs.containsKey(char)) {
-        // 遇到左开标记
-        // 先将当前缓冲区内容 flush，按当前栈顶颜色输出
         if (buffer.isNotEmpty) {
           parts.add((buffer, tagStack.last.$2));
           buffer = "";
         }
-        // 将左开字符也加入输出，并使用对应颜色
-        parts.add((char.toString(), SkillTag.tagColor(char.toString())));
-        // 入栈该标记以及新的颜色，后续文本使用新颜色
-        tagStack.add((char.toString(), SkillTag.tagColor(char.toString())));
+        final color = Color(SkillTag.tagColor(char.toString()));
+        parts.add((char.toString(), color));
+        tagStack.add((char.toString(), color));
       } else if (SkillTag.tagPairs.containsValue(char)) {
-        // 遇到闭合标记
         if (tagStack.length > 1 &&
             SkillTag.tagPairs[tagStack.last.$1] == char) {
           if (buffer.isNotEmpty) {
             parts.add((buffer, tagStack.last.$2));
             buffer = "";
           }
-          // 输出闭合标记字符，并用当前颜色
           parts.add((char.toString(), tagStack.last.$2));
-          // 弹出栈顶，恢复上一级颜色
           tagStack.removeLast();
         } else {
-          // 如果不匹配，则当作普通字符处理
           buffer += char;
         }
       } else {
-        buffer += char; // 普通字符加入缓冲区
+        buffer += char;
       }
     }
-    // 最后 flush 剩余缓冲区内容
     if (buffer.isNotEmpty) {
       parts.add((buffer, tagStack.last.$2));
     }
 
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.only(bottom: 16),
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      margin: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Color(CustomColors.colorPrimary).withAlpha(30),
-        borderRadius: BorderRadius.circular(6),
+        color: colors.surfaceContainerHighest.withValues(alpha: 0.58),
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: colors.outlineVariant.withValues(alpha: 0.7)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          RichText(
-            text: TextSpan(
+          Row(
+            children: [
+              Container(
+                width: 28,
+                height: 28,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: colors.primaryContainer,
+                  borderRadius: BorderRadius.circular(9),
+                ),
+                child: Text(
+                  '$index',
+                  style: theme.textTheme.labelLarge?.copyWith(
+                    color: colors.onPrimaryContainer,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 8),
+              if (tag.isNotEmpty)
+                Expanded(
+                  child: Text(
+                    tag,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.labelLarge?.copyWith(
+                      color: colors.primary,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                )
+              else
+                const Spacer(),
+              Tooltip(
+                message: 'Action ID: $actionId',
+                child: Icon(
+                  showCoe ? Icons.functions_rounded : Icons.bolt_rounded,
+                  size: 17,
+                  color: colors.onSurfaceVariant,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 9),
+          SelectableText.rich(
+            TextSpan(
               children: parts.map((e) {
                 return TextSpan(
                   text: e.$1,
-                  style: TextStyle(color: Color(e.$2)),
+                  style: TextStyle(color: e.$2),
                 );
               }).toList(),
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: theme.textTheme.bodyMedium?.copyWith(height: 1.55),
             ),
           ),
           if (summonUnitId != null) ...[
             const SizedBox(height: 8),
-            TextButton.icon(
+            FilledButton.tonalIcon(
               onPressed: () {
-                // 点击跳转到召唤物角色详情页
                 final width = MediaQuery.of(context).size.width;
                 context.push(
                   AppRoutes.unitDetail,
@@ -113,14 +152,8 @@ class SkillActionText extends StatelessWidget {
                   ),
                 );
               },
-              icon: Icon(Icons.pets, color: Color(CustomColors.colorPrimary)),
-              label: Text(
-                t.summon_unit,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Color(CustomColors.colorPrimary),
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
+              icon: const Icon(Icons.pets_outlined),
+              label: Text(t.summon_unit),
             ),
           ],
         ],
@@ -146,58 +179,120 @@ class SingleSkillInfo extends StatelessWidget {
     this.atk,
   });
   List<SkillActionText> getActionDescList(ActionHandler actionHandler) {
-    List<SkillActionText> skillActionTextList = [];
-    late String desc;
-    late bool showCoe;
-    late String tag;
+    final descriptions = <String>[];
+    final showCoeList = <bool>[];
+    final tags = <String>[];
     for (var i = 0; i < actions.length; i++) {
-      var action = actions[i];
-      desc = actionHandler.formatDesc(action, skill, level ?? 0, atk ?? 0);
-      showCoe = [
-        SkillActionType.additive.value,
-        SkillActionType.multiple.value,
-        SkillActionType.divide.value,
-        SkillActionType.rateDamage.value,
-      ].contains(action.actionType);
+      final action = actions[i];
+      descriptions.add(
+        actionHandler.formatDesc(action, skill, level ?? 0, atk ?? 0),
+      );
+      showCoeList.add(
+        [
+          SkillActionType.additive.value,
+          SkillActionType.multiple.value,
+          SkillActionType.divide.value,
+          SkillActionType.rateDamage.value,
+        ].contains(action.actionType),
+      );
       final type = SkillActionType.getByType(action.actionType);
+      String tag;
       if (type == SkillActionType.unknown) {
         tag = actionHandler.tag;
       } else {
         tag = type.getName(actionHandler.t);
       }
-      tag = tag.isEmpty ? actionHandler.tag : tag;
+      tags.add(tag.isEmpty ? actionHandler.tag : tag);
+    }
 
-      skillActionTextList.add(
+    _hideUnusedCoefficients(descriptions, showCoeList, actionHandler.t);
+
+    return [
+      for (var i = 0; i < actions.length; i++)
         SkillActionText(
-          actionId: action.actionId,
-          tag: tag,
-          actionDesc: desc,
-          summonUnitId: action.actionType == SkillActionType.summon.value
-              ? action.actionDetail2
+          actionId: actions[i].actionId,
+          tag: tags[i],
+          actionDesc: descriptions[i],
+          summonUnitId: actions[i].actionType == SkillActionType.summon.value
+              ? actions[i].actionDetail2
               : null,
-          showCoe: showCoe,
+          showCoe: showCoeList[i],
           index: i + 1,
           unitType: unitType,
         ),
-      );
+    ];
+  }
+
+  void _hideUnusedCoefficients(
+    List<String> descriptions,
+    List<bool> showCoeList,
+    AppLocalizations t,
+  ) {
+    final references = <({int actionIndex, int type, String coefficient})>[];
+    final coefficientPattern = RegExp(r'\{.*?\}');
+    final actionPattern = RegExp(
+      '${RegExp.escape(t.skill_action)}\\((\\d+)\\)',
+    );
+
+    for (var index = 0; index < descriptions.length; index++) {
+      if (!showCoeList[index]) continue;
+      final coefficient = coefficientPattern.firstMatch(descriptions[index]);
+      if (coefficient == null) continue;
+      final value = coefficient.group(0)!;
+      references.add((actionIndex: index, type: 0, coefficient: value));
+      for (final match in actionPattern.allMatches(descriptions[index])) {
+        final actionIndex = int.tryParse(match.group(1) ?? '');
+        if (actionIndex != null && actionIndex > 0) {
+          references.add((
+            actionIndex: actionIndex - 1,
+            type: 1,
+            coefficient: value,
+          ));
+        }
+      }
     }
-    return skillActionTextList;
+
+    for (var index = 0; index < descriptions.length; index++) {
+      final related = references
+          .where((reference) => reference.actionIndex == index)
+          .toList();
+      final original = descriptions[index];
+      if (related.isEmpty) {
+        descriptions[index] = original.replaceAll(coefficientPattern, '');
+        continue;
+      }
+
+      var startIndex = original.indexOf('<');
+      if (startIndex == -1) startIndex = original.indexOf('[');
+      if (startIndex == -1) continue;
+
+      var expression = original.substring(startIndex);
+      for (final match in coefficientPattern.allMatches(original)) {
+        final coefficient = match.group(0)!;
+        if (related.first.type == 0 ||
+            (related.first.type == 1 &&
+                related.first.coefficient != coefficient)) {
+          expression = expression.replaceAll(coefficient, '');
+        }
+      }
+      descriptions[index] = original.substring(0, startIndex) + expression;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     final skillActionHandler = ActionHandler(t);
-    final borderColor = Color(CustomColors.colorGray).withAlpha(50);
     final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+    final borderColor = colors.outlineVariant.withValues(alpha: 0.72);
     final textTheme = theme.textTheme;
-    String skillSubTitle = skillType.getName(t);
+    final skillMeta = <String>[skillType.getName(t)];
     if (skill.skillCastTime > 0) {
-      skillSubTitle +=
-          '\t\t\t${t.skill_cooltime(skill.skillCastTime.toString())}';
+      skillMeta.add(t.skill_cast_time(skill.skillCastTime.toString()));
     }
     if ((level ?? 0) > 0) {
-      skillSubTitle += '\t\t\t${t.skill_level(level!)}';
+      skillMeta.add(t.skill_level(level!));
     }
     final skillAction = getActionDescList(skillActionHandler);
     final tags = skillAction
@@ -206,46 +301,58 @@ class SingleSkillInfo extends StatelessWidget {
         .toSet()
         .toList();
     return BaseCard(
+      margin: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 6),
+      borderRadius: 20,
       border: Border.all(color: borderColor),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 12),
-
-          /// 行首：左图标 + 标题 + 副标题
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                width: 50,
-                height: 50,
+                width: 56,
+                height: 56,
+                padding: const EdgeInsets.all(3),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFFFF3E0),
-                  borderRadius: BorderRadius.circular(8),
+                  color: colors.secondaryContainer.withValues(alpha: 0.5),
+                  borderRadius: BorderRadius.circular(16),
                   border: Border.all(color: borderColor),
                 ),
-                child: CachedImage(
-                  url: FetchUrl.skillIconUrl(
-                    skill.iconType ?? 1001,
-                  ), // 默认图标ID为1001
-                ),
+                child: skillType == SkillTextType.normal
+                    ? AtkType.fromValue(skill.skillType).getSkillIcon(50, 50)
+                    : CachedImage(
+                        url: FetchUrl.skillIconUrl(skill.iconType ?? 1001),
+                      ),
               ),
-              const SizedBox(width: 10),
-              // 标题与副标题
+              const SizedBox(width: 12),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      skill.name.isEmpty ? skillSubTitle : skill.name,
+                      skill.name.isEmpty ? skillType.getName(t) : skill.name,
                       style: textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w800,
                         color: Color(skillType.color),
                       ),
                     ),
-                    const SizedBox(height: 2),
-                    // 副标题：“技能1   准备时间: 1.4s”
-                    Text(skillSubTitle, style: textTheme.bodyMedium),
+                    const SizedBox(height: 5),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 4,
+                      children: skillMeta
+                          .map(
+                            (text) => Text(
+                              text,
+                              style: textTheme.bodySmall?.copyWith(
+                                color: colors.onSurfaceVariant,
+                              ),
+                            ),
+                          )
+                          .toList(),
+                    ),
                   ],
                 ),
               ),
@@ -256,24 +363,25 @@ class SingleSkillInfo extends StatelessWidget {
 
           /// 正文描述
           if (skill.description != null && skill.description!.isNotEmpty) ...[
-            Text(
+            SelectableText(
               skill.description!,
-              style: textTheme.bodyLarge?.copyWith(height: 1.3),
+              style: textTheme.bodyLarge?.copyWith(height: 1.45),
             ),
             const SizedBox(height: 12),
           ],
 
-          Row(
+          Wrap(
             spacing: 6,
+            runSpacing: 6,
             children: tags
                 .map(
                   (e) => BaseTag(
-                    backgroundColor: Color(CustomColors.colorPrimary),
-                    borderRadius: BorderRadius.circular(6),
+                    backgroundColor: colors.primaryContainer,
+                    borderRadius: BorderRadius.circular(9),
                     child: Text(
                       e,
                       style: textTheme.labelMedium?.copyWith(
-                        color: Color(CustomColors.colorWhite),
+                        color: colors.onPrimaryContainer,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
@@ -291,60 +399,229 @@ class SingleSkillInfo extends StatelessWidget {
   }
 }
 
-class AllSkillInfo extends StatelessWidget {
+class AllSkillInfo extends StatefulWidget {
   final UnitSkillList skillIdList;
   final UnitType unitType;
+  final int atk;
 
   const AllSkillInfo({
     super.key,
     required this.skillIdList,
     required this.unitType,
+    this.atk = 0,
   });
 
   @override
-  Widget build(BuildContext context) {
-    final style = Theme.of(context).textTheme;
+  State<AllSkillInfo> createState() => _AllSkillInfoState();
+}
+
+class _AllSkillInfoState extends State<AllSkillInfo> {
+  int? _customLevel;
+  int? _customAtk;
+
+  int get _databaseLevel {
+    for (final skill in [
+      ...widget.skillIdList.normal,
+      ...widget.skillIdList.sp,
+    ]) {
+      if (skill.level > 0) return skill.level;
+    }
+    return 0;
+  }
+
+  Future<void> _editParameters(BuildContext context) async {
     final t = AppLocalizations.of(context)!;
-    return Column(
-      children: [
-        Text(
-          t.skill_info,
-          style: style.titleLarge?.copyWith(
-            color: Color(CustomColors.colorPrimary),
-            fontWeight: FontWeight.w700,
+    final levelController = TextEditingController(
+      text: (_customLevel ?? _databaseLevel).toString(),
+    );
+    final atkController = TextEditingController(
+      text: (_customAtk ?? widget.atk).toString(),
+    );
+    final result = await showDialog<({int? level, int? atk})>(
+      context: context,
+      builder: (context) => AlertDialog(
+        icon: const Icon(Icons.calculate_outlined),
+        title: Text(t.skill_parameters),
+        content: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 360),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                controller: levelController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: t.skill_level_text,
+                  prefixIcon: const Icon(Icons.stairs_outlined),
+                ),
+              ),
+              const SizedBox(height: 12),
+              TextField(
+                controller: atkController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: t.skill_atk_text,
+                  prefixIcon: const Icon(Icons.sports_martial_arts_outlined),
+                ),
+              ),
+            ],
           ),
         ),
-        ...[
-          ...skillIdList.normal.map(
-            (e) => SingleSkillInfo(
-              skill: e.data,
-              actions: e.actions,
-              skillType: e.type,
-              level: e.level,
-              unitType: unitType,
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, (level: null, atk: null)),
+            child: Text(t.reset),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, (
+              level: int.tryParse(levelController.text)?.clamp(0, 9999),
+              atk: int.tryParse(atkController.text)?.clamp(0, 99999999),
+            )),
+            child: Text(t.apply),
+          ),
+        ],
+      ),
+    );
+    levelController.dispose();
+    atkController.dispose();
+    if (result == null || !mounted) return;
+    setState(() {
+      _customLevel = result.level;
+      _customAtk = result.atk;
+    });
+  }
+
+  Widget _sectionTitle(
+    BuildContext context,
+    String title,
+    IconData icon, {
+    int? count,
+  }) {
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 22, 16, 4),
+      child: Row(
+        children: [
+          Icon(icon, color: colors.primary),
+          const SizedBox(width: 9),
+          Expanded(
+            child: Text(
+              title,
+              style: theme.textTheme.titleLarge?.copyWith(
+                color: colors.onSurface,
+                fontWeight: FontWeight.w800,
+              ),
             ),
           ),
-          if (skillIdList.sp.isNotEmpty) ...[
-            const SizedBox(height: 16),
-            Text(
-              "SP${t.skill_info}",
-              style: style.titleLarge?.copyWith(
-                color: Color(CustomColors.colorPrimary),
-                fontWeight: FontWeight.w700,
+          if (count != null)
+            Badge(
+              backgroundColor: colors.secondaryContainer,
+              textColor: colors.onSecondaryContainer,
+              label: Text('$count'),
+            ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+    final effectiveAtk = _customAtk ?? widget.atk;
+    final hasParameters =
+        (_customLevel ?? _databaseLevel) > 0 || effectiveAtk > 0;
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 920),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 22, 16, 2),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      t.skill_info,
+                      style: theme.textTheme.headlineSmall?.copyWith(
+                        color: colors.primary,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                  ),
+                  FilledButton.tonalIcon(
+                    onPressed: () => _editParameters(context),
+                    icon: const Icon(Icons.tune_rounded),
+                    label: Text(t.skill_parameters),
+                  ),
+                ],
+              ),
+            ),
+            if (hasParameters)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Wrap(
+                    spacing: 8,
+                    children: [
+                      if ((_customLevel ?? _databaseLevel) > 0)
+                        Chip(
+                          avatar: const Icon(Icons.stairs_outlined, size: 17),
+                          label: Text(
+                            t.skill_level(_customLevel ?? _databaseLevel),
+                          ),
+                        ),
+                      if (effectiveAtk > 0)
+                        Chip(
+                          avatar: const Icon(
+                            Icons.sports_martial_arts_outlined,
+                            size: 17,
+                          ),
+                          label: Text('${t.skill_atk_text}：$effectiveAtk'),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            _sectionTitle(
+              context,
+              t.normal_skill,
+              Icons.auto_awesome_outlined,
+              count: widget.skillIdList.normal.length,
+            ),
+            ...widget.skillIdList.normal.map(
+              (e) => SingleSkillInfo(
+                skill: e.data,
+                actions: e.actions,
+                skillType: e.type,
+                level: _customLevel ?? e.level,
+                atk: effectiveAtk,
+                unitType: widget.unitType,
+              ),
+            ),
+            if (widget.skillIdList.sp.isNotEmpty)
+              _sectionTitle(
+                context,
+                t.sp_skill,
+                Icons.flash_on_outlined,
+                count: widget.skillIdList.sp.length,
+              ),
+            ...widget.skillIdList.sp.map(
+              (e) => SingleSkillInfo(
+                skill: e.data,
+                actions: e.actions,
+                skillType: e.type,
+                level: _customLevel ?? e.level,
+                atk: effectiveAtk,
+                unitType: widget.unitType,
               ),
             ),
           ],
-          ...skillIdList.sp.map(
-            (e) => SingleSkillInfo(
-              skill: e.data,
-              actions: e.actions,
-              skillType: e.type,
-              level: e.level,
-              unitType: unitType,
-            ),
-          ),
-        ],
-      ],
+        ),
+      ),
     );
   }
 }
@@ -353,12 +630,17 @@ Future<UnitSkillList> getUnitSkillList(
   AppDb db,
   int unitId, {
   Map<int, int>? levelMap,
+  AllUnitParameter? enemyParameter,
+  int atkType = 0,
+  double normalAttackCastTime = 0,
 }) async {
-  UnitSkillList skillData = UnitSkillList();
-  List<int> normal = [];
-  List<int> sp = [];
-  Map<int, SkillTextType> skillTypeDict = {};
+  final skillData = UnitSkillList();
+  final normal = <int>[1];
+  final sp = <int>[];
+  final skillTypeDict = <int, SkillTextType>{1: SkillTextType.normal};
   final skill = (await db.getUnitSkills(unitId))!;
+  final effectiveLevelMap =
+      levelMap ?? _buildSkillLevelMap(skill, enemyParameter);
   if (skill.unionBurst != 0) {
     skillTypeDict[skill.unionBurst] = SkillTextType.ub;
     normal.add(skill.unionBurst);
@@ -377,6 +659,10 @@ Future<UnitSkillList> getUnitSkillList(
   {
     skillTypeDict[skill.mainSkillEvolution1!] = SkillTextType.skill1Plus;
     normal.add(skill.mainSkillEvolution1!);
+  }
+  if ((skill.mainSkillEvolution1Pro ?? 0) != 0) {
+    skillTypeDict[skill.mainSkillEvolution1Pro!] = SkillTextType.skill1PlusPlus;
+    normal.add(skill.mainSkillEvolution1Pro!);
   }
   if (skill.mainSkill2 != 0) {
     skillTypeDict[skill.mainSkill2] = SkillTextType.skill2;
@@ -471,6 +757,10 @@ Future<UnitSkillList> getUnitSkillList(
     skillTypeDict[skill.spSkillEvolution1!] = SkillTextType.spSkill1Plus;
     sp.add(skill.spSkillEvolution1!);
   }
+  if ((skill.spSkillEvolution1Pro ?? 0) != 0) {
+    skillTypeDict[skill.spSkillEvolution1Pro!] = SkillTextType.spSkill1PlusPlus;
+    sp.add(skill.spSkillEvolution1Pro!);
+  }
   if (skill.spSkill2 != 0) {
     skillTypeDict[skill.spSkill2] = SkillTextType.spSkill2;
     sp.add(skill.spSkill2);
@@ -483,63 +773,134 @@ Future<UnitSkillList> getUnitSkillList(
     skillTypeDict[skill.spSkill3] = SkillTextType.spSkill3;
     sp.add(skill.spSkill3);
   }
-
-  for (var id in normal) {
-    var skillDataData = await db.getSkill(
-      (await db.getRfSkillId(id))?.rfSkillId ?? id,
-    );
-    var actions = await db.getSkillActions(
-      [
-        skillDataData?.action1,
-        skillDataData?.action2,
-        skillDataData?.action3,
-        skillDataData?.action4,
-        skillDataData?.action5,
-        skillDataData?.action6,
-        skillDataData?.action7,
-        skillDataData?.action8,
-        skillDataData?.action9,
-        skillDataData?.action10,
-      ].whereType<int>().toList(),
-    );
-
-    skillData.normal.add(
-      SkillFinalData(
-        id: id,
-        type: skillTypeDict[id]!,
-        data: skillDataData!,
-        actions: actions,
-        level: levelMap != null ? levelMap[id] ?? 0 : 0,
-      ),
-    );
+  if (skill.spSkill4 != 0) {
+    skillTypeDict[skill.spSkill4] = SkillTextType.spSkill4;
+    sp.add(skill.spSkill4);
   }
-  for (var id in sp) {
-    var skillDataData = await db.getSkill(
-      (await db.getRfSkillId(id))?.rfSkillId ?? id,
-    );
-    var actions = await db.getSkillActions(
-      [
-        skillDataData?.action1,
-        skillDataData?.action2,
-        skillDataData?.action3,
-        skillDataData?.action4,
-        skillDataData?.action5,
-        skillDataData?.action6,
-        skillDataData?.action7,
-        skillDataData?.action8,
-        skillDataData?.action9,
-        skillDataData?.action10,
-      ].whereType<int>().toList(),
-    );
-    skillData.sp.add(
-      SkillFinalData(
-        id: id,
-        type: skillTypeDict[id]!,
-        data: skillDataData!,
-        actions: actions,
-        level: levelMap != null ? levelMap[id] ?? 0 : 0,
-      ),
-    );
+  if (skill.spSkill5 != 0) {
+    skillTypeDict[skill.spSkill5] = SkillTextType.spSkill5;
+    sp.add(skill.spSkill5);
   }
+
+  Future<void> loadSkills(List<int> ids, List<SkillFinalData> target) async {
+    for (final id in ids) {
+      final SkillDataData? data;
+      if (id == 1) {
+        data = _normalAttackData(atkType, normalAttackCastTime);
+      } else {
+        final rfSkillId = (await db.getRfSkillId(id))?.rfSkillId;
+        data = await db.getSkill(rfSkillId ?? id);
+      }
+      if (data == null) continue;
+      final actions = await db.getSkillActions(_skillActionIds(data));
+      target.add(
+        SkillFinalData(
+          id: id,
+          type: skillTypeDict[id]!,
+          data: data,
+          actions: actions,
+          level: effectiveLevelMap[id] ?? 0,
+        ),
+      );
+    }
+  }
+
+  await loadSkills(normal, skillData.normal);
+  await loadSkills(sp, skillData.sp);
   return skillData;
+}
+
+SkillDataData _normalAttackData(int atkType, double castTime) {
+  return SkillDataData(
+    skillId: 1,
+    name: '',
+    skillType: atkType,
+    skillAreaWidth: 0,
+    skillCastTime: castTime,
+    action1: 0,
+    action2: 0,
+    action3: 0,
+    action4: 0,
+    action5: 0,
+    action6: 0,
+    action7: 0,
+    action8: 0,
+    action9: 0,
+    action10: 0,
+    actionDepend1: 0,
+    actionDepend2: 0,
+    actionDepend3: 0,
+    actionDepend4: 0,
+    actionDepend5: 0,
+    actionDepend6: 0,
+    actionDepend7: 0,
+    actionDepend8: 0,
+    actionDepend9: 0,
+    actionDepend10: 0,
+    description: '',
+  );
+}
+
+List<int> _skillActionIds(SkillDataData skill) {
+  return [
+    skill.action1,
+    skill.action2,
+    skill.action3,
+    skill.action4,
+    skill.action5,
+    skill.action6,
+    skill.action7,
+    skill.action8,
+    skill.action9,
+    skill.action10,
+    skill.action11,
+    skill.action12,
+    skill.action13,
+    skill.action14,
+    skill.action15,
+    skill.action16,
+    skill.action17,
+    skill.action18,
+    skill.action19,
+    skill.action20,
+  ].whereType<int>().where((id) => id != 0).toList();
+}
+
+Map<int, int> _buildSkillLevelMap(
+  UnitSkillDataData skill,
+  AllUnitParameter? parameter,
+) {
+  if (parameter == null) return const {};
+  final result = <int, int>{};
+
+  void add(int? id, int level) {
+    if (id != null && id != 0) result[id] = level;
+  }
+
+  add(skill.unionBurst, parameter.unionBurstLevel);
+  add(skill.unionBurstEvolution, parameter.unionBurstLevel);
+  add(skill.mainSkill1, parameter.mainSkillLv1);
+  add(skill.mainSkillEvolution1, parameter.mainSkillLv1);
+  add(skill.mainSkillEvolution1Pro, parameter.mainSkillLv1);
+  add(skill.mainSkill2, parameter.mainSkillLv2);
+  add(skill.mainSkillEvolution2, parameter.mainSkillLv2);
+  add(skill.mainSkill3, parameter.mainSkillLv3);
+  add(skill.mainSkill4, parameter.mainSkillLv4);
+  add(skill.mainSkill5, parameter.mainSkillLv5);
+  add(skill.mainSkill6, parameter.mainSkillLv6);
+  add(skill.mainSkill7, parameter.mainSkillLv7);
+  add(skill.mainSkill8, parameter.mainSkillLv8);
+  add(skill.mainSkill9, parameter.mainSkillLv9);
+  add(skill.mainSkill10, parameter.mainSkillLv10);
+  add(skill.exSkill1, parameter.exSkillLv1);
+  add(skill.exSkillEvolution1, parameter.exSkillLv1);
+  add(skill.exSkill2, parameter.exSkillLv2);
+  add(skill.exSkillEvolution2, parameter.exSkillLv2);
+  add(skill.exSkill3, parameter.exSkillLv3);
+  add(skill.exSkillEvolution3, parameter.exSkillLv3);
+  add(skill.exSkill4, parameter.exSkillLv4);
+  add(skill.exSkillEvolution4, parameter.exSkillLv4);
+  add(skill.exSkill5, parameter.exSkillLv5);
+  add(skill.exSkillEvolution5, parameter.exSkillLv5);
+  return result;
 }

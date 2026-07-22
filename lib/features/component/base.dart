@@ -179,6 +179,42 @@ enum UnitGetType {
   }
 }
 
+enum UnitRoleType {
+  attacker(1, CustomColors.colorRed),
+  breaker(2, CustomColors.colorGold),
+  buffer(3, CustomColors.colorOrange),
+  debuffer(4, CustomColors.colorDeepBlue),
+  booster(5, CustomColors.colorCyan),
+  healer(6, CustomColors.colorGreen),
+  tank(7, CustomColors.colorPurple),
+  jammer(8, CustomColors.colorDeepPink);
+
+  final int value;
+  final int color;
+
+  const UnitRoleType(this.value, this.color);
+
+  static UnitRoleType? fromValue(int value) {
+    for (final type in UnitRoleType.values) {
+      if (type.value == value) return type;
+    }
+    return null;
+  }
+
+  String getName(AppLocalizations t) {
+    return switch (this) {
+      UnitRoleType.attacker => t.role_attacker,
+      UnitRoleType.breaker => t.role_breaker,
+      UnitRoleType.buffer => t.role_buffer,
+      UnitRoleType.debuffer => t.role_debuffer,
+      UnitRoleType.booster => t.role_booster,
+      UnitRoleType.healer => t.role_healer,
+      UnitRoleType.tank => t.role_tank,
+      UnitRoleType.jammer => t.role_jammer,
+    };
+  }
+}
+
 enum EnemyType {
   all,
   normal,
@@ -186,6 +222,8 @@ enum EnemyType {
   tower,
   shiori,
   sre,
+  sekai,
+  seven,
   clan,
   talentQuest;
 
@@ -203,6 +241,10 @@ enum EnemyType {
         return '诗穗敌人';
       case EnemyType.sre:
         return 'SRE敌人';
+      case EnemyType.sekai:
+        return '次元断层敌人';
+      case EnemyType.seven:
+        return '七冠敌人';
       case EnemyType.talentQuest:
         return '天赋任务敌人';
       case EnemyType.clan:

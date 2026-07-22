@@ -321,7 +321,13 @@ enum SkillActionType {
   damageToDot(129),
 
   /// 130：调和
-  changeDefMax(130);
+  changeDefMax(130),
+
+  /// 132：伤害变更
+  damageChange(132),
+
+  /// 133：消耗标记
+  sealConsume(133);
 
   final int value;
   const SkillActionType(this.value);
@@ -546,6 +552,10 @@ enum SkillActionType {
         return t.skill_action_type_129;
       case SkillActionType.changeDefMax:
         return t.skill_action_type_130;
+      case SkillActionType.damageChange:
+        return t.skill_action_type_132;
+      case SkillActionType.sealConsume:
+        return t.skill_type_35_43_60_77;
     }
   }
 
@@ -624,6 +634,7 @@ enum BuffType {
   magicDamageTake(17),
   physicalDamage(18),
   magicDamage(19),
+  buff(20),
   maxHp(100);
 
   final int value;
@@ -679,6 +690,8 @@ enum BuffType {
         return t.skill_physical_damage;
       case BuffType.magicDamage:
         return t.skill_magic_damage;
+      case BuffType.buff:
+        return t.skill_buff;
       case BuffType.maxHp:
         return t.skill_hp_max;
     }
@@ -691,6 +704,7 @@ enum SkillTextType {
   ubPlus,
   skill1,
   skill1Plus,
+  skill1PlusPlus,
   skill2,
   skill2Plus,
   skill3,
@@ -714,6 +728,7 @@ enum SkillTextType {
   spUb,
   spSkill1,
   spSkill1Plus,
+  spSkill1PlusPlus,
   spSkill2,
   spSkill2Plus,
   spSkill3,
@@ -728,8 +743,10 @@ enum SkillTextType {
         return CustomColors.colorGold;
       case SkillTextType.skill1:
       case SkillTextType.skill1Plus:
+      case SkillTextType.skill1PlusPlus:
       case SkillTextType.spSkill1:
       case SkillTextType.spSkill1Plus:
+      case SkillTextType.spSkill1PlusPlus:
         return CustomColors.colorPurple;
       case SkillTextType.skill2:
       case SkillTextType.skill2Plus:
@@ -757,6 +774,8 @@ enum SkillTextType {
         return t.skill_index(1);
       case SkillTextType.skill1Plus:
         return "${t.skill_index(1)}+";
+      case SkillTextType.skill1PlusPlus:
+        return "${t.skill_index(1)}++";
       case SkillTextType.skill2:
         return t.skill_index(2);
       case SkillTextType.skill2Plus:
@@ -803,6 +822,8 @@ enum SkillTextType {
         return "SP${t.skill_index(1)}";
       case SkillTextType.spSkill1Plus:
         return "SP${t.skill_index(1)}+";
+      case SkillTextType.spSkill1PlusPlus:
+        return "SP${t.skill_index(1)}++";
       case SkillTextType.spSkill2:
         return "SP${t.skill_index(2)}";
       case SkillTextType.spSkill2Plus:

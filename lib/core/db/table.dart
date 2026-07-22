@@ -178,6 +178,16 @@ class SkillData extends Table {
   IntColumn get action8 => integer().named('action_8')();
   IntColumn get action9 => integer().named('action_9')();
   IntColumn get action10 => integer().named('action_10')();
+  IntColumn get action11 => integer().named('action_11').nullable()();
+  IntColumn get action12 => integer().named('action_12').nullable()();
+  IntColumn get action13 => integer().named('action_13').nullable()();
+  IntColumn get action14 => integer().named('action_14').nullable()();
+  IntColumn get action15 => integer().named('action_15').nullable()();
+  IntColumn get action16 => integer().named('action_16').nullable()();
+  IntColumn get action17 => integer().named('action_17').nullable()();
+  IntColumn get action18 => integer().named('action_18').nullable()();
+  IntColumn get action19 => integer().named('action_19').nullable()();
+  IntColumn get action20 => integer().named('action_20').nullable()();
 
   IntColumn get actionDepend1 => integer().named('depend_action_1')();
   IntColumn get actionDepend2 => integer().named('depend_action_2')();
@@ -189,6 +199,26 @@ class SkillData extends Table {
   IntColumn get actionDepend8 => integer().named('depend_action_8')();
   IntColumn get actionDepend9 => integer().named('depend_action_9')();
   IntColumn get actionDepend10 => integer().named('depend_action_10')();
+  IntColumn get actionDepend11 =>
+      integer().named('depend_action_11').nullable()();
+  IntColumn get actionDepend12 =>
+      integer().named('depend_action_12').nullable()();
+  IntColumn get actionDepend13 =>
+      integer().named('depend_action_13').nullable()();
+  IntColumn get actionDepend14 =>
+      integer().named('depend_action_14').nullable()();
+  IntColumn get actionDepend15 =>
+      integer().named('depend_action_15').nullable()();
+  IntColumn get actionDepend16 =>
+      integer().named('depend_action_16').nullable()();
+  IntColumn get actionDepend17 =>
+      integer().named('depend_action_17').nullable()();
+  IntColumn get actionDepend18 =>
+      integer().named('depend_action_18').nullable()();
+  IntColumn get actionDepend19 =>
+      integer().named('depend_action_19').nullable()();
+  IntColumn get actionDepend20 =>
+      integer().named('depend_action_20').nullable()();
 
   TextColumn get description => text().named('description').nullable()();
   IntColumn get iconType => integer().named('icon_type').nullable()();
@@ -219,6 +249,8 @@ class UnitSkillData extends Table {
   // 主技能进化 (Main Skill Evolutions)
   IntColumn get mainSkillEvolution1 =>
       integer().named("main_skill_evolution_1").nullable()();
+  IntColumn get mainSkillEvolution1Pro =>
+      integer().named("main_skill_evolution_1_pro").nullable()();
   IntColumn get mainSkillEvolution2 =>
       integer().named("main_skill_evolution_2").nullable()();
   // EX 技能 (EX Skills)
@@ -249,6 +281,8 @@ class UnitSkillData extends Table {
       integer().named("sp_skill_evolution_1").nullable()();
   IntColumn get spSkillEvolution2 =>
       integer().named("sp_skill_evolution_2").nullable()();
+  IntColumn get spSkillEvolution1Pro =>
+      integer().named("sp_skill_evolution_1_pro").nullable()();
 }
 
 class SkillAction extends Table {
@@ -908,6 +942,57 @@ class SevenEnemyParameter extends Table {
   IntColumn get virtualHp => integer().named("virtual_hp")();
 }
 
+/// Enemy parameters used by the dimensional-fault (sekai) game mode.
+///
+/// Unlike the other enemy parameter tables, the primary key in the source
+/// database is named `sekai_enemy_id` and there is no `resist_variation_id`.
+class SekaiEnemyParameter extends Table {
+  @override
+  String get tableName => "sekai_enemy_parameter";
+  @override
+  Set<Column> get primaryKey => {sekaiEnemyId};
+  IntColumn get sekaiEnemyId => integer().named("sekai_enemy_id")();
+  IntColumn get unitId => integer().named("unit_id")();
+  TextColumn get name => text().named("name")();
+  IntColumn get level => integer().named("level")();
+  IntColumn get rarity => integer().named("rarity")();
+  IntColumn get promotionLevel => integer().named("promotion_level")();
+  IntColumn get hp => integer().named("hp")();
+  IntColumn get atk => integer().named("atk")();
+  IntColumn get magicStr => integer().named("magic_str")();
+  RealColumn get def_ => real().named("def")();
+  IntColumn get magicDef => integer().named("magic_def")();
+  IntColumn get physicalCritical => integer().named("physical_critical")();
+  IntColumn get magicCritical => integer().named("magic_critical")();
+  IntColumn get waveHpRecovery => integer().named("wave_hp_recovery")();
+  IntColumn get waveEnergyRecovery => integer().named("wave_energy_recovery")();
+  IntColumn get dodge => integer().named("dodge")();
+  IntColumn get physicalPenetrate => integer().named("physical_penetrate")();
+  IntColumn get magicPenetrate => integer().named("magic_penetrate")();
+  IntColumn get lifeSteal => integer().named("life_steal")();
+  IntColumn get hpRecoveryRate => integer().named("hp_recovery_rate")();
+  IntColumn get energyRecoveryRate => integer().named("energy_recovery_rate")();
+  IntColumn get energyReduceRate => integer().named("energy_reduce_rate")();
+  IntColumn get unionBurstLevel => integer().named("union_burst_level")();
+  IntColumn get mainSkillLv1 => integer().named("main_skill_lv_1")();
+  IntColumn get mainSkillLv2 => integer().named("main_skill_lv_2")();
+  IntColumn get mainSkillLv3 => integer().named("main_skill_lv_3")();
+  IntColumn get mainSkillLv4 => integer().named("main_skill_lv_4")();
+  IntColumn get mainSkillLv5 => integer().named("main_skill_lv_5")();
+  IntColumn get mainSkillLv6 => integer().named("main_skill_lv_6")();
+  IntColumn get mainSkillLv7 => integer().named("main_skill_lv_7")();
+  IntColumn get mainSkillLv8 => integer().named("main_skill_lv_8")();
+  IntColumn get mainSkillLv9 => integer().named("main_skill_lv_9")();
+  IntColumn get mainSkillLv10 => integer().named("main_skill_lv_10")();
+  IntColumn get exSkillLv1 => integer().named("ex_skill_lv_1")();
+  IntColumn get exSkillLv2 => integer().named("ex_skill_lv_2")();
+  IntColumn get exSkillLv3 => integer().named("ex_skill_lv_3")();
+  IntColumn get exSkillLv4 => integer().named("ex_skill_lv_4")();
+  IntColumn get exSkillLv5 => integer().named("ex_skill_lv_5")();
+  IntColumn get resistStatusId => integer().named("resist_status_id")();
+  IntColumn get accuracy => integer().named("accuracy")();
+}
+
 class EnemyTalentWeakness extends Table {
   @override
   String get tableName => "enemy_talent_weakness";
@@ -990,15 +1075,16 @@ class ClanBattle2MapData extends Table {
   RealColumn get rewardGoldCoefficient =>
       real().named("reward_gold_coefficient")();
   IntColumn get limitedMana => integer().named("limited_mana").nullable()();
-  IntColumn get lastAttackRewardId => integer().named("last_attack_reward_id")();
+  IntColumn get lastAttackRewardId =>
+      integer().named("last_attack_reward_id")();
   RealColumn get scoreCoefficient1 => real().named("score_coefficient_1")();
   RealColumn get scoreCoefficient2 => real().named("score_coefficient_2")();
   RealColumn get scoreCoefficient3 => real().named("score_coefficient_3")();
   RealColumn get scoreCoefficient4 => real().named("score_coefficient_4")();
   RealColumn get scoreCoefficient5 => real().named("score_coefficient_5")();
   IntColumn get paramAdjustId => integer().named("param_adjust_id")();
-  IntColumn get paramAdjustInterval => integer().named("param_adjust_interval")();  
-
+  IntColumn get paramAdjustInterval =>
+      integer().named("param_adjust_interval")();
 }
 
 class ClanBattleSchedule extends Table {

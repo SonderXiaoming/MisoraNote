@@ -2,7 +2,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:misora_note/constants.dart';
 import '../../core/storage/cache.dart';
 import 'package:http/http.dart' as http;
 
@@ -35,12 +34,12 @@ class LocalImage extends StatelessWidget {
         placeholderBuilder: (ctx) => Container(
           width: width,
           height: height,
-          color: Colors.grey.shade100,
+          color: Theme.of(context).colorScheme.surfaceContainerLow,
           child: Center(
             child: Icon(
               Icons.image,
               size: width * 0.3,
-              color: Colors.grey.shade400,
+              color: Theme.of(context).colorScheme.outline,
             ),
           ),
         ),
@@ -52,20 +51,23 @@ class LocalImage extends StatelessWidget {
         errorBuilder: (context, error, stackTrace) => Container(
           width: width,
           height: height,
-          color: Colors.grey.shade50,
+          color: Theme.of(context).colorScheme.surfaceContainerLow,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
                 Icons.image_not_supported_outlined,
                 size: width * 0.3,
-                color: Colors.grey.shade400,
+                color: Theme.of(context).colorScheme.outline,
               ),
               if (height > 60) ...[
                 const SizedBox(height: 4),
                 Text(
                   '文件不存在',
-                  style: TextStyle(fontSize: 10, color: Colors.grey.shade500),
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ],
             ],
@@ -128,14 +130,14 @@ class CachedImage extends StatelessWidget {
       placeholder: (ctx, _) => Container(
         width: width,
         height: height,
-        color: Colors.grey.shade100,
-        child: const Center(
+        color: Theme.of(ctx).colorScheme.surfaceContainerLow,
+        child: Center(
           child: SizedBox(
             width: 20,
             height: 20,
             child: CircularProgressIndicator(
               strokeWidth: 2,
-              color: Color(CustomColors.colorPrimary),
+              color: Theme.of(ctx).colorScheme.primary,
             ),
           ),
         ),
@@ -161,16 +163,23 @@ class CachedImage extends StatelessWidget {
         return Container(
           width: width,
           height: height,
-          color: Colors.grey.shade50,
+          color: Theme.of(ctx).colorScheme.surfaceContainerLow,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(iconData, size: width * 0.3, color: Colors.grey.shade400),
+              Icon(
+                iconData,
+                size: width * 0.3,
+                color: Theme.of(ctx).colorScheme.outline,
+              ),
               if (height > 60) ...[
                 const SizedBox(height: 4),
                 Text(
                   errorMsg,
-                  style: TextStyle(fontSize: 10, color: Colors.grey.shade500),
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: Theme.of(ctx).colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ],
             ],
@@ -278,14 +287,14 @@ class _CachedImageWithHideState extends State<CachedImageWithHide> {
       placeholder: (ctx, _) => Container(
         width: widget.width,
         height: widget.height,
-        color: Colors.grey.shade100,
-        child: const Center(
+        color: Theme.of(ctx).colorScheme.surfaceContainerLow,
+        child: Center(
           child: SizedBox(
             width: 20,
             height: 20,
             child: CircularProgressIndicator(
               strokeWidth: 2,
-              color: Color(CustomColors.colorPrimary),
+              color: Theme.of(ctx).colorScheme.primary,
             ),
           ),
         ),
@@ -320,20 +329,23 @@ class _CachedImageWithHideState extends State<CachedImageWithHide> {
         return Container(
           width: widget.width,
           height: widget.height,
-          color: Colors.grey.shade50,
+          color: Theme.of(ctx).colorScheme.surfaceContainerLow,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
                 iconData,
                 size: widget.width * 0.3,
-                color: Colors.grey.shade400,
+                color: Theme.of(ctx).colorScheme.outline,
               ),
               if (widget.height > 60) ...[
                 const SizedBox(height: 4),
                 Text(
                   errorMsg,
-                  style: TextStyle(fontSize: 10, color: Colors.grey.shade500),
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: Theme.of(ctx).colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ],
             ],

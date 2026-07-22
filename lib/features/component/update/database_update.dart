@@ -5,6 +5,17 @@ import 'package:misora_note/core/utils/util.dart';
 import 'package:misora_note/features/component/custom_dialog.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 
+String? normalizeDatabaseVersion(String? version) {
+  final normalized = version?.trim();
+  return normalized == null || normalized.isEmpty ? null : normalized;
+}
+
+bool hasDatabaseUpdate(String? currentVersion, String? latestVersion) {
+  final latest = normalizeDatabaseVersion(latestVersion);
+  if (latest == null) return false;
+  return normalizeDatabaseVersion(currentVersion) != latest;
+}
+
 Future<void> updateDatabase(
   WidgetRef ref,
   BuildContext context,
@@ -34,7 +45,7 @@ Future<void> updateDatabase(
 
         // 更新完成，设置版本号
         if (newVersion != null) {
-          ref.read(currentDbVersionProvider.notifier).set(newVersion);
+          await ref.read(currentDbVersionProvider.notifier).set(newVersion);
         } else {
           ref.invalidate(currentDbVersionProvider);
         }
@@ -64,13 +75,7 @@ class DatabaseUpdateService extends ConsumerWidget {
   const DatabaseUpdateService({super.key, required this.newVersion});
 
   bool checkUpdate(String? currentVersion) {
-    if (newVersion == null) {
-      return false;
-    }
-    if (currentVersion == null) {
-      return true;
-    }
-    return currentVersion != newVersion;
+    return hasDatabaseUpdate(currentVersion, newVersion);
   }
 
   @override
@@ -86,22 +91,23 @@ class DatabaseUpdateService extends ConsumerWidget {
           child: Center(child: CircularProgressIndicator()),
         ),
         error: (error, _) => Text(t.database_version_fetch_failed),
-        data: (currentVersion) => Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(t.database_current_version(currentVersion ?? t.unknown)),
-            Text(t.database_new_version(newVersion ?? t.unknown)),
-            const SizedBox(height: 12),
-            Text(t.database_server(area.value?.name ?? t.unknown)),
-            const SizedBox(height: 12),
-            Text(
-              currentVersion == newVersion
-                  ? t.already_latest_version
-                  : t.database_update_hint,
-            ),
-          ],
-        ),
+        data: (currentVersion) {
+          final needsUpdate = hasDatabaseUpdate(currentVersion, newVersion);
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(t.database_current_version(currentVersion ?? t.unknown)),
+              Text(t.database_new_version(newVersion ?? t.unknown)),
+              const SizedBox(height: 12),
+              Text(t.database_server(area.value?.name ?? t.unknown)),
+              const SizedBox(height: 12),
+              Text(
+                needsUpdate ? t.database_update_hint : t.already_latest_version,
+              ),
+            ],
+          );
+        },
       ),
       actions: [
         TextButton(
@@ -111,7 +117,8 @@ class DatabaseUpdateService extends ConsumerWidget {
         dbVersion.when(
           loading: () => const SizedBox.shrink(),
           error: (_, _) => const SizedBox.shrink(),
-          data: (currentVersion) => currentVersion == newVersion
+          data: (currentVersion) =>
+              !hasDatabaseUpdate(currentVersion, newVersion)
               ? const SizedBox.shrink()
               : TextButton(
                   onPressed: () async {

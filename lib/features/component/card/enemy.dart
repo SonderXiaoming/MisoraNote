@@ -56,7 +56,7 @@ class EnemyCard extends StatelessWidget {
             enemyUnit.unitName,
             style: textTheme.headlineMedium?.copyWith(
               fontWeight: FontWeight.bold,
-              color: Color(CustomColors.colorPrimary),
+              color: Theme.of(context).colorScheme.primary,
             ),
           ),
           SizedBox(height: 8),

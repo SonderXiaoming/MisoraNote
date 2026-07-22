@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:misora_note/constants.dart';
 
 class LoadingDialog extends StatelessWidget {
   final String title;
@@ -44,7 +43,9 @@ class LoadingDialog extends StatelessWidget {
       title: Text(title),
       content: Row(
         children: [
-          CircularProgressIndicator(color: Color(CustomColors.colorPrimary)),
+          CircularProgressIndicator(
+            color: Theme.of(context).colorScheme.primary,
+          ),
           SizedBox(width: 16),
           Expanded(
             child: Text(title, style: Theme.of(context).textTheme.bodyMedium),
@@ -147,7 +148,7 @@ class _ProgressDialogState extends State<ProgressDialog> {
             value: widget.progress,
             backgroundColor: Colors.grey[300],
             valueColor: AlwaysStoppedAnimation<Color>(
-              Color(CustomColors.colorPrimary),
+              Theme.of(context).colorScheme.primary,
             ),
           ),
           SizedBox(height: 16),

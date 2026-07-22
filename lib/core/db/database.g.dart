@@ -5590,6 +5590,116 @@ class $SkillDataTable extends SkillData
     type: DriftSqlType.int,
     requiredDuringInsert: true,
   );
+  static const VerificationMeta _action11Meta = const VerificationMeta(
+    'action11',
+  );
+  @override
+  late final GeneratedColumn<int> action11 = GeneratedColumn<int>(
+    'action_11',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _action12Meta = const VerificationMeta(
+    'action12',
+  );
+  @override
+  late final GeneratedColumn<int> action12 = GeneratedColumn<int>(
+    'action_12',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _action13Meta = const VerificationMeta(
+    'action13',
+  );
+  @override
+  late final GeneratedColumn<int> action13 = GeneratedColumn<int>(
+    'action_13',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _action14Meta = const VerificationMeta(
+    'action14',
+  );
+  @override
+  late final GeneratedColumn<int> action14 = GeneratedColumn<int>(
+    'action_14',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _action15Meta = const VerificationMeta(
+    'action15',
+  );
+  @override
+  late final GeneratedColumn<int> action15 = GeneratedColumn<int>(
+    'action_15',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _action16Meta = const VerificationMeta(
+    'action16',
+  );
+  @override
+  late final GeneratedColumn<int> action16 = GeneratedColumn<int>(
+    'action_16',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _action17Meta = const VerificationMeta(
+    'action17',
+  );
+  @override
+  late final GeneratedColumn<int> action17 = GeneratedColumn<int>(
+    'action_17',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _action18Meta = const VerificationMeta(
+    'action18',
+  );
+  @override
+  late final GeneratedColumn<int> action18 = GeneratedColumn<int>(
+    'action_18',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _action19Meta = const VerificationMeta(
+    'action19',
+  );
+  @override
+  late final GeneratedColumn<int> action19 = GeneratedColumn<int>(
+    'action_19',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _action20Meta = const VerificationMeta(
+    'action20',
+  );
+  @override
+  late final GeneratedColumn<int> action20 = GeneratedColumn<int>(
+    'action_20',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
   static const VerificationMeta _actionDepend1Meta = const VerificationMeta(
     'actionDepend1',
   );
@@ -5700,6 +5810,116 @@ class $SkillDataTable extends SkillData
     type: DriftSqlType.int,
     requiredDuringInsert: true,
   );
+  static const VerificationMeta _actionDepend11Meta = const VerificationMeta(
+    'actionDepend11',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend11 = GeneratedColumn<int>(
+    'depend_action_11',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _actionDepend12Meta = const VerificationMeta(
+    'actionDepend12',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend12 = GeneratedColumn<int>(
+    'depend_action_12',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _actionDepend13Meta = const VerificationMeta(
+    'actionDepend13',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend13 = GeneratedColumn<int>(
+    'depend_action_13',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _actionDepend14Meta = const VerificationMeta(
+    'actionDepend14',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend14 = GeneratedColumn<int>(
+    'depend_action_14',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _actionDepend15Meta = const VerificationMeta(
+    'actionDepend15',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend15 = GeneratedColumn<int>(
+    'depend_action_15',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _actionDepend16Meta = const VerificationMeta(
+    'actionDepend16',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend16 = GeneratedColumn<int>(
+    'depend_action_16',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _actionDepend17Meta = const VerificationMeta(
+    'actionDepend17',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend17 = GeneratedColumn<int>(
+    'depend_action_17',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _actionDepend18Meta = const VerificationMeta(
+    'actionDepend18',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend18 = GeneratedColumn<int>(
+    'depend_action_18',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _actionDepend19Meta = const VerificationMeta(
+    'actionDepend19',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend19 = GeneratedColumn<int>(
+    'depend_action_19',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _actionDepend20Meta = const VerificationMeta(
+    'actionDepend20',
+  );
+  @override
+  late final GeneratedColumn<int> actionDepend20 = GeneratedColumn<int>(
+    'depend_action_20',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
   static const VerificationMeta _descriptionMeta = const VerificationMeta(
     'description',
   );
@@ -5740,6 +5960,16 @@ class $SkillDataTable extends SkillData
     action8,
     action9,
     action10,
+    action11,
+    action12,
+    action13,
+    action14,
+    action15,
+    action16,
+    action17,
+    action18,
+    action19,
+    action20,
     actionDepend1,
     actionDepend2,
     actionDepend3,
@@ -5750,6 +5980,16 @@ class $SkillDataTable extends SkillData
     actionDepend8,
     actionDepend9,
     actionDepend10,
+    actionDepend11,
+    actionDepend12,
+    actionDepend13,
+    actionDepend14,
+    actionDepend15,
+    actionDepend16,
+    actionDepend17,
+    actionDepend18,
+    actionDepend19,
+    actionDepend20,
     description,
     iconType,
   ];
@@ -5898,6 +6138,66 @@ class $SkillDataTable extends SkillData
     } else if (isInserting) {
       context.missing(_action10Meta);
     }
+    if (data.containsKey('action_11')) {
+      context.handle(
+        _action11Meta,
+        action11.isAcceptableOrUnknown(data['action_11']!, _action11Meta),
+      );
+    }
+    if (data.containsKey('action_12')) {
+      context.handle(
+        _action12Meta,
+        action12.isAcceptableOrUnknown(data['action_12']!, _action12Meta),
+      );
+    }
+    if (data.containsKey('action_13')) {
+      context.handle(
+        _action13Meta,
+        action13.isAcceptableOrUnknown(data['action_13']!, _action13Meta),
+      );
+    }
+    if (data.containsKey('action_14')) {
+      context.handle(
+        _action14Meta,
+        action14.isAcceptableOrUnknown(data['action_14']!, _action14Meta),
+      );
+    }
+    if (data.containsKey('action_15')) {
+      context.handle(
+        _action15Meta,
+        action15.isAcceptableOrUnknown(data['action_15']!, _action15Meta),
+      );
+    }
+    if (data.containsKey('action_16')) {
+      context.handle(
+        _action16Meta,
+        action16.isAcceptableOrUnknown(data['action_16']!, _action16Meta),
+      );
+    }
+    if (data.containsKey('action_17')) {
+      context.handle(
+        _action17Meta,
+        action17.isAcceptableOrUnknown(data['action_17']!, _action17Meta),
+      );
+    }
+    if (data.containsKey('action_18')) {
+      context.handle(
+        _action18Meta,
+        action18.isAcceptableOrUnknown(data['action_18']!, _action18Meta),
+      );
+    }
+    if (data.containsKey('action_19')) {
+      context.handle(
+        _action19Meta,
+        action19.isAcceptableOrUnknown(data['action_19']!, _action19Meta),
+      );
+    }
+    if (data.containsKey('action_20')) {
+      context.handle(
+        _action20Meta,
+        action20.isAcceptableOrUnknown(data['action_20']!, _action20Meta),
+      );
+    }
     if (data.containsKey('depend_action_1')) {
       context.handle(
         _actionDepend1Meta,
@@ -6008,6 +6308,96 @@ class $SkillDataTable extends SkillData
     } else if (isInserting) {
       context.missing(_actionDepend10Meta);
     }
+    if (data.containsKey('depend_action_11')) {
+      context.handle(
+        _actionDepend11Meta,
+        actionDepend11.isAcceptableOrUnknown(
+          data['depend_action_11']!,
+          _actionDepend11Meta,
+        ),
+      );
+    }
+    if (data.containsKey('depend_action_12')) {
+      context.handle(
+        _actionDepend12Meta,
+        actionDepend12.isAcceptableOrUnknown(
+          data['depend_action_12']!,
+          _actionDepend12Meta,
+        ),
+      );
+    }
+    if (data.containsKey('depend_action_13')) {
+      context.handle(
+        _actionDepend13Meta,
+        actionDepend13.isAcceptableOrUnknown(
+          data['depend_action_13']!,
+          _actionDepend13Meta,
+        ),
+      );
+    }
+    if (data.containsKey('depend_action_14')) {
+      context.handle(
+        _actionDepend14Meta,
+        actionDepend14.isAcceptableOrUnknown(
+          data['depend_action_14']!,
+          _actionDepend14Meta,
+        ),
+      );
+    }
+    if (data.containsKey('depend_action_15')) {
+      context.handle(
+        _actionDepend15Meta,
+        actionDepend15.isAcceptableOrUnknown(
+          data['depend_action_15']!,
+          _actionDepend15Meta,
+        ),
+      );
+    }
+    if (data.containsKey('depend_action_16')) {
+      context.handle(
+        _actionDepend16Meta,
+        actionDepend16.isAcceptableOrUnknown(
+          data['depend_action_16']!,
+          _actionDepend16Meta,
+        ),
+      );
+    }
+    if (data.containsKey('depend_action_17')) {
+      context.handle(
+        _actionDepend17Meta,
+        actionDepend17.isAcceptableOrUnknown(
+          data['depend_action_17']!,
+          _actionDepend17Meta,
+        ),
+      );
+    }
+    if (data.containsKey('depend_action_18')) {
+      context.handle(
+        _actionDepend18Meta,
+        actionDepend18.isAcceptableOrUnknown(
+          data['depend_action_18']!,
+          _actionDepend18Meta,
+        ),
+      );
+    }
+    if (data.containsKey('depend_action_19')) {
+      context.handle(
+        _actionDepend19Meta,
+        actionDepend19.isAcceptableOrUnknown(
+          data['depend_action_19']!,
+          _actionDepend19Meta,
+        ),
+      );
+    }
+    if (data.containsKey('depend_action_20')) {
+      context.handle(
+        _actionDepend20Meta,
+        actionDepend20.isAcceptableOrUnknown(
+          data['depend_action_20']!,
+          _actionDepend20Meta,
+        ),
+      );
+    }
     if (data.containsKey('description')) {
       context.handle(
         _descriptionMeta,
@@ -6096,6 +6486,46 @@ class $SkillDataTable extends SkillData
         DriftSqlType.int,
         data['${effectivePrefix}action_10'],
       )!,
+      action11: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}action_11'],
+      ),
+      action12: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}action_12'],
+      ),
+      action13: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}action_13'],
+      ),
+      action14: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}action_14'],
+      ),
+      action15: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}action_15'],
+      ),
+      action16: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}action_16'],
+      ),
+      action17: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}action_17'],
+      ),
+      action18: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}action_18'],
+      ),
+      action19: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}action_19'],
+      ),
+      action20: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}action_20'],
+      ),
       actionDepend1: attachedDatabase.typeMapping.read(
         DriftSqlType.int,
         data['${effectivePrefix}depend_action_1'],
@@ -6136,6 +6566,46 @@ class $SkillDataTable extends SkillData
         DriftSqlType.int,
         data['${effectivePrefix}depend_action_10'],
       )!,
+      actionDepend11: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}depend_action_11'],
+      ),
+      actionDepend12: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}depend_action_12'],
+      ),
+      actionDepend13: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}depend_action_13'],
+      ),
+      actionDepend14: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}depend_action_14'],
+      ),
+      actionDepend15: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}depend_action_15'],
+      ),
+      actionDepend16: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}depend_action_16'],
+      ),
+      actionDepend17: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}depend_action_17'],
+      ),
+      actionDepend18: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}depend_action_18'],
+      ),
+      actionDepend19: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}depend_action_19'],
+      ),
+      actionDepend20: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}depend_action_20'],
+      ),
       description: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}description'],
@@ -6170,6 +6640,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
   final int action8;
   final int action9;
   final int action10;
+  final int? action11;
+  final int? action12;
+  final int? action13;
+  final int? action14;
+  final int? action15;
+  final int? action16;
+  final int? action17;
+  final int? action18;
+  final int? action19;
+  final int? action20;
   final int actionDepend1;
   final int actionDepend2;
   final int actionDepend3;
@@ -6180,6 +6660,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
   final int actionDepend8;
   final int actionDepend9;
   final int actionDepend10;
+  final int? actionDepend11;
+  final int? actionDepend12;
+  final int? actionDepend13;
+  final int? actionDepend14;
+  final int? actionDepend15;
+  final int? actionDepend16;
+  final int? actionDepend17;
+  final int? actionDepend18;
+  final int? actionDepend19;
+  final int? actionDepend20;
   final String? description;
   final int? iconType;
   const SkillDataData({
@@ -6199,6 +6689,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
     required this.action8,
     required this.action9,
     required this.action10,
+    this.action11,
+    this.action12,
+    this.action13,
+    this.action14,
+    this.action15,
+    this.action16,
+    this.action17,
+    this.action18,
+    this.action19,
+    this.action20,
     required this.actionDepend1,
     required this.actionDepend2,
     required this.actionDepend3,
@@ -6209,6 +6709,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
     required this.actionDepend8,
     required this.actionDepend9,
     required this.actionDepend10,
+    this.actionDepend11,
+    this.actionDepend12,
+    this.actionDepend13,
+    this.actionDepend14,
+    this.actionDepend15,
+    this.actionDepend16,
+    this.actionDepend17,
+    this.actionDepend18,
+    this.actionDepend19,
+    this.actionDepend20,
     this.description,
     this.iconType,
   });
@@ -6233,6 +6743,36 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
     map['action_8'] = Variable<int>(action8);
     map['action_9'] = Variable<int>(action9);
     map['action_10'] = Variable<int>(action10);
+    if (!nullToAbsent || action11 != null) {
+      map['action_11'] = Variable<int>(action11);
+    }
+    if (!nullToAbsent || action12 != null) {
+      map['action_12'] = Variable<int>(action12);
+    }
+    if (!nullToAbsent || action13 != null) {
+      map['action_13'] = Variable<int>(action13);
+    }
+    if (!nullToAbsent || action14 != null) {
+      map['action_14'] = Variable<int>(action14);
+    }
+    if (!nullToAbsent || action15 != null) {
+      map['action_15'] = Variable<int>(action15);
+    }
+    if (!nullToAbsent || action16 != null) {
+      map['action_16'] = Variable<int>(action16);
+    }
+    if (!nullToAbsent || action17 != null) {
+      map['action_17'] = Variable<int>(action17);
+    }
+    if (!nullToAbsent || action18 != null) {
+      map['action_18'] = Variable<int>(action18);
+    }
+    if (!nullToAbsent || action19 != null) {
+      map['action_19'] = Variable<int>(action19);
+    }
+    if (!nullToAbsent || action20 != null) {
+      map['action_20'] = Variable<int>(action20);
+    }
     map['depend_action_1'] = Variable<int>(actionDepend1);
     map['depend_action_2'] = Variable<int>(actionDepend2);
     map['depend_action_3'] = Variable<int>(actionDepend3);
@@ -6243,6 +6783,36 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
     map['depend_action_8'] = Variable<int>(actionDepend8);
     map['depend_action_9'] = Variable<int>(actionDepend9);
     map['depend_action_10'] = Variable<int>(actionDepend10);
+    if (!nullToAbsent || actionDepend11 != null) {
+      map['depend_action_11'] = Variable<int>(actionDepend11);
+    }
+    if (!nullToAbsent || actionDepend12 != null) {
+      map['depend_action_12'] = Variable<int>(actionDepend12);
+    }
+    if (!nullToAbsent || actionDepend13 != null) {
+      map['depend_action_13'] = Variable<int>(actionDepend13);
+    }
+    if (!nullToAbsent || actionDepend14 != null) {
+      map['depend_action_14'] = Variable<int>(actionDepend14);
+    }
+    if (!nullToAbsent || actionDepend15 != null) {
+      map['depend_action_15'] = Variable<int>(actionDepend15);
+    }
+    if (!nullToAbsent || actionDepend16 != null) {
+      map['depend_action_16'] = Variable<int>(actionDepend16);
+    }
+    if (!nullToAbsent || actionDepend17 != null) {
+      map['depend_action_17'] = Variable<int>(actionDepend17);
+    }
+    if (!nullToAbsent || actionDepend18 != null) {
+      map['depend_action_18'] = Variable<int>(actionDepend18);
+    }
+    if (!nullToAbsent || actionDepend19 != null) {
+      map['depend_action_19'] = Variable<int>(actionDepend19);
+    }
+    if (!nullToAbsent || actionDepend20 != null) {
+      map['depend_action_20'] = Variable<int>(actionDepend20);
+    }
     if (!nullToAbsent || description != null) {
       map['description'] = Variable<String>(description);
     }
@@ -6272,6 +6842,36 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
       action8: Value(action8),
       action9: Value(action9),
       action10: Value(action10),
+      action11: action11 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(action11),
+      action12: action12 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(action12),
+      action13: action13 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(action13),
+      action14: action14 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(action14),
+      action15: action15 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(action15),
+      action16: action16 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(action16),
+      action17: action17 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(action17),
+      action18: action18 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(action18),
+      action19: action19 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(action19),
+      action20: action20 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(action20),
       actionDepend1: Value(actionDepend1),
       actionDepend2: Value(actionDepend2),
       actionDepend3: Value(actionDepend3),
@@ -6282,6 +6882,36 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
       actionDepend8: Value(actionDepend8),
       actionDepend9: Value(actionDepend9),
       actionDepend10: Value(actionDepend10),
+      actionDepend11: actionDepend11 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(actionDepend11),
+      actionDepend12: actionDepend12 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(actionDepend12),
+      actionDepend13: actionDepend13 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(actionDepend13),
+      actionDepend14: actionDepend14 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(actionDepend14),
+      actionDepend15: actionDepend15 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(actionDepend15),
+      actionDepend16: actionDepend16 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(actionDepend16),
+      actionDepend17: actionDepend17 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(actionDepend17),
+      actionDepend18: actionDepend18 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(actionDepend18),
+      actionDepend19: actionDepend19 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(actionDepend19),
+      actionDepend20: actionDepend20 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(actionDepend20),
       description: description == null && nullToAbsent
           ? const Value.absent()
           : Value(description),
@@ -6313,6 +6943,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
       action8: serializer.fromJson<int>(json['action8']),
       action9: serializer.fromJson<int>(json['action9']),
       action10: serializer.fromJson<int>(json['action10']),
+      action11: serializer.fromJson<int?>(json['action11']),
+      action12: serializer.fromJson<int?>(json['action12']),
+      action13: serializer.fromJson<int?>(json['action13']),
+      action14: serializer.fromJson<int?>(json['action14']),
+      action15: serializer.fromJson<int?>(json['action15']),
+      action16: serializer.fromJson<int?>(json['action16']),
+      action17: serializer.fromJson<int?>(json['action17']),
+      action18: serializer.fromJson<int?>(json['action18']),
+      action19: serializer.fromJson<int?>(json['action19']),
+      action20: serializer.fromJson<int?>(json['action20']),
       actionDepend1: serializer.fromJson<int>(json['actionDepend1']),
       actionDepend2: serializer.fromJson<int>(json['actionDepend2']),
       actionDepend3: serializer.fromJson<int>(json['actionDepend3']),
@@ -6323,6 +6963,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
       actionDepend8: serializer.fromJson<int>(json['actionDepend8']),
       actionDepend9: serializer.fromJson<int>(json['actionDepend9']),
       actionDepend10: serializer.fromJson<int>(json['actionDepend10']),
+      actionDepend11: serializer.fromJson<int?>(json['actionDepend11']),
+      actionDepend12: serializer.fromJson<int?>(json['actionDepend12']),
+      actionDepend13: serializer.fromJson<int?>(json['actionDepend13']),
+      actionDepend14: serializer.fromJson<int?>(json['actionDepend14']),
+      actionDepend15: serializer.fromJson<int?>(json['actionDepend15']),
+      actionDepend16: serializer.fromJson<int?>(json['actionDepend16']),
+      actionDepend17: serializer.fromJson<int?>(json['actionDepend17']),
+      actionDepend18: serializer.fromJson<int?>(json['actionDepend18']),
+      actionDepend19: serializer.fromJson<int?>(json['actionDepend19']),
+      actionDepend20: serializer.fromJson<int?>(json['actionDepend20']),
       description: serializer.fromJson<String?>(json['description']),
       iconType: serializer.fromJson<int?>(json['iconType']),
     );
@@ -6347,6 +6997,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
       'action8': serializer.toJson<int>(action8),
       'action9': serializer.toJson<int>(action9),
       'action10': serializer.toJson<int>(action10),
+      'action11': serializer.toJson<int?>(action11),
+      'action12': serializer.toJson<int?>(action12),
+      'action13': serializer.toJson<int?>(action13),
+      'action14': serializer.toJson<int?>(action14),
+      'action15': serializer.toJson<int?>(action15),
+      'action16': serializer.toJson<int?>(action16),
+      'action17': serializer.toJson<int?>(action17),
+      'action18': serializer.toJson<int?>(action18),
+      'action19': serializer.toJson<int?>(action19),
+      'action20': serializer.toJson<int?>(action20),
       'actionDepend1': serializer.toJson<int>(actionDepend1),
       'actionDepend2': serializer.toJson<int>(actionDepend2),
       'actionDepend3': serializer.toJson<int>(actionDepend3),
@@ -6357,6 +7017,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
       'actionDepend8': serializer.toJson<int>(actionDepend8),
       'actionDepend9': serializer.toJson<int>(actionDepend9),
       'actionDepend10': serializer.toJson<int>(actionDepend10),
+      'actionDepend11': serializer.toJson<int?>(actionDepend11),
+      'actionDepend12': serializer.toJson<int?>(actionDepend12),
+      'actionDepend13': serializer.toJson<int?>(actionDepend13),
+      'actionDepend14': serializer.toJson<int?>(actionDepend14),
+      'actionDepend15': serializer.toJson<int?>(actionDepend15),
+      'actionDepend16': serializer.toJson<int?>(actionDepend16),
+      'actionDepend17': serializer.toJson<int?>(actionDepend17),
+      'actionDepend18': serializer.toJson<int?>(actionDepend18),
+      'actionDepend19': serializer.toJson<int?>(actionDepend19),
+      'actionDepend20': serializer.toJson<int?>(actionDepend20),
       'description': serializer.toJson<String?>(description),
       'iconType': serializer.toJson<int?>(iconType),
     };
@@ -6379,6 +7049,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
     int? action8,
     int? action9,
     int? action10,
+    Value<int?> action11 = const Value.absent(),
+    Value<int?> action12 = const Value.absent(),
+    Value<int?> action13 = const Value.absent(),
+    Value<int?> action14 = const Value.absent(),
+    Value<int?> action15 = const Value.absent(),
+    Value<int?> action16 = const Value.absent(),
+    Value<int?> action17 = const Value.absent(),
+    Value<int?> action18 = const Value.absent(),
+    Value<int?> action19 = const Value.absent(),
+    Value<int?> action20 = const Value.absent(),
     int? actionDepend1,
     int? actionDepend2,
     int? actionDepend3,
@@ -6389,6 +7069,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
     int? actionDepend8,
     int? actionDepend9,
     int? actionDepend10,
+    Value<int?> actionDepend11 = const Value.absent(),
+    Value<int?> actionDepend12 = const Value.absent(),
+    Value<int?> actionDepend13 = const Value.absent(),
+    Value<int?> actionDepend14 = const Value.absent(),
+    Value<int?> actionDepend15 = const Value.absent(),
+    Value<int?> actionDepend16 = const Value.absent(),
+    Value<int?> actionDepend17 = const Value.absent(),
+    Value<int?> actionDepend18 = const Value.absent(),
+    Value<int?> actionDepend19 = const Value.absent(),
+    Value<int?> actionDepend20 = const Value.absent(),
     Value<String?> description = const Value.absent(),
     Value<int?> iconType = const Value.absent(),
   }) => SkillDataData(
@@ -6410,6 +7100,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
     action8: action8 ?? this.action8,
     action9: action9 ?? this.action9,
     action10: action10 ?? this.action10,
+    action11: action11.present ? action11.value : this.action11,
+    action12: action12.present ? action12.value : this.action12,
+    action13: action13.present ? action13.value : this.action13,
+    action14: action14.present ? action14.value : this.action14,
+    action15: action15.present ? action15.value : this.action15,
+    action16: action16.present ? action16.value : this.action16,
+    action17: action17.present ? action17.value : this.action17,
+    action18: action18.present ? action18.value : this.action18,
+    action19: action19.present ? action19.value : this.action19,
+    action20: action20.present ? action20.value : this.action20,
     actionDepend1: actionDepend1 ?? this.actionDepend1,
     actionDepend2: actionDepend2 ?? this.actionDepend2,
     actionDepend3: actionDepend3 ?? this.actionDepend3,
@@ -6420,6 +7120,36 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
     actionDepend8: actionDepend8 ?? this.actionDepend8,
     actionDepend9: actionDepend9 ?? this.actionDepend9,
     actionDepend10: actionDepend10 ?? this.actionDepend10,
+    actionDepend11: actionDepend11.present
+        ? actionDepend11.value
+        : this.actionDepend11,
+    actionDepend12: actionDepend12.present
+        ? actionDepend12.value
+        : this.actionDepend12,
+    actionDepend13: actionDepend13.present
+        ? actionDepend13.value
+        : this.actionDepend13,
+    actionDepend14: actionDepend14.present
+        ? actionDepend14.value
+        : this.actionDepend14,
+    actionDepend15: actionDepend15.present
+        ? actionDepend15.value
+        : this.actionDepend15,
+    actionDepend16: actionDepend16.present
+        ? actionDepend16.value
+        : this.actionDepend16,
+    actionDepend17: actionDepend17.present
+        ? actionDepend17.value
+        : this.actionDepend17,
+    actionDepend18: actionDepend18.present
+        ? actionDepend18.value
+        : this.actionDepend18,
+    actionDepend19: actionDepend19.present
+        ? actionDepend19.value
+        : this.actionDepend19,
+    actionDepend20: actionDepend20.present
+        ? actionDepend20.value
+        : this.actionDepend20,
     description: description.present ? description.value : this.description,
     iconType: iconType.present ? iconType.value : this.iconType,
   );
@@ -6447,6 +7177,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
       action8: data.action8.present ? data.action8.value : this.action8,
       action9: data.action9.present ? data.action9.value : this.action9,
       action10: data.action10.present ? data.action10.value : this.action10,
+      action11: data.action11.present ? data.action11.value : this.action11,
+      action12: data.action12.present ? data.action12.value : this.action12,
+      action13: data.action13.present ? data.action13.value : this.action13,
+      action14: data.action14.present ? data.action14.value : this.action14,
+      action15: data.action15.present ? data.action15.value : this.action15,
+      action16: data.action16.present ? data.action16.value : this.action16,
+      action17: data.action17.present ? data.action17.value : this.action17,
+      action18: data.action18.present ? data.action18.value : this.action18,
+      action19: data.action19.present ? data.action19.value : this.action19,
+      action20: data.action20.present ? data.action20.value : this.action20,
       actionDepend1: data.actionDepend1.present
           ? data.actionDepend1.value
           : this.actionDepend1,
@@ -6477,6 +7217,36 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
       actionDepend10: data.actionDepend10.present
           ? data.actionDepend10.value
           : this.actionDepend10,
+      actionDepend11: data.actionDepend11.present
+          ? data.actionDepend11.value
+          : this.actionDepend11,
+      actionDepend12: data.actionDepend12.present
+          ? data.actionDepend12.value
+          : this.actionDepend12,
+      actionDepend13: data.actionDepend13.present
+          ? data.actionDepend13.value
+          : this.actionDepend13,
+      actionDepend14: data.actionDepend14.present
+          ? data.actionDepend14.value
+          : this.actionDepend14,
+      actionDepend15: data.actionDepend15.present
+          ? data.actionDepend15.value
+          : this.actionDepend15,
+      actionDepend16: data.actionDepend16.present
+          ? data.actionDepend16.value
+          : this.actionDepend16,
+      actionDepend17: data.actionDepend17.present
+          ? data.actionDepend17.value
+          : this.actionDepend17,
+      actionDepend18: data.actionDepend18.present
+          ? data.actionDepend18.value
+          : this.actionDepend18,
+      actionDepend19: data.actionDepend19.present
+          ? data.actionDepend19.value
+          : this.actionDepend19,
+      actionDepend20: data.actionDepend20.present
+          ? data.actionDepend20.value
+          : this.actionDepend20,
       description: data.description.present
           ? data.description.value
           : this.description,
@@ -6503,6 +7273,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
           ..write('action8: $action8, ')
           ..write('action9: $action9, ')
           ..write('action10: $action10, ')
+          ..write('action11: $action11, ')
+          ..write('action12: $action12, ')
+          ..write('action13: $action13, ')
+          ..write('action14: $action14, ')
+          ..write('action15: $action15, ')
+          ..write('action16: $action16, ')
+          ..write('action17: $action17, ')
+          ..write('action18: $action18, ')
+          ..write('action19: $action19, ')
+          ..write('action20: $action20, ')
           ..write('actionDepend1: $actionDepend1, ')
           ..write('actionDepend2: $actionDepend2, ')
           ..write('actionDepend3: $actionDepend3, ')
@@ -6513,6 +7293,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
           ..write('actionDepend8: $actionDepend8, ')
           ..write('actionDepend9: $actionDepend9, ')
           ..write('actionDepend10: $actionDepend10, ')
+          ..write('actionDepend11: $actionDepend11, ')
+          ..write('actionDepend12: $actionDepend12, ')
+          ..write('actionDepend13: $actionDepend13, ')
+          ..write('actionDepend14: $actionDepend14, ')
+          ..write('actionDepend15: $actionDepend15, ')
+          ..write('actionDepend16: $actionDepend16, ')
+          ..write('actionDepend17: $actionDepend17, ')
+          ..write('actionDepend18: $actionDepend18, ')
+          ..write('actionDepend19: $actionDepend19, ')
+          ..write('actionDepend20: $actionDepend20, ')
           ..write('description: $description, ')
           ..write('iconType: $iconType')
           ..write(')'))
@@ -6537,6 +7327,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
     action8,
     action9,
     action10,
+    action11,
+    action12,
+    action13,
+    action14,
+    action15,
+    action16,
+    action17,
+    action18,
+    action19,
+    action20,
     actionDepend1,
     actionDepend2,
     actionDepend3,
@@ -6547,6 +7347,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
     actionDepend8,
     actionDepend9,
     actionDepend10,
+    actionDepend11,
+    actionDepend12,
+    actionDepend13,
+    actionDepend14,
+    actionDepend15,
+    actionDepend16,
+    actionDepend17,
+    actionDepend18,
+    actionDepend19,
+    actionDepend20,
     description,
     iconType,
   ]);
@@ -6570,6 +7380,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
           other.action8 == this.action8 &&
           other.action9 == this.action9 &&
           other.action10 == this.action10 &&
+          other.action11 == this.action11 &&
+          other.action12 == this.action12 &&
+          other.action13 == this.action13 &&
+          other.action14 == this.action14 &&
+          other.action15 == this.action15 &&
+          other.action16 == this.action16 &&
+          other.action17 == this.action17 &&
+          other.action18 == this.action18 &&
+          other.action19 == this.action19 &&
+          other.action20 == this.action20 &&
           other.actionDepend1 == this.actionDepend1 &&
           other.actionDepend2 == this.actionDepend2 &&
           other.actionDepend3 == this.actionDepend3 &&
@@ -6580,6 +7400,16 @@ class SkillDataData extends DataClass implements Insertable<SkillDataData> {
           other.actionDepend8 == this.actionDepend8 &&
           other.actionDepend9 == this.actionDepend9 &&
           other.actionDepend10 == this.actionDepend10 &&
+          other.actionDepend11 == this.actionDepend11 &&
+          other.actionDepend12 == this.actionDepend12 &&
+          other.actionDepend13 == this.actionDepend13 &&
+          other.actionDepend14 == this.actionDepend14 &&
+          other.actionDepend15 == this.actionDepend15 &&
+          other.actionDepend16 == this.actionDepend16 &&
+          other.actionDepend17 == this.actionDepend17 &&
+          other.actionDepend18 == this.actionDepend18 &&
+          other.actionDepend19 == this.actionDepend19 &&
+          other.actionDepend20 == this.actionDepend20 &&
           other.description == this.description &&
           other.iconType == this.iconType);
 }
@@ -6601,6 +7431,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
   final Value<int> action8;
   final Value<int> action9;
   final Value<int> action10;
+  final Value<int?> action11;
+  final Value<int?> action12;
+  final Value<int?> action13;
+  final Value<int?> action14;
+  final Value<int?> action15;
+  final Value<int?> action16;
+  final Value<int?> action17;
+  final Value<int?> action18;
+  final Value<int?> action19;
+  final Value<int?> action20;
   final Value<int> actionDepend1;
   final Value<int> actionDepend2;
   final Value<int> actionDepend3;
@@ -6611,6 +7451,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
   final Value<int> actionDepend8;
   final Value<int> actionDepend9;
   final Value<int> actionDepend10;
+  final Value<int?> actionDepend11;
+  final Value<int?> actionDepend12;
+  final Value<int?> actionDepend13;
+  final Value<int?> actionDepend14;
+  final Value<int?> actionDepend15;
+  final Value<int?> actionDepend16;
+  final Value<int?> actionDepend17;
+  final Value<int?> actionDepend18;
+  final Value<int?> actionDepend19;
+  final Value<int?> actionDepend20;
   final Value<String?> description;
   final Value<int?> iconType;
   const SkillDataCompanion({
@@ -6630,6 +7480,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
     this.action8 = const Value.absent(),
     this.action9 = const Value.absent(),
     this.action10 = const Value.absent(),
+    this.action11 = const Value.absent(),
+    this.action12 = const Value.absent(),
+    this.action13 = const Value.absent(),
+    this.action14 = const Value.absent(),
+    this.action15 = const Value.absent(),
+    this.action16 = const Value.absent(),
+    this.action17 = const Value.absent(),
+    this.action18 = const Value.absent(),
+    this.action19 = const Value.absent(),
+    this.action20 = const Value.absent(),
     this.actionDepend1 = const Value.absent(),
     this.actionDepend2 = const Value.absent(),
     this.actionDepend3 = const Value.absent(),
@@ -6640,6 +7500,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
     this.actionDepend8 = const Value.absent(),
     this.actionDepend9 = const Value.absent(),
     this.actionDepend10 = const Value.absent(),
+    this.actionDepend11 = const Value.absent(),
+    this.actionDepend12 = const Value.absent(),
+    this.actionDepend13 = const Value.absent(),
+    this.actionDepend14 = const Value.absent(),
+    this.actionDepend15 = const Value.absent(),
+    this.actionDepend16 = const Value.absent(),
+    this.actionDepend17 = const Value.absent(),
+    this.actionDepend18 = const Value.absent(),
+    this.actionDepend19 = const Value.absent(),
+    this.actionDepend20 = const Value.absent(),
     this.description = const Value.absent(),
     this.iconType = const Value.absent(),
   });
@@ -6660,6 +7530,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
     required int action8,
     required int action9,
     required int action10,
+    this.action11 = const Value.absent(),
+    this.action12 = const Value.absent(),
+    this.action13 = const Value.absent(),
+    this.action14 = const Value.absent(),
+    this.action15 = const Value.absent(),
+    this.action16 = const Value.absent(),
+    this.action17 = const Value.absent(),
+    this.action18 = const Value.absent(),
+    this.action19 = const Value.absent(),
+    this.action20 = const Value.absent(),
     required int actionDepend1,
     required int actionDepend2,
     required int actionDepend3,
@@ -6670,6 +7550,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
     required int actionDepend8,
     required int actionDepend9,
     required int actionDepend10,
+    this.actionDepend11 = const Value.absent(),
+    this.actionDepend12 = const Value.absent(),
+    this.actionDepend13 = const Value.absent(),
+    this.actionDepend14 = const Value.absent(),
+    this.actionDepend15 = const Value.absent(),
+    this.actionDepend16 = const Value.absent(),
+    this.actionDepend17 = const Value.absent(),
+    this.actionDepend18 = const Value.absent(),
+    this.actionDepend19 = const Value.absent(),
+    this.actionDepend20 = const Value.absent(),
     this.description = const Value.absent(),
     this.iconType = const Value.absent(),
   }) : name = Value(name),
@@ -6713,6 +7603,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
     Expression<int>? action8,
     Expression<int>? action9,
     Expression<int>? action10,
+    Expression<int>? action11,
+    Expression<int>? action12,
+    Expression<int>? action13,
+    Expression<int>? action14,
+    Expression<int>? action15,
+    Expression<int>? action16,
+    Expression<int>? action17,
+    Expression<int>? action18,
+    Expression<int>? action19,
+    Expression<int>? action20,
     Expression<int>? actionDepend1,
     Expression<int>? actionDepend2,
     Expression<int>? actionDepend3,
@@ -6723,6 +7623,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
     Expression<int>? actionDepend8,
     Expression<int>? actionDepend9,
     Expression<int>? actionDepend10,
+    Expression<int>? actionDepend11,
+    Expression<int>? actionDepend12,
+    Expression<int>? actionDepend13,
+    Expression<int>? actionDepend14,
+    Expression<int>? actionDepend15,
+    Expression<int>? actionDepend16,
+    Expression<int>? actionDepend17,
+    Expression<int>? actionDepend18,
+    Expression<int>? actionDepend19,
+    Expression<int>? actionDepend20,
     Expression<String>? description,
     Expression<int>? iconType,
   }) {
@@ -6743,6 +7653,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
       if (action8 != null) 'action_8': action8,
       if (action9 != null) 'action_9': action9,
       if (action10 != null) 'action_10': action10,
+      if (action11 != null) 'action_11': action11,
+      if (action12 != null) 'action_12': action12,
+      if (action13 != null) 'action_13': action13,
+      if (action14 != null) 'action_14': action14,
+      if (action15 != null) 'action_15': action15,
+      if (action16 != null) 'action_16': action16,
+      if (action17 != null) 'action_17': action17,
+      if (action18 != null) 'action_18': action18,
+      if (action19 != null) 'action_19': action19,
+      if (action20 != null) 'action_20': action20,
       if (actionDepend1 != null) 'depend_action_1': actionDepend1,
       if (actionDepend2 != null) 'depend_action_2': actionDepend2,
       if (actionDepend3 != null) 'depend_action_3': actionDepend3,
@@ -6753,6 +7673,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
       if (actionDepend8 != null) 'depend_action_8': actionDepend8,
       if (actionDepend9 != null) 'depend_action_9': actionDepend9,
       if (actionDepend10 != null) 'depend_action_10': actionDepend10,
+      if (actionDepend11 != null) 'depend_action_11': actionDepend11,
+      if (actionDepend12 != null) 'depend_action_12': actionDepend12,
+      if (actionDepend13 != null) 'depend_action_13': actionDepend13,
+      if (actionDepend14 != null) 'depend_action_14': actionDepend14,
+      if (actionDepend15 != null) 'depend_action_15': actionDepend15,
+      if (actionDepend16 != null) 'depend_action_16': actionDepend16,
+      if (actionDepend17 != null) 'depend_action_17': actionDepend17,
+      if (actionDepend18 != null) 'depend_action_18': actionDepend18,
+      if (actionDepend19 != null) 'depend_action_19': actionDepend19,
+      if (actionDepend20 != null) 'depend_action_20': actionDepend20,
       if (description != null) 'description': description,
       if (iconType != null) 'icon_type': iconType,
     });
@@ -6775,6 +7705,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
     Value<int>? action8,
     Value<int>? action9,
     Value<int>? action10,
+    Value<int?>? action11,
+    Value<int?>? action12,
+    Value<int?>? action13,
+    Value<int?>? action14,
+    Value<int?>? action15,
+    Value<int?>? action16,
+    Value<int?>? action17,
+    Value<int?>? action18,
+    Value<int?>? action19,
+    Value<int?>? action20,
     Value<int>? actionDepend1,
     Value<int>? actionDepend2,
     Value<int>? actionDepend3,
@@ -6785,6 +7725,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
     Value<int>? actionDepend8,
     Value<int>? actionDepend9,
     Value<int>? actionDepend10,
+    Value<int?>? actionDepend11,
+    Value<int?>? actionDepend12,
+    Value<int?>? actionDepend13,
+    Value<int?>? actionDepend14,
+    Value<int?>? actionDepend15,
+    Value<int?>? actionDepend16,
+    Value<int?>? actionDepend17,
+    Value<int?>? actionDepend18,
+    Value<int?>? actionDepend19,
+    Value<int?>? actionDepend20,
     Value<String?>? description,
     Value<int?>? iconType,
   }) {
@@ -6805,6 +7755,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
       action8: action8 ?? this.action8,
       action9: action9 ?? this.action9,
       action10: action10 ?? this.action10,
+      action11: action11 ?? this.action11,
+      action12: action12 ?? this.action12,
+      action13: action13 ?? this.action13,
+      action14: action14 ?? this.action14,
+      action15: action15 ?? this.action15,
+      action16: action16 ?? this.action16,
+      action17: action17 ?? this.action17,
+      action18: action18 ?? this.action18,
+      action19: action19 ?? this.action19,
+      action20: action20 ?? this.action20,
       actionDepend1: actionDepend1 ?? this.actionDepend1,
       actionDepend2: actionDepend2 ?? this.actionDepend2,
       actionDepend3: actionDepend3 ?? this.actionDepend3,
@@ -6815,6 +7775,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
       actionDepend8: actionDepend8 ?? this.actionDepend8,
       actionDepend9: actionDepend9 ?? this.actionDepend9,
       actionDepend10: actionDepend10 ?? this.actionDepend10,
+      actionDepend11: actionDepend11 ?? this.actionDepend11,
+      actionDepend12: actionDepend12 ?? this.actionDepend12,
+      actionDepend13: actionDepend13 ?? this.actionDepend13,
+      actionDepend14: actionDepend14 ?? this.actionDepend14,
+      actionDepend15: actionDepend15 ?? this.actionDepend15,
+      actionDepend16: actionDepend16 ?? this.actionDepend16,
+      actionDepend17: actionDepend17 ?? this.actionDepend17,
+      actionDepend18: actionDepend18 ?? this.actionDepend18,
+      actionDepend19: actionDepend19 ?? this.actionDepend19,
+      actionDepend20: actionDepend20 ?? this.actionDepend20,
       description: description ?? this.description,
       iconType: iconType ?? this.iconType,
     );
@@ -6871,6 +7841,36 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
     if (action10.present) {
       map['action_10'] = Variable<int>(action10.value);
     }
+    if (action11.present) {
+      map['action_11'] = Variable<int>(action11.value);
+    }
+    if (action12.present) {
+      map['action_12'] = Variable<int>(action12.value);
+    }
+    if (action13.present) {
+      map['action_13'] = Variable<int>(action13.value);
+    }
+    if (action14.present) {
+      map['action_14'] = Variable<int>(action14.value);
+    }
+    if (action15.present) {
+      map['action_15'] = Variable<int>(action15.value);
+    }
+    if (action16.present) {
+      map['action_16'] = Variable<int>(action16.value);
+    }
+    if (action17.present) {
+      map['action_17'] = Variable<int>(action17.value);
+    }
+    if (action18.present) {
+      map['action_18'] = Variable<int>(action18.value);
+    }
+    if (action19.present) {
+      map['action_19'] = Variable<int>(action19.value);
+    }
+    if (action20.present) {
+      map['action_20'] = Variable<int>(action20.value);
+    }
     if (actionDepend1.present) {
       map['depend_action_1'] = Variable<int>(actionDepend1.value);
     }
@@ -6901,6 +7901,36 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
     if (actionDepend10.present) {
       map['depend_action_10'] = Variable<int>(actionDepend10.value);
     }
+    if (actionDepend11.present) {
+      map['depend_action_11'] = Variable<int>(actionDepend11.value);
+    }
+    if (actionDepend12.present) {
+      map['depend_action_12'] = Variable<int>(actionDepend12.value);
+    }
+    if (actionDepend13.present) {
+      map['depend_action_13'] = Variable<int>(actionDepend13.value);
+    }
+    if (actionDepend14.present) {
+      map['depend_action_14'] = Variable<int>(actionDepend14.value);
+    }
+    if (actionDepend15.present) {
+      map['depend_action_15'] = Variable<int>(actionDepend15.value);
+    }
+    if (actionDepend16.present) {
+      map['depend_action_16'] = Variable<int>(actionDepend16.value);
+    }
+    if (actionDepend17.present) {
+      map['depend_action_17'] = Variable<int>(actionDepend17.value);
+    }
+    if (actionDepend18.present) {
+      map['depend_action_18'] = Variable<int>(actionDepend18.value);
+    }
+    if (actionDepend19.present) {
+      map['depend_action_19'] = Variable<int>(actionDepend19.value);
+    }
+    if (actionDepend20.present) {
+      map['depend_action_20'] = Variable<int>(actionDepend20.value);
+    }
     if (description.present) {
       map['description'] = Variable<String>(description.value);
     }
@@ -6929,6 +7959,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
           ..write('action8: $action8, ')
           ..write('action9: $action9, ')
           ..write('action10: $action10, ')
+          ..write('action11: $action11, ')
+          ..write('action12: $action12, ')
+          ..write('action13: $action13, ')
+          ..write('action14: $action14, ')
+          ..write('action15: $action15, ')
+          ..write('action16: $action16, ')
+          ..write('action17: $action17, ')
+          ..write('action18: $action18, ')
+          ..write('action19: $action19, ')
+          ..write('action20: $action20, ')
           ..write('actionDepend1: $actionDepend1, ')
           ..write('actionDepend2: $actionDepend2, ')
           ..write('actionDepend3: $actionDepend3, ')
@@ -6939,6 +7979,16 @@ class SkillDataCompanion extends UpdateCompanion<SkillDataData> {
           ..write('actionDepend8: $actionDepend8, ')
           ..write('actionDepend9: $actionDepend9, ')
           ..write('actionDepend10: $actionDepend10, ')
+          ..write('actionDepend11: $actionDepend11, ')
+          ..write('actionDepend12: $actionDepend12, ')
+          ..write('actionDepend13: $actionDepend13, ')
+          ..write('actionDepend14: $actionDepend14, ')
+          ..write('actionDepend15: $actionDepend15, ')
+          ..write('actionDepend16: $actionDepend16, ')
+          ..write('actionDepend17: $actionDepend17, ')
+          ..write('actionDepend18: $actionDepend18, ')
+          ..write('actionDepend19: $actionDepend19, ')
+          ..write('actionDepend20: $actionDepend20, ')
           ..write('description: $description, ')
           ..write('iconType: $iconType')
           ..write(')'))
@@ -7108,6 +8158,16 @@ class $UnitSkillDataTable extends UnitSkillData
   @override
   late final GeneratedColumn<int> mainSkillEvolution1 = GeneratedColumn<int>(
     'main_skill_evolution_1',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _mainSkillEvolution1ProMeta =
+      const VerificationMeta('mainSkillEvolution1Pro');
+  @override
+  late final GeneratedColumn<int> mainSkillEvolution1Pro = GeneratedColumn<int>(
+    'main_skill_evolution_1_pro',
     aliasedName,
     true,
     type: DriftSqlType.int,
@@ -7310,6 +8370,16 @@ class $UnitSkillDataTable extends UnitSkillData
     type: DriftSqlType.int,
     requiredDuringInsert: false,
   );
+  static const VerificationMeta _spSkillEvolution1ProMeta =
+      const VerificationMeta('spSkillEvolution1Pro');
+  @override
+  late final GeneratedColumn<int> spSkillEvolution1Pro = GeneratedColumn<int>(
+    'sp_skill_evolution_1_pro',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
   @override
   List<GeneratedColumn> get $columns => [
     unitId,
@@ -7327,6 +8397,7 @@ class $UnitSkillDataTable extends UnitSkillData
     mainSkill9,
     mainSkill10,
     mainSkillEvolution1,
+    mainSkillEvolution1Pro,
     mainSkillEvolution2,
     exSkill1,
     exSkill2,
@@ -7345,6 +8416,7 @@ class $UnitSkillDataTable extends UnitSkillData
     spSkill5,
     spSkillEvolution1,
     spSkillEvolution2,
+    spSkillEvolution1Pro,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -7511,6 +8583,15 @@ class $UnitSkillDataTable extends UnitSkillData
         ),
       );
     }
+    if (data.containsKey('main_skill_evolution_1_pro')) {
+      context.handle(
+        _mainSkillEvolution1ProMeta,
+        mainSkillEvolution1Pro.isAcceptableOrUnknown(
+          data['main_skill_evolution_1_pro']!,
+          _mainSkillEvolution1ProMeta,
+        ),
+      );
+    }
     if (data.containsKey('main_skill_evolution_2')) {
       context.handle(
         _mainSkillEvolution2Meta,
@@ -7663,6 +8744,15 @@ class $UnitSkillDataTable extends UnitSkillData
         ),
       );
     }
+    if (data.containsKey('sp_skill_evolution_1_pro')) {
+      context.handle(
+        _spSkillEvolution1ProMeta,
+        spSkillEvolution1Pro.isAcceptableOrUnknown(
+          data['sp_skill_evolution_1_pro']!,
+          _spSkillEvolution1ProMeta,
+        ),
+      );
+    }
     return context;
   }
 
@@ -7731,6 +8821,10 @@ class $UnitSkillDataTable extends UnitSkillData
       mainSkillEvolution1: attachedDatabase.typeMapping.read(
         DriftSqlType.int,
         data['${effectivePrefix}main_skill_evolution_1'],
+      ),
+      mainSkillEvolution1Pro: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}main_skill_evolution_1_pro'],
       ),
       mainSkillEvolution2: attachedDatabase.typeMapping.read(
         DriftSqlType.int,
@@ -7804,6 +8898,10 @@ class $UnitSkillDataTable extends UnitSkillData
         DriftSqlType.int,
         data['${effectivePrefix}sp_skill_evolution_2'],
       ),
+      spSkillEvolution1Pro: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}sp_skill_evolution_1_pro'],
+      ),
     );
   }
 
@@ -7830,6 +8928,7 @@ class UnitSkillDataData extends DataClass
   final int mainSkill9;
   final int mainSkill10;
   final int? mainSkillEvolution1;
+  final int? mainSkillEvolution1Pro;
   final int? mainSkillEvolution2;
   final int exSkill1;
   final int exSkill2;
@@ -7848,6 +8947,7 @@ class UnitSkillDataData extends DataClass
   final int spSkill5;
   final int? spSkillEvolution1;
   final int? spSkillEvolution2;
+  final int? spSkillEvolution1Pro;
   const UnitSkillDataData({
     required this.unitId,
     required this.unionBurst,
@@ -7864,6 +8964,7 @@ class UnitSkillDataData extends DataClass
     required this.mainSkill9,
     required this.mainSkill10,
     this.mainSkillEvolution1,
+    this.mainSkillEvolution1Pro,
     this.mainSkillEvolution2,
     required this.exSkill1,
     required this.exSkill2,
@@ -7882,6 +8983,7 @@ class UnitSkillDataData extends DataClass
     required this.spSkill5,
     this.spSkillEvolution1,
     this.spSkillEvolution2,
+    this.spSkillEvolution1Pro,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -7904,6 +9006,9 @@ class UnitSkillDataData extends DataClass
     map['main_skill_10'] = Variable<int>(mainSkill10);
     if (!nullToAbsent || mainSkillEvolution1 != null) {
       map['main_skill_evolution_1'] = Variable<int>(mainSkillEvolution1);
+    }
+    if (!nullToAbsent || mainSkillEvolution1Pro != null) {
+      map['main_skill_evolution_1_pro'] = Variable<int>(mainSkillEvolution1Pro);
     }
     if (!nullToAbsent || mainSkillEvolution2 != null) {
       map['main_skill_evolution_2'] = Variable<int>(mainSkillEvolution2);
@@ -7939,6 +9044,9 @@ class UnitSkillDataData extends DataClass
     if (!nullToAbsent || spSkillEvolution2 != null) {
       map['sp_skill_evolution_2'] = Variable<int>(spSkillEvolution2);
     }
+    if (!nullToAbsent || spSkillEvolution1Pro != null) {
+      map['sp_skill_evolution_1_pro'] = Variable<int>(spSkillEvolution1Pro);
+    }
     return map;
   }
 
@@ -7963,6 +9071,9 @@ class UnitSkillDataData extends DataClass
       mainSkillEvolution1: mainSkillEvolution1 == null && nullToAbsent
           ? const Value.absent()
           : Value(mainSkillEvolution1),
+      mainSkillEvolution1Pro: mainSkillEvolution1Pro == null && nullToAbsent
+          ? const Value.absent()
+          : Value(mainSkillEvolution1Pro),
       mainSkillEvolution2: mainSkillEvolution2 == null && nullToAbsent
           ? const Value.absent()
           : Value(mainSkillEvolution2),
@@ -7997,6 +9108,9 @@ class UnitSkillDataData extends DataClass
       spSkillEvolution2: spSkillEvolution2 == null && nullToAbsent
           ? const Value.absent()
           : Value(spSkillEvolution2),
+      spSkillEvolution1Pro: spSkillEvolution1Pro == null && nullToAbsent
+          ? const Value.absent()
+          : Value(spSkillEvolution1Pro),
     );
   }
 
@@ -8025,6 +9139,9 @@ class UnitSkillDataData extends DataClass
       mainSkillEvolution1: serializer.fromJson<int?>(
         json['mainSkillEvolution1'],
       ),
+      mainSkillEvolution1Pro: serializer.fromJson<int?>(
+        json['mainSkillEvolution1Pro'],
+      ),
       mainSkillEvolution2: serializer.fromJson<int?>(
         json['mainSkillEvolution2'],
       ),
@@ -8045,6 +9162,9 @@ class UnitSkillDataData extends DataClass
       spSkill5: serializer.fromJson<int>(json['spSkill5']),
       spSkillEvolution1: serializer.fromJson<int?>(json['spSkillEvolution1']),
       spSkillEvolution2: serializer.fromJson<int?>(json['spSkillEvolution2']),
+      spSkillEvolution1Pro: serializer.fromJson<int?>(
+        json['spSkillEvolution1Pro'],
+      ),
     );
   }
   @override
@@ -8066,6 +9186,7 @@ class UnitSkillDataData extends DataClass
       'mainSkill9': serializer.toJson<int>(mainSkill9),
       'mainSkill10': serializer.toJson<int>(mainSkill10),
       'mainSkillEvolution1': serializer.toJson<int?>(mainSkillEvolution1),
+      'mainSkillEvolution1Pro': serializer.toJson<int?>(mainSkillEvolution1Pro),
       'mainSkillEvolution2': serializer.toJson<int?>(mainSkillEvolution2),
       'exSkill1': serializer.toJson<int>(exSkill1),
       'exSkill2': serializer.toJson<int>(exSkill2),
@@ -8084,6 +9205,7 @@ class UnitSkillDataData extends DataClass
       'spSkill5': serializer.toJson<int>(spSkill5),
       'spSkillEvolution1': serializer.toJson<int?>(spSkillEvolution1),
       'spSkillEvolution2': serializer.toJson<int?>(spSkillEvolution2),
+      'spSkillEvolution1Pro': serializer.toJson<int?>(spSkillEvolution1Pro),
     };
   }
 
@@ -8103,6 +9225,7 @@ class UnitSkillDataData extends DataClass
     int? mainSkill9,
     int? mainSkill10,
     Value<int?> mainSkillEvolution1 = const Value.absent(),
+    Value<int?> mainSkillEvolution1Pro = const Value.absent(),
     Value<int?> mainSkillEvolution2 = const Value.absent(),
     int? exSkill1,
     int? exSkill2,
@@ -8121,6 +9244,7 @@ class UnitSkillDataData extends DataClass
     int? spSkill5,
     Value<int?> spSkillEvolution1 = const Value.absent(),
     Value<int?> spSkillEvolution2 = const Value.absent(),
+    Value<int?> spSkillEvolution1Pro = const Value.absent(),
   }) => UnitSkillDataData(
     unitId: unitId ?? this.unitId,
     unionBurst: unionBurst ?? this.unionBurst,
@@ -8141,6 +9265,9 @@ class UnitSkillDataData extends DataClass
     mainSkillEvolution1: mainSkillEvolution1.present
         ? mainSkillEvolution1.value
         : this.mainSkillEvolution1,
+    mainSkillEvolution1Pro: mainSkillEvolution1Pro.present
+        ? mainSkillEvolution1Pro.value
+        : this.mainSkillEvolution1Pro,
     mainSkillEvolution2: mainSkillEvolution2.present
         ? mainSkillEvolution2.value
         : this.mainSkillEvolution2,
@@ -8175,6 +9302,9 @@ class UnitSkillDataData extends DataClass
     spSkillEvolution2: spSkillEvolution2.present
         ? spSkillEvolution2.value
         : this.spSkillEvolution2,
+    spSkillEvolution1Pro: spSkillEvolution1Pro.present
+        ? spSkillEvolution1Pro.value
+        : this.spSkillEvolution1Pro,
   );
   UnitSkillDataData copyWithCompanion(UnitSkillDataCompanion data) {
     return UnitSkillDataData(
@@ -8221,6 +9351,9 @@ class UnitSkillDataData extends DataClass
       mainSkillEvolution1: data.mainSkillEvolution1.present
           ? data.mainSkillEvolution1.value
           : this.mainSkillEvolution1,
+      mainSkillEvolution1Pro: data.mainSkillEvolution1Pro.present
+          ? data.mainSkillEvolution1Pro.value
+          : this.mainSkillEvolution1Pro,
       mainSkillEvolution2: data.mainSkillEvolution2.present
           ? data.mainSkillEvolution2.value
           : this.mainSkillEvolution2,
@@ -8255,6 +9388,9 @@ class UnitSkillDataData extends DataClass
       spSkillEvolution2: data.spSkillEvolution2.present
           ? data.spSkillEvolution2.value
           : this.spSkillEvolution2,
+      spSkillEvolution1Pro: data.spSkillEvolution1Pro.present
+          ? data.spSkillEvolution1Pro.value
+          : this.spSkillEvolution1Pro,
     );
   }
 
@@ -8276,6 +9412,7 @@ class UnitSkillDataData extends DataClass
           ..write('mainSkill9: $mainSkill9, ')
           ..write('mainSkill10: $mainSkill10, ')
           ..write('mainSkillEvolution1: $mainSkillEvolution1, ')
+          ..write('mainSkillEvolution1Pro: $mainSkillEvolution1Pro, ')
           ..write('mainSkillEvolution2: $mainSkillEvolution2, ')
           ..write('exSkill1: $exSkill1, ')
           ..write('exSkill2: $exSkill2, ')
@@ -8293,7 +9430,8 @@ class UnitSkillDataData extends DataClass
           ..write('spSkill4: $spSkill4, ')
           ..write('spSkill5: $spSkill5, ')
           ..write('spSkillEvolution1: $spSkillEvolution1, ')
-          ..write('spSkillEvolution2: $spSkillEvolution2')
+          ..write('spSkillEvolution2: $spSkillEvolution2, ')
+          ..write('spSkillEvolution1Pro: $spSkillEvolution1Pro')
           ..write(')'))
         .toString();
   }
@@ -8315,6 +9453,7 @@ class UnitSkillDataData extends DataClass
     mainSkill9,
     mainSkill10,
     mainSkillEvolution1,
+    mainSkillEvolution1Pro,
     mainSkillEvolution2,
     exSkill1,
     exSkill2,
@@ -8333,6 +9472,7 @@ class UnitSkillDataData extends DataClass
     spSkill5,
     spSkillEvolution1,
     spSkillEvolution2,
+    spSkillEvolution1Pro,
   ]);
   @override
   bool operator ==(Object other) =>
@@ -8353,6 +9493,7 @@ class UnitSkillDataData extends DataClass
           other.mainSkill9 == this.mainSkill9 &&
           other.mainSkill10 == this.mainSkill10 &&
           other.mainSkillEvolution1 == this.mainSkillEvolution1 &&
+          other.mainSkillEvolution1Pro == this.mainSkillEvolution1Pro &&
           other.mainSkillEvolution2 == this.mainSkillEvolution2 &&
           other.exSkill1 == this.exSkill1 &&
           other.exSkill2 == this.exSkill2 &&
@@ -8370,7 +9511,8 @@ class UnitSkillDataData extends DataClass
           other.spSkill4 == this.spSkill4 &&
           other.spSkill5 == this.spSkill5 &&
           other.spSkillEvolution1 == this.spSkillEvolution1 &&
-          other.spSkillEvolution2 == this.spSkillEvolution2);
+          other.spSkillEvolution2 == this.spSkillEvolution2 &&
+          other.spSkillEvolution1Pro == this.spSkillEvolution1Pro);
 }
 
 class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
@@ -8389,6 +9531,7 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
   final Value<int> mainSkill9;
   final Value<int> mainSkill10;
   final Value<int?> mainSkillEvolution1;
+  final Value<int?> mainSkillEvolution1Pro;
   final Value<int?> mainSkillEvolution2;
   final Value<int> exSkill1;
   final Value<int> exSkill2;
@@ -8407,6 +9550,7 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
   final Value<int> spSkill5;
   final Value<int?> spSkillEvolution1;
   final Value<int?> spSkillEvolution2;
+  final Value<int?> spSkillEvolution1Pro;
   const UnitSkillDataCompanion({
     this.unitId = const Value.absent(),
     this.unionBurst = const Value.absent(),
@@ -8423,6 +9567,7 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
     this.mainSkill9 = const Value.absent(),
     this.mainSkill10 = const Value.absent(),
     this.mainSkillEvolution1 = const Value.absent(),
+    this.mainSkillEvolution1Pro = const Value.absent(),
     this.mainSkillEvolution2 = const Value.absent(),
     this.exSkill1 = const Value.absent(),
     this.exSkill2 = const Value.absent(),
@@ -8441,6 +9586,7 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
     this.spSkill5 = const Value.absent(),
     this.spSkillEvolution1 = const Value.absent(),
     this.spSkillEvolution2 = const Value.absent(),
+    this.spSkillEvolution1Pro = const Value.absent(),
   });
   UnitSkillDataCompanion.insert({
     this.unitId = const Value.absent(),
@@ -8458,6 +9604,7 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
     required int mainSkill9,
     required int mainSkill10,
     this.mainSkillEvolution1 = const Value.absent(),
+    this.mainSkillEvolution1Pro = const Value.absent(),
     this.mainSkillEvolution2 = const Value.absent(),
     required int exSkill1,
     required int exSkill2,
@@ -8476,6 +9623,7 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
     required int spSkill5,
     this.spSkillEvolution1 = const Value.absent(),
     this.spSkillEvolution2 = const Value.absent(),
+    this.spSkillEvolution1Pro = const Value.absent(),
   }) : unionBurst = Value(unionBurst),
        spUnionBurst = Value(spUnionBurst),
        mainSkill1 = Value(mainSkill1),
@@ -8514,6 +9662,7 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
     Expression<int>? mainSkill9,
     Expression<int>? mainSkill10,
     Expression<int>? mainSkillEvolution1,
+    Expression<int>? mainSkillEvolution1Pro,
     Expression<int>? mainSkillEvolution2,
     Expression<int>? exSkill1,
     Expression<int>? exSkill2,
@@ -8532,6 +9681,7 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
     Expression<int>? spSkill5,
     Expression<int>? spSkillEvolution1,
     Expression<int>? spSkillEvolution2,
+    Expression<int>? spSkillEvolution1Pro,
   }) {
     return RawValuesInsertable({
       if (unitId != null) 'unit_id': unitId,
@@ -8551,6 +9701,8 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
       if (mainSkill10 != null) 'main_skill_10': mainSkill10,
       if (mainSkillEvolution1 != null)
         'main_skill_evolution_1': mainSkillEvolution1,
+      if (mainSkillEvolution1Pro != null)
+        'main_skill_evolution_1_pro': mainSkillEvolution1Pro,
       if (mainSkillEvolution2 != null)
         'main_skill_evolution_2': mainSkillEvolution2,
       if (exSkill1 != null) 'ex_skill_1': exSkill1,
@@ -8570,6 +9722,8 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
       if (spSkill5 != null) 'sp_skill_5': spSkill5,
       if (spSkillEvolution1 != null) 'sp_skill_evolution_1': spSkillEvolution1,
       if (spSkillEvolution2 != null) 'sp_skill_evolution_2': spSkillEvolution2,
+      if (spSkillEvolution1Pro != null)
+        'sp_skill_evolution_1_pro': spSkillEvolution1Pro,
     });
   }
 
@@ -8589,6 +9743,7 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
     Value<int>? mainSkill9,
     Value<int>? mainSkill10,
     Value<int?>? mainSkillEvolution1,
+    Value<int?>? mainSkillEvolution1Pro,
     Value<int?>? mainSkillEvolution2,
     Value<int>? exSkill1,
     Value<int>? exSkill2,
@@ -8607,6 +9762,7 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
     Value<int>? spSkill5,
     Value<int?>? spSkillEvolution1,
     Value<int?>? spSkillEvolution2,
+    Value<int?>? spSkillEvolution1Pro,
   }) {
     return UnitSkillDataCompanion(
       unitId: unitId ?? this.unitId,
@@ -8624,6 +9780,8 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
       mainSkill9: mainSkill9 ?? this.mainSkill9,
       mainSkill10: mainSkill10 ?? this.mainSkill10,
       mainSkillEvolution1: mainSkillEvolution1 ?? this.mainSkillEvolution1,
+      mainSkillEvolution1Pro:
+          mainSkillEvolution1Pro ?? this.mainSkillEvolution1Pro,
       mainSkillEvolution2: mainSkillEvolution2 ?? this.mainSkillEvolution2,
       exSkill1: exSkill1 ?? this.exSkill1,
       exSkill2: exSkill2 ?? this.exSkill2,
@@ -8642,6 +9800,7 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
       spSkill5: spSkill5 ?? this.spSkill5,
       spSkillEvolution1: spSkillEvolution1 ?? this.spSkillEvolution1,
       spSkillEvolution2: spSkillEvolution2 ?? this.spSkillEvolution2,
+      spSkillEvolution1Pro: spSkillEvolution1Pro ?? this.spSkillEvolution1Pro,
     );
   }
 
@@ -8692,6 +9851,11 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
     }
     if (mainSkillEvolution1.present) {
       map['main_skill_evolution_1'] = Variable<int>(mainSkillEvolution1.value);
+    }
+    if (mainSkillEvolution1Pro.present) {
+      map['main_skill_evolution_1_pro'] = Variable<int>(
+        mainSkillEvolution1Pro.value,
+      );
     }
     if (mainSkillEvolution2.present) {
       map['main_skill_evolution_2'] = Variable<int>(mainSkillEvolution2.value);
@@ -8747,6 +9911,11 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
     if (spSkillEvolution2.present) {
       map['sp_skill_evolution_2'] = Variable<int>(spSkillEvolution2.value);
     }
+    if (spSkillEvolution1Pro.present) {
+      map['sp_skill_evolution_1_pro'] = Variable<int>(
+        spSkillEvolution1Pro.value,
+      );
+    }
     return map;
   }
 
@@ -8768,6 +9937,7 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
           ..write('mainSkill9: $mainSkill9, ')
           ..write('mainSkill10: $mainSkill10, ')
           ..write('mainSkillEvolution1: $mainSkillEvolution1, ')
+          ..write('mainSkillEvolution1Pro: $mainSkillEvolution1Pro, ')
           ..write('mainSkillEvolution2: $mainSkillEvolution2, ')
           ..write('exSkill1: $exSkill1, ')
           ..write('exSkill2: $exSkill2, ')
@@ -8785,7 +9955,8 @@ class UnitSkillDataCompanion extends UpdateCompanion<UnitSkillDataData> {
           ..write('spSkill4: $spSkill4, ')
           ..write('spSkill5: $spSkill5, ')
           ..write('spSkillEvolution1: $spSkillEvolution1, ')
-          ..write('spSkillEvolution2: $spSkillEvolution2')
+          ..write('spSkillEvolution2: $spSkillEvolution2, ')
+          ..write('spSkillEvolution1Pro: $spSkillEvolution1Pro')
           ..write(')'))
         .toString();
   }
@@ -34674,6 +35845,4555 @@ class TalentWeaknessCompanion extends UpdateCompanion<TalentWeaknessData> {
   }
 }
 
+class $EnemyMPartsTable extends EnemyMParts
+    with TableInfo<$EnemyMPartsTable, EnemyMPart> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $EnemyMPartsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _enemyIdMeta = const VerificationMeta(
+    'enemyId',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId = GeneratedColumn<int>(
+    'enemy_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childEnemyParameter1Meta =
+      const VerificationMeta('childEnemyParameter1');
+  @override
+  late final GeneratedColumn<int> childEnemyParameter1 = GeneratedColumn<int>(
+    'child_enemy_parameter_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childEnemyParameter2Meta =
+      const VerificationMeta('childEnemyParameter2');
+  @override
+  late final GeneratedColumn<int> childEnemyParameter2 = GeneratedColumn<int>(
+    'child_enemy_parameter_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childEnemyParameter3Meta =
+      const VerificationMeta('childEnemyParameter3');
+  @override
+  late final GeneratedColumn<int> childEnemyParameter3 = GeneratedColumn<int>(
+    'child_enemy_parameter_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childEnemyParameter4Meta =
+      const VerificationMeta('childEnemyParameter4');
+  @override
+  late final GeneratedColumn<int> childEnemyParameter4 = GeneratedColumn<int>(
+    'child_enemy_parameter_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childEnemyParameter5Meta =
+      const VerificationMeta('childEnemyParameter5');
+  @override
+  late final GeneratedColumn<int> childEnemyParameter5 = GeneratedColumn<int>(
+    'child_enemy_parameter_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    enemyId,
+    name,
+    childEnemyParameter1,
+    childEnemyParameter2,
+    childEnemyParameter3,
+    childEnemyParameter4,
+    childEnemyParameter5,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'enemy_m_parts';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<EnemyMPart> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('enemy_id')) {
+      context.handle(
+        _enemyIdMeta,
+        enemyId.isAcceptableOrUnknown(data['enemy_id']!, _enemyIdMeta),
+      );
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('child_enemy_parameter_1')) {
+      context.handle(
+        _childEnemyParameter1Meta,
+        childEnemyParameter1.isAcceptableOrUnknown(
+          data['child_enemy_parameter_1']!,
+          _childEnemyParameter1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_childEnemyParameter1Meta);
+    }
+    if (data.containsKey('child_enemy_parameter_2')) {
+      context.handle(
+        _childEnemyParameter2Meta,
+        childEnemyParameter2.isAcceptableOrUnknown(
+          data['child_enemy_parameter_2']!,
+          _childEnemyParameter2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_childEnemyParameter2Meta);
+    }
+    if (data.containsKey('child_enemy_parameter_3')) {
+      context.handle(
+        _childEnemyParameter3Meta,
+        childEnemyParameter3.isAcceptableOrUnknown(
+          data['child_enemy_parameter_3']!,
+          _childEnemyParameter3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_childEnemyParameter3Meta);
+    }
+    if (data.containsKey('child_enemy_parameter_4')) {
+      context.handle(
+        _childEnemyParameter4Meta,
+        childEnemyParameter4.isAcceptableOrUnknown(
+          data['child_enemy_parameter_4']!,
+          _childEnemyParameter4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_childEnemyParameter4Meta);
+    }
+    if (data.containsKey('child_enemy_parameter_5')) {
+      context.handle(
+        _childEnemyParameter5Meta,
+        childEnemyParameter5.isAcceptableOrUnknown(
+          data['child_enemy_parameter_5']!,
+          _childEnemyParameter5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_childEnemyParameter5Meta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {enemyId};
+  @override
+  EnemyMPart map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return EnemyMPart(
+      enemyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      childEnemyParameter1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}child_enemy_parameter_1'],
+      )!,
+      childEnemyParameter2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}child_enemy_parameter_2'],
+      )!,
+      childEnemyParameter3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}child_enemy_parameter_3'],
+      )!,
+      childEnemyParameter4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}child_enemy_parameter_4'],
+      )!,
+      childEnemyParameter5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}child_enemy_parameter_5'],
+      )!,
+    );
+  }
+
+  @override
+  $EnemyMPartsTable createAlias(String alias) {
+    return $EnemyMPartsTable(attachedDatabase, alias);
+  }
+}
+
+class EnemyMPart extends DataClass implements Insertable<EnemyMPart> {
+  final int enemyId;
+  final String name;
+  final int childEnemyParameter1;
+  final int childEnemyParameter2;
+  final int childEnemyParameter3;
+  final int childEnemyParameter4;
+  final int childEnemyParameter5;
+  const EnemyMPart({
+    required this.enemyId,
+    required this.name,
+    required this.childEnemyParameter1,
+    required this.childEnemyParameter2,
+    required this.childEnemyParameter3,
+    required this.childEnemyParameter4,
+    required this.childEnemyParameter5,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['enemy_id'] = Variable<int>(enemyId);
+    map['name'] = Variable<String>(name);
+    map['child_enemy_parameter_1'] = Variable<int>(childEnemyParameter1);
+    map['child_enemy_parameter_2'] = Variable<int>(childEnemyParameter2);
+    map['child_enemy_parameter_3'] = Variable<int>(childEnemyParameter3);
+    map['child_enemy_parameter_4'] = Variable<int>(childEnemyParameter4);
+    map['child_enemy_parameter_5'] = Variable<int>(childEnemyParameter5);
+    return map;
+  }
+
+  EnemyMPartsCompanion toCompanion(bool nullToAbsent) {
+    return EnemyMPartsCompanion(
+      enemyId: Value(enemyId),
+      name: Value(name),
+      childEnemyParameter1: Value(childEnemyParameter1),
+      childEnemyParameter2: Value(childEnemyParameter2),
+      childEnemyParameter3: Value(childEnemyParameter3),
+      childEnemyParameter4: Value(childEnemyParameter4),
+      childEnemyParameter5: Value(childEnemyParameter5),
+    );
+  }
+
+  factory EnemyMPart.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return EnemyMPart(
+      enemyId: serializer.fromJson<int>(json['enemyId']),
+      name: serializer.fromJson<String>(json['name']),
+      childEnemyParameter1: serializer.fromJson<int>(
+        json['childEnemyParameter1'],
+      ),
+      childEnemyParameter2: serializer.fromJson<int>(
+        json['childEnemyParameter2'],
+      ),
+      childEnemyParameter3: serializer.fromJson<int>(
+        json['childEnemyParameter3'],
+      ),
+      childEnemyParameter4: serializer.fromJson<int>(
+        json['childEnemyParameter4'],
+      ),
+      childEnemyParameter5: serializer.fromJson<int>(
+        json['childEnemyParameter5'],
+      ),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'enemyId': serializer.toJson<int>(enemyId),
+      'name': serializer.toJson<String>(name),
+      'childEnemyParameter1': serializer.toJson<int>(childEnemyParameter1),
+      'childEnemyParameter2': serializer.toJson<int>(childEnemyParameter2),
+      'childEnemyParameter3': serializer.toJson<int>(childEnemyParameter3),
+      'childEnemyParameter4': serializer.toJson<int>(childEnemyParameter4),
+      'childEnemyParameter5': serializer.toJson<int>(childEnemyParameter5),
+    };
+  }
+
+  EnemyMPart copyWith({
+    int? enemyId,
+    String? name,
+    int? childEnemyParameter1,
+    int? childEnemyParameter2,
+    int? childEnemyParameter3,
+    int? childEnemyParameter4,
+    int? childEnemyParameter5,
+  }) => EnemyMPart(
+    enemyId: enemyId ?? this.enemyId,
+    name: name ?? this.name,
+    childEnemyParameter1: childEnemyParameter1 ?? this.childEnemyParameter1,
+    childEnemyParameter2: childEnemyParameter2 ?? this.childEnemyParameter2,
+    childEnemyParameter3: childEnemyParameter3 ?? this.childEnemyParameter3,
+    childEnemyParameter4: childEnemyParameter4 ?? this.childEnemyParameter4,
+    childEnemyParameter5: childEnemyParameter5 ?? this.childEnemyParameter5,
+  );
+  EnemyMPart copyWithCompanion(EnemyMPartsCompanion data) {
+    return EnemyMPart(
+      enemyId: data.enemyId.present ? data.enemyId.value : this.enemyId,
+      name: data.name.present ? data.name.value : this.name,
+      childEnemyParameter1: data.childEnemyParameter1.present
+          ? data.childEnemyParameter1.value
+          : this.childEnemyParameter1,
+      childEnemyParameter2: data.childEnemyParameter2.present
+          ? data.childEnemyParameter2.value
+          : this.childEnemyParameter2,
+      childEnemyParameter3: data.childEnemyParameter3.present
+          ? data.childEnemyParameter3.value
+          : this.childEnemyParameter3,
+      childEnemyParameter4: data.childEnemyParameter4.present
+          ? data.childEnemyParameter4.value
+          : this.childEnemyParameter4,
+      childEnemyParameter5: data.childEnemyParameter5.present
+          ? data.childEnemyParameter5.value
+          : this.childEnemyParameter5,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('EnemyMPart(')
+          ..write('enemyId: $enemyId, ')
+          ..write('name: $name, ')
+          ..write('childEnemyParameter1: $childEnemyParameter1, ')
+          ..write('childEnemyParameter2: $childEnemyParameter2, ')
+          ..write('childEnemyParameter3: $childEnemyParameter3, ')
+          ..write('childEnemyParameter4: $childEnemyParameter4, ')
+          ..write('childEnemyParameter5: $childEnemyParameter5')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    enemyId,
+    name,
+    childEnemyParameter1,
+    childEnemyParameter2,
+    childEnemyParameter3,
+    childEnemyParameter4,
+    childEnemyParameter5,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is EnemyMPart &&
+          other.enemyId == this.enemyId &&
+          other.name == this.name &&
+          other.childEnemyParameter1 == this.childEnemyParameter1 &&
+          other.childEnemyParameter2 == this.childEnemyParameter2 &&
+          other.childEnemyParameter3 == this.childEnemyParameter3 &&
+          other.childEnemyParameter4 == this.childEnemyParameter4 &&
+          other.childEnemyParameter5 == this.childEnemyParameter5);
+}
+
+class EnemyMPartsCompanion extends UpdateCompanion<EnemyMPart> {
+  final Value<int> enemyId;
+  final Value<String> name;
+  final Value<int> childEnemyParameter1;
+  final Value<int> childEnemyParameter2;
+  final Value<int> childEnemyParameter3;
+  final Value<int> childEnemyParameter4;
+  final Value<int> childEnemyParameter5;
+  const EnemyMPartsCompanion({
+    this.enemyId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.childEnemyParameter1 = const Value.absent(),
+    this.childEnemyParameter2 = const Value.absent(),
+    this.childEnemyParameter3 = const Value.absent(),
+    this.childEnemyParameter4 = const Value.absent(),
+    this.childEnemyParameter5 = const Value.absent(),
+  });
+  EnemyMPartsCompanion.insert({
+    this.enemyId = const Value.absent(),
+    required String name,
+    required int childEnemyParameter1,
+    required int childEnemyParameter2,
+    required int childEnemyParameter3,
+    required int childEnemyParameter4,
+    required int childEnemyParameter5,
+  }) : name = Value(name),
+       childEnemyParameter1 = Value(childEnemyParameter1),
+       childEnemyParameter2 = Value(childEnemyParameter2),
+       childEnemyParameter3 = Value(childEnemyParameter3),
+       childEnemyParameter4 = Value(childEnemyParameter4),
+       childEnemyParameter5 = Value(childEnemyParameter5);
+  static Insertable<EnemyMPart> custom({
+    Expression<int>? enemyId,
+    Expression<String>? name,
+    Expression<int>? childEnemyParameter1,
+    Expression<int>? childEnemyParameter2,
+    Expression<int>? childEnemyParameter3,
+    Expression<int>? childEnemyParameter4,
+    Expression<int>? childEnemyParameter5,
+  }) {
+    return RawValuesInsertable({
+      if (enemyId != null) 'enemy_id': enemyId,
+      if (name != null) 'name': name,
+      if (childEnemyParameter1 != null)
+        'child_enemy_parameter_1': childEnemyParameter1,
+      if (childEnemyParameter2 != null)
+        'child_enemy_parameter_2': childEnemyParameter2,
+      if (childEnemyParameter3 != null)
+        'child_enemy_parameter_3': childEnemyParameter3,
+      if (childEnemyParameter4 != null)
+        'child_enemy_parameter_4': childEnemyParameter4,
+      if (childEnemyParameter5 != null)
+        'child_enemy_parameter_5': childEnemyParameter5,
+    });
+  }
+
+  EnemyMPartsCompanion copyWith({
+    Value<int>? enemyId,
+    Value<String>? name,
+    Value<int>? childEnemyParameter1,
+    Value<int>? childEnemyParameter2,
+    Value<int>? childEnemyParameter3,
+    Value<int>? childEnemyParameter4,
+    Value<int>? childEnemyParameter5,
+  }) {
+    return EnemyMPartsCompanion(
+      enemyId: enemyId ?? this.enemyId,
+      name: name ?? this.name,
+      childEnemyParameter1: childEnemyParameter1 ?? this.childEnemyParameter1,
+      childEnemyParameter2: childEnemyParameter2 ?? this.childEnemyParameter2,
+      childEnemyParameter3: childEnemyParameter3 ?? this.childEnemyParameter3,
+      childEnemyParameter4: childEnemyParameter4 ?? this.childEnemyParameter4,
+      childEnemyParameter5: childEnemyParameter5 ?? this.childEnemyParameter5,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (enemyId.present) {
+      map['enemy_id'] = Variable<int>(enemyId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (childEnemyParameter1.present) {
+      map['child_enemy_parameter_1'] = Variable<int>(
+        childEnemyParameter1.value,
+      );
+    }
+    if (childEnemyParameter2.present) {
+      map['child_enemy_parameter_2'] = Variable<int>(
+        childEnemyParameter2.value,
+      );
+    }
+    if (childEnemyParameter3.present) {
+      map['child_enemy_parameter_3'] = Variable<int>(
+        childEnemyParameter3.value,
+      );
+    }
+    if (childEnemyParameter4.present) {
+      map['child_enemy_parameter_4'] = Variable<int>(
+        childEnemyParameter4.value,
+      );
+    }
+    if (childEnemyParameter5.present) {
+      map['child_enemy_parameter_5'] = Variable<int>(
+        childEnemyParameter5.value,
+      );
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('EnemyMPartsCompanion(')
+          ..write('enemyId: $enemyId, ')
+          ..write('name: $name, ')
+          ..write('childEnemyParameter1: $childEnemyParameter1, ')
+          ..write('childEnemyParameter2: $childEnemyParameter2, ')
+          ..write('childEnemyParameter3: $childEnemyParameter3, ')
+          ..write('childEnemyParameter4: $childEnemyParameter4, ')
+          ..write('childEnemyParameter5: $childEnemyParameter5')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $ClanBattle2MapDataTable extends ClanBattle2MapData
+    with TableInfo<$ClanBattle2MapDataTable, ClanBattle2MapDataData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ClanBattle2MapDataTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _clanBattleIdMeta = const VerificationMeta(
+    'clanBattleId',
+  );
+  @override
+  late final GeneratedColumn<int> clanBattleId = GeneratedColumn<int>(
+    'clan_battle_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mapBgMeta = const VerificationMeta('mapBg');
+  @override
+  late final GeneratedColumn<int> mapBg = GeneratedColumn<int>(
+    'map_bg',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _difficultyMeta = const VerificationMeta(
+    'difficulty',
+  );
+  @override
+  late final GeneratedColumn<int> difficulty = GeneratedColumn<int>(
+    'difficulty',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _lapNumFromMeta = const VerificationMeta(
+    'lapNumFrom',
+  );
+  @override
+  late final GeneratedColumn<int> lapNumFrom = GeneratedColumn<int>(
+    'lap_num_from',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _lapNumToMeta = const VerificationMeta(
+    'lapNumTo',
+  );
+  @override
+  late final GeneratedColumn<int> lapNumTo = GeneratedColumn<int>(
+    'lap_num_to',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _bossId1Meta = const VerificationMeta(
+    'bossId1',
+  );
+  @override
+  late final GeneratedColumn<int> bossId1 = GeneratedColumn<int>(
+    'boss_id_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _bossId2Meta = const VerificationMeta(
+    'bossId2',
+  );
+  @override
+  late final GeneratedColumn<int> bossId2 = GeneratedColumn<int>(
+    'boss_id_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _bossId3Meta = const VerificationMeta(
+    'bossId3',
+  );
+  @override
+  late final GeneratedColumn<int> bossId3 = GeneratedColumn<int>(
+    'boss_id_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _bossId4Meta = const VerificationMeta(
+    'bossId4',
+  );
+  @override
+  late final GeneratedColumn<int> bossId4 = GeneratedColumn<int>(
+    'boss_id_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _bossId5Meta = const VerificationMeta(
+    'bossId5',
+  );
+  @override
+  late final GeneratedColumn<int> bossId5 = GeneratedColumn<int>(
+    'boss_id_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _auraEffectMeta = const VerificationMeta(
+    'auraEffect',
+  );
+  @override
+  late final GeneratedColumn<int> auraEffect = GeneratedColumn<int>(
+    'aura_effect',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rslUnlockLapMeta = const VerificationMeta(
+    'rslUnlockLap',
+  );
+  @override
+  late final GeneratedColumn<int> rslUnlockLap = GeneratedColumn<int>(
+    'rsl_unlock_lap',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _phaseMeta = const VerificationMeta('phase');
+  @override
+  late final GeneratedColumn<int> phase = GeneratedColumn<int>(
+    'phase',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveGroupId1Meta = const VerificationMeta(
+    'waveGroupId1',
+  );
+  @override
+  late final GeneratedColumn<int> waveGroupId1 = GeneratedColumn<int>(
+    'wave_group_id_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveGroupId2Meta = const VerificationMeta(
+    'waveGroupId2',
+  );
+  @override
+  late final GeneratedColumn<int> waveGroupId2 = GeneratedColumn<int>(
+    'wave_group_id_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveGroupId3Meta = const VerificationMeta(
+    'waveGroupId3',
+  );
+  @override
+  late final GeneratedColumn<int> waveGroupId3 = GeneratedColumn<int>(
+    'wave_group_id_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveGroupId4Meta = const VerificationMeta(
+    'waveGroupId4',
+  );
+  @override
+  late final GeneratedColumn<int> waveGroupId4 = GeneratedColumn<int>(
+    'wave_group_id_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveGroupId5Meta = const VerificationMeta(
+    'waveGroupId5',
+  );
+  @override
+  late final GeneratedColumn<int> waveGroupId5 = GeneratedColumn<int>(
+    'wave_group_id_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _fixRewardId1Meta = const VerificationMeta(
+    'fixRewardId1',
+  );
+  @override
+  late final GeneratedColumn<int> fixRewardId1 = GeneratedColumn<int>(
+    'fix_reward_id_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _fixRewardId2Meta = const VerificationMeta(
+    'fixRewardId2',
+  );
+  @override
+  late final GeneratedColumn<int> fixRewardId2 = GeneratedColumn<int>(
+    'fix_reward_id_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _fixRewardId3Meta = const VerificationMeta(
+    'fixRewardId3',
+  );
+  @override
+  late final GeneratedColumn<int> fixRewardId3 = GeneratedColumn<int>(
+    'fix_reward_id_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _fixRewardId4Meta = const VerificationMeta(
+    'fixRewardId4',
+  );
+  @override
+  late final GeneratedColumn<int> fixRewardId4 = GeneratedColumn<int>(
+    'fix_reward_id_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _fixRewardId5Meta = const VerificationMeta(
+    'fixRewardId5',
+  );
+  @override
+  late final GeneratedColumn<int> fixRewardId5 = GeneratedColumn<int>(
+    'fix_reward_id_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _damageRankId1Meta = const VerificationMeta(
+    'damageRankId1',
+  );
+  @override
+  late final GeneratedColumn<int> damageRankId1 = GeneratedColumn<int>(
+    'damage_rank_id_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _damageRankId2Meta = const VerificationMeta(
+    'damageRankId2',
+  );
+  @override
+  late final GeneratedColumn<int> damageRankId2 = GeneratedColumn<int>(
+    'damage_rank_id_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _damageRankId3Meta = const VerificationMeta(
+    'damageRankId3',
+  );
+  @override
+  late final GeneratedColumn<int> damageRankId3 = GeneratedColumn<int>(
+    'damage_rank_id_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _damageRankId4Meta = const VerificationMeta(
+    'damageRankId4',
+  );
+  @override
+  late final GeneratedColumn<int> damageRankId4 = GeneratedColumn<int>(
+    'damage_rank_id_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _damageRankId5Meta = const VerificationMeta(
+    'damageRankId5',
+  );
+  @override
+  late final GeneratedColumn<int> damageRankId5 = GeneratedColumn<int>(
+    'damage_rank_id_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rewardGoldCoefficientMeta =
+      const VerificationMeta('rewardGoldCoefficient');
+  @override
+  late final GeneratedColumn<double> rewardGoldCoefficient =
+      GeneratedColumn<double>(
+        'reward_gold_coefficient',
+        aliasedName,
+        false,
+        type: DriftSqlType.double,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _limitedManaMeta = const VerificationMeta(
+    'limitedMana',
+  );
+  @override
+  late final GeneratedColumn<int> limitedMana = GeneratedColumn<int>(
+    'limited_mana',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _lastAttackRewardIdMeta =
+      const VerificationMeta('lastAttackRewardId');
+  @override
+  late final GeneratedColumn<int> lastAttackRewardId = GeneratedColumn<int>(
+    'last_attack_reward_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _scoreCoefficient1Meta = const VerificationMeta(
+    'scoreCoefficient1',
+  );
+  @override
+  late final GeneratedColumn<double> scoreCoefficient1 =
+      GeneratedColumn<double>(
+        'score_coefficient_1',
+        aliasedName,
+        false,
+        type: DriftSqlType.double,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _scoreCoefficient2Meta = const VerificationMeta(
+    'scoreCoefficient2',
+  );
+  @override
+  late final GeneratedColumn<double> scoreCoefficient2 =
+      GeneratedColumn<double>(
+        'score_coefficient_2',
+        aliasedName,
+        false,
+        type: DriftSqlType.double,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _scoreCoefficient3Meta = const VerificationMeta(
+    'scoreCoefficient3',
+  );
+  @override
+  late final GeneratedColumn<double> scoreCoefficient3 =
+      GeneratedColumn<double>(
+        'score_coefficient_3',
+        aliasedName,
+        false,
+        type: DriftSqlType.double,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _scoreCoefficient4Meta = const VerificationMeta(
+    'scoreCoefficient4',
+  );
+  @override
+  late final GeneratedColumn<double> scoreCoefficient4 =
+      GeneratedColumn<double>(
+        'score_coefficient_4',
+        aliasedName,
+        false,
+        type: DriftSqlType.double,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _scoreCoefficient5Meta = const VerificationMeta(
+    'scoreCoefficient5',
+  );
+  @override
+  late final GeneratedColumn<double> scoreCoefficient5 =
+      GeneratedColumn<double>(
+        'score_coefficient_5',
+        aliasedName,
+        false,
+        type: DriftSqlType.double,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _paramAdjustIdMeta = const VerificationMeta(
+    'paramAdjustId',
+  );
+  @override
+  late final GeneratedColumn<int> paramAdjustId = GeneratedColumn<int>(
+    'param_adjust_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _paramAdjustIntervalMeta =
+      const VerificationMeta('paramAdjustInterval');
+  @override
+  late final GeneratedColumn<int> paramAdjustInterval = GeneratedColumn<int>(
+    'param_adjust_interval',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    clanBattleId,
+    mapBg,
+    difficulty,
+    lapNumFrom,
+    lapNumTo,
+    bossId1,
+    bossId2,
+    bossId3,
+    bossId4,
+    bossId5,
+    auraEffect,
+    rslUnlockLap,
+    phase,
+    waveGroupId1,
+    waveGroupId2,
+    waveGroupId3,
+    waveGroupId4,
+    waveGroupId5,
+    fixRewardId1,
+    fixRewardId2,
+    fixRewardId3,
+    fixRewardId4,
+    fixRewardId5,
+    damageRankId1,
+    damageRankId2,
+    damageRankId3,
+    damageRankId4,
+    damageRankId5,
+    rewardGoldCoefficient,
+    limitedMana,
+    lastAttackRewardId,
+    scoreCoefficient1,
+    scoreCoefficient2,
+    scoreCoefficient3,
+    scoreCoefficient4,
+    scoreCoefficient5,
+    paramAdjustId,
+    paramAdjustInterval,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'clan_battle_2_map_data';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ClanBattle2MapDataData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('clan_battle_id')) {
+      context.handle(
+        _clanBattleIdMeta,
+        clanBattleId.isAcceptableOrUnknown(
+          data['clan_battle_id']!,
+          _clanBattleIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_clanBattleIdMeta);
+    }
+    if (data.containsKey('map_bg')) {
+      context.handle(
+        _mapBgMeta,
+        mapBg.isAcceptableOrUnknown(data['map_bg']!, _mapBgMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_mapBgMeta);
+    }
+    if (data.containsKey('difficulty')) {
+      context.handle(
+        _difficultyMeta,
+        difficulty.isAcceptableOrUnknown(data['difficulty']!, _difficultyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_difficultyMeta);
+    }
+    if (data.containsKey('lap_num_from')) {
+      context.handle(
+        _lapNumFromMeta,
+        lapNumFrom.isAcceptableOrUnknown(
+          data['lap_num_from']!,
+          _lapNumFromMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_lapNumFromMeta);
+    }
+    if (data.containsKey('lap_num_to')) {
+      context.handle(
+        _lapNumToMeta,
+        lapNumTo.isAcceptableOrUnknown(data['lap_num_to']!, _lapNumToMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_lapNumToMeta);
+    }
+    if (data.containsKey('boss_id_1')) {
+      context.handle(
+        _bossId1Meta,
+        bossId1.isAcceptableOrUnknown(data['boss_id_1']!, _bossId1Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_bossId1Meta);
+    }
+    if (data.containsKey('boss_id_2')) {
+      context.handle(
+        _bossId2Meta,
+        bossId2.isAcceptableOrUnknown(data['boss_id_2']!, _bossId2Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_bossId2Meta);
+    }
+    if (data.containsKey('boss_id_3')) {
+      context.handle(
+        _bossId3Meta,
+        bossId3.isAcceptableOrUnknown(data['boss_id_3']!, _bossId3Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_bossId3Meta);
+    }
+    if (data.containsKey('boss_id_4')) {
+      context.handle(
+        _bossId4Meta,
+        bossId4.isAcceptableOrUnknown(data['boss_id_4']!, _bossId4Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_bossId4Meta);
+    }
+    if (data.containsKey('boss_id_5')) {
+      context.handle(
+        _bossId5Meta,
+        bossId5.isAcceptableOrUnknown(data['boss_id_5']!, _bossId5Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_bossId5Meta);
+    }
+    if (data.containsKey('aura_effect')) {
+      context.handle(
+        _auraEffectMeta,
+        auraEffect.isAcceptableOrUnknown(data['aura_effect']!, _auraEffectMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_auraEffectMeta);
+    }
+    if (data.containsKey('rsl_unlock_lap')) {
+      context.handle(
+        _rslUnlockLapMeta,
+        rslUnlockLap.isAcceptableOrUnknown(
+          data['rsl_unlock_lap']!,
+          _rslUnlockLapMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rslUnlockLapMeta);
+    }
+    if (data.containsKey('phase')) {
+      context.handle(
+        _phaseMeta,
+        phase.isAcceptableOrUnknown(data['phase']!, _phaseMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_phaseMeta);
+    }
+    if (data.containsKey('wave_group_id_1')) {
+      context.handle(
+        _waveGroupId1Meta,
+        waveGroupId1.isAcceptableOrUnknown(
+          data['wave_group_id_1']!,
+          _waveGroupId1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveGroupId1Meta);
+    }
+    if (data.containsKey('wave_group_id_2')) {
+      context.handle(
+        _waveGroupId2Meta,
+        waveGroupId2.isAcceptableOrUnknown(
+          data['wave_group_id_2']!,
+          _waveGroupId2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveGroupId2Meta);
+    }
+    if (data.containsKey('wave_group_id_3')) {
+      context.handle(
+        _waveGroupId3Meta,
+        waveGroupId3.isAcceptableOrUnknown(
+          data['wave_group_id_3']!,
+          _waveGroupId3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveGroupId3Meta);
+    }
+    if (data.containsKey('wave_group_id_4')) {
+      context.handle(
+        _waveGroupId4Meta,
+        waveGroupId4.isAcceptableOrUnknown(
+          data['wave_group_id_4']!,
+          _waveGroupId4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveGroupId4Meta);
+    }
+    if (data.containsKey('wave_group_id_5')) {
+      context.handle(
+        _waveGroupId5Meta,
+        waveGroupId5.isAcceptableOrUnknown(
+          data['wave_group_id_5']!,
+          _waveGroupId5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveGroupId5Meta);
+    }
+    if (data.containsKey('fix_reward_id_1')) {
+      context.handle(
+        _fixRewardId1Meta,
+        fixRewardId1.isAcceptableOrUnknown(
+          data['fix_reward_id_1']!,
+          _fixRewardId1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_fixRewardId1Meta);
+    }
+    if (data.containsKey('fix_reward_id_2')) {
+      context.handle(
+        _fixRewardId2Meta,
+        fixRewardId2.isAcceptableOrUnknown(
+          data['fix_reward_id_2']!,
+          _fixRewardId2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_fixRewardId2Meta);
+    }
+    if (data.containsKey('fix_reward_id_3')) {
+      context.handle(
+        _fixRewardId3Meta,
+        fixRewardId3.isAcceptableOrUnknown(
+          data['fix_reward_id_3']!,
+          _fixRewardId3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_fixRewardId3Meta);
+    }
+    if (data.containsKey('fix_reward_id_4')) {
+      context.handle(
+        _fixRewardId4Meta,
+        fixRewardId4.isAcceptableOrUnknown(
+          data['fix_reward_id_4']!,
+          _fixRewardId4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_fixRewardId4Meta);
+    }
+    if (data.containsKey('fix_reward_id_5')) {
+      context.handle(
+        _fixRewardId5Meta,
+        fixRewardId5.isAcceptableOrUnknown(
+          data['fix_reward_id_5']!,
+          _fixRewardId5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_fixRewardId5Meta);
+    }
+    if (data.containsKey('damage_rank_id_1')) {
+      context.handle(
+        _damageRankId1Meta,
+        damageRankId1.isAcceptableOrUnknown(
+          data['damage_rank_id_1']!,
+          _damageRankId1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_damageRankId1Meta);
+    }
+    if (data.containsKey('damage_rank_id_2')) {
+      context.handle(
+        _damageRankId2Meta,
+        damageRankId2.isAcceptableOrUnknown(
+          data['damage_rank_id_2']!,
+          _damageRankId2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_damageRankId2Meta);
+    }
+    if (data.containsKey('damage_rank_id_3')) {
+      context.handle(
+        _damageRankId3Meta,
+        damageRankId3.isAcceptableOrUnknown(
+          data['damage_rank_id_3']!,
+          _damageRankId3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_damageRankId3Meta);
+    }
+    if (data.containsKey('damage_rank_id_4')) {
+      context.handle(
+        _damageRankId4Meta,
+        damageRankId4.isAcceptableOrUnknown(
+          data['damage_rank_id_4']!,
+          _damageRankId4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_damageRankId4Meta);
+    }
+    if (data.containsKey('damage_rank_id_5')) {
+      context.handle(
+        _damageRankId5Meta,
+        damageRankId5.isAcceptableOrUnknown(
+          data['damage_rank_id_5']!,
+          _damageRankId5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_damageRankId5Meta);
+    }
+    if (data.containsKey('reward_gold_coefficient')) {
+      context.handle(
+        _rewardGoldCoefficientMeta,
+        rewardGoldCoefficient.isAcceptableOrUnknown(
+          data['reward_gold_coefficient']!,
+          _rewardGoldCoefficientMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardGoldCoefficientMeta);
+    }
+    if (data.containsKey('limited_mana')) {
+      context.handle(
+        _limitedManaMeta,
+        limitedMana.isAcceptableOrUnknown(
+          data['limited_mana']!,
+          _limitedManaMeta,
+        ),
+      );
+    }
+    if (data.containsKey('last_attack_reward_id')) {
+      context.handle(
+        _lastAttackRewardIdMeta,
+        lastAttackRewardId.isAcceptableOrUnknown(
+          data['last_attack_reward_id']!,
+          _lastAttackRewardIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_lastAttackRewardIdMeta);
+    }
+    if (data.containsKey('score_coefficient_1')) {
+      context.handle(
+        _scoreCoefficient1Meta,
+        scoreCoefficient1.isAcceptableOrUnknown(
+          data['score_coefficient_1']!,
+          _scoreCoefficient1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_scoreCoefficient1Meta);
+    }
+    if (data.containsKey('score_coefficient_2')) {
+      context.handle(
+        _scoreCoefficient2Meta,
+        scoreCoefficient2.isAcceptableOrUnknown(
+          data['score_coefficient_2']!,
+          _scoreCoefficient2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_scoreCoefficient2Meta);
+    }
+    if (data.containsKey('score_coefficient_3')) {
+      context.handle(
+        _scoreCoefficient3Meta,
+        scoreCoefficient3.isAcceptableOrUnknown(
+          data['score_coefficient_3']!,
+          _scoreCoefficient3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_scoreCoefficient3Meta);
+    }
+    if (data.containsKey('score_coefficient_4')) {
+      context.handle(
+        _scoreCoefficient4Meta,
+        scoreCoefficient4.isAcceptableOrUnknown(
+          data['score_coefficient_4']!,
+          _scoreCoefficient4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_scoreCoefficient4Meta);
+    }
+    if (data.containsKey('score_coefficient_5')) {
+      context.handle(
+        _scoreCoefficient5Meta,
+        scoreCoefficient5.isAcceptableOrUnknown(
+          data['score_coefficient_5']!,
+          _scoreCoefficient5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_scoreCoefficient5Meta);
+    }
+    if (data.containsKey('param_adjust_id')) {
+      context.handle(
+        _paramAdjustIdMeta,
+        paramAdjustId.isAcceptableOrUnknown(
+          data['param_adjust_id']!,
+          _paramAdjustIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_paramAdjustIdMeta);
+    }
+    if (data.containsKey('param_adjust_interval')) {
+      context.handle(
+        _paramAdjustIntervalMeta,
+        paramAdjustInterval.isAcceptableOrUnknown(
+          data['param_adjust_interval']!,
+          _paramAdjustIntervalMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_paramAdjustIntervalMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  ClanBattle2MapDataData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ClanBattle2MapDataData(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      clanBattleId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}clan_battle_id'],
+      )!,
+      mapBg: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}map_bg'],
+      )!,
+      difficulty: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}difficulty'],
+      )!,
+      lapNumFrom: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}lap_num_from'],
+      )!,
+      lapNumTo: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}lap_num_to'],
+      )!,
+      bossId1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}boss_id_1'],
+      )!,
+      bossId2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}boss_id_2'],
+      )!,
+      bossId3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}boss_id_3'],
+      )!,
+      bossId4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}boss_id_4'],
+      )!,
+      bossId5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}boss_id_5'],
+      )!,
+      auraEffect: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}aura_effect'],
+      )!,
+      rslUnlockLap: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}rsl_unlock_lap'],
+      )!,
+      phase: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}phase'],
+      )!,
+      waveGroupId1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_group_id_1'],
+      )!,
+      waveGroupId2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_group_id_2'],
+      )!,
+      waveGroupId3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_group_id_3'],
+      )!,
+      waveGroupId4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_group_id_4'],
+      )!,
+      waveGroupId5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_group_id_5'],
+      )!,
+      fixRewardId1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}fix_reward_id_1'],
+      )!,
+      fixRewardId2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}fix_reward_id_2'],
+      )!,
+      fixRewardId3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}fix_reward_id_3'],
+      )!,
+      fixRewardId4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}fix_reward_id_4'],
+      )!,
+      fixRewardId5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}fix_reward_id_5'],
+      )!,
+      damageRankId1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}damage_rank_id_1'],
+      )!,
+      damageRankId2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}damage_rank_id_2'],
+      )!,
+      damageRankId3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}damage_rank_id_3'],
+      )!,
+      damageRankId4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}damage_rank_id_4'],
+      )!,
+      damageRankId5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}damage_rank_id_5'],
+      )!,
+      rewardGoldCoefficient: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}reward_gold_coefficient'],
+      )!,
+      limitedMana: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}limited_mana'],
+      ),
+      lastAttackRewardId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}last_attack_reward_id'],
+      )!,
+      scoreCoefficient1: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}score_coefficient_1'],
+      )!,
+      scoreCoefficient2: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}score_coefficient_2'],
+      )!,
+      scoreCoefficient3: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}score_coefficient_3'],
+      )!,
+      scoreCoefficient4: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}score_coefficient_4'],
+      )!,
+      scoreCoefficient5: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}score_coefficient_5'],
+      )!,
+      paramAdjustId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}param_adjust_id'],
+      )!,
+      paramAdjustInterval: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}param_adjust_interval'],
+      )!,
+    );
+  }
+
+  @override
+  $ClanBattle2MapDataTable createAlias(String alias) {
+    return $ClanBattle2MapDataTable(attachedDatabase, alias);
+  }
+}
+
+class ClanBattle2MapDataData extends DataClass
+    implements Insertable<ClanBattle2MapDataData> {
+  final int id;
+  final int clanBattleId;
+  final int mapBg;
+  final int difficulty;
+  final int lapNumFrom;
+  final int lapNumTo;
+  final int bossId1;
+  final int bossId2;
+  final int bossId3;
+  final int bossId4;
+  final int bossId5;
+  final int auraEffect;
+  final int rslUnlockLap;
+  final int phase;
+  final int waveGroupId1;
+  final int waveGroupId2;
+  final int waveGroupId3;
+  final int waveGroupId4;
+  final int waveGroupId5;
+  final int fixRewardId1;
+  final int fixRewardId2;
+  final int fixRewardId3;
+  final int fixRewardId4;
+  final int fixRewardId5;
+  final int damageRankId1;
+  final int damageRankId2;
+  final int damageRankId3;
+  final int damageRankId4;
+  final int damageRankId5;
+  final double rewardGoldCoefficient;
+  final int? limitedMana;
+  final int lastAttackRewardId;
+  final double scoreCoefficient1;
+  final double scoreCoefficient2;
+  final double scoreCoefficient3;
+  final double scoreCoefficient4;
+  final double scoreCoefficient5;
+  final int paramAdjustId;
+  final int paramAdjustInterval;
+  const ClanBattle2MapDataData({
+    required this.id,
+    required this.clanBattleId,
+    required this.mapBg,
+    required this.difficulty,
+    required this.lapNumFrom,
+    required this.lapNumTo,
+    required this.bossId1,
+    required this.bossId2,
+    required this.bossId3,
+    required this.bossId4,
+    required this.bossId5,
+    required this.auraEffect,
+    required this.rslUnlockLap,
+    required this.phase,
+    required this.waveGroupId1,
+    required this.waveGroupId2,
+    required this.waveGroupId3,
+    required this.waveGroupId4,
+    required this.waveGroupId5,
+    required this.fixRewardId1,
+    required this.fixRewardId2,
+    required this.fixRewardId3,
+    required this.fixRewardId4,
+    required this.fixRewardId5,
+    required this.damageRankId1,
+    required this.damageRankId2,
+    required this.damageRankId3,
+    required this.damageRankId4,
+    required this.damageRankId5,
+    required this.rewardGoldCoefficient,
+    this.limitedMana,
+    required this.lastAttackRewardId,
+    required this.scoreCoefficient1,
+    required this.scoreCoefficient2,
+    required this.scoreCoefficient3,
+    required this.scoreCoefficient4,
+    required this.scoreCoefficient5,
+    required this.paramAdjustId,
+    required this.paramAdjustInterval,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['clan_battle_id'] = Variable<int>(clanBattleId);
+    map['map_bg'] = Variable<int>(mapBg);
+    map['difficulty'] = Variable<int>(difficulty);
+    map['lap_num_from'] = Variable<int>(lapNumFrom);
+    map['lap_num_to'] = Variable<int>(lapNumTo);
+    map['boss_id_1'] = Variable<int>(bossId1);
+    map['boss_id_2'] = Variable<int>(bossId2);
+    map['boss_id_3'] = Variable<int>(bossId3);
+    map['boss_id_4'] = Variable<int>(bossId4);
+    map['boss_id_5'] = Variable<int>(bossId5);
+    map['aura_effect'] = Variable<int>(auraEffect);
+    map['rsl_unlock_lap'] = Variable<int>(rslUnlockLap);
+    map['phase'] = Variable<int>(phase);
+    map['wave_group_id_1'] = Variable<int>(waveGroupId1);
+    map['wave_group_id_2'] = Variable<int>(waveGroupId2);
+    map['wave_group_id_3'] = Variable<int>(waveGroupId3);
+    map['wave_group_id_4'] = Variable<int>(waveGroupId4);
+    map['wave_group_id_5'] = Variable<int>(waveGroupId5);
+    map['fix_reward_id_1'] = Variable<int>(fixRewardId1);
+    map['fix_reward_id_2'] = Variable<int>(fixRewardId2);
+    map['fix_reward_id_3'] = Variable<int>(fixRewardId3);
+    map['fix_reward_id_4'] = Variable<int>(fixRewardId4);
+    map['fix_reward_id_5'] = Variable<int>(fixRewardId5);
+    map['damage_rank_id_1'] = Variable<int>(damageRankId1);
+    map['damage_rank_id_2'] = Variable<int>(damageRankId2);
+    map['damage_rank_id_3'] = Variable<int>(damageRankId3);
+    map['damage_rank_id_4'] = Variable<int>(damageRankId4);
+    map['damage_rank_id_5'] = Variable<int>(damageRankId5);
+    map['reward_gold_coefficient'] = Variable<double>(rewardGoldCoefficient);
+    if (!nullToAbsent || limitedMana != null) {
+      map['limited_mana'] = Variable<int>(limitedMana);
+    }
+    map['last_attack_reward_id'] = Variable<int>(lastAttackRewardId);
+    map['score_coefficient_1'] = Variable<double>(scoreCoefficient1);
+    map['score_coefficient_2'] = Variable<double>(scoreCoefficient2);
+    map['score_coefficient_3'] = Variable<double>(scoreCoefficient3);
+    map['score_coefficient_4'] = Variable<double>(scoreCoefficient4);
+    map['score_coefficient_5'] = Variable<double>(scoreCoefficient5);
+    map['param_adjust_id'] = Variable<int>(paramAdjustId);
+    map['param_adjust_interval'] = Variable<int>(paramAdjustInterval);
+    return map;
+  }
+
+  ClanBattle2MapDataCompanion toCompanion(bool nullToAbsent) {
+    return ClanBattle2MapDataCompanion(
+      id: Value(id),
+      clanBattleId: Value(clanBattleId),
+      mapBg: Value(mapBg),
+      difficulty: Value(difficulty),
+      lapNumFrom: Value(lapNumFrom),
+      lapNumTo: Value(lapNumTo),
+      bossId1: Value(bossId1),
+      bossId2: Value(bossId2),
+      bossId3: Value(bossId3),
+      bossId4: Value(bossId4),
+      bossId5: Value(bossId5),
+      auraEffect: Value(auraEffect),
+      rslUnlockLap: Value(rslUnlockLap),
+      phase: Value(phase),
+      waveGroupId1: Value(waveGroupId1),
+      waveGroupId2: Value(waveGroupId2),
+      waveGroupId3: Value(waveGroupId3),
+      waveGroupId4: Value(waveGroupId4),
+      waveGroupId5: Value(waveGroupId5),
+      fixRewardId1: Value(fixRewardId1),
+      fixRewardId2: Value(fixRewardId2),
+      fixRewardId3: Value(fixRewardId3),
+      fixRewardId4: Value(fixRewardId4),
+      fixRewardId5: Value(fixRewardId5),
+      damageRankId1: Value(damageRankId1),
+      damageRankId2: Value(damageRankId2),
+      damageRankId3: Value(damageRankId3),
+      damageRankId4: Value(damageRankId4),
+      damageRankId5: Value(damageRankId5),
+      rewardGoldCoefficient: Value(rewardGoldCoefficient),
+      limitedMana: limitedMana == null && nullToAbsent
+          ? const Value.absent()
+          : Value(limitedMana),
+      lastAttackRewardId: Value(lastAttackRewardId),
+      scoreCoefficient1: Value(scoreCoefficient1),
+      scoreCoefficient2: Value(scoreCoefficient2),
+      scoreCoefficient3: Value(scoreCoefficient3),
+      scoreCoefficient4: Value(scoreCoefficient4),
+      scoreCoefficient5: Value(scoreCoefficient5),
+      paramAdjustId: Value(paramAdjustId),
+      paramAdjustInterval: Value(paramAdjustInterval),
+    );
+  }
+
+  factory ClanBattle2MapDataData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ClanBattle2MapDataData(
+      id: serializer.fromJson<int>(json['id']),
+      clanBattleId: serializer.fromJson<int>(json['clanBattleId']),
+      mapBg: serializer.fromJson<int>(json['mapBg']),
+      difficulty: serializer.fromJson<int>(json['difficulty']),
+      lapNumFrom: serializer.fromJson<int>(json['lapNumFrom']),
+      lapNumTo: serializer.fromJson<int>(json['lapNumTo']),
+      bossId1: serializer.fromJson<int>(json['bossId1']),
+      bossId2: serializer.fromJson<int>(json['bossId2']),
+      bossId3: serializer.fromJson<int>(json['bossId3']),
+      bossId4: serializer.fromJson<int>(json['bossId4']),
+      bossId5: serializer.fromJson<int>(json['bossId5']),
+      auraEffect: serializer.fromJson<int>(json['auraEffect']),
+      rslUnlockLap: serializer.fromJson<int>(json['rslUnlockLap']),
+      phase: serializer.fromJson<int>(json['phase']),
+      waveGroupId1: serializer.fromJson<int>(json['waveGroupId1']),
+      waveGroupId2: serializer.fromJson<int>(json['waveGroupId2']),
+      waveGroupId3: serializer.fromJson<int>(json['waveGroupId3']),
+      waveGroupId4: serializer.fromJson<int>(json['waveGroupId4']),
+      waveGroupId5: serializer.fromJson<int>(json['waveGroupId5']),
+      fixRewardId1: serializer.fromJson<int>(json['fixRewardId1']),
+      fixRewardId2: serializer.fromJson<int>(json['fixRewardId2']),
+      fixRewardId3: serializer.fromJson<int>(json['fixRewardId3']),
+      fixRewardId4: serializer.fromJson<int>(json['fixRewardId4']),
+      fixRewardId5: serializer.fromJson<int>(json['fixRewardId5']),
+      damageRankId1: serializer.fromJson<int>(json['damageRankId1']),
+      damageRankId2: serializer.fromJson<int>(json['damageRankId2']),
+      damageRankId3: serializer.fromJson<int>(json['damageRankId3']),
+      damageRankId4: serializer.fromJson<int>(json['damageRankId4']),
+      damageRankId5: serializer.fromJson<int>(json['damageRankId5']),
+      rewardGoldCoefficient: serializer.fromJson<double>(
+        json['rewardGoldCoefficient'],
+      ),
+      limitedMana: serializer.fromJson<int?>(json['limitedMana']),
+      lastAttackRewardId: serializer.fromJson<int>(json['lastAttackRewardId']),
+      scoreCoefficient1: serializer.fromJson<double>(json['scoreCoefficient1']),
+      scoreCoefficient2: serializer.fromJson<double>(json['scoreCoefficient2']),
+      scoreCoefficient3: serializer.fromJson<double>(json['scoreCoefficient3']),
+      scoreCoefficient4: serializer.fromJson<double>(json['scoreCoefficient4']),
+      scoreCoefficient5: serializer.fromJson<double>(json['scoreCoefficient5']),
+      paramAdjustId: serializer.fromJson<int>(json['paramAdjustId']),
+      paramAdjustInterval: serializer.fromJson<int>(
+        json['paramAdjustInterval'],
+      ),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'clanBattleId': serializer.toJson<int>(clanBattleId),
+      'mapBg': serializer.toJson<int>(mapBg),
+      'difficulty': serializer.toJson<int>(difficulty),
+      'lapNumFrom': serializer.toJson<int>(lapNumFrom),
+      'lapNumTo': serializer.toJson<int>(lapNumTo),
+      'bossId1': serializer.toJson<int>(bossId1),
+      'bossId2': serializer.toJson<int>(bossId2),
+      'bossId3': serializer.toJson<int>(bossId3),
+      'bossId4': serializer.toJson<int>(bossId4),
+      'bossId5': serializer.toJson<int>(bossId5),
+      'auraEffect': serializer.toJson<int>(auraEffect),
+      'rslUnlockLap': serializer.toJson<int>(rslUnlockLap),
+      'phase': serializer.toJson<int>(phase),
+      'waveGroupId1': serializer.toJson<int>(waveGroupId1),
+      'waveGroupId2': serializer.toJson<int>(waveGroupId2),
+      'waveGroupId3': serializer.toJson<int>(waveGroupId3),
+      'waveGroupId4': serializer.toJson<int>(waveGroupId4),
+      'waveGroupId5': serializer.toJson<int>(waveGroupId5),
+      'fixRewardId1': serializer.toJson<int>(fixRewardId1),
+      'fixRewardId2': serializer.toJson<int>(fixRewardId2),
+      'fixRewardId3': serializer.toJson<int>(fixRewardId3),
+      'fixRewardId4': serializer.toJson<int>(fixRewardId4),
+      'fixRewardId5': serializer.toJson<int>(fixRewardId5),
+      'damageRankId1': serializer.toJson<int>(damageRankId1),
+      'damageRankId2': serializer.toJson<int>(damageRankId2),
+      'damageRankId3': serializer.toJson<int>(damageRankId3),
+      'damageRankId4': serializer.toJson<int>(damageRankId4),
+      'damageRankId5': serializer.toJson<int>(damageRankId5),
+      'rewardGoldCoefficient': serializer.toJson<double>(rewardGoldCoefficient),
+      'limitedMana': serializer.toJson<int?>(limitedMana),
+      'lastAttackRewardId': serializer.toJson<int>(lastAttackRewardId),
+      'scoreCoefficient1': serializer.toJson<double>(scoreCoefficient1),
+      'scoreCoefficient2': serializer.toJson<double>(scoreCoefficient2),
+      'scoreCoefficient3': serializer.toJson<double>(scoreCoefficient3),
+      'scoreCoefficient4': serializer.toJson<double>(scoreCoefficient4),
+      'scoreCoefficient5': serializer.toJson<double>(scoreCoefficient5),
+      'paramAdjustId': serializer.toJson<int>(paramAdjustId),
+      'paramAdjustInterval': serializer.toJson<int>(paramAdjustInterval),
+    };
+  }
+
+  ClanBattle2MapDataData copyWith({
+    int? id,
+    int? clanBattleId,
+    int? mapBg,
+    int? difficulty,
+    int? lapNumFrom,
+    int? lapNumTo,
+    int? bossId1,
+    int? bossId2,
+    int? bossId3,
+    int? bossId4,
+    int? bossId5,
+    int? auraEffect,
+    int? rslUnlockLap,
+    int? phase,
+    int? waveGroupId1,
+    int? waveGroupId2,
+    int? waveGroupId3,
+    int? waveGroupId4,
+    int? waveGroupId5,
+    int? fixRewardId1,
+    int? fixRewardId2,
+    int? fixRewardId3,
+    int? fixRewardId4,
+    int? fixRewardId5,
+    int? damageRankId1,
+    int? damageRankId2,
+    int? damageRankId3,
+    int? damageRankId4,
+    int? damageRankId5,
+    double? rewardGoldCoefficient,
+    Value<int?> limitedMana = const Value.absent(),
+    int? lastAttackRewardId,
+    double? scoreCoefficient1,
+    double? scoreCoefficient2,
+    double? scoreCoefficient3,
+    double? scoreCoefficient4,
+    double? scoreCoefficient5,
+    int? paramAdjustId,
+    int? paramAdjustInterval,
+  }) => ClanBattle2MapDataData(
+    id: id ?? this.id,
+    clanBattleId: clanBattleId ?? this.clanBattleId,
+    mapBg: mapBg ?? this.mapBg,
+    difficulty: difficulty ?? this.difficulty,
+    lapNumFrom: lapNumFrom ?? this.lapNumFrom,
+    lapNumTo: lapNumTo ?? this.lapNumTo,
+    bossId1: bossId1 ?? this.bossId1,
+    bossId2: bossId2 ?? this.bossId2,
+    bossId3: bossId3 ?? this.bossId3,
+    bossId4: bossId4 ?? this.bossId4,
+    bossId5: bossId5 ?? this.bossId5,
+    auraEffect: auraEffect ?? this.auraEffect,
+    rslUnlockLap: rslUnlockLap ?? this.rslUnlockLap,
+    phase: phase ?? this.phase,
+    waveGroupId1: waveGroupId1 ?? this.waveGroupId1,
+    waveGroupId2: waveGroupId2 ?? this.waveGroupId2,
+    waveGroupId3: waveGroupId3 ?? this.waveGroupId3,
+    waveGroupId4: waveGroupId4 ?? this.waveGroupId4,
+    waveGroupId5: waveGroupId5 ?? this.waveGroupId5,
+    fixRewardId1: fixRewardId1 ?? this.fixRewardId1,
+    fixRewardId2: fixRewardId2 ?? this.fixRewardId2,
+    fixRewardId3: fixRewardId3 ?? this.fixRewardId3,
+    fixRewardId4: fixRewardId4 ?? this.fixRewardId4,
+    fixRewardId5: fixRewardId5 ?? this.fixRewardId5,
+    damageRankId1: damageRankId1 ?? this.damageRankId1,
+    damageRankId2: damageRankId2 ?? this.damageRankId2,
+    damageRankId3: damageRankId3 ?? this.damageRankId3,
+    damageRankId4: damageRankId4 ?? this.damageRankId4,
+    damageRankId5: damageRankId5 ?? this.damageRankId5,
+    rewardGoldCoefficient: rewardGoldCoefficient ?? this.rewardGoldCoefficient,
+    limitedMana: limitedMana.present ? limitedMana.value : this.limitedMana,
+    lastAttackRewardId: lastAttackRewardId ?? this.lastAttackRewardId,
+    scoreCoefficient1: scoreCoefficient1 ?? this.scoreCoefficient1,
+    scoreCoefficient2: scoreCoefficient2 ?? this.scoreCoefficient2,
+    scoreCoefficient3: scoreCoefficient3 ?? this.scoreCoefficient3,
+    scoreCoefficient4: scoreCoefficient4 ?? this.scoreCoefficient4,
+    scoreCoefficient5: scoreCoefficient5 ?? this.scoreCoefficient5,
+    paramAdjustId: paramAdjustId ?? this.paramAdjustId,
+    paramAdjustInterval: paramAdjustInterval ?? this.paramAdjustInterval,
+  );
+  ClanBattle2MapDataData copyWithCompanion(ClanBattle2MapDataCompanion data) {
+    return ClanBattle2MapDataData(
+      id: data.id.present ? data.id.value : this.id,
+      clanBattleId: data.clanBattleId.present
+          ? data.clanBattleId.value
+          : this.clanBattleId,
+      mapBg: data.mapBg.present ? data.mapBg.value : this.mapBg,
+      difficulty: data.difficulty.present
+          ? data.difficulty.value
+          : this.difficulty,
+      lapNumFrom: data.lapNumFrom.present
+          ? data.lapNumFrom.value
+          : this.lapNumFrom,
+      lapNumTo: data.lapNumTo.present ? data.lapNumTo.value : this.lapNumTo,
+      bossId1: data.bossId1.present ? data.bossId1.value : this.bossId1,
+      bossId2: data.bossId2.present ? data.bossId2.value : this.bossId2,
+      bossId3: data.bossId3.present ? data.bossId3.value : this.bossId3,
+      bossId4: data.bossId4.present ? data.bossId4.value : this.bossId4,
+      bossId5: data.bossId5.present ? data.bossId5.value : this.bossId5,
+      auraEffect: data.auraEffect.present
+          ? data.auraEffect.value
+          : this.auraEffect,
+      rslUnlockLap: data.rslUnlockLap.present
+          ? data.rslUnlockLap.value
+          : this.rslUnlockLap,
+      phase: data.phase.present ? data.phase.value : this.phase,
+      waveGroupId1: data.waveGroupId1.present
+          ? data.waveGroupId1.value
+          : this.waveGroupId1,
+      waveGroupId2: data.waveGroupId2.present
+          ? data.waveGroupId2.value
+          : this.waveGroupId2,
+      waveGroupId3: data.waveGroupId3.present
+          ? data.waveGroupId3.value
+          : this.waveGroupId3,
+      waveGroupId4: data.waveGroupId4.present
+          ? data.waveGroupId4.value
+          : this.waveGroupId4,
+      waveGroupId5: data.waveGroupId5.present
+          ? data.waveGroupId5.value
+          : this.waveGroupId5,
+      fixRewardId1: data.fixRewardId1.present
+          ? data.fixRewardId1.value
+          : this.fixRewardId1,
+      fixRewardId2: data.fixRewardId2.present
+          ? data.fixRewardId2.value
+          : this.fixRewardId2,
+      fixRewardId3: data.fixRewardId3.present
+          ? data.fixRewardId3.value
+          : this.fixRewardId3,
+      fixRewardId4: data.fixRewardId4.present
+          ? data.fixRewardId4.value
+          : this.fixRewardId4,
+      fixRewardId5: data.fixRewardId5.present
+          ? data.fixRewardId5.value
+          : this.fixRewardId5,
+      damageRankId1: data.damageRankId1.present
+          ? data.damageRankId1.value
+          : this.damageRankId1,
+      damageRankId2: data.damageRankId2.present
+          ? data.damageRankId2.value
+          : this.damageRankId2,
+      damageRankId3: data.damageRankId3.present
+          ? data.damageRankId3.value
+          : this.damageRankId3,
+      damageRankId4: data.damageRankId4.present
+          ? data.damageRankId4.value
+          : this.damageRankId4,
+      damageRankId5: data.damageRankId5.present
+          ? data.damageRankId5.value
+          : this.damageRankId5,
+      rewardGoldCoefficient: data.rewardGoldCoefficient.present
+          ? data.rewardGoldCoefficient.value
+          : this.rewardGoldCoefficient,
+      limitedMana: data.limitedMana.present
+          ? data.limitedMana.value
+          : this.limitedMana,
+      lastAttackRewardId: data.lastAttackRewardId.present
+          ? data.lastAttackRewardId.value
+          : this.lastAttackRewardId,
+      scoreCoefficient1: data.scoreCoefficient1.present
+          ? data.scoreCoefficient1.value
+          : this.scoreCoefficient1,
+      scoreCoefficient2: data.scoreCoefficient2.present
+          ? data.scoreCoefficient2.value
+          : this.scoreCoefficient2,
+      scoreCoefficient3: data.scoreCoefficient3.present
+          ? data.scoreCoefficient3.value
+          : this.scoreCoefficient3,
+      scoreCoefficient4: data.scoreCoefficient4.present
+          ? data.scoreCoefficient4.value
+          : this.scoreCoefficient4,
+      scoreCoefficient5: data.scoreCoefficient5.present
+          ? data.scoreCoefficient5.value
+          : this.scoreCoefficient5,
+      paramAdjustId: data.paramAdjustId.present
+          ? data.paramAdjustId.value
+          : this.paramAdjustId,
+      paramAdjustInterval: data.paramAdjustInterval.present
+          ? data.paramAdjustInterval.value
+          : this.paramAdjustInterval,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ClanBattle2MapDataData(')
+          ..write('id: $id, ')
+          ..write('clanBattleId: $clanBattleId, ')
+          ..write('mapBg: $mapBg, ')
+          ..write('difficulty: $difficulty, ')
+          ..write('lapNumFrom: $lapNumFrom, ')
+          ..write('lapNumTo: $lapNumTo, ')
+          ..write('bossId1: $bossId1, ')
+          ..write('bossId2: $bossId2, ')
+          ..write('bossId3: $bossId3, ')
+          ..write('bossId4: $bossId4, ')
+          ..write('bossId5: $bossId5, ')
+          ..write('auraEffect: $auraEffect, ')
+          ..write('rslUnlockLap: $rslUnlockLap, ')
+          ..write('phase: $phase, ')
+          ..write('waveGroupId1: $waveGroupId1, ')
+          ..write('waveGroupId2: $waveGroupId2, ')
+          ..write('waveGroupId3: $waveGroupId3, ')
+          ..write('waveGroupId4: $waveGroupId4, ')
+          ..write('waveGroupId5: $waveGroupId5, ')
+          ..write('fixRewardId1: $fixRewardId1, ')
+          ..write('fixRewardId2: $fixRewardId2, ')
+          ..write('fixRewardId3: $fixRewardId3, ')
+          ..write('fixRewardId4: $fixRewardId4, ')
+          ..write('fixRewardId5: $fixRewardId5, ')
+          ..write('damageRankId1: $damageRankId1, ')
+          ..write('damageRankId2: $damageRankId2, ')
+          ..write('damageRankId3: $damageRankId3, ')
+          ..write('damageRankId4: $damageRankId4, ')
+          ..write('damageRankId5: $damageRankId5, ')
+          ..write('rewardGoldCoefficient: $rewardGoldCoefficient, ')
+          ..write('limitedMana: $limitedMana, ')
+          ..write('lastAttackRewardId: $lastAttackRewardId, ')
+          ..write('scoreCoefficient1: $scoreCoefficient1, ')
+          ..write('scoreCoefficient2: $scoreCoefficient2, ')
+          ..write('scoreCoefficient3: $scoreCoefficient3, ')
+          ..write('scoreCoefficient4: $scoreCoefficient4, ')
+          ..write('scoreCoefficient5: $scoreCoefficient5, ')
+          ..write('paramAdjustId: $paramAdjustId, ')
+          ..write('paramAdjustInterval: $paramAdjustInterval')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    id,
+    clanBattleId,
+    mapBg,
+    difficulty,
+    lapNumFrom,
+    lapNumTo,
+    bossId1,
+    bossId2,
+    bossId3,
+    bossId4,
+    bossId5,
+    auraEffect,
+    rslUnlockLap,
+    phase,
+    waveGroupId1,
+    waveGroupId2,
+    waveGroupId3,
+    waveGroupId4,
+    waveGroupId5,
+    fixRewardId1,
+    fixRewardId2,
+    fixRewardId3,
+    fixRewardId4,
+    fixRewardId5,
+    damageRankId1,
+    damageRankId2,
+    damageRankId3,
+    damageRankId4,
+    damageRankId5,
+    rewardGoldCoefficient,
+    limitedMana,
+    lastAttackRewardId,
+    scoreCoefficient1,
+    scoreCoefficient2,
+    scoreCoefficient3,
+    scoreCoefficient4,
+    scoreCoefficient5,
+    paramAdjustId,
+    paramAdjustInterval,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ClanBattle2MapDataData &&
+          other.id == this.id &&
+          other.clanBattleId == this.clanBattleId &&
+          other.mapBg == this.mapBg &&
+          other.difficulty == this.difficulty &&
+          other.lapNumFrom == this.lapNumFrom &&
+          other.lapNumTo == this.lapNumTo &&
+          other.bossId1 == this.bossId1 &&
+          other.bossId2 == this.bossId2 &&
+          other.bossId3 == this.bossId3 &&
+          other.bossId4 == this.bossId4 &&
+          other.bossId5 == this.bossId5 &&
+          other.auraEffect == this.auraEffect &&
+          other.rslUnlockLap == this.rslUnlockLap &&
+          other.phase == this.phase &&
+          other.waveGroupId1 == this.waveGroupId1 &&
+          other.waveGroupId2 == this.waveGroupId2 &&
+          other.waveGroupId3 == this.waveGroupId3 &&
+          other.waveGroupId4 == this.waveGroupId4 &&
+          other.waveGroupId5 == this.waveGroupId5 &&
+          other.fixRewardId1 == this.fixRewardId1 &&
+          other.fixRewardId2 == this.fixRewardId2 &&
+          other.fixRewardId3 == this.fixRewardId3 &&
+          other.fixRewardId4 == this.fixRewardId4 &&
+          other.fixRewardId5 == this.fixRewardId5 &&
+          other.damageRankId1 == this.damageRankId1 &&
+          other.damageRankId2 == this.damageRankId2 &&
+          other.damageRankId3 == this.damageRankId3 &&
+          other.damageRankId4 == this.damageRankId4 &&
+          other.damageRankId5 == this.damageRankId5 &&
+          other.rewardGoldCoefficient == this.rewardGoldCoefficient &&
+          other.limitedMana == this.limitedMana &&
+          other.lastAttackRewardId == this.lastAttackRewardId &&
+          other.scoreCoefficient1 == this.scoreCoefficient1 &&
+          other.scoreCoefficient2 == this.scoreCoefficient2 &&
+          other.scoreCoefficient3 == this.scoreCoefficient3 &&
+          other.scoreCoefficient4 == this.scoreCoefficient4 &&
+          other.scoreCoefficient5 == this.scoreCoefficient5 &&
+          other.paramAdjustId == this.paramAdjustId &&
+          other.paramAdjustInterval == this.paramAdjustInterval);
+}
+
+class ClanBattle2MapDataCompanion
+    extends UpdateCompanion<ClanBattle2MapDataData> {
+  final Value<int> id;
+  final Value<int> clanBattleId;
+  final Value<int> mapBg;
+  final Value<int> difficulty;
+  final Value<int> lapNumFrom;
+  final Value<int> lapNumTo;
+  final Value<int> bossId1;
+  final Value<int> bossId2;
+  final Value<int> bossId3;
+  final Value<int> bossId4;
+  final Value<int> bossId5;
+  final Value<int> auraEffect;
+  final Value<int> rslUnlockLap;
+  final Value<int> phase;
+  final Value<int> waveGroupId1;
+  final Value<int> waveGroupId2;
+  final Value<int> waveGroupId3;
+  final Value<int> waveGroupId4;
+  final Value<int> waveGroupId5;
+  final Value<int> fixRewardId1;
+  final Value<int> fixRewardId2;
+  final Value<int> fixRewardId3;
+  final Value<int> fixRewardId4;
+  final Value<int> fixRewardId5;
+  final Value<int> damageRankId1;
+  final Value<int> damageRankId2;
+  final Value<int> damageRankId3;
+  final Value<int> damageRankId4;
+  final Value<int> damageRankId5;
+  final Value<double> rewardGoldCoefficient;
+  final Value<int?> limitedMana;
+  final Value<int> lastAttackRewardId;
+  final Value<double> scoreCoefficient1;
+  final Value<double> scoreCoefficient2;
+  final Value<double> scoreCoefficient3;
+  final Value<double> scoreCoefficient4;
+  final Value<double> scoreCoefficient5;
+  final Value<int> paramAdjustId;
+  final Value<int> paramAdjustInterval;
+  const ClanBattle2MapDataCompanion({
+    this.id = const Value.absent(),
+    this.clanBattleId = const Value.absent(),
+    this.mapBg = const Value.absent(),
+    this.difficulty = const Value.absent(),
+    this.lapNumFrom = const Value.absent(),
+    this.lapNumTo = const Value.absent(),
+    this.bossId1 = const Value.absent(),
+    this.bossId2 = const Value.absent(),
+    this.bossId3 = const Value.absent(),
+    this.bossId4 = const Value.absent(),
+    this.bossId5 = const Value.absent(),
+    this.auraEffect = const Value.absent(),
+    this.rslUnlockLap = const Value.absent(),
+    this.phase = const Value.absent(),
+    this.waveGroupId1 = const Value.absent(),
+    this.waveGroupId2 = const Value.absent(),
+    this.waveGroupId3 = const Value.absent(),
+    this.waveGroupId4 = const Value.absent(),
+    this.waveGroupId5 = const Value.absent(),
+    this.fixRewardId1 = const Value.absent(),
+    this.fixRewardId2 = const Value.absent(),
+    this.fixRewardId3 = const Value.absent(),
+    this.fixRewardId4 = const Value.absent(),
+    this.fixRewardId5 = const Value.absent(),
+    this.damageRankId1 = const Value.absent(),
+    this.damageRankId2 = const Value.absent(),
+    this.damageRankId3 = const Value.absent(),
+    this.damageRankId4 = const Value.absent(),
+    this.damageRankId5 = const Value.absent(),
+    this.rewardGoldCoefficient = const Value.absent(),
+    this.limitedMana = const Value.absent(),
+    this.lastAttackRewardId = const Value.absent(),
+    this.scoreCoefficient1 = const Value.absent(),
+    this.scoreCoefficient2 = const Value.absent(),
+    this.scoreCoefficient3 = const Value.absent(),
+    this.scoreCoefficient4 = const Value.absent(),
+    this.scoreCoefficient5 = const Value.absent(),
+    this.paramAdjustId = const Value.absent(),
+    this.paramAdjustInterval = const Value.absent(),
+  });
+  ClanBattle2MapDataCompanion.insert({
+    this.id = const Value.absent(),
+    required int clanBattleId,
+    required int mapBg,
+    required int difficulty,
+    required int lapNumFrom,
+    required int lapNumTo,
+    required int bossId1,
+    required int bossId2,
+    required int bossId3,
+    required int bossId4,
+    required int bossId5,
+    required int auraEffect,
+    required int rslUnlockLap,
+    required int phase,
+    required int waveGroupId1,
+    required int waveGroupId2,
+    required int waveGroupId3,
+    required int waveGroupId4,
+    required int waveGroupId5,
+    required int fixRewardId1,
+    required int fixRewardId2,
+    required int fixRewardId3,
+    required int fixRewardId4,
+    required int fixRewardId5,
+    required int damageRankId1,
+    required int damageRankId2,
+    required int damageRankId3,
+    required int damageRankId4,
+    required int damageRankId5,
+    required double rewardGoldCoefficient,
+    this.limitedMana = const Value.absent(),
+    required int lastAttackRewardId,
+    required double scoreCoefficient1,
+    required double scoreCoefficient2,
+    required double scoreCoefficient3,
+    required double scoreCoefficient4,
+    required double scoreCoefficient5,
+    required int paramAdjustId,
+    required int paramAdjustInterval,
+  }) : clanBattleId = Value(clanBattleId),
+       mapBg = Value(mapBg),
+       difficulty = Value(difficulty),
+       lapNumFrom = Value(lapNumFrom),
+       lapNumTo = Value(lapNumTo),
+       bossId1 = Value(bossId1),
+       bossId2 = Value(bossId2),
+       bossId3 = Value(bossId3),
+       bossId4 = Value(bossId4),
+       bossId5 = Value(bossId5),
+       auraEffect = Value(auraEffect),
+       rslUnlockLap = Value(rslUnlockLap),
+       phase = Value(phase),
+       waveGroupId1 = Value(waveGroupId1),
+       waveGroupId2 = Value(waveGroupId2),
+       waveGroupId3 = Value(waveGroupId3),
+       waveGroupId4 = Value(waveGroupId4),
+       waveGroupId5 = Value(waveGroupId5),
+       fixRewardId1 = Value(fixRewardId1),
+       fixRewardId2 = Value(fixRewardId2),
+       fixRewardId3 = Value(fixRewardId3),
+       fixRewardId4 = Value(fixRewardId4),
+       fixRewardId5 = Value(fixRewardId5),
+       damageRankId1 = Value(damageRankId1),
+       damageRankId2 = Value(damageRankId2),
+       damageRankId3 = Value(damageRankId3),
+       damageRankId4 = Value(damageRankId4),
+       damageRankId5 = Value(damageRankId5),
+       rewardGoldCoefficient = Value(rewardGoldCoefficient),
+       lastAttackRewardId = Value(lastAttackRewardId),
+       scoreCoefficient1 = Value(scoreCoefficient1),
+       scoreCoefficient2 = Value(scoreCoefficient2),
+       scoreCoefficient3 = Value(scoreCoefficient3),
+       scoreCoefficient4 = Value(scoreCoefficient4),
+       scoreCoefficient5 = Value(scoreCoefficient5),
+       paramAdjustId = Value(paramAdjustId),
+       paramAdjustInterval = Value(paramAdjustInterval);
+  static Insertable<ClanBattle2MapDataData> custom({
+    Expression<int>? id,
+    Expression<int>? clanBattleId,
+    Expression<int>? mapBg,
+    Expression<int>? difficulty,
+    Expression<int>? lapNumFrom,
+    Expression<int>? lapNumTo,
+    Expression<int>? bossId1,
+    Expression<int>? bossId2,
+    Expression<int>? bossId3,
+    Expression<int>? bossId4,
+    Expression<int>? bossId5,
+    Expression<int>? auraEffect,
+    Expression<int>? rslUnlockLap,
+    Expression<int>? phase,
+    Expression<int>? waveGroupId1,
+    Expression<int>? waveGroupId2,
+    Expression<int>? waveGroupId3,
+    Expression<int>? waveGroupId4,
+    Expression<int>? waveGroupId5,
+    Expression<int>? fixRewardId1,
+    Expression<int>? fixRewardId2,
+    Expression<int>? fixRewardId3,
+    Expression<int>? fixRewardId4,
+    Expression<int>? fixRewardId5,
+    Expression<int>? damageRankId1,
+    Expression<int>? damageRankId2,
+    Expression<int>? damageRankId3,
+    Expression<int>? damageRankId4,
+    Expression<int>? damageRankId5,
+    Expression<double>? rewardGoldCoefficient,
+    Expression<int>? limitedMana,
+    Expression<int>? lastAttackRewardId,
+    Expression<double>? scoreCoefficient1,
+    Expression<double>? scoreCoefficient2,
+    Expression<double>? scoreCoefficient3,
+    Expression<double>? scoreCoefficient4,
+    Expression<double>? scoreCoefficient5,
+    Expression<int>? paramAdjustId,
+    Expression<int>? paramAdjustInterval,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (clanBattleId != null) 'clan_battle_id': clanBattleId,
+      if (mapBg != null) 'map_bg': mapBg,
+      if (difficulty != null) 'difficulty': difficulty,
+      if (lapNumFrom != null) 'lap_num_from': lapNumFrom,
+      if (lapNumTo != null) 'lap_num_to': lapNumTo,
+      if (bossId1 != null) 'boss_id_1': bossId1,
+      if (bossId2 != null) 'boss_id_2': bossId2,
+      if (bossId3 != null) 'boss_id_3': bossId3,
+      if (bossId4 != null) 'boss_id_4': bossId4,
+      if (bossId5 != null) 'boss_id_5': bossId5,
+      if (auraEffect != null) 'aura_effect': auraEffect,
+      if (rslUnlockLap != null) 'rsl_unlock_lap': rslUnlockLap,
+      if (phase != null) 'phase': phase,
+      if (waveGroupId1 != null) 'wave_group_id_1': waveGroupId1,
+      if (waveGroupId2 != null) 'wave_group_id_2': waveGroupId2,
+      if (waveGroupId3 != null) 'wave_group_id_3': waveGroupId3,
+      if (waveGroupId4 != null) 'wave_group_id_4': waveGroupId4,
+      if (waveGroupId5 != null) 'wave_group_id_5': waveGroupId5,
+      if (fixRewardId1 != null) 'fix_reward_id_1': fixRewardId1,
+      if (fixRewardId2 != null) 'fix_reward_id_2': fixRewardId2,
+      if (fixRewardId3 != null) 'fix_reward_id_3': fixRewardId3,
+      if (fixRewardId4 != null) 'fix_reward_id_4': fixRewardId4,
+      if (fixRewardId5 != null) 'fix_reward_id_5': fixRewardId5,
+      if (damageRankId1 != null) 'damage_rank_id_1': damageRankId1,
+      if (damageRankId2 != null) 'damage_rank_id_2': damageRankId2,
+      if (damageRankId3 != null) 'damage_rank_id_3': damageRankId3,
+      if (damageRankId4 != null) 'damage_rank_id_4': damageRankId4,
+      if (damageRankId5 != null) 'damage_rank_id_5': damageRankId5,
+      if (rewardGoldCoefficient != null)
+        'reward_gold_coefficient': rewardGoldCoefficient,
+      if (limitedMana != null) 'limited_mana': limitedMana,
+      if (lastAttackRewardId != null)
+        'last_attack_reward_id': lastAttackRewardId,
+      if (scoreCoefficient1 != null) 'score_coefficient_1': scoreCoefficient1,
+      if (scoreCoefficient2 != null) 'score_coefficient_2': scoreCoefficient2,
+      if (scoreCoefficient3 != null) 'score_coefficient_3': scoreCoefficient3,
+      if (scoreCoefficient4 != null) 'score_coefficient_4': scoreCoefficient4,
+      if (scoreCoefficient5 != null) 'score_coefficient_5': scoreCoefficient5,
+      if (paramAdjustId != null) 'param_adjust_id': paramAdjustId,
+      if (paramAdjustInterval != null)
+        'param_adjust_interval': paramAdjustInterval,
+    });
+  }
+
+  ClanBattle2MapDataCompanion copyWith({
+    Value<int>? id,
+    Value<int>? clanBattleId,
+    Value<int>? mapBg,
+    Value<int>? difficulty,
+    Value<int>? lapNumFrom,
+    Value<int>? lapNumTo,
+    Value<int>? bossId1,
+    Value<int>? bossId2,
+    Value<int>? bossId3,
+    Value<int>? bossId4,
+    Value<int>? bossId5,
+    Value<int>? auraEffect,
+    Value<int>? rslUnlockLap,
+    Value<int>? phase,
+    Value<int>? waveGroupId1,
+    Value<int>? waveGroupId2,
+    Value<int>? waveGroupId3,
+    Value<int>? waveGroupId4,
+    Value<int>? waveGroupId5,
+    Value<int>? fixRewardId1,
+    Value<int>? fixRewardId2,
+    Value<int>? fixRewardId3,
+    Value<int>? fixRewardId4,
+    Value<int>? fixRewardId5,
+    Value<int>? damageRankId1,
+    Value<int>? damageRankId2,
+    Value<int>? damageRankId3,
+    Value<int>? damageRankId4,
+    Value<int>? damageRankId5,
+    Value<double>? rewardGoldCoefficient,
+    Value<int?>? limitedMana,
+    Value<int>? lastAttackRewardId,
+    Value<double>? scoreCoefficient1,
+    Value<double>? scoreCoefficient2,
+    Value<double>? scoreCoefficient3,
+    Value<double>? scoreCoefficient4,
+    Value<double>? scoreCoefficient5,
+    Value<int>? paramAdjustId,
+    Value<int>? paramAdjustInterval,
+  }) {
+    return ClanBattle2MapDataCompanion(
+      id: id ?? this.id,
+      clanBattleId: clanBattleId ?? this.clanBattleId,
+      mapBg: mapBg ?? this.mapBg,
+      difficulty: difficulty ?? this.difficulty,
+      lapNumFrom: lapNumFrom ?? this.lapNumFrom,
+      lapNumTo: lapNumTo ?? this.lapNumTo,
+      bossId1: bossId1 ?? this.bossId1,
+      bossId2: bossId2 ?? this.bossId2,
+      bossId3: bossId3 ?? this.bossId3,
+      bossId4: bossId4 ?? this.bossId4,
+      bossId5: bossId5 ?? this.bossId5,
+      auraEffect: auraEffect ?? this.auraEffect,
+      rslUnlockLap: rslUnlockLap ?? this.rslUnlockLap,
+      phase: phase ?? this.phase,
+      waveGroupId1: waveGroupId1 ?? this.waveGroupId1,
+      waveGroupId2: waveGroupId2 ?? this.waveGroupId2,
+      waveGroupId3: waveGroupId3 ?? this.waveGroupId3,
+      waveGroupId4: waveGroupId4 ?? this.waveGroupId4,
+      waveGroupId5: waveGroupId5 ?? this.waveGroupId5,
+      fixRewardId1: fixRewardId1 ?? this.fixRewardId1,
+      fixRewardId2: fixRewardId2 ?? this.fixRewardId2,
+      fixRewardId3: fixRewardId3 ?? this.fixRewardId3,
+      fixRewardId4: fixRewardId4 ?? this.fixRewardId4,
+      fixRewardId5: fixRewardId5 ?? this.fixRewardId5,
+      damageRankId1: damageRankId1 ?? this.damageRankId1,
+      damageRankId2: damageRankId2 ?? this.damageRankId2,
+      damageRankId3: damageRankId3 ?? this.damageRankId3,
+      damageRankId4: damageRankId4 ?? this.damageRankId4,
+      damageRankId5: damageRankId5 ?? this.damageRankId5,
+      rewardGoldCoefficient:
+          rewardGoldCoefficient ?? this.rewardGoldCoefficient,
+      limitedMana: limitedMana ?? this.limitedMana,
+      lastAttackRewardId: lastAttackRewardId ?? this.lastAttackRewardId,
+      scoreCoefficient1: scoreCoefficient1 ?? this.scoreCoefficient1,
+      scoreCoefficient2: scoreCoefficient2 ?? this.scoreCoefficient2,
+      scoreCoefficient3: scoreCoefficient3 ?? this.scoreCoefficient3,
+      scoreCoefficient4: scoreCoefficient4 ?? this.scoreCoefficient4,
+      scoreCoefficient5: scoreCoefficient5 ?? this.scoreCoefficient5,
+      paramAdjustId: paramAdjustId ?? this.paramAdjustId,
+      paramAdjustInterval: paramAdjustInterval ?? this.paramAdjustInterval,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (clanBattleId.present) {
+      map['clan_battle_id'] = Variable<int>(clanBattleId.value);
+    }
+    if (mapBg.present) {
+      map['map_bg'] = Variable<int>(mapBg.value);
+    }
+    if (difficulty.present) {
+      map['difficulty'] = Variable<int>(difficulty.value);
+    }
+    if (lapNumFrom.present) {
+      map['lap_num_from'] = Variable<int>(lapNumFrom.value);
+    }
+    if (lapNumTo.present) {
+      map['lap_num_to'] = Variable<int>(lapNumTo.value);
+    }
+    if (bossId1.present) {
+      map['boss_id_1'] = Variable<int>(bossId1.value);
+    }
+    if (bossId2.present) {
+      map['boss_id_2'] = Variable<int>(bossId2.value);
+    }
+    if (bossId3.present) {
+      map['boss_id_3'] = Variable<int>(bossId3.value);
+    }
+    if (bossId4.present) {
+      map['boss_id_4'] = Variable<int>(bossId4.value);
+    }
+    if (bossId5.present) {
+      map['boss_id_5'] = Variable<int>(bossId5.value);
+    }
+    if (auraEffect.present) {
+      map['aura_effect'] = Variable<int>(auraEffect.value);
+    }
+    if (rslUnlockLap.present) {
+      map['rsl_unlock_lap'] = Variable<int>(rslUnlockLap.value);
+    }
+    if (phase.present) {
+      map['phase'] = Variable<int>(phase.value);
+    }
+    if (waveGroupId1.present) {
+      map['wave_group_id_1'] = Variable<int>(waveGroupId1.value);
+    }
+    if (waveGroupId2.present) {
+      map['wave_group_id_2'] = Variable<int>(waveGroupId2.value);
+    }
+    if (waveGroupId3.present) {
+      map['wave_group_id_3'] = Variable<int>(waveGroupId3.value);
+    }
+    if (waveGroupId4.present) {
+      map['wave_group_id_4'] = Variable<int>(waveGroupId4.value);
+    }
+    if (waveGroupId5.present) {
+      map['wave_group_id_5'] = Variable<int>(waveGroupId5.value);
+    }
+    if (fixRewardId1.present) {
+      map['fix_reward_id_1'] = Variable<int>(fixRewardId1.value);
+    }
+    if (fixRewardId2.present) {
+      map['fix_reward_id_2'] = Variable<int>(fixRewardId2.value);
+    }
+    if (fixRewardId3.present) {
+      map['fix_reward_id_3'] = Variable<int>(fixRewardId3.value);
+    }
+    if (fixRewardId4.present) {
+      map['fix_reward_id_4'] = Variable<int>(fixRewardId4.value);
+    }
+    if (fixRewardId5.present) {
+      map['fix_reward_id_5'] = Variable<int>(fixRewardId5.value);
+    }
+    if (damageRankId1.present) {
+      map['damage_rank_id_1'] = Variable<int>(damageRankId1.value);
+    }
+    if (damageRankId2.present) {
+      map['damage_rank_id_2'] = Variable<int>(damageRankId2.value);
+    }
+    if (damageRankId3.present) {
+      map['damage_rank_id_3'] = Variable<int>(damageRankId3.value);
+    }
+    if (damageRankId4.present) {
+      map['damage_rank_id_4'] = Variable<int>(damageRankId4.value);
+    }
+    if (damageRankId5.present) {
+      map['damage_rank_id_5'] = Variable<int>(damageRankId5.value);
+    }
+    if (rewardGoldCoefficient.present) {
+      map['reward_gold_coefficient'] = Variable<double>(
+        rewardGoldCoefficient.value,
+      );
+    }
+    if (limitedMana.present) {
+      map['limited_mana'] = Variable<int>(limitedMana.value);
+    }
+    if (lastAttackRewardId.present) {
+      map['last_attack_reward_id'] = Variable<int>(lastAttackRewardId.value);
+    }
+    if (scoreCoefficient1.present) {
+      map['score_coefficient_1'] = Variable<double>(scoreCoefficient1.value);
+    }
+    if (scoreCoefficient2.present) {
+      map['score_coefficient_2'] = Variable<double>(scoreCoefficient2.value);
+    }
+    if (scoreCoefficient3.present) {
+      map['score_coefficient_3'] = Variable<double>(scoreCoefficient3.value);
+    }
+    if (scoreCoefficient4.present) {
+      map['score_coefficient_4'] = Variable<double>(scoreCoefficient4.value);
+    }
+    if (scoreCoefficient5.present) {
+      map['score_coefficient_5'] = Variable<double>(scoreCoefficient5.value);
+    }
+    if (paramAdjustId.present) {
+      map['param_adjust_id'] = Variable<int>(paramAdjustId.value);
+    }
+    if (paramAdjustInterval.present) {
+      map['param_adjust_interval'] = Variable<int>(paramAdjustInterval.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ClanBattle2MapDataCompanion(')
+          ..write('id: $id, ')
+          ..write('clanBattleId: $clanBattleId, ')
+          ..write('mapBg: $mapBg, ')
+          ..write('difficulty: $difficulty, ')
+          ..write('lapNumFrom: $lapNumFrom, ')
+          ..write('lapNumTo: $lapNumTo, ')
+          ..write('bossId1: $bossId1, ')
+          ..write('bossId2: $bossId2, ')
+          ..write('bossId3: $bossId3, ')
+          ..write('bossId4: $bossId4, ')
+          ..write('bossId5: $bossId5, ')
+          ..write('auraEffect: $auraEffect, ')
+          ..write('rslUnlockLap: $rslUnlockLap, ')
+          ..write('phase: $phase, ')
+          ..write('waveGroupId1: $waveGroupId1, ')
+          ..write('waveGroupId2: $waveGroupId2, ')
+          ..write('waveGroupId3: $waveGroupId3, ')
+          ..write('waveGroupId4: $waveGroupId4, ')
+          ..write('waveGroupId5: $waveGroupId5, ')
+          ..write('fixRewardId1: $fixRewardId1, ')
+          ..write('fixRewardId2: $fixRewardId2, ')
+          ..write('fixRewardId3: $fixRewardId3, ')
+          ..write('fixRewardId4: $fixRewardId4, ')
+          ..write('fixRewardId5: $fixRewardId5, ')
+          ..write('damageRankId1: $damageRankId1, ')
+          ..write('damageRankId2: $damageRankId2, ')
+          ..write('damageRankId3: $damageRankId3, ')
+          ..write('damageRankId4: $damageRankId4, ')
+          ..write('damageRankId5: $damageRankId5, ')
+          ..write('rewardGoldCoefficient: $rewardGoldCoefficient, ')
+          ..write('limitedMana: $limitedMana, ')
+          ..write('lastAttackRewardId: $lastAttackRewardId, ')
+          ..write('scoreCoefficient1: $scoreCoefficient1, ')
+          ..write('scoreCoefficient2: $scoreCoefficient2, ')
+          ..write('scoreCoefficient3: $scoreCoefficient3, ')
+          ..write('scoreCoefficient4: $scoreCoefficient4, ')
+          ..write('scoreCoefficient5: $scoreCoefficient5, ')
+          ..write('paramAdjustId: $paramAdjustId, ')
+          ..write('paramAdjustInterval: $paramAdjustInterval')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $ClanBattleScheduleTable extends ClanBattleSchedule
+    with TableInfo<$ClanBattleScheduleTable, ClanBattleScheduleData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ClanBattleScheduleTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _clanBattleIdMeta = const VerificationMeta(
+    'clanBattleId',
+  );
+  @override
+  late final GeneratedColumn<int> clanBattleId = GeneratedColumn<int>(
+    'clan_battle_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _releaseMonthMeta = const VerificationMeta(
+    'releaseMonth',
+  );
+  @override
+  late final GeneratedColumn<int> releaseMonth = GeneratedColumn<int>(
+    'release_month',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _lastClanBattleIdMeta = const VerificationMeta(
+    'lastClanBattleId',
+  );
+  @override
+  late final GeneratedColumn<int> lastClanBattleId = GeneratedColumn<int>(
+    'last_clan_battle_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _pointPerStaminaMeta = const VerificationMeta(
+    'pointPerStamina',
+  );
+  @override
+  late final GeneratedColumn<int> pointPerStamina = GeneratedColumn<int>(
+    'point_per_stamina',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _costGroupIdMeta = const VerificationMeta(
+    'costGroupId',
+  );
+  @override
+  late final GeneratedColumn<int> costGroupId = GeneratedColumn<int>(
+    'cost_group_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _costGroupIdSMeta = const VerificationMeta(
+    'costGroupIdS',
+  );
+  @override
+  late final GeneratedColumn<int> costGroupIdS = GeneratedColumn<int>(
+    'cost_group_id_s',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _mapBgmMeta = const VerificationMeta('mapBgm');
+  @override
+  late final GeneratedColumn<String> mapBgm = GeneratedColumn<String>(
+    'map_bgm',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resourceIdMeta = const VerificationMeta(
+    'resourceId',
+  );
+  @override
+  late final GeneratedColumn<int> resourceId = GeneratedColumn<int>(
+    'resource_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _startTimeMeta = const VerificationMeta(
+    'startTime',
+  );
+  @override
+  late final GeneratedColumn<String> startTime = GeneratedColumn<String>(
+    'start_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _endTimeMeta = const VerificationMeta(
+    'endTime',
+  );
+  @override
+  late final GeneratedColumn<String> endTime = GeneratedColumn<String>(
+    'end_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _modeChangeStartTimeMeta =
+      const VerificationMeta('modeChangeStartTime');
+  @override
+  late final GeneratedColumn<String> modeChangeStartTime =
+      GeneratedColumn<String>(
+        'mode_change_start_time',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _modeChangeEndTimeMeta = const VerificationMeta(
+    'modeChangeEndTime',
+  );
+  @override
+  late final GeneratedColumn<String> modeChangeEndTime =
+      GeneratedColumn<String>(
+        'mode_change_end_time',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _modeChangeRemindTimeMeta =
+      const VerificationMeta('modeChangeRemindTime');
+  @override
+  late final GeneratedColumn<String> modeChangeRemindTime =
+      GeneratedColumn<String>(
+        'mode_change_remind_time',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  @override
+  List<GeneratedColumn> get $columns => [
+    clanBattleId,
+    releaseMonth,
+    lastClanBattleId,
+    pointPerStamina,
+    costGroupId,
+    costGroupIdS,
+    mapBgm,
+    resourceId,
+    startTime,
+    endTime,
+    modeChangeStartTime,
+    modeChangeEndTime,
+    modeChangeRemindTime,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'clan_battle_schedule';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ClanBattleScheduleData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('clan_battle_id')) {
+      context.handle(
+        _clanBattleIdMeta,
+        clanBattleId.isAcceptableOrUnknown(
+          data['clan_battle_id']!,
+          _clanBattleIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('release_month')) {
+      context.handle(
+        _releaseMonthMeta,
+        releaseMonth.isAcceptableOrUnknown(
+          data['release_month']!,
+          _releaseMonthMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_releaseMonthMeta);
+    }
+    if (data.containsKey('last_clan_battle_id')) {
+      context.handle(
+        _lastClanBattleIdMeta,
+        lastClanBattleId.isAcceptableOrUnknown(
+          data['last_clan_battle_id']!,
+          _lastClanBattleIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_lastClanBattleIdMeta);
+    }
+    if (data.containsKey('point_per_stamina')) {
+      context.handle(
+        _pointPerStaminaMeta,
+        pointPerStamina.isAcceptableOrUnknown(
+          data['point_per_stamina']!,
+          _pointPerStaminaMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_pointPerStaminaMeta);
+    }
+    if (data.containsKey('cost_group_id')) {
+      context.handle(
+        _costGroupIdMeta,
+        costGroupId.isAcceptableOrUnknown(
+          data['cost_group_id']!,
+          _costGroupIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_costGroupIdMeta);
+    }
+    if (data.containsKey('cost_group_id_s')) {
+      context.handle(
+        _costGroupIdSMeta,
+        costGroupIdS.isAcceptableOrUnknown(
+          data['cost_group_id_s']!,
+          _costGroupIdSMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_costGroupIdSMeta);
+    }
+    if (data.containsKey('map_bgm')) {
+      context.handle(
+        _mapBgmMeta,
+        mapBgm.isAcceptableOrUnknown(data['map_bgm']!, _mapBgmMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_mapBgmMeta);
+    }
+    if (data.containsKey('resource_id')) {
+      context.handle(
+        _resourceIdMeta,
+        resourceId.isAcceptableOrUnknown(data['resource_id']!, _resourceIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_resourceIdMeta);
+    }
+    if (data.containsKey('start_time')) {
+      context.handle(
+        _startTimeMeta,
+        startTime.isAcceptableOrUnknown(data['start_time']!, _startTimeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_startTimeMeta);
+    }
+    if (data.containsKey('end_time')) {
+      context.handle(
+        _endTimeMeta,
+        endTime.isAcceptableOrUnknown(data['end_time']!, _endTimeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_endTimeMeta);
+    }
+    if (data.containsKey('mode_change_start_time')) {
+      context.handle(
+        _modeChangeStartTimeMeta,
+        modeChangeStartTime.isAcceptableOrUnknown(
+          data['mode_change_start_time']!,
+          _modeChangeStartTimeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_modeChangeStartTimeMeta);
+    }
+    if (data.containsKey('mode_change_end_time')) {
+      context.handle(
+        _modeChangeEndTimeMeta,
+        modeChangeEndTime.isAcceptableOrUnknown(
+          data['mode_change_end_time']!,
+          _modeChangeEndTimeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_modeChangeEndTimeMeta);
+    }
+    if (data.containsKey('mode_change_remind_time')) {
+      context.handle(
+        _modeChangeRemindTimeMeta,
+        modeChangeRemindTime.isAcceptableOrUnknown(
+          data['mode_change_remind_time']!,
+          _modeChangeRemindTimeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_modeChangeRemindTimeMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {clanBattleId};
+  @override
+  ClanBattleScheduleData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ClanBattleScheduleData(
+      clanBattleId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}clan_battle_id'],
+      )!,
+      releaseMonth: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}release_month'],
+      )!,
+      lastClanBattleId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}last_clan_battle_id'],
+      )!,
+      pointPerStamina: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}point_per_stamina'],
+      )!,
+      costGroupId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}cost_group_id'],
+      )!,
+      costGroupIdS: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}cost_group_id_s'],
+      )!,
+      mapBgm: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}map_bgm'],
+      )!,
+      resourceId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}resource_id'],
+      )!,
+      startTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}start_time'],
+      )!,
+      endTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}end_time'],
+      )!,
+      modeChangeStartTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}mode_change_start_time'],
+      )!,
+      modeChangeEndTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}mode_change_end_time'],
+      )!,
+      modeChangeRemindTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}mode_change_remind_time'],
+      )!,
+    );
+  }
+
+  @override
+  $ClanBattleScheduleTable createAlias(String alias) {
+    return $ClanBattleScheduleTable(attachedDatabase, alias);
+  }
+}
+
+class ClanBattleScheduleData extends DataClass
+    implements Insertable<ClanBattleScheduleData> {
+  final int clanBattleId;
+  final int releaseMonth;
+  final int lastClanBattleId;
+  final int pointPerStamina;
+  final int costGroupId;
+  final int costGroupIdS;
+  final String mapBgm;
+  final int resourceId;
+  final String startTime;
+  final String endTime;
+  final String modeChangeStartTime;
+  final String modeChangeEndTime;
+  final String modeChangeRemindTime;
+  const ClanBattleScheduleData({
+    required this.clanBattleId,
+    required this.releaseMonth,
+    required this.lastClanBattleId,
+    required this.pointPerStamina,
+    required this.costGroupId,
+    required this.costGroupIdS,
+    required this.mapBgm,
+    required this.resourceId,
+    required this.startTime,
+    required this.endTime,
+    required this.modeChangeStartTime,
+    required this.modeChangeEndTime,
+    required this.modeChangeRemindTime,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['clan_battle_id'] = Variable<int>(clanBattleId);
+    map['release_month'] = Variable<int>(releaseMonth);
+    map['last_clan_battle_id'] = Variable<int>(lastClanBattleId);
+    map['point_per_stamina'] = Variable<int>(pointPerStamina);
+    map['cost_group_id'] = Variable<int>(costGroupId);
+    map['cost_group_id_s'] = Variable<int>(costGroupIdS);
+    map['map_bgm'] = Variable<String>(mapBgm);
+    map['resource_id'] = Variable<int>(resourceId);
+    map['start_time'] = Variable<String>(startTime);
+    map['end_time'] = Variable<String>(endTime);
+    map['mode_change_start_time'] = Variable<String>(modeChangeStartTime);
+    map['mode_change_end_time'] = Variable<String>(modeChangeEndTime);
+    map['mode_change_remind_time'] = Variable<String>(modeChangeRemindTime);
+    return map;
+  }
+
+  ClanBattleScheduleCompanion toCompanion(bool nullToAbsent) {
+    return ClanBattleScheduleCompanion(
+      clanBattleId: Value(clanBattleId),
+      releaseMonth: Value(releaseMonth),
+      lastClanBattleId: Value(lastClanBattleId),
+      pointPerStamina: Value(pointPerStamina),
+      costGroupId: Value(costGroupId),
+      costGroupIdS: Value(costGroupIdS),
+      mapBgm: Value(mapBgm),
+      resourceId: Value(resourceId),
+      startTime: Value(startTime),
+      endTime: Value(endTime),
+      modeChangeStartTime: Value(modeChangeStartTime),
+      modeChangeEndTime: Value(modeChangeEndTime),
+      modeChangeRemindTime: Value(modeChangeRemindTime),
+    );
+  }
+
+  factory ClanBattleScheduleData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ClanBattleScheduleData(
+      clanBattleId: serializer.fromJson<int>(json['clanBattleId']),
+      releaseMonth: serializer.fromJson<int>(json['releaseMonth']),
+      lastClanBattleId: serializer.fromJson<int>(json['lastClanBattleId']),
+      pointPerStamina: serializer.fromJson<int>(json['pointPerStamina']),
+      costGroupId: serializer.fromJson<int>(json['costGroupId']),
+      costGroupIdS: serializer.fromJson<int>(json['costGroupIdS']),
+      mapBgm: serializer.fromJson<String>(json['mapBgm']),
+      resourceId: serializer.fromJson<int>(json['resourceId']),
+      startTime: serializer.fromJson<String>(json['startTime']),
+      endTime: serializer.fromJson<String>(json['endTime']),
+      modeChangeStartTime: serializer.fromJson<String>(
+        json['modeChangeStartTime'],
+      ),
+      modeChangeEndTime: serializer.fromJson<String>(json['modeChangeEndTime']),
+      modeChangeRemindTime: serializer.fromJson<String>(
+        json['modeChangeRemindTime'],
+      ),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'clanBattleId': serializer.toJson<int>(clanBattleId),
+      'releaseMonth': serializer.toJson<int>(releaseMonth),
+      'lastClanBattleId': serializer.toJson<int>(lastClanBattleId),
+      'pointPerStamina': serializer.toJson<int>(pointPerStamina),
+      'costGroupId': serializer.toJson<int>(costGroupId),
+      'costGroupIdS': serializer.toJson<int>(costGroupIdS),
+      'mapBgm': serializer.toJson<String>(mapBgm),
+      'resourceId': serializer.toJson<int>(resourceId),
+      'startTime': serializer.toJson<String>(startTime),
+      'endTime': serializer.toJson<String>(endTime),
+      'modeChangeStartTime': serializer.toJson<String>(modeChangeStartTime),
+      'modeChangeEndTime': serializer.toJson<String>(modeChangeEndTime),
+      'modeChangeRemindTime': serializer.toJson<String>(modeChangeRemindTime),
+    };
+  }
+
+  ClanBattleScheduleData copyWith({
+    int? clanBattleId,
+    int? releaseMonth,
+    int? lastClanBattleId,
+    int? pointPerStamina,
+    int? costGroupId,
+    int? costGroupIdS,
+    String? mapBgm,
+    int? resourceId,
+    String? startTime,
+    String? endTime,
+    String? modeChangeStartTime,
+    String? modeChangeEndTime,
+    String? modeChangeRemindTime,
+  }) => ClanBattleScheduleData(
+    clanBattleId: clanBattleId ?? this.clanBattleId,
+    releaseMonth: releaseMonth ?? this.releaseMonth,
+    lastClanBattleId: lastClanBattleId ?? this.lastClanBattleId,
+    pointPerStamina: pointPerStamina ?? this.pointPerStamina,
+    costGroupId: costGroupId ?? this.costGroupId,
+    costGroupIdS: costGroupIdS ?? this.costGroupIdS,
+    mapBgm: mapBgm ?? this.mapBgm,
+    resourceId: resourceId ?? this.resourceId,
+    startTime: startTime ?? this.startTime,
+    endTime: endTime ?? this.endTime,
+    modeChangeStartTime: modeChangeStartTime ?? this.modeChangeStartTime,
+    modeChangeEndTime: modeChangeEndTime ?? this.modeChangeEndTime,
+    modeChangeRemindTime: modeChangeRemindTime ?? this.modeChangeRemindTime,
+  );
+  ClanBattleScheduleData copyWithCompanion(ClanBattleScheduleCompanion data) {
+    return ClanBattleScheduleData(
+      clanBattleId: data.clanBattleId.present
+          ? data.clanBattleId.value
+          : this.clanBattleId,
+      releaseMonth: data.releaseMonth.present
+          ? data.releaseMonth.value
+          : this.releaseMonth,
+      lastClanBattleId: data.lastClanBattleId.present
+          ? data.lastClanBattleId.value
+          : this.lastClanBattleId,
+      pointPerStamina: data.pointPerStamina.present
+          ? data.pointPerStamina.value
+          : this.pointPerStamina,
+      costGroupId: data.costGroupId.present
+          ? data.costGroupId.value
+          : this.costGroupId,
+      costGroupIdS: data.costGroupIdS.present
+          ? data.costGroupIdS.value
+          : this.costGroupIdS,
+      mapBgm: data.mapBgm.present ? data.mapBgm.value : this.mapBgm,
+      resourceId: data.resourceId.present
+          ? data.resourceId.value
+          : this.resourceId,
+      startTime: data.startTime.present ? data.startTime.value : this.startTime,
+      endTime: data.endTime.present ? data.endTime.value : this.endTime,
+      modeChangeStartTime: data.modeChangeStartTime.present
+          ? data.modeChangeStartTime.value
+          : this.modeChangeStartTime,
+      modeChangeEndTime: data.modeChangeEndTime.present
+          ? data.modeChangeEndTime.value
+          : this.modeChangeEndTime,
+      modeChangeRemindTime: data.modeChangeRemindTime.present
+          ? data.modeChangeRemindTime.value
+          : this.modeChangeRemindTime,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ClanBattleScheduleData(')
+          ..write('clanBattleId: $clanBattleId, ')
+          ..write('releaseMonth: $releaseMonth, ')
+          ..write('lastClanBattleId: $lastClanBattleId, ')
+          ..write('pointPerStamina: $pointPerStamina, ')
+          ..write('costGroupId: $costGroupId, ')
+          ..write('costGroupIdS: $costGroupIdS, ')
+          ..write('mapBgm: $mapBgm, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('startTime: $startTime, ')
+          ..write('endTime: $endTime, ')
+          ..write('modeChangeStartTime: $modeChangeStartTime, ')
+          ..write('modeChangeEndTime: $modeChangeEndTime, ')
+          ..write('modeChangeRemindTime: $modeChangeRemindTime')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    clanBattleId,
+    releaseMonth,
+    lastClanBattleId,
+    pointPerStamina,
+    costGroupId,
+    costGroupIdS,
+    mapBgm,
+    resourceId,
+    startTime,
+    endTime,
+    modeChangeStartTime,
+    modeChangeEndTime,
+    modeChangeRemindTime,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ClanBattleScheduleData &&
+          other.clanBattleId == this.clanBattleId &&
+          other.releaseMonth == this.releaseMonth &&
+          other.lastClanBattleId == this.lastClanBattleId &&
+          other.pointPerStamina == this.pointPerStamina &&
+          other.costGroupId == this.costGroupId &&
+          other.costGroupIdS == this.costGroupIdS &&
+          other.mapBgm == this.mapBgm &&
+          other.resourceId == this.resourceId &&
+          other.startTime == this.startTime &&
+          other.endTime == this.endTime &&
+          other.modeChangeStartTime == this.modeChangeStartTime &&
+          other.modeChangeEndTime == this.modeChangeEndTime &&
+          other.modeChangeRemindTime == this.modeChangeRemindTime);
+}
+
+class ClanBattleScheduleCompanion
+    extends UpdateCompanion<ClanBattleScheduleData> {
+  final Value<int> clanBattleId;
+  final Value<int> releaseMonth;
+  final Value<int> lastClanBattleId;
+  final Value<int> pointPerStamina;
+  final Value<int> costGroupId;
+  final Value<int> costGroupIdS;
+  final Value<String> mapBgm;
+  final Value<int> resourceId;
+  final Value<String> startTime;
+  final Value<String> endTime;
+  final Value<String> modeChangeStartTime;
+  final Value<String> modeChangeEndTime;
+  final Value<String> modeChangeRemindTime;
+  const ClanBattleScheduleCompanion({
+    this.clanBattleId = const Value.absent(),
+    this.releaseMonth = const Value.absent(),
+    this.lastClanBattleId = const Value.absent(),
+    this.pointPerStamina = const Value.absent(),
+    this.costGroupId = const Value.absent(),
+    this.costGroupIdS = const Value.absent(),
+    this.mapBgm = const Value.absent(),
+    this.resourceId = const Value.absent(),
+    this.startTime = const Value.absent(),
+    this.endTime = const Value.absent(),
+    this.modeChangeStartTime = const Value.absent(),
+    this.modeChangeEndTime = const Value.absent(),
+    this.modeChangeRemindTime = const Value.absent(),
+  });
+  ClanBattleScheduleCompanion.insert({
+    this.clanBattleId = const Value.absent(),
+    required int releaseMonth,
+    required int lastClanBattleId,
+    required int pointPerStamina,
+    required int costGroupId,
+    required int costGroupIdS,
+    required String mapBgm,
+    required int resourceId,
+    required String startTime,
+    required String endTime,
+    required String modeChangeStartTime,
+    required String modeChangeEndTime,
+    required String modeChangeRemindTime,
+  }) : releaseMonth = Value(releaseMonth),
+       lastClanBattleId = Value(lastClanBattleId),
+       pointPerStamina = Value(pointPerStamina),
+       costGroupId = Value(costGroupId),
+       costGroupIdS = Value(costGroupIdS),
+       mapBgm = Value(mapBgm),
+       resourceId = Value(resourceId),
+       startTime = Value(startTime),
+       endTime = Value(endTime),
+       modeChangeStartTime = Value(modeChangeStartTime),
+       modeChangeEndTime = Value(modeChangeEndTime),
+       modeChangeRemindTime = Value(modeChangeRemindTime);
+  static Insertable<ClanBattleScheduleData> custom({
+    Expression<int>? clanBattleId,
+    Expression<int>? releaseMonth,
+    Expression<int>? lastClanBattleId,
+    Expression<int>? pointPerStamina,
+    Expression<int>? costGroupId,
+    Expression<int>? costGroupIdS,
+    Expression<String>? mapBgm,
+    Expression<int>? resourceId,
+    Expression<String>? startTime,
+    Expression<String>? endTime,
+    Expression<String>? modeChangeStartTime,
+    Expression<String>? modeChangeEndTime,
+    Expression<String>? modeChangeRemindTime,
+  }) {
+    return RawValuesInsertable({
+      if (clanBattleId != null) 'clan_battle_id': clanBattleId,
+      if (releaseMonth != null) 'release_month': releaseMonth,
+      if (lastClanBattleId != null) 'last_clan_battle_id': lastClanBattleId,
+      if (pointPerStamina != null) 'point_per_stamina': pointPerStamina,
+      if (costGroupId != null) 'cost_group_id': costGroupId,
+      if (costGroupIdS != null) 'cost_group_id_s': costGroupIdS,
+      if (mapBgm != null) 'map_bgm': mapBgm,
+      if (resourceId != null) 'resource_id': resourceId,
+      if (startTime != null) 'start_time': startTime,
+      if (endTime != null) 'end_time': endTime,
+      if (modeChangeStartTime != null)
+        'mode_change_start_time': modeChangeStartTime,
+      if (modeChangeEndTime != null) 'mode_change_end_time': modeChangeEndTime,
+      if (modeChangeRemindTime != null)
+        'mode_change_remind_time': modeChangeRemindTime,
+    });
+  }
+
+  ClanBattleScheduleCompanion copyWith({
+    Value<int>? clanBattleId,
+    Value<int>? releaseMonth,
+    Value<int>? lastClanBattleId,
+    Value<int>? pointPerStamina,
+    Value<int>? costGroupId,
+    Value<int>? costGroupIdS,
+    Value<String>? mapBgm,
+    Value<int>? resourceId,
+    Value<String>? startTime,
+    Value<String>? endTime,
+    Value<String>? modeChangeStartTime,
+    Value<String>? modeChangeEndTime,
+    Value<String>? modeChangeRemindTime,
+  }) {
+    return ClanBattleScheduleCompanion(
+      clanBattleId: clanBattleId ?? this.clanBattleId,
+      releaseMonth: releaseMonth ?? this.releaseMonth,
+      lastClanBattleId: lastClanBattleId ?? this.lastClanBattleId,
+      pointPerStamina: pointPerStamina ?? this.pointPerStamina,
+      costGroupId: costGroupId ?? this.costGroupId,
+      costGroupIdS: costGroupIdS ?? this.costGroupIdS,
+      mapBgm: mapBgm ?? this.mapBgm,
+      resourceId: resourceId ?? this.resourceId,
+      startTime: startTime ?? this.startTime,
+      endTime: endTime ?? this.endTime,
+      modeChangeStartTime: modeChangeStartTime ?? this.modeChangeStartTime,
+      modeChangeEndTime: modeChangeEndTime ?? this.modeChangeEndTime,
+      modeChangeRemindTime: modeChangeRemindTime ?? this.modeChangeRemindTime,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (clanBattleId.present) {
+      map['clan_battle_id'] = Variable<int>(clanBattleId.value);
+    }
+    if (releaseMonth.present) {
+      map['release_month'] = Variable<int>(releaseMonth.value);
+    }
+    if (lastClanBattleId.present) {
+      map['last_clan_battle_id'] = Variable<int>(lastClanBattleId.value);
+    }
+    if (pointPerStamina.present) {
+      map['point_per_stamina'] = Variable<int>(pointPerStamina.value);
+    }
+    if (costGroupId.present) {
+      map['cost_group_id'] = Variable<int>(costGroupId.value);
+    }
+    if (costGroupIdS.present) {
+      map['cost_group_id_s'] = Variable<int>(costGroupIdS.value);
+    }
+    if (mapBgm.present) {
+      map['map_bgm'] = Variable<String>(mapBgm.value);
+    }
+    if (resourceId.present) {
+      map['resource_id'] = Variable<int>(resourceId.value);
+    }
+    if (startTime.present) {
+      map['start_time'] = Variable<String>(startTime.value);
+    }
+    if (endTime.present) {
+      map['end_time'] = Variable<String>(endTime.value);
+    }
+    if (modeChangeStartTime.present) {
+      map['mode_change_start_time'] = Variable<String>(
+        modeChangeStartTime.value,
+      );
+    }
+    if (modeChangeEndTime.present) {
+      map['mode_change_end_time'] = Variable<String>(modeChangeEndTime.value);
+    }
+    if (modeChangeRemindTime.present) {
+      map['mode_change_remind_time'] = Variable<String>(
+        modeChangeRemindTime.value,
+      );
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ClanBattleScheduleCompanion(')
+          ..write('clanBattleId: $clanBattleId, ')
+          ..write('releaseMonth: $releaseMonth, ')
+          ..write('lastClanBattleId: $lastClanBattleId, ')
+          ..write('pointPerStamina: $pointPerStamina, ')
+          ..write('costGroupId: $costGroupId, ')
+          ..write('costGroupIdS: $costGroupIdS, ')
+          ..write('mapBgm: $mapBgm, ')
+          ..write('resourceId: $resourceId, ')
+          ..write('startTime: $startTime, ')
+          ..write('endTime: $endTime, ')
+          ..write('modeChangeStartTime: $modeChangeStartTime, ')
+          ..write('modeChangeEndTime: $modeChangeEndTime, ')
+          ..write('modeChangeRemindTime: $modeChangeRemindTime')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $WaveGroupDataTable extends WaveGroupData
+    with TableInfo<$WaveGroupDataTable, WaveGroupDataData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $WaveGroupDataTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _waveGroupIdMeta = const VerificationMeta(
+    'waveGroupId',
+  );
+  @override
+  late final GeneratedColumn<int> waveGroupId = GeneratedColumn<int>(
+    'wave_group_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _oddsMeta = const VerificationMeta('odds');
+  @override
+  late final GeneratedColumn<int> odds = GeneratedColumn<int>(
+    'odds',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _enemyId1Meta = const VerificationMeta(
+    'enemyId1',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId1 = GeneratedColumn<int>(
+    'enemy_id_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dropGold1Meta = const VerificationMeta(
+    'dropGold1',
+  );
+  @override
+  late final GeneratedColumn<int> dropGold1 = GeneratedColumn<int>(
+    'drop_gold_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dropRewardId1Meta = const VerificationMeta(
+    'dropRewardId1',
+  );
+  @override
+  late final GeneratedColumn<int> dropRewardId1 = GeneratedColumn<int>(
+    'drop_reward_id_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _enemyId2Meta = const VerificationMeta(
+    'enemyId2',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId2 = GeneratedColumn<int>(
+    'enemy_id_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dropGold2Meta = const VerificationMeta(
+    'dropGold2',
+  );
+  @override
+  late final GeneratedColumn<int> dropGold2 = GeneratedColumn<int>(
+    'drop_gold_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dropRewardId2Meta = const VerificationMeta(
+    'dropRewardId2',
+  );
+  @override
+  late final GeneratedColumn<int> dropRewardId2 = GeneratedColumn<int>(
+    'drop_reward_id_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _enemyId3Meta = const VerificationMeta(
+    'enemyId3',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId3 = GeneratedColumn<int>(
+    'enemy_id_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dropGold3Meta = const VerificationMeta(
+    'dropGold3',
+  );
+  @override
+  late final GeneratedColumn<int> dropGold3 = GeneratedColumn<int>(
+    'drop_gold_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dropRewardId3Meta = const VerificationMeta(
+    'dropRewardId3',
+  );
+  @override
+  late final GeneratedColumn<int> dropRewardId3 = GeneratedColumn<int>(
+    'drop_reward_id_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _enemyId4Meta = const VerificationMeta(
+    'enemyId4',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId4 = GeneratedColumn<int>(
+    'enemy_id_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dropGold4Meta = const VerificationMeta(
+    'dropGold4',
+  );
+  @override
+  late final GeneratedColumn<int> dropGold4 = GeneratedColumn<int>(
+    'drop_gold_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dropRewardId4Meta = const VerificationMeta(
+    'dropRewardId4',
+  );
+  @override
+  late final GeneratedColumn<int> dropRewardId4 = GeneratedColumn<int>(
+    'drop_reward_id_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _enemyId5Meta = const VerificationMeta(
+    'enemyId5',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId5 = GeneratedColumn<int>(
+    'enemy_id_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dropGold5Meta = const VerificationMeta(
+    'dropGold5',
+  );
+  @override
+  late final GeneratedColumn<int> dropGold5 = GeneratedColumn<int>(
+    'drop_gold_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dropRewardId5Meta = const VerificationMeta(
+    'dropRewardId5',
+  );
+  @override
+  late final GeneratedColumn<int> dropRewardId5 = GeneratedColumn<int>(
+    'drop_reward_id_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _guestEnemyIdMeta = const VerificationMeta(
+    'guestEnemyId',
+  );
+  @override
+  late final GeneratedColumn<int> guestEnemyId = GeneratedColumn<int>(
+    'guest_enemy_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _guestLaneMeta = const VerificationMeta(
+    'guestLane',
+  );
+  @override
+  late final GeneratedColumn<int> guestLane = GeneratedColumn<int>(
+    'guest_lane',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    waveGroupId,
+    odds,
+    enemyId1,
+    dropGold1,
+    dropRewardId1,
+    enemyId2,
+    dropGold2,
+    dropRewardId2,
+    enemyId3,
+    dropGold3,
+    dropRewardId3,
+    enemyId4,
+    dropGold4,
+    dropRewardId4,
+    enemyId5,
+    dropGold5,
+    dropRewardId5,
+    guestEnemyId,
+    guestLane,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'wave_group_data';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<WaveGroupDataData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('wave_group_id')) {
+      context.handle(
+        _waveGroupIdMeta,
+        waveGroupId.isAcceptableOrUnknown(
+          data['wave_group_id']!,
+          _waveGroupIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveGroupIdMeta);
+    }
+    if (data.containsKey('odds')) {
+      context.handle(
+        _oddsMeta,
+        odds.isAcceptableOrUnknown(data['odds']!, _oddsMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_oddsMeta);
+    }
+    if (data.containsKey('enemy_id_1')) {
+      context.handle(
+        _enemyId1Meta,
+        enemyId1.isAcceptableOrUnknown(data['enemy_id_1']!, _enemyId1Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_enemyId1Meta);
+    }
+    if (data.containsKey('drop_gold_1')) {
+      context.handle(
+        _dropGold1Meta,
+        dropGold1.isAcceptableOrUnknown(data['drop_gold_1']!, _dropGold1Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_dropGold1Meta);
+    }
+    if (data.containsKey('drop_reward_id_1')) {
+      context.handle(
+        _dropRewardId1Meta,
+        dropRewardId1.isAcceptableOrUnknown(
+          data['drop_reward_id_1']!,
+          _dropRewardId1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_dropRewardId1Meta);
+    }
+    if (data.containsKey('enemy_id_2')) {
+      context.handle(
+        _enemyId2Meta,
+        enemyId2.isAcceptableOrUnknown(data['enemy_id_2']!, _enemyId2Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_enemyId2Meta);
+    }
+    if (data.containsKey('drop_gold_2')) {
+      context.handle(
+        _dropGold2Meta,
+        dropGold2.isAcceptableOrUnknown(data['drop_gold_2']!, _dropGold2Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_dropGold2Meta);
+    }
+    if (data.containsKey('drop_reward_id_2')) {
+      context.handle(
+        _dropRewardId2Meta,
+        dropRewardId2.isAcceptableOrUnknown(
+          data['drop_reward_id_2']!,
+          _dropRewardId2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_dropRewardId2Meta);
+    }
+    if (data.containsKey('enemy_id_3')) {
+      context.handle(
+        _enemyId3Meta,
+        enemyId3.isAcceptableOrUnknown(data['enemy_id_3']!, _enemyId3Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_enemyId3Meta);
+    }
+    if (data.containsKey('drop_gold_3')) {
+      context.handle(
+        _dropGold3Meta,
+        dropGold3.isAcceptableOrUnknown(data['drop_gold_3']!, _dropGold3Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_dropGold3Meta);
+    }
+    if (data.containsKey('drop_reward_id_3')) {
+      context.handle(
+        _dropRewardId3Meta,
+        dropRewardId3.isAcceptableOrUnknown(
+          data['drop_reward_id_3']!,
+          _dropRewardId3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_dropRewardId3Meta);
+    }
+    if (data.containsKey('enemy_id_4')) {
+      context.handle(
+        _enemyId4Meta,
+        enemyId4.isAcceptableOrUnknown(data['enemy_id_4']!, _enemyId4Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_enemyId4Meta);
+    }
+    if (data.containsKey('drop_gold_4')) {
+      context.handle(
+        _dropGold4Meta,
+        dropGold4.isAcceptableOrUnknown(data['drop_gold_4']!, _dropGold4Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_dropGold4Meta);
+    }
+    if (data.containsKey('drop_reward_id_4')) {
+      context.handle(
+        _dropRewardId4Meta,
+        dropRewardId4.isAcceptableOrUnknown(
+          data['drop_reward_id_4']!,
+          _dropRewardId4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_dropRewardId4Meta);
+    }
+    if (data.containsKey('enemy_id_5')) {
+      context.handle(
+        _enemyId5Meta,
+        enemyId5.isAcceptableOrUnknown(data['enemy_id_5']!, _enemyId5Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_enemyId5Meta);
+    }
+    if (data.containsKey('drop_gold_5')) {
+      context.handle(
+        _dropGold5Meta,
+        dropGold5.isAcceptableOrUnknown(data['drop_gold_5']!, _dropGold5Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_dropGold5Meta);
+    }
+    if (data.containsKey('drop_reward_id_5')) {
+      context.handle(
+        _dropRewardId5Meta,
+        dropRewardId5.isAcceptableOrUnknown(
+          data['drop_reward_id_5']!,
+          _dropRewardId5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_dropRewardId5Meta);
+    }
+    if (data.containsKey('guest_enemy_id')) {
+      context.handle(
+        _guestEnemyIdMeta,
+        guestEnemyId.isAcceptableOrUnknown(
+          data['guest_enemy_id']!,
+          _guestEnemyIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_guestEnemyIdMeta);
+    }
+    if (data.containsKey('guest_lane')) {
+      context.handle(
+        _guestLaneMeta,
+        guestLane.isAcceptableOrUnknown(data['guest_lane']!, _guestLaneMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_guestLaneMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  WaveGroupDataData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return WaveGroupDataData(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      waveGroupId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_group_id'],
+      )!,
+      odds: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}odds'],
+      )!,
+      enemyId1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id_1'],
+      )!,
+      dropGold1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}drop_gold_1'],
+      )!,
+      dropRewardId1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}drop_reward_id_1'],
+      )!,
+      enemyId2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id_2'],
+      )!,
+      dropGold2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}drop_gold_2'],
+      )!,
+      dropRewardId2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}drop_reward_id_2'],
+      )!,
+      enemyId3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id_3'],
+      )!,
+      dropGold3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}drop_gold_3'],
+      )!,
+      dropRewardId3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}drop_reward_id_3'],
+      )!,
+      enemyId4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id_4'],
+      )!,
+      dropGold4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}drop_gold_4'],
+      )!,
+      dropRewardId4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}drop_reward_id_4'],
+      )!,
+      enemyId5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id_5'],
+      )!,
+      dropGold5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}drop_gold_5'],
+      )!,
+      dropRewardId5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}drop_reward_id_5'],
+      )!,
+      guestEnemyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}guest_enemy_id'],
+      )!,
+      guestLane: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}guest_lane'],
+      )!,
+    );
+  }
+
+  @override
+  $WaveGroupDataTable createAlias(String alias) {
+    return $WaveGroupDataTable(attachedDatabase, alias);
+  }
+}
+
+class WaveGroupDataData extends DataClass
+    implements Insertable<WaveGroupDataData> {
+  final int id;
+  final int waveGroupId;
+  final int odds;
+  final int enemyId1;
+  final int dropGold1;
+  final int dropRewardId1;
+  final int enemyId2;
+  final int dropGold2;
+  final int dropRewardId2;
+  final int enemyId3;
+  final int dropGold3;
+  final int dropRewardId3;
+  final int enemyId4;
+  final int dropGold4;
+  final int dropRewardId4;
+  final int enemyId5;
+  final int dropGold5;
+  final int dropRewardId5;
+  final int guestEnemyId;
+  final int guestLane;
+  const WaveGroupDataData({
+    required this.id,
+    required this.waveGroupId,
+    required this.odds,
+    required this.enemyId1,
+    required this.dropGold1,
+    required this.dropRewardId1,
+    required this.enemyId2,
+    required this.dropGold2,
+    required this.dropRewardId2,
+    required this.enemyId3,
+    required this.dropGold3,
+    required this.dropRewardId3,
+    required this.enemyId4,
+    required this.dropGold4,
+    required this.dropRewardId4,
+    required this.enemyId5,
+    required this.dropGold5,
+    required this.dropRewardId5,
+    required this.guestEnemyId,
+    required this.guestLane,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['wave_group_id'] = Variable<int>(waveGroupId);
+    map['odds'] = Variable<int>(odds);
+    map['enemy_id_1'] = Variable<int>(enemyId1);
+    map['drop_gold_1'] = Variable<int>(dropGold1);
+    map['drop_reward_id_1'] = Variable<int>(dropRewardId1);
+    map['enemy_id_2'] = Variable<int>(enemyId2);
+    map['drop_gold_2'] = Variable<int>(dropGold2);
+    map['drop_reward_id_2'] = Variable<int>(dropRewardId2);
+    map['enemy_id_3'] = Variable<int>(enemyId3);
+    map['drop_gold_3'] = Variable<int>(dropGold3);
+    map['drop_reward_id_3'] = Variable<int>(dropRewardId3);
+    map['enemy_id_4'] = Variable<int>(enemyId4);
+    map['drop_gold_4'] = Variable<int>(dropGold4);
+    map['drop_reward_id_4'] = Variable<int>(dropRewardId4);
+    map['enemy_id_5'] = Variable<int>(enemyId5);
+    map['drop_gold_5'] = Variable<int>(dropGold5);
+    map['drop_reward_id_5'] = Variable<int>(dropRewardId5);
+    map['guest_enemy_id'] = Variable<int>(guestEnemyId);
+    map['guest_lane'] = Variable<int>(guestLane);
+    return map;
+  }
+
+  WaveGroupDataCompanion toCompanion(bool nullToAbsent) {
+    return WaveGroupDataCompanion(
+      id: Value(id),
+      waveGroupId: Value(waveGroupId),
+      odds: Value(odds),
+      enemyId1: Value(enemyId1),
+      dropGold1: Value(dropGold1),
+      dropRewardId1: Value(dropRewardId1),
+      enemyId2: Value(enemyId2),
+      dropGold2: Value(dropGold2),
+      dropRewardId2: Value(dropRewardId2),
+      enemyId3: Value(enemyId3),
+      dropGold3: Value(dropGold3),
+      dropRewardId3: Value(dropRewardId3),
+      enemyId4: Value(enemyId4),
+      dropGold4: Value(dropGold4),
+      dropRewardId4: Value(dropRewardId4),
+      enemyId5: Value(enemyId5),
+      dropGold5: Value(dropGold5),
+      dropRewardId5: Value(dropRewardId5),
+      guestEnemyId: Value(guestEnemyId),
+      guestLane: Value(guestLane),
+    );
+  }
+
+  factory WaveGroupDataData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return WaveGroupDataData(
+      id: serializer.fromJson<int>(json['id']),
+      waveGroupId: serializer.fromJson<int>(json['waveGroupId']),
+      odds: serializer.fromJson<int>(json['odds']),
+      enemyId1: serializer.fromJson<int>(json['enemyId1']),
+      dropGold1: serializer.fromJson<int>(json['dropGold1']),
+      dropRewardId1: serializer.fromJson<int>(json['dropRewardId1']),
+      enemyId2: serializer.fromJson<int>(json['enemyId2']),
+      dropGold2: serializer.fromJson<int>(json['dropGold2']),
+      dropRewardId2: serializer.fromJson<int>(json['dropRewardId2']),
+      enemyId3: serializer.fromJson<int>(json['enemyId3']),
+      dropGold3: serializer.fromJson<int>(json['dropGold3']),
+      dropRewardId3: serializer.fromJson<int>(json['dropRewardId3']),
+      enemyId4: serializer.fromJson<int>(json['enemyId4']),
+      dropGold4: serializer.fromJson<int>(json['dropGold4']),
+      dropRewardId4: serializer.fromJson<int>(json['dropRewardId4']),
+      enemyId5: serializer.fromJson<int>(json['enemyId5']),
+      dropGold5: serializer.fromJson<int>(json['dropGold5']),
+      dropRewardId5: serializer.fromJson<int>(json['dropRewardId5']),
+      guestEnemyId: serializer.fromJson<int>(json['guestEnemyId']),
+      guestLane: serializer.fromJson<int>(json['guestLane']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'waveGroupId': serializer.toJson<int>(waveGroupId),
+      'odds': serializer.toJson<int>(odds),
+      'enemyId1': serializer.toJson<int>(enemyId1),
+      'dropGold1': serializer.toJson<int>(dropGold1),
+      'dropRewardId1': serializer.toJson<int>(dropRewardId1),
+      'enemyId2': serializer.toJson<int>(enemyId2),
+      'dropGold2': serializer.toJson<int>(dropGold2),
+      'dropRewardId2': serializer.toJson<int>(dropRewardId2),
+      'enemyId3': serializer.toJson<int>(enemyId3),
+      'dropGold3': serializer.toJson<int>(dropGold3),
+      'dropRewardId3': serializer.toJson<int>(dropRewardId3),
+      'enemyId4': serializer.toJson<int>(enemyId4),
+      'dropGold4': serializer.toJson<int>(dropGold4),
+      'dropRewardId4': serializer.toJson<int>(dropRewardId4),
+      'enemyId5': serializer.toJson<int>(enemyId5),
+      'dropGold5': serializer.toJson<int>(dropGold5),
+      'dropRewardId5': serializer.toJson<int>(dropRewardId5),
+      'guestEnemyId': serializer.toJson<int>(guestEnemyId),
+      'guestLane': serializer.toJson<int>(guestLane),
+    };
+  }
+
+  WaveGroupDataData copyWith({
+    int? id,
+    int? waveGroupId,
+    int? odds,
+    int? enemyId1,
+    int? dropGold1,
+    int? dropRewardId1,
+    int? enemyId2,
+    int? dropGold2,
+    int? dropRewardId2,
+    int? enemyId3,
+    int? dropGold3,
+    int? dropRewardId3,
+    int? enemyId4,
+    int? dropGold4,
+    int? dropRewardId4,
+    int? enemyId5,
+    int? dropGold5,
+    int? dropRewardId5,
+    int? guestEnemyId,
+    int? guestLane,
+  }) => WaveGroupDataData(
+    id: id ?? this.id,
+    waveGroupId: waveGroupId ?? this.waveGroupId,
+    odds: odds ?? this.odds,
+    enemyId1: enemyId1 ?? this.enemyId1,
+    dropGold1: dropGold1 ?? this.dropGold1,
+    dropRewardId1: dropRewardId1 ?? this.dropRewardId1,
+    enemyId2: enemyId2 ?? this.enemyId2,
+    dropGold2: dropGold2 ?? this.dropGold2,
+    dropRewardId2: dropRewardId2 ?? this.dropRewardId2,
+    enemyId3: enemyId3 ?? this.enemyId3,
+    dropGold3: dropGold3 ?? this.dropGold3,
+    dropRewardId3: dropRewardId3 ?? this.dropRewardId3,
+    enemyId4: enemyId4 ?? this.enemyId4,
+    dropGold4: dropGold4 ?? this.dropGold4,
+    dropRewardId4: dropRewardId4 ?? this.dropRewardId4,
+    enemyId5: enemyId5 ?? this.enemyId5,
+    dropGold5: dropGold5 ?? this.dropGold5,
+    dropRewardId5: dropRewardId5 ?? this.dropRewardId5,
+    guestEnemyId: guestEnemyId ?? this.guestEnemyId,
+    guestLane: guestLane ?? this.guestLane,
+  );
+  WaveGroupDataData copyWithCompanion(WaveGroupDataCompanion data) {
+    return WaveGroupDataData(
+      id: data.id.present ? data.id.value : this.id,
+      waveGroupId: data.waveGroupId.present
+          ? data.waveGroupId.value
+          : this.waveGroupId,
+      odds: data.odds.present ? data.odds.value : this.odds,
+      enemyId1: data.enemyId1.present ? data.enemyId1.value : this.enemyId1,
+      dropGold1: data.dropGold1.present ? data.dropGold1.value : this.dropGold1,
+      dropRewardId1: data.dropRewardId1.present
+          ? data.dropRewardId1.value
+          : this.dropRewardId1,
+      enemyId2: data.enemyId2.present ? data.enemyId2.value : this.enemyId2,
+      dropGold2: data.dropGold2.present ? data.dropGold2.value : this.dropGold2,
+      dropRewardId2: data.dropRewardId2.present
+          ? data.dropRewardId2.value
+          : this.dropRewardId2,
+      enemyId3: data.enemyId3.present ? data.enemyId3.value : this.enemyId3,
+      dropGold3: data.dropGold3.present ? data.dropGold3.value : this.dropGold3,
+      dropRewardId3: data.dropRewardId3.present
+          ? data.dropRewardId3.value
+          : this.dropRewardId3,
+      enemyId4: data.enemyId4.present ? data.enemyId4.value : this.enemyId4,
+      dropGold4: data.dropGold4.present ? data.dropGold4.value : this.dropGold4,
+      dropRewardId4: data.dropRewardId4.present
+          ? data.dropRewardId4.value
+          : this.dropRewardId4,
+      enemyId5: data.enemyId5.present ? data.enemyId5.value : this.enemyId5,
+      dropGold5: data.dropGold5.present ? data.dropGold5.value : this.dropGold5,
+      dropRewardId5: data.dropRewardId5.present
+          ? data.dropRewardId5.value
+          : this.dropRewardId5,
+      guestEnemyId: data.guestEnemyId.present
+          ? data.guestEnemyId.value
+          : this.guestEnemyId,
+      guestLane: data.guestLane.present ? data.guestLane.value : this.guestLane,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('WaveGroupDataData(')
+          ..write('id: $id, ')
+          ..write('waveGroupId: $waveGroupId, ')
+          ..write('odds: $odds, ')
+          ..write('enemyId1: $enemyId1, ')
+          ..write('dropGold1: $dropGold1, ')
+          ..write('dropRewardId1: $dropRewardId1, ')
+          ..write('enemyId2: $enemyId2, ')
+          ..write('dropGold2: $dropGold2, ')
+          ..write('dropRewardId2: $dropRewardId2, ')
+          ..write('enemyId3: $enemyId3, ')
+          ..write('dropGold3: $dropGold3, ')
+          ..write('dropRewardId3: $dropRewardId3, ')
+          ..write('enemyId4: $enemyId4, ')
+          ..write('dropGold4: $dropGold4, ')
+          ..write('dropRewardId4: $dropRewardId4, ')
+          ..write('enemyId5: $enemyId5, ')
+          ..write('dropGold5: $dropGold5, ')
+          ..write('dropRewardId5: $dropRewardId5, ')
+          ..write('guestEnemyId: $guestEnemyId, ')
+          ..write('guestLane: $guestLane')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    waveGroupId,
+    odds,
+    enemyId1,
+    dropGold1,
+    dropRewardId1,
+    enemyId2,
+    dropGold2,
+    dropRewardId2,
+    enemyId3,
+    dropGold3,
+    dropRewardId3,
+    enemyId4,
+    dropGold4,
+    dropRewardId4,
+    enemyId5,
+    dropGold5,
+    dropRewardId5,
+    guestEnemyId,
+    guestLane,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is WaveGroupDataData &&
+          other.id == this.id &&
+          other.waveGroupId == this.waveGroupId &&
+          other.odds == this.odds &&
+          other.enemyId1 == this.enemyId1 &&
+          other.dropGold1 == this.dropGold1 &&
+          other.dropRewardId1 == this.dropRewardId1 &&
+          other.enemyId2 == this.enemyId2 &&
+          other.dropGold2 == this.dropGold2 &&
+          other.dropRewardId2 == this.dropRewardId2 &&
+          other.enemyId3 == this.enemyId3 &&
+          other.dropGold3 == this.dropGold3 &&
+          other.dropRewardId3 == this.dropRewardId3 &&
+          other.enemyId4 == this.enemyId4 &&
+          other.dropGold4 == this.dropGold4 &&
+          other.dropRewardId4 == this.dropRewardId4 &&
+          other.enemyId5 == this.enemyId5 &&
+          other.dropGold5 == this.dropGold5 &&
+          other.dropRewardId5 == this.dropRewardId5 &&
+          other.guestEnemyId == this.guestEnemyId &&
+          other.guestLane == this.guestLane);
+}
+
+class WaveGroupDataCompanion extends UpdateCompanion<WaveGroupDataData> {
+  final Value<int> id;
+  final Value<int> waveGroupId;
+  final Value<int> odds;
+  final Value<int> enemyId1;
+  final Value<int> dropGold1;
+  final Value<int> dropRewardId1;
+  final Value<int> enemyId2;
+  final Value<int> dropGold2;
+  final Value<int> dropRewardId2;
+  final Value<int> enemyId3;
+  final Value<int> dropGold3;
+  final Value<int> dropRewardId3;
+  final Value<int> enemyId4;
+  final Value<int> dropGold4;
+  final Value<int> dropRewardId4;
+  final Value<int> enemyId5;
+  final Value<int> dropGold5;
+  final Value<int> dropRewardId5;
+  final Value<int> guestEnemyId;
+  final Value<int> guestLane;
+  const WaveGroupDataCompanion({
+    this.id = const Value.absent(),
+    this.waveGroupId = const Value.absent(),
+    this.odds = const Value.absent(),
+    this.enemyId1 = const Value.absent(),
+    this.dropGold1 = const Value.absent(),
+    this.dropRewardId1 = const Value.absent(),
+    this.enemyId2 = const Value.absent(),
+    this.dropGold2 = const Value.absent(),
+    this.dropRewardId2 = const Value.absent(),
+    this.enemyId3 = const Value.absent(),
+    this.dropGold3 = const Value.absent(),
+    this.dropRewardId3 = const Value.absent(),
+    this.enemyId4 = const Value.absent(),
+    this.dropGold4 = const Value.absent(),
+    this.dropRewardId4 = const Value.absent(),
+    this.enemyId5 = const Value.absent(),
+    this.dropGold5 = const Value.absent(),
+    this.dropRewardId5 = const Value.absent(),
+    this.guestEnemyId = const Value.absent(),
+    this.guestLane = const Value.absent(),
+  });
+  WaveGroupDataCompanion.insert({
+    this.id = const Value.absent(),
+    required int waveGroupId,
+    required int odds,
+    required int enemyId1,
+    required int dropGold1,
+    required int dropRewardId1,
+    required int enemyId2,
+    required int dropGold2,
+    required int dropRewardId2,
+    required int enemyId3,
+    required int dropGold3,
+    required int dropRewardId3,
+    required int enemyId4,
+    required int dropGold4,
+    required int dropRewardId4,
+    required int enemyId5,
+    required int dropGold5,
+    required int dropRewardId5,
+    required int guestEnemyId,
+    required int guestLane,
+  }) : waveGroupId = Value(waveGroupId),
+       odds = Value(odds),
+       enemyId1 = Value(enemyId1),
+       dropGold1 = Value(dropGold1),
+       dropRewardId1 = Value(dropRewardId1),
+       enemyId2 = Value(enemyId2),
+       dropGold2 = Value(dropGold2),
+       dropRewardId2 = Value(dropRewardId2),
+       enemyId3 = Value(enemyId3),
+       dropGold3 = Value(dropGold3),
+       dropRewardId3 = Value(dropRewardId3),
+       enemyId4 = Value(enemyId4),
+       dropGold4 = Value(dropGold4),
+       dropRewardId4 = Value(dropRewardId4),
+       enemyId5 = Value(enemyId5),
+       dropGold5 = Value(dropGold5),
+       dropRewardId5 = Value(dropRewardId5),
+       guestEnemyId = Value(guestEnemyId),
+       guestLane = Value(guestLane);
+  static Insertable<WaveGroupDataData> custom({
+    Expression<int>? id,
+    Expression<int>? waveGroupId,
+    Expression<int>? odds,
+    Expression<int>? enemyId1,
+    Expression<int>? dropGold1,
+    Expression<int>? dropRewardId1,
+    Expression<int>? enemyId2,
+    Expression<int>? dropGold2,
+    Expression<int>? dropRewardId2,
+    Expression<int>? enemyId3,
+    Expression<int>? dropGold3,
+    Expression<int>? dropRewardId3,
+    Expression<int>? enemyId4,
+    Expression<int>? dropGold4,
+    Expression<int>? dropRewardId4,
+    Expression<int>? enemyId5,
+    Expression<int>? dropGold5,
+    Expression<int>? dropRewardId5,
+    Expression<int>? guestEnemyId,
+    Expression<int>? guestLane,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (waveGroupId != null) 'wave_group_id': waveGroupId,
+      if (odds != null) 'odds': odds,
+      if (enemyId1 != null) 'enemy_id_1': enemyId1,
+      if (dropGold1 != null) 'drop_gold_1': dropGold1,
+      if (dropRewardId1 != null) 'drop_reward_id_1': dropRewardId1,
+      if (enemyId2 != null) 'enemy_id_2': enemyId2,
+      if (dropGold2 != null) 'drop_gold_2': dropGold2,
+      if (dropRewardId2 != null) 'drop_reward_id_2': dropRewardId2,
+      if (enemyId3 != null) 'enemy_id_3': enemyId3,
+      if (dropGold3 != null) 'drop_gold_3': dropGold3,
+      if (dropRewardId3 != null) 'drop_reward_id_3': dropRewardId3,
+      if (enemyId4 != null) 'enemy_id_4': enemyId4,
+      if (dropGold4 != null) 'drop_gold_4': dropGold4,
+      if (dropRewardId4 != null) 'drop_reward_id_4': dropRewardId4,
+      if (enemyId5 != null) 'enemy_id_5': enemyId5,
+      if (dropGold5 != null) 'drop_gold_5': dropGold5,
+      if (dropRewardId5 != null) 'drop_reward_id_5': dropRewardId5,
+      if (guestEnemyId != null) 'guest_enemy_id': guestEnemyId,
+      if (guestLane != null) 'guest_lane': guestLane,
+    });
+  }
+
+  WaveGroupDataCompanion copyWith({
+    Value<int>? id,
+    Value<int>? waveGroupId,
+    Value<int>? odds,
+    Value<int>? enemyId1,
+    Value<int>? dropGold1,
+    Value<int>? dropRewardId1,
+    Value<int>? enemyId2,
+    Value<int>? dropGold2,
+    Value<int>? dropRewardId2,
+    Value<int>? enemyId3,
+    Value<int>? dropGold3,
+    Value<int>? dropRewardId3,
+    Value<int>? enemyId4,
+    Value<int>? dropGold4,
+    Value<int>? dropRewardId4,
+    Value<int>? enemyId5,
+    Value<int>? dropGold5,
+    Value<int>? dropRewardId5,
+    Value<int>? guestEnemyId,
+    Value<int>? guestLane,
+  }) {
+    return WaveGroupDataCompanion(
+      id: id ?? this.id,
+      waveGroupId: waveGroupId ?? this.waveGroupId,
+      odds: odds ?? this.odds,
+      enemyId1: enemyId1 ?? this.enemyId1,
+      dropGold1: dropGold1 ?? this.dropGold1,
+      dropRewardId1: dropRewardId1 ?? this.dropRewardId1,
+      enemyId2: enemyId2 ?? this.enemyId2,
+      dropGold2: dropGold2 ?? this.dropGold2,
+      dropRewardId2: dropRewardId2 ?? this.dropRewardId2,
+      enemyId3: enemyId3 ?? this.enemyId3,
+      dropGold3: dropGold3 ?? this.dropGold3,
+      dropRewardId3: dropRewardId3 ?? this.dropRewardId3,
+      enemyId4: enemyId4 ?? this.enemyId4,
+      dropGold4: dropGold4 ?? this.dropGold4,
+      dropRewardId4: dropRewardId4 ?? this.dropRewardId4,
+      enemyId5: enemyId5 ?? this.enemyId5,
+      dropGold5: dropGold5 ?? this.dropGold5,
+      dropRewardId5: dropRewardId5 ?? this.dropRewardId5,
+      guestEnemyId: guestEnemyId ?? this.guestEnemyId,
+      guestLane: guestLane ?? this.guestLane,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (waveGroupId.present) {
+      map['wave_group_id'] = Variable<int>(waveGroupId.value);
+    }
+    if (odds.present) {
+      map['odds'] = Variable<int>(odds.value);
+    }
+    if (enemyId1.present) {
+      map['enemy_id_1'] = Variable<int>(enemyId1.value);
+    }
+    if (dropGold1.present) {
+      map['drop_gold_1'] = Variable<int>(dropGold1.value);
+    }
+    if (dropRewardId1.present) {
+      map['drop_reward_id_1'] = Variable<int>(dropRewardId1.value);
+    }
+    if (enemyId2.present) {
+      map['enemy_id_2'] = Variable<int>(enemyId2.value);
+    }
+    if (dropGold2.present) {
+      map['drop_gold_2'] = Variable<int>(dropGold2.value);
+    }
+    if (dropRewardId2.present) {
+      map['drop_reward_id_2'] = Variable<int>(dropRewardId2.value);
+    }
+    if (enemyId3.present) {
+      map['enemy_id_3'] = Variable<int>(enemyId3.value);
+    }
+    if (dropGold3.present) {
+      map['drop_gold_3'] = Variable<int>(dropGold3.value);
+    }
+    if (dropRewardId3.present) {
+      map['drop_reward_id_3'] = Variable<int>(dropRewardId3.value);
+    }
+    if (enemyId4.present) {
+      map['enemy_id_4'] = Variable<int>(enemyId4.value);
+    }
+    if (dropGold4.present) {
+      map['drop_gold_4'] = Variable<int>(dropGold4.value);
+    }
+    if (dropRewardId4.present) {
+      map['drop_reward_id_4'] = Variable<int>(dropRewardId4.value);
+    }
+    if (enemyId5.present) {
+      map['enemy_id_5'] = Variable<int>(enemyId5.value);
+    }
+    if (dropGold5.present) {
+      map['drop_gold_5'] = Variable<int>(dropGold5.value);
+    }
+    if (dropRewardId5.present) {
+      map['drop_reward_id_5'] = Variable<int>(dropRewardId5.value);
+    }
+    if (guestEnemyId.present) {
+      map['guest_enemy_id'] = Variable<int>(guestEnemyId.value);
+    }
+    if (guestLane.present) {
+      map['guest_lane'] = Variable<int>(guestLane.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('WaveGroupDataCompanion(')
+          ..write('id: $id, ')
+          ..write('waveGroupId: $waveGroupId, ')
+          ..write('odds: $odds, ')
+          ..write('enemyId1: $enemyId1, ')
+          ..write('dropGold1: $dropGold1, ')
+          ..write('dropRewardId1: $dropRewardId1, ')
+          ..write('enemyId2: $enemyId2, ')
+          ..write('dropGold2: $dropGold2, ')
+          ..write('dropRewardId2: $dropRewardId2, ')
+          ..write('enemyId3: $enemyId3, ')
+          ..write('dropGold3: $dropGold3, ')
+          ..write('dropRewardId3: $dropRewardId3, ')
+          ..write('enemyId4: $enemyId4, ')
+          ..write('dropGold4: $dropGold4, ')
+          ..write('dropRewardId4: $dropRewardId4, ')
+          ..write('enemyId5: $enemyId5, ')
+          ..write('dropGold5: $dropGold5, ')
+          ..write('dropRewardId5: $dropRewardId5, ')
+          ..write('guestEnemyId: $guestEnemyId, ')
+          ..write('guestLane: $guestLane')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDb extends GeneratedDatabase {
   _$AppDb(QueryExecutor e) : super(e);
   $AppDbManager get managers => $AppDbManager(this);
@@ -34728,6 +40448,12 @@ abstract class _$AppDb extends GeneratedDatabase {
   late final $EnemyTalentWeaknessTable enemyTalentWeakness =
       $EnemyTalentWeaknessTable(this);
   late final $TalentWeaknessTable talentWeakness = $TalentWeaknessTable(this);
+  late final $EnemyMPartsTable enemyMParts = $EnemyMPartsTable(this);
+  late final $ClanBattle2MapDataTable clanBattle2MapData =
+      $ClanBattle2MapDataTable(this);
+  late final $ClanBattleScheduleTable clanBattleSchedule =
+      $ClanBattleScheduleTable(this);
+  late final $WaveGroupDataTable waveGroupData = $WaveGroupDataTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -34762,6 +40488,10 @@ abstract class _$AppDb extends GeneratedDatabase {
     enemyParameter,
     enemyTalentWeakness,
     talentWeakness,
+    enemyMParts,
+    clanBattle2MapData,
+    clanBattleSchedule,
+    waveGroupData,
   ];
 }
 
@@ -37261,6 +42991,16 @@ typedef $$SkillDataTableCreateCompanionBuilder =
       required int action8,
       required int action9,
       required int action10,
+      Value<int?> action11,
+      Value<int?> action12,
+      Value<int?> action13,
+      Value<int?> action14,
+      Value<int?> action15,
+      Value<int?> action16,
+      Value<int?> action17,
+      Value<int?> action18,
+      Value<int?> action19,
+      Value<int?> action20,
       required int actionDepend1,
       required int actionDepend2,
       required int actionDepend3,
@@ -37271,6 +43011,16 @@ typedef $$SkillDataTableCreateCompanionBuilder =
       required int actionDepend8,
       required int actionDepend9,
       required int actionDepend10,
+      Value<int?> actionDepend11,
+      Value<int?> actionDepend12,
+      Value<int?> actionDepend13,
+      Value<int?> actionDepend14,
+      Value<int?> actionDepend15,
+      Value<int?> actionDepend16,
+      Value<int?> actionDepend17,
+      Value<int?> actionDepend18,
+      Value<int?> actionDepend19,
+      Value<int?> actionDepend20,
       Value<String?> description,
       Value<int?> iconType,
     });
@@ -37292,6 +43042,16 @@ typedef $$SkillDataTableUpdateCompanionBuilder =
       Value<int> action8,
       Value<int> action9,
       Value<int> action10,
+      Value<int?> action11,
+      Value<int?> action12,
+      Value<int?> action13,
+      Value<int?> action14,
+      Value<int?> action15,
+      Value<int?> action16,
+      Value<int?> action17,
+      Value<int?> action18,
+      Value<int?> action19,
+      Value<int?> action20,
       Value<int> actionDepend1,
       Value<int> actionDepend2,
       Value<int> actionDepend3,
@@ -37302,6 +43062,16 @@ typedef $$SkillDataTableUpdateCompanionBuilder =
       Value<int> actionDepend8,
       Value<int> actionDepend9,
       Value<int> actionDepend10,
+      Value<int?> actionDepend11,
+      Value<int?> actionDepend12,
+      Value<int?> actionDepend13,
+      Value<int?> actionDepend14,
+      Value<int?> actionDepend15,
+      Value<int?> actionDepend16,
+      Value<int?> actionDepend17,
+      Value<int?> actionDepend18,
+      Value<int?> actionDepend19,
+      Value<int?> actionDepend20,
       Value<String?> description,
       Value<int?> iconType,
     });
@@ -37395,6 +43165,56 @@ class $$SkillDataTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
+  ColumnFilters<int> get action11 => $composableBuilder(
+    column: $table.action11,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action12 => $composableBuilder(
+    column: $table.action12,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action13 => $composableBuilder(
+    column: $table.action13,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action14 => $composableBuilder(
+    column: $table.action14,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action15 => $composableBuilder(
+    column: $table.action15,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action16 => $composableBuilder(
+    column: $table.action16,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action17 => $composableBuilder(
+    column: $table.action17,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action18 => $composableBuilder(
+    column: $table.action18,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action19 => $composableBuilder(
+    column: $table.action19,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get action20 => $composableBuilder(
+    column: $table.action20,
+    builder: (column) => ColumnFilters(column),
+  );
+
   ColumnFilters<int> get actionDepend1 => $composableBuilder(
     column: $table.actionDepend1,
     builder: (column) => ColumnFilters(column),
@@ -37442,6 +43262,56 @@ class $$SkillDataTableFilterComposer
 
   ColumnFilters<int> get actionDepend10 => $composableBuilder(
     column: $table.actionDepend10,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend11 => $composableBuilder(
+    column: $table.actionDepend11,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend12 => $composableBuilder(
+    column: $table.actionDepend12,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend13 => $composableBuilder(
+    column: $table.actionDepend13,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend14 => $composableBuilder(
+    column: $table.actionDepend14,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend15 => $composableBuilder(
+    column: $table.actionDepend15,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend16 => $composableBuilder(
+    column: $table.actionDepend16,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend17 => $composableBuilder(
+    column: $table.actionDepend17,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend18 => $composableBuilder(
+    column: $table.actionDepend18,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend19 => $composableBuilder(
+    column: $table.actionDepend19,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get actionDepend20 => $composableBuilder(
+    column: $table.actionDepend20,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -37545,6 +43415,56 @@ class $$SkillDataTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<int> get action11 => $composableBuilder(
+    column: $table.action11,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action12 => $composableBuilder(
+    column: $table.action12,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action13 => $composableBuilder(
+    column: $table.action13,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action14 => $composableBuilder(
+    column: $table.action14,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action15 => $composableBuilder(
+    column: $table.action15,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action16 => $composableBuilder(
+    column: $table.action16,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action17 => $composableBuilder(
+    column: $table.action17,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action18 => $composableBuilder(
+    column: $table.action18,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action19 => $composableBuilder(
+    column: $table.action19,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get action20 => $composableBuilder(
+    column: $table.action20,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   ColumnOrderings<int> get actionDepend1 => $composableBuilder(
     column: $table.actionDepend1,
     builder: (column) => ColumnOrderings(column),
@@ -37592,6 +43512,56 @@ class $$SkillDataTableOrderingComposer
 
   ColumnOrderings<int> get actionDepend10 => $composableBuilder(
     column: $table.actionDepend10,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend11 => $composableBuilder(
+    column: $table.actionDepend11,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend12 => $composableBuilder(
+    column: $table.actionDepend12,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend13 => $composableBuilder(
+    column: $table.actionDepend13,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend14 => $composableBuilder(
+    column: $table.actionDepend14,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend15 => $composableBuilder(
+    column: $table.actionDepend15,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend16 => $composableBuilder(
+    column: $table.actionDepend16,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend17 => $composableBuilder(
+    column: $table.actionDepend17,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend18 => $composableBuilder(
+    column: $table.actionDepend18,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend19 => $composableBuilder(
+    column: $table.actionDepend19,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get actionDepend20 => $composableBuilder(
+    column: $table.actionDepend20,
     builder: (column) => ColumnOrderings(column),
   );
 
@@ -37669,6 +43639,36 @@ class $$SkillDataTableAnnotationComposer
   GeneratedColumn<int> get action10 =>
       $composableBuilder(column: $table.action10, builder: (column) => column);
 
+  GeneratedColumn<int> get action11 =>
+      $composableBuilder(column: $table.action11, builder: (column) => column);
+
+  GeneratedColumn<int> get action12 =>
+      $composableBuilder(column: $table.action12, builder: (column) => column);
+
+  GeneratedColumn<int> get action13 =>
+      $composableBuilder(column: $table.action13, builder: (column) => column);
+
+  GeneratedColumn<int> get action14 =>
+      $composableBuilder(column: $table.action14, builder: (column) => column);
+
+  GeneratedColumn<int> get action15 =>
+      $composableBuilder(column: $table.action15, builder: (column) => column);
+
+  GeneratedColumn<int> get action16 =>
+      $composableBuilder(column: $table.action16, builder: (column) => column);
+
+  GeneratedColumn<int> get action17 =>
+      $composableBuilder(column: $table.action17, builder: (column) => column);
+
+  GeneratedColumn<int> get action18 =>
+      $composableBuilder(column: $table.action18, builder: (column) => column);
+
+  GeneratedColumn<int> get action19 =>
+      $composableBuilder(column: $table.action19, builder: (column) => column);
+
+  GeneratedColumn<int> get action20 =>
+      $composableBuilder(column: $table.action20, builder: (column) => column);
+
   GeneratedColumn<int> get actionDepend1 => $composableBuilder(
     column: $table.actionDepend1,
     builder: (column) => column,
@@ -37716,6 +43716,56 @@ class $$SkillDataTableAnnotationComposer
 
   GeneratedColumn<int> get actionDepend10 => $composableBuilder(
     column: $table.actionDepend10,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend11 => $composableBuilder(
+    column: $table.actionDepend11,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend12 => $composableBuilder(
+    column: $table.actionDepend12,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend13 => $composableBuilder(
+    column: $table.actionDepend13,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend14 => $composableBuilder(
+    column: $table.actionDepend14,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend15 => $composableBuilder(
+    column: $table.actionDepend15,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend16 => $composableBuilder(
+    column: $table.actionDepend16,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend17 => $composableBuilder(
+    column: $table.actionDepend17,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend18 => $composableBuilder(
+    column: $table.actionDepend18,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend19 => $composableBuilder(
+    column: $table.actionDepend19,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get actionDepend20 => $composableBuilder(
+    column: $table.actionDepend20,
     builder: (column) => column,
   );
 
@@ -37775,6 +43825,16 @@ class $$SkillDataTableTableManager
                 Value<int> action8 = const Value.absent(),
                 Value<int> action9 = const Value.absent(),
                 Value<int> action10 = const Value.absent(),
+                Value<int?> action11 = const Value.absent(),
+                Value<int?> action12 = const Value.absent(),
+                Value<int?> action13 = const Value.absent(),
+                Value<int?> action14 = const Value.absent(),
+                Value<int?> action15 = const Value.absent(),
+                Value<int?> action16 = const Value.absent(),
+                Value<int?> action17 = const Value.absent(),
+                Value<int?> action18 = const Value.absent(),
+                Value<int?> action19 = const Value.absent(),
+                Value<int?> action20 = const Value.absent(),
                 Value<int> actionDepend1 = const Value.absent(),
                 Value<int> actionDepend2 = const Value.absent(),
                 Value<int> actionDepend3 = const Value.absent(),
@@ -37785,6 +43845,16 @@ class $$SkillDataTableTableManager
                 Value<int> actionDepend8 = const Value.absent(),
                 Value<int> actionDepend9 = const Value.absent(),
                 Value<int> actionDepend10 = const Value.absent(),
+                Value<int?> actionDepend11 = const Value.absent(),
+                Value<int?> actionDepend12 = const Value.absent(),
+                Value<int?> actionDepend13 = const Value.absent(),
+                Value<int?> actionDepend14 = const Value.absent(),
+                Value<int?> actionDepend15 = const Value.absent(),
+                Value<int?> actionDepend16 = const Value.absent(),
+                Value<int?> actionDepend17 = const Value.absent(),
+                Value<int?> actionDepend18 = const Value.absent(),
+                Value<int?> actionDepend19 = const Value.absent(),
+                Value<int?> actionDepend20 = const Value.absent(),
                 Value<String?> description = const Value.absent(),
                 Value<int?> iconType = const Value.absent(),
               }) => SkillDataCompanion(
@@ -37804,6 +43874,16 @@ class $$SkillDataTableTableManager
                 action8: action8,
                 action9: action9,
                 action10: action10,
+                action11: action11,
+                action12: action12,
+                action13: action13,
+                action14: action14,
+                action15: action15,
+                action16: action16,
+                action17: action17,
+                action18: action18,
+                action19: action19,
+                action20: action20,
                 actionDepend1: actionDepend1,
                 actionDepend2: actionDepend2,
                 actionDepend3: actionDepend3,
@@ -37814,6 +43894,16 @@ class $$SkillDataTableTableManager
                 actionDepend8: actionDepend8,
                 actionDepend9: actionDepend9,
                 actionDepend10: actionDepend10,
+                actionDepend11: actionDepend11,
+                actionDepend12: actionDepend12,
+                actionDepend13: actionDepend13,
+                actionDepend14: actionDepend14,
+                actionDepend15: actionDepend15,
+                actionDepend16: actionDepend16,
+                actionDepend17: actionDepend17,
+                actionDepend18: actionDepend18,
+                actionDepend19: actionDepend19,
+                actionDepend20: actionDepend20,
                 description: description,
                 iconType: iconType,
               ),
@@ -37835,6 +43925,16 @@ class $$SkillDataTableTableManager
                 required int action8,
                 required int action9,
                 required int action10,
+                Value<int?> action11 = const Value.absent(),
+                Value<int?> action12 = const Value.absent(),
+                Value<int?> action13 = const Value.absent(),
+                Value<int?> action14 = const Value.absent(),
+                Value<int?> action15 = const Value.absent(),
+                Value<int?> action16 = const Value.absent(),
+                Value<int?> action17 = const Value.absent(),
+                Value<int?> action18 = const Value.absent(),
+                Value<int?> action19 = const Value.absent(),
+                Value<int?> action20 = const Value.absent(),
                 required int actionDepend1,
                 required int actionDepend2,
                 required int actionDepend3,
@@ -37845,6 +43945,16 @@ class $$SkillDataTableTableManager
                 required int actionDepend8,
                 required int actionDepend9,
                 required int actionDepend10,
+                Value<int?> actionDepend11 = const Value.absent(),
+                Value<int?> actionDepend12 = const Value.absent(),
+                Value<int?> actionDepend13 = const Value.absent(),
+                Value<int?> actionDepend14 = const Value.absent(),
+                Value<int?> actionDepend15 = const Value.absent(),
+                Value<int?> actionDepend16 = const Value.absent(),
+                Value<int?> actionDepend17 = const Value.absent(),
+                Value<int?> actionDepend18 = const Value.absent(),
+                Value<int?> actionDepend19 = const Value.absent(),
+                Value<int?> actionDepend20 = const Value.absent(),
                 Value<String?> description = const Value.absent(),
                 Value<int?> iconType = const Value.absent(),
               }) => SkillDataCompanion.insert(
@@ -37864,6 +43974,16 @@ class $$SkillDataTableTableManager
                 action8: action8,
                 action9: action9,
                 action10: action10,
+                action11: action11,
+                action12: action12,
+                action13: action13,
+                action14: action14,
+                action15: action15,
+                action16: action16,
+                action17: action17,
+                action18: action18,
+                action19: action19,
+                action20: action20,
                 actionDepend1: actionDepend1,
                 actionDepend2: actionDepend2,
                 actionDepend3: actionDepend3,
@@ -37874,6 +43994,16 @@ class $$SkillDataTableTableManager
                 actionDepend8: actionDepend8,
                 actionDepend9: actionDepend9,
                 actionDepend10: actionDepend10,
+                actionDepend11: actionDepend11,
+                actionDepend12: actionDepend12,
+                actionDepend13: actionDepend13,
+                actionDepend14: actionDepend14,
+                actionDepend15: actionDepend15,
+                actionDepend16: actionDepend16,
+                actionDepend17: actionDepend17,
+                actionDepend18: actionDepend18,
+                actionDepend19: actionDepend19,
+                actionDepend20: actionDepend20,
                 description: description,
                 iconType: iconType,
               ),
@@ -37916,6 +44046,7 @@ typedef $$UnitSkillDataTableCreateCompanionBuilder =
       required int mainSkill9,
       required int mainSkill10,
       Value<int?> mainSkillEvolution1,
+      Value<int?> mainSkillEvolution1Pro,
       Value<int?> mainSkillEvolution2,
       required int exSkill1,
       required int exSkill2,
@@ -37934,6 +44065,7 @@ typedef $$UnitSkillDataTableCreateCompanionBuilder =
       required int spSkill5,
       Value<int?> spSkillEvolution1,
       Value<int?> spSkillEvolution2,
+      Value<int?> spSkillEvolution1Pro,
     });
 typedef $$UnitSkillDataTableUpdateCompanionBuilder =
     UnitSkillDataCompanion Function({
@@ -37952,6 +44084,7 @@ typedef $$UnitSkillDataTableUpdateCompanionBuilder =
       Value<int> mainSkill9,
       Value<int> mainSkill10,
       Value<int?> mainSkillEvolution1,
+      Value<int?> mainSkillEvolution1Pro,
       Value<int?> mainSkillEvolution2,
       Value<int> exSkill1,
       Value<int> exSkill2,
@@ -37970,6 +44103,7 @@ typedef $$UnitSkillDataTableUpdateCompanionBuilder =
       Value<int> spSkill5,
       Value<int?> spSkillEvolution1,
       Value<int?> spSkillEvolution2,
+      Value<int?> spSkillEvolution1Pro,
     });
 
 class $$UnitSkillDataTableFilterComposer
@@ -38053,6 +44187,11 @@ class $$UnitSkillDataTableFilterComposer
 
   ColumnFilters<int> get mainSkillEvolution1 => $composableBuilder(
     column: $table.mainSkillEvolution1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mainSkillEvolution1Pro => $composableBuilder(
+    column: $table.mainSkillEvolution1Pro,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -38145,6 +44284,11 @@ class $$UnitSkillDataTableFilterComposer
     column: $table.spSkillEvolution2,
     builder: (column) => ColumnFilters(column),
   );
+
+  ColumnFilters<int> get spSkillEvolution1Pro => $composableBuilder(
+    column: $table.spSkillEvolution1Pro,
+    builder: (column) => ColumnFilters(column),
+  );
 }
 
 class $$UnitSkillDataTableOrderingComposer
@@ -38228,6 +44372,11 @@ class $$UnitSkillDataTableOrderingComposer
 
   ColumnOrderings<int> get mainSkillEvolution1 => $composableBuilder(
     column: $table.mainSkillEvolution1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mainSkillEvolution1Pro => $composableBuilder(
+    column: $table.mainSkillEvolution1Pro,
     builder: (column) => ColumnOrderings(column),
   );
 
@@ -38320,6 +44469,11 @@ class $$UnitSkillDataTableOrderingComposer
     column: $table.spSkillEvolution2,
     builder: (column) => ColumnOrderings(column),
   );
+
+  ColumnOrderings<int> get spSkillEvolution1Pro => $composableBuilder(
+    column: $table.spSkillEvolution1Pro,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$UnitSkillDataTableAnnotationComposer
@@ -38404,6 +44558,11 @@ class $$UnitSkillDataTableAnnotationComposer
     builder: (column) => column,
   );
 
+  GeneratedColumn<int> get mainSkillEvolution1Pro => $composableBuilder(
+    column: $table.mainSkillEvolution1Pro,
+    builder: (column) => column,
+  );
+
   GeneratedColumn<int> get mainSkillEvolution2 => $composableBuilder(
     column: $table.mainSkillEvolution2,
     builder: (column) => column,
@@ -38473,6 +44632,11 @@ class $$UnitSkillDataTableAnnotationComposer
     column: $table.spSkillEvolution2,
     builder: (column) => column,
   );
+
+  GeneratedColumn<int> get spSkillEvolution1Pro => $composableBuilder(
+    column: $table.spSkillEvolution1Pro,
+    builder: (column) => column,
+  );
 }
 
 class $$UnitSkillDataTableTableManager
@@ -38521,6 +44685,7 @@ class $$UnitSkillDataTableTableManager
                 Value<int> mainSkill9 = const Value.absent(),
                 Value<int> mainSkill10 = const Value.absent(),
                 Value<int?> mainSkillEvolution1 = const Value.absent(),
+                Value<int?> mainSkillEvolution1Pro = const Value.absent(),
                 Value<int?> mainSkillEvolution2 = const Value.absent(),
                 Value<int> exSkill1 = const Value.absent(),
                 Value<int> exSkill2 = const Value.absent(),
@@ -38539,6 +44704,7 @@ class $$UnitSkillDataTableTableManager
                 Value<int> spSkill5 = const Value.absent(),
                 Value<int?> spSkillEvolution1 = const Value.absent(),
                 Value<int?> spSkillEvolution2 = const Value.absent(),
+                Value<int?> spSkillEvolution1Pro = const Value.absent(),
               }) => UnitSkillDataCompanion(
                 unitId: unitId,
                 unionBurst: unionBurst,
@@ -38555,6 +44721,7 @@ class $$UnitSkillDataTableTableManager
                 mainSkill9: mainSkill9,
                 mainSkill10: mainSkill10,
                 mainSkillEvolution1: mainSkillEvolution1,
+                mainSkillEvolution1Pro: mainSkillEvolution1Pro,
                 mainSkillEvolution2: mainSkillEvolution2,
                 exSkill1: exSkill1,
                 exSkill2: exSkill2,
@@ -38573,6 +44740,7 @@ class $$UnitSkillDataTableTableManager
                 spSkill5: spSkill5,
                 spSkillEvolution1: spSkillEvolution1,
                 spSkillEvolution2: spSkillEvolution2,
+                spSkillEvolution1Pro: spSkillEvolution1Pro,
               ),
           createCompanionCallback:
               ({
@@ -38591,6 +44759,7 @@ class $$UnitSkillDataTableTableManager
                 required int mainSkill9,
                 required int mainSkill10,
                 Value<int?> mainSkillEvolution1 = const Value.absent(),
+                Value<int?> mainSkillEvolution1Pro = const Value.absent(),
                 Value<int?> mainSkillEvolution2 = const Value.absent(),
                 required int exSkill1,
                 required int exSkill2,
@@ -38609,6 +44778,7 @@ class $$UnitSkillDataTableTableManager
                 required int spSkill5,
                 Value<int?> spSkillEvolution1 = const Value.absent(),
                 Value<int?> spSkillEvolution2 = const Value.absent(),
+                Value<int?> spSkillEvolution1Pro = const Value.absent(),
               }) => UnitSkillDataCompanion.insert(
                 unitId: unitId,
                 unionBurst: unionBurst,
@@ -38625,6 +44795,7 @@ class $$UnitSkillDataTableTableManager
                 mainSkill9: mainSkill9,
                 mainSkill10: mainSkill10,
                 mainSkillEvolution1: mainSkillEvolution1,
+                mainSkillEvolution1Pro: mainSkillEvolution1Pro,
                 mainSkillEvolution2: mainSkillEvolution2,
                 exSkill1: exSkill1,
                 exSkill2: exSkill2,
@@ -38643,6 +44814,7 @@ class $$UnitSkillDataTableTableManager
                 spSkill5: spSkill5,
                 spSkillEvolution1: spSkillEvolution1,
                 spSkillEvolution2: spSkillEvolution2,
+                spSkillEvolution1Pro: spSkillEvolution1Pro,
               ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
@@ -50223,6 +56395,2027 @@ typedef $$TalentWeaknessTableProcessedTableManager =
       TalentWeaknessData,
       PrefetchHooks Function()
     >;
+typedef $$EnemyMPartsTableCreateCompanionBuilder =
+    EnemyMPartsCompanion Function({
+      Value<int> enemyId,
+      required String name,
+      required int childEnemyParameter1,
+      required int childEnemyParameter2,
+      required int childEnemyParameter3,
+      required int childEnemyParameter4,
+      required int childEnemyParameter5,
+    });
+typedef $$EnemyMPartsTableUpdateCompanionBuilder =
+    EnemyMPartsCompanion Function({
+      Value<int> enemyId,
+      Value<String> name,
+      Value<int> childEnemyParameter1,
+      Value<int> childEnemyParameter2,
+      Value<int> childEnemyParameter3,
+      Value<int> childEnemyParameter4,
+      Value<int> childEnemyParameter5,
+    });
+
+class $$EnemyMPartsTableFilterComposer
+    extends Composer<_$AppDb, $EnemyMPartsTable> {
+  $$EnemyMPartsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get childEnemyParameter1 => $composableBuilder(
+    column: $table.childEnemyParameter1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get childEnemyParameter2 => $composableBuilder(
+    column: $table.childEnemyParameter2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get childEnemyParameter3 => $composableBuilder(
+    column: $table.childEnemyParameter3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get childEnemyParameter4 => $composableBuilder(
+    column: $table.childEnemyParameter4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get childEnemyParameter5 => $composableBuilder(
+    column: $table.childEnemyParameter5,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$EnemyMPartsTableOrderingComposer
+    extends Composer<_$AppDb, $EnemyMPartsTable> {
+  $$EnemyMPartsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get enemyId => $composableBuilder(
+    column: $table.enemyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get childEnemyParameter1 => $composableBuilder(
+    column: $table.childEnemyParameter1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get childEnemyParameter2 => $composableBuilder(
+    column: $table.childEnemyParameter2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get childEnemyParameter3 => $composableBuilder(
+    column: $table.childEnemyParameter3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get childEnemyParameter4 => $composableBuilder(
+    column: $table.childEnemyParameter4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get childEnemyParameter5 => $composableBuilder(
+    column: $table.childEnemyParameter5,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$EnemyMPartsTableAnnotationComposer
+    extends Composer<_$AppDb, $EnemyMPartsTable> {
+  $$EnemyMPartsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get enemyId =>
+      $composableBuilder(column: $table.enemyId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<int> get childEnemyParameter1 => $composableBuilder(
+    column: $table.childEnemyParameter1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get childEnemyParameter2 => $composableBuilder(
+    column: $table.childEnemyParameter2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get childEnemyParameter3 => $composableBuilder(
+    column: $table.childEnemyParameter3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get childEnemyParameter4 => $composableBuilder(
+    column: $table.childEnemyParameter4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get childEnemyParameter5 => $composableBuilder(
+    column: $table.childEnemyParameter5,
+    builder: (column) => column,
+  );
+}
+
+class $$EnemyMPartsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $EnemyMPartsTable,
+          EnemyMPart,
+          $$EnemyMPartsTableFilterComposer,
+          $$EnemyMPartsTableOrderingComposer,
+          $$EnemyMPartsTableAnnotationComposer,
+          $$EnemyMPartsTableCreateCompanionBuilder,
+          $$EnemyMPartsTableUpdateCompanionBuilder,
+          (EnemyMPart, BaseReferences<_$AppDb, $EnemyMPartsTable, EnemyMPart>),
+          EnemyMPart,
+          PrefetchHooks Function()
+        > {
+  $$EnemyMPartsTableTableManager(_$AppDb db, $EnemyMPartsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$EnemyMPartsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$EnemyMPartsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$EnemyMPartsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<int> childEnemyParameter1 = const Value.absent(),
+                Value<int> childEnemyParameter2 = const Value.absent(),
+                Value<int> childEnemyParameter3 = const Value.absent(),
+                Value<int> childEnemyParameter4 = const Value.absent(),
+                Value<int> childEnemyParameter5 = const Value.absent(),
+              }) => EnemyMPartsCompanion(
+                enemyId: enemyId,
+                name: name,
+                childEnemyParameter1: childEnemyParameter1,
+                childEnemyParameter2: childEnemyParameter2,
+                childEnemyParameter3: childEnemyParameter3,
+                childEnemyParameter4: childEnemyParameter4,
+                childEnemyParameter5: childEnemyParameter5,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> enemyId = const Value.absent(),
+                required String name,
+                required int childEnemyParameter1,
+                required int childEnemyParameter2,
+                required int childEnemyParameter3,
+                required int childEnemyParameter4,
+                required int childEnemyParameter5,
+              }) => EnemyMPartsCompanion.insert(
+                enemyId: enemyId,
+                name: name,
+                childEnemyParameter1: childEnemyParameter1,
+                childEnemyParameter2: childEnemyParameter2,
+                childEnemyParameter3: childEnemyParameter3,
+                childEnemyParameter4: childEnemyParameter4,
+                childEnemyParameter5: childEnemyParameter5,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$EnemyMPartsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $EnemyMPartsTable,
+      EnemyMPart,
+      $$EnemyMPartsTableFilterComposer,
+      $$EnemyMPartsTableOrderingComposer,
+      $$EnemyMPartsTableAnnotationComposer,
+      $$EnemyMPartsTableCreateCompanionBuilder,
+      $$EnemyMPartsTableUpdateCompanionBuilder,
+      (EnemyMPart, BaseReferences<_$AppDb, $EnemyMPartsTable, EnemyMPart>),
+      EnemyMPart,
+      PrefetchHooks Function()
+    >;
+typedef $$ClanBattle2MapDataTableCreateCompanionBuilder =
+    ClanBattle2MapDataCompanion Function({
+      Value<int> id,
+      required int clanBattleId,
+      required int mapBg,
+      required int difficulty,
+      required int lapNumFrom,
+      required int lapNumTo,
+      required int bossId1,
+      required int bossId2,
+      required int bossId3,
+      required int bossId4,
+      required int bossId5,
+      required int auraEffect,
+      required int rslUnlockLap,
+      required int phase,
+      required int waveGroupId1,
+      required int waveGroupId2,
+      required int waveGroupId3,
+      required int waveGroupId4,
+      required int waveGroupId5,
+      required int fixRewardId1,
+      required int fixRewardId2,
+      required int fixRewardId3,
+      required int fixRewardId4,
+      required int fixRewardId5,
+      required int damageRankId1,
+      required int damageRankId2,
+      required int damageRankId3,
+      required int damageRankId4,
+      required int damageRankId5,
+      required double rewardGoldCoefficient,
+      Value<int?> limitedMana,
+      required int lastAttackRewardId,
+      required double scoreCoefficient1,
+      required double scoreCoefficient2,
+      required double scoreCoefficient3,
+      required double scoreCoefficient4,
+      required double scoreCoefficient5,
+      required int paramAdjustId,
+      required int paramAdjustInterval,
+    });
+typedef $$ClanBattle2MapDataTableUpdateCompanionBuilder =
+    ClanBattle2MapDataCompanion Function({
+      Value<int> id,
+      Value<int> clanBattleId,
+      Value<int> mapBg,
+      Value<int> difficulty,
+      Value<int> lapNumFrom,
+      Value<int> lapNumTo,
+      Value<int> bossId1,
+      Value<int> bossId2,
+      Value<int> bossId3,
+      Value<int> bossId4,
+      Value<int> bossId5,
+      Value<int> auraEffect,
+      Value<int> rslUnlockLap,
+      Value<int> phase,
+      Value<int> waveGroupId1,
+      Value<int> waveGroupId2,
+      Value<int> waveGroupId3,
+      Value<int> waveGroupId4,
+      Value<int> waveGroupId5,
+      Value<int> fixRewardId1,
+      Value<int> fixRewardId2,
+      Value<int> fixRewardId3,
+      Value<int> fixRewardId4,
+      Value<int> fixRewardId5,
+      Value<int> damageRankId1,
+      Value<int> damageRankId2,
+      Value<int> damageRankId3,
+      Value<int> damageRankId4,
+      Value<int> damageRankId5,
+      Value<double> rewardGoldCoefficient,
+      Value<int?> limitedMana,
+      Value<int> lastAttackRewardId,
+      Value<double> scoreCoefficient1,
+      Value<double> scoreCoefficient2,
+      Value<double> scoreCoefficient3,
+      Value<double> scoreCoefficient4,
+      Value<double> scoreCoefficient5,
+      Value<int> paramAdjustId,
+      Value<int> paramAdjustInterval,
+    });
+
+class $$ClanBattle2MapDataTableFilterComposer
+    extends Composer<_$AppDb, $ClanBattle2MapDataTable> {
+  $$ClanBattle2MapDataTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get clanBattleId => $composableBuilder(
+    column: $table.clanBattleId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get mapBg => $composableBuilder(
+    column: $table.mapBg,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get difficulty => $composableBuilder(
+    column: $table.difficulty,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lapNumFrom => $composableBuilder(
+    column: $table.lapNumFrom,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lapNumTo => $composableBuilder(
+    column: $table.lapNumTo,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get bossId1 => $composableBuilder(
+    column: $table.bossId1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get bossId2 => $composableBuilder(
+    column: $table.bossId2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get bossId3 => $composableBuilder(
+    column: $table.bossId3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get bossId4 => $composableBuilder(
+    column: $table.bossId4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get bossId5 => $composableBuilder(
+    column: $table.bossId5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get auraEffect => $composableBuilder(
+    column: $table.auraEffect,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rslUnlockLap => $composableBuilder(
+    column: $table.rslUnlockLap,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get phase => $composableBuilder(
+    column: $table.phase,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveGroupId1 => $composableBuilder(
+    column: $table.waveGroupId1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveGroupId2 => $composableBuilder(
+    column: $table.waveGroupId2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveGroupId3 => $composableBuilder(
+    column: $table.waveGroupId3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveGroupId4 => $composableBuilder(
+    column: $table.waveGroupId4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveGroupId5 => $composableBuilder(
+    column: $table.waveGroupId5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get fixRewardId1 => $composableBuilder(
+    column: $table.fixRewardId1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get fixRewardId2 => $composableBuilder(
+    column: $table.fixRewardId2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get fixRewardId3 => $composableBuilder(
+    column: $table.fixRewardId3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get fixRewardId4 => $composableBuilder(
+    column: $table.fixRewardId4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get fixRewardId5 => $composableBuilder(
+    column: $table.fixRewardId5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get damageRankId1 => $composableBuilder(
+    column: $table.damageRankId1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get damageRankId2 => $composableBuilder(
+    column: $table.damageRankId2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get damageRankId3 => $composableBuilder(
+    column: $table.damageRankId3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get damageRankId4 => $composableBuilder(
+    column: $table.damageRankId4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get damageRankId5 => $composableBuilder(
+    column: $table.damageRankId5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get rewardGoldCoefficient => $composableBuilder(
+    column: $table.rewardGoldCoefficient,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get limitedMana => $composableBuilder(
+    column: $table.limitedMana,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lastAttackRewardId => $composableBuilder(
+    column: $table.lastAttackRewardId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get scoreCoefficient1 => $composableBuilder(
+    column: $table.scoreCoefficient1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get scoreCoefficient2 => $composableBuilder(
+    column: $table.scoreCoefficient2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get scoreCoefficient3 => $composableBuilder(
+    column: $table.scoreCoefficient3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get scoreCoefficient4 => $composableBuilder(
+    column: $table.scoreCoefficient4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get scoreCoefficient5 => $composableBuilder(
+    column: $table.scoreCoefficient5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get paramAdjustId => $composableBuilder(
+    column: $table.paramAdjustId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get paramAdjustInterval => $composableBuilder(
+    column: $table.paramAdjustInterval,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$ClanBattle2MapDataTableOrderingComposer
+    extends Composer<_$AppDb, $ClanBattle2MapDataTable> {
+  $$ClanBattle2MapDataTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get clanBattleId => $composableBuilder(
+    column: $table.clanBattleId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get mapBg => $composableBuilder(
+    column: $table.mapBg,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get difficulty => $composableBuilder(
+    column: $table.difficulty,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lapNumFrom => $composableBuilder(
+    column: $table.lapNumFrom,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lapNumTo => $composableBuilder(
+    column: $table.lapNumTo,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get bossId1 => $composableBuilder(
+    column: $table.bossId1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get bossId2 => $composableBuilder(
+    column: $table.bossId2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get bossId3 => $composableBuilder(
+    column: $table.bossId3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get bossId4 => $composableBuilder(
+    column: $table.bossId4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get bossId5 => $composableBuilder(
+    column: $table.bossId5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get auraEffect => $composableBuilder(
+    column: $table.auraEffect,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rslUnlockLap => $composableBuilder(
+    column: $table.rslUnlockLap,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get phase => $composableBuilder(
+    column: $table.phase,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveGroupId1 => $composableBuilder(
+    column: $table.waveGroupId1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveGroupId2 => $composableBuilder(
+    column: $table.waveGroupId2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveGroupId3 => $composableBuilder(
+    column: $table.waveGroupId3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveGroupId4 => $composableBuilder(
+    column: $table.waveGroupId4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveGroupId5 => $composableBuilder(
+    column: $table.waveGroupId5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get fixRewardId1 => $composableBuilder(
+    column: $table.fixRewardId1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get fixRewardId2 => $composableBuilder(
+    column: $table.fixRewardId2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get fixRewardId3 => $composableBuilder(
+    column: $table.fixRewardId3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get fixRewardId4 => $composableBuilder(
+    column: $table.fixRewardId4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get fixRewardId5 => $composableBuilder(
+    column: $table.fixRewardId5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get damageRankId1 => $composableBuilder(
+    column: $table.damageRankId1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get damageRankId2 => $composableBuilder(
+    column: $table.damageRankId2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get damageRankId3 => $composableBuilder(
+    column: $table.damageRankId3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get damageRankId4 => $composableBuilder(
+    column: $table.damageRankId4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get damageRankId5 => $composableBuilder(
+    column: $table.damageRankId5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get rewardGoldCoefficient => $composableBuilder(
+    column: $table.rewardGoldCoefficient,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get limitedMana => $composableBuilder(
+    column: $table.limitedMana,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lastAttackRewardId => $composableBuilder(
+    column: $table.lastAttackRewardId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get scoreCoefficient1 => $composableBuilder(
+    column: $table.scoreCoefficient1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get scoreCoefficient2 => $composableBuilder(
+    column: $table.scoreCoefficient2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get scoreCoefficient3 => $composableBuilder(
+    column: $table.scoreCoefficient3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get scoreCoefficient4 => $composableBuilder(
+    column: $table.scoreCoefficient4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get scoreCoefficient5 => $composableBuilder(
+    column: $table.scoreCoefficient5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get paramAdjustId => $composableBuilder(
+    column: $table.paramAdjustId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get paramAdjustInterval => $composableBuilder(
+    column: $table.paramAdjustInterval,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$ClanBattle2MapDataTableAnnotationComposer
+    extends Composer<_$AppDb, $ClanBattle2MapDataTable> {
+  $$ClanBattle2MapDataTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get clanBattleId => $composableBuilder(
+    column: $table.clanBattleId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get mapBg =>
+      $composableBuilder(column: $table.mapBg, builder: (column) => column);
+
+  GeneratedColumn<int> get difficulty => $composableBuilder(
+    column: $table.difficulty,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get lapNumFrom => $composableBuilder(
+    column: $table.lapNumFrom,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get lapNumTo =>
+      $composableBuilder(column: $table.lapNumTo, builder: (column) => column);
+
+  GeneratedColumn<int> get bossId1 =>
+      $composableBuilder(column: $table.bossId1, builder: (column) => column);
+
+  GeneratedColumn<int> get bossId2 =>
+      $composableBuilder(column: $table.bossId2, builder: (column) => column);
+
+  GeneratedColumn<int> get bossId3 =>
+      $composableBuilder(column: $table.bossId3, builder: (column) => column);
+
+  GeneratedColumn<int> get bossId4 =>
+      $composableBuilder(column: $table.bossId4, builder: (column) => column);
+
+  GeneratedColumn<int> get bossId5 =>
+      $composableBuilder(column: $table.bossId5, builder: (column) => column);
+
+  GeneratedColumn<int> get auraEffect => $composableBuilder(
+    column: $table.auraEffect,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rslUnlockLap => $composableBuilder(
+    column: $table.rslUnlockLap,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get phase =>
+      $composableBuilder(column: $table.phase, builder: (column) => column);
+
+  GeneratedColumn<int> get waveGroupId1 => $composableBuilder(
+    column: $table.waveGroupId1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveGroupId2 => $composableBuilder(
+    column: $table.waveGroupId2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveGroupId3 => $composableBuilder(
+    column: $table.waveGroupId3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveGroupId4 => $composableBuilder(
+    column: $table.waveGroupId4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveGroupId5 => $composableBuilder(
+    column: $table.waveGroupId5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get fixRewardId1 => $composableBuilder(
+    column: $table.fixRewardId1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get fixRewardId2 => $composableBuilder(
+    column: $table.fixRewardId2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get fixRewardId3 => $composableBuilder(
+    column: $table.fixRewardId3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get fixRewardId4 => $composableBuilder(
+    column: $table.fixRewardId4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get fixRewardId5 => $composableBuilder(
+    column: $table.fixRewardId5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get damageRankId1 => $composableBuilder(
+    column: $table.damageRankId1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get damageRankId2 => $composableBuilder(
+    column: $table.damageRankId2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get damageRankId3 => $composableBuilder(
+    column: $table.damageRankId3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get damageRankId4 => $composableBuilder(
+    column: $table.damageRankId4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get damageRankId5 => $composableBuilder(
+    column: $table.damageRankId5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get rewardGoldCoefficient => $composableBuilder(
+    column: $table.rewardGoldCoefficient,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get limitedMana => $composableBuilder(
+    column: $table.limitedMana,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get lastAttackRewardId => $composableBuilder(
+    column: $table.lastAttackRewardId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get scoreCoefficient1 => $composableBuilder(
+    column: $table.scoreCoefficient1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get scoreCoefficient2 => $composableBuilder(
+    column: $table.scoreCoefficient2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get scoreCoefficient3 => $composableBuilder(
+    column: $table.scoreCoefficient3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get scoreCoefficient4 => $composableBuilder(
+    column: $table.scoreCoefficient4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get scoreCoefficient5 => $composableBuilder(
+    column: $table.scoreCoefficient5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get paramAdjustId => $composableBuilder(
+    column: $table.paramAdjustId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get paramAdjustInterval => $composableBuilder(
+    column: $table.paramAdjustInterval,
+    builder: (column) => column,
+  );
+}
+
+class $$ClanBattle2MapDataTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $ClanBattle2MapDataTable,
+          ClanBattle2MapDataData,
+          $$ClanBattle2MapDataTableFilterComposer,
+          $$ClanBattle2MapDataTableOrderingComposer,
+          $$ClanBattle2MapDataTableAnnotationComposer,
+          $$ClanBattle2MapDataTableCreateCompanionBuilder,
+          $$ClanBattle2MapDataTableUpdateCompanionBuilder,
+          (
+            ClanBattle2MapDataData,
+            BaseReferences<
+              _$AppDb,
+              $ClanBattle2MapDataTable,
+              ClanBattle2MapDataData
+            >,
+          ),
+          ClanBattle2MapDataData,
+          PrefetchHooks Function()
+        > {
+  $$ClanBattle2MapDataTableTableManager(
+    _$AppDb db,
+    $ClanBattle2MapDataTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ClanBattle2MapDataTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ClanBattle2MapDataTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ClanBattle2MapDataTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> clanBattleId = const Value.absent(),
+                Value<int> mapBg = const Value.absent(),
+                Value<int> difficulty = const Value.absent(),
+                Value<int> lapNumFrom = const Value.absent(),
+                Value<int> lapNumTo = const Value.absent(),
+                Value<int> bossId1 = const Value.absent(),
+                Value<int> bossId2 = const Value.absent(),
+                Value<int> bossId3 = const Value.absent(),
+                Value<int> bossId4 = const Value.absent(),
+                Value<int> bossId5 = const Value.absent(),
+                Value<int> auraEffect = const Value.absent(),
+                Value<int> rslUnlockLap = const Value.absent(),
+                Value<int> phase = const Value.absent(),
+                Value<int> waveGroupId1 = const Value.absent(),
+                Value<int> waveGroupId2 = const Value.absent(),
+                Value<int> waveGroupId3 = const Value.absent(),
+                Value<int> waveGroupId4 = const Value.absent(),
+                Value<int> waveGroupId5 = const Value.absent(),
+                Value<int> fixRewardId1 = const Value.absent(),
+                Value<int> fixRewardId2 = const Value.absent(),
+                Value<int> fixRewardId3 = const Value.absent(),
+                Value<int> fixRewardId4 = const Value.absent(),
+                Value<int> fixRewardId5 = const Value.absent(),
+                Value<int> damageRankId1 = const Value.absent(),
+                Value<int> damageRankId2 = const Value.absent(),
+                Value<int> damageRankId3 = const Value.absent(),
+                Value<int> damageRankId4 = const Value.absent(),
+                Value<int> damageRankId5 = const Value.absent(),
+                Value<double> rewardGoldCoefficient = const Value.absent(),
+                Value<int?> limitedMana = const Value.absent(),
+                Value<int> lastAttackRewardId = const Value.absent(),
+                Value<double> scoreCoefficient1 = const Value.absent(),
+                Value<double> scoreCoefficient2 = const Value.absent(),
+                Value<double> scoreCoefficient3 = const Value.absent(),
+                Value<double> scoreCoefficient4 = const Value.absent(),
+                Value<double> scoreCoefficient5 = const Value.absent(),
+                Value<int> paramAdjustId = const Value.absent(),
+                Value<int> paramAdjustInterval = const Value.absent(),
+              }) => ClanBattle2MapDataCompanion(
+                id: id,
+                clanBattleId: clanBattleId,
+                mapBg: mapBg,
+                difficulty: difficulty,
+                lapNumFrom: lapNumFrom,
+                lapNumTo: lapNumTo,
+                bossId1: bossId1,
+                bossId2: bossId2,
+                bossId3: bossId3,
+                bossId4: bossId4,
+                bossId5: bossId5,
+                auraEffect: auraEffect,
+                rslUnlockLap: rslUnlockLap,
+                phase: phase,
+                waveGroupId1: waveGroupId1,
+                waveGroupId2: waveGroupId2,
+                waveGroupId3: waveGroupId3,
+                waveGroupId4: waveGroupId4,
+                waveGroupId5: waveGroupId5,
+                fixRewardId1: fixRewardId1,
+                fixRewardId2: fixRewardId2,
+                fixRewardId3: fixRewardId3,
+                fixRewardId4: fixRewardId4,
+                fixRewardId5: fixRewardId5,
+                damageRankId1: damageRankId1,
+                damageRankId2: damageRankId2,
+                damageRankId3: damageRankId3,
+                damageRankId4: damageRankId4,
+                damageRankId5: damageRankId5,
+                rewardGoldCoefficient: rewardGoldCoefficient,
+                limitedMana: limitedMana,
+                lastAttackRewardId: lastAttackRewardId,
+                scoreCoefficient1: scoreCoefficient1,
+                scoreCoefficient2: scoreCoefficient2,
+                scoreCoefficient3: scoreCoefficient3,
+                scoreCoefficient4: scoreCoefficient4,
+                scoreCoefficient5: scoreCoefficient5,
+                paramAdjustId: paramAdjustId,
+                paramAdjustInterval: paramAdjustInterval,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int clanBattleId,
+                required int mapBg,
+                required int difficulty,
+                required int lapNumFrom,
+                required int lapNumTo,
+                required int bossId1,
+                required int bossId2,
+                required int bossId3,
+                required int bossId4,
+                required int bossId5,
+                required int auraEffect,
+                required int rslUnlockLap,
+                required int phase,
+                required int waveGroupId1,
+                required int waveGroupId2,
+                required int waveGroupId3,
+                required int waveGroupId4,
+                required int waveGroupId5,
+                required int fixRewardId1,
+                required int fixRewardId2,
+                required int fixRewardId3,
+                required int fixRewardId4,
+                required int fixRewardId5,
+                required int damageRankId1,
+                required int damageRankId2,
+                required int damageRankId3,
+                required int damageRankId4,
+                required int damageRankId5,
+                required double rewardGoldCoefficient,
+                Value<int?> limitedMana = const Value.absent(),
+                required int lastAttackRewardId,
+                required double scoreCoefficient1,
+                required double scoreCoefficient2,
+                required double scoreCoefficient3,
+                required double scoreCoefficient4,
+                required double scoreCoefficient5,
+                required int paramAdjustId,
+                required int paramAdjustInterval,
+              }) => ClanBattle2MapDataCompanion.insert(
+                id: id,
+                clanBattleId: clanBattleId,
+                mapBg: mapBg,
+                difficulty: difficulty,
+                lapNumFrom: lapNumFrom,
+                lapNumTo: lapNumTo,
+                bossId1: bossId1,
+                bossId2: bossId2,
+                bossId3: bossId3,
+                bossId4: bossId4,
+                bossId5: bossId5,
+                auraEffect: auraEffect,
+                rslUnlockLap: rslUnlockLap,
+                phase: phase,
+                waveGroupId1: waveGroupId1,
+                waveGroupId2: waveGroupId2,
+                waveGroupId3: waveGroupId3,
+                waveGroupId4: waveGroupId4,
+                waveGroupId5: waveGroupId5,
+                fixRewardId1: fixRewardId1,
+                fixRewardId2: fixRewardId2,
+                fixRewardId3: fixRewardId3,
+                fixRewardId4: fixRewardId4,
+                fixRewardId5: fixRewardId5,
+                damageRankId1: damageRankId1,
+                damageRankId2: damageRankId2,
+                damageRankId3: damageRankId3,
+                damageRankId4: damageRankId4,
+                damageRankId5: damageRankId5,
+                rewardGoldCoefficient: rewardGoldCoefficient,
+                limitedMana: limitedMana,
+                lastAttackRewardId: lastAttackRewardId,
+                scoreCoefficient1: scoreCoefficient1,
+                scoreCoefficient2: scoreCoefficient2,
+                scoreCoefficient3: scoreCoefficient3,
+                scoreCoefficient4: scoreCoefficient4,
+                scoreCoefficient5: scoreCoefficient5,
+                paramAdjustId: paramAdjustId,
+                paramAdjustInterval: paramAdjustInterval,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$ClanBattle2MapDataTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $ClanBattle2MapDataTable,
+      ClanBattle2MapDataData,
+      $$ClanBattle2MapDataTableFilterComposer,
+      $$ClanBattle2MapDataTableOrderingComposer,
+      $$ClanBattle2MapDataTableAnnotationComposer,
+      $$ClanBattle2MapDataTableCreateCompanionBuilder,
+      $$ClanBattle2MapDataTableUpdateCompanionBuilder,
+      (
+        ClanBattle2MapDataData,
+        BaseReferences<
+          _$AppDb,
+          $ClanBattle2MapDataTable,
+          ClanBattle2MapDataData
+        >,
+      ),
+      ClanBattle2MapDataData,
+      PrefetchHooks Function()
+    >;
+typedef $$ClanBattleScheduleTableCreateCompanionBuilder =
+    ClanBattleScheduleCompanion Function({
+      Value<int> clanBattleId,
+      required int releaseMonth,
+      required int lastClanBattleId,
+      required int pointPerStamina,
+      required int costGroupId,
+      required int costGroupIdS,
+      required String mapBgm,
+      required int resourceId,
+      required String startTime,
+      required String endTime,
+      required String modeChangeStartTime,
+      required String modeChangeEndTime,
+      required String modeChangeRemindTime,
+    });
+typedef $$ClanBattleScheduleTableUpdateCompanionBuilder =
+    ClanBattleScheduleCompanion Function({
+      Value<int> clanBattleId,
+      Value<int> releaseMonth,
+      Value<int> lastClanBattleId,
+      Value<int> pointPerStamina,
+      Value<int> costGroupId,
+      Value<int> costGroupIdS,
+      Value<String> mapBgm,
+      Value<int> resourceId,
+      Value<String> startTime,
+      Value<String> endTime,
+      Value<String> modeChangeStartTime,
+      Value<String> modeChangeEndTime,
+      Value<String> modeChangeRemindTime,
+    });
+
+class $$ClanBattleScheduleTableFilterComposer
+    extends Composer<_$AppDb, $ClanBattleScheduleTable> {
+  $$ClanBattleScheduleTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get clanBattleId => $composableBuilder(
+    column: $table.clanBattleId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get releaseMonth => $composableBuilder(
+    column: $table.releaseMonth,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lastClanBattleId => $composableBuilder(
+    column: $table.lastClanBattleId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get pointPerStamina => $composableBuilder(
+    column: $table.pointPerStamina,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get costGroupId => $composableBuilder(
+    column: $table.costGroupId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get costGroupIdS => $composableBuilder(
+    column: $table.costGroupIdS,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get mapBgm => $composableBuilder(
+    column: $table.mapBgm,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get resourceId => $composableBuilder(
+    column: $table.resourceId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get startTime => $composableBuilder(
+    column: $table.startTime,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get endTime => $composableBuilder(
+    column: $table.endTime,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get modeChangeStartTime => $composableBuilder(
+    column: $table.modeChangeStartTime,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get modeChangeEndTime => $composableBuilder(
+    column: $table.modeChangeEndTime,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get modeChangeRemindTime => $composableBuilder(
+    column: $table.modeChangeRemindTime,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$ClanBattleScheduleTableOrderingComposer
+    extends Composer<_$AppDb, $ClanBattleScheduleTable> {
+  $$ClanBattleScheduleTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get clanBattleId => $composableBuilder(
+    column: $table.clanBattleId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get releaseMonth => $composableBuilder(
+    column: $table.releaseMonth,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lastClanBattleId => $composableBuilder(
+    column: $table.lastClanBattleId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get pointPerStamina => $composableBuilder(
+    column: $table.pointPerStamina,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get costGroupId => $composableBuilder(
+    column: $table.costGroupId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get costGroupIdS => $composableBuilder(
+    column: $table.costGroupIdS,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get mapBgm => $composableBuilder(
+    column: $table.mapBgm,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get resourceId => $composableBuilder(
+    column: $table.resourceId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get startTime => $composableBuilder(
+    column: $table.startTime,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get endTime => $composableBuilder(
+    column: $table.endTime,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get modeChangeStartTime => $composableBuilder(
+    column: $table.modeChangeStartTime,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get modeChangeEndTime => $composableBuilder(
+    column: $table.modeChangeEndTime,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get modeChangeRemindTime => $composableBuilder(
+    column: $table.modeChangeRemindTime,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$ClanBattleScheduleTableAnnotationComposer
+    extends Composer<_$AppDb, $ClanBattleScheduleTable> {
+  $$ClanBattleScheduleTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get clanBattleId => $composableBuilder(
+    column: $table.clanBattleId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get releaseMonth => $composableBuilder(
+    column: $table.releaseMonth,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get lastClanBattleId => $composableBuilder(
+    column: $table.lastClanBattleId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get pointPerStamina => $composableBuilder(
+    column: $table.pointPerStamina,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get costGroupId => $composableBuilder(
+    column: $table.costGroupId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get costGroupIdS => $composableBuilder(
+    column: $table.costGroupIdS,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get mapBgm =>
+      $composableBuilder(column: $table.mapBgm, builder: (column) => column);
+
+  GeneratedColumn<int> get resourceId => $composableBuilder(
+    column: $table.resourceId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get startTime =>
+      $composableBuilder(column: $table.startTime, builder: (column) => column);
+
+  GeneratedColumn<String> get endTime =>
+      $composableBuilder(column: $table.endTime, builder: (column) => column);
+
+  GeneratedColumn<String> get modeChangeStartTime => $composableBuilder(
+    column: $table.modeChangeStartTime,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get modeChangeEndTime => $composableBuilder(
+    column: $table.modeChangeEndTime,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get modeChangeRemindTime => $composableBuilder(
+    column: $table.modeChangeRemindTime,
+    builder: (column) => column,
+  );
+}
+
+class $$ClanBattleScheduleTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $ClanBattleScheduleTable,
+          ClanBattleScheduleData,
+          $$ClanBattleScheduleTableFilterComposer,
+          $$ClanBattleScheduleTableOrderingComposer,
+          $$ClanBattleScheduleTableAnnotationComposer,
+          $$ClanBattleScheduleTableCreateCompanionBuilder,
+          $$ClanBattleScheduleTableUpdateCompanionBuilder,
+          (
+            ClanBattleScheduleData,
+            BaseReferences<
+              _$AppDb,
+              $ClanBattleScheduleTable,
+              ClanBattleScheduleData
+            >,
+          ),
+          ClanBattleScheduleData,
+          PrefetchHooks Function()
+        > {
+  $$ClanBattleScheduleTableTableManager(
+    _$AppDb db,
+    $ClanBattleScheduleTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ClanBattleScheduleTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ClanBattleScheduleTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ClanBattleScheduleTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> clanBattleId = const Value.absent(),
+                Value<int> releaseMonth = const Value.absent(),
+                Value<int> lastClanBattleId = const Value.absent(),
+                Value<int> pointPerStamina = const Value.absent(),
+                Value<int> costGroupId = const Value.absent(),
+                Value<int> costGroupIdS = const Value.absent(),
+                Value<String> mapBgm = const Value.absent(),
+                Value<int> resourceId = const Value.absent(),
+                Value<String> startTime = const Value.absent(),
+                Value<String> endTime = const Value.absent(),
+                Value<String> modeChangeStartTime = const Value.absent(),
+                Value<String> modeChangeEndTime = const Value.absent(),
+                Value<String> modeChangeRemindTime = const Value.absent(),
+              }) => ClanBattleScheduleCompanion(
+                clanBattleId: clanBattleId,
+                releaseMonth: releaseMonth,
+                lastClanBattleId: lastClanBattleId,
+                pointPerStamina: pointPerStamina,
+                costGroupId: costGroupId,
+                costGroupIdS: costGroupIdS,
+                mapBgm: mapBgm,
+                resourceId: resourceId,
+                startTime: startTime,
+                endTime: endTime,
+                modeChangeStartTime: modeChangeStartTime,
+                modeChangeEndTime: modeChangeEndTime,
+                modeChangeRemindTime: modeChangeRemindTime,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> clanBattleId = const Value.absent(),
+                required int releaseMonth,
+                required int lastClanBattleId,
+                required int pointPerStamina,
+                required int costGroupId,
+                required int costGroupIdS,
+                required String mapBgm,
+                required int resourceId,
+                required String startTime,
+                required String endTime,
+                required String modeChangeStartTime,
+                required String modeChangeEndTime,
+                required String modeChangeRemindTime,
+              }) => ClanBattleScheduleCompanion.insert(
+                clanBattleId: clanBattleId,
+                releaseMonth: releaseMonth,
+                lastClanBattleId: lastClanBattleId,
+                pointPerStamina: pointPerStamina,
+                costGroupId: costGroupId,
+                costGroupIdS: costGroupIdS,
+                mapBgm: mapBgm,
+                resourceId: resourceId,
+                startTime: startTime,
+                endTime: endTime,
+                modeChangeStartTime: modeChangeStartTime,
+                modeChangeEndTime: modeChangeEndTime,
+                modeChangeRemindTime: modeChangeRemindTime,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$ClanBattleScheduleTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $ClanBattleScheduleTable,
+      ClanBattleScheduleData,
+      $$ClanBattleScheduleTableFilterComposer,
+      $$ClanBattleScheduleTableOrderingComposer,
+      $$ClanBattleScheduleTableAnnotationComposer,
+      $$ClanBattleScheduleTableCreateCompanionBuilder,
+      $$ClanBattleScheduleTableUpdateCompanionBuilder,
+      (
+        ClanBattleScheduleData,
+        BaseReferences<
+          _$AppDb,
+          $ClanBattleScheduleTable,
+          ClanBattleScheduleData
+        >,
+      ),
+      ClanBattleScheduleData,
+      PrefetchHooks Function()
+    >;
+typedef $$WaveGroupDataTableCreateCompanionBuilder =
+    WaveGroupDataCompanion Function({
+      Value<int> id,
+      required int waveGroupId,
+      required int odds,
+      required int enemyId1,
+      required int dropGold1,
+      required int dropRewardId1,
+      required int enemyId2,
+      required int dropGold2,
+      required int dropRewardId2,
+      required int enemyId3,
+      required int dropGold3,
+      required int dropRewardId3,
+      required int enemyId4,
+      required int dropGold4,
+      required int dropRewardId4,
+      required int enemyId5,
+      required int dropGold5,
+      required int dropRewardId5,
+      required int guestEnemyId,
+      required int guestLane,
+    });
+typedef $$WaveGroupDataTableUpdateCompanionBuilder =
+    WaveGroupDataCompanion Function({
+      Value<int> id,
+      Value<int> waveGroupId,
+      Value<int> odds,
+      Value<int> enemyId1,
+      Value<int> dropGold1,
+      Value<int> dropRewardId1,
+      Value<int> enemyId2,
+      Value<int> dropGold2,
+      Value<int> dropRewardId2,
+      Value<int> enemyId3,
+      Value<int> dropGold3,
+      Value<int> dropRewardId3,
+      Value<int> enemyId4,
+      Value<int> dropGold4,
+      Value<int> dropRewardId4,
+      Value<int> enemyId5,
+      Value<int> dropGold5,
+      Value<int> dropRewardId5,
+      Value<int> guestEnemyId,
+      Value<int> guestLane,
+    });
+
+class $$WaveGroupDataTableFilterComposer
+    extends Composer<_$AppDb, $WaveGroupDataTable> {
+  $$WaveGroupDataTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveGroupId => $composableBuilder(
+    column: $table.waveGroupId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get odds => $composableBuilder(
+    column: $table.odds,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get enemyId1 => $composableBuilder(
+    column: $table.enemyId1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dropGold1 => $composableBuilder(
+    column: $table.dropGold1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dropRewardId1 => $composableBuilder(
+    column: $table.dropRewardId1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get enemyId2 => $composableBuilder(
+    column: $table.enemyId2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dropGold2 => $composableBuilder(
+    column: $table.dropGold2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dropRewardId2 => $composableBuilder(
+    column: $table.dropRewardId2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get enemyId3 => $composableBuilder(
+    column: $table.enemyId3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dropGold3 => $composableBuilder(
+    column: $table.dropGold3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dropRewardId3 => $composableBuilder(
+    column: $table.dropRewardId3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get enemyId4 => $composableBuilder(
+    column: $table.enemyId4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dropGold4 => $composableBuilder(
+    column: $table.dropGold4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dropRewardId4 => $composableBuilder(
+    column: $table.dropRewardId4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get enemyId5 => $composableBuilder(
+    column: $table.enemyId5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dropGold5 => $composableBuilder(
+    column: $table.dropGold5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get dropRewardId5 => $composableBuilder(
+    column: $table.dropRewardId5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get guestEnemyId => $composableBuilder(
+    column: $table.guestEnemyId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get guestLane => $composableBuilder(
+    column: $table.guestLane,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$WaveGroupDataTableOrderingComposer
+    extends Composer<_$AppDb, $WaveGroupDataTable> {
+  $$WaveGroupDataTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveGroupId => $composableBuilder(
+    column: $table.waveGroupId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get odds => $composableBuilder(
+    column: $table.odds,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get enemyId1 => $composableBuilder(
+    column: $table.enemyId1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dropGold1 => $composableBuilder(
+    column: $table.dropGold1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dropRewardId1 => $composableBuilder(
+    column: $table.dropRewardId1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get enemyId2 => $composableBuilder(
+    column: $table.enemyId2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dropGold2 => $composableBuilder(
+    column: $table.dropGold2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dropRewardId2 => $composableBuilder(
+    column: $table.dropRewardId2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get enemyId3 => $composableBuilder(
+    column: $table.enemyId3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dropGold3 => $composableBuilder(
+    column: $table.dropGold3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dropRewardId3 => $composableBuilder(
+    column: $table.dropRewardId3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get enemyId4 => $composableBuilder(
+    column: $table.enemyId4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dropGold4 => $composableBuilder(
+    column: $table.dropGold4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dropRewardId4 => $composableBuilder(
+    column: $table.dropRewardId4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get enemyId5 => $composableBuilder(
+    column: $table.enemyId5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dropGold5 => $composableBuilder(
+    column: $table.dropGold5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get dropRewardId5 => $composableBuilder(
+    column: $table.dropRewardId5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get guestEnemyId => $composableBuilder(
+    column: $table.guestEnemyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get guestLane => $composableBuilder(
+    column: $table.guestLane,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$WaveGroupDataTableAnnotationComposer
+    extends Composer<_$AppDb, $WaveGroupDataTable> {
+  $$WaveGroupDataTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get waveGroupId => $composableBuilder(
+    column: $table.waveGroupId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get odds =>
+      $composableBuilder(column: $table.odds, builder: (column) => column);
+
+  GeneratedColumn<int> get enemyId1 =>
+      $composableBuilder(column: $table.enemyId1, builder: (column) => column);
+
+  GeneratedColumn<int> get dropGold1 =>
+      $composableBuilder(column: $table.dropGold1, builder: (column) => column);
+
+  GeneratedColumn<int> get dropRewardId1 => $composableBuilder(
+    column: $table.dropRewardId1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get enemyId2 =>
+      $composableBuilder(column: $table.enemyId2, builder: (column) => column);
+
+  GeneratedColumn<int> get dropGold2 =>
+      $composableBuilder(column: $table.dropGold2, builder: (column) => column);
+
+  GeneratedColumn<int> get dropRewardId2 => $composableBuilder(
+    column: $table.dropRewardId2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get enemyId3 =>
+      $composableBuilder(column: $table.enemyId3, builder: (column) => column);
+
+  GeneratedColumn<int> get dropGold3 =>
+      $composableBuilder(column: $table.dropGold3, builder: (column) => column);
+
+  GeneratedColumn<int> get dropRewardId3 => $composableBuilder(
+    column: $table.dropRewardId3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get enemyId4 =>
+      $composableBuilder(column: $table.enemyId4, builder: (column) => column);
+
+  GeneratedColumn<int> get dropGold4 =>
+      $composableBuilder(column: $table.dropGold4, builder: (column) => column);
+
+  GeneratedColumn<int> get dropRewardId4 => $composableBuilder(
+    column: $table.dropRewardId4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get enemyId5 =>
+      $composableBuilder(column: $table.enemyId5, builder: (column) => column);
+
+  GeneratedColumn<int> get dropGold5 =>
+      $composableBuilder(column: $table.dropGold5, builder: (column) => column);
+
+  GeneratedColumn<int> get dropRewardId5 => $composableBuilder(
+    column: $table.dropRewardId5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get guestEnemyId => $composableBuilder(
+    column: $table.guestEnemyId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get guestLane =>
+      $composableBuilder(column: $table.guestLane, builder: (column) => column);
+}
+
+class $$WaveGroupDataTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $WaveGroupDataTable,
+          WaveGroupDataData,
+          $$WaveGroupDataTableFilterComposer,
+          $$WaveGroupDataTableOrderingComposer,
+          $$WaveGroupDataTableAnnotationComposer,
+          $$WaveGroupDataTableCreateCompanionBuilder,
+          $$WaveGroupDataTableUpdateCompanionBuilder,
+          (
+            WaveGroupDataData,
+            BaseReferences<_$AppDb, $WaveGroupDataTable, WaveGroupDataData>,
+          ),
+          WaveGroupDataData,
+          PrefetchHooks Function()
+        > {
+  $$WaveGroupDataTableTableManager(_$AppDb db, $WaveGroupDataTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$WaveGroupDataTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$WaveGroupDataTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$WaveGroupDataTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> waveGroupId = const Value.absent(),
+                Value<int> odds = const Value.absent(),
+                Value<int> enemyId1 = const Value.absent(),
+                Value<int> dropGold1 = const Value.absent(),
+                Value<int> dropRewardId1 = const Value.absent(),
+                Value<int> enemyId2 = const Value.absent(),
+                Value<int> dropGold2 = const Value.absent(),
+                Value<int> dropRewardId2 = const Value.absent(),
+                Value<int> enemyId3 = const Value.absent(),
+                Value<int> dropGold3 = const Value.absent(),
+                Value<int> dropRewardId3 = const Value.absent(),
+                Value<int> enemyId4 = const Value.absent(),
+                Value<int> dropGold4 = const Value.absent(),
+                Value<int> dropRewardId4 = const Value.absent(),
+                Value<int> enemyId5 = const Value.absent(),
+                Value<int> dropGold5 = const Value.absent(),
+                Value<int> dropRewardId5 = const Value.absent(),
+                Value<int> guestEnemyId = const Value.absent(),
+                Value<int> guestLane = const Value.absent(),
+              }) => WaveGroupDataCompanion(
+                id: id,
+                waveGroupId: waveGroupId,
+                odds: odds,
+                enemyId1: enemyId1,
+                dropGold1: dropGold1,
+                dropRewardId1: dropRewardId1,
+                enemyId2: enemyId2,
+                dropGold2: dropGold2,
+                dropRewardId2: dropRewardId2,
+                enemyId3: enemyId3,
+                dropGold3: dropGold3,
+                dropRewardId3: dropRewardId3,
+                enemyId4: enemyId4,
+                dropGold4: dropGold4,
+                dropRewardId4: dropRewardId4,
+                enemyId5: enemyId5,
+                dropGold5: dropGold5,
+                dropRewardId5: dropRewardId5,
+                guestEnemyId: guestEnemyId,
+                guestLane: guestLane,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int waveGroupId,
+                required int odds,
+                required int enemyId1,
+                required int dropGold1,
+                required int dropRewardId1,
+                required int enemyId2,
+                required int dropGold2,
+                required int dropRewardId2,
+                required int enemyId3,
+                required int dropGold3,
+                required int dropRewardId3,
+                required int enemyId4,
+                required int dropGold4,
+                required int dropRewardId4,
+                required int enemyId5,
+                required int dropGold5,
+                required int dropRewardId5,
+                required int guestEnemyId,
+                required int guestLane,
+              }) => WaveGroupDataCompanion.insert(
+                id: id,
+                waveGroupId: waveGroupId,
+                odds: odds,
+                enemyId1: enemyId1,
+                dropGold1: dropGold1,
+                dropRewardId1: dropRewardId1,
+                enemyId2: enemyId2,
+                dropGold2: dropGold2,
+                dropRewardId2: dropRewardId2,
+                enemyId3: enemyId3,
+                dropGold3: dropGold3,
+                dropRewardId3: dropRewardId3,
+                enemyId4: enemyId4,
+                dropGold4: dropGold4,
+                dropRewardId4: dropRewardId4,
+                enemyId5: enemyId5,
+                dropGold5: dropGold5,
+                dropRewardId5: dropRewardId5,
+                guestEnemyId: guestEnemyId,
+                guestLane: guestLane,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$WaveGroupDataTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $WaveGroupDataTable,
+      WaveGroupDataData,
+      $$WaveGroupDataTableFilterComposer,
+      $$WaveGroupDataTableOrderingComposer,
+      $$WaveGroupDataTableAnnotationComposer,
+      $$WaveGroupDataTableCreateCompanionBuilder,
+      $$WaveGroupDataTableUpdateCompanionBuilder,
+      (
+        WaveGroupDataData,
+        BaseReferences<_$AppDb, $WaveGroupDataTable, WaveGroupDataData>,
+      ),
+      WaveGroupDataData,
+      PrefetchHooks Function()
+    >;
 
 class $AppDbManager {
   final _$AppDb _db;
@@ -50295,4 +58488,12 @@ class $AppDbManager {
       $$EnemyTalentWeaknessTableTableManager(_db, _db.enemyTalentWeakness);
   $$TalentWeaknessTableTableManager get talentWeakness =>
       $$TalentWeaknessTableTableManager(_db, _db.talentWeakness);
+  $$EnemyMPartsTableTableManager get enemyMParts =>
+      $$EnemyMPartsTableTableManager(_db, _db.enemyMParts);
+  $$ClanBattle2MapDataTableTableManager get clanBattle2MapData =>
+      $$ClanBattle2MapDataTableTableManager(_db, _db.clanBattle2MapData);
+  $$ClanBattleScheduleTableTableManager get clanBattleSchedule =>
+      $$ClanBattleScheduleTableTableManager(_db, _db.clanBattleSchedule);
+  $$WaveGroupDataTableTableManager get waveGroupData =>
+      $$WaveGroupDataTableTableManager(_db, _db.waveGroupData);
 }

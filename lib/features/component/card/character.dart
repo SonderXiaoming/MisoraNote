@@ -16,6 +16,7 @@ class UnitAttributeTags extends StatelessWidget {
   final int searchAreaWidth;
   final AtkType atkType;
   final Talent talent;
+  final UnitRoleType? roleType;
 
   const UnitAttributeTags({
     super.key,
@@ -26,6 +27,7 @@ class UnitAttributeTags extends StatelessWidget {
     required this.searchAreaWidth,
     required this.atkType,
     required this.talent,
+    required this.roleType,
   });
 
   @override
@@ -39,7 +41,7 @@ class UnitAttributeTags extends StatelessWidget {
     );
 
     final uniqueIcon = uniqueNum == 0
-        ? SizedBox.shrink()
+        ? null
         : LocalImage(
             path: FilePath.uniqueNumIcon(uniqueNum),
             width: size.$2 * 0.09,
@@ -50,9 +52,19 @@ class UnitAttributeTags extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            uniqueIcon,
-            SizedBox(width: size.$2 * 0.03),
+            if (uniqueIcon != null) ...[
+              uniqueIcon,
+              SizedBox(width: size.$2 * 0.03),
+            ],
+            if (roleType != null) ...[
+              BaseTag(
+                backgroundColor: Color(roleType!.color),
+                child: Text(roleType!.getName(t), style: textStyle),
+              ),
+              SizedBox(width: size.$2 * 0.03),
+            ],
             BaseTag(
               backgroundColor: Color(getType.color),
               child: Text(getType.getName(t), style: textStyle),
@@ -237,6 +249,7 @@ class CharacterCard extends StatelessWidget {
     );
     final atkType = AtkType.fromValue(unitInfo.atkType ?? 0);
     final talent = Talent.fromValue(unitInfo.talentId ?? 0);
+    final roleType = UnitRoleType.fromValue(unitInfo.unitRoleId);
     final textColor = Color(CustomColors.colorWhite);
     final textStyle = TextStyle(
       fontSize: size.$2 * 0.055,
@@ -286,6 +299,7 @@ class CharacterCard extends StatelessWidget {
                   searchAreaWidth: unitInfo.searchAreaWidth ?? 0,
                   atkType: atkType,
                   talent: talent,
+                  roleType: roleType,
                 ),
               ),
               // 名称：上小下大

@@ -130,6 +130,348 @@ abstract class AppLocalizations {
   /// **'功能'**
   String get function_page;
 
+  /// No description provided for @quick_access.
+  ///
+  /// In zh, this message translates to:
+  /// **'快捷入口'**
+  String get quick_access;
+
+  /// No description provided for @quick_access_desc.
+  ///
+  /// In zh, this message translates to:
+  /// **'常用资料与战斗查询'**
+  String get quick_access_desc;
+
+  /// No description provided for @game_data.
+  ///
+  /// In zh, this message translates to:
+  /// **'游戏资料'**
+  String get game_data;
+
+  /// No description provided for @battle_query.
+  ///
+  /// In zh, this message translates to:
+  /// **'战斗查询'**
+  String get battle_query;
+
+  /// No description provided for @character_index.
+  ///
+  /// In zh, this message translates to:
+  /// **'角色图鉴'**
+  String get character_index;
+
+  /// No description provided for @character_index_desc.
+  ///
+  /// In zh, this message translates to:
+  /// **'搜索角色、技能与行动循环'**
+  String get character_index_desc;
+
+  /// No description provided for @character_bond.
+  ///
+  /// In zh, this message translates to:
+  /// **'角色羁绊'**
+  String get character_bond;
+
+  /// No description provided for @character_bond_desc.
+  ///
+  /// In zh, this message translates to:
+  /// **'查询剧情解锁的角色属性'**
+  String get character_bond_desc;
+
+  /// No description provided for @unique_equip_list.
+  ///
+  /// In zh, this message translates to:
+  /// **'专武列表'**
+  String get unique_equip_list;
+
+  /// No description provided for @unique_equip_desc.
+  ///
+  /// In zh, this message translates to:
+  /// **'查看专武说明与满级属性'**
+  String get unique_equip_desc;
+
+  /// No description provided for @deep_zone.
+  ///
+  /// In zh, this message translates to:
+  /// **'深域关卡'**
+  String get deep_zone;
+
+  /// No description provided for @deep_zone_desc.
+  ///
+  /// In zh, this message translates to:
+  /// **'按属性查看关卡奖励与敌方阵容'**
+  String get deep_zone_desc;
+
+  /// No description provided for @stellar_shard_count.
+  ///
+  /// In zh, this message translates to:
+  /// **'星素碎片*{arg1}'**
+  String stellar_shard_count(int arg1);
+
+  /// No description provided for @crystal_ball_count.
+  ///
+  /// In zh, this message translates to:
+  /// **'水晶球*{arg1}'**
+  String crystal_ball_count(int arg1);
+
+  /// No description provided for @no_deep_zone_data.
+  ///
+  /// In zh, this message translates to:
+  /// **'数据库中没有深域关卡数据'**
+  String get no_deep_zone_data;
+
+  /// No description provided for @deep_zone_search_hint.
+  ///
+  /// In zh, this message translates to:
+  /// **'搜索关卡名、关卡 ID 或敌人 ID'**
+  String get deep_zone_search_hint;
+
+  /// No description provided for @deep_zone_sort_stage.
+  ///
+  /// In zh, this message translates to:
+  /// **'关卡'**
+  String get deep_zone_sort_stage;
+
+  /// No description provided for @deep_zone_sort_stellar_shard.
+  ///
+  /// In zh, this message translates to:
+  /// **'星素碎片'**
+  String get deep_zone_sort_stellar_shard;
+
+  /// No description provided for @deep_zone_sort_crystal_ball.
+  ///
+  /// In zh, this message translates to:
+  /// **'水晶球'**
+  String get deep_zone_sort_crystal_ball;
+
+  /// No description provided for @deep_zone_sort_by.
+  ///
+  /// In zh, this message translates to:
+  /// **'按{arg1}排序'**
+  String deep_zone_sort_by(String arg1);
+
+  /// No description provided for @sort_ascending.
+  ///
+  /// In zh, this message translates to:
+  /// **'切换为升序'**
+  String get sort_ascending;
+
+  /// No description provided for @sort_descending.
+  ///
+  /// In zh, this message translates to:
+  /// **'切换为降序'**
+  String get sort_descending;
+
+  /// No description provided for @refresh.
+  ///
+  /// In zh, this message translates to:
+  /// **'刷新'**
+  String get refresh;
+
+  /// No description provided for @retry.
+  ///
+  /// In zh, this message translates to:
+  /// **'重试'**
+  String get retry;
+
+  /// No description provided for @clan_battle_query.
+  ///
+  /// In zh, this message translates to:
+  /// **'公会战查询'**
+  String get clan_battle_query;
+
+  /// No description provided for @clan_battle_query_desc.
+  ///
+  /// In zh, this message translates to:
+  /// **'阶段 Boss、血量与满补线'**
+  String get clan_battle_query_desc;
+
+  /// No description provided for @enemy_search.
+  ///
+  /// In zh, this message translates to:
+  /// **'敌人查询'**
+  String get enemy_search;
+
+  /// No description provided for @enemy_search_desc.
+  ///
+  /// In zh, this message translates to:
+  /// **'按敌人 ID 查看技能与属性'**
+  String get enemy_search_desc;
+
+  /// No description provided for @enemy_search_hint.
+  ///
+  /// In zh, this message translates to:
+  /// **'搜索敌人名称、敌人 ID 或单位 ID'**
+  String get enemy_search_hint;
+
+  /// No description provided for @enemy_search_help.
+  ///
+  /// In zh, this message translates to:
+  /// **'可按名称搜索，或切换为 ID 模式查询敌人 ID 与单位 ID。'**
+  String get enemy_search_help;
+
+  /// No description provided for @enemy_name_unknown.
+  ///
+  /// In zh, this message translates to:
+  /// **'未命名敌人'**
+  String get enemy_name_unknown;
+
+  /// No description provided for @enemy_level.
+  ///
+  /// In zh, this message translates to:
+  /// **'等级 {arg1}'**
+  String enemy_level(int arg1);
+
+  /// No description provided for @enemy_parameters.
+  ///
+  /// In zh, this message translates to:
+  /// **'敌人参数'**
+  String get enemy_parameters;
+
+  /// No description provided for @enemy_parameter_basic.
+  ///
+  /// In zh, this message translates to:
+  /// **'基础信息'**
+  String get enemy_parameter_basic;
+
+  /// No description provided for @enemy_parameter_combat.
+  ///
+  /// In zh, this message translates to:
+  /// **'战斗属性'**
+  String get enemy_parameter_combat;
+
+  /// No description provided for @enemy_parameter_special.
+  ///
+  /// In zh, this message translates to:
+  /// **'特殊参数'**
+  String get enemy_parameter_special;
+
+  /// No description provided for @enemy_parameter_skill_levels.
+  ///
+  /// In zh, this message translates to:
+  /// **'技能等级'**
+  String get enemy_parameter_skill_levels;
+
+  /// No description provided for @enemy_id.
+  ///
+  /// In zh, this message translates to:
+  /// **'敌人 ID'**
+  String get enemy_id;
+
+  /// No description provided for @enemy_level_label.
+  ///
+  /// In zh, this message translates to:
+  /// **'等级'**
+  String get enemy_level_label;
+
+  /// No description provided for @enemy_rarity.
+  ///
+  /// In zh, this message translates to:
+  /// **'星级'**
+  String get enemy_rarity;
+
+  /// No description provided for @enemy_promotion_level.
+  ///
+  /// In zh, this message translates to:
+  /// **'Rank'**
+  String get enemy_promotion_level;
+
+  /// No description provided for @enemy_virtual_hp.
+  ///
+  /// In zh, this message translates to:
+  /// **'虚拟 HP'**
+  String get enemy_virtual_hp;
+
+  /// No description provided for @enemy_break_durability.
+  ///
+  /// In zh, this message translates to:
+  /// **'破防耐久'**
+  String get enemy_break_durability;
+
+  /// No description provided for @enemy_resist_status_id.
+  ///
+  /// In zh, this message translates to:
+  /// **'异常抗性 ID'**
+  String get enemy_resist_status_id;
+
+  /// No description provided for @enemy_resist_variation_id.
+  ///
+  /// In zh, this message translates to:
+  /// **'抗性变体 ID'**
+  String get enemy_resist_variation_id;
+
+  /// No description provided for @enemy_unique_equipment_flag.
+  ///
+  /// In zh, this message translates to:
+  /// **'专武标记'**
+  String get enemy_unique_equipment_flag;
+
+  /// No description provided for @enemy_color.
+  ///
+  /// In zh, this message translates to:
+  /// **'敌人颜色'**
+  String get enemy_color;
+
+  /// No description provided for @characters.
+  ///
+  /// In zh, this message translates to:
+  /// **'角色'**
+  String get characters;
+
+  /// No description provided for @unique_equips.
+  ///
+  /// In zh, this message translates to:
+  /// **'专用装备'**
+  String get unique_equips;
+
+  /// No description provided for @view_all.
+  ///
+  /// In zh, this message translates to:
+  /// **'查看全部'**
+  String get view_all;
+
+  /// No description provided for @schedule.
+  ///
+  /// In zh, this message translates to:
+  /// **'日程'**
+  String get schedule;
+
+  /// No description provided for @schedule_server_time.
+  ///
+  /// In zh, this message translates to:
+  /// **'{arg1} · 服务器时间'**
+  String schedule_server_time(String arg1);
+
+  /// No description provided for @schedule_in_progress.
+  ///
+  /// In zh, this message translates to:
+  /// **'正在进行的日程'**
+  String get schedule_in_progress;
+
+  /// No description provided for @schedule_coming_soon.
+  ///
+  /// In zh, this message translates to:
+  /// **'即将开始的日程'**
+  String get schedule_coming_soon;
+
+  /// No description provided for @schedule_empty_in_progress.
+  ///
+  /// In zh, this message translates to:
+  /// **'当前没有正在进行的日程'**
+  String get schedule_empty_in_progress;
+
+  /// No description provided for @schedule_empty_coming.
+  ///
+  /// In zh, this message translates to:
+  /// **'当前没有即将开始的日程'**
+  String get schedule_empty_coming;
+
+  /// No description provided for @schedule_load_failed.
+  ///
+  /// In zh, this message translates to:
+  /// **'日程加载失败'**
+  String get schedule_load_failed;
+
   /// No description provided for @settings_page.
   ///
   /// In zh, this message translates to:
@@ -190,6 +532,12 @@ abstract class AppLocalizations {
   /// **'普攻'**
   String get normal_attack;
 
+  /// No description provided for @normal_skill.
+  ///
+  /// In zh, this message translates to:
+  /// **'常规技能'**
+  String get normal_skill;
+
   /// No description provided for @union_burst.
   ///
   /// In zh, this message translates to:
@@ -237,6 +585,24 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'技能信息'**
   String get skill_info;
+
+  /// No description provided for @skill_parameters.
+  ///
+  /// In zh, this message translates to:
+  /// **'计算参数'**
+  String get skill_parameters;
+
+  /// No description provided for @reset.
+  ///
+  /// In zh, this message translates to:
+  /// **'重置'**
+  String get reset;
+
+  /// No description provided for @apply.
+  ///
+  /// In zh, this message translates to:
+  /// **'应用'**
+  String get apply;
 
   /// No description provided for @summon_unit.
   ///
@@ -370,6 +736,144 @@ abstract class AppLocalizations {
   /// **'专武'**
   String get tool_unique_equip;
 
+  /// No description provided for @all.
+  ///
+  /// In zh, this message translates to:
+  /// **'全部'**
+  String get all;
+
+  /// No description provided for @unique_equip_1.
+  ///
+  /// In zh, this message translates to:
+  /// **'专武 1'**
+  String get unique_equip_1;
+
+  /// No description provided for @unique_equip_2.
+  ///
+  /// In zh, this message translates to:
+  /// **'专武 2'**
+  String get unique_equip_2;
+
+  /// No description provided for @role_attacker.
+  ///
+  /// In zh, this message translates to:
+  /// **'攻击'**
+  String get role_attacker;
+
+  /// No description provided for @role_breaker.
+  ///
+  /// In zh, this message translates to:
+  /// **'破坏'**
+  String get role_breaker;
+
+  /// No description provided for @role_buffer.
+  ///
+  /// In zh, this message translates to:
+  /// **'增益'**
+  String get role_buffer;
+
+  /// No description provided for @role_debuffer.
+  ///
+  /// In zh, this message translates to:
+  /// **'减益'**
+  String get role_debuffer;
+
+  /// No description provided for @role_booster.
+  ///
+  /// In zh, this message translates to:
+  /// **'强化'**
+  String get role_booster;
+
+  /// No description provided for @role_healer.
+  ///
+  /// In zh, this message translates to:
+  /// **'回复'**
+  String get role_healer;
+
+  /// No description provided for @role_tank.
+  ///
+  /// In zh, this message translates to:
+  /// **'防御'**
+  String get role_tank;
+
+  /// No description provided for @role_jammer.
+  ///
+  /// In zh, this message translates to:
+  /// **'干扰'**
+  String get role_jammer;
+
+  /// No description provided for @search_unique_equip_hint.
+  ///
+  /// In zh, this message translates to:
+  /// **'搜索专武或角色名'**
+  String get search_unique_equip_hint;
+
+  /// No description provided for @no_unique_equip_data.
+  ///
+  /// In zh, this message translates to:
+  /// **'没有找到对应的专武'**
+  String get no_unique_equip_data;
+
+  /// No description provided for @show_all_characters.
+  ///
+  /// In zh, this message translates to:
+  /// **'查看全部角色'**
+  String get show_all_characters;
+
+  /// No description provided for @unit_unique_equip_list.
+  ///
+  /// In zh, this message translates to:
+  /// **'{arg1}的专武'**
+  String unit_unique_equip_list(String arg1);
+
+  /// No description provided for @unique_equip_max_level.
+  ///
+  /// In zh, this message translates to:
+  /// **'满级属性 · Lv.{arg1}'**
+  String unique_equip_max_level(int arg1);
+
+  /// No description provided for @attribute_bonus.
+  ///
+  /// In zh, this message translates to:
+  /// **'属性加成'**
+  String get attribute_bonus;
+
+  /// No description provided for @view_character.
+  ///
+  /// In zh, this message translates to:
+  /// **'查看角色详情'**
+  String get view_character;
+
+  /// No description provided for @search_character_bond_hint.
+  ///
+  /// In zh, this message translates to:
+  /// **'搜索角色名或 ID'**
+  String get search_character_bond_hint;
+
+  /// No description provided for @change_character.
+  ///
+  /// In zh, this message translates to:
+  /// **'更换角色'**
+  String get change_character;
+
+  /// No description provided for @no_bond_data.
+  ///
+  /// In zh, this message translates to:
+  /// **'该角色暂无羁绊属性数据'**
+  String get no_bond_data;
+
+  /// No description provided for @bond_attribute_summary.
+  ///
+  /// In zh, this message translates to:
+  /// **'羁绊属性总览'**
+  String get bond_attribute_summary;
+
+  /// No description provided for @bond_story_count.
+  ///
+  /// In zh, this message translates to:
+  /// **'{arg1} 个剧情属性奖励'**
+  String bond_story_count(int arg1);
+
   /// No description provided for @character_detail.
   ///
   /// In zh, this message translates to:
@@ -412,11 +916,131 @@ abstract class AppLocalizations {
   /// **'请输入角色ID'**
   String get search_hit_id;
 
+  /// No description provided for @enemy_or_clan_id_hint.
+  ///
+  /// In zh, this message translates to:
+  /// **'输入敌人ID或公会战ID'**
+  String get enemy_or_clan_id_hint;
+
+  /// No description provided for @clan_battle_id_hint.
+  ///
+  /// In zh, this message translates to:
+  /// **'输入公会战ID，例如 1090'**
+  String get clan_battle_id_hint;
+
+  /// No description provided for @recent_clan_battles.
+  ///
+  /// In zh, this message translates to:
+  /// **'最近公会战'**
+  String get recent_clan_battles;
+
+  /// No description provided for @clan_battle_title.
+  ///
+  /// In zh, this message translates to:
+  /// **'{arg1}期公会战'**
+  String clan_battle_title(int arg1);
+
+  /// No description provided for @clan_battle_phase.
+  ///
+  /// In zh, this message translates to:
+  /// **'{arg1}阶段'**
+  String clan_battle_phase(String arg1);
+
+  /// No description provided for @clan_battle_laps.
+  ///
+  /// In zh, this message translates to:
+  /// **'{arg1}周目'**
+  String clan_battle_laps(String arg1);
+
+  /// No description provided for @boss_hp.
+  ///
+  /// In zh, this message translates to:
+  /// **'BOSS血量'**
+  String get boss_hp;
+
+  /// No description provided for @full_compensation_line.
+  ///
+  /// In zh, this message translates to:
+  /// **'满补线'**
+  String get full_compensation_line;
+
+  /// No description provided for @full_compensation_formula.
+  ///
+  /// In zh, this message translates to:
+  /// **'满补伤害 = BOSS血量 ÷（满补数 + 21/90），低于600万不显示'**
+  String get full_compensation_formula;
+
+  /// No description provided for @no_clan_battle_data.
+  ///
+  /// In zh, this message translates to:
+  /// **'数据库中没有对应的公会战数据'**
+  String get no_clan_battle_data;
+
+  /// No description provided for @open_enemy_detail.
+  ///
+  /// In zh, this message translates to:
+  /// **'查看敌人详情'**
+  String get open_enemy_detail;
+
   /// No description provided for @app_settings.
   ///
   /// In zh, this message translates to:
   /// **'应用设置'**
   String get app_settings;
+
+  /// No description provided for @appearance_settings.
+  ///
+  /// In zh, this message translates to:
+  /// **'外观设置'**
+  String get appearance_settings;
+
+  /// No description provided for @theme_mode.
+  ///
+  /// In zh, this message translates to:
+  /// **'显示模式'**
+  String get theme_mode;
+
+  /// No description provided for @theme_system.
+  ///
+  /// In zh, this message translates to:
+  /// **'跟随系统'**
+  String get theme_system;
+
+  /// No description provided for @theme_light.
+  ///
+  /// In zh, this message translates to:
+  /// **'浅色模式'**
+  String get theme_light;
+
+  /// No description provided for @theme_dark.
+  ///
+  /// In zh, this message translates to:
+  /// **'夜间模式'**
+  String get theme_dark;
+
+  /// No description provided for @theme_color.
+  ///
+  /// In zh, this message translates to:
+  /// **'主题色'**
+  String get theme_color;
+
+  /// No description provided for @custom_theme_color.
+  ///
+  /// In zh, this message translates to:
+  /// **'自定义主题色'**
+  String get custom_theme_color;
+
+  /// No description provided for @hex_color_hint.
+  ///
+  /// In zh, this message translates to:
+  /// **'输入HEX颜色，例如 #4F6BED'**
+  String get hex_color_hint;
+
+  /// No description provided for @invalid_color.
+  ///
+  /// In zh, this message translates to:
+  /// **'请输入有效的6位HEX颜色'**
+  String get invalid_color;
 
   /// No description provided for @language.
   ///
@@ -1036,6 +1660,12 @@ abstract class AppLocalizations {
   /// **'调和'**
   String get skill_action_type_130;
 
+  /// No description provided for @skill_action_type_132.
+  ///
+  /// In zh, this message translates to:
+  /// **'伤害变更'**
+  String get skill_action_type_132;
+
   /// No description provided for @skill_status_100.
   ///
   /// In zh, this message translates to:
@@ -1420,11 +2050,23 @@ abstract class AppLocalizations {
   /// **'魔法防御力最低'**
   String get skill_target_46;
 
+  /// No description provided for @skill_target_47.
+  ///
+  /// In zh, this message translates to:
+  /// **'飞行状态'**
+  String get skill_target_47;
+
   /// No description provided for @skill_target_50.
   ///
   /// In zh, this message translates to:
   /// **'魔法攻击力最高(自身除外)'**
   String get skill_target_50;
+
+  /// No description provided for @skill_target_51.
+  ///
+  /// In zh, this message translates to:
+  /// **'物理攻击力最高(自身和魔法角色除外)'**
+  String get skill_target_51;
 
   /// No description provided for @skill_target_13xxx.
   ///
@@ -1498,6 +2140,12 @@ abstract class AppLocalizations {
   /// **'吸收'**
   String get skill_shield_defense;
 
+  /// No description provided for @skill_shield_both.
+  ///
+  /// In zh, this message translates to:
+  /// **'无效和吸收'**
+  String get skill_shield_both;
+
   /// No description provided for @skill_shield.
   ///
   /// In zh, this message translates to:
@@ -1551,6 +2199,12 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'HP最大值'**
   String get skill_hp_max;
+
+  /// No description provided for @skill_effect.
+  ///
+  /// In zh, this message translates to:
+  /// **'效果'**
+  String get skill_effect;
 
   /// No description provided for @skill_increase.
   ///
@@ -1753,7 +2407,7 @@ abstract class AppLocalizations {
   /// No description provided for @skill_action_type_desc_1.
   ///
   /// In zh, this message translates to:
-  /// **'对{arg1}造成 {arg2} 的{arg3}伤害{arg4}{arg5}{arg6}{arg7}'**
+  /// **'对{arg1}造成 {arg2} 的{arg3}伤害{arg4}{arg5}{arg6}{arg7}{arg8}'**
   String skill_action_type_desc_1(
     String arg1,
     String arg2,
@@ -1762,6 +2416,7 @@ abstract class AppLocalizations {
     String arg5,
     String arg6,
     String arg7,
+    String arg8,
   );
 
   /// No description provided for @skill_forward.
@@ -1903,13 +2558,14 @@ abstract class AppLocalizations {
   /// No description provided for @skill_action_type_desc_9.
   ///
   /// In zh, this message translates to:
-  /// **'使{arg1}进入 [{arg2}] 状态，每秒造成伤害 {arg3}{arg4}{arg5}'**
+  /// **'使{arg1}进入 [{arg2}] 状态，每秒造成伤害 {arg3}{arg4}{arg5}{arg6}'**
   String skill_action_type_desc_9(
     String arg1,
     String arg2,
     String arg3,
     String arg4,
     String arg5,
+    String arg6,
   );
 
   /// No description provided for @skill_buff.
@@ -1917,6 +2573,12 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'增益'**
   String get skill_buff;
+
+  /// No description provided for @skill_buff_without_field.
+  ///
+  /// In zh, this message translates to:
+  /// **'增益（领域除外）'**
+  String get skill_buff_without_field;
 
   /// No description provided for @skill_debuff.
   ///
@@ -2512,7 +3174,7 @@ abstract class AppLocalizations {
   /// No description provided for @skill_action_type_desc_33.
   ///
   /// In zh, this message translates to:
-  /// **'{arg1}，受到{arg2}伤害时反弹 {arg3} 伤害{arg4}，生效 [{arg5}] 次'**
+  /// **'{arg1}，受到{arg2}伤害时{arg3}{arg4}，生效 [{arg5}] 次'**
   String skill_action_type_desc_33(
     String arg1,
     String arg2,
@@ -2520,6 +3182,18 @@ abstract class AppLocalizations {
     String arg4,
     int arg5,
   );
+
+  /// No description provided for @skill_action_type_desc_33_value.
+  ///
+  /// In zh, this message translates to:
+  /// **'反弹 {arg1} 伤害'**
+  String skill_action_type_desc_33_value(String arg1);
+
+  /// No description provided for @skill_action_type_desc_33_action.
+  ///
+  /// In zh, this message translates to:
+  /// **'使用动作({arg1})'**
+  String skill_action_type_desc_33_action(int arg1);
 
   /// No description provided for @skill_action_type_desc_33_hp.
   ///
@@ -2559,8 +3233,13 @@ abstract class AppLocalizations {
   /// No description provided for @skill_action_type_desc_field.
   ///
   /// In zh, this message translates to:
-  /// **'展开{arg2}的领域，范围 [{arg1}]{arg3}'**
-  String skill_action_type_desc_field(String arg2, int arg1, String arg3);
+  /// **'展开{arg4}{arg2}的领域，范围 [{arg1}]{arg3}'**
+  String skill_action_type_desc_field(
+    String arg2,
+    int arg1,
+    String arg3,
+    String arg4,
+  );
 
   /// No description provided for @skill_action_type_desc_37_heal.
   ///
@@ -2583,7 +3262,7 @@ abstract class AppLocalizations {
   /// No description provided for @skill_action_type_desc_42_14.
   ///
   /// In zh, this message translates to:
-  /// **'[{arg1}] 秒内受到无法行动、击飞、拉近伤害时，以 {arg2} 的概率使用{arg3}'**
+  /// **'[{arg1}] 秒内受到无法行动、击飞、拉近伤害时，以 {arg2} 的概率使用{arg3}，动作生效期间免疫无法行动、击飞、拉近效果'**
   String skill_action_type_desc_42_14(int arg1, String arg2, String arg3);
 
   /// No description provided for @skill_action_type_desc_44.
@@ -2866,13 +3545,14 @@ abstract class AppLocalizations {
   /// No description provided for @skill_action_type_desc_79.
   ///
   /// In zh, this message translates to:
-  /// **'{arg1}行动时，受到{arg2} {arg3} 伤害{arg4}{arg5}'**
+  /// **'{arg1}行动时，受到{arg2} {arg3} 伤害{arg4}{arg5}{arg6}'**
   String skill_action_type_desc_79(
     String arg1,
     String arg2,
     String arg3,
     String arg4,
     String arg5,
+    String arg6,
   );
 
   /// No description provided for @skill_action_type_desc_81.
@@ -3102,14 +3782,54 @@ abstract class AppLocalizations {
   /// No description provided for @skill_action_type_desc_129.
   ///
   /// In zh, this message translates to:
-  /// **'使{arg1}受到的 {arg2} 伤害转化为持续伤害{arg3}；该持续伤害不回复 TP'**
-  String skill_action_type_desc_129(String arg1, String arg2, String arg3);
+  /// **'使{arg1}受到的 {arg2} 伤害转化为持续伤害，伤害间隔 [1] 秒，共计触发 [{arg3}] 次{arg4}；该持续伤害不回复 TP'**
+  String skill_action_type_desc_129(
+    String arg1,
+    String arg2,
+    int arg3,
+    String arg4,
+  );
 
   /// No description provided for @skill_action_type_desc_130.
   ///
   /// In zh, this message translates to:
   /// **'使{arg1}受到伤害时，按物理/魔法防御中较高的防御计算伤害'**
   String skill_action_type_desc_130(String arg1);
+
+  /// No description provided for @skill_action_type_desc_132.
+  ///
+  /// In zh, this message translates to:
+  /// **'使{arg1}造成的伤害{arg2}{arg3}{arg4}{arg5}'**
+  String skill_action_type_desc_132(
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+    String arg5,
+  );
+
+  /// No description provided for @skill_action_type_desc_133.
+  ///
+  /// In zh, this message translates to:
+  /// **'对{arg1}追加 [{arg2}] 层标记，使用 UB 时，减少 [1] 层标记，并使用动作({arg3}){arg4}'**
+  String skill_action_type_desc_133(
+    String arg1,
+    int arg2,
+    int arg3,
+    String arg4,
+  );
+
+  /// No description provided for @skill_action_take_damage_tp_0.
+  ///
+  /// In zh, this message translates to:
+  /// **'，受击时不回复 TP'**
+  String get skill_action_take_damage_tp_0;
+
+  /// No description provided for @skill_action_take_damage_tp_multiple.
+  ///
+  /// In zh, this message translates to:
+  /// **'，受击 TP 变更为初始值的 [{arg1}] 倍'**
+  String skill_action_take_damage_tp_multiple(String arg1);
 
   /// No description provided for @skill_ailment_1.
   ///

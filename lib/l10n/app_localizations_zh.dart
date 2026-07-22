@@ -29,6 +29,187 @@ class AppLocalizationsZh extends AppLocalizations {
   String get function_page => '功能';
 
   @override
+  String get quick_access => '快捷入口';
+
+  @override
+  String get quick_access_desc => '常用资料与战斗查询';
+
+  @override
+  String get game_data => '游戏资料';
+
+  @override
+  String get battle_query => '战斗查询';
+
+  @override
+  String get character_index => '角色图鉴';
+
+  @override
+  String get character_index_desc => '搜索角色、技能与行动循环';
+
+  @override
+  String get character_bond => '角色羁绊';
+
+  @override
+  String get character_bond_desc => '查询剧情解锁的角色属性';
+
+  @override
+  String get unique_equip_list => '专武列表';
+
+  @override
+  String get unique_equip_desc => '查看专武说明与满级属性';
+
+  @override
+  String get deep_zone => '深域关卡';
+
+  @override
+  String get deep_zone_desc => '按属性查看关卡奖励与敌方阵容';
+
+  @override
+  String stellar_shard_count(int arg1) {
+    return '星素碎片*$arg1';
+  }
+
+  @override
+  String crystal_ball_count(int arg1) {
+    return '水晶球*$arg1';
+  }
+
+  @override
+  String get no_deep_zone_data => '数据库中没有深域关卡数据';
+
+  @override
+  String get deep_zone_search_hint => '搜索关卡名、关卡 ID 或敌人 ID';
+
+  @override
+  String get deep_zone_sort_stage => '关卡';
+
+  @override
+  String get deep_zone_sort_stellar_shard => '星素碎片';
+
+  @override
+  String get deep_zone_sort_crystal_ball => '水晶球';
+
+  @override
+  String deep_zone_sort_by(String arg1) {
+    return '按$arg1排序';
+  }
+
+  @override
+  String get sort_ascending => '切换为升序';
+
+  @override
+  String get sort_descending => '切换为降序';
+
+  @override
+  String get refresh => '刷新';
+
+  @override
+  String get retry => '重试';
+
+  @override
+  String get clan_battle_query => '公会战查询';
+
+  @override
+  String get clan_battle_query_desc => '阶段 Boss、血量与满补线';
+
+  @override
+  String get enemy_search => '敌人查询';
+
+  @override
+  String get enemy_search_desc => '按敌人 ID 查看技能与属性';
+
+  @override
+  String get enemy_search_hint => '搜索敌人名称、敌人 ID 或单位 ID';
+
+  @override
+  String get enemy_search_help => '可按名称搜索，或切换为 ID 模式查询敌人 ID 与单位 ID。';
+
+  @override
+  String get enemy_name_unknown => '未命名敌人';
+
+  @override
+  String enemy_level(int arg1) {
+    return '等级 $arg1';
+  }
+
+  @override
+  String get enemy_parameters => '敌人参数';
+
+  @override
+  String get enemy_parameter_basic => '基础信息';
+
+  @override
+  String get enemy_parameter_combat => '战斗属性';
+
+  @override
+  String get enemy_parameter_special => '特殊参数';
+
+  @override
+  String get enemy_parameter_skill_levels => '技能等级';
+
+  @override
+  String get enemy_id => '敌人 ID';
+
+  @override
+  String get enemy_level_label => '等级';
+
+  @override
+  String get enemy_rarity => '星级';
+
+  @override
+  String get enemy_promotion_level => 'Rank';
+
+  @override
+  String get enemy_virtual_hp => '虚拟 HP';
+
+  @override
+  String get enemy_break_durability => '破防耐久';
+
+  @override
+  String get enemy_resist_status_id => '异常抗性 ID';
+
+  @override
+  String get enemy_resist_variation_id => '抗性变体 ID';
+
+  @override
+  String get enemy_unique_equipment_flag => '专武标记';
+
+  @override
+  String get enemy_color => '敌人颜色';
+
+  @override
+  String get characters => '角色';
+
+  @override
+  String get unique_equips => '专用装备';
+
+  @override
+  String get view_all => '查看全部';
+
+  @override
+  String get schedule => '日程';
+
+  @override
+  String schedule_server_time(String arg1) {
+    return '$arg1 · 服务器时间';
+  }
+
+  @override
+  String get schedule_in_progress => '正在进行的日程';
+
+  @override
+  String get schedule_coming_soon => '即将开始的日程';
+
+  @override
+  String get schedule_empty_in_progress => '当前没有正在进行的日程';
+
+  @override
+  String get schedule_empty_coming => '当前没有即将开始的日程';
+
+  @override
+  String get schedule_load_failed => '日程加载失败';
+
+  @override
   String get settings_page => '设置';
 
   @override
@@ -67,6 +248,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get normal_attack => '普攻';
 
   @override
+  String get normal_skill => '常规技能';
+
+  @override
   String get union_burst => '连结爆发';
 
   @override
@@ -93,6 +277,15 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get skill_info => '技能信息';
+
+  @override
+  String get skill_parameters => '计算参数';
+
+  @override
+  String get reset => '重置';
+
+  @override
+  String get apply => '应用';
 
   @override
   String get summon_unit => '召唤物';
@@ -163,6 +356,81 @@ class AppLocalizationsZh extends AppLocalizations {
   String get tool_unique_equip => '专武';
 
   @override
+  String get all => '全部';
+
+  @override
+  String get unique_equip_1 => '专武 1';
+
+  @override
+  String get unique_equip_2 => '专武 2';
+
+  @override
+  String get role_attacker => '攻击';
+
+  @override
+  String get role_breaker => '破坏';
+
+  @override
+  String get role_buffer => '增益';
+
+  @override
+  String get role_debuffer => '减益';
+
+  @override
+  String get role_booster => '强化';
+
+  @override
+  String get role_healer => '回复';
+
+  @override
+  String get role_tank => '防御';
+
+  @override
+  String get role_jammer => '干扰';
+
+  @override
+  String get search_unique_equip_hint => '搜索专武或角色名';
+
+  @override
+  String get no_unique_equip_data => '没有找到对应的专武';
+
+  @override
+  String get show_all_characters => '查看全部角色';
+
+  @override
+  String unit_unique_equip_list(String arg1) {
+    return '$arg1的专武';
+  }
+
+  @override
+  String unique_equip_max_level(int arg1) {
+    return '满级属性 · Lv.$arg1';
+  }
+
+  @override
+  String get attribute_bonus => '属性加成';
+
+  @override
+  String get view_character => '查看角色详情';
+
+  @override
+  String get search_character_bond_hint => '搜索角色名或 ID';
+
+  @override
+  String get change_character => '更换角色';
+
+  @override
+  String get no_bond_data => '该角色暂无羁绊属性数据';
+
+  @override
+  String get bond_attribute_summary => '羁绊属性总览';
+
+  @override
+  String bond_story_count(int arg1) {
+    return '$arg1 个剧情属性奖励';
+  }
+
+  @override
   String get character_detail => '角色详情';
 
   @override
@@ -184,7 +452,74 @@ class AppLocalizationsZh extends AppLocalizations {
   String get search_hit_id => '请输入角色ID';
 
   @override
+  String get enemy_or_clan_id_hint => '输入敌人ID或公会战ID';
+
+  @override
+  String get clan_battle_id_hint => '输入公会战ID，例如 1090';
+
+  @override
+  String get recent_clan_battles => '最近公会战';
+
+  @override
+  String clan_battle_title(int arg1) {
+    return '$arg1期公会战';
+  }
+
+  @override
+  String clan_battle_phase(String arg1) {
+    return '$arg1阶段';
+  }
+
+  @override
+  String clan_battle_laps(String arg1) {
+    return '$arg1周目';
+  }
+
+  @override
+  String get boss_hp => 'BOSS血量';
+
+  @override
+  String get full_compensation_line => '满补线';
+
+  @override
+  String get full_compensation_formula =>
+      '满补伤害 = BOSS血量 ÷（满补数 + 21/90），低于600万不显示';
+
+  @override
+  String get no_clan_battle_data => '数据库中没有对应的公会战数据';
+
+  @override
+  String get open_enemy_detail => '查看敌人详情';
+
+  @override
   String get app_settings => '应用设置';
+
+  @override
+  String get appearance_settings => '外观设置';
+
+  @override
+  String get theme_mode => '显示模式';
+
+  @override
+  String get theme_system => '跟随系统';
+
+  @override
+  String get theme_light => '浅色模式';
+
+  @override
+  String get theme_dark => '夜间模式';
+
+  @override
+  String get theme_color => '主题色';
+
+  @override
+  String get custom_theme_color => '自定义主题色';
+
+  @override
+  String get hex_color_hint => '输入HEX颜色，例如 #4F6BED';
+
+  @override
+  String get invalid_color => '请输入有效的6位HEX颜色';
 
   @override
   String get language => '语言';
@@ -504,6 +839,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get skill_action_type_130 => '调和';
 
   @override
+  String get skill_action_type_132 => '伤害变更';
+
+  @override
   String get skill_status_100 => '无法行动';
 
   @override
@@ -698,7 +1036,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get skill_target_46 => '魔法防御力最低';
 
   @override
+  String get skill_target_47 => '飞行状态';
+
+  @override
   String get skill_target_50 => '魔法攻击力最高(自身除外)';
+
+  @override
+  String get skill_target_51 => '物理攻击力最高(自身和魔法角色除外)';
 
   @override
   String get skill_target_13xxx => '被标记';
@@ -737,6 +1081,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get skill_shield_defense => '吸收';
 
   @override
+  String get skill_shield_both => '无效和吸收';
+
+  @override
   String skill_shield(String arg1, String arg2) {
     return '$arg1$arg2伤害的护盾';
   }
@@ -768,6 +1115,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get skill_hp_max => 'HP最大值';
+
+  @override
+  String get skill_effect => '效果';
 
   @override
   String get skill_increase => '提升';
@@ -889,8 +1239,9 @@ class AppLocalizationsZh extends AppLocalizations {
     String arg5,
     String arg6,
     String arg7,
+    String arg8,
   ) {
-    return '对$arg1造成 $arg2 的$arg3伤害$arg4$arg5$arg6$arg7';
+    return '对$arg1造成 $arg2 的$arg3伤害$arg4$arg5$arg6$arg7$arg8';
   }
 
   @override
@@ -997,12 +1348,16 @@ class AppLocalizationsZh extends AppLocalizations {
     String arg3,
     String arg4,
     String arg5,
+    String arg6,
   ) {
-    return '使$arg1进入 [$arg2] 状态，每秒造成伤害 $arg3$arg4$arg5';
+    return '使$arg1进入 [$arg2] 状态，每秒造成伤害 $arg3$arg4$arg5$arg6';
   }
 
   @override
   String get skill_buff => '增益';
+
+  @override
+  String get skill_buff_without_field => '增益（领域除外）';
 
   @override
   String get skill_debuff => '减益';
@@ -1459,7 +1814,17 @@ class AppLocalizationsZh extends AppLocalizations {
     String arg4,
     int arg5,
   ) {
-    return '$arg1，受到$arg2伤害时反弹 $arg3 伤害$arg4，生效 [$arg5] 次';
+    return '$arg1，受到$arg2伤害时$arg3$arg4，生效 [$arg5] 次';
+  }
+
+  @override
+  String skill_action_type_desc_33_value(String arg1) {
+    return '反弹 $arg1 伤害';
+  }
+
+  @override
+  String skill_action_type_desc_33_action(int arg1) {
+    return '使用动作($arg1)';
   }
 
   @override
@@ -1491,8 +1856,13 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String skill_action_type_desc_field(String arg2, int arg1, String arg3) {
-    return '展开$arg2的领域，范围 [$arg1]$arg3';
+  String skill_action_type_desc_field(
+    String arg2,
+    int arg1,
+    String arg3,
+    String arg4,
+  ) {
+    return '展开$arg4$arg2的领域，范围 [$arg1]$arg3';
   }
 
   @override
@@ -1512,7 +1882,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String skill_action_type_desc_42_14(int arg1, String arg2, String arg3) {
-    return '[$arg1] 秒内受到无法行动、击飞、拉近伤害时，以 $arg2 的概率使用$arg3';
+    return '[$arg1] 秒内受到无法行动、击飞、拉近伤害时，以 $arg2 的概率使用$arg3，动作生效期间免疫无法行动、击飞、拉近效果';
   }
 
   @override
@@ -1753,8 +2123,9 @@ class AppLocalizationsZh extends AppLocalizations {
     String arg3,
     String arg4,
     String arg5,
+    String arg6,
   ) {
-    return '$arg1行动时，受到$arg2 $arg3 伤害$arg4$arg5';
+    return '$arg1行动时，受到$arg2 $arg3 伤害$arg4$arg5$arg6';
   }
 
   @override
@@ -1942,13 +2313,47 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String skill_action_type_desc_129(String arg1, String arg2, String arg3) {
-    return '使$arg1受到的 $arg2 伤害转化为持续伤害$arg3；该持续伤害不回复 TP';
+  String skill_action_type_desc_129(
+    String arg1,
+    String arg2,
+    int arg3,
+    String arg4,
+  ) {
+    return '使$arg1受到的 $arg2 伤害转化为持续伤害，伤害间隔 [1] 秒，共计触发 [$arg3] 次$arg4；该持续伤害不回复 TP';
   }
 
   @override
   String skill_action_type_desc_130(String arg1) {
     return '使$arg1受到伤害时，按物理/魔法防御中较高的防御计算伤害';
+  }
+
+  @override
+  String skill_action_type_desc_132(
+    String arg1,
+    String arg2,
+    String arg3,
+    String arg4,
+    String arg5,
+  ) {
+    return '使$arg1造成的伤害$arg2$arg3$arg4$arg5';
+  }
+
+  @override
+  String skill_action_type_desc_133(
+    String arg1,
+    int arg2,
+    int arg3,
+    String arg4,
+  ) {
+    return '对$arg1追加 [$arg2] 层标记，使用 UB 时，减少 [1] 层标记，并使用动作($arg3)$arg4';
+  }
+
+  @override
+  String get skill_action_take_damage_tp_0 => '，受击时不回复 TP';
+
+  @override
+  String skill_action_take_damage_tp_multiple(String arg1) {
+    return '，受击 TP 变更为初始值的 [$arg1] 倍';
   }
 
   @override

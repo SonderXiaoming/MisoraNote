@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:misora_note/constants.dart';
 
 class CustomIconButton extends StatelessWidget {
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final double paddingValue;
   final double? backgroundSize;
   final VoidCallback? onTap;
-  final Widget child;
-  const CustomIconButton(
-      {super.key,
-      required this.backgroundColor,
-      this.child = const Icon(Icons.arrow_back_ios_new,
-          size: 18, color: Color(CustomColors.colorPrimary)),
-      this.onTap,
-      this.paddingValue = 8,
-      this.backgroundSize});
+  final Widget? child;
+  const CustomIconButton({
+    super.key,
+    this.backgroundColor,
+    this.child,
+    this.onTap,
+    this.paddingValue = 8,
+    this.backgroundSize,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Padding(
       padding: EdgeInsets.all(paddingValue),
       child: SizedBox(
@@ -26,15 +26,22 @@ class CustomIconButton extends StatelessWidget {
         height: backgroundSize,
         child: ClipOval(
           child: Material(
-            color: backgroundColor, // Button color
+            color: backgroundColor ?? colors.primaryContainer,
             child: InkWell(
-              onTap: onTap ??
+              onTap:
+                  onTap ??
                   () {
                     if (GoRouter.of(context).canPop()) {
                       GoRouter.of(context).pop();
                     }
                   },
-              child: child,
+              child:
+                  child ??
+                  Icon(
+                    Icons.arrow_back_ios_new,
+                    size: 18,
+                    color: colors.onPrimaryContainer,
+                  ),
             ),
           ),
         ),

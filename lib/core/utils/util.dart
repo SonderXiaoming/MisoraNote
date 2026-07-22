@@ -58,7 +58,11 @@ Future<String?> checkDatabaseUpdate(Area area) async {
     );
     if (response.statusCode == 200) {
       final info = LatestDbVersionResponse.fromJson(response.data);
-      return info.data.time ?? info.data.truthVersion;
+      if (!info.isSuccess) return null;
+      final version = info.data.time?.trim();
+      return version == null || version.isEmpty
+          ? info.data.truthVersion.trim()
+          : version;
     }
     return null;
   } catch (error) {

@@ -33,7 +33,7 @@ class DropDownSettings<T> extends StatelessWidget {
     return ListTile(
       title: Text(title, style: textTheme.titleMedium),
       trailing: SizedBox(
-        width: mediaWidth / 6,
+        width: mediaWidth < 600 ? 150 : mediaWidth / 6,
         child: DropdownWithRadio<T>(
           showLeadingDot: false,
           label: title,
@@ -68,11 +68,7 @@ class SwitchSettings extends StatelessWidget {
 
     return ListTile(
       title: Text(title, style: textTheme.titleMedium),
-      trailing: Switch(
-        value: value,
-        onChanged: onChanged,
-        activeThumbColor: Color(CustomColors.colorPrimary),
-      ),
+      trailing: Switch(value: value, onChanged: onChanged),
     );
   }
 }
@@ -112,6 +108,7 @@ class _SubSettingsPageState extends ConsumerState<SubSettingsPage> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final colors = Theme.of(context).colorScheme;
     return Column(
       children: [
         Container(
@@ -121,14 +118,12 @@ class _SubSettingsPageState extends ConsumerState<SubSettingsPage> {
             widget.title,
             style: textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.bold,
-              color: Color(CustomColors.colorPrimary),
+              color: colors.primary,
             ),
           ),
         ),
         BaseCard(
-          border: Border.all(
-            color: Color(CustomColors.colorGray).withAlpha(50),
-          ),
+          border: Border.all(color: colors.outlineVariant),
           child: Column(
             children: widget.children.map((child) {
               return Column(
@@ -139,7 +134,7 @@ class _SubSettingsPageState extends ConsumerState<SubSettingsPage> {
                       ? Divider(
                           height: 1,
                           thickness: 0.5,
-                          color: Color(CustomColors.colorGray).withAlpha(80),
+                          color: colors.outlineVariant,
                           indent: 16,
                         )
                       : SizedBox(height: 8),
@@ -148,6 +143,181 @@ class _SubSettingsPageState extends ConsumerState<SubSettingsPage> {
             }).toList(),
           ),
         ),
+      ],
+    );
+  }
+}
+
+class ThemeColorSettings extends ConsumerWidget {
+  final int colorValue;
+
+  const ThemeColorSettings({super.key, required this.colorValue});
+
+  static const _presetColors = <int>[
+    0xFF4F6BED,
+    0xFF6750A4,
+    0xFF006C67,
+    0xFF2E7D32,
+    0xFFC2416C,
+    0xFFB85C00,
+    0xFF4B607F,
+    0xFF7D5260,
+  ];
+
+  String _hex(int value) =>
+      '#${(value & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase()}';
+
+  Future<void> _pickColor(BuildContext context, WidgetRef ref) async {
+    final result = await showDialog<int>(
+      context: context,
+      builder: (context) => _ThemeColorDialog(
+        initialColor: colorValue,
+        presetColors: _presetColors,
+      ),
+    );
+    if (result != null) {
+      await ref.read(themeSeedColorProvider.notifier).set(result);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final t = AppLocalizations.of(context)!;
+    return ListTile(
+      title: Text(t.theme_color),
+      subtitle: Text(_hex(colorValue)),
+      trailing: Container(
+        width: 36,
+        height: 36,
+        decoration: BoxDecoration(
+          color: Color(colorValue),
+          shape: BoxShape.circle,
+          border: Border.all(color: Theme.of(context).colorScheme.outline),
+        ),
+      ),
+      onTap: () => _pickColor(context, ref),
+    );
+  }
+}
+
+class _ThemeColorDialog extends StatefulWidget {
+  final int initialColor;
+  final List<int> presetColors;
+
+  const _ThemeColorDialog({
+    required this.initialColor,
+    required this.presetColors,
+  });
+
+  @override
+  State<_ThemeColorDialog> createState() => _ThemeColorDialogState();
+}
+
+class _ThemeColorDialogState extends State<_ThemeColorDialog> {
+  late int _selected;
+  late final TextEditingController _controller;
+  String? _error;
+
+  @override
+  void initState() {
+    super.initState();
+    _selected = widget.initialColor;
+    _controller = TextEditingController(text: _hex(widget.initialColor));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  String _hex(int value) =>
+      '#${(value & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase()}';
+
+  void _selectPreset(int value) {
+    setState(() {
+      _selected = value;
+      _controller.text = _hex(value);
+      _error = null;
+    });
+  }
+
+  void _apply() {
+    final t = AppLocalizations.of(context)!;
+    final hex = _controller.text.trim().replaceFirst('#', '');
+    if (!RegExp(r'^[0-9a-fA-F]{6}$').hasMatch(hex)) {
+      setState(() => _error = t.invalid_color);
+      return;
+    }
+    Navigator.pop(context, int.parse('FF$hex', radix: 16));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+    final colors = Theme.of(context).colorScheme;
+    return AlertDialog(
+      title: Text(t.custom_theme_color),
+      content: SizedBox(
+        width: 360,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Wrap(
+              spacing: 12,
+              runSpacing: 12,
+              children: [
+                for (final value in widget.presetColors)
+                  Semantics(
+                    button: true,
+                    label: _hex(value),
+                    child: InkWell(
+                      customBorder: const CircleBorder(),
+                      onTap: () => _selectPreset(value),
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 160),
+                        width: 44,
+                        height: 44,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(value),
+                          border: Border.all(
+                            width: _selected == value ? 3 : 1,
+                            color: _selected == value
+                                ? colors.onSurface
+                                : colors.outline,
+                          ),
+                        ),
+                        child: _selected == value
+                            ? const Icon(Icons.check, color: Colors.white)
+                            : null,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            TextField(
+              controller: _controller,
+              autofocus: true,
+              textCapitalization: TextCapitalization.characters,
+              onSubmitted: (_) => _apply(),
+              decoration: InputDecoration(
+                labelText: t.theme_color,
+                hintText: t.hex_color_hint,
+                errorText: _error,
+              ),
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
+        ),
+        FilledButton(onPressed: _apply, child: Text(t.apply)),
       ],
     );
   }
@@ -171,12 +341,16 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
     final dbVersion = ref.watch(currentDbVersionProvider);
     final autoUpdate = ref.watch(databaseAutoUpdateProvider);
     final useOldVersion = ref.watch(useOldVersionProvider);
+    final themeMode = ref.watch(themeModeProvider);
+    final themeSeedColor = ref.watch(themeSeedColorProvider);
     if (packageInfo.isLoading ||
         language.isLoading ||
         area.isLoading ||
         dbVersion.isLoading ||
         autoUpdate.isLoading ||
         useOldVersion.isLoading ||
+        themeMode.isLoading ||
+        themeSeedColor.isLoading ||
         appAutoUpdate.isLoading) {
       return Scaffold(body: Center(child: CircularProgressIndicator()));
     }
@@ -194,13 +368,34 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                   '${t.app_name} v$version',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Color(CustomColors.colorPrimary),
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
                 SizedBox(height: 12),
                 LocalImage(path: '${FilePath.img}/icon.png'),
               ],
             ),
+          ),
+
+          SizedBox(height: 16),
+
+          SubSettingsPage(
+            title: t.appearance_settings,
+            children: [
+              DropDownSettings<ThemeMode>(
+                title: t.theme_mode,
+                items: [
+                  (ThemeMode.system, t.theme_system),
+                  (ThemeMode.light, t.theme_light),
+                  (ThemeMode.dark, t.theme_dark),
+                ],
+                onSelected: (value) async {
+                  await ref.read(themeModeProvider.notifier).set(value);
+                },
+                currentValue: themeMode.value,
+              ),
+              ThemeColorSettings(colorValue: themeSeedColor.value!),
+            ],
           ),
 
           SizedBox(height: 16),

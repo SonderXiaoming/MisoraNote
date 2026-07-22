@@ -8,6 +8,9 @@ import 'package:misora_note/features/function_page.dart';
 import 'package:misora_note/features/unit_page.dart';
 import 'package:misora_note/features/unit_search.dart';
 import 'package:misora_note/features/enemy_search/enemy_search.dart';
+import 'package:misora_note/features/tool_pages/character_bond_page.dart';
+import 'package:misora_note/features/tool_pages/deep_zone_page.dart';
+import 'package:misora_note/features/tool_pages/unique_equip_page.dart';
 import 'package:misora_note/core/router/responsive_navigation.dart';
 import '../../features/home_page.dart';
 import '../../features/settings_page.dart';
@@ -62,6 +65,23 @@ final appRouter = GoRouter(
         final extra = state.extra as UnitCard;
         return FadeSlideScaleTransitionPage(child: UnitPage(card: extra));
       },
+    ),
+    GoRoute(
+      path: AppRoutes.uniqueEquipList,
+      pageBuilder: (ctx, state) => FadeSlideScaleTransitionPage(
+        child: UniqueEquipPage(initialUnitId: state.extra as int?),
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.characterBond,
+      pageBuilder: (ctx, state) => FadeSlideScaleTransitionPage(
+        child: CharacterBondPage(initialUnitId: state.extra as int?),
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.deepZone,
+      pageBuilder: (ctx, state) =>
+          FadeSlideScaleTransitionPage(child: const DeepZonePage()),
     ),
   ],
   errorPageBuilder: (ctx, state) => FadeSlideScaleTransitionPage(

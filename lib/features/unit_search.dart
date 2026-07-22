@@ -144,19 +144,20 @@ class _ShowResult extends State<ShowResult> {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
-    final texttheme = Theme.of(context).textTheme;
+    final theme = Theme.of(context);
+    final texttheme = theme.textTheme;
     // 如果正在搜索，显示加载状态
     if (widget.isSearching) {
       return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircularProgressIndicator(color: Color(CustomColors.colorPrimary)),
+            CircularProgressIndicator(color: theme.colorScheme.primary),
             const SizedBox(height: 16),
             Text(
               '${t.searching}: "${widget.searchQuery}"',
               style: texttheme.bodyLarge?.copyWith(
-                color: Color(CustomColors.colorGray).withAlpha(150),
+                color: theme.colorScheme.onSurfaceVariant,
               ),
             ),
           ],
@@ -170,16 +171,12 @@ class _ShowResult extends State<ShowResult> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.search,
-              size: 64,
-              color: Color(CustomColors.colorGray).withAlpha(100),
-            ),
+            Icon(Icons.search, size: 64, color: theme.colorScheme.outline),
             const SizedBox(height: 16),
             Text(
               t.no_search_result,
               style: texttheme.bodyLarge?.copyWith(
-                color: Color(CustomColors.colorGray).withAlpha(150),
+                color: theme.colorScheme.onSurfaceVariant,
               ),
             ),
           ],
@@ -413,6 +410,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
       r6Units[id] = true;
     }
     final texttheme = Theme.of(context).textTheme;
+    final colors = Theme.of(context).colorScheme;
     return Scaffold(
       body: Column(
         children: [
@@ -424,17 +422,11 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
               right: 16,
               bottom: 8,
             ),
-            color: Colors.white,
+            color: colors.surface,
             child: Row(
               children: [
                 // 返回按钮
-                CustomIconButton(
-                  backgroundSize: 40,
-                  paddingValue: 0,
-                  backgroundColor: HSLColor.fromColor(
-                    Color(CustomColors.colorPink),
-                  ).withLightness(0.95).toColor(),
-                ),
+                const CustomIconButton(backgroundSize: 40, paddingValue: 0),
                 const SizedBox(width: 12),
 
                 // 搜索框
@@ -449,10 +441,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                     keyboardType: isSearchById
                         ? TextInputType.number
                         : TextInputType.text,
-                    leading: Icon(
-                      Icons.search,
-                      color: Color(CustomColors.colorPrimary),
-                    ),
+                    leading: Icon(Icons.search, color: colors.primary),
                     trailing: searchQuery.isNotEmpty || hasActiveFilters()
                         ? [
                             if (hasActiveFilters())
@@ -468,14 +457,14 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                               IconButton(
                                 icon: Icon(
                                   Icons.clear,
-                                  color: Color(CustomColors.colorGray),
+                                  color: colors.onSurfaceVariant,
                                 ),
                                 onPressed: clearSearch,
                               ),
                           ]
                         : <Widget>[],
                     backgroundColor: WidgetStateProperty.all(
-                      Colors.grey.shade50,
+                      colors.surfaceContainerLowest,
                     ),
                     shadowColor: WidgetStateProperty.all(Colors.transparent),
                     surfaceTintColor: WidgetStateProperty.all(
@@ -483,14 +472,9 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                     ),
                     side: WidgetStateProperty.resolveWith((states) {
                       if (states.contains(WidgetState.focused)) {
-                        return BorderSide(
-                          color: Color(CustomColors.colorPrimary),
-                          width: 2,
-                        );
+                        return BorderSide(color: colors.primary, width: 2);
                       }
-                      return BorderSide(
-                        color: Color(CustomColors.colorGray).withAlpha(100),
-                      );
+                      return BorderSide(color: colors.outlineVariant);
                     }),
                     shape: WidgetStateProperty.all(
                       RoundedRectangleBorder(
@@ -508,7 +492,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                   onTap: toggleSearchMode,
                   child: Icon(
                     isSearchById ? Icons.tag : Icons.person,
-                    color: Color(CustomColors.colorPrimary),
+                    color: colors.primary,
                     size: 25,
                   ),
                 ),
@@ -520,7 +504,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  color: Colors.white,
+                  color: colors.surfaceContainerHigh,
                   constraints: BoxConstraints(
                     minWidth: 120,
                     maxWidth: 150,
@@ -539,8 +523,8 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                                   : Icons.radio_button_unchecked,
                               size: 16,
                               color: isSelected
-                                  ? Color(CustomColors.colorPrimary)
-                                  : Colors.grey,
+                                  ? colors.primary
+                                  : colors.outline,
                             ),
                             const SizedBox(width: 8),
                             Expanded(
@@ -556,11 +540,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                   },
                   child: Container(
                     padding: const EdgeInsets.all(8),
-                    child: Icon(
-                      Icons.sort,
-                      color: Color(CustomColors.colorPrimary),
-                      size: 22,
-                    ),
+                    child: Icon(Icons.sort, color: colors.primary, size: 22),
                   ),
                 ),
                 const SizedBox(width: 4),
@@ -569,7 +549,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
                   onTap: toggleSortOrder,
                   child: Icon(
                     isAscending ? Icons.arrow_upward : Icons.arrow_downward,
-                    color: Color(CustomColors.colorPrimary),
+                    color: colors.primary,
                     size: 25,
                   ),
                 ),
@@ -579,7 +559,7 @@ class _UnitSearchState extends ConsumerState<UnitSearch> {
           // 搜索过滤器
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            color: Colors.white,
+            color: colors.surface,
             child: SearchFilters(
               searchData: searchData,
               onSearchDataChanged: (newSearchData) {

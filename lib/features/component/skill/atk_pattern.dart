@@ -142,19 +142,20 @@ class SinglePattern extends StatelessWidget {
             .whereType<PatternSkill>()
             .toList();
 
+    final colors = Theme.of(context).colorScheme;
     return BaseCard(
-      border: Border.all(color: Color(CustomColors.colorGray).withAlpha(50)),
+      border: Border.all(color: colors.outlineVariant),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 8, width: double.infinity),
           BaseTag(
-            backgroundColor: Color(CustomColors.colorPrimary),
+            backgroundColor: colors.primary,
             borderRadius: BorderRadius.all(Radius.circular(8)),
             child: Text(
               index != 0 ? "${t.skill_loop}$index" : t.skill_loop,
               style: style.titleMedium?.copyWith(
-                color: Color(CustomColors.colorWhite),
+                color: colors.onPrimary,
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -182,30 +183,35 @@ class AllAtkPattern extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        SizedBox(height: 16),
-        Text(
-          t.attack_pattern,
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            color: Color(CustomColors.colorPrimary),
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-        ...patterns.asMap().entries.map(
-          (e) => Padding(
-            padding: const EdgeInsets.only(bottom: 16),
-            child: SinglePattern(
-              unitAttackPatternData: e.value,
-              normalAttackCoolDown: normalAttackCoolDown,
-              skillIdList: skillIdList,
-              atkType: atkType,
-              index: patterns.length == 1 ? 0 : e.key + 1,
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 920),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(height: 16),
+            Text(
+              t.attack_pattern,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: Theme.of(context).colorScheme.primary,
+                fontWeight: FontWeight.w700,
+              ),
             ),
-          ),
+            ...patterns.asMap().entries.map(
+              (e) => Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: SinglePattern(
+                  unitAttackPatternData: e.value,
+                  normalAttackCoolDown: normalAttackCoolDown,
+                  skillIdList: skillIdList,
+                  atkType: atkType,
+                  index: patterns.length == 1 ? 0 : e.key + 1,
+                ),
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

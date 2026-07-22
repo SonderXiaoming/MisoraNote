@@ -124,6 +124,9 @@ class AppRoutes {
   static const unitDetail = '/unitDetail';
   static const unitSearch = '/unitSearch';
   static const enemySearch = '/enemySearch';
+  static const uniqueEquipList = '/uniqueEquipList';
+  static const characterBond = '/characterBond';
+  static const deepZone = '/deepZone';
 }
 
 class CustomColors {

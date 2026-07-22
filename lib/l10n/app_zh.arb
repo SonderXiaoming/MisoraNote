@@ -16,6 +16,98 @@
   "app_name": "美空笔记",
   "home_page": "首页",
   "function_page": "功能",
+  "quick_access": "快捷入口",
+  "quick_access_desc": "常用资料与战斗查询",
+  "game_data": "游戏资料",
+  "battle_query": "战斗查询",
+  "character_index": "角色图鉴",
+  "character_index_desc": "搜索角色、技能与行动循环",
+  "character_bond": "角色羁绊",
+  "character_bond_desc": "查询剧情解锁的角色属性",
+  "unique_equip_list": "专武列表",
+  "unique_equip_desc": "查看专武说明与满级属性",
+  "deep_zone": "深域关卡",
+  "deep_zone_desc": "按属性查看关卡奖励与敌方阵容",
+  "stellar_shard_count": "星素碎片*{arg1}",
+  "@stellar_shard_count": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "crystal_ball_count": "水晶球*{arg1}",
+  "@crystal_ball_count": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "no_deep_zone_data": "数据库中没有深域关卡数据",
+  "deep_zone_search_hint": "搜索关卡名、关卡 ID 或敌人 ID",
+  "deep_zone_sort_stage": "关卡",
+  "deep_zone_sort_stellar_shard": "星素碎片",
+  "deep_zone_sort_crystal_ball": "水晶球",
+  "deep_zone_sort_by": "按{arg1}排序",
+  "@deep_zone_sort_by": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "sort_ascending": "切换为升序",
+  "sort_descending": "切换为降序",
+  "refresh": "刷新",
+  "retry": "重试",
+  "clan_battle_query": "公会战查询",
+  "clan_battle_query_desc": "阶段 Boss、血量与满补线",
+  "enemy_search": "敌人查询",
+  "enemy_search_desc": "按敌人 ID 查看技能与属性",
+  "enemy_search_hint": "搜索敌人名称、敌人 ID 或单位 ID",
+  "enemy_search_help": "可按名称搜索，或切换为 ID 模式查询敌人 ID 与单位 ID。",
+  "enemy_name_unknown": "未命名敌人",
+  "enemy_level": "等级 {arg1}",
+  "@enemy_level": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "enemy_parameters": "敌人参数",
+  "enemy_parameter_basic": "基础信息",
+  "enemy_parameter_combat": "战斗属性",
+  "enemy_parameter_special": "特殊参数",
+  "enemy_parameter_skill_levels": "技能等级",
+  "enemy_id": "敌人 ID",
+  "enemy_level_label": "等级",
+  "enemy_rarity": "星级",
+  "enemy_promotion_level": "Rank",
+  "enemy_virtual_hp": "虚拟 HP",
+  "enemy_break_durability": "破防耐久",
+  "enemy_resist_status_id": "异常抗性 ID",
+  "enemy_resist_variation_id": "抗性变体 ID",
+  "enemy_unique_equipment_flag": "专武标记",
+  "enemy_color": "敌人颜色",
+  "characters": "角色",
+  "unique_equips": "专用装备",
+  "view_all": "查看全部",
+  "schedule": "日程",
+  "schedule_server_time": "{arg1} · 服务器时间",
+  "@schedule_server_time": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "schedule_in_progress": "正在进行的日程",
+  "schedule_coming_soon": "即将开始的日程",
+  "schedule_empty_in_progress": "当前没有正在进行的日程",
+  "schedule_empty_coming": "当前没有即将开始的日程",
+  "schedule_load_failed": "日程加载失败",
   "settings_page": "设置",
   "about_page": "关于",
   "restore": "恢复",
@@ -54,6 +146,7 @@
     }
   },
   "normal_attack": "普攻",
+  "normal_skill": "常规技能",
   "union_burst": "连结爆发",
   "skill_index": "技能{arg1}",
   "@skill_index": {
@@ -76,6 +169,9 @@
   "attack_pattern": "攻击模式",
   "skill_loop": "技能循环",
   "skill_info": "技能信息",
+  "skill_parameters": "计算参数",
+  "reset": "重置",
+  "apply": "应用",
   "summon_unit": "召唤物",
   "sp_skill": "SP技能",
   "type_normal": "常驻",
@@ -108,6 +204,50 @@
     }
   },
   "tool_unique_equip": "专武",
+  "all": "全部",
+  "unique_equip_1": "专武 1",
+  "unique_equip_2": "专武 2",
+  "role_attacker": "攻击",
+  "role_breaker": "破坏",
+  "role_buffer": "增益",
+  "role_debuffer": "减益",
+  "role_booster": "强化",
+  "role_healer": "回复",
+  "role_tank": "防御",
+  "role_jammer": "干扰",
+  "search_unique_equip_hint": "搜索专武或角色名",
+  "no_unique_equip_data": "没有找到对应的专武",
+  "show_all_characters": "查看全部角色",
+  "unit_unique_equip_list": "{arg1}的专武",
+  "@unit_unique_equip_list": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "unique_equip_max_level": "满级属性 · Lv.{arg1}",
+  "@unique_equip_max_level": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "attribute_bonus": "属性加成",
+  "view_character": "查看角色详情",
+  "search_character_bond_hint": "搜索角色名或 ID",
+  "change_character": "更换角色",
+  "no_bond_data": "该角色暂无羁绊属性数据",
+  "bond_attribute_summary": "羁绊属性总览",
+  "bond_story_count": "{arg1} 个剧情属性奖励",
+  "@bond_story_count": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
   "character_detail": "角色详情",
   "no_description": "暂无描述",
   "attack_type": "类型",
@@ -115,7 +255,48 @@
   "searching": "搜索中",
   "search_hit_name": "请输入角色名",
   "search_hit_id": "请输入角色ID",
+  "enemy_or_clan_id_hint": "输入敌人ID或公会战ID",
+  "clan_battle_id_hint": "输入公会战ID，例如 1090",
+  "recent_clan_battles": "最近公会战",
+  "clan_battle_title": "{arg1}期公会战",
+  "@clan_battle_title": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "clan_battle_phase": "{arg1}阶段",
+  "@clan_battle_phase": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "clan_battle_laps": "{arg1}周目",
+  "@clan_battle_laps": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "boss_hp": "BOSS血量",
+  "full_compensation_line": "满补线",
+  "full_compensation_formula": "满补伤害 = BOSS血量 ÷（满补数 + 21/90），低于600万不显示",
+  "no_clan_battle_data": "数据库中没有对应的公会战数据",
+  "open_enemy_detail": "查看敌人详情",
   "app_settings": "应用设置",
+  "appearance_settings": "外观设置",
+  "theme_mode": "显示模式",
+  "theme_system": "跟随系统",
+  "theme_light": "浅色模式",
+  "theme_dark": "夜间模式",
+  "theme_color": "主题色",
+  "custom_theme_color": "自定义主题色",
+  "hex_color_hint": "输入HEX颜色，例如 #4F6BED",
+  "invalid_color": "请输入有效的6位HEX颜色",
   "language": "语言",
   "database_settings": "数据库设置",
   "database_area": "数据库区域",
@@ -247,6 +428,7 @@
   "skill_action_type_128": "持续伤害增强",
   "skill_action_type_129": "伤害转化",
   "skill_action_type_130": "调和",
+  "skill_action_type_132": "伤害变更",
   "skill_status_100": "无法行动",
   "skill_status_101": "加速状态",
   "skill_status_200": "失明",
@@ -318,7 +500,9 @@
   "skill_target_44": "剩余HP最低(自身除外)",
   "skill_target_45": "物理防御力最低",
   "skill_target_46": "魔法防御力最低",
+  "skill_target_47": "飞行状态",
   "skill_target_50": "魔法攻击力最高(自身除外)",
+  "skill_target_51": "物理攻击力最高(自身和魔法角色除外)",
   "skill_target_13xxx": "被标记",
   "skill_target_fire": "火天赋",
   "skill_target_water": "水天赋",
@@ -331,6 +515,7 @@
   "skill_target_assignment_3": "敌人和己方",
   "skill_shield_no_effect": "无效",
   "skill_shield_defense": "吸收",
+  "skill_shield_both": "无效和吸收",
   "skill_shield": "{arg1}{arg2}伤害的护盾",
   "@skill_shield": {
     "placeholders": {
@@ -364,6 +549,7 @@
   "skill_atk_text": "攻击力",
   "skill_speed": "速度",
   "skill_hp_max": "HP最大值",
+  "skill_effect": "效果",
   "skill_increase": "提升",
   "skill_reduce": "减少",
   "skill_fixed": "(固定数值)",
@@ -439,7 +625,7 @@
       }
     }
   },
-  "skill_action_type_desc_1": "对{arg1}造成 {arg2} 的{arg3}伤害{arg4}{arg5}{arg6}{arg7}",
+  "skill_action_type_desc_1": "对{arg1}造成 {arg2} 的{arg3}伤害{arg4}{arg5}{arg6}{arg7}{arg8}",
   "@skill_action_type_desc_1": {
     "placeholders": {
       "arg1": {
@@ -461,6 +647,9 @@
         "type": "String"
       },
       "arg7": {
+        "type": "String"
+      },
+      "arg8": {
         "type": "String"
       }
     }
@@ -618,7 +807,7 @@
       }
     }
   },
-  "skill_action_type_desc_9": "使{arg1}进入 [{arg2}] 状态，每秒造成伤害 {arg3}{arg4}{arg5}",
+  "skill_action_type_desc_9": "使{arg1}进入 [{arg2}] 状态，每秒造成伤害 {arg3}{arg4}{arg5}{arg6}",
   "@skill_action_type_desc_9": {
     "placeholders": {
       "arg1": {
@@ -635,10 +824,14 @@
       },
       "arg5": {
         "type": "String"
+      },
+      "arg6": {
+        "type": "String"
       }
     }
   },
   "skill_buff": "增益",
+  "skill_buff_without_field": "增益（领域除外）",
   "skill_debuff": "减益",
   "skill_barrier": "护盾",
   "skill_damage": "伤害",
@@ -1431,7 +1624,7 @@
       }
     }
   },
-  "skill_action_type_desc_33": "{arg1}，受到{arg2}伤害时反弹 {arg3} 伤害{arg4}，生效 [{arg5}] 次",
+  "skill_action_type_desc_33": "{arg1}，受到{arg2}伤害时{arg3}{arg4}，生效 [{arg5}] 次",
   "@skill_action_type_desc_33": {
     "placeholders": {
       "arg1": {
@@ -1447,6 +1640,22 @@
         "type": "String"
       },
       "arg5": {
+        "type": "int"
+      }
+    }
+  },
+  "skill_action_type_desc_33_value": "反弹 {arg1} 伤害",
+  "@skill_action_type_desc_33_value": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_33_action": "使用动作({arg1})",
+  "@skill_action_type_desc_33_action": {
+    "placeholders": {
+      "arg1": {
         "type": "int"
       }
     }
@@ -1502,7 +1711,7 @@
       }
     }
   },
-  "skill_action_type_desc_field": "展开{arg2}的领域，范围 [{arg1}]{arg3}",
+  "skill_action_type_desc_field": "展开{arg4}{arg2}的领域，范围 [{arg1}]{arg3}",
   "@skill_action_type_desc_field": {
     "placeholders": {
       "arg2": {
@@ -1512,6 +1721,9 @@
         "type": "int"
       },
       "arg3": {
+        "type": "String"
+      },
+      "arg4": {
         "type": "String"
       }
     }
@@ -1546,7 +1758,7 @@
       }
     }
   },
-  "skill_action_type_desc_42_14": "[{arg1}] 秒内受到无法行动、击飞、拉近伤害时，以 {arg2} 的概率使用{arg3}",
+  "skill_action_type_desc_42_14": "[{arg1}] 秒内受到无法行动、击飞、拉近伤害时，以 {arg2} 的概率使用{arg3}，动作生效期间免疫无法行动、击飞、拉近效果",
   "@skill_action_type_desc_42_14": {
     "placeholders": {
       "arg1": {
@@ -2024,7 +2236,7 @@
     }
   },
   "skill_action_type_desc_78_1": "减益和异常状态数量",
-  "skill_action_type_desc_79": "{arg1}行动时，受到{arg2} {arg3} 伤害{arg4}{arg5}",
+  "skill_action_type_desc_79": "{arg1}行动时，受到{arg2} {arg3} 伤害{arg4}{arg5}{arg6}",
   "@skill_action_type_desc_79": {
     "placeholders": {
       "arg1": {
@@ -2040,6 +2252,9 @@
         "type": "String"
       },
       "arg5": {
+        "type": "String"
+      },
+      "arg6": {
         "type": "String"
       }
     }
@@ -2386,7 +2601,7 @@
       }
     }
   },
-  "skill_action_type_desc_129": "使{arg1}受到的 {arg2} 伤害转化为持续伤害{arg3}；该持续伤害不回复 TP",
+  "skill_action_type_desc_129": "使{arg1}受到的 {arg2} 伤害转化为持续伤害，伤害间隔 [1] 秒，共计触发 [{arg3}] 次{arg4}；该持续伤害不回复 TP",
   "@skill_action_type_desc_129": {
     "placeholders": {
       "arg1": {
@@ -2396,12 +2611,61 @@
         "type": "String"
       },
       "arg3": {
+        "type": "int"
+      },
+      "arg4": {
         "type": "String"
       }
     }
   },
   "skill_action_type_desc_130": "使{arg1}受到伤害时，按物理/魔法防御中较高的防御计算伤害",
   "@skill_action_type_desc_130": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_132": "使{arg1}造成的伤害{arg2}{arg3}{arg4}{arg5}",
+  "@skill_action_type_desc_132": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "String"
+      },
+      "arg3": {
+        "type": "String"
+      },
+      "arg4": {
+        "type": "String"
+      },
+      "arg5": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_type_desc_133": "对{arg1}追加 [{arg2}] 层标记，使用 UB 时，减少 [1] 层标记，并使用动作({arg3}){arg4}",
+  "@skill_action_type_desc_133": {
+    "placeholders": {
+      "arg1": {
+        "type": "String"
+      },
+      "arg2": {
+        "type": "int"
+      },
+      "arg3": {
+        "type": "int"
+      },
+      "arg4": {
+        "type": "String"
+      }
+    }
+  },
+  "skill_action_take_damage_tp_0": "，受击时不回复 TP",
+  "skill_action_take_damage_tp_multiple": "，受击 TP 变更为初始值的 [{arg1}] 倍",
+  "@skill_action_take_damage_tp_multiple": {
     "placeholders": {
       "arg1": {
         "type": "String"

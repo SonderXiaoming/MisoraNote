@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:misora_note/constants.dart';
 
 class BaseTag extends StatelessWidget {
   final Widget child;
@@ -33,7 +32,7 @@ class BaseCard extends StatelessWidget {
   final EdgeInsets margin;
   final EdgeInsets padding;
   final double borderRadius;
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final List<BoxShadow> boxShadow;
   final Border border;
 
@@ -44,7 +43,7 @@ class BaseCard extends StatelessWidget {
     this.margin = const EdgeInsets.all(16),
     this.padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
     this.borderRadius = 12,
-    this.backgroundColor = const Color(CustomColors.colorWhite),
+    this.backgroundColor,
     this.boxShadow = const [
       BoxShadow(blurRadius: 12, spreadRadius: 0, color: Color(0x14000000)),
     ],
@@ -56,7 +55,7 @@ class BaseCard extends StatelessWidget {
       margin: margin,
       padding: padding,
       decoration: BoxDecoration(
-        color: backgroundColor,
+        color: backgroundColor ?? Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(borderRadius),
         boxShadow: boxShadow,
         border: border,

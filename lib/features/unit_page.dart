@@ -1,7 +1,9 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/general.dart';
 import 'package:misora_note/core/di/di_parameter.dart';
@@ -52,7 +54,10 @@ class _UnitPage extends ConsumerState<UnitPage> {
       case UnitType.enemy:
         final enemyParameter = ref.watch(
           enemyParameterProvider(
-            EnemyParameterProviderParameter(enemyId: widget.card.unitId),
+            EnemyParameterProviderParameter(
+              enemyId: widget.card.unitId,
+              enemyType: widget.card.enemyType ?? EnemyType.all,
+            ),
           ),
         );
         if (enemyParameter.isLoading) {
@@ -95,11 +100,15 @@ class _UnitPage extends ConsumerState<UnitPage> {
           unitId: unitInfo.cutin1Star6 != 0
               ? unitInfo.cutin1Star6
               : unitInfo.unitId,
+          enemyParameter: parameter,
+          atkType: unitInfo.atkType ?? 0,
+          normalAttackCastTime: unitInfo.normalAtkCastTime ?? 0,
         ),
       ),
     );
 
     final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
     final unitCard = widget.card;
 
     return Scaffold(
@@ -127,12 +136,8 @@ class _UnitPage extends ConsumerState<UnitPage> {
                   ),
                 ),
                 expandedHeight: expandedHeight,
-                backgroundColor: Colors.white,
-                leading: CustomIconButton(
-                  backgroundColor: HSLColor.fromColor(
-                    Color(CustomColors.colorPink),
-                  ).withLightness(0.95).toColor(),
-                ),
+                backgroundColor: colorScheme.surface,
+                leading: const CustomIconButton(),
                 flexibleSpace: FlexibleSpaceBar(
                   background: Stack(
                     fit: StackFit.expand,
@@ -141,10 +146,12 @@ class _UnitPage extends ConsumerState<UnitPage> {
                             width: width,
                             height: expandedHeight,
                           ) ??
-                          Container(color: Color(CustomColors.colorWhite)),
+                          Container(color: colorScheme.surface),
                       BackdropFilter(
                         filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
-                        child: Container(color: Colors.white.withAlpha(80)),
+                        child: Container(
+                          color: colorScheme.surface.withValues(alpha: 0.32),
+                        ),
                       ),
                       Align(
                         alignment: Alignment.topCenter,
@@ -177,6 +184,40 @@ class _UnitPage extends ConsumerState<UnitPage> {
               ),
             ),
 
+          if (widget.card.unitType == UnitType.unit)
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(24, 12, 24, 4),
+                child: Wrap(
+                  spacing: 10,
+                  runSpacing: 10,
+                  children: [
+                    FilledButton.tonalIcon(
+                      onPressed: () => context.push(
+                        AppRoutes.uniqueEquipList,
+                        extra: unitInfo!.unitId,
+                      ),
+                      icon: const Icon(Icons.shield_outlined),
+                      label: Text(t.unique_equip_list),
+                    ),
+                    FilledButton.tonalIcon(
+                      onPressed: () => context.push(
+                        AppRoutes.characterBond,
+                        extra: unitInfo!.unitId,
+                      ),
+                      icon: const Icon(Icons.favorite_outline_rounded),
+                      label: Text(t.character_bond),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+          if (parameter != null)
+            SliverToBoxAdapter(
+              child: _EnemyParameterSection(parameter: parameter),
+            ),
+
           if (atkPatternAsync.isLoading || unitSkillListAsync.isLoading)
             SliverToBoxAdapter(
               child: Center(child: CircularProgressIndicator()),
@@ -202,6 +243,9 @@ class _UnitPage extends ConsumerState<UnitPage> {
               child: AllSkillInfo(
                 skillIdList: unitSkillListAsync.value!,
                 unitType: widget.card.unitType,
+                atk: parameter == null
+                    ? 0
+                    : max(parameter.atk, parameter.magicStr),
               ),
             ),
           ],
@@ -210,3 +254,181 @@ class _UnitPage extends ConsumerState<UnitPage> {
     );
   }
 }
+
+class _EnemyParameterSection extends StatelessWidget {
+  final AllUnitParameter parameter;
+
+  const _EnemyParameterSection({required this.parameter});
+
+  String _formatValue(num value) {
+    if (value is double && value == value.roundToDouble()) {
+      return value.toInt().toString();
+    }
+    return value.toString();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+    final colors = Theme.of(context).colorScheme;
+    final basic = <(String, num)>[
+      (t.enemy_id, parameter.enemyId),
+      (t.unit_id, parameter.unitId),
+      (t.enemy_level_label, parameter.level),
+      (t.enemy_rarity, parameter.rarity),
+      (t.enemy_promotion_level, parameter.promotionLevel),
+    ];
+    final combat = <(String, num)>[
+      (t.attr_hp, parameter.hp),
+      (t.enemy_virtual_hp, parameter.virtualHp),
+      (t.attr_atk, parameter.atk),
+      (t.attr_magic_str, parameter.magicStr),
+      (t.attr_def, parameter.def_),
+      (t.attr_magic_def, parameter.magicDef),
+      (t.attr_physical_critical, parameter.physicalCritical),
+      (t.attr_magic_critical, parameter.magicCritical),
+      (t.attr_physical_penetrate, parameter.physicalPenetrate),
+      (t.attr_magic_penetrate, parameter.magicPenetrate),
+      (t.attr_accuracy, parameter.accuracy),
+      (t.attr_dodge, parameter.dodge),
+      (t.attr_life_steal, parameter.lifeSteal),
+      (t.attr_wave_hp_recovery, parameter.waveHpRecovery),
+      (t.attr_wave_energy_recovery, parameter.waveEnergyRecovery),
+      (t.attr_hp_recovery_rate, parameter.hpRecoveryRate),
+      (t.attr_energy_recovery_rate, parameter.energyRecoveryRate),
+      (t.attr_energy_reduce_rate, parameter.energyReduceRate),
+    ];
+    final special = <(String, num)>[
+      (t.enemy_break_durability, parameter.breakDurability),
+      (t.enemy_resist_status_id, parameter.resistStatusId),
+      (t.enemy_resist_variation_id, parameter.resistVariationId),
+      (t.enemy_unique_equipment_flag, parameter.uniqueEquipmentFlag1),
+      (t.enemy_color, parameter.enemyColor),
+    ];
+    final skills = <(String, num)>[
+      ('UB', parameter.unionBurstLevel),
+      for (var index = 0; index < 10; index++)
+        ('主技能 ${index + 1}', _mainSkillLevels(parameter)[index]),
+      for (var index = 0; index < 5; index++)
+        ('EX 技能 ${index + 1}', _exSkillLevels(parameter)[index]),
+    ];
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
+      child: Card.outlined(
+        clipBehavior: Clip.antiAlias,
+        child: ExpansionTile(
+          leading: Icon(Icons.query_stats_rounded, color: colors.primary),
+          title: Text(
+            t.enemy_parameters,
+            style: const TextStyle(fontWeight: FontWeight.w800),
+          ),
+          subtitle: Text(
+            '${t.enemy_id} ${parameter.enemyId} · ${t.enemy_level(parameter.level)}',
+          ),
+          childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 18),
+          children: [
+            _ParameterGroup(
+              title: t.enemy_parameter_basic,
+              values: basic,
+              formatValue: _formatValue,
+            ),
+            _ParameterGroup(
+              title: t.enemy_parameter_combat,
+              values: combat,
+              formatValue: _formatValue,
+            ),
+            _ParameterGroup(
+              title: t.enemy_parameter_special,
+              values: special,
+              formatValue: _formatValue,
+            ),
+            _ParameterGroup(
+              title: t.enemy_parameter_skill_levels,
+              values: skills,
+              formatValue: _formatValue,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ParameterGroup extends StatelessWidget {
+  final String title;
+  final List<(String, num)> values;
+  final String Function(num) formatValue;
+
+  const _ParameterGroup({
+    required this.title,
+    required this.values,
+    required this.formatValue,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    return Padding(
+      padding: const EdgeInsets.only(top: 14),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              title,
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                color: colors.primary,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                for (final value in values)
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 7,
+                    ),
+                    decoration: BoxDecoration(
+                      color: colors.surfaceContainerHigh,
+                      borderRadius: BorderRadius.circular(9),
+                    ),
+                    child: Text('${value.$1}: ${formatValue(value.$2)}'),
+                  ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+List<int> _mainSkillLevels(AllUnitParameter parameter) => [
+  parameter.mainSkillLv1,
+  parameter.mainSkillLv2,
+  parameter.mainSkillLv3,
+  parameter.mainSkillLv4,
+  parameter.mainSkillLv5,
+  parameter.mainSkillLv6,
+  parameter.mainSkillLv7,
+  parameter.mainSkillLv8,
+  parameter.mainSkillLv9,
+  parameter.mainSkillLv10,
+];
+
+List<int> _exSkillLevels(AllUnitParameter parameter) => [
+  parameter.exSkillLv1,
+  parameter.exSkillLv2,
+  parameter.exSkillLv3,
+  parameter.exSkillLv4,
+  parameter.exSkillLv5,
+];

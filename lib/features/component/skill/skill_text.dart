@@ -55,9 +55,7 @@ class ActionHandler {
       case 4:
         return t.skill_must_hit_magic;
       case 5:
-        return t.skill_sum_atk_physical;
-      case 6:
-        return t.skill_sum_atk_magic;
+        return t.skill_adaptive_lower_defense;
       default:
         return t.unknown;
     }
@@ -128,6 +126,26 @@ class ActionHandler {
       skillData.action8: skillData.actionDepend8,
       skillData.action9: skillData.actionDepend9,
       skillData.action10: skillData.actionDepend10,
+      if (skillData.action11 != null)
+        skillData.action11!: skillData.actionDepend11 ?? 0,
+      if (skillData.action12 != null)
+        skillData.action12!: skillData.actionDepend12 ?? 0,
+      if (skillData.action13 != null)
+        skillData.action13!: skillData.actionDepend13 ?? 0,
+      if (skillData.action14 != null)
+        skillData.action14!: skillData.actionDepend14 ?? 0,
+      if (skillData.action15 != null)
+        skillData.action15!: skillData.actionDepend15 ?? 0,
+      if (skillData.action16 != null)
+        skillData.action16!: skillData.actionDepend16 ?? 0,
+      if (skillData.action17 != null)
+        skillData.action17!: skillData.actionDepend17 ?? 0,
+      if (skillData.action18 != null)
+        skillData.action18!: skillData.actionDepend18 ?? 0,
+      if (skillData.action19 != null)
+        skillData.action19!: skillData.actionDepend19 ?? 0,
+      if (skillData.action20 != null)
+        skillData.action20!: skillData.actionDepend20 ?? 0,
     };
   }
 
@@ -228,8 +246,12 @@ class ActionHandler {
       target = t.skill_target_45;
     } else if (action.targetType == 46) {
       target = t.skill_target_46;
+    } else if (action.targetType == 47) {
+      target = t.skill_target_47;
     } else if (action.targetType == 50) {
       target = t.skill_target_50;
+    } else if (action.targetType == 51) {
+      target = t.skill_target_51;
     } else if (13195 <= action.targetType && action.targetType <= 14000) {
       target = t.skill_target_13xxx;
     } else if ({14001, 15001}.contains(action.targetType)) {
@@ -320,21 +342,47 @@ class ActionHandler {
     String f;
     if ([1, 2, 5].contains(v1)) {
       f = t.skill_shield_no_effect;
-    } else {
+    } else if ([3, 4, 6].contains(v1)) {
       f = t.skill_shield_defense;
+    } else if ([7, 8, 9].contains(v1)) {
+      f = t.skill_shield_both;
+    } else {
+      f = t.unknown;
     }
 
     // 类型
     String type;
-    if ([1, 3].contains(v1)) {
+    if ([1, 3, 7].contains(v1)) {
       type = t.physical;
-    } else if ([2, 4].contains(v1)) {
+    } else if ([2, 4, 8].contains(v1)) {
       type = t.magic;
-    } else {
+    } else if ([5, 6, 9].contains(v1)) {
       type = t.skill_all;
+    } else {
+      type = t.unknown;
     }
 
-    return v1 <= 6 ? t.skill_shield(f, type) : t.unknown;
+    return t.skill_shield(f, type);
+  }
+
+  String getEffectType(int value) {
+    return switch (value) {
+      1 => t.skill_action_type_desc_additive,
+      2 => t.skill_action_type_desc_subtract,
+      _ => t.unknown,
+    };
+  }
+
+  String getTalentType(double value) {
+    final talent = switch (value.toInt()) {
+      1 => t.skill_target_fire,
+      2 => t.skill_target_water,
+      3 => t.skill_target_wind,
+      4 => t.skill_target_light,
+      5 => t.skill_target_dark,
+      _ => '',
+    };
+    return talent.isEmpty ? '' : '『$talent${t.character}』';
   }
 
   String getPercent() {
@@ -370,7 +418,7 @@ class ActionHandler {
           ? "%"
           : "";
     } else if (action.actionType == SkillActionType.damageReduce.value) {
-      return "%";
+      return action.actionDetail1 <= 3 ? "%" : "";
     } else if (action.actionType == SkillActionType.actionDot.value) {
       return action.actionDetail1 == 10 ? "%" : "";
     } else if (action.actionType == SkillActionType.dot.value) {
@@ -625,6 +673,10 @@ class ActionHandler {
         return damage2dot();
       case SkillActionType.changeDefMax:
         return changeDefMax();
+      case SkillActionType.damageChange:
+        return damageChange();
+      case SkillActionType.sealConsume:
+        return sealConsume();
       case SkillActionType.unknown:
         return t.unknown;
       case SkillActionType.cure:
@@ -684,6 +736,7 @@ class ActionHandler {
       v3: action.actionValue3,
       v4: action.actionValue4,
     );
+    final tp = takeDamageTp();
 
     return t.skill_action_type_desc_1(
       getTarget(),
@@ -693,6 +746,7 @@ class ActionHandler {
       multipleDamage,
       mustCritical,
       ignoreDef,
+      tp,
     );
   }
 
@@ -820,6 +874,7 @@ class ActionHandler {
           descText,
           action.actionValue5.toInt(),
           time,
+          '',
         );
       } else {
         return "$tag${getTarget()}，$descText$time";
@@ -843,11 +898,13 @@ class ActionHandler {
     final dotIncrease = action.actionDetail1 == 5
         ? t.skill_action_dot_increase(action.actionValue5.toInt())
         : "";
+    final tp = takeDamageTp();
     return t.skill_action_type_desc_9(
       getTarget(),
       tag,
       value,
       dotIncrease,
+      tp,
       time,
     );
   }
@@ -945,6 +1002,8 @@ class ActionHandler {
     } else if (action.actionDetail1 == 4) {
       tag = t.skill_action_tp_recovery_fix;
     } else if ([2, 3].contains(action.actionDetail1)) {
+      tag = t.skill_action_tp_reduce;
+    } else {
       tag = t.unknown;
     }
     return "${getTarget()}$tag $value";
@@ -1571,11 +1630,14 @@ class ActionHandler {
           6: t.skill_action_type_desc_33_hp,
         }[action.actionDetail1] ??
         "";
+    final effect = action.actionValue3 != 0
+        ? t.skill_action_type_desc_33_action(action.actionDetail3 % 100)
+        : t.skill_action_type_desc_33_value(value);
     if (action.actionDetail1 <= 6) {
       return t.skill_action_type_desc_33(
         shieldText,
         backType,
-        value,
+        effect,
         hpRecovery,
         action.actionValue3.toInt(),
       );
@@ -1610,6 +1672,13 @@ class ActionHandler {
     return t.skill_action_type_desc_101(getTarget(), count, time, limit);
   }
 
+  String takeDamageTp() {
+    if (action.actionDetail3 == 0) return '';
+    final multiple = 1 - action.actionDetail3 / 100;
+    if (multiple == 0) return t.skill_action_take_damage_tp_0;
+    return t.skill_action_take_damage_tp_multiple(multiple.toString());
+  }
+
   String attackField() {
     final atkType = getAtkType();
     final value = getValueText(
@@ -1620,10 +1689,12 @@ class ActionHandler {
     );
     final time = getTimeText(5, action.actionValue5, v2: action.actionValue6);
     final damage = t.skill_action_type_desc_36_damage(value, atkType);
+    final tp = takeDamageTp();
     return t.skill_action_type_desc_field(
       damage,
       action.actionValue7.toInt(),
-      time,
+      tp + time,
+      '',
     );
   }
 
@@ -1640,6 +1711,7 @@ class ActionHandler {
       heal,
       action.actionValue7.toInt(),
       time,
+      '',
     );
   }
 
@@ -1652,6 +1724,7 @@ class ActionHandler {
       actionDesc,
       action.actionValue3.toInt(),
       time,
+      '',
     );
   }
 
@@ -1662,16 +1735,14 @@ class ActionHandler {
       action.actionValue3,
       percent: getPercent(),
     );
-    final aura = getBuffText(
-      action.actionDetail1.toDouble(),
-      valueText: value,
-      actionValue: action.actionValue7,
-    );
+    final aura = getBuffText(action.actionDetail1.toDouble(), valueText: value);
+    final talent = getTalentType(action.actionValue7);
     final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
     return t.skill_action_type_desc_field(
       aura,
       action.actionValue5.toInt(),
       time,
+      talent,
     );
   }
 
@@ -1702,7 +1773,7 @@ class ActionHandler {
           3: t.skill_action_type_desc_46_3(getTarget(), value),
         }[action.actionDetail1] ??
         t.unknown;
-    return result + limit;
+    return result + limit + takeDamageTp();
   }
 
   String limitAttack() {
@@ -1734,15 +1805,22 @@ class ActionHandler {
       v3: 0.0,
       percent: "%",
     );
-    final type =
-        {
-          1: t.skill_buff,
-          3: t.skill_buff,
-          2: t.skill_debuff,
-          10: t.skill_barrier,
-          20: t.skill_barrier,
-        }[action.actionDetail1] ??
-        t.unknown;
+    late final String type;
+    if (action.actionDetail1 == 1) {
+      type = t.skill_buff;
+    } else if (action.actionDetail1 == 2) {
+      type = t.skill_debuff;
+    } else if (action.actionDetail1 == 3) {
+      type = t.skill_buff_without_field;
+    } else if (action.actionDetail1 == 10) {
+      type = t.skill_barrier;
+    } else if (10 < action.actionDetail1 && action.actionDetail1 < 20) {
+      type = getBarrierType(action.actionDetail1 % 10);
+    } else if (action.actionDetail1 == 20) {
+      type = '${getBuffText(action.actionValue4)}${t.skill_effect}';
+    } else {
+      type = t.unknown;
+    }
 
     return t.skill_action_type_desc_49(value, getTarget(), type);
   }
@@ -1939,13 +2017,15 @@ class ActionHandler {
           1: t.skill_physical,
           2: t.skill_magic,
           3: t.skill_all,
+          4: t.skill_physical,
+          5: t.skill_magic,
         }[action.actionDetail1] ??
         "UNKNOWN";
     final value = getValueText(
       1,
       action.actionValue1,
       action.actionValue2,
-      percent: "%",
+      percent: getPercent(),
     );
     final time = getTimeText(3, action.actionValue3, v2: action.actionValue4);
     return t.skill_action_type_desc_72(getTarget(), type, value, time);
@@ -2010,12 +2090,7 @@ class ActionHandler {
     final limit = t.skill_action_limit_int(action.actionValue1.toInt());
     final countType =
         {1: t.skill_action_type_desc_78_1}[action.actionDetail1] ?? t.unknown;
-    final effectType =
-        {
-          1: t.skill_action_type_desc_additive,
-          2: t.skill_action_type_desc_subtract,
-        }[action.actionDetail2] ??
-        t.unknown;
+    final effectType = getEffectType(action.actionDetail2);
     final valueText = "<${action.actionValue1} * $countType>";
     return t.skill_action_type_desc_78(
       getTarget(),
@@ -2041,7 +2116,14 @@ class ActionHandler {
       limit = t.skill_action_damage_limit_int(action.actionValue5.toInt());
     }
 
-    return t.skill_action_type_desc_79(getTarget(), type, value, time, limit);
+    return t.skill_action_type_desc_79(
+      getTarget(),
+      type,
+      value,
+      time,
+      takeDamageTp(),
+      limit,
+    );
   }
 
   String noTarget() {
@@ -2049,11 +2131,20 @@ class ActionHandler {
   }
 
   String ex() {
-    final type = BuffType.getByType(action.actionDetail1);
+    final type = switch (action.actionDetail1) {
+      1 => t.attr_hp,
+      2 => t.attr_atk,
+      3 => t.attr_def,
+      4 => t.attr_magic_str,
+      5 => t.attr_magic_def,
+      6 => t.attr_physical_critical,
+      7 => t.attr_magic_critical,
+      _ => t.unknown,
+    };
 
     final value = getValueText(2, action.actionValue2, action.actionValue3);
 
-    return t.skill_action_type_desc_90(getTarget(), type.name, value);
+    return t.skill_action_type_desc_90(getTarget(), type, value);
   }
 
   String exEquipHalf() {
@@ -2092,6 +2183,7 @@ class ActionHandler {
       tp,
       action.actionValue5.toInt(),
       time,
+      '',
     );
   }
 
@@ -2242,11 +2334,39 @@ class ActionHandler {
     return t.skill_action_type_desc_129(
       getTarget(),
       getValueText(1, action.actionValue1, 0.0, percent: "%"),
+      action.actionValue3.toInt(),
       getTimeText(2, action.actionValue2),
     );
   }
 
   String changeDefMax() {
     return t.skill_action_type_desc_130(getTarget());
+  }
+
+  String damageChange() {
+    final value = getValueText(
+      1,
+      action.actionValue1,
+      action.actionValue2,
+      percent: '%',
+    );
+    final limit = t.skill_action_damage_limit_int(action.actionValue3.toInt());
+    final time = getTimeText(4, action.actionValue4);
+    return t.skill_action_type_desc_132(
+      getTarget(),
+      getEffectType(action.actionDetail1),
+      value,
+      time,
+      limit,
+    );
+  }
+
+  String sealConsume() {
+    return t.skill_action_type_desc_133(
+      getTarget(),
+      action.actionValue2.toInt(),
+      action.actionDetail1 % 100,
+      getTimeText(4, action.actionValue4, hideIndex: true),
+    );
   }
 }

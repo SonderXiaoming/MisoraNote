@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:misora_note/constants.dart';
 
 class LeadingDot extends StatelessWidget {
   final bool selected;
@@ -17,7 +16,7 @@ class LeadingDot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dotColor = color ?? Color(CustomColors.colorPrimary);
+    final dotColor = color ?? Theme.of(context).colorScheme.primary;
     return Container(
       margin: margin,
       child: selected
@@ -107,7 +106,7 @@ class _DropdownWithRadioState<T> extends State<DropdownWithRadio<T>> {
       key: _triggerKey,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       decoration: BoxDecoration(
-        border: Border.all(color: const Color(0xFF000000).withAlpha(60)),
+        border: Border.all(color: theme.colorScheme.outlineVariant),
         borderRadius: BorderRadius.circular(8),
       ),
       child:
@@ -118,14 +117,14 @@ class _DropdownWithRadioState<T> extends State<DropdownWithRadio<T>> {
               Text(
                 displayText(),
                 style: textStyleDefault?.copyWith(
-                  color: Color(CustomColors.colorBlack),
+                  color: theme.colorScheme.onSurface,
                 ),
               ),
               Spacer(),
               Icon(
                 Icons.keyboard_arrow_down,
                 size: 18,
-                color: Color(CustomColors.colorBlack),
+                color: theme.colorScheme.onSurface,
               ),
             ],
           ),
@@ -142,8 +141,8 @@ class _DropdownWithRadioState<T> extends State<DropdownWithRadio<T>> {
       position: PopupMenuPosition.under,
       offset: Offset(dx, widget.verticalOffset), // 关键：左对齐
       elevation: 10,
-      color: Colors.white,
-      surfaceTintColor: Colors.white, // 避免材质上色
+      color: theme.colorScheme.surfaceContainerHigh,
+      surfaceTintColor: Colors.transparent,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(widget.borderRadius),
       ),
@@ -156,7 +155,7 @@ class _DropdownWithRadioState<T> extends State<DropdownWithRadio<T>> {
       onCanceled: () {},
       itemBuilder: (context) {
         return widget.items.map((item) {
-          final isChecked = widget.selectedValue == item.$1;
+          final isChecked = (widget.selectedValue ?? widget.value) == item.$1;
           final style =
               widget.itemStyleBuilder?.call(item.$1) ?? textStyleDefault;
           return PopupMenuItem<T?>(

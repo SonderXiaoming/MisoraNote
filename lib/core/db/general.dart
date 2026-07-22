@@ -166,6 +166,9 @@ class AllUnitParameter {
   final int resistStatusId;
   final int resistVariationId;
   final int accuracy;
+  final int breakDurability;
+  final int uniqueEquipmentFlag1;
+  final int virtualHp;
   final int enemyColor;
   const AllUnitParameter({
     required this.enemyId,
@@ -209,6 +212,9 @@ class AllUnitParameter {
     required this.resistStatusId,
     required this.resistVariationId,
     required this.accuracy,
+    required this.breakDurability,
+    required this.uniqueEquipmentFlag1,
+    required this.virtualHp,
     required this.enemyColor,
   });
 
@@ -256,6 +262,9 @@ class AllUnitParameter {
       resistStatusId: data.resistStatusId,
       resistVariationId: data.resistVariationId,
       accuracy: data.accuracy,
+      breakDurability: data.breakDurability,
+      uniqueEquipmentFlag1: data.uniqueEquipmentFlag1,
+      virtualHp: data.virtualHp,
       enemyColor: 0,
     );
   }
@@ -306,6 +315,9 @@ class AllUnitParameter {
       resistStatusId: data.resistStatusId,
       resistVariationId: data.resistVariationId,
       accuracy: data.accuracy,
+      breakDurability: 0,
+      uniqueEquipmentFlag1: 0,
+      virtualHp: 0,
       enemyColor: 0,
     );
   }
@@ -358,6 +370,9 @@ class AllUnitParameter {
       resistStatusId: data.resistStatusId,
       resistVariationId: data.resistVariationId,
       accuracy: data.accuracy,
+      breakDurability: data.breakDurability,
+      uniqueEquipmentFlag1: data.uniqueEquipmentFlag1,
+      virtualHp: data.virtualHp,
       enemyColor: 0,
     );
   }
@@ -408,6 +423,9 @@ class AllUnitParameter {
       resistStatusId: data.resistStatusId,
       resistVariationId: data.resistVariationId,
       accuracy: data.accuracy,
+      breakDurability: 0,
+      uniqueEquipmentFlag1: 0,
+      virtualHp: 0,
       enemyColor: 0,
     );
   }
@@ -457,6 +475,9 @@ class AllUnitParameter {
       resistVariationId: data.resistVariationId,
 
       accuracy: data.accuracy,
+      breakDurability: data.breakDurability,
+      uniqueEquipmentFlag1: data.uniqueEquipmentFlag1,
+      virtualHp: data.virtualHp,
       enemyColor: 0,
     );
   }
@@ -507,6 +528,9 @@ class AllUnitParameter {
       resistStatusId: data.resistStatusId,
       resistVariationId: data.resistVariationId,
       accuracy: data.accuracy,
+      breakDurability: 0,
+      uniqueEquipmentFlag1: 0,
+      virtualHp: 0,
       enemyColor: data.enemyColor,
     );
   }
@@ -557,6 +581,9 @@ class AllUnitParameter {
       resistStatusId: data.resistStatusId,
       resistVariationId: data.resistVariationId,
       accuracy: data.accuracy,
+      breakDurability: data.breakDurability,
+      uniqueEquipmentFlag1: data.uniqueEquipmentFlag1,
+      virtualHp: data.virtualHp,
       enemyColor: 0,
     );
   }
