@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # === 修改这里 ===
-APP_NAME="美空笔记"   # 你的 .app 名称（不含 .app 后缀）
+APP_NAME="misora_note"   # 你的 .app 名称（不含 .app 后缀）
 APP_DIR="build/macos/Build/Products/Release"
 # === 以上即可 ===
 
