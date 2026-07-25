@@ -16,7 +16,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.2.0+2
+version: 1.2.1+3
 
 environment:
   sdk: ">=3.9.2 <4.0.0"
@@ -124,7 +124,7 @@ msix_config:
   display_name: 美空笔记
   publisher_display_name: 小明信息
   identity_name: com.misora.note.cialloworld.app
-  msix_version: 1.2.0.0
+  msix_version: 1.2.1.0
   logo_path: windows/runner/resources/app_icon.ico
 
 flutter_launcher_icons:

@@ -31,7 +31,7 @@
 - **Android**:
   - ARM64: `misora_note_vX.X.X_arm64-v8a.apk` (推荐，适用于大多数现代设备)
   - ARMv7: `misora_note_vX.X.X_armeabi-v7a.apk` (适用于较老的设备)
-- **iOS**: `misora_note_vX.X.X_ios_unsigned.ipa` (需自行签名安装)
+- **iOS**: `misora_note_vX.X.X_ios_unsigned.ipa` (未签名，需通过 SideStore、Sideloadly 等工具使用 Apple ID 重新签名)
 - **Linux**: `misora_note_vX.X.X_linux_x64.tar.gz` - 解压后运行 `misora_note`
 
 ## 🚀 快速开始
@@ -44,7 +44,7 @@
    - **macOS**: 打开 DMG 文件，将应用拖入 Applications 文件夹
    - **Linux**: 解压 tar.gz 文件，在终端中运行 `./misora_note`
    - **Android**: 安装 APK 文件（可能需要允许"未知来源"）
-   - **iOS**: 使用 Sideloadly 等工具签名并安装
+   - **iOS**: 使用 SideStore、Sideloadly 等工具通过 Apple ID 重新签名并安装
 
 ### 使用方法
 
