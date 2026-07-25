@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:misora_note/core/network/response_model.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/network/base.dart';
+import 'package:misora_note/features/component/update/app_version.dart';
 import 'package:flutter/material.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -32,8 +33,8 @@ class GithubUpdateService extends StatelessWidget {
 
   bool checkUpdate(String? currentVersion) {
     if (newer == null) return false;
-    final version = newer!.tag_name.isNotEmpty ? newer!.tag_name : newer!.name;
-    return version != currentVersion;
+    final version = newer!.tagName.isNotEmpty ? newer!.tagName : newer!.name;
+    return hasAppUpdate(currentVersion, version);
   }
 
   // 你也可以根据 CPU 架构进一步区分：Platform.version / Platform.environment
@@ -91,15 +92,15 @@ class GithubUpdateService extends StatelessWidget {
 
   static Future<String?> getDownloadUrl(LatestAppVersionResponse newer) async {
     final asset = choose(newer.assets);
-    return asset?.browser_download_url;
+    return asset?.browserDownloadUrl;
   }
 
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     if (newer != null) {
-      final version = newer!.tag_name.isNotEmpty
-          ? newer!.tag_name
+      final version = newer!.tagName.isNotEmpty
+          ? newer!.tagName
           : newer!.name;
       return AlertDialog(
         title: Text(t.find_new_version(version)),
@@ -125,6 +126,7 @@ class GithubUpdateService extends StatelessWidget {
                       );
                     } else {
                       // 如果无法打开链接，显示错误信息
+                      if (!context.mounted) return;
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text("${t.can_not_launch_url}: $url"),

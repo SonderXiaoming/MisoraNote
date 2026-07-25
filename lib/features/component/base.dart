@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/features/component/image.dart';

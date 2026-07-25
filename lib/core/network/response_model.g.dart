@@ -44,18 +44,18 @@ Map<String, dynamic> _$LatestDbVersionResponseToJson(
 
 AppAsset _$AppAssetFromJson(Map<String, dynamic> json) => AppAsset(
   name: json['name'] as String,
-  browser_download_url: json['browser_download_url'] as String,
+  browserDownloadUrl: json['browser_download_url'] as String,
 );
 
 Map<String, dynamic> _$AppAssetToJson(AppAsset instance) => <String, dynamic>{
   'name': instance.name,
-  'browser_download_url': instance.browser_download_url,
+  'browser_download_url': instance.browserDownloadUrl,
 };
 
 LatestAppVersionResponse _$LatestAppVersionResponseFromJson(
   Map<String, dynamic> json,
 ) => LatestAppVersionResponse(
-  tag_name: json['tag_name'] as String,
+  tagName: json['tag_name'] as String,
   name: json['name'] as String,
   body: json['body'] as String,
   prerelease: json['prerelease'] as bool,
@@ -67,7 +67,7 @@ LatestAppVersionResponse _$LatestAppVersionResponseFromJson(
 Map<String, dynamic> _$LatestAppVersionResponseToJson(
   LatestAppVersionResponse instance,
 ) => <String, dynamic>{
-  'tag_name': instance.tag_name,
+  'tag_name': instance.tagName,
   'name': instance.name,
   'body': instance.body,
   'prerelease': instance.prerelease,

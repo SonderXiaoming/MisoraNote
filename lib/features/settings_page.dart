@@ -423,6 +423,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                       title: t.checking_update,
                       task: fetchLatestRelease(),
                     );
+                    if (!context.mounted) return;
                     await showDialog<Widget>(
                       context: context,
                       builder: (BuildContext context) {
@@ -469,12 +470,11 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                       title: t.checking_update,
                       task: checkDatabaseUpdate(area.value!),
                     );
+                    if (!context.mounted) return;
                     if (latestVersion == null) {
-                      if (context.mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(t.checking_update_failed)),
-                        );
-                      }
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(t.checking_update_failed)),
+                      );
                       return;
                     }
                     await showDialog<Widget>(
@@ -497,12 +497,11 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                       title: t.checking_update,
                       task: checkDatabaseUpdate(area.value!),
                     );
+                    if (!context.mounted) return;
                     if (latestVersion == null) {
-                      if (context.mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(t.checking_update_failed)),
-                        );
-                      }
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(t.checking_update_failed)),
+                      );
                       return;
                     }
                     await updateDatabase(ref, context, latestVersion);

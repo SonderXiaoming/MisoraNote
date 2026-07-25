@@ -64,27 +64,29 @@ class LatestDbVersionResponse {
 @JsonSerializable()
 class AppAsset {
   final String name;
-  final String browser_download_url;
+  @JsonKey(name: 'browser_download_url')
+  final String browserDownloadUrl;
 
-  AppAsset({required this.name, required this.browser_download_url});
+  AppAsset({required this.name, required this.browserDownloadUrl});
   factory AppAsset.fromJson(Map<String, dynamic> json) =>
       _$AppAssetFromJson(json);
   Map<String, dynamic> toJson() => _$AppAssetToJson(this);
   @override
   String toString() {
-    return '_Asset(name: $name, browser_download_url: $browser_download_url)';
+    return '_Asset(name: $name, browserDownloadUrl: $browserDownloadUrl)';
   }
 }
 
 @JsonSerializable()
 class LatestAppVersionResponse {
-  final String tag_name;
+  @JsonKey(name: 'tag_name')
+  final String tagName;
   final String name;
   final String body;
   final bool prerelease;
   final List<AppAsset> assets;
   LatestAppVersionResponse({
-    required this.tag_name,
+    required this.tagName,
     required this.name,
     required this.body,
     required this.prerelease,
@@ -95,6 +97,6 @@ class LatestAppVersionResponse {
   Map<String, dynamic> toJson() => _$LatestAppVersionResponseToJson(this);
   @override
   String toString() {
-    return 'LatestAppVersionResponse(tag_name: $tag_name, name: $name, body: $body, prerelease: $prerelease, assets: $assets)';
+    return 'LatestAppVersionResponse(tagName: $tagName, name: $name, body: $body, prerelease: $prerelease, assets: $assets)';
   }
 }

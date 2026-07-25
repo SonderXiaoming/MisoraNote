@@ -2,8 +2,8 @@ import 'dart:io';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
-const githubOwner = 'YourUser';
-const githubRepo = 'YourRepo';
+const githubOwner = 'SonderXiaoming';
+const githubRepo = 'MisoraNote';
 
 enum Area {
   jp("jp"),

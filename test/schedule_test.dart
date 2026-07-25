@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:misora_note/core/db/model.dart';
 import 'package:misora_note/core/di/di.dart';
+import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/schedule_section.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 

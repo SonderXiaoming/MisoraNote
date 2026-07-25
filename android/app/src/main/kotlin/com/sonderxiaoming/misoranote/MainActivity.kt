@@ -1,4 +1,4 @@
-package com.example.misora_note
+package com.sonderxiaoming.misoranote
 
 import io.flutter.embedding.android.FlutterActivity
 
