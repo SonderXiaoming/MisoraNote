@@ -6,14 +6,20 @@ import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/core/db/model.dart';
 import 'package:misora_note/core/di/di.dart';
 import 'package:misora_note/features/component/base.dart';
+import 'package:misora_note/features/component/card/character.dart';
 import 'package:misora_note/features/component/card/unit_card.dart';
 import 'package:misora_note/features/component/image.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 
 class UniqueEquipPage extends ConsumerStatefulWidget {
   final int? initialUnitId;
+  final bool returnToCharacterDetail;
 
-  const UniqueEquipPage({super.key, this.initialUnitId});
+  const UniqueEquipPage({
+    super.key,
+    this.initialUnitId,
+    this.returnToCharacterDetail = false,
+  });
 
   @override
   ConsumerState<UniqueEquipPage> createState() => _UniqueEquipPageState();
@@ -165,13 +171,19 @@ class _UniqueEquipPageState extends ConsumerState<UniqueEquipPage>
         item: item,
         onOpenCharacter: () {
           Navigator.of(context).pop();
+          if (widget.returnToCharacterDetail &&
+              widget.initialUnitId == item.unitId) {
+            pageContext.pop();
+            return;
+          }
           final width = MediaQuery.sizeOf(pageContext).width;
           pageContext.push(
             AppRoutes.unitDetail,
             extra: UnitCard(
               unitId: item.unitId,
+              isR6: db.r6Units.contains(item.unitId),
               unitType: UnitType.unit,
-              size: (width, width * 792 / 1408),
+              size: UnitCard.detailSizeForWidth(width),
             ),
           );
         },
@@ -231,8 +243,8 @@ class _UniqueEquipCard extends StatelessWidget {
             children: [
               CachedImage(
                 url: FetchUrl.equipmentIconUrl(item.equipmentId),
-                width: 78,
-                height: 78,
+                width: 60,
+                height: 60,
                 borderRadius: BorderRadius.circular(15),
               ),
               const SizedBox(width: 10),
@@ -254,11 +266,10 @@ class _UniqueEquipCard extends StatelessWidget {
                         item.equipmentName,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.titleMedium
-                            ?.copyWith(
-                              color: colors.onPrimary,
-                              fontWeight: FontWeight.w800,
-                            ),
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          color: colors.onPrimary,
+                          fontWeight: FontWeight.w800,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 7),
@@ -266,7 +277,7 @@ class _UniqueEquipCard extends StatelessWidget {
                       child: Card.filled(
                         margin: EdgeInsets.zero,
                         clipBehavior: Clip.antiAlias,
-                        color: colors.surfaceContainerLow,
+                        color: colors.secondaryContainer,
                         child: Padding(
                           padding: const EdgeInsets.all(13),
                           child: Column(
@@ -276,18 +287,14 @@ class _UniqueEquipCard extends StatelessWidget {
                                 '${item.equipSlot == 2 ? '②' : '①'}${item.description.isEmpty ? t.no_description : item.description.replaceAll('\\n', '')}',
                                 maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
-                                style: Theme.of(
-                                  context,
-                                ).textTheme.bodyMedium?.copyWith(height: 1.35),
+                                style: Theme.of(context).textTheme.bodyMedium,
                               ),
                               const Spacer(),
                               Row(
                                 children: [
-                                  CachedImage(
-                                    url: FetchUrl.unitIconUrl(item.unitId),
-                                    width: 56,
-                                    height: 56,
-                                    borderRadius: BorderRadius.circular(13),
+                                  CharacterIcon(
+                                    unitId: item.unitId,
+                                    size: (64, 64),
                                   ),
                                   const SizedBox(width: 10),
                                   Expanded(

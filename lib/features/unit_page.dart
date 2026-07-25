@@ -157,7 +157,7 @@ class _UnitPage extends ConsumerState<UnitPage> {
                         alignment: Alignment.topCenter,
                         child: Hero(
                           tag: "unit_card_${unitInfo.unitId}",
-                          child: unitCard,
+                          child: IgnorePointer(child: unitCard),
                         ),
                       ),
                     ],
@@ -177,9 +177,14 @@ class _UnitPage extends ConsumerState<UnitPage> {
                   horizontal: 32.0,
                   vertical: 8.0,
                 ),
-                child: Text(
-                  unitInfo.comment!.replaceAll("\\n", ""),
-                  style: textTheme.bodyLarge,
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 920),
+                    child: Text(
+                      unitInfo.comment!.replaceAll("\\n", ""),
+                      style: textTheme.bodyLarge,
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -189,13 +194,17 @@ class _UnitPage extends ConsumerState<UnitPage> {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(24, 12, 24, 4),
                 child: Wrap(
+                  alignment: WrapAlignment.center,
                   spacing: 10,
                   runSpacing: 10,
                   children: [
                     FilledButton.tonalIcon(
                       onPressed: () => context.push(
                         AppRoutes.uniqueEquipList,
-                        extra: unitInfo!.unitId,
+                        extra: UniqueEquipRouteArguments(
+                          initialUnitId: unitInfo!.unitId,
+                          returnToCharacterDetail: true,
+                        ),
                       ),
                       icon: const Icon(Icons.shield_outlined),
                       label: Text(t.unique_equip_list),
@@ -308,59 +317,65 @@ class _EnemyParameterSection extends StatelessWidget {
     final skills = <(String, num)>[
       ('UB', parameter.unionBurstLevel),
       for (var index = 0; index < 10; index++)
-        ('主技能 ${index + 1}', _mainSkillLevels(parameter)[index]),
+        ('主技能 ${index + 1}', mainSkillLevels(parameter)[index]),
       for (var index = 0; index < 5; index++)
-        ('EX 技能 ${index + 1}', _exSkillLevels(parameter)[index]),
+        ('EX 技能 ${index + 1}', exSkillLevels(parameter)[index]),
     ];
 
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
-      child: Card.outlined(
-        clipBehavior: Clip.antiAlias,
-        child: ExpansionTile(
-          leading: Icon(Icons.query_stats_rounded, color: colors.primary),
-          title: Text(
-            t.enemy_parameters,
-            style: const TextStyle(fontWeight: FontWeight.w800),
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 920),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
+          child: Card.outlined(
+            clipBehavior: Clip.antiAlias,
+            child: ExpansionTile(
+              leading: Icon(Icons.query_stats_rounded, color: colors.primary),
+              title: Text(
+                t.enemy_parameters,
+                style: const TextStyle(fontWeight: FontWeight.w800),
+              ),
+              subtitle: Text(
+                '${t.enemy_id} ${parameter.enemyId} · ${t.enemy_level(parameter.level)}',
+              ),
+              childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 18),
+              children: [
+                ParameterGroup(
+                  title: t.enemy_parameter_basic,
+                  values: basic,
+                  formatValue: _formatValue,
+                ),
+                ParameterGroup(
+                  title: t.enemy_parameter_combat,
+                  values: combat,
+                  formatValue: _formatValue,
+                ),
+                ParameterGroup(
+                  title: t.enemy_parameter_special,
+                  values: special,
+                  formatValue: _formatValue,
+                ),
+                ParameterGroup(
+                  title: t.enemy_parameter_skill_levels,
+                  values: skills,
+                  formatValue: _formatValue,
+                ),
+              ],
+            ),
           ),
-          subtitle: Text(
-            '${t.enemy_id} ${parameter.enemyId} · ${t.enemy_level(parameter.level)}',
-          ),
-          childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 18),
-          children: [
-            _ParameterGroup(
-              title: t.enemy_parameter_basic,
-              values: basic,
-              formatValue: _formatValue,
-            ),
-            _ParameterGroup(
-              title: t.enemy_parameter_combat,
-              values: combat,
-              formatValue: _formatValue,
-            ),
-            _ParameterGroup(
-              title: t.enemy_parameter_special,
-              values: special,
-              formatValue: _formatValue,
-            ),
-            _ParameterGroup(
-              title: t.enemy_parameter_skill_levels,
-              values: skills,
-              formatValue: _formatValue,
-            ),
-          ],
         ),
       ),
     );
   }
 }
 
-class _ParameterGroup extends StatelessWidget {
+class ParameterGroup extends StatelessWidget {
   final String title;
   final List<(String, num)> values;
   final String Function(num) formatValue;
 
-  const _ParameterGroup({
+  const ParameterGroup({
+    super.key,
     required this.title,
     required this.values,
     required this.formatValue,
@@ -412,7 +427,7 @@ class _ParameterGroup extends StatelessWidget {
   }
 }
 
-List<int> _mainSkillLevels(AllUnitParameter parameter) => [
+List<int> mainSkillLevels(AllUnitParameter parameter) => [
   parameter.mainSkillLv1,
   parameter.mainSkillLv2,
   parameter.mainSkillLv3,
@@ -425,7 +440,7 @@ List<int> _mainSkillLevels(AllUnitParameter parameter) => [
   parameter.mainSkillLv10,
 ];
 
-List<int> _exSkillLevels(AllUnitParameter parameter) => [
+List<int> exSkillLevels(AllUnitParameter parameter) => [
   parameter.exSkillLv1,
   parameter.exSkillLv2,
   parameter.exSkillLv3,

@@ -195,10 +195,10 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get schedule_in_progress => '正在进行的日程';
+  String get schedule_in_progress => '进行中活动';
 
   @override
-  String get schedule_coming_soon => '即将开始的日程';
+  String get schedule_coming_soon => '活动预告';
 
   @override
   String get schedule_empty_in_progress => '当前没有正在进行的日程';
@@ -246,9 +246,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get normal_attack => '普攻';
-
-  @override
-  String get normal_skill => '常规技能';
 
   @override
   String get union_burst => '连结爆发';

@@ -7,39 +7,26 @@ import 'table.dart';
 
 part 'database.g.dart';
 
-int _toIntOrNull(String? s) => s == null ? -1 : int.tryParse(s.trim()) ?? -1;
+int toIntOrNull(String? s) => s == null ? -1 : int.tryParse(s.trim()) ?? -1;
 const maxUnitId = 200000;
 final kannaIds = [170101, 170201];
 
-const _enemyParameterTables =
-    <EnemyType, ({String tableName, String idColumn})>{
-      EnemyType.normal: (tableName: 'enemy_parameter', idColumn: 'enemy_id'),
-      EnemyType.event: (
-        tableName: 'event_enemy_parameter',
-        idColumn: 'enemy_id',
-      ),
-      EnemyType.talentQuest: (
-        tableName: 'talent_quest_enemy_parameter',
-        idColumn: 'enemy_id',
-      ),
-      EnemyType.shiori: (
-        tableName: 'shiori_enemy_parameter',
-        idColumn: 'enemy_id',
-      ),
-      EnemyType.sre: (tableName: 'sre_enemy_parameter', idColumn: 'enemy_id'),
-      EnemyType.tower: (
-        tableName: 'tower_enemy_parameter',
-        idColumn: 'enemy_id',
-      ),
-      EnemyType.seven: (
-        tableName: 'seven_enemy_parameter',
-        idColumn: 'enemy_id',
-      ),
-      EnemyType.sekai: (
-        tableName: 'sekai_enemy_parameter',
-        idColumn: 'sekai_enemy_id',
-      ),
-    };
+const enemyParameterTables = <EnemyType, ({String tableName, String idColumn})>{
+  EnemyType.normal: (tableName: 'enemy_parameter', idColumn: 'enemy_id'),
+  EnemyType.event: (tableName: 'event_enemy_parameter', idColumn: 'enemy_id'),
+  EnemyType.talentQuest: (
+    tableName: 'talent_quest_enemy_parameter',
+    idColumn: 'enemy_id',
+  ),
+  EnemyType.shiori: (tableName: 'shiori_enemy_parameter', idColumn: 'enemy_id'),
+  EnemyType.sre: (tableName: 'sre_enemy_parameter', idColumn: 'enemy_id'),
+  EnemyType.tower: (tableName: 'tower_enemy_parameter', idColumn: 'enemy_id'),
+  EnemyType.seven: (tableName: 'seven_enemy_parameter', idColumn: 'enemy_id'),
+  EnemyType.sekai: (
+    tableName: 'sekai_enemy_parameter',
+    idColumn: 'sekai_enemy_id',
+  ),
+};
 
 @DriftDatabase(
   tables: [
@@ -63,6 +50,7 @@ const _enemyParameterTables =
     UniqueEquipmentEnhanceData,
     UnlockUnitCondition,
     UnitTalent,
+    UnitRoleData,
     UnitEnemyData,
     EventEnemyParameter,
     TalentQuestEnemyParameter,
@@ -94,7 +82,7 @@ class AppDb extends _$AppDb {
       super(NativeDatabase(File(sqliteFile)));
 
   Future<void> init() async {
-    await _ensureSkillColumns();
+    await ensureSkillColumns();
     unitNum = (await getUnitsData()).length;
     exCharacter = await getExUnitsList();
     maxUniqueEquipLv = (
@@ -112,7 +100,7 @@ class AppDb extends _$AppDb {
 
   /// New skill columns reach the three regional databases at different times.
   /// Keep downloaded older databases queryable while exposing the newest data.
-  Future<void> _ensureSkillColumns() async {
+  Future<void> ensureSkillColumns() async {
     final unitSkillColumns = await _tableColumns('unit_skill_data');
     if (!unitSkillColumns.contains('main_skill_evolution_1_pro')) {
       await customStatement(
@@ -211,6 +199,22 @@ class AppDb extends _$AppDb {
             type: type,
             startTime: startTime,
             endTime: endTime,
+            visualId: switch (row.data['visual_id']) {
+              final num value => value.toInt(),
+              final String value => int.tryParse(value),
+              _ => null,
+            },
+            unitIds: (row.data['unit_ids']?.toString() ?? '')
+                .split(',')
+                .map((value) => int.tryParse(value.trim()))
+                .whereType<int>()
+                .toList(growable: false),
+            details: (row.data['details']?.toString() ?? '')
+                .split(RegExp(r'\\n|\n'))
+                .map(cleanText)
+                .where((value) => value.isNotEmpty)
+                .toList(growable: false),
+            badgeLabel: row.data['badge_label']?.toString() ?? '',
           ),
         );
       }
@@ -236,6 +240,8 @@ class AppDb extends _$AppDb {
             CAST(h.event_id AS TEXT) AS event_key,
             COALESCE(NULLIF(story.title, ''), '剧情活动') AS title,
             '' AS subtitle,
+            h.event_id AS visual_id,
+            CAST(h.banner_unit_id AS TEXT) AS unit_ids,
             h.start_time,
             h.end_time
           FROM hatsune_schedule AS h
@@ -259,6 +265,8 @@ class AppDb extends _$AppDb {
             CAST(s.event_id AS TEXT) AS event_key,
             COALESCE(NULLIF(setting.title, ''), '剧情活动') AS title,
             '' AS subtitle,
+            s.event_id AS visual_id,
+            CAST(setting.banner_unit_id AS TEXT) AS unit_ids,
             s.start_time,
             s.end_time
           FROM seven_schedule AS s
@@ -271,22 +279,83 @@ class AppDb extends _$AppDb {
     }
 
     if (tables.contains('gacha_data')) {
+      final gachaUnitIds = tables.contains('gacha_exchange_lineup')
+          ? '''
+            (SELECT GROUP_CONCAT(lineup.unit_id)
+             FROM gacha_exchange_lineup AS lineup
+             WHERE lineup.exchange_id = g.exchange_id
+               AND (lineup.pickup_gacha_id = 0
+                 OR lineup.pickup_gacha_id = g.gacha_id)) AS unit_ids,
+          '''
+          : "'' AS unit_ids,";
+      final isLimitedGacha =
+          tables.containsAll({'gacha_exchange_lineup', 'unit_data'})
+          ? '''
+            EXISTS (
+              SELECT 1
+              FROM gacha_exchange_lineup AS lineup
+              LEFT JOIN unit_data AS unit ON unit.unit_id = lineup.unit_id
+              WHERE lineup.exchange_id = g.exchange_id
+                AND (
+                  COALESCE(unit.is_limited, 0) = 1
+                  OR lineup.unit_id IN (170101, 170201)
+                )
+            )
+          '''
+          : "(g.gacha_name LIKE '%限定%' OR g.description LIKE '%限定%')";
+      final gachaBadgeLabel =
+          '''
+            CASE
+              WHEN g.gacha_name IN (
+                'ピックアップガチャ', '精選轉蛋', '限定精選轉蛋',
+                '精选扭蛋', 'PICK UP扭蛋'
+              )
+              THEN CASE WHEN $isLimitedGacha THEN '限定' ELSE '常驻' END
+              WHEN g.gacha_name IN (
+                'プライズガチャ', '獎勵轉蛋', '附奖扭蛋'
+              )
+              THEN CASE
+                WHEN $isLimitedGacha THEN '复刻限定'
+                ELSE '复刻常驻'
+              END
+              WHEN g.gacha_name IN (
+                'プリンセスフェス', '公主祭典', '公主庆典'
+              )
+              THEN '公主庆典'
+              WHEN g.gacha_name LIKE '%Anniversary%'
+                OR g.gacha_name LIKE '%周年%'
+              THEN '周年'
+              WHEN g.gacha_name LIKE '%選べるプライズ%'
+                OR g.gacha_name LIKE '%选择%'
+                OR g.gacha_name LIKE '%自选%'
+                OR g.gacha_name LIKE '%自選%'
+              THEN CASE
+                WHEN g.gacha_name LIKE '%自选精选%' THEN '自选'
+                ELSE '复刻自选'
+              END
+              WHEN $isLimitedGacha THEN '限定'
+              ELSE '常驻'
+            END AS badge_label,
+          ''';
       await _appendScheduleRows(
         events,
         type: ScheduleEventType.gacha,
         utcOffsetHours: utcOffsetHours,
-        sql: '''
+        sql:
+            '''
           SELECT
-            CAST(gacha_id AS TEXT) AS event_key,
-            COALESCE(NULLIF(gacha_name, ''), '扭蛋') AS title,
-            COALESCE(description, '') AS subtitle,
-            start_time,
-            end_time
-          FROM gacha_data
-          WHERE CAST(gacha_id AS TEXT) NOT LIKE '1%'
-            AND CAST(gacha_id AS TEXT) NOT LIKE '2%'
-            AND gacha_id < 60001
-          ORDER BY start_time DESC
+            CAST(g.gacha_id AS TEXT) AS event_key,
+            COALESCE(NULLIF(g.gacha_name, ''), '扭蛋') AS title,
+            COALESCE(g.description, '') AS subtitle,
+            $gachaUnitIds
+            $gachaBadgeLabel
+            g.start_time,
+            g.end_time
+          FROM gacha_data AS g
+          WHERE CAST(g.gacha_id AS TEXT) NOT LIKE '1%'
+            AND CAST(g.gacha_id AS TEXT) NOT LIKE '2%'
+            AND g.gacha_id < 60001
+          ORDER BY g.start_time DESC
           LIMIT 100
         ''',
       );
@@ -298,27 +367,49 @@ class AppDb extends _$AppDb {
         type: ScheduleEventType.campaign,
         utcOffsetHours: utcOffsetHours,
         sql: '''
+          WITH normalized AS (
+            SELECT
+              id,
+              start_time,
+              end_time,
+              value,
+              CASE campaign_category
+                WHEN 31 THEN '普通关卡掉落量'
+                WHEN 41 THEN '普通关卡玛那掉落量'
+                WHEN 32 THEN '困难关卡掉落量'
+                WHEN 42 THEN '困难关卡玛那掉落量'
+                WHEN 39 THEN '高难关卡掉落量'
+                WHEN 49 THEN '高难关卡玛那掉落量'
+                WHEN 34 THEN '探索掉落量'
+                WHEN 37 THEN '圣迹调查掉落量'
+                WHEN 38 THEN '神殿调查掉落量'
+                WHEN 45 THEN '地下城玛那掉落量'
+                ELSE '报酬加倍'
+              END AS category_name
+            FROM campaign_schedule
+            WHERE campaign_category IN (
+              31, 41, 32, 42, 39, 49, 34, 37, 38, 45
+            )
+              AND lv_to = -1
+          ), campaign_lines AS (
+            SELECT
+              MAX(id) AS id,
+              start_time,
+              end_time,
+              category_name || ' ×' ||
+                printf('%g', value / 1000.0) AS detail
+            FROM normalized
+            GROUP BY start_time, end_time, category_name, value
+          )
           SELECT
             CAST(MAX(id) AS TEXT) AS event_key,
-            REPLACE(GROUP_CONCAT(DISTINCT CASE campaign_category
-              WHEN 31 THEN '普通关卡'
-              WHEN 41 THEN '普通关卡'
-              WHEN 32 THEN '困难关卡'
-              WHEN 42 THEN '困难关卡'
-              WHEN 39 THEN '高难关卡'
-              WHEN 49 THEN '高难关卡'
-              WHEN 34 THEN '探索'
-              WHEN 37 THEN '圣迹调查'
-              WHEN 38 THEN '神殿调查'
-              WHEN 45 THEN '地下城'
-              ELSE '报酬加倍' END), ',', ' · ') AS title,
-            '掉落/玛那 ×' || printf('%g', value / 1000.0) AS subtitle,
+            '活动加成' AS title,
+            '' AS subtitle,
+            GROUP_CONCAT(detail, char(10)) AS details,
             start_time,
             end_time
-          FROM campaign_schedule
-          WHERE campaign_category IN (31, 41, 32, 42, 39, 49, 34, 37, 38, 45)
-            AND lv_to = -1
-          GROUP BY start_time, end_time, value
+          FROM campaign_lines
+          GROUP BY start_time, end_time
           ORDER BY MAX(id) DESC
           LIMIT 100
         ''',
@@ -486,20 +577,49 @@ class AppDb extends _$AppDb {
     }
 
     if (tables.contains('clan_battle_schedule')) {
+      final clanBossUnitIds =
+          tables.containsAll({
+            'clan_battle_2_map_data',
+            'wave_group_data',
+            'enemy_parameter',
+          })
+          ? '''
+            (SELECT GROUP_CONCAT(e.unit_id)
+             FROM clan_battle_2_map_data AS map
+             JOIN wave_group_data AS wave ON wave.wave_group_id IN (
+               map.wave_group_id_1, map.wave_group_id_2,
+               map.wave_group_id_3, map.wave_group_id_4,
+               map.wave_group_id_5)
+             JOIN enemy_parameter AS e ON e.enemy_id = wave.enemy_id_1
+             WHERE map.clan_battle_id = schedule.clan_battle_id
+               AND map.phase = (
+                 SELECT MAX(latest.phase)
+                 FROM clan_battle_2_map_data AS latest
+                 WHERE latest.clan_battle_id = schedule.clan_battle_id
+               )) AS unit_ids,
+          '''
+          : "'' AS unit_ids,";
       await _appendScheduleRows(
         events,
         type: ScheduleEventType.clanBattle,
         utcOffsetHours: utcOffsetHours,
-        sql: '''
-          SELECT CAST(clan_battle_id AS TEXT) AS event_key,
-            CAST(release_month AS TEXT) || '月公会战' AS title,
-            '第 ' || CAST(clan_battle_id AS TEXT) || ' 期' AS subtitle,
-            start_time,
-            start_time AS end_time
-          FROM clan_battle_schedule
-          ORDER BY clan_battle_id DESC LIMIT 5
+        sql:
+            '''
+          SELECT CAST(schedule.clan_battle_id AS TEXT) AS event_key,
+            '第' || CAST(schedule.clan_battle_id AS TEXT) || '期公会战'
+              AS title,
+            '' AS subtitle,
+            $clanBossUnitIds
+            schedule.start_time,
+            schedule.start_time AS end_time
+          FROM clan_battle_schedule AS schedule
+          ORDER BY schedule.clan_battle_id DESC LIMIT 5
         ''',
       );
+    }
+
+    if (tables.containsAll({'unit_profile', 'unit_data'})) {
+      await _appendBirthdayEvents(events, utcOffsetHours: utcOffsetHours);
     }
 
     final uniqueEvents = <String, GameScheduleEvent>{};
@@ -508,6 +628,79 @@ class AppDb extends _$AppDb {
           event;
     }
     return uniqueEvents.values.toList(growable: false);
+  }
+
+  Future<void> _appendBirthdayEvents(
+    List<GameScheduleEvent> target, {
+    required int utcOffsetHours,
+  }) async {
+    final rows =
+        await (select(unitProfile).join([
+                innerJoin(
+                  unitData,
+                  unitData.unitId.equalsExp(unitProfile.unitId),
+                ),
+              ])
+              ..where(unitData.unitId.isSmallerThanValue(maxUnitId))
+              ..where(unitData.searchAreaWidth.isBiggerThanValue(0))
+              ..orderBy([
+                OrderingTerm.asc(unitData.unitId),
+              ]))
+            .get();
+
+    final byDate = <String, List<int>>{};
+    for (final row in rows) {
+      final profile = row.readTable(unitProfile);
+      final month = int.tryParse(profile.birthMonth ?? '');
+      final day = int.tryParse(profile.birthDay ?? '');
+      if (month == null ||
+          month < 1 ||
+          month > 12 ||
+          day == null ||
+          day < 1 ||
+          day > 31) {
+        continue;
+      }
+      byDate
+          .putIfAbsent('$month-$day', () => [])
+          .add(row.readTable(unitData).unitId);
+    }
+
+    final serverNow = DateTime.now().toUtc().add(
+      Duration(hours: utcOffsetHours),
+    );
+    final serverToday = DateTime.utc(
+      serverNow.year,
+      serverNow.month,
+      serverNow.day,
+    );
+    final lastVisibleDay = serverToday.add(const Duration(days: 7));
+
+    for (final entry in byDate.entries) {
+      final parts = entry.key.split('-');
+      final month = int.parse(parts[0]);
+      final day = int.parse(parts[1]);
+      for (final year in [serverToday.year, serverToday.year + 1]) {
+        final serverStart = DateTime.utc(year, month, day);
+        if (serverStart.isBefore(serverToday) ||
+            serverStart.isAfter(lastVisibleDay)) {
+          continue;
+        }
+        target.add(
+          GameScheduleEvent(
+            id: 'birthday-$year-$month-$day',
+            title: '',
+            subtitle: '',
+            type: ScheduleEventType.birthday,
+            startTime: serverStart.subtract(Duration(hours: utcOffsetHours)),
+            endTime: serverStart
+                .add(const Duration(days: 1))
+                .subtract(Duration(hours: utcOffsetHours)),
+            unitIds: entry.value,
+          ),
+        );
+      }
+    }
   }
 
   @override
@@ -734,7 +927,7 @@ class AppDb extends _$AppDb {
       unitName: row.read(d.unitName) ?? '', // 某些库名字来自 UnitData
       kana: row.read(d.kana) ?? '',
       rarity: row.read(d.rarity),
-      ageInt: _toIntOrNull(row.read(u.age)),
+      ageInt: toIntOrNull(row.read(u.age)),
       guild: row.read(u.guild),
       race: row.read(u.race),
       voice: row.read(u.voice),
@@ -742,10 +935,10 @@ class AppDb extends _$AppDb {
       favorite: row.read(u.favorite),
       catchCopy: row.read(u.catchCopy),
       selfText: row.read(u.selfText),
-      heightInt: _toIntOrNull(row.read(u.height)),
-      weightInt: _toIntOrNull(row.read(u.weight)),
-      birthMonthInt: _toIntOrNull(row.read(u.birthMonth)),
-      birthDayInt: _toIntOrNull(row.read(u.birthDay)),
+      heightInt: toIntOrNull(row.read(u.height)),
+      weightInt: toIntOrNull(row.read(u.weight)),
+      birthMonthInt: toIntOrNull(row.read(u.birthMonth)),
+      birthDayInt: toIntOrNull(row.read(u.birthDay)),
       searchAreaWidth: row.read(d.searchAreaWidth),
       atkType: row.read(d.atkType),
       intro: row.read(d.comment) ?? '......',
@@ -769,11 +962,11 @@ class AppDb extends _$AppDb {
 
   Future<int> getUnitRoleId(int unitId) async {
     if (!(await _databaseTables()).contains('unit_role_data')) return 0;
-    final row = await customSelect(
-      'SELECT unit_role_id FROM unit_role_data WHERE unit_id = ? LIMIT 1',
-      variables: [Variable<int>(unitId)],
-    ).getSingleOrNull();
-    return row?.read<int>('unit_role_id') ?? 0;
+    final row = await (select(unitRoleData)
+          ..where((table) => table.unitId.equals(unitId))
+          ..limit(1))
+        .getSingleOrNull();
+    return row?.unitRoleId ?? 0;
   }
 
   // ORM：按 id 查询
@@ -902,61 +1095,85 @@ class AppDb extends _$AppDb {
     int unitId = 0,
   }) async {
     final keyword = '%${search.trim()}%';
-    final rows = await customSelect(
-      '''
-      SELECT
-        ued.equipment_id,
-        COALESCE(ued.equipment_name, '') AS equipment_name,
-        COALESCE(ued.description, '') AS description,
-        ud.unit_id,
-        COALESCE(ud.unit_name, '') AS unit_name,
-        uue.equip_slot,
-        COALESCE(ud.search_area_width, 0) AS search_area_width,
-        COALESCE(ud.atk_type, 0) AS atk_type,
-        CASE
-          WHEN ud.is_limited = 0 THEN 1
-          WHEN ud.rarity = 3 THEN 2
-          WHEN ud.rarity = 1 THEN 3
-          ELSE 4
-        END AS limit_type,
-        COALESCE(ut.talent_id, 0) AS talent_id,
-        COALESCE(ur.unit_role_id, 0) AS role_id
-      FROM unit_unique_equipment AS uue
-      INNER JOIN unit_data AS ud ON ud.unit_id = uue.unit_id
-      INNER JOIN unique_equipment_data AS ued
-        ON ued.equipment_id = uue.equip_id
-      LEFT JOIN unit_talent AS ut ON ut.unit_id = ud.unit_id
-      LEFT JOIN unit_role_data AS ur ON ur.unit_id = ud.unit_id
-      WHERE (? = '%%' OR ued.equipment_name LIKE ? OR ud.unit_name LIKE ?)
-        AND (? = 0 OR uue.equip_slot = ?)
-        AND (? = 0 OR ud.unit_id = ?)
-      ORDER BY uue.equip_slot DESC, ued.equipment_id DESC
-      ''',
-      variables: [
-        Variable<String>(keyword),
-        Variable<String>(keyword),
-        Variable<String>(keyword),
-        Variable<int>(slot),
-        Variable<int>(slot),
-        Variable<int>(unitId),
-        Variable<int>(unitId),
-      ],
-    ).get();
+    final limitType =
+        CaseWhenExpression(
+              cases: [
+                CaseWhen(unitData.isLimited.equals(0), then: const Constant(1)),
+                CaseWhen(unitData.rarity.equals(3), then: const Constant(2)),
+                CaseWhen(unitData.rarity.equals(1), then: const Constant(3)),
+              ],
+              orElse: const Constant(4),
+            )
+            as Expression<int>;
+    final rowId = CustomExpression<int>(
+      '${unitUniqueEquipment.tableName}.rowid',
+    );
+    final query = selectOnly(unitUniqueEquipment)
+      ..addColumns([
+        uniqueEquipmentData.equipmentId,
+        uniqueEquipmentData.equipmentName,
+        uniqueEquipmentData.description,
+        unitData.unitId,
+        unitData.unitName,
+        unitUniqueEquipment.equipSlot,
+        unitData.searchAreaWidth,
+        unitData.atkType,
+        limitType,
+        unitTalent.talentId,
+        unitRoleData.unitRoleId,
+      ])
+      ..join([
+        innerJoin(
+          unitData,
+          unitData.unitId.equalsExp(unitUniqueEquipment.unitId),
+        ),
+        innerJoin(
+          uniqueEquipmentData,
+          uniqueEquipmentData.equipmentId.equalsExp(
+            unitUniqueEquipment.equipId,
+          ),
+        ),
+        leftOuterJoin(
+          unitTalent,
+          unitTalent.unitId.equalsExp(unitData.unitId),
+        ),
+        leftOuterJoin(
+          unitRoleData,
+          unitRoleData.unitId.equalsExp(unitData.unitId),
+        ),
+      ])
+      ..orderBy([
+        OrderingTerm.desc(unitUniqueEquipment.equipSlot),
+        OrderingTerm.desc(rowId),
+      ]);
+    if (keyword != '%%') {
+      query.where(
+        uniqueEquipmentData.equipmentName.like(keyword) |
+            unitData.unitName.like(keyword),
+      );
+    }
+    if (slot != 0) {
+      query.where(unitUniqueEquipment.equipSlot.equals(slot));
+    }
+    if (unitId != 0) {
+      query.where(unitData.unitId.equals(unitId));
+    }
+    final rows = await query.get();
 
     return rows
         .map(
           (row) => UniqueEquipListItem(
-            equipmentId: row.read<int>('equipment_id'),
-            equipmentName: row.read<String>('equipment_name'),
-            description: row.read<String>('description'),
-            unitId: row.read<int>('unit_id'),
-            unitName: row.read<String>('unit_name'),
-            equipSlot: row.read<int>('equip_slot'),
-            searchAreaWidth: row.read<int>('search_area_width'),
-            atkType: row.read<int>('atk_type'),
-            limitType: row.read<int>('limit_type'),
-            talentId: row.read<int>('talent_id'),
-            roleId: row.read<int>('role_id'),
+            equipmentId: row.read(uniqueEquipmentData.equipmentId) ?? 0,
+            equipmentName: row.read(uniqueEquipmentData.equipmentName) ?? '',
+            description: row.read(uniqueEquipmentData.description) ?? '',
+            unitId: row.read(unitData.unitId) ?? 0,
+            unitName: row.read(unitData.unitName) ?? '',
+            equipSlot: row.read(unitUniqueEquipment.equipSlot) ?? 0,
+            searchAreaWidth: row.read(unitData.searchAreaWidth) ?? 0,
+            atkType: row.read(unitData.atkType) ?? 0,
+            limitType: row.read(limitType) ?? 4,
+            talentId: row.read(unitTalent.talentId) ?? 0,
+            roleId: row.read(unitRoleData.unitRoleId) ?? 0,
           ),
         )
         .toList(growable: false);
@@ -1358,8 +1575,8 @@ class AppDb extends _$AppDb {
 
     final databaseTables = await _databaseTables();
     final sources = type == EnemyType.all
-        ? _enemyParameterTables.entries
-        : _enemyParameterTables.entries.where((entry) => entry.key == type);
+        ? enemyParameterTables.entries
+        : enemyParameterTables.entries.where((entry) => entry.key == type);
     final selects = <String>[];
     final variables = <Variable<Object>>[];
 
@@ -1438,131 +1655,178 @@ class AppDb extends _$AppDb {
     int? clanBattleId,
     int limit = 12,
   }) async {
-    final idFilter = clanBattleId == null ? '' : 'AND m.clan_battle_id = ?';
-    final variables = <Variable<Object>>[
-      if (clanBattleId != null) Variable<int>(clanBattleId),
-      Variable<int>(limit),
-    ];
-    final rows = await customSelect(
-      '''
-      WITH valid_maps AS (
-        SELECT m.*
-        FROM clan_battle_2_map_data m
-        JOIN clan_battle_schedule s
-          ON s.clan_battle_id = m.clan_battle_id
-        WHERE (m.lap_num_from > 1 OR m.clan_battle_id < 1011)
-          AND s.release_month IS NOT NULL
-          $idFilter
+    final minPhase = clanBattle2MapData.phase.min();
+    final maxPhase = clanBattle2MapData.phase.max();
+    final query = selectOnly(clanBattle2MapData)
+      ..addColumns([
+        clanBattle2MapData.clanBattleId,
+        clanBattleSchedule.releaseMonth,
+        clanBattleSchedule.startTime,
+        clanBattleSchedule.endTime,
+        minPhase,
+        maxPhase,
+      ])
+      ..join([
+        innerJoin(
+          clanBattleSchedule,
+          clanBattleSchedule.clanBattleId.equalsExp(
+            clanBattle2MapData.clanBattleId,
+          ),
+        ),
+      ])
+      ..where(
+        clanBattle2MapData.lapNumFrom.isBiggerThanValue(1) |
+            clanBattle2MapData.clanBattleId.isSmallerThanValue(1011),
       )
-      SELECT
-        m.clan_battle_id,
-        s.release_month,
-        s.start_time,
-        s.end_time,
-        MIN(m.phase) AS min_phase,
-        MAX(m.phase) AS max_phase
-      FROM valid_maps m
-      JOIN clan_battle_schedule s
-        ON s.clan_battle_id = m.clan_battle_id
-      GROUP BY m.clan_battle_id
-      ORDER BY m.clan_battle_id DESC, m.lap_num_from
-      LIMIT ?
-      ''',
-      variables: variables,
-      readsFrom: {clanBattle2MapData, clanBattleSchedule},
-    ).get();
+      ..groupBy([clanBattle2MapData.clanBattleId])
+      ..orderBy([
+        OrderingTerm.desc(clanBattle2MapData.clanBattleId),
+        OrderingTerm.asc(clanBattle2MapData.lapNumFrom),
+      ])
+      ..limit(limit);
+    if (clanBattleId != null) {
+      query.where(clanBattle2MapData.clanBattleId.equals(clanBattleId));
+    }
+    final rows = await query.get();
 
-    return rows.map((row) {
-      final data = row.data;
-      return ClanBattleData(
-        clanBattleId: (data['clan_battle_id'] as num).toInt(),
-        releaseMonth: (data['release_month'] as num).toInt(),
-        startTime: data['start_time'] as String,
-        endTime: data['end_time'] as String?,
-        minPhase: (data['min_phase'] as num).toInt(),
-        maxPhase: (data['max_phase'] as num).toInt(),
-      );
-    }).toList();
+    return rows
+        .map(
+          (row) => ClanBattleData(
+            clanBattleId: row.read(clanBattle2MapData.clanBattleId)!,
+            releaseMonth: row.read(clanBattleSchedule.releaseMonth)!,
+            startTime: row.read(clanBattleSchedule.startTime)!,
+            endTime: row.read(clanBattleSchedule.endTime),
+            minPhase: row.read(minPhase)!,
+            maxPhase: row.read(maxPhase)!,
+          ),
+        )
+        .toList(growable: false);
   }
 
   Future<List<ClanBattlePhaseData>> getClanBattlePhases(
     int clanBattleId,
   ) async {
-    final rows = await customSelect(
-      '''
-      WITH phase_maps AS (
-        SELECT
-          phase,
-          MIN(CASE WHEN lap_num_from >= 1 THEN lap_num_from ELSE 1 END)
-            AS lap_from,
-          CASE WHEN MIN(lap_num_to) = -1 THEN -1 ELSE MAX(lap_num_to) END
-            AS lap_to,
-          MIN(wave_group_id_1) AS wave_1,
-          MIN(wave_group_id_2) AS wave_2,
-          MIN(wave_group_id_3) AS wave_3,
-          MIN(wave_group_id_4) AS wave_4,
-          MIN(wave_group_id_5) AS wave_5
-        FROM clan_battle_2_map_data
-        WHERE clan_battle_id = ?
-          AND (lap_num_from >= 1 OR clan_battle_id < 1011)
-        GROUP BY phase
-      ), bosses AS (
-        SELECT phase, lap_from, lap_to, 1 AS boss_index, wave_1 AS wave_id
-          FROM phase_maps
-        UNION ALL SELECT phase, lap_from, lap_to, 2, wave_2 FROM phase_maps
-        UNION ALL SELECT phase, lap_from, lap_to, 3, wave_3 FROM phase_maps
-        UNION ALL SELECT phase, lap_from, lap_to, 4, wave_4 FROM phase_maps
-        UNION ALL SELECT phase, lap_from, lap_to, 5, wave_5 FROM phase_maps
-      )
-      SELECT
-        b.phase,
-        b.lap_from,
-        b.lap_to,
-        b.boss_index,
-        w.enemy_id_1 AS enemy_id,
-        e.unit_id,
-        e.name,
-        e.hp
-      FROM bosses b
-      JOIN wave_group_data w ON w.wave_group_id = b.wave_id
-      JOIN enemy_parameter e ON e.enemy_id = w.enemy_id_1
-      ORDER BY b.phase, b.boss_index
-      ''',
-      variables: [Variable<int>(clanBattleId)],
-      readsFrom: {clanBattle2MapData, waveGroupData, enemyParameter},
-    ).get();
+    final normalizedLapFrom =
+        CaseWhenExpression(
+              cases: [
+                CaseWhen(
+                  clanBattle2MapData.lapNumFrom.isBiggerOrEqualValue(1),
+                  then: clanBattle2MapData.lapNumFrom,
+                ),
+              ],
+              orElse: const Constant(1),
+            )
+            as Expression<int>;
+    final minLapFrom = normalizedLapFrom.min();
+    final minLapTo = clanBattle2MapData.lapNumTo.min();
+    final maxLapTo = clanBattle2MapData.lapNumTo.max();
+    final waveExpressions = [
+      clanBattle2MapData.waveGroupId1.min(),
+      clanBattle2MapData.waveGroupId2.min(),
+      clanBattle2MapData.waveGroupId3.min(),
+      clanBattle2MapData.waveGroupId4.min(),
+      clanBattle2MapData.waveGroupId5.min(),
+    ];
+    final phaseRows =
+        await (selectOnly(clanBattle2MapData)
+              ..addColumns([
+                clanBattle2MapData.phase,
+                minLapFrom,
+                minLapTo,
+                maxLapTo,
+                ...waveExpressions,
+              ])
+              ..where(clanBattle2MapData.clanBattleId.equals(clanBattleId))
+              ..where(
+                clanBattle2MapData.lapNumFrom.isBiggerOrEqualValue(1) |
+                    clanBattle2MapData.clanBattleId.isSmallerThanValue(1011),
+              )
+              ..groupBy([clanBattle2MapData.phase])
+              ..orderBy([OrderingTerm.asc(clanBattle2MapData.phase)]))
+            .get();
 
-    final bossesByPhase = <int, List<ClanBattleBossData>>{};
-    final lapByPhase = <int, (int, int)>{};
-    for (final row in rows) {
-      final data = row.data;
-      final phase = (data['phase'] as num).toInt();
-      lapByPhase[phase] = (
-        (data['lap_from'] as num).toInt(),
-        (data['lap_to'] as num).toInt(),
+    final phaseMaps = [
+      for (final row in phaseRows)
+        (
+          phase: row.read(clanBattle2MapData.phase)!,
+          lapFrom: row.read(minLapFrom) ?? 1,
+          lapTo: row.read(minLapTo) == -1
+              ? -1
+              : (row.read(maxLapTo) ?? -1),
+          waveIds: [
+            for (final expression in waveExpressions)
+              if (row.read(expression) case final waveId?) waveId,
+          ],
+        ),
+    ];
+    final waveIds = phaseMaps
+        .expand((phase) => phase.waveIds)
+        .toSet()
+        .toList(growable: false);
+    if (waveIds.isEmpty) return const [];
+
+    final bossRows =
+        await (select(waveGroupData).join([
+              innerJoin(
+                enemyParameter,
+                enemyParameter.enemyId.equalsExp(waveGroupData.enemyId1),
+              ),
+              leftOuterJoin(
+                enemyTalentWeakness,
+                enemyTalentWeakness.enemyId.equalsExp(enemyParameter.enemyId),
+              ),
+              leftOuterJoin(
+                talentWeakness,
+                talentWeakness.resistId.equalsExp(
+                  enemyTalentWeakness.resistId,
+                ),
+              ),
+            ])
+            ..where(waveGroupData.waveGroupId.isIn(waveIds)))
+            .get();
+    final bossByWaveId = <int, ClanBattleBossData>{};
+    for (final row in bossRows) {
+      final wave = row.readTable(waveGroupData);
+      final enemy = row.readTable(enemyParameter);
+      bossByWaveId.putIfAbsent(
+        wave.waveGroupId,
+        () => ClanBattleBossData(
+          index: 0,
+          enemyId: enemy.enemyId,
+          unitId: enemy.unitId,
+          name: enemy.name,
+          hp: enemy.hp,
+          weaknessTalentIds: [
+            if ((row.read(talentWeakness.talent1) ?? 100) != 100) 1,
+            if ((row.read(talentWeakness.talent2) ?? 100) != 100) 2,
+            if ((row.read(talentWeakness.talent3) ?? 100) != 100) 3,
+            if ((row.read(talentWeakness.talent4) ?? 100) != 100) 4,
+            if ((row.read(talentWeakness.talent5) ?? 100) != 100) 5,
+          ],
+        ),
       );
-      bossesByPhase
-          .putIfAbsent(phase, () => [])
-          .add(
-            ClanBattleBossData(
-              index: (data['boss_index'] as num).toInt(),
-              enemyId: (data['enemy_id'] as num).toInt(),
-              unitId: (data['unit_id'] as num).toInt(),
-              name: data['name'] as String,
-              hp: (data['hp'] as num).toInt(),
-            ),
-          );
     }
 
-    final phases = bossesByPhase.keys.toList()..sort();
     return [
-      for (final phase in phases)
-        ClanBattlePhaseData(
-          phase: phase,
-          lapFrom: lapByPhase[phase]!.$1,
-          lapTo: lapByPhase[phase]!.$2,
-          bosses: bossesByPhase[phase]!,
-        ),
+      for (final phase in phaseMaps)
+        if (phase.waveIds.any(bossByWaveId.containsKey))
+          ClanBattlePhaseData(
+            phase: phase.phase,
+            lapFrom: phase.lapFrom,
+            lapTo: phase.lapTo,
+            bosses: [
+              for (var index = 0; index < phase.waveIds.length; index++)
+                if (bossByWaveId[phase.waveIds[index]] case final boss?)
+                  ClanBattleBossData(
+                    index: index + 1,
+                    enemyId: boss.enemyId,
+                    unitId: boss.unitId,
+                    name: boss.name,
+                    hp: boss.hp,
+                    weaknessTalentIds: boss.weaknessTalentIds,
+                  ),
+            ],
+          ),
     ];
   }
 }

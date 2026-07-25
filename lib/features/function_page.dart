@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/features/component/base.dart';
+import 'package:misora_note/features/component/custom_icon.dart';
 import 'package:misora_note/features/component/tool_entry.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 
@@ -13,21 +14,21 @@ class FunctionPage extends StatelessWidget {
     final t = AppLocalizations.of(context)!;
     final colors = Theme.of(context).colorScheme;
     final dataTools = [
-      _ToolEntry(
+      ToolEntry(
         icon: Icons.people_alt_rounded,
         title: t.character_index,
         description: t.character_index_desc,
         color: colors.primary,
         onTap: () => context.push(AppRoutes.unitSearch, extra: <int>[]),
       ),
-      _ToolEntry(
+      ToolEntry(
         icon: Icons.shield_rounded,
         title: t.unique_equip_list,
         description: t.unique_equip_desc,
         color: const Color(0xFFE8872E),
         onTap: () => context.push(AppRoutes.uniqueEquipList),
       ),
-      _ToolEntry(
+      ToolEntry(
         icon: Icons.favorite_rounded,
         title: t.character_bond,
         description: t.character_bond_desc,
@@ -36,21 +37,21 @@ class FunctionPage extends StatelessWidget {
       ),
     ];
     final battleTools = [
-      _ToolEntry(
+      ToolEntry(
         icon: Icons.travel_explore_rounded,
         title: t.deep_zone,
         description: t.deep_zone_desc,
         color: const Color(CustomColors.colorRed),
         onTap: () => context.push(AppRoutes.deepZone),
       ),
-      _ToolEntry(
+      ToolEntry(
         icon: Icons.groups_2_rounded,
         title: t.clan_battle_query,
         description: t.clan_battle_query_desc,
         color: const Color(0xFF8D5BD6),
         onTap: () => context.push(AppRoutes.enemySearch, extra: EnemyType.clan),
       ),
-      _ToolEntry(
+      ToolEntry(
         icon: Icons.pest_control_rounded,
         title: t.enemy_search,
         description: t.enemy_search_desc,
@@ -79,7 +80,7 @@ class FunctionPage extends StatelessWidget {
               ),
             ),
           ),
-          _ToolGrid(entries: dataTools),
+          ToolGrid(entries: dataTools),
           SliverPadding(
             padding: const EdgeInsets.fromLTRB(20, 26, 20, 8),
             sliver: SliverToBoxAdapter(
@@ -89,7 +90,7 @@ class FunctionPage extends StatelessWidget {
               ),
             ),
           ),
-          _ToolGrid(entries: battleTools),
+          ToolGrid(entries: battleTools),
           const SliverToBoxAdapter(child: SizedBox(height: 32)),
         ],
       ),
@@ -97,10 +98,10 @@ class FunctionPage extends StatelessWidget {
   }
 }
 
-class _ToolGrid extends StatelessWidget {
-  final List<_ToolEntry> entries;
+class ToolGrid extends StatelessWidget {
+  final List<ToolEntry> entries;
 
-  const _ToolGrid({required this.entries});
+  const ToolGrid({super.key, required this.entries});
 
   @override
   Widget build(BuildContext context) {
@@ -126,20 +127,4 @@ class _ToolGrid extends StatelessWidget {
       ),
     );
   }
-}
-
-class _ToolEntry {
-  final IconData icon;
-  final String title;
-  final String description;
-  final Color color;
-  final VoidCallback onTap;
-
-  const _ToolEntry({
-    required this.icon,
-    required this.title,
-    required this.description,
-    required this.color,
-    required this.onTap,
-  });
 }

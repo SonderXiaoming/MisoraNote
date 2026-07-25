@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -37,6 +39,14 @@ class UnitCard extends ConsumerStatefulWidget {
                height: size.$2,
                borderRadius: BorderRadius.circular(8),
              );
+
+  static (double, double) detailSizeForWidth(double availableWidth) {
+    final width = min(
+      max(360.0, availableWidth * 0.4),
+      max(280.0, availableWidth - 32),
+    );
+    return (width, width * 792 / 1408);
+  }
 
   @override
   ConsumerState<UnitCard> createState() => _UnitCardState();

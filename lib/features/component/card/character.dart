@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/model.dart';
+import 'package:misora_note/core/di/di.dart';
+import 'package:misora_note/core/utils/util.dart';
 import 'package:misora_note/features/component/base.dart';
 import 'package:misora_note/features/component/image.dart';
 import 'package:misora_note/features/component/shape.dart';
@@ -339,6 +342,31 @@ class CharacterCard extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class CharacterIcon extends ConsumerWidget {
+  final int unitId;
+  final (double, double) size;
+  final BorderRadius? borderRadius;
+
+  const CharacterIcon({
+    super.key,
+    required this.unitId,
+    required this.size,
+    this.borderRadius,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isR6 = ref.watch(dbProvider).r6Units.contains(unitId);
+    final iconUnitId = longUnitId2Short(unitId);
+    return CachedImage(
+      url: FetchUrl.unitIconUrl(int.parse("$iconUnitId${isR6 ? 6 : 3}1")),
+      width: size.$1,
+      height: size.$2,
+      borderRadius: borderRadius,
     );
   }
 }

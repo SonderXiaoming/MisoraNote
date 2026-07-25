@@ -18390,6 +18390,210 @@ class UnitTalentCompanion extends UpdateCompanion<UnitTalentData> {
   }
 }
 
+class $UnitRoleDataTable extends UnitRoleData
+    with TableInfo<$UnitRoleDataTable, UnitRoleDataData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UnitRoleDataTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unitRoleIdMeta = const VerificationMeta(
+    'unitRoleId',
+  );
+  @override
+  late final GeneratedColumn<int> unitRoleId = GeneratedColumn<int>(
+    'unit_role_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [unitId, unitRoleId];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'unit_role_data';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UnitRoleDataData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    }
+    if (data.containsKey('unit_role_id')) {
+      context.handle(
+        _unitRoleIdMeta,
+        unitRoleId.isAcceptableOrUnknown(
+          data['unit_role_id']!,
+          _unitRoleIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_unitRoleIdMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {unitId};
+  @override
+  UnitRoleDataData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UnitRoleDataData(
+      unitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unit_id'],
+      )!,
+      unitRoleId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unit_role_id'],
+      )!,
+    );
+  }
+
+  @override
+  $UnitRoleDataTable createAlias(String alias) {
+    return $UnitRoleDataTable(attachedDatabase, alias);
+  }
+}
+
+class UnitRoleDataData extends DataClass
+    implements Insertable<UnitRoleDataData> {
+  final int unitId;
+  final int unitRoleId;
+  const UnitRoleDataData({required this.unitId, required this.unitRoleId});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['unit_id'] = Variable<int>(unitId);
+    map['unit_role_id'] = Variable<int>(unitRoleId);
+    return map;
+  }
+
+  UnitRoleDataCompanion toCompanion(bool nullToAbsent) {
+    return UnitRoleDataCompanion(
+      unitId: Value(unitId),
+      unitRoleId: Value(unitRoleId),
+    );
+  }
+
+  factory UnitRoleDataData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UnitRoleDataData(
+      unitId: serializer.fromJson<int>(json['unitId']),
+      unitRoleId: serializer.fromJson<int>(json['unitRoleId']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'unitId': serializer.toJson<int>(unitId),
+      'unitRoleId': serializer.toJson<int>(unitRoleId),
+    };
+  }
+
+  UnitRoleDataData copyWith({int? unitId, int? unitRoleId}) => UnitRoleDataData(
+    unitId: unitId ?? this.unitId,
+    unitRoleId: unitRoleId ?? this.unitRoleId,
+  );
+  UnitRoleDataData copyWithCompanion(UnitRoleDataCompanion data) {
+    return UnitRoleDataData(
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      unitRoleId: data.unitRoleId.present
+          ? data.unitRoleId.value
+          : this.unitRoleId,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitRoleDataData(')
+          ..write('unitId: $unitId, ')
+          ..write('unitRoleId: $unitRoleId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(unitId, unitRoleId);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UnitRoleDataData &&
+          other.unitId == this.unitId &&
+          other.unitRoleId == this.unitRoleId);
+}
+
+class UnitRoleDataCompanion extends UpdateCompanion<UnitRoleDataData> {
+  final Value<int> unitId;
+  final Value<int> unitRoleId;
+  const UnitRoleDataCompanion({
+    this.unitId = const Value.absent(),
+    this.unitRoleId = const Value.absent(),
+  });
+  UnitRoleDataCompanion.insert({
+    this.unitId = const Value.absent(),
+    required int unitRoleId,
+  }) : unitRoleId = Value(unitRoleId);
+  static Insertable<UnitRoleDataData> custom({
+    Expression<int>? unitId,
+    Expression<int>? unitRoleId,
+  }) {
+    return RawValuesInsertable({
+      if (unitId != null) 'unit_id': unitId,
+      if (unitRoleId != null) 'unit_role_id': unitRoleId,
+    });
+  }
+
+  UnitRoleDataCompanion copyWith({Value<int>? unitId, Value<int>? unitRoleId}) {
+    return UnitRoleDataCompanion(
+      unitId: unitId ?? this.unitId,
+      unitRoleId: unitRoleId ?? this.unitRoleId,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (unitRoleId.present) {
+      map['unit_role_id'] = Variable<int>(unitRoleId.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UnitRoleDataCompanion(')
+          ..write('unitId: $unitId, ')
+          ..write('unitRoleId: $unitRoleId')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $UnitEnemyDataTable extends UnitEnemyData
     with TableInfo<$UnitEnemyDataTable, UnitEnemyDataData> {
   @override
@@ -40431,6 +40635,7 @@ abstract class _$AppDb extends GeneratedDatabase {
   late final $UnlockUnitConditionTable unlockUnitCondition =
       $UnlockUnitConditionTable(this);
   late final $UnitTalentTable unitTalent = $UnitTalentTable(this);
+  late final $UnitRoleDataTable unitRoleData = $UnitRoleDataTable(this);
   late final $UnitEnemyDataTable unitEnemyData = $UnitEnemyDataTable(this);
   late final $EventEnemyParameterTable eventEnemyParameter =
       $EventEnemyParameterTable(this);
@@ -40478,6 +40683,7 @@ abstract class _$AppDb extends GeneratedDatabase {
     uniqueEquipmentData,
     unlockUnitCondition,
     unitTalent,
+    unitRoleData,
     unitEnemyData,
     eventEnemyParameter,
     talentQuestEnemyParameter,
@@ -48814,6 +49020,140 @@ typedef $$UnitTalentTableProcessedTableManager =
         BaseReferences<_$AppDb, $UnitTalentTable, UnitTalentData>,
       ),
       UnitTalentData,
+      PrefetchHooks Function()
+    >;
+typedef $$UnitRoleDataTableCreateCompanionBuilder =
+    UnitRoleDataCompanion Function({
+      Value<int> unitId,
+      required int unitRoleId,
+    });
+typedef $$UnitRoleDataTableUpdateCompanionBuilder =
+    UnitRoleDataCompanion Function({Value<int> unitId, Value<int> unitRoleId});
+
+class $$UnitRoleDataTableFilterComposer
+    extends Composer<_$AppDb, $UnitRoleDataTable> {
+  $$UnitRoleDataTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unitRoleId => $composableBuilder(
+    column: $table.unitRoleId,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$UnitRoleDataTableOrderingComposer
+    extends Composer<_$AppDb, $UnitRoleDataTable> {
+  $$UnitRoleDataTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unitRoleId => $composableBuilder(
+    column: $table.unitRoleId,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$UnitRoleDataTableAnnotationComposer
+    extends Composer<_$AppDb, $UnitRoleDataTable> {
+  $$UnitRoleDataTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<int> get unitRoleId => $composableBuilder(
+    column: $table.unitRoleId,
+    builder: (column) => column,
+  );
+}
+
+class $$UnitRoleDataTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $UnitRoleDataTable,
+          UnitRoleDataData,
+          $$UnitRoleDataTableFilterComposer,
+          $$UnitRoleDataTableOrderingComposer,
+          $$UnitRoleDataTableAnnotationComposer,
+          $$UnitRoleDataTableCreateCompanionBuilder,
+          $$UnitRoleDataTableUpdateCompanionBuilder,
+          (
+            UnitRoleDataData,
+            BaseReferences<_$AppDb, $UnitRoleDataTable, UnitRoleDataData>,
+          ),
+          UnitRoleDataData,
+          PrefetchHooks Function()
+        > {
+  $$UnitRoleDataTableTableManager(_$AppDb db, $UnitRoleDataTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$UnitRoleDataTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$UnitRoleDataTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$UnitRoleDataTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> unitId = const Value.absent(),
+                Value<int> unitRoleId = const Value.absent(),
+              }) =>
+                  UnitRoleDataCompanion(unitId: unitId, unitRoleId: unitRoleId),
+          createCompanionCallback:
+              ({
+                Value<int> unitId = const Value.absent(),
+                required int unitRoleId,
+              }) => UnitRoleDataCompanion.insert(
+                unitId: unitId,
+                unitRoleId: unitRoleId,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$UnitRoleDataTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $UnitRoleDataTable,
+      UnitRoleDataData,
+      $$UnitRoleDataTableFilterComposer,
+      $$UnitRoleDataTableOrderingComposer,
+      $$UnitRoleDataTableAnnotationComposer,
+      $$UnitRoleDataTableCreateCompanionBuilder,
+      $$UnitRoleDataTableUpdateCompanionBuilder,
+      (
+        UnitRoleDataData,
+        BaseReferences<_$AppDb, $UnitRoleDataTable, UnitRoleDataData>,
+      ),
+      UnitRoleDataData,
       PrefetchHooks Function()
     >;
 typedef $$UnitEnemyDataTableCreateCompanionBuilder =
@@ -58465,6 +58805,8 @@ class $AppDbManager {
       $$UnlockUnitConditionTableTableManager(_db, _db.unlockUnitCondition);
   $$UnitTalentTableTableManager get unitTalent =>
       $$UnitTalentTableTableManager(_db, _db.unitTalent);
+  $$UnitRoleDataTableTableManager get unitRoleData =>
+      $$UnitRoleDataTableTableManager(_db, _db.unitRoleData);
   $$UnitEnemyDataTableTableManager get unitEnemyData =>
       $$UnitEnemyDataTableTableManager(_db, _db.unitEnemyData);
   $$EventEnemyParameterTableTableManager get eventEnemyParameter =>

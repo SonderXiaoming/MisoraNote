@@ -108,11 +108,12 @@ class FilePath {
     return _cachedBaseDir!;
   }
 
-  static String get img => p.join("resources", 'img');
+  // Flutter asset keys always use forward slashes, including on Windows.
+  static const String img = 'resources/img';
 
   static String db(Area area) => p.join(base, 'db', 'redive_${area.name}.db');
 
-  static String uniqueNumIcon(int num) => p.join(img, 'unique_$num.png');
+  static String uniqueNumIcon(int num) => '$img/unique_$num.png';
 }
 
 class AppRoutes {
@@ -127,6 +128,16 @@ class AppRoutes {
   static const uniqueEquipList = '/uniqueEquipList';
   static const characterBond = '/characterBond';
   static const deepZone = '/deepZone';
+}
+
+class UniqueEquipRouteArguments {
+  final int? initialUnitId;
+  final bool returnToCharacterDetail;
+
+  const UniqueEquipRouteArguments({
+    this.initialUnitId,
+    this.returnToCharacterDetail = false,
+  });
 }
 
 class CustomColors {

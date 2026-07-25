@@ -74,7 +74,7 @@ class SkillActionText extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: colors.surfaceContainerHighest.withValues(alpha: 0.58),
+        color: colors.secondaryContainer.withValues(alpha: 0.4),
         borderRadius: BorderRadius.circular(14),
         border: Border.all(color: colors.outlineVariant.withValues(alpha: 0.7)),
       ),
@@ -88,7 +88,7 @@ class SkillActionText extends StatelessWidget {
                 height: 28,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: colors.primaryContainer,
+                  color: colors.primary.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(9),
                 ),
                 child: Text(
@@ -205,7 +205,7 @@ class SingleSkillInfo extends StatelessWidget {
       tags.add(tag.isEmpty ? actionHandler.tag : tag);
     }
 
-    _hideUnusedCoefficients(descriptions, showCoeList, actionHandler.t);
+    hideUnusedCoefficients(descriptions, showCoeList, actionHandler.t);
 
     return [
       for (var i = 0; i < actions.length; i++)
@@ -223,7 +223,7 @@ class SingleSkillInfo extends StatelessWidget {
     ];
   }
 
-  void _hideUnusedCoefficients(
+  void hideUnusedCoefficients(
     List<String> descriptions,
     List<bool> showCoeList,
     AppLocalizations t,
@@ -491,40 +491,6 @@ class _AllSkillInfoState extends State<AllSkillInfo> {
     });
   }
 
-  Widget _sectionTitle(
-    BuildContext context,
-    String title,
-    IconData icon, {
-    int? count,
-  }) {
-    final theme = Theme.of(context);
-    final colors = theme.colorScheme;
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 22, 16, 4),
-      child: Row(
-        children: [
-          Icon(icon, color: colors.primary),
-          const SizedBox(width: 9),
-          Expanded(
-            child: Text(
-              title,
-              style: theme.textTheme.titleLarge?.copyWith(
-                color: colors.onSurface,
-                fontWeight: FontWeight.w800,
-              ),
-            ),
-          ),
-          if (count != null)
-            Badge(
-              backgroundColor: colors.secondaryContainer,
-              textColor: colors.onSecondaryContainer,
-              label: Text('$count'),
-            ),
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
@@ -586,12 +552,6 @@ class _AllSkillInfoState extends State<AllSkillInfo> {
                   ),
                 ),
               ),
-            _sectionTitle(
-              context,
-              t.normal_skill,
-              Icons.auto_awesome_outlined,
-              count: widget.skillIdList.normal.length,
-            ),
             ...widget.skillIdList.normal.map(
               (e) => SingleSkillInfo(
                 skill: e.data,
@@ -603,10 +563,9 @@ class _AllSkillInfoState extends State<AllSkillInfo> {
               ),
             ),
             if (widget.skillIdList.sp.isNotEmpty)
-              _sectionTitle(
-                context,
-                t.sp_skill,
-                Icons.flash_on_outlined,
+              SectionTitle(
+                title: t.sp_skill,
+                icon: Icons.flash_on_outlined,
                 count: widget.skillIdList.sp.length,
               ),
             ...widget.skillIdList.sp.map(
@@ -903,4 +862,45 @@ Map<int, int> _buildSkillLevelMap(
   add(skill.exSkill5, parameter.exSkillLv5);
   add(skill.exSkillEvolution5, parameter.exSkillLv5);
   return result;
+}
+
+class SectionTitle extends StatelessWidget {
+  final String title;
+  final IconData icon;
+  final int? count;
+  const SectionTitle({
+    super.key,
+    required this.title,
+    required this.icon,
+    this.count,
+  });
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 22, 16, 4),
+      child: Row(
+        children: [
+          Icon(icon, color: colors.primary),
+          const SizedBox(width: 9),
+          Expanded(
+            child: Text(
+              title,
+              style: theme.textTheme.titleLarge?.copyWith(
+                color: colors.onSurface,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ),
+          if (count != null)
+            Badge(
+              backgroundColor: colors.secondaryContainer,
+              textColor: colors.onSecondaryContainer,
+              label: Text('$count'),
+            ),
+        ],
+      ),
+    );
+  }
 }

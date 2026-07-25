@@ -25,7 +25,7 @@ class ClanBattleResults extends ConsumerWidget {
     final result = ref.watch(clanBattleListProvider(clanBattleId));
     return result.when(
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (error, _) => _QueryError(
+      error: (error, _) => QueryError(
         message: error.toString(),
         onRetry: () => ref.invalidate(clanBattleListProvider(clanBattleId)),
       ),
@@ -84,11 +84,11 @@ class ClanBattleResults extends ConsumerWidget {
   }
 }
 
-class _QueryError extends StatelessWidget {
+class QueryError extends StatelessWidget {
   final String message;
   final VoidCallback onRetry;
 
-  const _QueryError({required this.message, required this.onRetry});
+  const QueryError({super.key, required this.message, required this.onRetry});
 
   @override
   Widget build(BuildContext context) {
@@ -154,108 +154,109 @@ class _ClanBattleCardState extends ConsumerState<ClanBattleCard> {
     final phaseRange = widget.data.minPhase == widget.data.maxPhase
         ? _phaseLabel(widget.data.minPhase)
         : '${_phaseLabel(widget.data.minPhase)}-${_phaseLabel(widget.data.maxPhase)}';
-    final phases = _expanded
-        ? ref.watch(clanBattlePhasesProvider(widget.data.clanBattleId))
-        : null;
+    final phases = ref.watch(
+      clanBattlePhasesProvider(widget.data.clanBattleId),
+    );
+    final dateParts = widget.data.displayDate.split('/');
+    final displayDate = dateParts.length == 2
+        ? '${dateParts[0]} 年 ${dateParts[1]} 月'
+        : widget.data.displayDate;
 
-    return Card(
+    return Card.filled(
       margin: EdgeInsets.zero,
       clipBehavior: Clip.antiAlias,
+      color: colors.surfaceContainerLow,
       child: Column(
         children: [
           InkWell(
             onTap: () => setState(() => _expanded = !_expanded),
             child: Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.fromLTRB(14, 12, 10, 10),
               child: Row(
                 children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 8,
-                    ),
-                    decoration: BoxDecoration(
-                      color: colors.primaryContainer,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Text(
-                      '#${widget.data.clanBattleId}',
-                      style: TextStyle(
-                        color: colors.onPrimaryContainer,
-                        fontWeight: FontWeight.w800,
+                  Expanded(
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment.centerLeft,
+                      child: Row(
+                        children: [
+                          InfoPill(
+                            label: '#${widget.data.clanBattleId}',
+                            color: colors.primary,
+                          ),
+                          const SizedBox(width: 7),
+                          InfoPill(
+                            label: displayDate,
+                            color: const Color(CustomColors.colorDeepBlue),
+                          ),
+                          const SizedBox(width: 7),
+                          InfoPill(
+                            label: '$phaseRange 阶段',
+                            color: const Color(CustomColors.colorPurple),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                  const SizedBox(width: 14),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          t.clan_battle_title(widget.data.clanBattleId),
-                          style: Theme.of(context).textTheme.titleMedium
-                              ?.copyWith(fontWeight: FontWeight.w800),
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          '${widget.data.displayDate} · ${t.clan_battle_phase(phaseRange)}',
-                          style: Theme.of(context).textTheme.bodyMedium
-                              ?.copyWith(color: colors.onSurfaceVariant),
-                        ),
-                      ],
-                    ),
-                  ),
+                  const SizedBox(width: 6),
                   Icon(
                     _expanded
                         ? Icons.keyboard_arrow_up_rounded
                         : Icons.keyboard_arrow_down_rounded,
+                    color: colors.onSurfaceVariant,
                   ),
                 ],
               ),
             ),
           ),
-          AnimatedSize(
-            duration: const Duration(milliseconds: 220),
-            alignment: Alignment.topCenter,
-            child: !_expanded
-                ? const SizedBox.shrink()
-                : DecoratedBox(
-                    decoration: BoxDecoration(
-                      border: Border(
-                        top: BorderSide(color: colors.outlineVariant),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: phases!.when(
-                        loading: () => const Padding(
-                          padding: EdgeInsets.all(24),
-                          child: CircularProgressIndicator(),
-                        ),
-                        error: (error, _) => _QueryError(
-                          message: error.toString(),
-                          onRetry: () => ref.invalidate(
-                            clanBattlePhasesProvider(widget.data.clanBattleId),
+          phases.when(
+            loading: () => const SizedBox(
+              height: 104,
+              child: Center(child: CircularProgressIndicator()),
+            ),
+            error: (error, _) => Padding(
+              padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
+              child: QueryError(
+                message: error.toString(),
+                onRetry: () => ref.invalidate(
+                  clanBattlePhasesProvider(widget.data.clanBattleId),
+                ),
+              ),
+            ),
+            data: (data) {
+              if (data.isEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 4, 16, 18),
+                  child: Text(t.no_clan_battle_data),
+                );
+              }
+              final selected =
+                  data.any((phase) => phase.phase == _selectedPhase)
+                  ? data.firstWhere((phase) => phase.phase == _selectedPhase)
+                  : data.last;
+              return AnimatedSize(
+                duration: const Duration(milliseconds: 220),
+                alignment: Alignment.topCenter,
+                child: _expanded
+                    ? DecoratedBox(
+                        decoration: BoxDecoration(
+                          border: Border(
+                            top: BorderSide(color: colors.outlineVariant),
                           ),
                         ),
-                        data: (data) {
-                          if (data.isEmpty) return Text(t.no_clan_battle_data);
-                          final selected =
-                              data.any((phase) => phase.phase == _selectedPhase)
-                              ? data.firstWhere(
-                                  (phase) => phase.phase == _selectedPhase,
-                                )
-                              : data.last;
-                          return _ClanBattleDetail(
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: ClanBattleDetail(
                             phases: data,
                             selected: selected,
                             onSelect: (phase) =>
                                 setState(() => _selectedPhase = phase),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
+                          ),
+                        ),
+                      )
+                    : BossStrip(phase: selected),
+              );
+            },
           ),
         ],
       ),
@@ -263,12 +264,85 @@ class _ClanBattleCardState extends ConsumerState<ClanBattleCard> {
   }
 }
 
-class _ClanBattleDetail extends StatelessWidget {
+class InfoPill extends StatelessWidget {
+  final String label;
+  final Color color;
+
+  const InfoPill({super.key, required this.label, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: .14),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        child: Text(
+          label,
+          style: Theme.of(context).textTheme.labelLarge?.copyWith(
+            color: color,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class BossStrip extends StatelessWidget {
+  final ClanBattlePhaseData phase;
+
+  const BossStrip({super.key, required this.phase});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(8, 0, 8, 14),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final itemWidth = constraints.maxWidth / phase.bosses.length;
+          final avatarSize = (itemWidth - 10).clamp(48.0, 76.0);
+          return Row(
+            children: [
+              for (final boss in phase.bosses)
+                Expanded(
+                  child: Tooltip(
+                    message: '${phase.phaseLabel}${boss.index} ${boss.name}',
+                    child: InkResponse(
+                      onTap: () => openBossDetail(context, boss),
+                      radius: avatarSize * .64,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          BossAvatar(boss: boss, size: avatarSize),
+                          const SizedBox(height: 5),
+                          Text(
+                            '${phase.phaseLabel}${boss.index}',
+                            style: Theme.of(context).textTheme.labelMedium
+                                ?.copyWith(fontWeight: FontWeight.w800),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
+
+class ClanBattleDetail extends StatelessWidget {
   final List<ClanBattlePhaseData> phases;
   final ClanBattlePhaseData selected;
   final ValueChanged<int> onSelect;
 
-  const _ClanBattleDetail({
+  const ClanBattleDetail({
+    super.key,
     required this.phases,
     required this.selected,
     required this.onSelect,
@@ -278,7 +352,6 @@ class _ClanBattleDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Wrap(
           spacing: 8,
@@ -294,9 +367,10 @@ class _ClanBattleDetail extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 16),
-        _BossGrid(phase: selected),
+        BossGrid(phase: selected),
         const SizedBox(height: 20),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
               Icons.calculate_outlined,
@@ -319,7 +393,7 @@ class _ClanBattleDetail extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        _FullCompensationTable(
+        FullCompensationTable(
           phaseLabel: selected.phaseLabel,
           bosses: selected.bosses,
         ),
@@ -328,10 +402,10 @@ class _ClanBattleDetail extends StatelessWidget {
   }
 }
 
-class _BossGrid extends StatelessWidget {
+class BossGrid extends StatelessWidget {
   final ClanBattlePhaseData phase;
 
-  const _BossGrid({required this.phase});
+  const BossGrid({super.key, required this.phase});
 
   @override
   Widget build(BuildContext context) {
@@ -352,7 +426,7 @@ class _BossGrid extends StatelessWidget {
             for (final boss in phase.bosses)
               SizedBox(
                 width: width,
-                child: _BossItem(phaseLabel: phase.phaseLabel, boss: boss),
+                child: BossItem(phaseLabel: phase.phaseLabel, boss: boss),
               ),
           ],
         );
@@ -361,11 +435,11 @@ class _BossGrid extends StatelessWidget {
   }
 }
 
-class _BossItem extends StatelessWidget {
+class BossItem extends StatelessWidget {
   final String phaseLabel;
   final ClanBattleBossData boss;
 
-  const _BossItem({required this.phaseLabel, required this.boss});
+  const BossItem({super.key, required this.phaseLabel, required this.boss});
 
   @override
   Widget build(BuildContext context) {
@@ -376,30 +450,14 @@ class _BossItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(14),
       child: InkWell(
         borderRadius: BorderRadius.circular(14),
-        onTap: () {
-          final width = MediaQuery.sizeOf(context).width;
-          context.push(
-            AppRoutes.unitDetail,
-            extra: UnitCard(
-              unitId: boss.enemyId,
-              unitType: UnitType.enemy,
-              enemyType: EnemyType.clan,
-              size: (width, 200),
-            ),
-          );
-        },
+        onTap: () => openBossDetail(context, boss),
         child: Tooltip(
           message: '${t.open_enemy_detail} · ${boss.enemyId}',
           child: Padding(
             padding: const EdgeInsets.all(12),
             child: Column(
               children: [
-                CachedImage(
-                  url: FetchUrl.unitIconUrl(boss.unitId),
-                  width: 68,
-                  height: 68,
-                  borderRadius: BorderRadius.circular(12),
-                ),
+                BossAvatar(boss: boss, size: 68),
                 const SizedBox(height: 8),
                 Text(
                   '$phaseLabel${boss.index} ${boss.name}',
@@ -409,7 +467,7 @@ class _BossItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 3),
                 Text(
-                  _formatDamage(boss.hp),
+                  formatDamage(boss.hp),
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     color: colors.onSurfaceVariant,
                   ),
@@ -423,11 +481,74 @@ class _BossItem extends StatelessWidget {
   }
 }
 
-class _FullCompensationTable extends StatelessWidget {
+class BossAvatar extends StatelessWidget {
+  final ClanBattleBossData boss;
+  final double size;
+
+  const BossAvatar({super.key, required this.boss, required this.size});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox.square(
+      dimension: size,
+      child: Stack(
+        children: [
+          CachedImage(
+            url: FetchUrl.unitIconUrl(boss.unitId),
+            width: size,
+            height: size,
+            borderRadius: BorderRadius.circular(size * .16),
+          ),
+          if (boss.weaknessTalentIds.isNotEmpty)
+            Positioned(
+              left: 2,
+              bottom: 2,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  for (
+                    var index = 0;
+                    index < boss.weaknessTalentIds.length;
+                    index++
+                  ) ...[
+                    if (index > 0) const SizedBox(width: 2),
+                    Image.asset(
+                      '${FilePath.img}/talent/'
+                      '${Talent.fromValue(boss.weaknessTalentIds[index]).name}'
+                      '.png',
+                      width: size * .25,
+                      height: size * .25,
+                      filterQuality: FilterQuality.high,
+                    ),
+                  ],
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+void openBossDetail(BuildContext context, ClanBattleBossData boss) {
+  final width = MediaQuery.sizeOf(context).width;
+  context.push(
+    AppRoutes.unitDetail,
+    extra: UnitCard(
+      unitId: boss.enemyId,
+      unitType: UnitType.enemy,
+      enemyType: EnemyType.clan,
+      size: (width, 200),
+    ),
+  );
+}
+
+class FullCompensationTable extends StatelessWidget {
   final String phaseLabel;
   final List<ClanBattleBossData> bosses;
 
-  const _FullCompensationTable({
+  const FullCompensationTable({
+    super.key,
     required this.phaseLabel,
     required this.bosses,
   });
@@ -456,14 +577,14 @@ class _FullCompensationTable extends StatelessWidget {
                 DataRow(
                   cells: [
                     DataCell(Text('$phaseLabel${boss.index}')),
-                    DataCell(Text(_formatDamage(boss.hp))),
+                    DataCell(Text(formatDamage(boss.hp))),
                     for (var count = 1; count <= 8; count++)
                       DataCell(
                         Text(
                           boss.fullCompensationLines.any(
                                 (line) => line.count == count,
                               )
-                              ? _formatDamage(
+                              ? formatDamage(
                                   boss.fullCompensationLines
                                       .firstWhere((line) => line.count == count)
                                       .damage,
@@ -481,7 +602,7 @@ class _FullCompensationTable extends StatelessWidget {
   }
 }
 
-String _formatDamage(num value) {
+String formatDamage(num value) {
   if (value >= 100000000) {
     return '${(value / 100000000).toStringAsFixed(2)}亿';
   }

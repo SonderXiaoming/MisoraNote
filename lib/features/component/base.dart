@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
 import 'package:misora_note/constants.dart';
 import 'package:misora_note/features/component/image.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
@@ -288,5 +291,60 @@ enum Talent {
       case Talent.dark:
         return t.talent_dark;
     }
+  }
+}
+
+enum ScheduleEventType {
+  story,
+  gacha,
+  freeGacha,
+  campaign,
+  clanBattle,
+  tower,
+  specialDungeon,
+  dimensionalFault,
+  colosseum,
+  abyss,
+  dailyMission,
+  loginBonus,
+  fortune,
+  birthday;
+
+  Color getColor() {
+    return Color(switch (this) {
+      ScheduleEventType.story => CustomColors.colorDeepPink,
+      ScheduleEventType.gacha => CustomColors.colorRed,
+      ScheduleEventType.freeGacha => CustomColors.colorGold,
+      ScheduleEventType.campaign => CustomColors.colorDeepBlue,
+      ScheduleEventType.clanBattle => CustomColors.colorOrange,
+      ScheduleEventType.tower => CustomColors.colorDeepBlue,
+      ScheduleEventType.specialDungeon => CustomColors.colorGold,
+      ScheduleEventType.dimensionalFault => CustomColors.colorPurple,
+      ScheduleEventType.colosseum => CustomColors.colorCyan,
+      ScheduleEventType.abyss => CustomColors.colorRed,
+      ScheduleEventType.dailyMission => CustomColors.colorGreen,
+      ScheduleEventType.loginBonus => CustomColors.colorGold,
+      ScheduleEventType.fortune => CustomColors.colorPink,
+      ScheduleEventType.birthday => CustomColors.colorRed,
+    });
+  }
+
+  IconData getIcon() {
+    return switch (this) {
+      ScheduleEventType.story => Icons.auto_stories_rounded,
+      ScheduleEventType.gacha => Icons.stars_rounded,
+      ScheduleEventType.freeGacha => Icons.redeem_rounded,
+      ScheduleEventType.campaign => Icons.trending_up_rounded,
+      ScheduleEventType.clanBattle => Icons.groups_2_rounded,
+      ScheduleEventType.tower => Icons.apartment_rounded,
+      ScheduleEventType.specialDungeon => Icons.landscape_rounded,
+      ScheduleEventType.dimensionalFault => Icons.blur_circular_rounded,
+      ScheduleEventType.colosseum => Icons.sports_martial_arts_rounded,
+      ScheduleEventType.abyss => Icons.whatshot_rounded,
+      ScheduleEventType.dailyMission => Icons.bolt_rounded,
+      ScheduleEventType.loginBonus => Icons.card_giftcard_rounded,
+      ScheduleEventType.fortune => Icons.emoji_events_rounded,
+      ScheduleEventType.birthday => Icons.cake_rounded,
+    };
   }
 }

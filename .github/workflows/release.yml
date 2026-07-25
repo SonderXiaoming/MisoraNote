@@ -1,355 +1,314 @@
-name: misora_note Release
+name: Release
 
 on:
   push:
     tags:
-      - "v*.*.*" # 触发条件：推送版本标签，如 v1.0.0
-  workflow_dispatch: # 允许手动触发
+      - "v*.*.*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  FLUTTER_VERSION: "3.38.9"
 
 jobs:
-  # Windows 构建任务
-  build-windows:
-    runs-on: windows-latest
+  validate-tag:
+    name: Validate release tag
+    runs-on: ubuntu-24.04
+    outputs:
+      version: ${{ steps.version.outputs.version }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: "3.35.4" # 与本地开发环境版本一致
-          channel: "stable"
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: Get version from tag
-        id: get_version
+      - name: Validate semantic version
+        id: version
         shell: bash
         run: |
-          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/}
-          else
-            VERSION="dev"
+          set -euo pipefail
+          if [[ ! "$GITHUB_REF_NAME" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Release tags must use the vMAJOR.MINOR.PATCH format (for example, v1.2.3)." >&2
+            exit 1
           fi
-          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
 
-      - name: Build Windows EXE
-        run: flutter build windows --release
+  build-windows:
+    name: Build Windows x64
+    needs: validate-tag
+    runs-on: windows-2022
+    env:
+      VERSION: ${{ needs.validate-tag.outputs.version }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
 
-      - name: Create Windows ZIP
-        run: |
-          $version = "${{ steps.get_version.outputs.VERSION }}"
-          Compress-Archive -Path build\windows\x64\runner\Release\* -DestinationPath "misora_note_${version}_windows_x64.zip"
-
-      - name: Upload Windows Artifact
-        uses: actions/upload-artifact@v4
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
-          name: windows-exe
-          path: misora_note_${{ steps.get_version.outputs.VERSION }}_windows_x64.zip
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
 
-  # macOS 构建任务 (DMG)
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build Windows
+        run: flutter build windows --release --build-name $env:VERSION --build-number $env:GITHUB_RUN_NUMBER
+
+      - name: Package Windows
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path dist | Out-Null
+          Compress-Archive `
+            -Path "build/windows/x64/runner/Release/*" `
+            -DestinationPath "dist/misora_note_${env:GITHUB_REF_NAME}_windows_x64.zip"
+
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: windows-x64
+          path: dist/*
+          if-no-files-found: error
+
   build-macos:
-    runs-on: macos-latest
+    name: Build macOS
+    needs: validate-tag
+    runs-on: macos-15-intel
+    env:
+      VERSION: ${{ needs.validate-tag.outputs.version }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Check out source
+        uses: actions/checkout@v6
 
-      - name: Setup Flutter
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.35.4"
-          channel: "stable"
-
-      - name: Get version from tag
-        id: get_version
-        run: |
-          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/}
-          else
-            VERSION="dev"
-          fi
-          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build macOS APP
-        run: flutter build macos --release
+      - name: Build macOS
+        run: flutter build macos --release --build-name "$VERSION" --build-number "$GITHUB_RUN_NUMBER"
 
-      - name: Create DMG
+      - name: Package macOS DMG
+        shell: bash
         run: |
-          VERSION="${{ steps.get_version.outputs.VERSION }}"
-          # 安装 create-dmg
-          brew install create-dmg
+          set -euo pipefail
+          app_path="build/macos/Build/Products/Release/misora_note.app"
+          test -d "$app_path"
+          mkdir -p dist/dmg-root
+          ditto "$app_path" "dist/dmg-root/MisoraNote.app"
+          ln -s /Applications dist/dmg-root/Applications
+          hdiutil create \
+            -volname "MisoraNote" \
+            -srcfolder dist/dmg-root \
+            -ov \
+            -format UDZO \
+            "dist/misora_note_${GITHUB_REF_NAME}_macos.dmg"
+          rm -rf dist/dmg-root
 
-          # 创建 DMG
-          create-dmg \
-            --volname "MisoraNote" \
-            --window-pos 200 120 \
-            --window-size 800 400 \
-            --icon-size 100 \
-            --app-drop-link 600 185 \
-            "misora_note_${VERSION}_macos.dmg" \
-            "build/macos/Build/Products/Release/misora_note.app" || true
-
-          # 如果 create-dmg 失败，使用备用方法
-          if [ ! -f "misora_note_${VERSION}_macos.dmg" ]; then
-            hdiutil create -volname "MisoraNote" -srcfolder "build/macos/Build/Products/Release/misora_note.app" -ov -format UDZO "misora_note_${VERSION}_macos.dmg"
-          fi
-
-      - name: Upload macOS Artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload macOS artifact
+        uses: actions/upload-artifact@v6
         with:
-          name: macos-dmg
-          path: misora_note_${{ steps.get_version.outputs.VERSION }}_macos.dmg
+          name: macos
+          path: dist/*
+          if-no-files-found: error
 
-  # Android 构建任务 (APK)
   build-android:
-    runs-on: ubuntu-latest
+    name: Build Android
+    needs: validate-tag
+    runs-on: ubuntu-24.04
+    env:
+      VERSION: ${{ needs.validate-tag.outputs.version }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Check out source
+        uses: actions/checkout@v6
 
-      - name: Setup Java
-        uses: actions/setup-java@v4
+      - name: Set up Java
+        uses: actions/setup-java@v5
         with:
-          distribution: "zulu"
+          distribution: temurin
           java-version: "17"
+          cache: gradle
 
-      - name: Setup Flutter
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.35.4"
-          channel: "stable"
-
-      - name: Get version from tag
-        id: get_version
-        run: |
-          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/}
-          else
-            VERSION="dev"
-          fi
-          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build Android APK
-        run: flutter build apk --release --split-per-abi
+      - name: Build Android APKs
+        run: flutter build apk --release --split-per-abi --build-name "$VERSION" --build-number "$GITHUB_RUN_NUMBER"
 
       - name: Build Android App Bundle
-        run: flutter build appbundle --release
+        run: flutter build appbundle --release --build-name "$VERSION" --build-number "$GITHUB_RUN_NUMBER"
 
-      - name: Rename APK files
+      - name: Package Android
+        shell: bash
         run: |
-          VERSION="${{ steps.get_version.outputs.VERSION }}"
-          mv build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk build/app/outputs/flutter-apk/misora_note_${VERSION}_armeabi-v7a.apk
-          mv build/app/outputs/flutter-apk/app-arm64-v8a-release.apk build/app/outputs/flutter-apk/misora_note_${VERSION}_arm64-v8a.apk
-          mv build/app/outputs/flutter-apk/app-x86_64-release.apk build/app/outputs/flutter-apk/misora_note_${VERSION}_x86_64.apk
-          mv build/app/outputs/bundle/release/app-release.aab build/app/outputs/bundle/release/misora_note_${VERSION}.aab
+          set -euo pipefail
+          mkdir -p dist
+          cp build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk "dist/misora_note_${GITHUB_REF_NAME}_armeabi-v7a.apk"
+          cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk "dist/misora_note_${GITHUB_REF_NAME}_arm64-v8a.apk"
+          cp build/app/outputs/flutter-apk/app-x86_64-release.apk "dist/misora_note_${GITHUB_REF_NAME}_x86_64.apk"
+          cp build/app/outputs/bundle/release/app-release.aab "dist/misora_note_${GITHUB_REF_NAME}.aab"
 
-      - name: Upload Android APK Artifacts
-        uses: actions/upload-artifact@v4
+      - name: Upload Android artifacts
+        uses: actions/upload-artifact@v6
         with:
-          name: android-apk
-          path: |
-            build/app/outputs/flutter-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_armeabi-v7a.apk
-            build/app/outputs/flutter-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_arm64-v8a.apk
-            build/app/outputs/flutter-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_x86_64.apk
+          name: android
+          path: dist/*
+          if-no-files-found: error
 
-      - name: Upload Android App Bundle
-        uses: actions/upload-artifact@v4
-        with:
-          name: android-aab
-          path: build/app/outputs/bundle/release/misora_note_${{ steps.get_version.outputs.VERSION }}.aab
-
-  # iOS 构建任务 (IPA)
   build-ios:
-    runs-on: macos-latest
+    name: Build iOS (unsigned)
+    needs: validate-tag
+    runs-on: macos-15
+    env:
+      VERSION: ${{ needs.validate-tag.outputs.version }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Check out source
+        uses: actions/checkout@v6
 
-      - name: Setup Flutter
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.35.4"
-          channel: "stable"
-
-      - name: Get version from tag
-        id: get_version
-        run: |
-          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/}
-          else
-            VERSION="dev"
-          fi
-          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build iOS (without code signing)
+      - name: Build iOS without code signing
+        run: flutter build ios --release --no-codesign --build-name "$VERSION" --build-number "$GITHUB_RUN_NUMBER"
+
+      - name: Package unsigned IPA
+        shell: bash
         run: |
-          VERSION="${{ steps.get_version.outputs.VERSION }}"
-          flutter build ios --release --no-codesign
+          set -euo pipefail
+          mkdir -p dist/Payload
+          ditto build/ios/iphoneos/Runner.app dist/Payload/Runner.app
+          (
+            cd dist
+            zip -qry "misora_note_${GITHUB_REF_NAME}_ios_unsigned.ipa" Payload
+          )
+          rm -rf dist/Payload
 
-          # 创建 IPA (未签名，仅用于分发测试)
-          cd build/ios/iphoneos
-          mkdir Payload
-          cp -r Runner.app Payload/
-          zip -r "misora_note_${VERSION}_ios_unsigned.ipa" Payload
-          mv "misora_note_${VERSION}_ios_unsigned.ipa" ../../..
-
-      - name: Upload iOS Artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload iOS artifact
+        uses: actions/upload-artifact@v6
         with:
-          name: ios-ipa
-          path: misora_note_${{ steps.get_version.outputs.VERSION }}_ios_unsigned.ipa
+          name: ios-unsigned
+          path: dist/*
+          if-no-files-found: error
 
-  # Linux 构建任务
   build-linux:
-    runs-on: ubuntu-latest
+    name: Build Linux x64
+    needs: validate-tag
+    runs-on: ubuntu-24.04
+    env:
+      VERSION: ${{ needs.validate-tag.outputs.version }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Check out source
+        uses: actions/checkout@v6
 
-      - name: Install Linux dependencies
+      - name: Install Linux build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev
+          sudo apt-get install -y \
+            clang \
+            cmake \
+            libgtk-3-dev \
+            liblzma-dev \
+            libstdc++-12-dev \
+            ninja-build \
+            pkg-config
 
-      - name: Setup Flutter
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.35.4"
-          channel: "stable"
-
-      - name: Get version from tag
-        id: get_version
-        run: |
-          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/}
-          else
-            VERSION="dev"
-          fi
-          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
 
       - name: Install dependencies
         run: flutter pub get
 
       - name: Build Linux
-        run: flutter build linux --release
+        run: flutter build linux --release --build-name "$VERSION" --build-number "$GITHUB_RUN_NUMBER"
 
-      - name: Create Linux Archive
+      - name: Package Linux
+        shell: bash
         run: |
-          VERSION="${{ steps.get_version.outputs.VERSION }}"
-          cd build/linux/x64/release/bundle
-          tar -czf "../../../../../misora_note_${VERSION}_linux_x64.tar.gz" *
+          set -euo pipefail
+          mkdir -p dist
+          tar -C build/linux/x64/release/bundle -czf "dist/misora_note_${GITHUB_REF_NAME}_linux_x64.tar.gz" .
 
-      - name: Upload Linux Artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload Linux artifact
+        uses: actions/upload-artifact@v6
         with:
-          name: linux-tar
-          path: misora_note_${{ steps.get_version.outputs.VERSION }}_linux_x64.tar.gz
+          name: linux-x64
+          path: dist/*
+          if-no-files-found: error
 
-  # 创建 GitHub Release
-  create-release:
-    needs: [build-windows, build-macos, build-android, build-ios, build-linux]
-    if: always() # 即使有构建失败也执行
-    runs-on: ubuntu-latest
+  publish-release:
+    name: Publish GitHub Release
+    needs:
+      - validate-tag
+      - build-windows
+      - build-macos
+      - build-android
+      - build-ios
+      - build-linux
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Download all artifacts
-        uses: actions/download-artifact@v4
+      - name: Download all platform artifacts
+        uses: actions/download-artifact@v7
         with:
-          path: artifacts
-        continue-on-error: true # 即使没有 artifact 也继续
+          path: dist
+          merge-multiple: true
 
-      - name: Get version from tag
-        id: get_version
+      - name: Generate SHA-256 checksums
+        working-directory: dist
+        shell: bash
+        run: sha256sum * > SHA256SUMS.txt
+
+      - name: Verify release assets
+        shell: bash
         run: |
-          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/}
-          else
-            VERSION="dev"
-          fi
-          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          set -euo pipefail
+          expected=(
+            "misora_note_${GITHUB_REF_NAME}_windows_x64.zip"
+            "misora_note_${GITHUB_REF_NAME}_macos.dmg"
+            "misora_note_${GITHUB_REF_NAME}_armeabi-v7a.apk"
+            "misora_note_${GITHUB_REF_NAME}_arm64-v8a.apk"
+            "misora_note_${GITHUB_REF_NAME}_x86_64.apk"
+            "misora_note_${GITHUB_REF_NAME}.aab"
+            "misora_note_${GITHUB_REF_NAME}_ios_unsigned.ipa"
+            "misora_note_${GITHUB_REF_NAME}_linux_x64.tar.gz"
+            "SHA256SUMS.txt"
+          )
+          for asset in "${expected[@]}"; do
+            test -s "dist/$asset" || {
+              echo "Missing or empty release asset: $asset" >&2
+              exit 1
+            }
+          done
 
-      - name: Display structure of downloaded files
-        run: ls -R artifacts || echo "No artifacts found"
-
-      - name: Collect available files
-        id: collect_files
-        run: |
-          FILES=""
-          # 检查每个文件是否存在，存在则添加到列表
-          [ -f "artifacts/windows-exe/misora_note_${{ steps.get_version.outputs.VERSION }}_windows_x64.zip" ] && FILES="${FILES}artifacts/windows-exe/misora_note_${{ steps.get_version.outputs.VERSION }}_windows_x64.zip"$'\n'
-          [ -f "artifacts/macos-dmg/misora_note_${{ steps.get_version.outputs.VERSION }}_macos.dmg" ] && FILES="${FILES}artifacts/macos-dmg/misora_note_${{ steps.get_version.outputs.VERSION }}_macos.dmg"$'\n'
-          [ -f "artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_armeabi-v7a.apk" ] && FILES="${FILES}artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_armeabi-v7a.apk"$'\n'
-          [ -f "artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_arm64-v8a.apk" ] && FILES="${FILES}artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_arm64-v8a.apk"$'\n'
-          [ -f "artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_x86_64.apk" ] && FILES="${FILES}artifacts/android-apk/misora_note_${{ steps.get_version.outputs.VERSION }}_x86_64.apk"$'\n'
-          [ -f "artifacts/android-aab/misora_note_${{ steps.get_version.outputs.VERSION }}.aab" ] && FILES="${FILES}artifacts/android-aab/misora_note_${{ steps.get_version.outputs.VERSION }}.aab"$'\n'
-          [ -f "artifacts/ios-ipa/misora_note_${{ steps.get_version.outputs.VERSION }}_ios_unsigned.ipa" ] && FILES="${FILES}artifacts/ios-ipa/misora_note_${{ steps.get_version.outputs.VERSION }}_ios_unsigned.ipa"$'\n'
-          [ -f "artifacts/linux-tar/misora_note_${{ steps.get_version.outputs.VERSION }}_linux_x64.tar.gz" ] && FILES="${FILES}artifacts/linux-tar/misora_note_${{ steps.get_version.outputs.VERSION }}_linux_x64.tar.gz"$'\n'
-
-          echo "Available files:"
-          echo "$FILES"
-          echo "FILES<<EOF" >> $GITHUB_OUTPUT
-          echo "$FILES" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        if: steps.collect_files.outputs.FILES != ''
+      - name: Publish release
+        uses: softprops/action-gh-release@v3
         with:
-          files: ${{ steps.collect_files.outputs.FILES }}
-          draft: false
-          prerelease: false
+          files: dist/*
+          fail_on_unmatched_files: true
           generate_release_notes: true
-          fail_on_unmatched_files: false # 不因为找不到文件而失败
-          body: |
-            ## 🚀 MisoraNote Release ${{ steps.get_version.outputs.VERSION }}
-
-            > ⚠️ 注意：本次发布可能只包含部分平台的构建文件。
-
-            ### 📦 可用下载
-
-            请检查下方附件列表，下载您需要的平台版本：
-
-            - **Windows**: `misora_note_${{ steps.get_version.outputs.VERSION }}_windows_x64.zip` - 解压后运行 `misora_note.exe`
-            - **macOS**: `misora_note_${{ steps.get_version.outputs.VERSION }}_macos.dmg` - 双击安装
-            - **Android**: 
-              - ARM64: `misora_note_${{ steps.get_version.outputs.VERSION }}_arm64-v8a.apk` (推荐)
-              - ARMv7: `misora_note_${{ steps.get_version.outputs.VERSION }}_armeabi-v7a.apk`
-              - x86_64: `misora_note_${{ steps.get_version.outputs.VERSION }}_x86_64.apk`
-              - Google Play: `misora_note_${{ steps.get_version.outputs.VERSION }}.aab`
-            - **iOS**: `misora_note_${{ steps.get_version.outputs.VERSION }}_ios_unsigned.ipa` (未签名)
-            - **Linux**: `misora_note_${{ steps.get_version.outputs.VERSION }}_linux_x64.tar.gz`
-
-            ### 📝 更新内容
-            请查看下方的自动生成的发布说明。
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create Release (Fallback)
-        uses: softprops/action-gh-release@v1
-        if: steps.collect_files.outputs.FILES == ''
-        with:
-          draft: false
           prerelease: false
-          generate_release_notes: true
-          body: |
-            ## 🚀 MisoraNote Release ${{ steps.get_version.outputs.VERSION }}
-
-            > ⚠️ 警告：本次发布没有可用的构建文件。所有平台的构建都失败了。
-
-            请查看 [Actions](https://github.com/SonderXiaoming/MisoraNote/actions) 页面了解构建失败的详细信息。
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

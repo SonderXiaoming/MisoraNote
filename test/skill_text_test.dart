@@ -23,13 +23,13 @@ void main() {
     test('includes received-damage TP behavior in damage text', () {
       final handler = ActionHandler(localizations);
       final description = handler.formatDesc(
-        _action(
+        action(
           actionType: SkillActionType.damage.value,
           actionDetail1: 1,
           actionDetail3: 100,
           actionValue1: 100,
         ),
-        _skill(),
+        skill(),
         1,
         0,
       );
@@ -40,13 +40,13 @@ void main() {
     test('formats action 132 damage change', () {
       final handler = ActionHandler(localizations);
       final description = handler.formatDesc(
-        _action(
+        action(
           actionType: SkillActionType.damageChange.value,
           actionDetail1: 1,
           actionValue1: 20,
           actionValue4: 8,
         ),
-        _skill(),
+        skill(),
         1,
         0,
       );
@@ -58,7 +58,7 @@ void main() {
   });
 }
 
-SkillActionInfo _action({
+SkillActionInfo action({
   required int actionType,
   int actionDetail1 = 0,
   int actionDetail2 = 0,
@@ -99,7 +99,7 @@ SkillActionInfo _action({
   );
 }
 
-SkillDataData _skill() {
+SkillDataData skill() {
   return const SkillDataData(
     skillId: 1,
     name: '',

@@ -10,14 +10,19 @@ GameScheduleEvent event({
   required String id,
   required DateTime start,
   required DateTime end,
+  ScheduleEventType type = ScheduleEventType.story,
+  String? title,
+  String subtitle = '',
+  String badgeLabel = '',
 }) {
   return GameScheduleEvent(
     id: id,
-    title: id,
-    subtitle: '',
-    type: ScheduleEventType.story,
+    title: title ?? id,
+    subtitle: subtitle,
+    type: type,
     startTime: start,
     endTime: end,
+    badgeLabel: badgeLabel,
   );
 }
 
@@ -140,10 +145,61 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('日程'), findsOneWidget);
-    expect(find.text('正在进行的日程'), findsOneWidget);
-    expect(find.text('即将开始的日程'), findsOneWidget);
+    expect(find.text('进行中活动'), findsOneWidget);
+    expect(find.text('活动预告'), findsOneWidget);
     expect(find.text('剧情活动'), findsOneWidget);
     expect(find.text('公会战'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('shows limited and permanent labels on gacha cards', (
+    tester,
+  ) async {
+    await tester.binding.setSurfaceSize(const Size(900, 700));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    final now = DateTime.utc(2026, 7, 22, 12);
+    final overview = ScheduleOverview(
+      inProgress: [
+        event(
+          id: 'limited-gacha',
+          title: '精选扭蛋',
+          start: now.subtract(const Duration(hours: 1)),
+          end: now.add(const Duration(days: 1)),
+          type: ScheduleEventType.gacha,
+          badgeLabel: '限定',
+        ),
+        event(
+          id: 'permanent-gacha',
+          title: '精选扭蛋',
+          start: now.subtract(const Duration(hours: 1)),
+          end: now.add(const Duration(days: 2)),
+          type: ScheduleEventType.gacha,
+          badgeLabel: '常驻',
+        ),
+      ],
+      comingSoon: const [],
+    );
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          scheduleOverviewProvider.overrideWith((ref) async => overview),
+        ],
+        child: const MaterialApp(
+          locale: Locale('zh'),
+          supportedLocales: AppLocalizations.supportedLocales,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          home: Scaffold(
+            body: SingleChildScrollView(child: HomeScheduleSection()),
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('限定'), findsOneWidget);
+    expect(find.text('常驻'), findsOneWidget);
+    expect(find.text('扭蛋'), findsNothing);
     expect(tester.takeException(), isNull);
   });
 }

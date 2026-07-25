@@ -445,13 +445,13 @@ abstract class AppLocalizations {
   /// No description provided for @schedule_in_progress.
   ///
   /// In zh, this message translates to:
-  /// **'正在进行的日程'**
+  /// **'进行中活动'**
   String get schedule_in_progress;
 
   /// No description provided for @schedule_coming_soon.
   ///
   /// In zh, this message translates to:
-  /// **'即将开始的日程'**
+  /// **'活动预告'**
   String get schedule_coming_soon;
 
   /// No description provided for @schedule_empty_in_progress.
@@ -531,12 +531,6 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'普攻'**
   String get normal_attack;
-
-  /// No description provided for @normal_skill.
-  ///
-  /// In zh, this message translates to:
-  /// **'常规技能'**
-  String get normal_skill;
 
   /// No description provided for @union_burst.
   ///

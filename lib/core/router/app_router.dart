@@ -68,9 +68,18 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: AppRoutes.uniqueEquipList,
-      pageBuilder: (ctx, state) => FadeSlideScaleTransitionPage(
-        child: UniqueEquipPage(initialUnitId: state.extra as int?),
-      ),
+      pageBuilder: (ctx, state) {
+        final extra = state.extra;
+        final arguments = extra is UniqueEquipRouteArguments
+            ? extra
+            : UniqueEquipRouteArguments(initialUnitId: extra as int?);
+        return FadeSlideScaleTransitionPage(
+          child: UniqueEquipPage(
+            initialUnitId: arguments.initialUnitId,
+            returnToCharacterDetail: arguments.returnToCharacterDetail,
+          ),
+        );
+      },
     ),
     GoRoute(
       path: AppRoutes.characterBond,

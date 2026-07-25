@@ -569,6 +569,16 @@ class UnitTalent extends Table {
   IntColumn get talentId => integer().named("talent_id")();
 }
 
+class UnitRoleData extends Table {
+  @override
+  String get tableName => 'unit_role_data';
+  @override
+  Set<Column> get primaryKey => {unitId};
+
+  IntColumn get unitId => integer().named('unit_id')();
+  IntColumn get unitRoleId => integer().named('unit_role_id')();
+}
+
 class UnitEnemyData extends Table {
   @override
   String get tableName => "unit_enemy_data";

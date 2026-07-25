@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/model.dart';
 import 'package:misora_note/core/di/di.dart';
-import 'package:misora_note/features/component/image.dart';
+import 'package:misora_note/features/component/card/character.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 
 class CharacterBondPage extends ConsumerStatefulWidget {
@@ -37,7 +36,12 @@ class _CharacterBondPageState extends ConsumerState<CharacterBondPage> {
     final t = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(title: Text(t.character_bond)),
-      body: _unitId == null ? _buildPicker(t) : _buildBondDetail(t, _unitId!),
+      body: _unitId == null
+          ? _buildPicker(t)
+          : BondDetail(
+              unitId: _unitId!,
+              onChangeCharacter: () => setState(() => _unitId = null),
+            ),
     );
   }
 
@@ -82,7 +86,7 @@ class _CharacterBondPageState extends ConsumerState<CharacterBondPage> {
                   mainAxisSpacing: 10,
                 ),
                 itemCount: units.length,
-                itemBuilder: (context, index) => _UnitResultCard(
+                itemBuilder: (context, index) => UnitResultCard(
                   unit: units[index],
                   onTap: () {
                     FocusScope.of(context).unfocus();
@@ -96,8 +100,21 @@ class _CharacterBondPageState extends ConsumerState<CharacterBondPage> {
       ],
     );
   }
+}
 
-  Widget _buildBondDetail(AppLocalizations t, int unitId) {
+class BondDetail extends ConsumerWidget {
+  final int unitId;
+  final VoidCallback onChangeCharacter;
+
+  const BondDetail({
+    super.key,
+    required this.unitId,
+    required this.onChangeCharacter,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final t = AppLocalizations.of(context)!;
     final unit = ref.watch(unitDataProvider(unitId));
     final stories = ref.watch(characterBondStoriesProvider(unitId));
     final colors = Theme.of(context).colorScheme;
@@ -109,12 +126,7 @@ class _CharacterBondPageState extends ConsumerState<CharacterBondPage> {
             padding: const EdgeInsets.fromLTRB(16, 12, 16, 14),
             child: Row(
               children: [
-                CachedImage(
-                  url: FetchUrl.unitIconUrl(unitId),
-                  width: 64,
-                  height: 64,
-                  borderRadius: BorderRadius.circular(16),
-                ),
+                CharacterIcon(unitId: unitId, size: (64, 64)),
                 const SizedBox(width: 14),
                 Expanded(
                   child: Column(
@@ -135,7 +147,7 @@ class _CharacterBondPageState extends ConsumerState<CharacterBondPage> {
                   ),
                 ),
                 FilledButton.tonalIcon(
-                  onPressed: () => setState(() => _unitId = null),
+                  onPressed: onChangeCharacter,
                   icon: const Icon(Icons.swap_horiz_rounded),
                   label: Text(t.change_character),
                 ),
@@ -151,7 +163,7 @@ class _CharacterBondPageState extends ConsumerState<CharacterBondPage> {
               if (items.isEmpty) {
                 return Center(child: Text(t.no_bond_data));
               }
-              return _BondStoryList(stories: items);
+              return BondStoryList(stories: items);
             },
           ),
         ),
@@ -160,11 +172,11 @@ class _CharacterBondPageState extends ConsumerState<CharacterBondPage> {
   }
 }
 
-class _UnitResultCard extends StatelessWidget {
+class UnitResultCard extends StatelessWidget {
   final UnitSummary unit;
   final VoidCallback onTap;
 
-  const _UnitResultCard({required this.unit, required this.onTap});
+  const UnitResultCard({super.key, required this.unit, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -178,12 +190,7 @@ class _UnitResultCard extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           child: Row(
             children: [
-              CachedImage(
-                url: FetchUrl.unitIconUrl(unit.unitId),
-                width: 58,
-                height: 58,
-                borderRadius: BorderRadius.circular(13),
-              ),
+              CharacterIcon(unitId: unit.unitId, size: (58, 58)),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
@@ -213,10 +220,10 @@ class _UnitResultCard extends StatelessWidget {
   }
 }
 
-class _BondStoryList extends StatelessWidget {
+class BondStoryList extends StatelessWidget {
   final List<CharacterBondStory> stories;
 
-  const _BondStoryList({required this.stories});
+  const BondStoryList({super.key, required this.stories});
 
   @override
   Widget build(BuildContext context) {
@@ -263,7 +270,7 @@ class _BondStoryList extends StatelessWidget {
                   runSpacing: 8,
                   children: [
                     for (final total in totals.entries)
-                      _BonusChip(type: total.key, value: total.value),
+                      BonusChip(type: total.key, value: total.value),
                   ],
                 ),
               ],
@@ -277,14 +284,17 @@ class _BondStoryList extends StatelessWidget {
             clipBehavior: Clip.antiAlias,
             child: ExpansionTile(
               initiallyExpanded: groups.length == 1,
-              leading: const Icon(Icons.auto_stories_outlined),
+              leading: CharacterIcon(
+                unitId: group.key * 100 + 1,
+                size: (24, 24),
+              ),
               title: Text(
-                _groupTitle(group.value),
+                groupTitle(group.value),
                 style: const TextStyle(fontWeight: FontWeight.w800),
               ),
               subtitle: Text(t.bond_story_count(group.value.length)),
               children: [
-                for (final story in group.value) _StoryBonusItem(story: story),
+                for (final story in group.value) StoryBonusItem(story: story),
               ],
             ),
           ),
@@ -294,17 +304,17 @@ class _BondStoryList extends StatelessWidget {
     );
   }
 
-  String _groupTitle(List<CharacterBondStory> stories) {
+  String groupTitle(List<CharacterBondStory> stories) {
     final title = stories.first.title;
     final separator = title.indexOf(' 第');
     return separator > 0 ? title.substring(0, separator) : title;
   }
 }
 
-class _StoryBonusItem extends StatelessWidget {
+class StoryBonusItem extends StatelessWidget {
   final CharacterBondStory story;
 
-  const _StoryBonusItem({required this.story});
+  const StoryBonusItem({super.key, required this.story});
 
   @override
   Widget build(BuildContext context) {
@@ -338,7 +348,7 @@ class _StoryBonusItem extends StatelessWidget {
               runSpacing: 7,
               children: [
                 for (final bonus in story.bonuses)
-                  _BonusChip(type: bonus.type, value: bonus.value),
+                  BonusChip(type: bonus.type, value: bonus.value),
               ],
             ),
           ],
@@ -348,11 +358,11 @@ class _StoryBonusItem extends StatelessWidget {
   }
 }
 
-class _BonusChip extends StatelessWidget {
+class BonusChip extends StatelessWidget {
   final int type;
   final int value;
 
-  const _BonusChip({required this.type, required this.value});
+  const BonusChip({super.key, required this.type, required this.value});
 
   @override
   Widget build(BuildContext context) {

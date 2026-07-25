@@ -361,22 +361,6 @@ class EnemySearchResult {
   });
 }
 
-enum ScheduleEventType {
-  story,
-  gacha,
-  freeGacha,
-  campaign,
-  clanBattle,
-  tower,
-  specialDungeon,
-  dimensionalFault,
-  colosseum,
-  abyss,
-  dailyMission,
-  loginBonus,
-  fortune,
-}
-
 class GameScheduleEvent {
   final String id;
   final String title;
@@ -384,6 +368,10 @@ class GameScheduleEvent {
   final ScheduleEventType type;
   final DateTime startTime;
   final DateTime endTime;
+  final int? visualId;
+  final List<int> unitIds;
+  final List<String> details;
+  final String badgeLabel;
 
   const GameScheduleEvent({
     required this.id,
@@ -392,6 +380,10 @@ class GameScheduleEvent {
     required this.type,
     required this.startTime,
     required this.endTime,
+    this.visualId,
+    this.unitIds = const [],
+    this.details = const [],
+    this.badgeLabel = '',
   });
 
   bool isInProgressAt(DateTime now) =>
@@ -572,6 +564,7 @@ class ClanBattleBossData {
   final int unitId;
   final String name;
   final int hp;
+  final List<int> weaknessTalentIds;
 
   const ClanBattleBossData({
     required this.index,
@@ -579,6 +572,7 @@ class ClanBattleBossData {
     required this.unitId,
     required this.name,
     required this.hp,
+    this.weaknessTalentIds = const [],
   });
 
   List<FullCompensationLine> get fullCompensationLines =>

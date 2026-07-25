@@ -103,8 +103,8 @@
       }
     }
   },
-  "schedule_in_progress": "正在进行的日程",
-  "schedule_coming_soon": "即将开始的日程",
+  "schedule_in_progress": "进行中活动",
+  "schedule_coming_soon": "活动预告",
   "schedule_empty_in_progress": "当前没有正在进行的日程",
   "schedule_empty_coming": "当前没有即将开始的日程",
   "schedule_load_failed": "日程加载失败",
@@ -146,7 +146,6 @@
     }
   },
   "normal_attack": "普攻",
-  "normal_skill": "常规技能",
   "union_burst": "连结爆发",
   "skill_index": "技能{arg1}",
   "@skill_index": {
