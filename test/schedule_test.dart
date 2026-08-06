@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:misora_note/core/db/database.dart';
 import 'package:misora_note/core/db/model.dart';
 import 'package:misora_note/core/di/di.dart';
 import 'package:misora_note/features/component/base.dart';
@@ -28,6 +31,55 @@ GameScheduleEvent event({
 }
 
 void main() {
+  test('formats daily mission stamina rewards as multipliers', () async {
+    final directory = await Directory.systemTemp.createTemp(
+      'misora_daily_mission_schedule_',
+    );
+    final db = AppDb('${directory.path}/schedule.db');
+    addTearDown(() async {
+      await db.close();
+      await directory.delete(recursive: true);
+    });
+
+    await db.customSelect('SELECT 1').get();
+    await db.customStatement('''
+      CREATE TABLE daily_mission_data (
+        daily_mission_id INTEGER PRIMARY KEY,
+        mission_reward_id INTEGER NOT NULL,
+        start_time TEXT NOT NULL,
+        end_time TEXT NOT NULL
+      )
+    ''');
+    await db.customStatement('''
+      CREATE TABLE mission_reward_data (
+        mission_reward_id INTEGER NOT NULL,
+        reward_type INTEGER NOT NULL,
+        reward_num INTEGER NOT NULL
+      )
+    ''');
+    await db.customStatement('''
+      INSERT INTO daily_mission_data VALUES
+        (1, 101, '2026/08/01 5:00:00', '2026/08/14 4:59:59'),
+        (2, 102, '2026/08/14 5:00:00', '2026/09/01 4:59:59'),
+        (3, 103, '2026/09/01 5:00:00', '2026/09/14 4:59:59'),
+        (4, 104, '2026/09/14 5:00:00', '2026/10/01 4:59:59')
+    ''');
+    await db.customStatement('''
+      INSERT INTO mission_reward_data VALUES
+        (101, 6, 200),
+        (102, 6, 250),
+        (103, 6, 400),
+        (104, 6, 100)
+    ''');
+
+    final dailyMissions = (await db.getScheduleEvents(utcOffsetHours: 8))
+        .where((event) => event.type == ScheduleEventType.dailyMission)
+        .toList();
+
+    expect(dailyMissions.map((event) => event.subtitle), ['×4', '×2.5', '×2']);
+    expect(dailyMissions.every((event) => event.title == '每日任务体力'), isTrue);
+  });
+
   group('ScheduleOverview', () {
     final now = DateTime.utc(2026, 7, 22, 12);
 

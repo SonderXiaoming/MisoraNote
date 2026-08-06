@@ -425,7 +425,7 @@ class AppDb extends _$AppDb {
           SELECT
             CAST(m.daily_mission_id AS TEXT) AS event_key,
             '每日任务体力' AS title,
-            CAST(reward.reward_num * 10 AS TEXT) || ' 体力' AS subtitle,
+            '×' || printf('%g', reward.reward_num / 100.0) AS subtitle,
             m.start_time,
             m.end_time
           FROM daily_mission_data AS m
