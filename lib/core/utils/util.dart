@@ -1,9 +1,7 @@
 import 'dart:io';
 import 'dart:async';
 import 'package:dio/dio.dart';
-import 'package:brotli/brotli.dart';
 import 'package:misora_note/constants.dart';
-import 'package:misora_note/core/network/response_model.dart';
 import 'package:misora_note/core/network/base.dart';
 
 int longUnitId2Short(int longId) {
@@ -21,28 +19,6 @@ final Dio dio = Dio(
   ),
 );
 
-// TODO: 大文件分块解压
-Future<void> decompress({
-  required String brPath,
-  required String outPath,
-}) async {
-  final brFile = File(brPath);
-  if (!await brFile.exists()) {
-    throw FileSystemException('Brotli file not found', brPath);
-  }
-
-  final outFile = File(outPath);
-  await outFile.parent.create(recursive: true);
-
-  // 一次性读取 + 解压
-  final input = await brFile.readAsBytes();
-  final output = brotli.decode(input);
-
-  await outFile.writeAsBytes(output, flush: true);
-
-  await brFile.delete();
-}
-
 void checkPathExists(String path) {
   final file = File(path);
   if (!file.existsSync()) {
@@ -50,19 +26,21 @@ void checkPathExists(String path) {
   }
 }
 
+String? databaseVersionFromResponse(Object? data, Area area) {
+  if (data is! Map) return null;
+  final latest = data['latest'];
+  if (latest is! Map) return null;
+  final database = latest[area.name];
+  if (database is! Map) return null;
+  final version = database['version']?.toString().trim();
+  return version == null || version.isEmpty ? null : version;
+}
+
 Future<String?> checkDatabaseUpdate(Area area) async {
   try {
-    final response = await dio.post(
-      FetchUrl.dbLatestVersion,
-      data: {'regionCode': area.name},
-    );
+    final response = await dio.get(FetchUrl.dbInfo(area));
     if (response.statusCode == 200) {
-      final info = LatestDbVersionResponse.fromJson(response.data);
-      if (!info.isSuccess) return null;
-      final version = info.data.time?.trim();
-      return version == null || version.isEmpty
-          ? info.data.truthVersion.trim()
-          : version;
+      return databaseVersionFromResponse(response.data, area);
     }
     return null;
   } catch (error) {
@@ -76,22 +54,11 @@ Future<void> updatePcrDatabase(
   void Function(int rec, int total)? onProgress,
 }) async {
   final path = FilePath.db(area);
-  final brPath = '$path.br';
   final url = FetchUrl.db(area);
   await apiClient.download(
     url: url,
-    path: brPath,
+    path: path,
     allowCache: false,
     onProgress: onProgress,
   );
-  await decompress(brPath: brPath, outPath: path);
-
-  // 下载完成后尝试 unhash
-  /*
-  try {
-    await unhash_lib.unhashDatabase(path);
-  } catch (e) {
-    print('⚠️  数据库 unhash 失败，将使用原始数据库: $e');
-  }
-  */
 }

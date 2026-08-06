@@ -165,11 +165,11 @@ resources/
 
 本项目使用以下数据源：
 
-- **游戏数据库**: [wthee.xyz](https://wthee.xyz) - 提供公主连结游戏数据 API
+- **游戏数据库**: [SonderXiaoming/priconne-database](https://github.com/SonderXiaoming/priconne-database) - 提供三服可读 SQLite 数据库与历史版本 API
 - **资源文件**: [redive.estertion.win](https://redive.estertion.win) - 游戏图片资源
 - **数据格式**: 支持 CN（国服）、TW（台服）、JP（日服）多服务器数据
 
-感谢 [@wthee](https://github.com/wthee) 提供的数据 API 支持！
+感谢 `priconne-database` 项目提供的数据 API 支持！
 
 ## 🤝 贡献
 
@@ -197,7 +197,7 @@ resources/
 - [公主连结 Re:Dive](https://game.bilibili.com/pcr/) - 游戏官方
 - [pcr-tool](https://github.com/wthee/pcr-tool) - 项目参考与灵感来源
 - [环奈笔记 (kanna_note)](https://github.com/SonderXiaoming/kanna_note) - bot 端版本项目，受限制于平台，基本完工
-- [wthee.xyz](https://wthee.xyz) - 数据 API 支持
+- [SonderXiaoming/priconne-database](https://github.com/SonderXiaoming/priconne-database) - 数据库与版本 API 支持
 - 所有为本项目做出贡献的开发者
 
 ## 📮 联系方式

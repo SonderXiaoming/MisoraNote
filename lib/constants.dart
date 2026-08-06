@@ -55,19 +55,13 @@ final double ratioGolden = 0.618;
 class FetchUrl {
   static const estertionBase = "https://redive.estertion.win";
   static const wtheeBase = "https://wthee.xyz";
+  static const priconneDatabaseBase = "https://pcr.cialloworld.com";
 
-  static String dbVersion = "${FetchUrl.wtheeBase}/pcr/api/v1/db/info/v2";
+  static String dbInfo(Area area) =>
+      "$priconneDatabaseBase/api/databases?region=${area.name}";
 
-  static String dbLatestVersion = "${FetchUrl.wtheeBase}/pcr/api/v1/db/info/v2";
-
-  static String db(Area area) {
-    /*
-    if (area == Area.cn) {
-      return "${FetchUrl.estertionBase}/db/redive_${area.name}.db.br";
-    }
-    */
-    return "${FetchUrl.wtheeBase}/db/redive_${area.name}.db.br";
-  }
+  static String db(Area area) =>
+      "${dbInfo(area)}&download=1";
 
   static String teaser(Area area, int teaserId) =>
       "${FetchUrl.wtheeBase}/redive/${area.name}/resource/event/teaser/$teaserId.webp";

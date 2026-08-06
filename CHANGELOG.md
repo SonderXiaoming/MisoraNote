@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.2
+
+- 数据库版本查询和下载迁移至 `SonderXiaoming/priconne-database`。
+- 直接下载可读 SQLite 数据库，不再依赖 Brotli 数据库包。
+
 ## 1.2.1
 
 - 修正 iOS Bundle ID 和应用名称，避免 SideStore 签名及安装冲突。
