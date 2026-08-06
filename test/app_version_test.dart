@@ -1,7 +1,15 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:misora_note/features/component/update/app_check_update.dart';
 import 'package:misora_note/features/component/update/app_version.dart';
 
 void main() {
+  test('uses the GitHub latest release endpoint', () {
+    expect(
+      githubLatestReleaseUrl,
+      'https://api.github.com/repos/SonderXiaoming/MisoraNote/releases/latest',
+    );
+  });
+
   group('hasAppUpdate', () {
     test('treats GitHub tag prefixes as equivalent', () {
       expect(hasAppUpdate('1.2.0', 'v1.2.0'), isFalse);

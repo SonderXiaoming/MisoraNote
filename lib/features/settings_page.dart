@@ -424,10 +424,19 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
                       task: fetchLatestRelease(),
                     );
                     if (!context.mounted) return;
+                    if (newer == null) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(t.checking_update_failed)),
+                      );
+                      return;
+                    }
+                    final service = GithubUpdateService(newer: newer);
                     await showDialog<Widget>(
                       context: context,
                       builder: (BuildContext context) {
-                        return GithubUpdateService(newer: newer);
+                        return service.checkUpdate(packageInfo.value?.version)
+                            ? service
+                            : const GithubUpdateService(newer: null);
                       },
                     );
                   },

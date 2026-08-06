@@ -8,12 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-const url = 'https://api.github.com/repos/$githubOwner/$githubRepo/latest';
+const githubLatestReleaseUrl =
+    'https://api.github.com/repos/$githubOwner/$githubRepo/releases/latest';
 
 Future<LatestAppVersionResponse?> fetchLatestRelease() async {
   try {
     final response = await apiClient.get(
-      url,
+      githubLatestReleaseUrl,
       headers: {
         // GitHub 要求带一个 User-Agent
         'User-Agent': 'flutter-app-update-checker',
@@ -99,9 +100,7 @@ class GithubUpdateService extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     if (newer != null) {
-      final version = newer!.tagName.isNotEmpty
-          ? newer!.tagName
-          : newer!.name;
+      final version = newer!.tagName.isNotEmpty ? newer!.tagName : newer!.name;
       return AlertDialog(
         title: Text(t.find_new_version(version)),
         content: SingleChildScrollView(
