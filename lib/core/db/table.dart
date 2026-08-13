@@ -398,6 +398,184 @@ class UnitUniqueEquipment extends Table {
   IntColumn get equipId => integer().named("equip_id")();
 }
 
+class CharaIdentity extends Table {
+  @override
+  String get tableName => 'chara_identity';
+  @override
+  Set<Column> get primaryKey => {unitId};
+
+  IntColumn get unitId => integer().named('unit_id')();
+  IntColumn get charaType => integer().named('chara_type')();
+  IntColumn get charaType2 => integer().named('chara_type_2')();
+  IntColumn get charaType3 => integer().named('chara_type_3')();
+}
+
+class CharaStoryStatus extends Table {
+  @override
+  String get tableName => 'chara_story_status';
+  @override
+  Set<Column> get primaryKey => {storyId};
+
+  IntColumn get storyId => integer().named('story_id')();
+  TextColumn get unlockStoryName => text().named('unlock_story_name')();
+  IntColumn get charaId1 => integer().named('chara_id_1')();
+  IntColumn get charaId2 => integer().named('chara_id_2')();
+  IntColumn get charaId3 => integer().named('chara_id_3')();
+  IntColumn get charaId4 => integer().named('chara_id_4')();
+  IntColumn get charaId5 => integer().named('chara_id_5')();
+  IntColumn get charaId6 => integer().named('chara_id_6')();
+  IntColumn get charaId7 => integer().named('chara_id_7')();
+  IntColumn get charaId8 => integer().named('chara_id_8')();
+  IntColumn get charaId9 => integer().named('chara_id_9')();
+  IntColumn get charaId10 => integer().named('chara_id_10')();
+  IntColumn get charaId11 => integer().named('chara_id_11')();
+  IntColumn get charaId12 => integer().named('chara_id_12')();
+  IntColumn get charaId13 => integer().named('chara_id_13')();
+  IntColumn get charaId14 => integer().named('chara_id_14')();
+  IntColumn get charaId15 => integer().named('chara_id_15')();
+  IntColumn get charaId16 => integer().named('chara_id_16')();
+  IntColumn get charaId17 => integer().named('chara_id_17')();
+  IntColumn get charaId18 => integer().named('chara_id_18')();
+  IntColumn get charaId19 => integer().named('chara_id_19')();
+  IntColumn get charaId20 => integer().named('chara_id_20')();
+  IntColumn get statusType1 => integer().named('status_type_1')();
+  IntColumn get statusRate1 => integer().named('status_rate_1')();
+  IntColumn get statusType2 => integer().named('status_type_2')();
+  IntColumn get statusRate2 => integer().named('status_rate_2')();
+  IntColumn get statusType3 => integer().named('status_type_3')();
+  IntColumn get statusRate3 => integer().named('status_rate_3')();
+  IntColumn get statusType4 => integer().named('status_type_4')();
+  IntColumn get statusRate4 => integer().named('status_rate_4')();
+  IntColumn get statusType5 => integer().named('status_type_5')();
+  IntColumn get statusRate5 => integer().named('status_rate_5')();
+}
+
+class StoryDetail extends Table {
+  @override
+  String get tableName => 'story_detail';
+  @override
+  Set<Column> get primaryKey => {storyId};
+
+  IntColumn get storyId => integer().named('story_id')();
+  TextColumn get title => text().named('title')();
+  TextColumn get subTitle => text().named('sub_title')();
+}
+
+class TalentQuestData extends Table {
+  @override
+  String get tableName => 'talent_quest_data';
+  @override
+  Set<Column> get primaryKey => {questId};
+
+  IntColumn get questId => integer().named('quest_id')();
+  IntColumn get areaId => integer().named('area_id')();
+  TextColumn get questName => text().named('quest_name')();
+  IntColumn get clearRewardGroup => integer().named('clear_reward_group')();
+  IntColumn get waveGroupId1 => integer().named('wave_group_id_1')();
+}
+
+class TalentQuestClearReward01 extends Table {
+  @override
+  String get tableName => 'talent_quest_clear_reward01';
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named('id')();
+  IntColumn get rewardGroupId => integer().named('reward_group_id')();
+  IntColumn get rewardNum2 => integer().named('reward_num_2')();
+  IntColumn get rewardNum3 => integer().named('reward_num_3')();
+}
+
+class TalentQuestClearReward02 extends Table {
+  @override
+  String get tableName => 'talent_quest_clear_reward02';
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named('id')();
+  IntColumn get rewardGroupId => integer().named('reward_group_id')();
+  IntColumn get rewardNum2 => integer().named('reward_num_2')();
+  IntColumn get rewardNum3 => integer().named('reward_num_3')();
+}
+
+class TalentQuestClearReward03 extends Table {
+  @override
+  String get tableName => 'talent_quest_clear_reward03';
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named('id')();
+  IntColumn get rewardGroupId => integer().named('reward_group_id')();
+  IntColumn get rewardNum2 => integer().named('reward_num_2')();
+  IntColumn get rewardNum3 => integer().named('reward_num_3')();
+}
+
+class TalentQuestClearReward04 extends Table {
+  @override
+  String get tableName => 'talent_quest_clear_reward04';
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named('id')();
+  IntColumn get rewardGroupId => integer().named('reward_group_id')();
+  IntColumn get rewardNum2 => integer().named('reward_num_2')();
+  IntColumn get rewardNum3 => integer().named('reward_num_3')();
+}
+
+class TalentQuestClearReward05 extends Table {
+  @override
+  String get tableName => 'talent_quest_clear_reward05';
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named('id')();
+  IntColumn get rewardGroupId => integer().named('reward_group_id')();
+  IntColumn get rewardNum2 => integer().named('reward_num_2')();
+  IntColumn get rewardNum3 => integer().named('reward_num_3')();
+}
+
+class TalentQuestWaveGroupData extends Table {
+  @override
+  String get tableName => 'talent_quest_wave_group_data';
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named('id')();
+  IntColumn get waveGroupId => integer().named('wave_group_id')();
+  IntColumn get enemyId1 => integer().named('enemy_id_1')();
+  IntColumn get enemyId2 => integer().named('enemy_id_2')();
+  IntColumn get enemyId3 => integer().named('enemy_id_3')();
+  IntColumn get enemyId4 => integer().named('enemy_id_4')();
+  IntColumn get enemyId5 => integer().named('enemy_id_5')();
+}
+
+class GachaData extends Table {
+  @override
+  String get tableName => 'gacha_data';
+  @override
+  Set<Column> get primaryKey => {gachaId};
+
+  IntColumn get gachaId => integer().named('gacha_id')();
+  TextColumn get gachaName => text().named('gacha_name')();
+  TextColumn get description => text().named('description')();
+  IntColumn get exchangeId => integer().named('exchange_id')();
+  TextColumn get startTime => text().named('start_time')();
+  TextColumn get endTime => text().named('end_time')();
+}
+
+class GachaExchangeLineup extends Table {
+  @override
+  String get tableName => 'gacha_exchange_lineup';
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named('id')();
+  IntColumn get exchangeId => integer().named('exchange_id')();
+  IntColumn get unitId => integer().named('unit_id')();
+  IntColumn get pickupGachaId => integer().named('pickup_gacha_id')();
+}
+
+/// Legacy compatibility table. Current JP data uses [UnitUniqueEquipment].
 class UnitUniqueEquip extends Table {
   @override
   String get tableName => "unit_unique_equip";

@@ -105,18 +105,17 @@ class _UnitCardState extends ConsumerState<UnitCard> {
           return widget.unitImage!;
         }
 
-        if (unitInfoAsync.hasError ||
-            dominantColors.hasError ||
-            uniqueInfo.any((e) => e.hasError)) {
+        if (unitInfoAsync.hasError || unitInfoAsync.value == null) {
           return SizedBox(
             width: widget.size.$1,
             height: widget.size.$2,
             child: Center(child: Icon(Icons.error, size: widget.size.$2 * 0.2)),
           );
         }
+        final dominantColor = dominantColors.asData?.value;
         return CharacterCard(
-          uniqueNum: uniqueInfo.where((e) => e.value != null).length,
-          dominantColors: (dominantColors.value?.$1, dominantColors.value?.$2),
+          uniqueNum: uniqueInfo.where((e) => e.asData?.value != null).length,
+          dominantColors: (dominantColor?.$1, dominantColor?.$2),
           size: widget.size,
           unitImage: widget.unitImage!,
           onTap: () {

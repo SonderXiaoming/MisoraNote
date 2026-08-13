@@ -40598,6 +40598,5466 @@ class WaveGroupDataCompanion extends UpdateCompanion<WaveGroupDataData> {
   }
 }
 
+class $CharaIdentityTable extends CharaIdentity
+    with TableInfo<$CharaIdentityTable, CharaIdentityData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $CharaIdentityTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _charaTypeMeta = const VerificationMeta(
+    'charaType',
+  );
+  @override
+  late final GeneratedColumn<int> charaType = GeneratedColumn<int>(
+    'chara_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaType2Meta = const VerificationMeta(
+    'charaType2',
+  );
+  @override
+  late final GeneratedColumn<int> charaType2 = GeneratedColumn<int>(
+    'chara_type_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaType3Meta = const VerificationMeta(
+    'charaType3',
+  );
+  @override
+  late final GeneratedColumn<int> charaType3 = GeneratedColumn<int>(
+    'chara_type_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    unitId,
+    charaType,
+    charaType2,
+    charaType3,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'chara_identity';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<CharaIdentityData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    }
+    if (data.containsKey('chara_type')) {
+      context.handle(
+        _charaTypeMeta,
+        charaType.isAcceptableOrUnknown(data['chara_type']!, _charaTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaTypeMeta);
+    }
+    if (data.containsKey('chara_type_2')) {
+      context.handle(
+        _charaType2Meta,
+        charaType2.isAcceptableOrUnknown(
+          data['chara_type_2']!,
+          _charaType2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_charaType2Meta);
+    }
+    if (data.containsKey('chara_type_3')) {
+      context.handle(
+        _charaType3Meta,
+        charaType3.isAcceptableOrUnknown(
+          data['chara_type_3']!,
+          _charaType3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_charaType3Meta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {unitId};
+  @override
+  CharaIdentityData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CharaIdentityData(
+      unitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unit_id'],
+      )!,
+      charaType: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_type'],
+      )!,
+      charaType2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_type_2'],
+      )!,
+      charaType3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_type_3'],
+      )!,
+    );
+  }
+
+  @override
+  $CharaIdentityTable createAlias(String alias) {
+    return $CharaIdentityTable(attachedDatabase, alias);
+  }
+}
+
+class CharaIdentityData extends DataClass
+    implements Insertable<CharaIdentityData> {
+  final int unitId;
+  final int charaType;
+  final int charaType2;
+  final int charaType3;
+  const CharaIdentityData({
+    required this.unitId,
+    required this.charaType,
+    required this.charaType2,
+    required this.charaType3,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['unit_id'] = Variable<int>(unitId);
+    map['chara_type'] = Variable<int>(charaType);
+    map['chara_type_2'] = Variable<int>(charaType2);
+    map['chara_type_3'] = Variable<int>(charaType3);
+    return map;
+  }
+
+  CharaIdentityCompanion toCompanion(bool nullToAbsent) {
+    return CharaIdentityCompanion(
+      unitId: Value(unitId),
+      charaType: Value(charaType),
+      charaType2: Value(charaType2),
+      charaType3: Value(charaType3),
+    );
+  }
+
+  factory CharaIdentityData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CharaIdentityData(
+      unitId: serializer.fromJson<int>(json['unitId']),
+      charaType: serializer.fromJson<int>(json['charaType']),
+      charaType2: serializer.fromJson<int>(json['charaType2']),
+      charaType3: serializer.fromJson<int>(json['charaType3']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'unitId': serializer.toJson<int>(unitId),
+      'charaType': serializer.toJson<int>(charaType),
+      'charaType2': serializer.toJson<int>(charaType2),
+      'charaType3': serializer.toJson<int>(charaType3),
+    };
+  }
+
+  CharaIdentityData copyWith({
+    int? unitId,
+    int? charaType,
+    int? charaType2,
+    int? charaType3,
+  }) => CharaIdentityData(
+    unitId: unitId ?? this.unitId,
+    charaType: charaType ?? this.charaType,
+    charaType2: charaType2 ?? this.charaType2,
+    charaType3: charaType3 ?? this.charaType3,
+  );
+  CharaIdentityData copyWithCompanion(CharaIdentityCompanion data) {
+    return CharaIdentityData(
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      charaType: data.charaType.present ? data.charaType.value : this.charaType,
+      charaType2: data.charaType2.present
+          ? data.charaType2.value
+          : this.charaType2,
+      charaType3: data.charaType3.present
+          ? data.charaType3.value
+          : this.charaType3,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CharaIdentityData(')
+          ..write('unitId: $unitId, ')
+          ..write('charaType: $charaType, ')
+          ..write('charaType2: $charaType2, ')
+          ..write('charaType3: $charaType3')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(unitId, charaType, charaType2, charaType3);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CharaIdentityData &&
+          other.unitId == this.unitId &&
+          other.charaType == this.charaType &&
+          other.charaType2 == this.charaType2 &&
+          other.charaType3 == this.charaType3);
+}
+
+class CharaIdentityCompanion extends UpdateCompanion<CharaIdentityData> {
+  final Value<int> unitId;
+  final Value<int> charaType;
+  final Value<int> charaType2;
+  final Value<int> charaType3;
+  const CharaIdentityCompanion({
+    this.unitId = const Value.absent(),
+    this.charaType = const Value.absent(),
+    this.charaType2 = const Value.absent(),
+    this.charaType3 = const Value.absent(),
+  });
+  CharaIdentityCompanion.insert({
+    this.unitId = const Value.absent(),
+    required int charaType,
+    required int charaType2,
+    required int charaType3,
+  }) : charaType = Value(charaType),
+       charaType2 = Value(charaType2),
+       charaType3 = Value(charaType3);
+  static Insertable<CharaIdentityData> custom({
+    Expression<int>? unitId,
+    Expression<int>? charaType,
+    Expression<int>? charaType2,
+    Expression<int>? charaType3,
+  }) {
+    return RawValuesInsertable({
+      if (unitId != null) 'unit_id': unitId,
+      if (charaType != null) 'chara_type': charaType,
+      if (charaType2 != null) 'chara_type_2': charaType2,
+      if (charaType3 != null) 'chara_type_3': charaType3,
+    });
+  }
+
+  CharaIdentityCompanion copyWith({
+    Value<int>? unitId,
+    Value<int>? charaType,
+    Value<int>? charaType2,
+    Value<int>? charaType3,
+  }) {
+    return CharaIdentityCompanion(
+      unitId: unitId ?? this.unitId,
+      charaType: charaType ?? this.charaType,
+      charaType2: charaType2 ?? this.charaType2,
+      charaType3: charaType3 ?? this.charaType3,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (charaType.present) {
+      map['chara_type'] = Variable<int>(charaType.value);
+    }
+    if (charaType2.present) {
+      map['chara_type_2'] = Variable<int>(charaType2.value);
+    }
+    if (charaType3.present) {
+      map['chara_type_3'] = Variable<int>(charaType3.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CharaIdentityCompanion(')
+          ..write('unitId: $unitId, ')
+          ..write('charaType: $charaType, ')
+          ..write('charaType2: $charaType2, ')
+          ..write('charaType3: $charaType3')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $CharaStoryStatusTable extends CharaStoryStatus
+    with TableInfo<$CharaStoryStatusTable, CharaStoryStatusData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $CharaStoryStatusTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _storyIdMeta = const VerificationMeta(
+    'storyId',
+  );
+  @override
+  late final GeneratedColumn<int> storyId = GeneratedColumn<int>(
+    'story_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unlockStoryNameMeta = const VerificationMeta(
+    'unlockStoryName',
+  );
+  @override
+  late final GeneratedColumn<String> unlockStoryName = GeneratedColumn<String>(
+    'unlock_story_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId1Meta = const VerificationMeta(
+    'charaId1',
+  );
+  @override
+  late final GeneratedColumn<int> charaId1 = GeneratedColumn<int>(
+    'chara_id_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId2Meta = const VerificationMeta(
+    'charaId2',
+  );
+  @override
+  late final GeneratedColumn<int> charaId2 = GeneratedColumn<int>(
+    'chara_id_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId3Meta = const VerificationMeta(
+    'charaId3',
+  );
+  @override
+  late final GeneratedColumn<int> charaId3 = GeneratedColumn<int>(
+    'chara_id_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId4Meta = const VerificationMeta(
+    'charaId4',
+  );
+  @override
+  late final GeneratedColumn<int> charaId4 = GeneratedColumn<int>(
+    'chara_id_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId5Meta = const VerificationMeta(
+    'charaId5',
+  );
+  @override
+  late final GeneratedColumn<int> charaId5 = GeneratedColumn<int>(
+    'chara_id_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId6Meta = const VerificationMeta(
+    'charaId6',
+  );
+  @override
+  late final GeneratedColumn<int> charaId6 = GeneratedColumn<int>(
+    'chara_id_6',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId7Meta = const VerificationMeta(
+    'charaId7',
+  );
+  @override
+  late final GeneratedColumn<int> charaId7 = GeneratedColumn<int>(
+    'chara_id_7',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId8Meta = const VerificationMeta(
+    'charaId8',
+  );
+  @override
+  late final GeneratedColumn<int> charaId8 = GeneratedColumn<int>(
+    'chara_id_8',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId9Meta = const VerificationMeta(
+    'charaId9',
+  );
+  @override
+  late final GeneratedColumn<int> charaId9 = GeneratedColumn<int>(
+    'chara_id_9',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId10Meta = const VerificationMeta(
+    'charaId10',
+  );
+  @override
+  late final GeneratedColumn<int> charaId10 = GeneratedColumn<int>(
+    'chara_id_10',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId11Meta = const VerificationMeta(
+    'charaId11',
+  );
+  @override
+  late final GeneratedColumn<int> charaId11 = GeneratedColumn<int>(
+    'chara_id_11',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId12Meta = const VerificationMeta(
+    'charaId12',
+  );
+  @override
+  late final GeneratedColumn<int> charaId12 = GeneratedColumn<int>(
+    'chara_id_12',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId13Meta = const VerificationMeta(
+    'charaId13',
+  );
+  @override
+  late final GeneratedColumn<int> charaId13 = GeneratedColumn<int>(
+    'chara_id_13',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId14Meta = const VerificationMeta(
+    'charaId14',
+  );
+  @override
+  late final GeneratedColumn<int> charaId14 = GeneratedColumn<int>(
+    'chara_id_14',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId15Meta = const VerificationMeta(
+    'charaId15',
+  );
+  @override
+  late final GeneratedColumn<int> charaId15 = GeneratedColumn<int>(
+    'chara_id_15',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId16Meta = const VerificationMeta(
+    'charaId16',
+  );
+  @override
+  late final GeneratedColumn<int> charaId16 = GeneratedColumn<int>(
+    'chara_id_16',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId17Meta = const VerificationMeta(
+    'charaId17',
+  );
+  @override
+  late final GeneratedColumn<int> charaId17 = GeneratedColumn<int>(
+    'chara_id_17',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId18Meta = const VerificationMeta(
+    'charaId18',
+  );
+  @override
+  late final GeneratedColumn<int> charaId18 = GeneratedColumn<int>(
+    'chara_id_18',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId19Meta = const VerificationMeta(
+    'charaId19',
+  );
+  @override
+  late final GeneratedColumn<int> charaId19 = GeneratedColumn<int>(
+    'chara_id_19',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _charaId20Meta = const VerificationMeta(
+    'charaId20',
+  );
+  @override
+  late final GeneratedColumn<int> charaId20 = GeneratedColumn<int>(
+    'chara_id_20',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _statusType1Meta = const VerificationMeta(
+    'statusType1',
+  );
+  @override
+  late final GeneratedColumn<int> statusType1 = GeneratedColumn<int>(
+    'status_type_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _statusRate1Meta = const VerificationMeta(
+    'statusRate1',
+  );
+  @override
+  late final GeneratedColumn<int> statusRate1 = GeneratedColumn<int>(
+    'status_rate_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _statusType2Meta = const VerificationMeta(
+    'statusType2',
+  );
+  @override
+  late final GeneratedColumn<int> statusType2 = GeneratedColumn<int>(
+    'status_type_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _statusRate2Meta = const VerificationMeta(
+    'statusRate2',
+  );
+  @override
+  late final GeneratedColumn<int> statusRate2 = GeneratedColumn<int>(
+    'status_rate_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _statusType3Meta = const VerificationMeta(
+    'statusType3',
+  );
+  @override
+  late final GeneratedColumn<int> statusType3 = GeneratedColumn<int>(
+    'status_type_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _statusRate3Meta = const VerificationMeta(
+    'statusRate3',
+  );
+  @override
+  late final GeneratedColumn<int> statusRate3 = GeneratedColumn<int>(
+    'status_rate_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _statusType4Meta = const VerificationMeta(
+    'statusType4',
+  );
+  @override
+  late final GeneratedColumn<int> statusType4 = GeneratedColumn<int>(
+    'status_type_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _statusRate4Meta = const VerificationMeta(
+    'statusRate4',
+  );
+  @override
+  late final GeneratedColumn<int> statusRate4 = GeneratedColumn<int>(
+    'status_rate_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _statusType5Meta = const VerificationMeta(
+    'statusType5',
+  );
+  @override
+  late final GeneratedColumn<int> statusType5 = GeneratedColumn<int>(
+    'status_type_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _statusRate5Meta = const VerificationMeta(
+    'statusRate5',
+  );
+  @override
+  late final GeneratedColumn<int> statusRate5 = GeneratedColumn<int>(
+    'status_rate_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    storyId,
+    unlockStoryName,
+    charaId1,
+    charaId2,
+    charaId3,
+    charaId4,
+    charaId5,
+    charaId6,
+    charaId7,
+    charaId8,
+    charaId9,
+    charaId10,
+    charaId11,
+    charaId12,
+    charaId13,
+    charaId14,
+    charaId15,
+    charaId16,
+    charaId17,
+    charaId18,
+    charaId19,
+    charaId20,
+    statusType1,
+    statusRate1,
+    statusType2,
+    statusRate2,
+    statusType3,
+    statusRate3,
+    statusType4,
+    statusRate4,
+    statusType5,
+    statusRate5,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'chara_story_status';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<CharaStoryStatusData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('story_id')) {
+      context.handle(
+        _storyIdMeta,
+        storyId.isAcceptableOrUnknown(data['story_id']!, _storyIdMeta),
+      );
+    }
+    if (data.containsKey('unlock_story_name')) {
+      context.handle(
+        _unlockStoryNameMeta,
+        unlockStoryName.isAcceptableOrUnknown(
+          data['unlock_story_name']!,
+          _unlockStoryNameMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_unlockStoryNameMeta);
+    }
+    if (data.containsKey('chara_id_1')) {
+      context.handle(
+        _charaId1Meta,
+        charaId1.isAcceptableOrUnknown(data['chara_id_1']!, _charaId1Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId1Meta);
+    }
+    if (data.containsKey('chara_id_2')) {
+      context.handle(
+        _charaId2Meta,
+        charaId2.isAcceptableOrUnknown(data['chara_id_2']!, _charaId2Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId2Meta);
+    }
+    if (data.containsKey('chara_id_3')) {
+      context.handle(
+        _charaId3Meta,
+        charaId3.isAcceptableOrUnknown(data['chara_id_3']!, _charaId3Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId3Meta);
+    }
+    if (data.containsKey('chara_id_4')) {
+      context.handle(
+        _charaId4Meta,
+        charaId4.isAcceptableOrUnknown(data['chara_id_4']!, _charaId4Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId4Meta);
+    }
+    if (data.containsKey('chara_id_5')) {
+      context.handle(
+        _charaId5Meta,
+        charaId5.isAcceptableOrUnknown(data['chara_id_5']!, _charaId5Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId5Meta);
+    }
+    if (data.containsKey('chara_id_6')) {
+      context.handle(
+        _charaId6Meta,
+        charaId6.isAcceptableOrUnknown(data['chara_id_6']!, _charaId6Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId6Meta);
+    }
+    if (data.containsKey('chara_id_7')) {
+      context.handle(
+        _charaId7Meta,
+        charaId7.isAcceptableOrUnknown(data['chara_id_7']!, _charaId7Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId7Meta);
+    }
+    if (data.containsKey('chara_id_8')) {
+      context.handle(
+        _charaId8Meta,
+        charaId8.isAcceptableOrUnknown(data['chara_id_8']!, _charaId8Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId8Meta);
+    }
+    if (data.containsKey('chara_id_9')) {
+      context.handle(
+        _charaId9Meta,
+        charaId9.isAcceptableOrUnknown(data['chara_id_9']!, _charaId9Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId9Meta);
+    }
+    if (data.containsKey('chara_id_10')) {
+      context.handle(
+        _charaId10Meta,
+        charaId10.isAcceptableOrUnknown(data['chara_id_10']!, _charaId10Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId10Meta);
+    }
+    if (data.containsKey('chara_id_11')) {
+      context.handle(
+        _charaId11Meta,
+        charaId11.isAcceptableOrUnknown(data['chara_id_11']!, _charaId11Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId11Meta);
+    }
+    if (data.containsKey('chara_id_12')) {
+      context.handle(
+        _charaId12Meta,
+        charaId12.isAcceptableOrUnknown(data['chara_id_12']!, _charaId12Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId12Meta);
+    }
+    if (data.containsKey('chara_id_13')) {
+      context.handle(
+        _charaId13Meta,
+        charaId13.isAcceptableOrUnknown(data['chara_id_13']!, _charaId13Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId13Meta);
+    }
+    if (data.containsKey('chara_id_14')) {
+      context.handle(
+        _charaId14Meta,
+        charaId14.isAcceptableOrUnknown(data['chara_id_14']!, _charaId14Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId14Meta);
+    }
+    if (data.containsKey('chara_id_15')) {
+      context.handle(
+        _charaId15Meta,
+        charaId15.isAcceptableOrUnknown(data['chara_id_15']!, _charaId15Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId15Meta);
+    }
+    if (data.containsKey('chara_id_16')) {
+      context.handle(
+        _charaId16Meta,
+        charaId16.isAcceptableOrUnknown(data['chara_id_16']!, _charaId16Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId16Meta);
+    }
+    if (data.containsKey('chara_id_17')) {
+      context.handle(
+        _charaId17Meta,
+        charaId17.isAcceptableOrUnknown(data['chara_id_17']!, _charaId17Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId17Meta);
+    }
+    if (data.containsKey('chara_id_18')) {
+      context.handle(
+        _charaId18Meta,
+        charaId18.isAcceptableOrUnknown(data['chara_id_18']!, _charaId18Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId18Meta);
+    }
+    if (data.containsKey('chara_id_19')) {
+      context.handle(
+        _charaId19Meta,
+        charaId19.isAcceptableOrUnknown(data['chara_id_19']!, _charaId19Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId19Meta);
+    }
+    if (data.containsKey('chara_id_20')) {
+      context.handle(
+        _charaId20Meta,
+        charaId20.isAcceptableOrUnknown(data['chara_id_20']!, _charaId20Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_charaId20Meta);
+    }
+    if (data.containsKey('status_type_1')) {
+      context.handle(
+        _statusType1Meta,
+        statusType1.isAcceptableOrUnknown(
+          data['status_type_1']!,
+          _statusType1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_statusType1Meta);
+    }
+    if (data.containsKey('status_rate_1')) {
+      context.handle(
+        _statusRate1Meta,
+        statusRate1.isAcceptableOrUnknown(
+          data['status_rate_1']!,
+          _statusRate1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_statusRate1Meta);
+    }
+    if (data.containsKey('status_type_2')) {
+      context.handle(
+        _statusType2Meta,
+        statusType2.isAcceptableOrUnknown(
+          data['status_type_2']!,
+          _statusType2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_statusType2Meta);
+    }
+    if (data.containsKey('status_rate_2')) {
+      context.handle(
+        _statusRate2Meta,
+        statusRate2.isAcceptableOrUnknown(
+          data['status_rate_2']!,
+          _statusRate2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_statusRate2Meta);
+    }
+    if (data.containsKey('status_type_3')) {
+      context.handle(
+        _statusType3Meta,
+        statusType3.isAcceptableOrUnknown(
+          data['status_type_3']!,
+          _statusType3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_statusType3Meta);
+    }
+    if (data.containsKey('status_rate_3')) {
+      context.handle(
+        _statusRate3Meta,
+        statusRate3.isAcceptableOrUnknown(
+          data['status_rate_3']!,
+          _statusRate3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_statusRate3Meta);
+    }
+    if (data.containsKey('status_type_4')) {
+      context.handle(
+        _statusType4Meta,
+        statusType4.isAcceptableOrUnknown(
+          data['status_type_4']!,
+          _statusType4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_statusType4Meta);
+    }
+    if (data.containsKey('status_rate_4')) {
+      context.handle(
+        _statusRate4Meta,
+        statusRate4.isAcceptableOrUnknown(
+          data['status_rate_4']!,
+          _statusRate4Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_statusRate4Meta);
+    }
+    if (data.containsKey('status_type_5')) {
+      context.handle(
+        _statusType5Meta,
+        statusType5.isAcceptableOrUnknown(
+          data['status_type_5']!,
+          _statusType5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_statusType5Meta);
+    }
+    if (data.containsKey('status_rate_5')) {
+      context.handle(
+        _statusRate5Meta,
+        statusRate5.isAcceptableOrUnknown(
+          data['status_rate_5']!,
+          _statusRate5Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_statusRate5Meta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {storyId};
+  @override
+  CharaStoryStatusData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CharaStoryStatusData(
+      storyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}story_id'],
+      )!,
+      unlockStoryName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}unlock_story_name'],
+      )!,
+      charaId1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_1'],
+      )!,
+      charaId2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_2'],
+      )!,
+      charaId3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_3'],
+      )!,
+      charaId4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_4'],
+      )!,
+      charaId5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_5'],
+      )!,
+      charaId6: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_6'],
+      )!,
+      charaId7: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_7'],
+      )!,
+      charaId8: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_8'],
+      )!,
+      charaId9: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_9'],
+      )!,
+      charaId10: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_10'],
+      )!,
+      charaId11: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_11'],
+      )!,
+      charaId12: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_12'],
+      )!,
+      charaId13: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_13'],
+      )!,
+      charaId14: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_14'],
+      )!,
+      charaId15: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_15'],
+      )!,
+      charaId16: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_16'],
+      )!,
+      charaId17: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_17'],
+      )!,
+      charaId18: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_18'],
+      )!,
+      charaId19: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_19'],
+      )!,
+      charaId20: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}chara_id_20'],
+      )!,
+      statusType1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}status_type_1'],
+      )!,
+      statusRate1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}status_rate_1'],
+      )!,
+      statusType2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}status_type_2'],
+      )!,
+      statusRate2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}status_rate_2'],
+      )!,
+      statusType3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}status_type_3'],
+      )!,
+      statusRate3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}status_rate_3'],
+      )!,
+      statusType4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}status_type_4'],
+      )!,
+      statusRate4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}status_rate_4'],
+      )!,
+      statusType5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}status_type_5'],
+      )!,
+      statusRate5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}status_rate_5'],
+      )!,
+    );
+  }
+
+  @override
+  $CharaStoryStatusTable createAlias(String alias) {
+    return $CharaStoryStatusTable(attachedDatabase, alias);
+  }
+}
+
+class CharaStoryStatusData extends DataClass
+    implements Insertable<CharaStoryStatusData> {
+  final int storyId;
+  final String unlockStoryName;
+  final int charaId1;
+  final int charaId2;
+  final int charaId3;
+  final int charaId4;
+  final int charaId5;
+  final int charaId6;
+  final int charaId7;
+  final int charaId8;
+  final int charaId9;
+  final int charaId10;
+  final int charaId11;
+  final int charaId12;
+  final int charaId13;
+  final int charaId14;
+  final int charaId15;
+  final int charaId16;
+  final int charaId17;
+  final int charaId18;
+  final int charaId19;
+  final int charaId20;
+  final int statusType1;
+  final int statusRate1;
+  final int statusType2;
+  final int statusRate2;
+  final int statusType3;
+  final int statusRate3;
+  final int statusType4;
+  final int statusRate4;
+  final int statusType5;
+  final int statusRate5;
+  const CharaStoryStatusData({
+    required this.storyId,
+    required this.unlockStoryName,
+    required this.charaId1,
+    required this.charaId2,
+    required this.charaId3,
+    required this.charaId4,
+    required this.charaId5,
+    required this.charaId6,
+    required this.charaId7,
+    required this.charaId8,
+    required this.charaId9,
+    required this.charaId10,
+    required this.charaId11,
+    required this.charaId12,
+    required this.charaId13,
+    required this.charaId14,
+    required this.charaId15,
+    required this.charaId16,
+    required this.charaId17,
+    required this.charaId18,
+    required this.charaId19,
+    required this.charaId20,
+    required this.statusType1,
+    required this.statusRate1,
+    required this.statusType2,
+    required this.statusRate2,
+    required this.statusType3,
+    required this.statusRate3,
+    required this.statusType4,
+    required this.statusRate4,
+    required this.statusType5,
+    required this.statusRate5,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['story_id'] = Variable<int>(storyId);
+    map['unlock_story_name'] = Variable<String>(unlockStoryName);
+    map['chara_id_1'] = Variable<int>(charaId1);
+    map['chara_id_2'] = Variable<int>(charaId2);
+    map['chara_id_3'] = Variable<int>(charaId3);
+    map['chara_id_4'] = Variable<int>(charaId4);
+    map['chara_id_5'] = Variable<int>(charaId5);
+    map['chara_id_6'] = Variable<int>(charaId6);
+    map['chara_id_7'] = Variable<int>(charaId7);
+    map['chara_id_8'] = Variable<int>(charaId8);
+    map['chara_id_9'] = Variable<int>(charaId9);
+    map['chara_id_10'] = Variable<int>(charaId10);
+    map['chara_id_11'] = Variable<int>(charaId11);
+    map['chara_id_12'] = Variable<int>(charaId12);
+    map['chara_id_13'] = Variable<int>(charaId13);
+    map['chara_id_14'] = Variable<int>(charaId14);
+    map['chara_id_15'] = Variable<int>(charaId15);
+    map['chara_id_16'] = Variable<int>(charaId16);
+    map['chara_id_17'] = Variable<int>(charaId17);
+    map['chara_id_18'] = Variable<int>(charaId18);
+    map['chara_id_19'] = Variable<int>(charaId19);
+    map['chara_id_20'] = Variable<int>(charaId20);
+    map['status_type_1'] = Variable<int>(statusType1);
+    map['status_rate_1'] = Variable<int>(statusRate1);
+    map['status_type_2'] = Variable<int>(statusType2);
+    map['status_rate_2'] = Variable<int>(statusRate2);
+    map['status_type_3'] = Variable<int>(statusType3);
+    map['status_rate_3'] = Variable<int>(statusRate3);
+    map['status_type_4'] = Variable<int>(statusType4);
+    map['status_rate_4'] = Variable<int>(statusRate4);
+    map['status_type_5'] = Variable<int>(statusType5);
+    map['status_rate_5'] = Variable<int>(statusRate5);
+    return map;
+  }
+
+  CharaStoryStatusCompanion toCompanion(bool nullToAbsent) {
+    return CharaStoryStatusCompanion(
+      storyId: Value(storyId),
+      unlockStoryName: Value(unlockStoryName),
+      charaId1: Value(charaId1),
+      charaId2: Value(charaId2),
+      charaId3: Value(charaId3),
+      charaId4: Value(charaId4),
+      charaId5: Value(charaId5),
+      charaId6: Value(charaId6),
+      charaId7: Value(charaId7),
+      charaId8: Value(charaId8),
+      charaId9: Value(charaId9),
+      charaId10: Value(charaId10),
+      charaId11: Value(charaId11),
+      charaId12: Value(charaId12),
+      charaId13: Value(charaId13),
+      charaId14: Value(charaId14),
+      charaId15: Value(charaId15),
+      charaId16: Value(charaId16),
+      charaId17: Value(charaId17),
+      charaId18: Value(charaId18),
+      charaId19: Value(charaId19),
+      charaId20: Value(charaId20),
+      statusType1: Value(statusType1),
+      statusRate1: Value(statusRate1),
+      statusType2: Value(statusType2),
+      statusRate2: Value(statusRate2),
+      statusType3: Value(statusType3),
+      statusRate3: Value(statusRate3),
+      statusType4: Value(statusType4),
+      statusRate4: Value(statusRate4),
+      statusType5: Value(statusType5),
+      statusRate5: Value(statusRate5),
+    );
+  }
+
+  factory CharaStoryStatusData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CharaStoryStatusData(
+      storyId: serializer.fromJson<int>(json['storyId']),
+      unlockStoryName: serializer.fromJson<String>(json['unlockStoryName']),
+      charaId1: serializer.fromJson<int>(json['charaId1']),
+      charaId2: serializer.fromJson<int>(json['charaId2']),
+      charaId3: serializer.fromJson<int>(json['charaId3']),
+      charaId4: serializer.fromJson<int>(json['charaId4']),
+      charaId5: serializer.fromJson<int>(json['charaId5']),
+      charaId6: serializer.fromJson<int>(json['charaId6']),
+      charaId7: serializer.fromJson<int>(json['charaId7']),
+      charaId8: serializer.fromJson<int>(json['charaId8']),
+      charaId9: serializer.fromJson<int>(json['charaId9']),
+      charaId10: serializer.fromJson<int>(json['charaId10']),
+      charaId11: serializer.fromJson<int>(json['charaId11']),
+      charaId12: serializer.fromJson<int>(json['charaId12']),
+      charaId13: serializer.fromJson<int>(json['charaId13']),
+      charaId14: serializer.fromJson<int>(json['charaId14']),
+      charaId15: serializer.fromJson<int>(json['charaId15']),
+      charaId16: serializer.fromJson<int>(json['charaId16']),
+      charaId17: serializer.fromJson<int>(json['charaId17']),
+      charaId18: serializer.fromJson<int>(json['charaId18']),
+      charaId19: serializer.fromJson<int>(json['charaId19']),
+      charaId20: serializer.fromJson<int>(json['charaId20']),
+      statusType1: serializer.fromJson<int>(json['statusType1']),
+      statusRate1: serializer.fromJson<int>(json['statusRate1']),
+      statusType2: serializer.fromJson<int>(json['statusType2']),
+      statusRate2: serializer.fromJson<int>(json['statusRate2']),
+      statusType3: serializer.fromJson<int>(json['statusType3']),
+      statusRate3: serializer.fromJson<int>(json['statusRate3']),
+      statusType4: serializer.fromJson<int>(json['statusType4']),
+      statusRate4: serializer.fromJson<int>(json['statusRate4']),
+      statusType5: serializer.fromJson<int>(json['statusType5']),
+      statusRate5: serializer.fromJson<int>(json['statusRate5']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'storyId': serializer.toJson<int>(storyId),
+      'unlockStoryName': serializer.toJson<String>(unlockStoryName),
+      'charaId1': serializer.toJson<int>(charaId1),
+      'charaId2': serializer.toJson<int>(charaId2),
+      'charaId3': serializer.toJson<int>(charaId3),
+      'charaId4': serializer.toJson<int>(charaId4),
+      'charaId5': serializer.toJson<int>(charaId5),
+      'charaId6': serializer.toJson<int>(charaId6),
+      'charaId7': serializer.toJson<int>(charaId7),
+      'charaId8': serializer.toJson<int>(charaId8),
+      'charaId9': serializer.toJson<int>(charaId9),
+      'charaId10': serializer.toJson<int>(charaId10),
+      'charaId11': serializer.toJson<int>(charaId11),
+      'charaId12': serializer.toJson<int>(charaId12),
+      'charaId13': serializer.toJson<int>(charaId13),
+      'charaId14': serializer.toJson<int>(charaId14),
+      'charaId15': serializer.toJson<int>(charaId15),
+      'charaId16': serializer.toJson<int>(charaId16),
+      'charaId17': serializer.toJson<int>(charaId17),
+      'charaId18': serializer.toJson<int>(charaId18),
+      'charaId19': serializer.toJson<int>(charaId19),
+      'charaId20': serializer.toJson<int>(charaId20),
+      'statusType1': serializer.toJson<int>(statusType1),
+      'statusRate1': serializer.toJson<int>(statusRate1),
+      'statusType2': serializer.toJson<int>(statusType2),
+      'statusRate2': serializer.toJson<int>(statusRate2),
+      'statusType3': serializer.toJson<int>(statusType3),
+      'statusRate3': serializer.toJson<int>(statusRate3),
+      'statusType4': serializer.toJson<int>(statusType4),
+      'statusRate4': serializer.toJson<int>(statusRate4),
+      'statusType5': serializer.toJson<int>(statusType5),
+      'statusRate5': serializer.toJson<int>(statusRate5),
+    };
+  }
+
+  CharaStoryStatusData copyWith({
+    int? storyId,
+    String? unlockStoryName,
+    int? charaId1,
+    int? charaId2,
+    int? charaId3,
+    int? charaId4,
+    int? charaId5,
+    int? charaId6,
+    int? charaId7,
+    int? charaId8,
+    int? charaId9,
+    int? charaId10,
+    int? charaId11,
+    int? charaId12,
+    int? charaId13,
+    int? charaId14,
+    int? charaId15,
+    int? charaId16,
+    int? charaId17,
+    int? charaId18,
+    int? charaId19,
+    int? charaId20,
+    int? statusType1,
+    int? statusRate1,
+    int? statusType2,
+    int? statusRate2,
+    int? statusType3,
+    int? statusRate3,
+    int? statusType4,
+    int? statusRate4,
+    int? statusType5,
+    int? statusRate5,
+  }) => CharaStoryStatusData(
+    storyId: storyId ?? this.storyId,
+    unlockStoryName: unlockStoryName ?? this.unlockStoryName,
+    charaId1: charaId1 ?? this.charaId1,
+    charaId2: charaId2 ?? this.charaId2,
+    charaId3: charaId3 ?? this.charaId3,
+    charaId4: charaId4 ?? this.charaId4,
+    charaId5: charaId5 ?? this.charaId5,
+    charaId6: charaId6 ?? this.charaId6,
+    charaId7: charaId7 ?? this.charaId7,
+    charaId8: charaId8 ?? this.charaId8,
+    charaId9: charaId9 ?? this.charaId9,
+    charaId10: charaId10 ?? this.charaId10,
+    charaId11: charaId11 ?? this.charaId11,
+    charaId12: charaId12 ?? this.charaId12,
+    charaId13: charaId13 ?? this.charaId13,
+    charaId14: charaId14 ?? this.charaId14,
+    charaId15: charaId15 ?? this.charaId15,
+    charaId16: charaId16 ?? this.charaId16,
+    charaId17: charaId17 ?? this.charaId17,
+    charaId18: charaId18 ?? this.charaId18,
+    charaId19: charaId19 ?? this.charaId19,
+    charaId20: charaId20 ?? this.charaId20,
+    statusType1: statusType1 ?? this.statusType1,
+    statusRate1: statusRate1 ?? this.statusRate1,
+    statusType2: statusType2 ?? this.statusType2,
+    statusRate2: statusRate2 ?? this.statusRate2,
+    statusType3: statusType3 ?? this.statusType3,
+    statusRate3: statusRate3 ?? this.statusRate3,
+    statusType4: statusType4 ?? this.statusType4,
+    statusRate4: statusRate4 ?? this.statusRate4,
+    statusType5: statusType5 ?? this.statusType5,
+    statusRate5: statusRate5 ?? this.statusRate5,
+  );
+  CharaStoryStatusData copyWithCompanion(CharaStoryStatusCompanion data) {
+    return CharaStoryStatusData(
+      storyId: data.storyId.present ? data.storyId.value : this.storyId,
+      unlockStoryName: data.unlockStoryName.present
+          ? data.unlockStoryName.value
+          : this.unlockStoryName,
+      charaId1: data.charaId1.present ? data.charaId1.value : this.charaId1,
+      charaId2: data.charaId2.present ? data.charaId2.value : this.charaId2,
+      charaId3: data.charaId3.present ? data.charaId3.value : this.charaId3,
+      charaId4: data.charaId4.present ? data.charaId4.value : this.charaId4,
+      charaId5: data.charaId5.present ? data.charaId5.value : this.charaId5,
+      charaId6: data.charaId6.present ? data.charaId6.value : this.charaId6,
+      charaId7: data.charaId7.present ? data.charaId7.value : this.charaId7,
+      charaId8: data.charaId8.present ? data.charaId8.value : this.charaId8,
+      charaId9: data.charaId9.present ? data.charaId9.value : this.charaId9,
+      charaId10: data.charaId10.present ? data.charaId10.value : this.charaId10,
+      charaId11: data.charaId11.present ? data.charaId11.value : this.charaId11,
+      charaId12: data.charaId12.present ? data.charaId12.value : this.charaId12,
+      charaId13: data.charaId13.present ? data.charaId13.value : this.charaId13,
+      charaId14: data.charaId14.present ? data.charaId14.value : this.charaId14,
+      charaId15: data.charaId15.present ? data.charaId15.value : this.charaId15,
+      charaId16: data.charaId16.present ? data.charaId16.value : this.charaId16,
+      charaId17: data.charaId17.present ? data.charaId17.value : this.charaId17,
+      charaId18: data.charaId18.present ? data.charaId18.value : this.charaId18,
+      charaId19: data.charaId19.present ? data.charaId19.value : this.charaId19,
+      charaId20: data.charaId20.present ? data.charaId20.value : this.charaId20,
+      statusType1: data.statusType1.present
+          ? data.statusType1.value
+          : this.statusType1,
+      statusRate1: data.statusRate1.present
+          ? data.statusRate1.value
+          : this.statusRate1,
+      statusType2: data.statusType2.present
+          ? data.statusType2.value
+          : this.statusType2,
+      statusRate2: data.statusRate2.present
+          ? data.statusRate2.value
+          : this.statusRate2,
+      statusType3: data.statusType3.present
+          ? data.statusType3.value
+          : this.statusType3,
+      statusRate3: data.statusRate3.present
+          ? data.statusRate3.value
+          : this.statusRate3,
+      statusType4: data.statusType4.present
+          ? data.statusType4.value
+          : this.statusType4,
+      statusRate4: data.statusRate4.present
+          ? data.statusRate4.value
+          : this.statusRate4,
+      statusType5: data.statusType5.present
+          ? data.statusType5.value
+          : this.statusType5,
+      statusRate5: data.statusRate5.present
+          ? data.statusRate5.value
+          : this.statusRate5,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CharaStoryStatusData(')
+          ..write('storyId: $storyId, ')
+          ..write('unlockStoryName: $unlockStoryName, ')
+          ..write('charaId1: $charaId1, ')
+          ..write('charaId2: $charaId2, ')
+          ..write('charaId3: $charaId3, ')
+          ..write('charaId4: $charaId4, ')
+          ..write('charaId5: $charaId5, ')
+          ..write('charaId6: $charaId6, ')
+          ..write('charaId7: $charaId7, ')
+          ..write('charaId8: $charaId8, ')
+          ..write('charaId9: $charaId9, ')
+          ..write('charaId10: $charaId10, ')
+          ..write('charaId11: $charaId11, ')
+          ..write('charaId12: $charaId12, ')
+          ..write('charaId13: $charaId13, ')
+          ..write('charaId14: $charaId14, ')
+          ..write('charaId15: $charaId15, ')
+          ..write('charaId16: $charaId16, ')
+          ..write('charaId17: $charaId17, ')
+          ..write('charaId18: $charaId18, ')
+          ..write('charaId19: $charaId19, ')
+          ..write('charaId20: $charaId20, ')
+          ..write('statusType1: $statusType1, ')
+          ..write('statusRate1: $statusRate1, ')
+          ..write('statusType2: $statusType2, ')
+          ..write('statusRate2: $statusRate2, ')
+          ..write('statusType3: $statusType3, ')
+          ..write('statusRate3: $statusRate3, ')
+          ..write('statusType4: $statusType4, ')
+          ..write('statusRate4: $statusRate4, ')
+          ..write('statusType5: $statusType5, ')
+          ..write('statusRate5: $statusRate5')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+    storyId,
+    unlockStoryName,
+    charaId1,
+    charaId2,
+    charaId3,
+    charaId4,
+    charaId5,
+    charaId6,
+    charaId7,
+    charaId8,
+    charaId9,
+    charaId10,
+    charaId11,
+    charaId12,
+    charaId13,
+    charaId14,
+    charaId15,
+    charaId16,
+    charaId17,
+    charaId18,
+    charaId19,
+    charaId20,
+    statusType1,
+    statusRate1,
+    statusType2,
+    statusRate2,
+    statusType3,
+    statusRate3,
+    statusType4,
+    statusRate4,
+    statusType5,
+    statusRate5,
+  ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CharaStoryStatusData &&
+          other.storyId == this.storyId &&
+          other.unlockStoryName == this.unlockStoryName &&
+          other.charaId1 == this.charaId1 &&
+          other.charaId2 == this.charaId2 &&
+          other.charaId3 == this.charaId3 &&
+          other.charaId4 == this.charaId4 &&
+          other.charaId5 == this.charaId5 &&
+          other.charaId6 == this.charaId6 &&
+          other.charaId7 == this.charaId7 &&
+          other.charaId8 == this.charaId8 &&
+          other.charaId9 == this.charaId9 &&
+          other.charaId10 == this.charaId10 &&
+          other.charaId11 == this.charaId11 &&
+          other.charaId12 == this.charaId12 &&
+          other.charaId13 == this.charaId13 &&
+          other.charaId14 == this.charaId14 &&
+          other.charaId15 == this.charaId15 &&
+          other.charaId16 == this.charaId16 &&
+          other.charaId17 == this.charaId17 &&
+          other.charaId18 == this.charaId18 &&
+          other.charaId19 == this.charaId19 &&
+          other.charaId20 == this.charaId20 &&
+          other.statusType1 == this.statusType1 &&
+          other.statusRate1 == this.statusRate1 &&
+          other.statusType2 == this.statusType2 &&
+          other.statusRate2 == this.statusRate2 &&
+          other.statusType3 == this.statusType3 &&
+          other.statusRate3 == this.statusRate3 &&
+          other.statusType4 == this.statusType4 &&
+          other.statusRate4 == this.statusRate4 &&
+          other.statusType5 == this.statusType5 &&
+          other.statusRate5 == this.statusRate5);
+}
+
+class CharaStoryStatusCompanion extends UpdateCompanion<CharaStoryStatusData> {
+  final Value<int> storyId;
+  final Value<String> unlockStoryName;
+  final Value<int> charaId1;
+  final Value<int> charaId2;
+  final Value<int> charaId3;
+  final Value<int> charaId4;
+  final Value<int> charaId5;
+  final Value<int> charaId6;
+  final Value<int> charaId7;
+  final Value<int> charaId8;
+  final Value<int> charaId9;
+  final Value<int> charaId10;
+  final Value<int> charaId11;
+  final Value<int> charaId12;
+  final Value<int> charaId13;
+  final Value<int> charaId14;
+  final Value<int> charaId15;
+  final Value<int> charaId16;
+  final Value<int> charaId17;
+  final Value<int> charaId18;
+  final Value<int> charaId19;
+  final Value<int> charaId20;
+  final Value<int> statusType1;
+  final Value<int> statusRate1;
+  final Value<int> statusType2;
+  final Value<int> statusRate2;
+  final Value<int> statusType3;
+  final Value<int> statusRate3;
+  final Value<int> statusType4;
+  final Value<int> statusRate4;
+  final Value<int> statusType5;
+  final Value<int> statusRate5;
+  const CharaStoryStatusCompanion({
+    this.storyId = const Value.absent(),
+    this.unlockStoryName = const Value.absent(),
+    this.charaId1 = const Value.absent(),
+    this.charaId2 = const Value.absent(),
+    this.charaId3 = const Value.absent(),
+    this.charaId4 = const Value.absent(),
+    this.charaId5 = const Value.absent(),
+    this.charaId6 = const Value.absent(),
+    this.charaId7 = const Value.absent(),
+    this.charaId8 = const Value.absent(),
+    this.charaId9 = const Value.absent(),
+    this.charaId10 = const Value.absent(),
+    this.charaId11 = const Value.absent(),
+    this.charaId12 = const Value.absent(),
+    this.charaId13 = const Value.absent(),
+    this.charaId14 = const Value.absent(),
+    this.charaId15 = const Value.absent(),
+    this.charaId16 = const Value.absent(),
+    this.charaId17 = const Value.absent(),
+    this.charaId18 = const Value.absent(),
+    this.charaId19 = const Value.absent(),
+    this.charaId20 = const Value.absent(),
+    this.statusType1 = const Value.absent(),
+    this.statusRate1 = const Value.absent(),
+    this.statusType2 = const Value.absent(),
+    this.statusRate2 = const Value.absent(),
+    this.statusType3 = const Value.absent(),
+    this.statusRate3 = const Value.absent(),
+    this.statusType4 = const Value.absent(),
+    this.statusRate4 = const Value.absent(),
+    this.statusType5 = const Value.absent(),
+    this.statusRate5 = const Value.absent(),
+  });
+  CharaStoryStatusCompanion.insert({
+    this.storyId = const Value.absent(),
+    required String unlockStoryName,
+    required int charaId1,
+    required int charaId2,
+    required int charaId3,
+    required int charaId4,
+    required int charaId5,
+    required int charaId6,
+    required int charaId7,
+    required int charaId8,
+    required int charaId9,
+    required int charaId10,
+    required int charaId11,
+    required int charaId12,
+    required int charaId13,
+    required int charaId14,
+    required int charaId15,
+    required int charaId16,
+    required int charaId17,
+    required int charaId18,
+    required int charaId19,
+    required int charaId20,
+    required int statusType1,
+    required int statusRate1,
+    required int statusType2,
+    required int statusRate2,
+    required int statusType3,
+    required int statusRate3,
+    required int statusType4,
+    required int statusRate4,
+    required int statusType5,
+    required int statusRate5,
+  }) : unlockStoryName = Value(unlockStoryName),
+       charaId1 = Value(charaId1),
+       charaId2 = Value(charaId2),
+       charaId3 = Value(charaId3),
+       charaId4 = Value(charaId4),
+       charaId5 = Value(charaId5),
+       charaId6 = Value(charaId6),
+       charaId7 = Value(charaId7),
+       charaId8 = Value(charaId8),
+       charaId9 = Value(charaId9),
+       charaId10 = Value(charaId10),
+       charaId11 = Value(charaId11),
+       charaId12 = Value(charaId12),
+       charaId13 = Value(charaId13),
+       charaId14 = Value(charaId14),
+       charaId15 = Value(charaId15),
+       charaId16 = Value(charaId16),
+       charaId17 = Value(charaId17),
+       charaId18 = Value(charaId18),
+       charaId19 = Value(charaId19),
+       charaId20 = Value(charaId20),
+       statusType1 = Value(statusType1),
+       statusRate1 = Value(statusRate1),
+       statusType2 = Value(statusType2),
+       statusRate2 = Value(statusRate2),
+       statusType3 = Value(statusType3),
+       statusRate3 = Value(statusRate3),
+       statusType4 = Value(statusType4),
+       statusRate4 = Value(statusRate4),
+       statusType5 = Value(statusType5),
+       statusRate5 = Value(statusRate5);
+  static Insertable<CharaStoryStatusData> custom({
+    Expression<int>? storyId,
+    Expression<String>? unlockStoryName,
+    Expression<int>? charaId1,
+    Expression<int>? charaId2,
+    Expression<int>? charaId3,
+    Expression<int>? charaId4,
+    Expression<int>? charaId5,
+    Expression<int>? charaId6,
+    Expression<int>? charaId7,
+    Expression<int>? charaId8,
+    Expression<int>? charaId9,
+    Expression<int>? charaId10,
+    Expression<int>? charaId11,
+    Expression<int>? charaId12,
+    Expression<int>? charaId13,
+    Expression<int>? charaId14,
+    Expression<int>? charaId15,
+    Expression<int>? charaId16,
+    Expression<int>? charaId17,
+    Expression<int>? charaId18,
+    Expression<int>? charaId19,
+    Expression<int>? charaId20,
+    Expression<int>? statusType1,
+    Expression<int>? statusRate1,
+    Expression<int>? statusType2,
+    Expression<int>? statusRate2,
+    Expression<int>? statusType3,
+    Expression<int>? statusRate3,
+    Expression<int>? statusType4,
+    Expression<int>? statusRate4,
+    Expression<int>? statusType5,
+    Expression<int>? statusRate5,
+  }) {
+    return RawValuesInsertable({
+      if (storyId != null) 'story_id': storyId,
+      if (unlockStoryName != null) 'unlock_story_name': unlockStoryName,
+      if (charaId1 != null) 'chara_id_1': charaId1,
+      if (charaId2 != null) 'chara_id_2': charaId2,
+      if (charaId3 != null) 'chara_id_3': charaId3,
+      if (charaId4 != null) 'chara_id_4': charaId4,
+      if (charaId5 != null) 'chara_id_5': charaId5,
+      if (charaId6 != null) 'chara_id_6': charaId6,
+      if (charaId7 != null) 'chara_id_7': charaId7,
+      if (charaId8 != null) 'chara_id_8': charaId8,
+      if (charaId9 != null) 'chara_id_9': charaId9,
+      if (charaId10 != null) 'chara_id_10': charaId10,
+      if (charaId11 != null) 'chara_id_11': charaId11,
+      if (charaId12 != null) 'chara_id_12': charaId12,
+      if (charaId13 != null) 'chara_id_13': charaId13,
+      if (charaId14 != null) 'chara_id_14': charaId14,
+      if (charaId15 != null) 'chara_id_15': charaId15,
+      if (charaId16 != null) 'chara_id_16': charaId16,
+      if (charaId17 != null) 'chara_id_17': charaId17,
+      if (charaId18 != null) 'chara_id_18': charaId18,
+      if (charaId19 != null) 'chara_id_19': charaId19,
+      if (charaId20 != null) 'chara_id_20': charaId20,
+      if (statusType1 != null) 'status_type_1': statusType1,
+      if (statusRate1 != null) 'status_rate_1': statusRate1,
+      if (statusType2 != null) 'status_type_2': statusType2,
+      if (statusRate2 != null) 'status_rate_2': statusRate2,
+      if (statusType3 != null) 'status_type_3': statusType3,
+      if (statusRate3 != null) 'status_rate_3': statusRate3,
+      if (statusType4 != null) 'status_type_4': statusType4,
+      if (statusRate4 != null) 'status_rate_4': statusRate4,
+      if (statusType5 != null) 'status_type_5': statusType5,
+      if (statusRate5 != null) 'status_rate_5': statusRate5,
+    });
+  }
+
+  CharaStoryStatusCompanion copyWith({
+    Value<int>? storyId,
+    Value<String>? unlockStoryName,
+    Value<int>? charaId1,
+    Value<int>? charaId2,
+    Value<int>? charaId3,
+    Value<int>? charaId4,
+    Value<int>? charaId5,
+    Value<int>? charaId6,
+    Value<int>? charaId7,
+    Value<int>? charaId8,
+    Value<int>? charaId9,
+    Value<int>? charaId10,
+    Value<int>? charaId11,
+    Value<int>? charaId12,
+    Value<int>? charaId13,
+    Value<int>? charaId14,
+    Value<int>? charaId15,
+    Value<int>? charaId16,
+    Value<int>? charaId17,
+    Value<int>? charaId18,
+    Value<int>? charaId19,
+    Value<int>? charaId20,
+    Value<int>? statusType1,
+    Value<int>? statusRate1,
+    Value<int>? statusType2,
+    Value<int>? statusRate2,
+    Value<int>? statusType3,
+    Value<int>? statusRate3,
+    Value<int>? statusType4,
+    Value<int>? statusRate4,
+    Value<int>? statusType5,
+    Value<int>? statusRate5,
+  }) {
+    return CharaStoryStatusCompanion(
+      storyId: storyId ?? this.storyId,
+      unlockStoryName: unlockStoryName ?? this.unlockStoryName,
+      charaId1: charaId1 ?? this.charaId1,
+      charaId2: charaId2 ?? this.charaId2,
+      charaId3: charaId3 ?? this.charaId3,
+      charaId4: charaId4 ?? this.charaId4,
+      charaId5: charaId5 ?? this.charaId5,
+      charaId6: charaId6 ?? this.charaId6,
+      charaId7: charaId7 ?? this.charaId7,
+      charaId8: charaId8 ?? this.charaId8,
+      charaId9: charaId9 ?? this.charaId9,
+      charaId10: charaId10 ?? this.charaId10,
+      charaId11: charaId11 ?? this.charaId11,
+      charaId12: charaId12 ?? this.charaId12,
+      charaId13: charaId13 ?? this.charaId13,
+      charaId14: charaId14 ?? this.charaId14,
+      charaId15: charaId15 ?? this.charaId15,
+      charaId16: charaId16 ?? this.charaId16,
+      charaId17: charaId17 ?? this.charaId17,
+      charaId18: charaId18 ?? this.charaId18,
+      charaId19: charaId19 ?? this.charaId19,
+      charaId20: charaId20 ?? this.charaId20,
+      statusType1: statusType1 ?? this.statusType1,
+      statusRate1: statusRate1 ?? this.statusRate1,
+      statusType2: statusType2 ?? this.statusType2,
+      statusRate2: statusRate2 ?? this.statusRate2,
+      statusType3: statusType3 ?? this.statusType3,
+      statusRate3: statusRate3 ?? this.statusRate3,
+      statusType4: statusType4 ?? this.statusType4,
+      statusRate4: statusRate4 ?? this.statusRate4,
+      statusType5: statusType5 ?? this.statusType5,
+      statusRate5: statusRate5 ?? this.statusRate5,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (storyId.present) {
+      map['story_id'] = Variable<int>(storyId.value);
+    }
+    if (unlockStoryName.present) {
+      map['unlock_story_name'] = Variable<String>(unlockStoryName.value);
+    }
+    if (charaId1.present) {
+      map['chara_id_1'] = Variable<int>(charaId1.value);
+    }
+    if (charaId2.present) {
+      map['chara_id_2'] = Variable<int>(charaId2.value);
+    }
+    if (charaId3.present) {
+      map['chara_id_3'] = Variable<int>(charaId3.value);
+    }
+    if (charaId4.present) {
+      map['chara_id_4'] = Variable<int>(charaId4.value);
+    }
+    if (charaId5.present) {
+      map['chara_id_5'] = Variable<int>(charaId5.value);
+    }
+    if (charaId6.present) {
+      map['chara_id_6'] = Variable<int>(charaId6.value);
+    }
+    if (charaId7.present) {
+      map['chara_id_7'] = Variable<int>(charaId7.value);
+    }
+    if (charaId8.present) {
+      map['chara_id_8'] = Variable<int>(charaId8.value);
+    }
+    if (charaId9.present) {
+      map['chara_id_9'] = Variable<int>(charaId9.value);
+    }
+    if (charaId10.present) {
+      map['chara_id_10'] = Variable<int>(charaId10.value);
+    }
+    if (charaId11.present) {
+      map['chara_id_11'] = Variable<int>(charaId11.value);
+    }
+    if (charaId12.present) {
+      map['chara_id_12'] = Variable<int>(charaId12.value);
+    }
+    if (charaId13.present) {
+      map['chara_id_13'] = Variable<int>(charaId13.value);
+    }
+    if (charaId14.present) {
+      map['chara_id_14'] = Variable<int>(charaId14.value);
+    }
+    if (charaId15.present) {
+      map['chara_id_15'] = Variable<int>(charaId15.value);
+    }
+    if (charaId16.present) {
+      map['chara_id_16'] = Variable<int>(charaId16.value);
+    }
+    if (charaId17.present) {
+      map['chara_id_17'] = Variable<int>(charaId17.value);
+    }
+    if (charaId18.present) {
+      map['chara_id_18'] = Variable<int>(charaId18.value);
+    }
+    if (charaId19.present) {
+      map['chara_id_19'] = Variable<int>(charaId19.value);
+    }
+    if (charaId20.present) {
+      map['chara_id_20'] = Variable<int>(charaId20.value);
+    }
+    if (statusType1.present) {
+      map['status_type_1'] = Variable<int>(statusType1.value);
+    }
+    if (statusRate1.present) {
+      map['status_rate_1'] = Variable<int>(statusRate1.value);
+    }
+    if (statusType2.present) {
+      map['status_type_2'] = Variable<int>(statusType2.value);
+    }
+    if (statusRate2.present) {
+      map['status_rate_2'] = Variable<int>(statusRate2.value);
+    }
+    if (statusType3.present) {
+      map['status_type_3'] = Variable<int>(statusType3.value);
+    }
+    if (statusRate3.present) {
+      map['status_rate_3'] = Variable<int>(statusRate3.value);
+    }
+    if (statusType4.present) {
+      map['status_type_4'] = Variable<int>(statusType4.value);
+    }
+    if (statusRate4.present) {
+      map['status_rate_4'] = Variable<int>(statusRate4.value);
+    }
+    if (statusType5.present) {
+      map['status_type_5'] = Variable<int>(statusType5.value);
+    }
+    if (statusRate5.present) {
+      map['status_rate_5'] = Variable<int>(statusRate5.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CharaStoryStatusCompanion(')
+          ..write('storyId: $storyId, ')
+          ..write('unlockStoryName: $unlockStoryName, ')
+          ..write('charaId1: $charaId1, ')
+          ..write('charaId2: $charaId2, ')
+          ..write('charaId3: $charaId3, ')
+          ..write('charaId4: $charaId4, ')
+          ..write('charaId5: $charaId5, ')
+          ..write('charaId6: $charaId6, ')
+          ..write('charaId7: $charaId7, ')
+          ..write('charaId8: $charaId8, ')
+          ..write('charaId9: $charaId9, ')
+          ..write('charaId10: $charaId10, ')
+          ..write('charaId11: $charaId11, ')
+          ..write('charaId12: $charaId12, ')
+          ..write('charaId13: $charaId13, ')
+          ..write('charaId14: $charaId14, ')
+          ..write('charaId15: $charaId15, ')
+          ..write('charaId16: $charaId16, ')
+          ..write('charaId17: $charaId17, ')
+          ..write('charaId18: $charaId18, ')
+          ..write('charaId19: $charaId19, ')
+          ..write('charaId20: $charaId20, ')
+          ..write('statusType1: $statusType1, ')
+          ..write('statusRate1: $statusRate1, ')
+          ..write('statusType2: $statusType2, ')
+          ..write('statusRate2: $statusRate2, ')
+          ..write('statusType3: $statusType3, ')
+          ..write('statusRate3: $statusRate3, ')
+          ..write('statusType4: $statusType4, ')
+          ..write('statusRate4: $statusRate4, ')
+          ..write('statusType5: $statusType5, ')
+          ..write('statusRate5: $statusRate5')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $StoryDetailTable extends StoryDetail
+    with TableInfo<$StoryDetailTable, StoryDetailData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $StoryDetailTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _storyIdMeta = const VerificationMeta(
+    'storyId',
+  );
+  @override
+  late final GeneratedColumn<int> storyId = GeneratedColumn<int>(
+    'story_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _subTitleMeta = const VerificationMeta(
+    'subTitle',
+  );
+  @override
+  late final GeneratedColumn<String> subTitle = GeneratedColumn<String>(
+    'sub_title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [storyId, title, subTitle];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'story_detail';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<StoryDetailData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('story_id')) {
+      context.handle(
+        _storyIdMeta,
+        storyId.isAcceptableOrUnknown(data['story_id']!, _storyIdMeta),
+      );
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('sub_title')) {
+      context.handle(
+        _subTitleMeta,
+        subTitle.isAcceptableOrUnknown(data['sub_title']!, _subTitleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_subTitleMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {storyId};
+  @override
+  StoryDetailData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return StoryDetailData(
+      storyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}story_id'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      subTitle: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}sub_title'],
+      )!,
+    );
+  }
+
+  @override
+  $StoryDetailTable createAlias(String alias) {
+    return $StoryDetailTable(attachedDatabase, alias);
+  }
+}
+
+class StoryDetailData extends DataClass implements Insertable<StoryDetailData> {
+  final int storyId;
+  final String title;
+  final String subTitle;
+  const StoryDetailData({
+    required this.storyId,
+    required this.title,
+    required this.subTitle,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['story_id'] = Variable<int>(storyId);
+    map['title'] = Variable<String>(title);
+    map['sub_title'] = Variable<String>(subTitle);
+    return map;
+  }
+
+  StoryDetailCompanion toCompanion(bool nullToAbsent) {
+    return StoryDetailCompanion(
+      storyId: Value(storyId),
+      title: Value(title),
+      subTitle: Value(subTitle),
+    );
+  }
+
+  factory StoryDetailData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return StoryDetailData(
+      storyId: serializer.fromJson<int>(json['storyId']),
+      title: serializer.fromJson<String>(json['title']),
+      subTitle: serializer.fromJson<String>(json['subTitle']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'storyId': serializer.toJson<int>(storyId),
+      'title': serializer.toJson<String>(title),
+      'subTitle': serializer.toJson<String>(subTitle),
+    };
+  }
+
+  StoryDetailData copyWith({int? storyId, String? title, String? subTitle}) =>
+      StoryDetailData(
+        storyId: storyId ?? this.storyId,
+        title: title ?? this.title,
+        subTitle: subTitle ?? this.subTitle,
+      );
+  StoryDetailData copyWithCompanion(StoryDetailCompanion data) {
+    return StoryDetailData(
+      storyId: data.storyId.present ? data.storyId.value : this.storyId,
+      title: data.title.present ? data.title.value : this.title,
+      subTitle: data.subTitle.present ? data.subTitle.value : this.subTitle,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('StoryDetailData(')
+          ..write('storyId: $storyId, ')
+          ..write('title: $title, ')
+          ..write('subTitle: $subTitle')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(storyId, title, subTitle);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is StoryDetailData &&
+          other.storyId == this.storyId &&
+          other.title == this.title &&
+          other.subTitle == this.subTitle);
+}
+
+class StoryDetailCompanion extends UpdateCompanion<StoryDetailData> {
+  final Value<int> storyId;
+  final Value<String> title;
+  final Value<String> subTitle;
+  const StoryDetailCompanion({
+    this.storyId = const Value.absent(),
+    this.title = const Value.absent(),
+    this.subTitle = const Value.absent(),
+  });
+  StoryDetailCompanion.insert({
+    this.storyId = const Value.absent(),
+    required String title,
+    required String subTitle,
+  }) : title = Value(title),
+       subTitle = Value(subTitle);
+  static Insertable<StoryDetailData> custom({
+    Expression<int>? storyId,
+    Expression<String>? title,
+    Expression<String>? subTitle,
+  }) {
+    return RawValuesInsertable({
+      if (storyId != null) 'story_id': storyId,
+      if (title != null) 'title': title,
+      if (subTitle != null) 'sub_title': subTitle,
+    });
+  }
+
+  StoryDetailCompanion copyWith({
+    Value<int>? storyId,
+    Value<String>? title,
+    Value<String>? subTitle,
+  }) {
+    return StoryDetailCompanion(
+      storyId: storyId ?? this.storyId,
+      title: title ?? this.title,
+      subTitle: subTitle ?? this.subTitle,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (storyId.present) {
+      map['story_id'] = Variable<int>(storyId.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (subTitle.present) {
+      map['sub_title'] = Variable<String>(subTitle.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('StoryDetailCompanion(')
+          ..write('storyId: $storyId, ')
+          ..write('title: $title, ')
+          ..write('subTitle: $subTitle')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $TalentQuestDataTable extends TalentQuestData
+    with TableInfo<$TalentQuestDataTable, TalentQuestDataData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $TalentQuestDataTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _questIdMeta = const VerificationMeta(
+    'questId',
+  );
+  @override
+  late final GeneratedColumn<int> questId = GeneratedColumn<int>(
+    'quest_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _areaIdMeta = const VerificationMeta('areaId');
+  @override
+  late final GeneratedColumn<int> areaId = GeneratedColumn<int>(
+    'area_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _questNameMeta = const VerificationMeta(
+    'questName',
+  );
+  @override
+  late final GeneratedColumn<String> questName = GeneratedColumn<String>(
+    'quest_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _clearRewardGroupMeta = const VerificationMeta(
+    'clearRewardGroup',
+  );
+  @override
+  late final GeneratedColumn<int> clearRewardGroup = GeneratedColumn<int>(
+    'clear_reward_group',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _waveGroupId1Meta = const VerificationMeta(
+    'waveGroupId1',
+  );
+  @override
+  late final GeneratedColumn<int> waveGroupId1 = GeneratedColumn<int>(
+    'wave_group_id_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    questId,
+    areaId,
+    questName,
+    clearRewardGroup,
+    waveGroupId1,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'talent_quest_data';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TalentQuestDataData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('quest_id')) {
+      context.handle(
+        _questIdMeta,
+        questId.isAcceptableOrUnknown(data['quest_id']!, _questIdMeta),
+      );
+    }
+    if (data.containsKey('area_id')) {
+      context.handle(
+        _areaIdMeta,
+        areaId.isAcceptableOrUnknown(data['area_id']!, _areaIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_areaIdMeta);
+    }
+    if (data.containsKey('quest_name')) {
+      context.handle(
+        _questNameMeta,
+        questName.isAcceptableOrUnknown(data['quest_name']!, _questNameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_questNameMeta);
+    }
+    if (data.containsKey('clear_reward_group')) {
+      context.handle(
+        _clearRewardGroupMeta,
+        clearRewardGroup.isAcceptableOrUnknown(
+          data['clear_reward_group']!,
+          _clearRewardGroupMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_clearRewardGroupMeta);
+    }
+    if (data.containsKey('wave_group_id_1')) {
+      context.handle(
+        _waveGroupId1Meta,
+        waveGroupId1.isAcceptableOrUnknown(
+          data['wave_group_id_1']!,
+          _waveGroupId1Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveGroupId1Meta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {questId};
+  @override
+  TalentQuestDataData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TalentQuestDataData(
+      questId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}quest_id'],
+      )!,
+      areaId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}area_id'],
+      )!,
+      questName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}quest_name'],
+      )!,
+      clearRewardGroup: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}clear_reward_group'],
+      )!,
+      waveGroupId1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_group_id_1'],
+      )!,
+    );
+  }
+
+  @override
+  $TalentQuestDataTable createAlias(String alias) {
+    return $TalentQuestDataTable(attachedDatabase, alias);
+  }
+}
+
+class TalentQuestDataData extends DataClass
+    implements Insertable<TalentQuestDataData> {
+  final int questId;
+  final int areaId;
+  final String questName;
+  final int clearRewardGroup;
+  final int waveGroupId1;
+  const TalentQuestDataData({
+    required this.questId,
+    required this.areaId,
+    required this.questName,
+    required this.clearRewardGroup,
+    required this.waveGroupId1,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['quest_id'] = Variable<int>(questId);
+    map['area_id'] = Variable<int>(areaId);
+    map['quest_name'] = Variable<String>(questName);
+    map['clear_reward_group'] = Variable<int>(clearRewardGroup);
+    map['wave_group_id_1'] = Variable<int>(waveGroupId1);
+    return map;
+  }
+
+  TalentQuestDataCompanion toCompanion(bool nullToAbsent) {
+    return TalentQuestDataCompanion(
+      questId: Value(questId),
+      areaId: Value(areaId),
+      questName: Value(questName),
+      clearRewardGroup: Value(clearRewardGroup),
+      waveGroupId1: Value(waveGroupId1),
+    );
+  }
+
+  factory TalentQuestDataData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TalentQuestDataData(
+      questId: serializer.fromJson<int>(json['questId']),
+      areaId: serializer.fromJson<int>(json['areaId']),
+      questName: serializer.fromJson<String>(json['questName']),
+      clearRewardGroup: serializer.fromJson<int>(json['clearRewardGroup']),
+      waveGroupId1: serializer.fromJson<int>(json['waveGroupId1']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'questId': serializer.toJson<int>(questId),
+      'areaId': serializer.toJson<int>(areaId),
+      'questName': serializer.toJson<String>(questName),
+      'clearRewardGroup': serializer.toJson<int>(clearRewardGroup),
+      'waveGroupId1': serializer.toJson<int>(waveGroupId1),
+    };
+  }
+
+  TalentQuestDataData copyWith({
+    int? questId,
+    int? areaId,
+    String? questName,
+    int? clearRewardGroup,
+    int? waveGroupId1,
+  }) => TalentQuestDataData(
+    questId: questId ?? this.questId,
+    areaId: areaId ?? this.areaId,
+    questName: questName ?? this.questName,
+    clearRewardGroup: clearRewardGroup ?? this.clearRewardGroup,
+    waveGroupId1: waveGroupId1 ?? this.waveGroupId1,
+  );
+  TalentQuestDataData copyWithCompanion(TalentQuestDataCompanion data) {
+    return TalentQuestDataData(
+      questId: data.questId.present ? data.questId.value : this.questId,
+      areaId: data.areaId.present ? data.areaId.value : this.areaId,
+      questName: data.questName.present ? data.questName.value : this.questName,
+      clearRewardGroup: data.clearRewardGroup.present
+          ? data.clearRewardGroup.value
+          : this.clearRewardGroup,
+      waveGroupId1: data.waveGroupId1.present
+          ? data.waveGroupId1.value
+          : this.waveGroupId1,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestDataData(')
+          ..write('questId: $questId, ')
+          ..write('areaId: $areaId, ')
+          ..write('questName: $questName, ')
+          ..write('clearRewardGroup: $clearRewardGroup, ')
+          ..write('waveGroupId1: $waveGroupId1')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(questId, areaId, questName, clearRewardGroup, waveGroupId1);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TalentQuestDataData &&
+          other.questId == this.questId &&
+          other.areaId == this.areaId &&
+          other.questName == this.questName &&
+          other.clearRewardGroup == this.clearRewardGroup &&
+          other.waveGroupId1 == this.waveGroupId1);
+}
+
+class TalentQuestDataCompanion extends UpdateCompanion<TalentQuestDataData> {
+  final Value<int> questId;
+  final Value<int> areaId;
+  final Value<String> questName;
+  final Value<int> clearRewardGroup;
+  final Value<int> waveGroupId1;
+  const TalentQuestDataCompanion({
+    this.questId = const Value.absent(),
+    this.areaId = const Value.absent(),
+    this.questName = const Value.absent(),
+    this.clearRewardGroup = const Value.absent(),
+    this.waveGroupId1 = const Value.absent(),
+  });
+  TalentQuestDataCompanion.insert({
+    this.questId = const Value.absent(),
+    required int areaId,
+    required String questName,
+    required int clearRewardGroup,
+    required int waveGroupId1,
+  }) : areaId = Value(areaId),
+       questName = Value(questName),
+       clearRewardGroup = Value(clearRewardGroup),
+       waveGroupId1 = Value(waveGroupId1);
+  static Insertable<TalentQuestDataData> custom({
+    Expression<int>? questId,
+    Expression<int>? areaId,
+    Expression<String>? questName,
+    Expression<int>? clearRewardGroup,
+    Expression<int>? waveGroupId1,
+  }) {
+    return RawValuesInsertable({
+      if (questId != null) 'quest_id': questId,
+      if (areaId != null) 'area_id': areaId,
+      if (questName != null) 'quest_name': questName,
+      if (clearRewardGroup != null) 'clear_reward_group': clearRewardGroup,
+      if (waveGroupId1 != null) 'wave_group_id_1': waveGroupId1,
+    });
+  }
+
+  TalentQuestDataCompanion copyWith({
+    Value<int>? questId,
+    Value<int>? areaId,
+    Value<String>? questName,
+    Value<int>? clearRewardGroup,
+    Value<int>? waveGroupId1,
+  }) {
+    return TalentQuestDataCompanion(
+      questId: questId ?? this.questId,
+      areaId: areaId ?? this.areaId,
+      questName: questName ?? this.questName,
+      clearRewardGroup: clearRewardGroup ?? this.clearRewardGroup,
+      waveGroupId1: waveGroupId1 ?? this.waveGroupId1,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (questId.present) {
+      map['quest_id'] = Variable<int>(questId.value);
+    }
+    if (areaId.present) {
+      map['area_id'] = Variable<int>(areaId.value);
+    }
+    if (questName.present) {
+      map['quest_name'] = Variable<String>(questName.value);
+    }
+    if (clearRewardGroup.present) {
+      map['clear_reward_group'] = Variable<int>(clearRewardGroup.value);
+    }
+    if (waveGroupId1.present) {
+      map['wave_group_id_1'] = Variable<int>(waveGroupId1.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestDataCompanion(')
+          ..write('questId: $questId, ')
+          ..write('areaId: $areaId, ')
+          ..write('questName: $questName, ')
+          ..write('clearRewardGroup: $clearRewardGroup, ')
+          ..write('waveGroupId1: $waveGroupId1')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $TalentQuestClearReward01Table extends TalentQuestClearReward01
+    with
+        TableInfo<
+          $TalentQuestClearReward01Table,
+          TalentQuestClearReward01Data
+        > {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $TalentQuestClearReward01Table(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _rewardGroupIdMeta = const VerificationMeta(
+    'rewardGroupId',
+  );
+  @override
+  late final GeneratedColumn<int> rewardGroupId = GeneratedColumn<int>(
+    'reward_group_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rewardNum2Meta = const VerificationMeta(
+    'rewardNum2',
+  );
+  @override
+  late final GeneratedColumn<int> rewardNum2 = GeneratedColumn<int>(
+    'reward_num_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rewardNum3Meta = const VerificationMeta(
+    'rewardNum3',
+  );
+  @override
+  late final GeneratedColumn<int> rewardNum3 = GeneratedColumn<int>(
+    'reward_num_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    rewardGroupId,
+    rewardNum2,
+    rewardNum3,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'talent_quest_clear_reward01';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TalentQuestClearReward01Data> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('reward_group_id')) {
+      context.handle(
+        _rewardGroupIdMeta,
+        rewardGroupId.isAcceptableOrUnknown(
+          data['reward_group_id']!,
+          _rewardGroupIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardGroupIdMeta);
+    }
+    if (data.containsKey('reward_num_2')) {
+      context.handle(
+        _rewardNum2Meta,
+        rewardNum2.isAcceptableOrUnknown(
+          data['reward_num_2']!,
+          _rewardNum2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardNum2Meta);
+    }
+    if (data.containsKey('reward_num_3')) {
+      context.handle(
+        _rewardNum3Meta,
+        rewardNum3.isAcceptableOrUnknown(
+          data['reward_num_3']!,
+          _rewardNum3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardNum3Meta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  TalentQuestClearReward01Data map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TalentQuestClearReward01Data(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      rewardGroupId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_group_id'],
+      )!,
+      rewardNum2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_num_2'],
+      )!,
+      rewardNum3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_num_3'],
+      )!,
+    );
+  }
+
+  @override
+  $TalentQuestClearReward01Table createAlias(String alias) {
+    return $TalentQuestClearReward01Table(attachedDatabase, alias);
+  }
+}
+
+class TalentQuestClearReward01Data extends DataClass
+    implements Insertable<TalentQuestClearReward01Data> {
+  final int id;
+  final int rewardGroupId;
+  final int rewardNum2;
+  final int rewardNum3;
+  const TalentQuestClearReward01Data({
+    required this.id,
+    required this.rewardGroupId,
+    required this.rewardNum2,
+    required this.rewardNum3,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['reward_group_id'] = Variable<int>(rewardGroupId);
+    map['reward_num_2'] = Variable<int>(rewardNum2);
+    map['reward_num_3'] = Variable<int>(rewardNum3);
+    return map;
+  }
+
+  TalentQuestClearReward01Companion toCompanion(bool nullToAbsent) {
+    return TalentQuestClearReward01Companion(
+      id: Value(id),
+      rewardGroupId: Value(rewardGroupId),
+      rewardNum2: Value(rewardNum2),
+      rewardNum3: Value(rewardNum3),
+    );
+  }
+
+  factory TalentQuestClearReward01Data.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TalentQuestClearReward01Data(
+      id: serializer.fromJson<int>(json['id']),
+      rewardGroupId: serializer.fromJson<int>(json['rewardGroupId']),
+      rewardNum2: serializer.fromJson<int>(json['rewardNum2']),
+      rewardNum3: serializer.fromJson<int>(json['rewardNum3']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'rewardGroupId': serializer.toJson<int>(rewardGroupId),
+      'rewardNum2': serializer.toJson<int>(rewardNum2),
+      'rewardNum3': serializer.toJson<int>(rewardNum3),
+    };
+  }
+
+  TalentQuestClearReward01Data copyWith({
+    int? id,
+    int? rewardGroupId,
+    int? rewardNum2,
+    int? rewardNum3,
+  }) => TalentQuestClearReward01Data(
+    id: id ?? this.id,
+    rewardGroupId: rewardGroupId ?? this.rewardGroupId,
+    rewardNum2: rewardNum2 ?? this.rewardNum2,
+    rewardNum3: rewardNum3 ?? this.rewardNum3,
+  );
+  TalentQuestClearReward01Data copyWithCompanion(
+    TalentQuestClearReward01Companion data,
+  ) {
+    return TalentQuestClearReward01Data(
+      id: data.id.present ? data.id.value : this.id,
+      rewardGroupId: data.rewardGroupId.present
+          ? data.rewardGroupId.value
+          : this.rewardGroupId,
+      rewardNum2: data.rewardNum2.present
+          ? data.rewardNum2.value
+          : this.rewardNum2,
+      rewardNum3: data.rewardNum3.present
+          ? data.rewardNum3.value
+          : this.rewardNum3,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestClearReward01Data(')
+          ..write('id: $id, ')
+          ..write('rewardGroupId: $rewardGroupId, ')
+          ..write('rewardNum2: $rewardNum2, ')
+          ..write('rewardNum3: $rewardNum3')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, rewardGroupId, rewardNum2, rewardNum3);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TalentQuestClearReward01Data &&
+          other.id == this.id &&
+          other.rewardGroupId == this.rewardGroupId &&
+          other.rewardNum2 == this.rewardNum2 &&
+          other.rewardNum3 == this.rewardNum3);
+}
+
+class TalentQuestClearReward01Companion
+    extends UpdateCompanion<TalentQuestClearReward01Data> {
+  final Value<int> id;
+  final Value<int> rewardGroupId;
+  final Value<int> rewardNum2;
+  final Value<int> rewardNum3;
+  const TalentQuestClearReward01Companion({
+    this.id = const Value.absent(),
+    this.rewardGroupId = const Value.absent(),
+    this.rewardNum2 = const Value.absent(),
+    this.rewardNum3 = const Value.absent(),
+  });
+  TalentQuestClearReward01Companion.insert({
+    this.id = const Value.absent(),
+    required int rewardGroupId,
+    required int rewardNum2,
+    required int rewardNum3,
+  }) : rewardGroupId = Value(rewardGroupId),
+       rewardNum2 = Value(rewardNum2),
+       rewardNum3 = Value(rewardNum3);
+  static Insertable<TalentQuestClearReward01Data> custom({
+    Expression<int>? id,
+    Expression<int>? rewardGroupId,
+    Expression<int>? rewardNum2,
+    Expression<int>? rewardNum3,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (rewardGroupId != null) 'reward_group_id': rewardGroupId,
+      if (rewardNum2 != null) 'reward_num_2': rewardNum2,
+      if (rewardNum3 != null) 'reward_num_3': rewardNum3,
+    });
+  }
+
+  TalentQuestClearReward01Companion copyWith({
+    Value<int>? id,
+    Value<int>? rewardGroupId,
+    Value<int>? rewardNum2,
+    Value<int>? rewardNum3,
+  }) {
+    return TalentQuestClearReward01Companion(
+      id: id ?? this.id,
+      rewardGroupId: rewardGroupId ?? this.rewardGroupId,
+      rewardNum2: rewardNum2 ?? this.rewardNum2,
+      rewardNum3: rewardNum3 ?? this.rewardNum3,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (rewardGroupId.present) {
+      map['reward_group_id'] = Variable<int>(rewardGroupId.value);
+    }
+    if (rewardNum2.present) {
+      map['reward_num_2'] = Variable<int>(rewardNum2.value);
+    }
+    if (rewardNum3.present) {
+      map['reward_num_3'] = Variable<int>(rewardNum3.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestClearReward01Companion(')
+          ..write('id: $id, ')
+          ..write('rewardGroupId: $rewardGroupId, ')
+          ..write('rewardNum2: $rewardNum2, ')
+          ..write('rewardNum3: $rewardNum3')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $TalentQuestClearReward02Table extends TalentQuestClearReward02
+    with
+        TableInfo<
+          $TalentQuestClearReward02Table,
+          TalentQuestClearReward02Data
+        > {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $TalentQuestClearReward02Table(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _rewardGroupIdMeta = const VerificationMeta(
+    'rewardGroupId',
+  );
+  @override
+  late final GeneratedColumn<int> rewardGroupId = GeneratedColumn<int>(
+    'reward_group_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rewardNum2Meta = const VerificationMeta(
+    'rewardNum2',
+  );
+  @override
+  late final GeneratedColumn<int> rewardNum2 = GeneratedColumn<int>(
+    'reward_num_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rewardNum3Meta = const VerificationMeta(
+    'rewardNum3',
+  );
+  @override
+  late final GeneratedColumn<int> rewardNum3 = GeneratedColumn<int>(
+    'reward_num_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    rewardGroupId,
+    rewardNum2,
+    rewardNum3,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'talent_quest_clear_reward02';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TalentQuestClearReward02Data> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('reward_group_id')) {
+      context.handle(
+        _rewardGroupIdMeta,
+        rewardGroupId.isAcceptableOrUnknown(
+          data['reward_group_id']!,
+          _rewardGroupIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardGroupIdMeta);
+    }
+    if (data.containsKey('reward_num_2')) {
+      context.handle(
+        _rewardNum2Meta,
+        rewardNum2.isAcceptableOrUnknown(
+          data['reward_num_2']!,
+          _rewardNum2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardNum2Meta);
+    }
+    if (data.containsKey('reward_num_3')) {
+      context.handle(
+        _rewardNum3Meta,
+        rewardNum3.isAcceptableOrUnknown(
+          data['reward_num_3']!,
+          _rewardNum3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardNum3Meta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  TalentQuestClearReward02Data map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TalentQuestClearReward02Data(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      rewardGroupId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_group_id'],
+      )!,
+      rewardNum2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_num_2'],
+      )!,
+      rewardNum3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_num_3'],
+      )!,
+    );
+  }
+
+  @override
+  $TalentQuestClearReward02Table createAlias(String alias) {
+    return $TalentQuestClearReward02Table(attachedDatabase, alias);
+  }
+}
+
+class TalentQuestClearReward02Data extends DataClass
+    implements Insertable<TalentQuestClearReward02Data> {
+  final int id;
+  final int rewardGroupId;
+  final int rewardNum2;
+  final int rewardNum3;
+  const TalentQuestClearReward02Data({
+    required this.id,
+    required this.rewardGroupId,
+    required this.rewardNum2,
+    required this.rewardNum3,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['reward_group_id'] = Variable<int>(rewardGroupId);
+    map['reward_num_2'] = Variable<int>(rewardNum2);
+    map['reward_num_3'] = Variable<int>(rewardNum3);
+    return map;
+  }
+
+  TalentQuestClearReward02Companion toCompanion(bool nullToAbsent) {
+    return TalentQuestClearReward02Companion(
+      id: Value(id),
+      rewardGroupId: Value(rewardGroupId),
+      rewardNum2: Value(rewardNum2),
+      rewardNum3: Value(rewardNum3),
+    );
+  }
+
+  factory TalentQuestClearReward02Data.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TalentQuestClearReward02Data(
+      id: serializer.fromJson<int>(json['id']),
+      rewardGroupId: serializer.fromJson<int>(json['rewardGroupId']),
+      rewardNum2: serializer.fromJson<int>(json['rewardNum2']),
+      rewardNum3: serializer.fromJson<int>(json['rewardNum3']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'rewardGroupId': serializer.toJson<int>(rewardGroupId),
+      'rewardNum2': serializer.toJson<int>(rewardNum2),
+      'rewardNum3': serializer.toJson<int>(rewardNum3),
+    };
+  }
+
+  TalentQuestClearReward02Data copyWith({
+    int? id,
+    int? rewardGroupId,
+    int? rewardNum2,
+    int? rewardNum3,
+  }) => TalentQuestClearReward02Data(
+    id: id ?? this.id,
+    rewardGroupId: rewardGroupId ?? this.rewardGroupId,
+    rewardNum2: rewardNum2 ?? this.rewardNum2,
+    rewardNum3: rewardNum3 ?? this.rewardNum3,
+  );
+  TalentQuestClearReward02Data copyWithCompanion(
+    TalentQuestClearReward02Companion data,
+  ) {
+    return TalentQuestClearReward02Data(
+      id: data.id.present ? data.id.value : this.id,
+      rewardGroupId: data.rewardGroupId.present
+          ? data.rewardGroupId.value
+          : this.rewardGroupId,
+      rewardNum2: data.rewardNum2.present
+          ? data.rewardNum2.value
+          : this.rewardNum2,
+      rewardNum3: data.rewardNum3.present
+          ? data.rewardNum3.value
+          : this.rewardNum3,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestClearReward02Data(')
+          ..write('id: $id, ')
+          ..write('rewardGroupId: $rewardGroupId, ')
+          ..write('rewardNum2: $rewardNum2, ')
+          ..write('rewardNum3: $rewardNum3')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, rewardGroupId, rewardNum2, rewardNum3);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TalentQuestClearReward02Data &&
+          other.id == this.id &&
+          other.rewardGroupId == this.rewardGroupId &&
+          other.rewardNum2 == this.rewardNum2 &&
+          other.rewardNum3 == this.rewardNum3);
+}
+
+class TalentQuestClearReward02Companion
+    extends UpdateCompanion<TalentQuestClearReward02Data> {
+  final Value<int> id;
+  final Value<int> rewardGroupId;
+  final Value<int> rewardNum2;
+  final Value<int> rewardNum3;
+  const TalentQuestClearReward02Companion({
+    this.id = const Value.absent(),
+    this.rewardGroupId = const Value.absent(),
+    this.rewardNum2 = const Value.absent(),
+    this.rewardNum3 = const Value.absent(),
+  });
+  TalentQuestClearReward02Companion.insert({
+    this.id = const Value.absent(),
+    required int rewardGroupId,
+    required int rewardNum2,
+    required int rewardNum3,
+  }) : rewardGroupId = Value(rewardGroupId),
+       rewardNum2 = Value(rewardNum2),
+       rewardNum3 = Value(rewardNum3);
+  static Insertable<TalentQuestClearReward02Data> custom({
+    Expression<int>? id,
+    Expression<int>? rewardGroupId,
+    Expression<int>? rewardNum2,
+    Expression<int>? rewardNum3,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (rewardGroupId != null) 'reward_group_id': rewardGroupId,
+      if (rewardNum2 != null) 'reward_num_2': rewardNum2,
+      if (rewardNum3 != null) 'reward_num_3': rewardNum3,
+    });
+  }
+
+  TalentQuestClearReward02Companion copyWith({
+    Value<int>? id,
+    Value<int>? rewardGroupId,
+    Value<int>? rewardNum2,
+    Value<int>? rewardNum3,
+  }) {
+    return TalentQuestClearReward02Companion(
+      id: id ?? this.id,
+      rewardGroupId: rewardGroupId ?? this.rewardGroupId,
+      rewardNum2: rewardNum2 ?? this.rewardNum2,
+      rewardNum3: rewardNum3 ?? this.rewardNum3,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (rewardGroupId.present) {
+      map['reward_group_id'] = Variable<int>(rewardGroupId.value);
+    }
+    if (rewardNum2.present) {
+      map['reward_num_2'] = Variable<int>(rewardNum2.value);
+    }
+    if (rewardNum3.present) {
+      map['reward_num_3'] = Variable<int>(rewardNum3.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestClearReward02Companion(')
+          ..write('id: $id, ')
+          ..write('rewardGroupId: $rewardGroupId, ')
+          ..write('rewardNum2: $rewardNum2, ')
+          ..write('rewardNum3: $rewardNum3')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $TalentQuestClearReward03Table extends TalentQuestClearReward03
+    with
+        TableInfo<
+          $TalentQuestClearReward03Table,
+          TalentQuestClearReward03Data
+        > {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $TalentQuestClearReward03Table(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _rewardGroupIdMeta = const VerificationMeta(
+    'rewardGroupId',
+  );
+  @override
+  late final GeneratedColumn<int> rewardGroupId = GeneratedColumn<int>(
+    'reward_group_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rewardNum2Meta = const VerificationMeta(
+    'rewardNum2',
+  );
+  @override
+  late final GeneratedColumn<int> rewardNum2 = GeneratedColumn<int>(
+    'reward_num_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rewardNum3Meta = const VerificationMeta(
+    'rewardNum3',
+  );
+  @override
+  late final GeneratedColumn<int> rewardNum3 = GeneratedColumn<int>(
+    'reward_num_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    rewardGroupId,
+    rewardNum2,
+    rewardNum3,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'talent_quest_clear_reward03';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TalentQuestClearReward03Data> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('reward_group_id')) {
+      context.handle(
+        _rewardGroupIdMeta,
+        rewardGroupId.isAcceptableOrUnknown(
+          data['reward_group_id']!,
+          _rewardGroupIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardGroupIdMeta);
+    }
+    if (data.containsKey('reward_num_2')) {
+      context.handle(
+        _rewardNum2Meta,
+        rewardNum2.isAcceptableOrUnknown(
+          data['reward_num_2']!,
+          _rewardNum2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardNum2Meta);
+    }
+    if (data.containsKey('reward_num_3')) {
+      context.handle(
+        _rewardNum3Meta,
+        rewardNum3.isAcceptableOrUnknown(
+          data['reward_num_3']!,
+          _rewardNum3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardNum3Meta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  TalentQuestClearReward03Data map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TalentQuestClearReward03Data(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      rewardGroupId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_group_id'],
+      )!,
+      rewardNum2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_num_2'],
+      )!,
+      rewardNum3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_num_3'],
+      )!,
+    );
+  }
+
+  @override
+  $TalentQuestClearReward03Table createAlias(String alias) {
+    return $TalentQuestClearReward03Table(attachedDatabase, alias);
+  }
+}
+
+class TalentQuestClearReward03Data extends DataClass
+    implements Insertable<TalentQuestClearReward03Data> {
+  final int id;
+  final int rewardGroupId;
+  final int rewardNum2;
+  final int rewardNum3;
+  const TalentQuestClearReward03Data({
+    required this.id,
+    required this.rewardGroupId,
+    required this.rewardNum2,
+    required this.rewardNum3,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['reward_group_id'] = Variable<int>(rewardGroupId);
+    map['reward_num_2'] = Variable<int>(rewardNum2);
+    map['reward_num_3'] = Variable<int>(rewardNum3);
+    return map;
+  }
+
+  TalentQuestClearReward03Companion toCompanion(bool nullToAbsent) {
+    return TalentQuestClearReward03Companion(
+      id: Value(id),
+      rewardGroupId: Value(rewardGroupId),
+      rewardNum2: Value(rewardNum2),
+      rewardNum3: Value(rewardNum3),
+    );
+  }
+
+  factory TalentQuestClearReward03Data.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TalentQuestClearReward03Data(
+      id: serializer.fromJson<int>(json['id']),
+      rewardGroupId: serializer.fromJson<int>(json['rewardGroupId']),
+      rewardNum2: serializer.fromJson<int>(json['rewardNum2']),
+      rewardNum3: serializer.fromJson<int>(json['rewardNum3']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'rewardGroupId': serializer.toJson<int>(rewardGroupId),
+      'rewardNum2': serializer.toJson<int>(rewardNum2),
+      'rewardNum3': serializer.toJson<int>(rewardNum3),
+    };
+  }
+
+  TalentQuestClearReward03Data copyWith({
+    int? id,
+    int? rewardGroupId,
+    int? rewardNum2,
+    int? rewardNum3,
+  }) => TalentQuestClearReward03Data(
+    id: id ?? this.id,
+    rewardGroupId: rewardGroupId ?? this.rewardGroupId,
+    rewardNum2: rewardNum2 ?? this.rewardNum2,
+    rewardNum3: rewardNum3 ?? this.rewardNum3,
+  );
+  TalentQuestClearReward03Data copyWithCompanion(
+    TalentQuestClearReward03Companion data,
+  ) {
+    return TalentQuestClearReward03Data(
+      id: data.id.present ? data.id.value : this.id,
+      rewardGroupId: data.rewardGroupId.present
+          ? data.rewardGroupId.value
+          : this.rewardGroupId,
+      rewardNum2: data.rewardNum2.present
+          ? data.rewardNum2.value
+          : this.rewardNum2,
+      rewardNum3: data.rewardNum3.present
+          ? data.rewardNum3.value
+          : this.rewardNum3,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestClearReward03Data(')
+          ..write('id: $id, ')
+          ..write('rewardGroupId: $rewardGroupId, ')
+          ..write('rewardNum2: $rewardNum2, ')
+          ..write('rewardNum3: $rewardNum3')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, rewardGroupId, rewardNum2, rewardNum3);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TalentQuestClearReward03Data &&
+          other.id == this.id &&
+          other.rewardGroupId == this.rewardGroupId &&
+          other.rewardNum2 == this.rewardNum2 &&
+          other.rewardNum3 == this.rewardNum3);
+}
+
+class TalentQuestClearReward03Companion
+    extends UpdateCompanion<TalentQuestClearReward03Data> {
+  final Value<int> id;
+  final Value<int> rewardGroupId;
+  final Value<int> rewardNum2;
+  final Value<int> rewardNum3;
+  const TalentQuestClearReward03Companion({
+    this.id = const Value.absent(),
+    this.rewardGroupId = const Value.absent(),
+    this.rewardNum2 = const Value.absent(),
+    this.rewardNum3 = const Value.absent(),
+  });
+  TalentQuestClearReward03Companion.insert({
+    this.id = const Value.absent(),
+    required int rewardGroupId,
+    required int rewardNum2,
+    required int rewardNum3,
+  }) : rewardGroupId = Value(rewardGroupId),
+       rewardNum2 = Value(rewardNum2),
+       rewardNum3 = Value(rewardNum3);
+  static Insertable<TalentQuestClearReward03Data> custom({
+    Expression<int>? id,
+    Expression<int>? rewardGroupId,
+    Expression<int>? rewardNum2,
+    Expression<int>? rewardNum3,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (rewardGroupId != null) 'reward_group_id': rewardGroupId,
+      if (rewardNum2 != null) 'reward_num_2': rewardNum2,
+      if (rewardNum3 != null) 'reward_num_3': rewardNum3,
+    });
+  }
+
+  TalentQuestClearReward03Companion copyWith({
+    Value<int>? id,
+    Value<int>? rewardGroupId,
+    Value<int>? rewardNum2,
+    Value<int>? rewardNum3,
+  }) {
+    return TalentQuestClearReward03Companion(
+      id: id ?? this.id,
+      rewardGroupId: rewardGroupId ?? this.rewardGroupId,
+      rewardNum2: rewardNum2 ?? this.rewardNum2,
+      rewardNum3: rewardNum3 ?? this.rewardNum3,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (rewardGroupId.present) {
+      map['reward_group_id'] = Variable<int>(rewardGroupId.value);
+    }
+    if (rewardNum2.present) {
+      map['reward_num_2'] = Variable<int>(rewardNum2.value);
+    }
+    if (rewardNum3.present) {
+      map['reward_num_3'] = Variable<int>(rewardNum3.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestClearReward03Companion(')
+          ..write('id: $id, ')
+          ..write('rewardGroupId: $rewardGroupId, ')
+          ..write('rewardNum2: $rewardNum2, ')
+          ..write('rewardNum3: $rewardNum3')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $TalentQuestClearReward04Table extends TalentQuestClearReward04
+    with
+        TableInfo<
+          $TalentQuestClearReward04Table,
+          TalentQuestClearReward04Data
+        > {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $TalentQuestClearReward04Table(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _rewardGroupIdMeta = const VerificationMeta(
+    'rewardGroupId',
+  );
+  @override
+  late final GeneratedColumn<int> rewardGroupId = GeneratedColumn<int>(
+    'reward_group_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rewardNum2Meta = const VerificationMeta(
+    'rewardNum2',
+  );
+  @override
+  late final GeneratedColumn<int> rewardNum2 = GeneratedColumn<int>(
+    'reward_num_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rewardNum3Meta = const VerificationMeta(
+    'rewardNum3',
+  );
+  @override
+  late final GeneratedColumn<int> rewardNum3 = GeneratedColumn<int>(
+    'reward_num_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    rewardGroupId,
+    rewardNum2,
+    rewardNum3,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'talent_quest_clear_reward04';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TalentQuestClearReward04Data> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('reward_group_id')) {
+      context.handle(
+        _rewardGroupIdMeta,
+        rewardGroupId.isAcceptableOrUnknown(
+          data['reward_group_id']!,
+          _rewardGroupIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardGroupIdMeta);
+    }
+    if (data.containsKey('reward_num_2')) {
+      context.handle(
+        _rewardNum2Meta,
+        rewardNum2.isAcceptableOrUnknown(
+          data['reward_num_2']!,
+          _rewardNum2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardNum2Meta);
+    }
+    if (data.containsKey('reward_num_3')) {
+      context.handle(
+        _rewardNum3Meta,
+        rewardNum3.isAcceptableOrUnknown(
+          data['reward_num_3']!,
+          _rewardNum3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardNum3Meta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  TalentQuestClearReward04Data map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TalentQuestClearReward04Data(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      rewardGroupId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_group_id'],
+      )!,
+      rewardNum2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_num_2'],
+      )!,
+      rewardNum3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_num_3'],
+      )!,
+    );
+  }
+
+  @override
+  $TalentQuestClearReward04Table createAlias(String alias) {
+    return $TalentQuestClearReward04Table(attachedDatabase, alias);
+  }
+}
+
+class TalentQuestClearReward04Data extends DataClass
+    implements Insertable<TalentQuestClearReward04Data> {
+  final int id;
+  final int rewardGroupId;
+  final int rewardNum2;
+  final int rewardNum3;
+  const TalentQuestClearReward04Data({
+    required this.id,
+    required this.rewardGroupId,
+    required this.rewardNum2,
+    required this.rewardNum3,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['reward_group_id'] = Variable<int>(rewardGroupId);
+    map['reward_num_2'] = Variable<int>(rewardNum2);
+    map['reward_num_3'] = Variable<int>(rewardNum3);
+    return map;
+  }
+
+  TalentQuestClearReward04Companion toCompanion(bool nullToAbsent) {
+    return TalentQuestClearReward04Companion(
+      id: Value(id),
+      rewardGroupId: Value(rewardGroupId),
+      rewardNum2: Value(rewardNum2),
+      rewardNum3: Value(rewardNum3),
+    );
+  }
+
+  factory TalentQuestClearReward04Data.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TalentQuestClearReward04Data(
+      id: serializer.fromJson<int>(json['id']),
+      rewardGroupId: serializer.fromJson<int>(json['rewardGroupId']),
+      rewardNum2: serializer.fromJson<int>(json['rewardNum2']),
+      rewardNum3: serializer.fromJson<int>(json['rewardNum3']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'rewardGroupId': serializer.toJson<int>(rewardGroupId),
+      'rewardNum2': serializer.toJson<int>(rewardNum2),
+      'rewardNum3': serializer.toJson<int>(rewardNum3),
+    };
+  }
+
+  TalentQuestClearReward04Data copyWith({
+    int? id,
+    int? rewardGroupId,
+    int? rewardNum2,
+    int? rewardNum3,
+  }) => TalentQuestClearReward04Data(
+    id: id ?? this.id,
+    rewardGroupId: rewardGroupId ?? this.rewardGroupId,
+    rewardNum2: rewardNum2 ?? this.rewardNum2,
+    rewardNum3: rewardNum3 ?? this.rewardNum3,
+  );
+  TalentQuestClearReward04Data copyWithCompanion(
+    TalentQuestClearReward04Companion data,
+  ) {
+    return TalentQuestClearReward04Data(
+      id: data.id.present ? data.id.value : this.id,
+      rewardGroupId: data.rewardGroupId.present
+          ? data.rewardGroupId.value
+          : this.rewardGroupId,
+      rewardNum2: data.rewardNum2.present
+          ? data.rewardNum2.value
+          : this.rewardNum2,
+      rewardNum3: data.rewardNum3.present
+          ? data.rewardNum3.value
+          : this.rewardNum3,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestClearReward04Data(')
+          ..write('id: $id, ')
+          ..write('rewardGroupId: $rewardGroupId, ')
+          ..write('rewardNum2: $rewardNum2, ')
+          ..write('rewardNum3: $rewardNum3')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, rewardGroupId, rewardNum2, rewardNum3);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TalentQuestClearReward04Data &&
+          other.id == this.id &&
+          other.rewardGroupId == this.rewardGroupId &&
+          other.rewardNum2 == this.rewardNum2 &&
+          other.rewardNum3 == this.rewardNum3);
+}
+
+class TalentQuestClearReward04Companion
+    extends UpdateCompanion<TalentQuestClearReward04Data> {
+  final Value<int> id;
+  final Value<int> rewardGroupId;
+  final Value<int> rewardNum2;
+  final Value<int> rewardNum3;
+  const TalentQuestClearReward04Companion({
+    this.id = const Value.absent(),
+    this.rewardGroupId = const Value.absent(),
+    this.rewardNum2 = const Value.absent(),
+    this.rewardNum3 = const Value.absent(),
+  });
+  TalentQuestClearReward04Companion.insert({
+    this.id = const Value.absent(),
+    required int rewardGroupId,
+    required int rewardNum2,
+    required int rewardNum3,
+  }) : rewardGroupId = Value(rewardGroupId),
+       rewardNum2 = Value(rewardNum2),
+       rewardNum3 = Value(rewardNum3);
+  static Insertable<TalentQuestClearReward04Data> custom({
+    Expression<int>? id,
+    Expression<int>? rewardGroupId,
+    Expression<int>? rewardNum2,
+    Expression<int>? rewardNum3,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (rewardGroupId != null) 'reward_group_id': rewardGroupId,
+      if (rewardNum2 != null) 'reward_num_2': rewardNum2,
+      if (rewardNum3 != null) 'reward_num_3': rewardNum3,
+    });
+  }
+
+  TalentQuestClearReward04Companion copyWith({
+    Value<int>? id,
+    Value<int>? rewardGroupId,
+    Value<int>? rewardNum2,
+    Value<int>? rewardNum3,
+  }) {
+    return TalentQuestClearReward04Companion(
+      id: id ?? this.id,
+      rewardGroupId: rewardGroupId ?? this.rewardGroupId,
+      rewardNum2: rewardNum2 ?? this.rewardNum2,
+      rewardNum3: rewardNum3 ?? this.rewardNum3,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (rewardGroupId.present) {
+      map['reward_group_id'] = Variable<int>(rewardGroupId.value);
+    }
+    if (rewardNum2.present) {
+      map['reward_num_2'] = Variable<int>(rewardNum2.value);
+    }
+    if (rewardNum3.present) {
+      map['reward_num_3'] = Variable<int>(rewardNum3.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestClearReward04Companion(')
+          ..write('id: $id, ')
+          ..write('rewardGroupId: $rewardGroupId, ')
+          ..write('rewardNum2: $rewardNum2, ')
+          ..write('rewardNum3: $rewardNum3')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $TalentQuestClearReward05Table extends TalentQuestClearReward05
+    with
+        TableInfo<
+          $TalentQuestClearReward05Table,
+          TalentQuestClearReward05Data
+        > {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $TalentQuestClearReward05Table(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _rewardGroupIdMeta = const VerificationMeta(
+    'rewardGroupId',
+  );
+  @override
+  late final GeneratedColumn<int> rewardGroupId = GeneratedColumn<int>(
+    'reward_group_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rewardNum2Meta = const VerificationMeta(
+    'rewardNum2',
+  );
+  @override
+  late final GeneratedColumn<int> rewardNum2 = GeneratedColumn<int>(
+    'reward_num_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _rewardNum3Meta = const VerificationMeta(
+    'rewardNum3',
+  );
+  @override
+  late final GeneratedColumn<int> rewardNum3 = GeneratedColumn<int>(
+    'reward_num_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    rewardGroupId,
+    rewardNum2,
+    rewardNum3,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'talent_quest_clear_reward05';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TalentQuestClearReward05Data> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('reward_group_id')) {
+      context.handle(
+        _rewardGroupIdMeta,
+        rewardGroupId.isAcceptableOrUnknown(
+          data['reward_group_id']!,
+          _rewardGroupIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardGroupIdMeta);
+    }
+    if (data.containsKey('reward_num_2')) {
+      context.handle(
+        _rewardNum2Meta,
+        rewardNum2.isAcceptableOrUnknown(
+          data['reward_num_2']!,
+          _rewardNum2Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardNum2Meta);
+    }
+    if (data.containsKey('reward_num_3')) {
+      context.handle(
+        _rewardNum3Meta,
+        rewardNum3.isAcceptableOrUnknown(
+          data['reward_num_3']!,
+          _rewardNum3Meta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_rewardNum3Meta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  TalentQuestClearReward05Data map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TalentQuestClearReward05Data(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      rewardGroupId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_group_id'],
+      )!,
+      rewardNum2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_num_2'],
+      )!,
+      rewardNum3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reward_num_3'],
+      )!,
+    );
+  }
+
+  @override
+  $TalentQuestClearReward05Table createAlias(String alias) {
+    return $TalentQuestClearReward05Table(attachedDatabase, alias);
+  }
+}
+
+class TalentQuestClearReward05Data extends DataClass
+    implements Insertable<TalentQuestClearReward05Data> {
+  final int id;
+  final int rewardGroupId;
+  final int rewardNum2;
+  final int rewardNum3;
+  const TalentQuestClearReward05Data({
+    required this.id,
+    required this.rewardGroupId,
+    required this.rewardNum2,
+    required this.rewardNum3,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['reward_group_id'] = Variable<int>(rewardGroupId);
+    map['reward_num_2'] = Variable<int>(rewardNum2);
+    map['reward_num_3'] = Variable<int>(rewardNum3);
+    return map;
+  }
+
+  TalentQuestClearReward05Companion toCompanion(bool nullToAbsent) {
+    return TalentQuestClearReward05Companion(
+      id: Value(id),
+      rewardGroupId: Value(rewardGroupId),
+      rewardNum2: Value(rewardNum2),
+      rewardNum3: Value(rewardNum3),
+    );
+  }
+
+  factory TalentQuestClearReward05Data.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TalentQuestClearReward05Data(
+      id: serializer.fromJson<int>(json['id']),
+      rewardGroupId: serializer.fromJson<int>(json['rewardGroupId']),
+      rewardNum2: serializer.fromJson<int>(json['rewardNum2']),
+      rewardNum3: serializer.fromJson<int>(json['rewardNum3']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'rewardGroupId': serializer.toJson<int>(rewardGroupId),
+      'rewardNum2': serializer.toJson<int>(rewardNum2),
+      'rewardNum3': serializer.toJson<int>(rewardNum3),
+    };
+  }
+
+  TalentQuestClearReward05Data copyWith({
+    int? id,
+    int? rewardGroupId,
+    int? rewardNum2,
+    int? rewardNum3,
+  }) => TalentQuestClearReward05Data(
+    id: id ?? this.id,
+    rewardGroupId: rewardGroupId ?? this.rewardGroupId,
+    rewardNum2: rewardNum2 ?? this.rewardNum2,
+    rewardNum3: rewardNum3 ?? this.rewardNum3,
+  );
+  TalentQuestClearReward05Data copyWithCompanion(
+    TalentQuestClearReward05Companion data,
+  ) {
+    return TalentQuestClearReward05Data(
+      id: data.id.present ? data.id.value : this.id,
+      rewardGroupId: data.rewardGroupId.present
+          ? data.rewardGroupId.value
+          : this.rewardGroupId,
+      rewardNum2: data.rewardNum2.present
+          ? data.rewardNum2.value
+          : this.rewardNum2,
+      rewardNum3: data.rewardNum3.present
+          ? data.rewardNum3.value
+          : this.rewardNum3,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestClearReward05Data(')
+          ..write('id: $id, ')
+          ..write('rewardGroupId: $rewardGroupId, ')
+          ..write('rewardNum2: $rewardNum2, ')
+          ..write('rewardNum3: $rewardNum3')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, rewardGroupId, rewardNum2, rewardNum3);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TalentQuestClearReward05Data &&
+          other.id == this.id &&
+          other.rewardGroupId == this.rewardGroupId &&
+          other.rewardNum2 == this.rewardNum2 &&
+          other.rewardNum3 == this.rewardNum3);
+}
+
+class TalentQuestClearReward05Companion
+    extends UpdateCompanion<TalentQuestClearReward05Data> {
+  final Value<int> id;
+  final Value<int> rewardGroupId;
+  final Value<int> rewardNum2;
+  final Value<int> rewardNum3;
+  const TalentQuestClearReward05Companion({
+    this.id = const Value.absent(),
+    this.rewardGroupId = const Value.absent(),
+    this.rewardNum2 = const Value.absent(),
+    this.rewardNum3 = const Value.absent(),
+  });
+  TalentQuestClearReward05Companion.insert({
+    this.id = const Value.absent(),
+    required int rewardGroupId,
+    required int rewardNum2,
+    required int rewardNum3,
+  }) : rewardGroupId = Value(rewardGroupId),
+       rewardNum2 = Value(rewardNum2),
+       rewardNum3 = Value(rewardNum3);
+  static Insertable<TalentQuestClearReward05Data> custom({
+    Expression<int>? id,
+    Expression<int>? rewardGroupId,
+    Expression<int>? rewardNum2,
+    Expression<int>? rewardNum3,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (rewardGroupId != null) 'reward_group_id': rewardGroupId,
+      if (rewardNum2 != null) 'reward_num_2': rewardNum2,
+      if (rewardNum3 != null) 'reward_num_3': rewardNum3,
+    });
+  }
+
+  TalentQuestClearReward05Companion copyWith({
+    Value<int>? id,
+    Value<int>? rewardGroupId,
+    Value<int>? rewardNum2,
+    Value<int>? rewardNum3,
+  }) {
+    return TalentQuestClearReward05Companion(
+      id: id ?? this.id,
+      rewardGroupId: rewardGroupId ?? this.rewardGroupId,
+      rewardNum2: rewardNum2 ?? this.rewardNum2,
+      rewardNum3: rewardNum3 ?? this.rewardNum3,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (rewardGroupId.present) {
+      map['reward_group_id'] = Variable<int>(rewardGroupId.value);
+    }
+    if (rewardNum2.present) {
+      map['reward_num_2'] = Variable<int>(rewardNum2.value);
+    }
+    if (rewardNum3.present) {
+      map['reward_num_3'] = Variable<int>(rewardNum3.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestClearReward05Companion(')
+          ..write('id: $id, ')
+          ..write('rewardGroupId: $rewardGroupId, ')
+          ..write('rewardNum2: $rewardNum2, ')
+          ..write('rewardNum3: $rewardNum3')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $TalentQuestWaveGroupDataTable extends TalentQuestWaveGroupData
+    with
+        TableInfo<
+          $TalentQuestWaveGroupDataTable,
+          TalentQuestWaveGroupDataData
+        > {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $TalentQuestWaveGroupDataTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _waveGroupIdMeta = const VerificationMeta(
+    'waveGroupId',
+  );
+  @override
+  late final GeneratedColumn<int> waveGroupId = GeneratedColumn<int>(
+    'wave_group_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _enemyId1Meta = const VerificationMeta(
+    'enemyId1',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId1 = GeneratedColumn<int>(
+    'enemy_id_1',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _enemyId2Meta = const VerificationMeta(
+    'enemyId2',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId2 = GeneratedColumn<int>(
+    'enemy_id_2',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _enemyId3Meta = const VerificationMeta(
+    'enemyId3',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId3 = GeneratedColumn<int>(
+    'enemy_id_3',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _enemyId4Meta = const VerificationMeta(
+    'enemyId4',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId4 = GeneratedColumn<int>(
+    'enemy_id_4',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _enemyId5Meta = const VerificationMeta(
+    'enemyId5',
+  );
+  @override
+  late final GeneratedColumn<int> enemyId5 = GeneratedColumn<int>(
+    'enemy_id_5',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    waveGroupId,
+    enemyId1,
+    enemyId2,
+    enemyId3,
+    enemyId4,
+    enemyId5,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'talent_quest_wave_group_data';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TalentQuestWaveGroupDataData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('wave_group_id')) {
+      context.handle(
+        _waveGroupIdMeta,
+        waveGroupId.isAcceptableOrUnknown(
+          data['wave_group_id']!,
+          _waveGroupIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_waveGroupIdMeta);
+    }
+    if (data.containsKey('enemy_id_1')) {
+      context.handle(
+        _enemyId1Meta,
+        enemyId1.isAcceptableOrUnknown(data['enemy_id_1']!, _enemyId1Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_enemyId1Meta);
+    }
+    if (data.containsKey('enemy_id_2')) {
+      context.handle(
+        _enemyId2Meta,
+        enemyId2.isAcceptableOrUnknown(data['enemy_id_2']!, _enemyId2Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_enemyId2Meta);
+    }
+    if (data.containsKey('enemy_id_3')) {
+      context.handle(
+        _enemyId3Meta,
+        enemyId3.isAcceptableOrUnknown(data['enemy_id_3']!, _enemyId3Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_enemyId3Meta);
+    }
+    if (data.containsKey('enemy_id_4')) {
+      context.handle(
+        _enemyId4Meta,
+        enemyId4.isAcceptableOrUnknown(data['enemy_id_4']!, _enemyId4Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_enemyId4Meta);
+    }
+    if (data.containsKey('enemy_id_5')) {
+      context.handle(
+        _enemyId5Meta,
+        enemyId5.isAcceptableOrUnknown(data['enemy_id_5']!, _enemyId5Meta),
+      );
+    } else if (isInserting) {
+      context.missing(_enemyId5Meta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  TalentQuestWaveGroupDataData map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TalentQuestWaveGroupDataData(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      waveGroupId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}wave_group_id'],
+      )!,
+      enemyId1: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id_1'],
+      )!,
+      enemyId2: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id_2'],
+      )!,
+      enemyId3: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id_3'],
+      )!,
+      enemyId4: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id_4'],
+      )!,
+      enemyId5: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}enemy_id_5'],
+      )!,
+    );
+  }
+
+  @override
+  $TalentQuestWaveGroupDataTable createAlias(String alias) {
+    return $TalentQuestWaveGroupDataTable(attachedDatabase, alias);
+  }
+}
+
+class TalentQuestWaveGroupDataData extends DataClass
+    implements Insertable<TalentQuestWaveGroupDataData> {
+  final int id;
+  final int waveGroupId;
+  final int enemyId1;
+  final int enemyId2;
+  final int enemyId3;
+  final int enemyId4;
+  final int enemyId5;
+  const TalentQuestWaveGroupDataData({
+    required this.id,
+    required this.waveGroupId,
+    required this.enemyId1,
+    required this.enemyId2,
+    required this.enemyId3,
+    required this.enemyId4,
+    required this.enemyId5,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['wave_group_id'] = Variable<int>(waveGroupId);
+    map['enemy_id_1'] = Variable<int>(enemyId1);
+    map['enemy_id_2'] = Variable<int>(enemyId2);
+    map['enemy_id_3'] = Variable<int>(enemyId3);
+    map['enemy_id_4'] = Variable<int>(enemyId4);
+    map['enemy_id_5'] = Variable<int>(enemyId5);
+    return map;
+  }
+
+  TalentQuestWaveGroupDataCompanion toCompanion(bool nullToAbsent) {
+    return TalentQuestWaveGroupDataCompanion(
+      id: Value(id),
+      waveGroupId: Value(waveGroupId),
+      enemyId1: Value(enemyId1),
+      enemyId2: Value(enemyId2),
+      enemyId3: Value(enemyId3),
+      enemyId4: Value(enemyId4),
+      enemyId5: Value(enemyId5),
+    );
+  }
+
+  factory TalentQuestWaveGroupDataData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TalentQuestWaveGroupDataData(
+      id: serializer.fromJson<int>(json['id']),
+      waveGroupId: serializer.fromJson<int>(json['waveGroupId']),
+      enemyId1: serializer.fromJson<int>(json['enemyId1']),
+      enemyId2: serializer.fromJson<int>(json['enemyId2']),
+      enemyId3: serializer.fromJson<int>(json['enemyId3']),
+      enemyId4: serializer.fromJson<int>(json['enemyId4']),
+      enemyId5: serializer.fromJson<int>(json['enemyId5']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'waveGroupId': serializer.toJson<int>(waveGroupId),
+      'enemyId1': serializer.toJson<int>(enemyId1),
+      'enemyId2': serializer.toJson<int>(enemyId2),
+      'enemyId3': serializer.toJson<int>(enemyId3),
+      'enemyId4': serializer.toJson<int>(enemyId4),
+      'enemyId5': serializer.toJson<int>(enemyId5),
+    };
+  }
+
+  TalentQuestWaveGroupDataData copyWith({
+    int? id,
+    int? waveGroupId,
+    int? enemyId1,
+    int? enemyId2,
+    int? enemyId3,
+    int? enemyId4,
+    int? enemyId5,
+  }) => TalentQuestWaveGroupDataData(
+    id: id ?? this.id,
+    waveGroupId: waveGroupId ?? this.waveGroupId,
+    enemyId1: enemyId1 ?? this.enemyId1,
+    enemyId2: enemyId2 ?? this.enemyId2,
+    enemyId3: enemyId3 ?? this.enemyId3,
+    enemyId4: enemyId4 ?? this.enemyId4,
+    enemyId5: enemyId5 ?? this.enemyId5,
+  );
+  TalentQuestWaveGroupDataData copyWithCompanion(
+    TalentQuestWaveGroupDataCompanion data,
+  ) {
+    return TalentQuestWaveGroupDataData(
+      id: data.id.present ? data.id.value : this.id,
+      waveGroupId: data.waveGroupId.present
+          ? data.waveGroupId.value
+          : this.waveGroupId,
+      enemyId1: data.enemyId1.present ? data.enemyId1.value : this.enemyId1,
+      enemyId2: data.enemyId2.present ? data.enemyId2.value : this.enemyId2,
+      enemyId3: data.enemyId3.present ? data.enemyId3.value : this.enemyId3,
+      enemyId4: data.enemyId4.present ? data.enemyId4.value : this.enemyId4,
+      enemyId5: data.enemyId5.present ? data.enemyId5.value : this.enemyId5,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestWaveGroupDataData(')
+          ..write('id: $id, ')
+          ..write('waveGroupId: $waveGroupId, ')
+          ..write('enemyId1: $enemyId1, ')
+          ..write('enemyId2: $enemyId2, ')
+          ..write('enemyId3: $enemyId3, ')
+          ..write('enemyId4: $enemyId4, ')
+          ..write('enemyId5: $enemyId5')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    waveGroupId,
+    enemyId1,
+    enemyId2,
+    enemyId3,
+    enemyId4,
+    enemyId5,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TalentQuestWaveGroupDataData &&
+          other.id == this.id &&
+          other.waveGroupId == this.waveGroupId &&
+          other.enemyId1 == this.enemyId1 &&
+          other.enemyId2 == this.enemyId2 &&
+          other.enemyId3 == this.enemyId3 &&
+          other.enemyId4 == this.enemyId4 &&
+          other.enemyId5 == this.enemyId5);
+}
+
+class TalentQuestWaveGroupDataCompanion
+    extends UpdateCompanion<TalentQuestWaveGroupDataData> {
+  final Value<int> id;
+  final Value<int> waveGroupId;
+  final Value<int> enemyId1;
+  final Value<int> enemyId2;
+  final Value<int> enemyId3;
+  final Value<int> enemyId4;
+  final Value<int> enemyId5;
+  const TalentQuestWaveGroupDataCompanion({
+    this.id = const Value.absent(),
+    this.waveGroupId = const Value.absent(),
+    this.enemyId1 = const Value.absent(),
+    this.enemyId2 = const Value.absent(),
+    this.enemyId3 = const Value.absent(),
+    this.enemyId4 = const Value.absent(),
+    this.enemyId5 = const Value.absent(),
+  });
+  TalentQuestWaveGroupDataCompanion.insert({
+    this.id = const Value.absent(),
+    required int waveGroupId,
+    required int enemyId1,
+    required int enemyId2,
+    required int enemyId3,
+    required int enemyId4,
+    required int enemyId5,
+  }) : waveGroupId = Value(waveGroupId),
+       enemyId1 = Value(enemyId1),
+       enemyId2 = Value(enemyId2),
+       enemyId3 = Value(enemyId3),
+       enemyId4 = Value(enemyId4),
+       enemyId5 = Value(enemyId5);
+  static Insertable<TalentQuestWaveGroupDataData> custom({
+    Expression<int>? id,
+    Expression<int>? waveGroupId,
+    Expression<int>? enemyId1,
+    Expression<int>? enemyId2,
+    Expression<int>? enemyId3,
+    Expression<int>? enemyId4,
+    Expression<int>? enemyId5,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (waveGroupId != null) 'wave_group_id': waveGroupId,
+      if (enemyId1 != null) 'enemy_id_1': enemyId1,
+      if (enemyId2 != null) 'enemy_id_2': enemyId2,
+      if (enemyId3 != null) 'enemy_id_3': enemyId3,
+      if (enemyId4 != null) 'enemy_id_4': enemyId4,
+      if (enemyId5 != null) 'enemy_id_5': enemyId5,
+    });
+  }
+
+  TalentQuestWaveGroupDataCompanion copyWith({
+    Value<int>? id,
+    Value<int>? waveGroupId,
+    Value<int>? enemyId1,
+    Value<int>? enemyId2,
+    Value<int>? enemyId3,
+    Value<int>? enemyId4,
+    Value<int>? enemyId5,
+  }) {
+    return TalentQuestWaveGroupDataCompanion(
+      id: id ?? this.id,
+      waveGroupId: waveGroupId ?? this.waveGroupId,
+      enemyId1: enemyId1 ?? this.enemyId1,
+      enemyId2: enemyId2 ?? this.enemyId2,
+      enemyId3: enemyId3 ?? this.enemyId3,
+      enemyId4: enemyId4 ?? this.enemyId4,
+      enemyId5: enemyId5 ?? this.enemyId5,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (waveGroupId.present) {
+      map['wave_group_id'] = Variable<int>(waveGroupId.value);
+    }
+    if (enemyId1.present) {
+      map['enemy_id_1'] = Variable<int>(enemyId1.value);
+    }
+    if (enemyId2.present) {
+      map['enemy_id_2'] = Variable<int>(enemyId2.value);
+    }
+    if (enemyId3.present) {
+      map['enemy_id_3'] = Variable<int>(enemyId3.value);
+    }
+    if (enemyId4.present) {
+      map['enemy_id_4'] = Variable<int>(enemyId4.value);
+    }
+    if (enemyId5.present) {
+      map['enemy_id_5'] = Variable<int>(enemyId5.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TalentQuestWaveGroupDataCompanion(')
+          ..write('id: $id, ')
+          ..write('waveGroupId: $waveGroupId, ')
+          ..write('enemyId1: $enemyId1, ')
+          ..write('enemyId2: $enemyId2, ')
+          ..write('enemyId3: $enemyId3, ')
+          ..write('enemyId4: $enemyId4, ')
+          ..write('enemyId5: $enemyId5')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $GachaDataTable extends GachaData
+    with TableInfo<$GachaDataTable, GachaDataData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $GachaDataTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _gachaIdMeta = const VerificationMeta(
+    'gachaId',
+  );
+  @override
+  late final GeneratedColumn<int> gachaId = GeneratedColumn<int>(
+    'gacha_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _gachaNameMeta = const VerificationMeta(
+    'gachaName',
+  );
+  @override
+  late final GeneratedColumn<String> gachaName = GeneratedColumn<String>(
+    'gacha_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _descriptionMeta = const VerificationMeta(
+    'description',
+  );
+  @override
+  late final GeneratedColumn<String> description = GeneratedColumn<String>(
+    'description',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exchangeIdMeta = const VerificationMeta(
+    'exchangeId',
+  );
+  @override
+  late final GeneratedColumn<int> exchangeId = GeneratedColumn<int>(
+    'exchange_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _startTimeMeta = const VerificationMeta(
+    'startTime',
+  );
+  @override
+  late final GeneratedColumn<String> startTime = GeneratedColumn<String>(
+    'start_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _endTimeMeta = const VerificationMeta(
+    'endTime',
+  );
+  @override
+  late final GeneratedColumn<String> endTime = GeneratedColumn<String>(
+    'end_time',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    gachaId,
+    gachaName,
+    description,
+    exchangeId,
+    startTime,
+    endTime,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'gacha_data';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<GachaDataData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('gacha_id')) {
+      context.handle(
+        _gachaIdMeta,
+        gachaId.isAcceptableOrUnknown(data['gacha_id']!, _gachaIdMeta),
+      );
+    }
+    if (data.containsKey('gacha_name')) {
+      context.handle(
+        _gachaNameMeta,
+        gachaName.isAcceptableOrUnknown(data['gacha_name']!, _gachaNameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_gachaNameMeta);
+    }
+    if (data.containsKey('description')) {
+      context.handle(
+        _descriptionMeta,
+        description.isAcceptableOrUnknown(
+          data['description']!,
+          _descriptionMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_descriptionMeta);
+    }
+    if (data.containsKey('exchange_id')) {
+      context.handle(
+        _exchangeIdMeta,
+        exchangeId.isAcceptableOrUnknown(data['exchange_id']!, _exchangeIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_exchangeIdMeta);
+    }
+    if (data.containsKey('start_time')) {
+      context.handle(
+        _startTimeMeta,
+        startTime.isAcceptableOrUnknown(data['start_time']!, _startTimeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_startTimeMeta);
+    }
+    if (data.containsKey('end_time')) {
+      context.handle(
+        _endTimeMeta,
+        endTime.isAcceptableOrUnknown(data['end_time']!, _endTimeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_endTimeMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {gachaId};
+  @override
+  GachaDataData map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return GachaDataData(
+      gachaId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}gacha_id'],
+      )!,
+      gachaName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}gacha_name'],
+      )!,
+      description: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}description'],
+      )!,
+      exchangeId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}exchange_id'],
+      )!,
+      startTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}start_time'],
+      )!,
+      endTime: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}end_time'],
+      )!,
+    );
+  }
+
+  @override
+  $GachaDataTable createAlias(String alias) {
+    return $GachaDataTable(attachedDatabase, alias);
+  }
+}
+
+class GachaDataData extends DataClass implements Insertable<GachaDataData> {
+  final int gachaId;
+  final String gachaName;
+  final String description;
+  final int exchangeId;
+  final String startTime;
+  final String endTime;
+  const GachaDataData({
+    required this.gachaId,
+    required this.gachaName,
+    required this.description,
+    required this.exchangeId,
+    required this.startTime,
+    required this.endTime,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['gacha_id'] = Variable<int>(gachaId);
+    map['gacha_name'] = Variable<String>(gachaName);
+    map['description'] = Variable<String>(description);
+    map['exchange_id'] = Variable<int>(exchangeId);
+    map['start_time'] = Variable<String>(startTime);
+    map['end_time'] = Variable<String>(endTime);
+    return map;
+  }
+
+  GachaDataCompanion toCompanion(bool nullToAbsent) {
+    return GachaDataCompanion(
+      gachaId: Value(gachaId),
+      gachaName: Value(gachaName),
+      description: Value(description),
+      exchangeId: Value(exchangeId),
+      startTime: Value(startTime),
+      endTime: Value(endTime),
+    );
+  }
+
+  factory GachaDataData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return GachaDataData(
+      gachaId: serializer.fromJson<int>(json['gachaId']),
+      gachaName: serializer.fromJson<String>(json['gachaName']),
+      description: serializer.fromJson<String>(json['description']),
+      exchangeId: serializer.fromJson<int>(json['exchangeId']),
+      startTime: serializer.fromJson<String>(json['startTime']),
+      endTime: serializer.fromJson<String>(json['endTime']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'gachaId': serializer.toJson<int>(gachaId),
+      'gachaName': serializer.toJson<String>(gachaName),
+      'description': serializer.toJson<String>(description),
+      'exchangeId': serializer.toJson<int>(exchangeId),
+      'startTime': serializer.toJson<String>(startTime),
+      'endTime': serializer.toJson<String>(endTime),
+    };
+  }
+
+  GachaDataData copyWith({
+    int? gachaId,
+    String? gachaName,
+    String? description,
+    int? exchangeId,
+    String? startTime,
+    String? endTime,
+  }) => GachaDataData(
+    gachaId: gachaId ?? this.gachaId,
+    gachaName: gachaName ?? this.gachaName,
+    description: description ?? this.description,
+    exchangeId: exchangeId ?? this.exchangeId,
+    startTime: startTime ?? this.startTime,
+    endTime: endTime ?? this.endTime,
+  );
+  GachaDataData copyWithCompanion(GachaDataCompanion data) {
+    return GachaDataData(
+      gachaId: data.gachaId.present ? data.gachaId.value : this.gachaId,
+      gachaName: data.gachaName.present ? data.gachaName.value : this.gachaName,
+      description: data.description.present
+          ? data.description.value
+          : this.description,
+      exchangeId: data.exchangeId.present
+          ? data.exchangeId.value
+          : this.exchangeId,
+      startTime: data.startTime.present ? data.startTime.value : this.startTime,
+      endTime: data.endTime.present ? data.endTime.value : this.endTime,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('GachaDataData(')
+          ..write('gachaId: $gachaId, ')
+          ..write('gachaName: $gachaName, ')
+          ..write('description: $description, ')
+          ..write('exchangeId: $exchangeId, ')
+          ..write('startTime: $startTime, ')
+          ..write('endTime: $endTime')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    gachaId,
+    gachaName,
+    description,
+    exchangeId,
+    startTime,
+    endTime,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is GachaDataData &&
+          other.gachaId == this.gachaId &&
+          other.gachaName == this.gachaName &&
+          other.description == this.description &&
+          other.exchangeId == this.exchangeId &&
+          other.startTime == this.startTime &&
+          other.endTime == this.endTime);
+}
+
+class GachaDataCompanion extends UpdateCompanion<GachaDataData> {
+  final Value<int> gachaId;
+  final Value<String> gachaName;
+  final Value<String> description;
+  final Value<int> exchangeId;
+  final Value<String> startTime;
+  final Value<String> endTime;
+  const GachaDataCompanion({
+    this.gachaId = const Value.absent(),
+    this.gachaName = const Value.absent(),
+    this.description = const Value.absent(),
+    this.exchangeId = const Value.absent(),
+    this.startTime = const Value.absent(),
+    this.endTime = const Value.absent(),
+  });
+  GachaDataCompanion.insert({
+    this.gachaId = const Value.absent(),
+    required String gachaName,
+    required String description,
+    required int exchangeId,
+    required String startTime,
+    required String endTime,
+  }) : gachaName = Value(gachaName),
+       description = Value(description),
+       exchangeId = Value(exchangeId),
+       startTime = Value(startTime),
+       endTime = Value(endTime);
+  static Insertable<GachaDataData> custom({
+    Expression<int>? gachaId,
+    Expression<String>? gachaName,
+    Expression<String>? description,
+    Expression<int>? exchangeId,
+    Expression<String>? startTime,
+    Expression<String>? endTime,
+  }) {
+    return RawValuesInsertable({
+      if (gachaId != null) 'gacha_id': gachaId,
+      if (gachaName != null) 'gacha_name': gachaName,
+      if (description != null) 'description': description,
+      if (exchangeId != null) 'exchange_id': exchangeId,
+      if (startTime != null) 'start_time': startTime,
+      if (endTime != null) 'end_time': endTime,
+    });
+  }
+
+  GachaDataCompanion copyWith({
+    Value<int>? gachaId,
+    Value<String>? gachaName,
+    Value<String>? description,
+    Value<int>? exchangeId,
+    Value<String>? startTime,
+    Value<String>? endTime,
+  }) {
+    return GachaDataCompanion(
+      gachaId: gachaId ?? this.gachaId,
+      gachaName: gachaName ?? this.gachaName,
+      description: description ?? this.description,
+      exchangeId: exchangeId ?? this.exchangeId,
+      startTime: startTime ?? this.startTime,
+      endTime: endTime ?? this.endTime,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (gachaId.present) {
+      map['gacha_id'] = Variable<int>(gachaId.value);
+    }
+    if (gachaName.present) {
+      map['gacha_name'] = Variable<String>(gachaName.value);
+    }
+    if (description.present) {
+      map['description'] = Variable<String>(description.value);
+    }
+    if (exchangeId.present) {
+      map['exchange_id'] = Variable<int>(exchangeId.value);
+    }
+    if (startTime.present) {
+      map['start_time'] = Variable<String>(startTime.value);
+    }
+    if (endTime.present) {
+      map['end_time'] = Variable<String>(endTime.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('GachaDataCompanion(')
+          ..write('gachaId: $gachaId, ')
+          ..write('gachaName: $gachaName, ')
+          ..write('description: $description, ')
+          ..write('exchangeId: $exchangeId, ')
+          ..write('startTime: $startTime, ')
+          ..write('endTime: $endTime')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $GachaExchangeLineupTable extends GachaExchangeLineup
+    with TableInfo<$GachaExchangeLineupTable, GachaExchangeLineupData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $GachaExchangeLineupTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _exchangeIdMeta = const VerificationMeta(
+    'exchangeId',
+  );
+  @override
+  late final GeneratedColumn<int> exchangeId = GeneratedColumn<int>(
+    'exchange_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _unitIdMeta = const VerificationMeta('unitId');
+  @override
+  late final GeneratedColumn<int> unitId = GeneratedColumn<int>(
+    'unit_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _pickupGachaIdMeta = const VerificationMeta(
+    'pickupGachaId',
+  );
+  @override
+  late final GeneratedColumn<int> pickupGachaId = GeneratedColumn<int>(
+    'pickup_gacha_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [id, exchangeId, unitId, pickupGachaId];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'gacha_exchange_lineup';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<GachaExchangeLineupData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('exchange_id')) {
+      context.handle(
+        _exchangeIdMeta,
+        exchangeId.isAcceptableOrUnknown(data['exchange_id']!, _exchangeIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_exchangeIdMeta);
+    }
+    if (data.containsKey('unit_id')) {
+      context.handle(
+        _unitIdMeta,
+        unitId.isAcceptableOrUnknown(data['unit_id']!, _unitIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitIdMeta);
+    }
+    if (data.containsKey('pickup_gacha_id')) {
+      context.handle(
+        _pickupGachaIdMeta,
+        pickupGachaId.isAcceptableOrUnknown(
+          data['pickup_gacha_id']!,
+          _pickupGachaIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_pickupGachaIdMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  GachaExchangeLineupData map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return GachaExchangeLineupData(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      exchangeId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}exchange_id'],
+      )!,
+      unitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}unit_id'],
+      )!,
+      pickupGachaId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}pickup_gacha_id'],
+      )!,
+    );
+  }
+
+  @override
+  $GachaExchangeLineupTable createAlias(String alias) {
+    return $GachaExchangeLineupTable(attachedDatabase, alias);
+  }
+}
+
+class GachaExchangeLineupData extends DataClass
+    implements Insertable<GachaExchangeLineupData> {
+  final int id;
+  final int exchangeId;
+  final int unitId;
+  final int pickupGachaId;
+  const GachaExchangeLineupData({
+    required this.id,
+    required this.exchangeId,
+    required this.unitId,
+    required this.pickupGachaId,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['exchange_id'] = Variable<int>(exchangeId);
+    map['unit_id'] = Variable<int>(unitId);
+    map['pickup_gacha_id'] = Variable<int>(pickupGachaId);
+    return map;
+  }
+
+  GachaExchangeLineupCompanion toCompanion(bool nullToAbsent) {
+    return GachaExchangeLineupCompanion(
+      id: Value(id),
+      exchangeId: Value(exchangeId),
+      unitId: Value(unitId),
+      pickupGachaId: Value(pickupGachaId),
+    );
+  }
+
+  factory GachaExchangeLineupData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return GachaExchangeLineupData(
+      id: serializer.fromJson<int>(json['id']),
+      exchangeId: serializer.fromJson<int>(json['exchangeId']),
+      unitId: serializer.fromJson<int>(json['unitId']),
+      pickupGachaId: serializer.fromJson<int>(json['pickupGachaId']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'exchangeId': serializer.toJson<int>(exchangeId),
+      'unitId': serializer.toJson<int>(unitId),
+      'pickupGachaId': serializer.toJson<int>(pickupGachaId),
+    };
+  }
+
+  GachaExchangeLineupData copyWith({
+    int? id,
+    int? exchangeId,
+    int? unitId,
+    int? pickupGachaId,
+  }) => GachaExchangeLineupData(
+    id: id ?? this.id,
+    exchangeId: exchangeId ?? this.exchangeId,
+    unitId: unitId ?? this.unitId,
+    pickupGachaId: pickupGachaId ?? this.pickupGachaId,
+  );
+  GachaExchangeLineupData copyWithCompanion(GachaExchangeLineupCompanion data) {
+    return GachaExchangeLineupData(
+      id: data.id.present ? data.id.value : this.id,
+      exchangeId: data.exchangeId.present
+          ? data.exchangeId.value
+          : this.exchangeId,
+      unitId: data.unitId.present ? data.unitId.value : this.unitId,
+      pickupGachaId: data.pickupGachaId.present
+          ? data.pickupGachaId.value
+          : this.pickupGachaId,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('GachaExchangeLineupData(')
+          ..write('id: $id, ')
+          ..write('exchangeId: $exchangeId, ')
+          ..write('unitId: $unitId, ')
+          ..write('pickupGachaId: $pickupGachaId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, exchangeId, unitId, pickupGachaId);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is GachaExchangeLineupData &&
+          other.id == this.id &&
+          other.exchangeId == this.exchangeId &&
+          other.unitId == this.unitId &&
+          other.pickupGachaId == this.pickupGachaId);
+}
+
+class GachaExchangeLineupCompanion
+    extends UpdateCompanion<GachaExchangeLineupData> {
+  final Value<int> id;
+  final Value<int> exchangeId;
+  final Value<int> unitId;
+  final Value<int> pickupGachaId;
+  const GachaExchangeLineupCompanion({
+    this.id = const Value.absent(),
+    this.exchangeId = const Value.absent(),
+    this.unitId = const Value.absent(),
+    this.pickupGachaId = const Value.absent(),
+  });
+  GachaExchangeLineupCompanion.insert({
+    this.id = const Value.absent(),
+    required int exchangeId,
+    required int unitId,
+    required int pickupGachaId,
+  }) : exchangeId = Value(exchangeId),
+       unitId = Value(unitId),
+       pickupGachaId = Value(pickupGachaId);
+  static Insertable<GachaExchangeLineupData> custom({
+    Expression<int>? id,
+    Expression<int>? exchangeId,
+    Expression<int>? unitId,
+    Expression<int>? pickupGachaId,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (exchangeId != null) 'exchange_id': exchangeId,
+      if (unitId != null) 'unit_id': unitId,
+      if (pickupGachaId != null) 'pickup_gacha_id': pickupGachaId,
+    });
+  }
+
+  GachaExchangeLineupCompanion copyWith({
+    Value<int>? id,
+    Value<int>? exchangeId,
+    Value<int>? unitId,
+    Value<int>? pickupGachaId,
+  }) {
+    return GachaExchangeLineupCompanion(
+      id: id ?? this.id,
+      exchangeId: exchangeId ?? this.exchangeId,
+      unitId: unitId ?? this.unitId,
+      pickupGachaId: pickupGachaId ?? this.pickupGachaId,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (exchangeId.present) {
+      map['exchange_id'] = Variable<int>(exchangeId.value);
+    }
+    if (unitId.present) {
+      map['unit_id'] = Variable<int>(unitId.value);
+    }
+    if (pickupGachaId.present) {
+      map['pickup_gacha_id'] = Variable<int>(pickupGachaId.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('GachaExchangeLineupCompanion(')
+          ..write('id: $id, ')
+          ..write('exchangeId: $exchangeId, ')
+          ..write('unitId: $unitId, ')
+          ..write('pickupGachaId: $pickupGachaId')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDb extends GeneratedDatabase {
   _$AppDb(QueryExecutor e) : super(e);
   $AppDbManager get managers => $AppDbManager(this);
@@ -40659,6 +46119,29 @@ abstract class _$AppDb extends GeneratedDatabase {
   late final $ClanBattleScheduleTable clanBattleSchedule =
       $ClanBattleScheduleTable(this);
   late final $WaveGroupDataTable waveGroupData = $WaveGroupDataTable(this);
+  late final $CharaIdentityTable charaIdentity = $CharaIdentityTable(this);
+  late final $CharaStoryStatusTable charaStoryStatus = $CharaStoryStatusTable(
+    this,
+  );
+  late final $StoryDetailTable storyDetail = $StoryDetailTable(this);
+  late final $TalentQuestDataTable talentQuestData = $TalentQuestDataTable(
+    this,
+  );
+  late final $TalentQuestClearReward01Table talentQuestClearReward01 =
+      $TalentQuestClearReward01Table(this);
+  late final $TalentQuestClearReward02Table talentQuestClearReward02 =
+      $TalentQuestClearReward02Table(this);
+  late final $TalentQuestClearReward03Table talentQuestClearReward03 =
+      $TalentQuestClearReward03Table(this);
+  late final $TalentQuestClearReward04Table talentQuestClearReward04 =
+      $TalentQuestClearReward04Table(this);
+  late final $TalentQuestClearReward05Table talentQuestClearReward05 =
+      $TalentQuestClearReward05Table(this);
+  late final $TalentQuestWaveGroupDataTable talentQuestWaveGroupData =
+      $TalentQuestWaveGroupDataTable(this);
+  late final $GachaDataTable gachaData = $GachaDataTable(this);
+  late final $GachaExchangeLineupTable gachaExchangeLineup =
+      $GachaExchangeLineupTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -40698,6 +46181,18 @@ abstract class _$AppDb extends GeneratedDatabase {
     clanBattle2MapData,
     clanBattleSchedule,
     waveGroupData,
+    charaIdentity,
+    charaStoryStatus,
+    storyDetail,
+    talentQuestData,
+    talentQuestClearReward01,
+    talentQuestClearReward02,
+    talentQuestClearReward03,
+    talentQuestClearReward04,
+    talentQuestClearReward05,
+    talentQuestWaveGroupData,
+    gachaData,
+    gachaExchangeLineup,
   ];
 }
 
@@ -58756,6 +64251,2934 @@ typedef $$WaveGroupDataTableProcessedTableManager =
       WaveGroupDataData,
       PrefetchHooks Function()
     >;
+typedef $$CharaIdentityTableCreateCompanionBuilder =
+    CharaIdentityCompanion Function({
+      Value<int> unitId,
+      required int charaType,
+      required int charaType2,
+      required int charaType3,
+    });
+typedef $$CharaIdentityTableUpdateCompanionBuilder =
+    CharaIdentityCompanion Function({
+      Value<int> unitId,
+      Value<int> charaType,
+      Value<int> charaType2,
+      Value<int> charaType3,
+    });
+
+class $$CharaIdentityTableFilterComposer
+    extends Composer<_$AppDb, $CharaIdentityTable> {
+  $$CharaIdentityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaType => $composableBuilder(
+    column: $table.charaType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaType2 => $composableBuilder(
+    column: $table.charaType2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaType3 => $composableBuilder(
+    column: $table.charaType3,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$CharaIdentityTableOrderingComposer
+    extends Composer<_$AppDb, $CharaIdentityTable> {
+  $$CharaIdentityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaType => $composableBuilder(
+    column: $table.charaType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaType2 => $composableBuilder(
+    column: $table.charaType2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaType3 => $composableBuilder(
+    column: $table.charaType3,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$CharaIdentityTableAnnotationComposer
+    extends Composer<_$AppDb, $CharaIdentityTable> {
+  $$CharaIdentityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<int> get charaType =>
+      $composableBuilder(column: $table.charaType, builder: (column) => column);
+
+  GeneratedColumn<int> get charaType2 => $composableBuilder(
+    column: $table.charaType2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get charaType3 => $composableBuilder(
+    column: $table.charaType3,
+    builder: (column) => column,
+  );
+}
+
+class $$CharaIdentityTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $CharaIdentityTable,
+          CharaIdentityData,
+          $$CharaIdentityTableFilterComposer,
+          $$CharaIdentityTableOrderingComposer,
+          $$CharaIdentityTableAnnotationComposer,
+          $$CharaIdentityTableCreateCompanionBuilder,
+          $$CharaIdentityTableUpdateCompanionBuilder,
+          (
+            CharaIdentityData,
+            BaseReferences<_$AppDb, $CharaIdentityTable, CharaIdentityData>,
+          ),
+          CharaIdentityData,
+          PrefetchHooks Function()
+        > {
+  $$CharaIdentityTableTableManager(_$AppDb db, $CharaIdentityTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$CharaIdentityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$CharaIdentityTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$CharaIdentityTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> unitId = const Value.absent(),
+                Value<int> charaType = const Value.absent(),
+                Value<int> charaType2 = const Value.absent(),
+                Value<int> charaType3 = const Value.absent(),
+              }) => CharaIdentityCompanion(
+                unitId: unitId,
+                charaType: charaType,
+                charaType2: charaType2,
+                charaType3: charaType3,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> unitId = const Value.absent(),
+                required int charaType,
+                required int charaType2,
+                required int charaType3,
+              }) => CharaIdentityCompanion.insert(
+                unitId: unitId,
+                charaType: charaType,
+                charaType2: charaType2,
+                charaType3: charaType3,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$CharaIdentityTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $CharaIdentityTable,
+      CharaIdentityData,
+      $$CharaIdentityTableFilterComposer,
+      $$CharaIdentityTableOrderingComposer,
+      $$CharaIdentityTableAnnotationComposer,
+      $$CharaIdentityTableCreateCompanionBuilder,
+      $$CharaIdentityTableUpdateCompanionBuilder,
+      (
+        CharaIdentityData,
+        BaseReferences<_$AppDb, $CharaIdentityTable, CharaIdentityData>,
+      ),
+      CharaIdentityData,
+      PrefetchHooks Function()
+    >;
+typedef $$CharaStoryStatusTableCreateCompanionBuilder =
+    CharaStoryStatusCompanion Function({
+      Value<int> storyId,
+      required String unlockStoryName,
+      required int charaId1,
+      required int charaId2,
+      required int charaId3,
+      required int charaId4,
+      required int charaId5,
+      required int charaId6,
+      required int charaId7,
+      required int charaId8,
+      required int charaId9,
+      required int charaId10,
+      required int charaId11,
+      required int charaId12,
+      required int charaId13,
+      required int charaId14,
+      required int charaId15,
+      required int charaId16,
+      required int charaId17,
+      required int charaId18,
+      required int charaId19,
+      required int charaId20,
+      required int statusType1,
+      required int statusRate1,
+      required int statusType2,
+      required int statusRate2,
+      required int statusType3,
+      required int statusRate3,
+      required int statusType4,
+      required int statusRate4,
+      required int statusType5,
+      required int statusRate5,
+    });
+typedef $$CharaStoryStatusTableUpdateCompanionBuilder =
+    CharaStoryStatusCompanion Function({
+      Value<int> storyId,
+      Value<String> unlockStoryName,
+      Value<int> charaId1,
+      Value<int> charaId2,
+      Value<int> charaId3,
+      Value<int> charaId4,
+      Value<int> charaId5,
+      Value<int> charaId6,
+      Value<int> charaId7,
+      Value<int> charaId8,
+      Value<int> charaId9,
+      Value<int> charaId10,
+      Value<int> charaId11,
+      Value<int> charaId12,
+      Value<int> charaId13,
+      Value<int> charaId14,
+      Value<int> charaId15,
+      Value<int> charaId16,
+      Value<int> charaId17,
+      Value<int> charaId18,
+      Value<int> charaId19,
+      Value<int> charaId20,
+      Value<int> statusType1,
+      Value<int> statusRate1,
+      Value<int> statusType2,
+      Value<int> statusRate2,
+      Value<int> statusType3,
+      Value<int> statusRate3,
+      Value<int> statusType4,
+      Value<int> statusRate4,
+      Value<int> statusType5,
+      Value<int> statusRate5,
+    });
+
+class $$CharaStoryStatusTableFilterComposer
+    extends Composer<_$AppDb, $CharaStoryStatusTable> {
+  $$CharaStoryStatusTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get storyId => $composableBuilder(
+    column: $table.storyId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get unlockStoryName => $composableBuilder(
+    column: $table.unlockStoryName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId1 => $composableBuilder(
+    column: $table.charaId1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId2 => $composableBuilder(
+    column: $table.charaId2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId3 => $composableBuilder(
+    column: $table.charaId3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId4 => $composableBuilder(
+    column: $table.charaId4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId5 => $composableBuilder(
+    column: $table.charaId5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId6 => $composableBuilder(
+    column: $table.charaId6,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId7 => $composableBuilder(
+    column: $table.charaId7,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId8 => $composableBuilder(
+    column: $table.charaId8,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId9 => $composableBuilder(
+    column: $table.charaId9,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId10 => $composableBuilder(
+    column: $table.charaId10,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId11 => $composableBuilder(
+    column: $table.charaId11,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId12 => $composableBuilder(
+    column: $table.charaId12,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId13 => $composableBuilder(
+    column: $table.charaId13,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId14 => $composableBuilder(
+    column: $table.charaId14,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId15 => $composableBuilder(
+    column: $table.charaId15,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId16 => $composableBuilder(
+    column: $table.charaId16,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId17 => $composableBuilder(
+    column: $table.charaId17,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId18 => $composableBuilder(
+    column: $table.charaId18,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId19 => $composableBuilder(
+    column: $table.charaId19,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get charaId20 => $composableBuilder(
+    column: $table.charaId20,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get statusType1 => $composableBuilder(
+    column: $table.statusType1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get statusRate1 => $composableBuilder(
+    column: $table.statusRate1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get statusType2 => $composableBuilder(
+    column: $table.statusType2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get statusRate2 => $composableBuilder(
+    column: $table.statusRate2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get statusType3 => $composableBuilder(
+    column: $table.statusType3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get statusRate3 => $composableBuilder(
+    column: $table.statusRate3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get statusType4 => $composableBuilder(
+    column: $table.statusType4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get statusRate4 => $composableBuilder(
+    column: $table.statusRate4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get statusType5 => $composableBuilder(
+    column: $table.statusType5,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get statusRate5 => $composableBuilder(
+    column: $table.statusRate5,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$CharaStoryStatusTableOrderingComposer
+    extends Composer<_$AppDb, $CharaStoryStatusTable> {
+  $$CharaStoryStatusTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get storyId => $composableBuilder(
+    column: $table.storyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get unlockStoryName => $composableBuilder(
+    column: $table.unlockStoryName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId1 => $composableBuilder(
+    column: $table.charaId1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId2 => $composableBuilder(
+    column: $table.charaId2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId3 => $composableBuilder(
+    column: $table.charaId3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId4 => $composableBuilder(
+    column: $table.charaId4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId5 => $composableBuilder(
+    column: $table.charaId5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId6 => $composableBuilder(
+    column: $table.charaId6,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId7 => $composableBuilder(
+    column: $table.charaId7,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId8 => $composableBuilder(
+    column: $table.charaId8,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId9 => $composableBuilder(
+    column: $table.charaId9,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId10 => $composableBuilder(
+    column: $table.charaId10,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId11 => $composableBuilder(
+    column: $table.charaId11,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId12 => $composableBuilder(
+    column: $table.charaId12,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId13 => $composableBuilder(
+    column: $table.charaId13,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId14 => $composableBuilder(
+    column: $table.charaId14,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId15 => $composableBuilder(
+    column: $table.charaId15,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId16 => $composableBuilder(
+    column: $table.charaId16,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId17 => $composableBuilder(
+    column: $table.charaId17,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId18 => $composableBuilder(
+    column: $table.charaId18,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId19 => $composableBuilder(
+    column: $table.charaId19,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get charaId20 => $composableBuilder(
+    column: $table.charaId20,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get statusType1 => $composableBuilder(
+    column: $table.statusType1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get statusRate1 => $composableBuilder(
+    column: $table.statusRate1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get statusType2 => $composableBuilder(
+    column: $table.statusType2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get statusRate2 => $composableBuilder(
+    column: $table.statusRate2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get statusType3 => $composableBuilder(
+    column: $table.statusType3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get statusRate3 => $composableBuilder(
+    column: $table.statusRate3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get statusType4 => $composableBuilder(
+    column: $table.statusType4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get statusRate4 => $composableBuilder(
+    column: $table.statusRate4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get statusType5 => $composableBuilder(
+    column: $table.statusType5,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get statusRate5 => $composableBuilder(
+    column: $table.statusRate5,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$CharaStoryStatusTableAnnotationComposer
+    extends Composer<_$AppDb, $CharaStoryStatusTable> {
+  $$CharaStoryStatusTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get storyId =>
+      $composableBuilder(column: $table.storyId, builder: (column) => column);
+
+  GeneratedColumn<String> get unlockStoryName => $composableBuilder(
+    column: $table.unlockStoryName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get charaId1 =>
+      $composableBuilder(column: $table.charaId1, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId2 =>
+      $composableBuilder(column: $table.charaId2, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId3 =>
+      $composableBuilder(column: $table.charaId3, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId4 =>
+      $composableBuilder(column: $table.charaId4, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId5 =>
+      $composableBuilder(column: $table.charaId5, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId6 =>
+      $composableBuilder(column: $table.charaId6, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId7 =>
+      $composableBuilder(column: $table.charaId7, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId8 =>
+      $composableBuilder(column: $table.charaId8, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId9 =>
+      $composableBuilder(column: $table.charaId9, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId10 =>
+      $composableBuilder(column: $table.charaId10, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId11 =>
+      $composableBuilder(column: $table.charaId11, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId12 =>
+      $composableBuilder(column: $table.charaId12, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId13 =>
+      $composableBuilder(column: $table.charaId13, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId14 =>
+      $composableBuilder(column: $table.charaId14, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId15 =>
+      $composableBuilder(column: $table.charaId15, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId16 =>
+      $composableBuilder(column: $table.charaId16, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId17 =>
+      $composableBuilder(column: $table.charaId17, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId18 =>
+      $composableBuilder(column: $table.charaId18, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId19 =>
+      $composableBuilder(column: $table.charaId19, builder: (column) => column);
+
+  GeneratedColumn<int> get charaId20 =>
+      $composableBuilder(column: $table.charaId20, builder: (column) => column);
+
+  GeneratedColumn<int> get statusType1 => $composableBuilder(
+    column: $table.statusType1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get statusRate1 => $composableBuilder(
+    column: $table.statusRate1,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get statusType2 => $composableBuilder(
+    column: $table.statusType2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get statusRate2 => $composableBuilder(
+    column: $table.statusRate2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get statusType3 => $composableBuilder(
+    column: $table.statusType3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get statusRate3 => $composableBuilder(
+    column: $table.statusRate3,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get statusType4 => $composableBuilder(
+    column: $table.statusType4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get statusRate4 => $composableBuilder(
+    column: $table.statusRate4,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get statusType5 => $composableBuilder(
+    column: $table.statusType5,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get statusRate5 => $composableBuilder(
+    column: $table.statusRate5,
+    builder: (column) => column,
+  );
+}
+
+class $$CharaStoryStatusTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $CharaStoryStatusTable,
+          CharaStoryStatusData,
+          $$CharaStoryStatusTableFilterComposer,
+          $$CharaStoryStatusTableOrderingComposer,
+          $$CharaStoryStatusTableAnnotationComposer,
+          $$CharaStoryStatusTableCreateCompanionBuilder,
+          $$CharaStoryStatusTableUpdateCompanionBuilder,
+          (
+            CharaStoryStatusData,
+            BaseReferences<
+              _$AppDb,
+              $CharaStoryStatusTable,
+              CharaStoryStatusData
+            >,
+          ),
+          CharaStoryStatusData,
+          PrefetchHooks Function()
+        > {
+  $$CharaStoryStatusTableTableManager(_$AppDb db, $CharaStoryStatusTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$CharaStoryStatusTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$CharaStoryStatusTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$CharaStoryStatusTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> storyId = const Value.absent(),
+                Value<String> unlockStoryName = const Value.absent(),
+                Value<int> charaId1 = const Value.absent(),
+                Value<int> charaId2 = const Value.absent(),
+                Value<int> charaId3 = const Value.absent(),
+                Value<int> charaId4 = const Value.absent(),
+                Value<int> charaId5 = const Value.absent(),
+                Value<int> charaId6 = const Value.absent(),
+                Value<int> charaId7 = const Value.absent(),
+                Value<int> charaId8 = const Value.absent(),
+                Value<int> charaId9 = const Value.absent(),
+                Value<int> charaId10 = const Value.absent(),
+                Value<int> charaId11 = const Value.absent(),
+                Value<int> charaId12 = const Value.absent(),
+                Value<int> charaId13 = const Value.absent(),
+                Value<int> charaId14 = const Value.absent(),
+                Value<int> charaId15 = const Value.absent(),
+                Value<int> charaId16 = const Value.absent(),
+                Value<int> charaId17 = const Value.absent(),
+                Value<int> charaId18 = const Value.absent(),
+                Value<int> charaId19 = const Value.absent(),
+                Value<int> charaId20 = const Value.absent(),
+                Value<int> statusType1 = const Value.absent(),
+                Value<int> statusRate1 = const Value.absent(),
+                Value<int> statusType2 = const Value.absent(),
+                Value<int> statusRate2 = const Value.absent(),
+                Value<int> statusType3 = const Value.absent(),
+                Value<int> statusRate3 = const Value.absent(),
+                Value<int> statusType4 = const Value.absent(),
+                Value<int> statusRate4 = const Value.absent(),
+                Value<int> statusType5 = const Value.absent(),
+                Value<int> statusRate5 = const Value.absent(),
+              }) => CharaStoryStatusCompanion(
+                storyId: storyId,
+                unlockStoryName: unlockStoryName,
+                charaId1: charaId1,
+                charaId2: charaId2,
+                charaId3: charaId3,
+                charaId4: charaId4,
+                charaId5: charaId5,
+                charaId6: charaId6,
+                charaId7: charaId7,
+                charaId8: charaId8,
+                charaId9: charaId9,
+                charaId10: charaId10,
+                charaId11: charaId11,
+                charaId12: charaId12,
+                charaId13: charaId13,
+                charaId14: charaId14,
+                charaId15: charaId15,
+                charaId16: charaId16,
+                charaId17: charaId17,
+                charaId18: charaId18,
+                charaId19: charaId19,
+                charaId20: charaId20,
+                statusType1: statusType1,
+                statusRate1: statusRate1,
+                statusType2: statusType2,
+                statusRate2: statusRate2,
+                statusType3: statusType3,
+                statusRate3: statusRate3,
+                statusType4: statusType4,
+                statusRate4: statusRate4,
+                statusType5: statusType5,
+                statusRate5: statusRate5,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> storyId = const Value.absent(),
+                required String unlockStoryName,
+                required int charaId1,
+                required int charaId2,
+                required int charaId3,
+                required int charaId4,
+                required int charaId5,
+                required int charaId6,
+                required int charaId7,
+                required int charaId8,
+                required int charaId9,
+                required int charaId10,
+                required int charaId11,
+                required int charaId12,
+                required int charaId13,
+                required int charaId14,
+                required int charaId15,
+                required int charaId16,
+                required int charaId17,
+                required int charaId18,
+                required int charaId19,
+                required int charaId20,
+                required int statusType1,
+                required int statusRate1,
+                required int statusType2,
+                required int statusRate2,
+                required int statusType3,
+                required int statusRate3,
+                required int statusType4,
+                required int statusRate4,
+                required int statusType5,
+                required int statusRate5,
+              }) => CharaStoryStatusCompanion.insert(
+                storyId: storyId,
+                unlockStoryName: unlockStoryName,
+                charaId1: charaId1,
+                charaId2: charaId2,
+                charaId3: charaId3,
+                charaId4: charaId4,
+                charaId5: charaId5,
+                charaId6: charaId6,
+                charaId7: charaId7,
+                charaId8: charaId8,
+                charaId9: charaId9,
+                charaId10: charaId10,
+                charaId11: charaId11,
+                charaId12: charaId12,
+                charaId13: charaId13,
+                charaId14: charaId14,
+                charaId15: charaId15,
+                charaId16: charaId16,
+                charaId17: charaId17,
+                charaId18: charaId18,
+                charaId19: charaId19,
+                charaId20: charaId20,
+                statusType1: statusType1,
+                statusRate1: statusRate1,
+                statusType2: statusType2,
+                statusRate2: statusRate2,
+                statusType3: statusType3,
+                statusRate3: statusRate3,
+                statusType4: statusType4,
+                statusRate4: statusRate4,
+                statusType5: statusType5,
+                statusRate5: statusRate5,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$CharaStoryStatusTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $CharaStoryStatusTable,
+      CharaStoryStatusData,
+      $$CharaStoryStatusTableFilterComposer,
+      $$CharaStoryStatusTableOrderingComposer,
+      $$CharaStoryStatusTableAnnotationComposer,
+      $$CharaStoryStatusTableCreateCompanionBuilder,
+      $$CharaStoryStatusTableUpdateCompanionBuilder,
+      (
+        CharaStoryStatusData,
+        BaseReferences<_$AppDb, $CharaStoryStatusTable, CharaStoryStatusData>,
+      ),
+      CharaStoryStatusData,
+      PrefetchHooks Function()
+    >;
+typedef $$StoryDetailTableCreateCompanionBuilder =
+    StoryDetailCompanion Function({
+      Value<int> storyId,
+      required String title,
+      required String subTitle,
+    });
+typedef $$StoryDetailTableUpdateCompanionBuilder =
+    StoryDetailCompanion Function({
+      Value<int> storyId,
+      Value<String> title,
+      Value<String> subTitle,
+    });
+
+class $$StoryDetailTableFilterComposer
+    extends Composer<_$AppDb, $StoryDetailTable> {
+  $$StoryDetailTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get storyId => $composableBuilder(
+    column: $table.storyId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get subTitle => $composableBuilder(
+    column: $table.subTitle,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$StoryDetailTableOrderingComposer
+    extends Composer<_$AppDb, $StoryDetailTable> {
+  $$StoryDetailTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get storyId => $composableBuilder(
+    column: $table.storyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get subTitle => $composableBuilder(
+    column: $table.subTitle,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$StoryDetailTableAnnotationComposer
+    extends Composer<_$AppDb, $StoryDetailTable> {
+  $$StoryDetailTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get storyId =>
+      $composableBuilder(column: $table.storyId, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<String> get subTitle =>
+      $composableBuilder(column: $table.subTitle, builder: (column) => column);
+}
+
+class $$StoryDetailTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $StoryDetailTable,
+          StoryDetailData,
+          $$StoryDetailTableFilterComposer,
+          $$StoryDetailTableOrderingComposer,
+          $$StoryDetailTableAnnotationComposer,
+          $$StoryDetailTableCreateCompanionBuilder,
+          $$StoryDetailTableUpdateCompanionBuilder,
+          (
+            StoryDetailData,
+            BaseReferences<_$AppDb, $StoryDetailTable, StoryDetailData>,
+          ),
+          StoryDetailData,
+          PrefetchHooks Function()
+        > {
+  $$StoryDetailTableTableManager(_$AppDb db, $StoryDetailTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$StoryDetailTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$StoryDetailTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$StoryDetailTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> storyId = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<String> subTitle = const Value.absent(),
+              }) => StoryDetailCompanion(
+                storyId: storyId,
+                title: title,
+                subTitle: subTitle,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> storyId = const Value.absent(),
+                required String title,
+                required String subTitle,
+              }) => StoryDetailCompanion.insert(
+                storyId: storyId,
+                title: title,
+                subTitle: subTitle,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$StoryDetailTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $StoryDetailTable,
+      StoryDetailData,
+      $$StoryDetailTableFilterComposer,
+      $$StoryDetailTableOrderingComposer,
+      $$StoryDetailTableAnnotationComposer,
+      $$StoryDetailTableCreateCompanionBuilder,
+      $$StoryDetailTableUpdateCompanionBuilder,
+      (
+        StoryDetailData,
+        BaseReferences<_$AppDb, $StoryDetailTable, StoryDetailData>,
+      ),
+      StoryDetailData,
+      PrefetchHooks Function()
+    >;
+typedef $$TalentQuestDataTableCreateCompanionBuilder =
+    TalentQuestDataCompanion Function({
+      Value<int> questId,
+      required int areaId,
+      required String questName,
+      required int clearRewardGroup,
+      required int waveGroupId1,
+    });
+typedef $$TalentQuestDataTableUpdateCompanionBuilder =
+    TalentQuestDataCompanion Function({
+      Value<int> questId,
+      Value<int> areaId,
+      Value<String> questName,
+      Value<int> clearRewardGroup,
+      Value<int> waveGroupId1,
+    });
+
+class $$TalentQuestDataTableFilterComposer
+    extends Composer<_$AppDb, $TalentQuestDataTable> {
+  $$TalentQuestDataTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get questId => $composableBuilder(
+    column: $table.questId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get areaId => $composableBuilder(
+    column: $table.areaId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get questName => $composableBuilder(
+    column: $table.questName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get clearRewardGroup => $composableBuilder(
+    column: $table.clearRewardGroup,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveGroupId1 => $composableBuilder(
+    column: $table.waveGroupId1,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$TalentQuestDataTableOrderingComposer
+    extends Composer<_$AppDb, $TalentQuestDataTable> {
+  $$TalentQuestDataTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get questId => $composableBuilder(
+    column: $table.questId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get areaId => $composableBuilder(
+    column: $table.areaId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get questName => $composableBuilder(
+    column: $table.questName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get clearRewardGroup => $composableBuilder(
+    column: $table.clearRewardGroup,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveGroupId1 => $composableBuilder(
+    column: $table.waveGroupId1,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$TalentQuestDataTableAnnotationComposer
+    extends Composer<_$AppDb, $TalentQuestDataTable> {
+  $$TalentQuestDataTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get questId =>
+      $composableBuilder(column: $table.questId, builder: (column) => column);
+
+  GeneratedColumn<int> get areaId =>
+      $composableBuilder(column: $table.areaId, builder: (column) => column);
+
+  GeneratedColumn<String> get questName =>
+      $composableBuilder(column: $table.questName, builder: (column) => column);
+
+  GeneratedColumn<int> get clearRewardGroup => $composableBuilder(
+    column: $table.clearRewardGroup,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get waveGroupId1 => $composableBuilder(
+    column: $table.waveGroupId1,
+    builder: (column) => column,
+  );
+}
+
+class $$TalentQuestDataTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $TalentQuestDataTable,
+          TalentQuestDataData,
+          $$TalentQuestDataTableFilterComposer,
+          $$TalentQuestDataTableOrderingComposer,
+          $$TalentQuestDataTableAnnotationComposer,
+          $$TalentQuestDataTableCreateCompanionBuilder,
+          $$TalentQuestDataTableUpdateCompanionBuilder,
+          (
+            TalentQuestDataData,
+            BaseReferences<_$AppDb, $TalentQuestDataTable, TalentQuestDataData>,
+          ),
+          TalentQuestDataData,
+          PrefetchHooks Function()
+        > {
+  $$TalentQuestDataTableTableManager(_$AppDb db, $TalentQuestDataTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TalentQuestDataTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$TalentQuestDataTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$TalentQuestDataTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> questId = const Value.absent(),
+                Value<int> areaId = const Value.absent(),
+                Value<String> questName = const Value.absent(),
+                Value<int> clearRewardGroup = const Value.absent(),
+                Value<int> waveGroupId1 = const Value.absent(),
+              }) => TalentQuestDataCompanion(
+                questId: questId,
+                areaId: areaId,
+                questName: questName,
+                clearRewardGroup: clearRewardGroup,
+                waveGroupId1: waveGroupId1,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> questId = const Value.absent(),
+                required int areaId,
+                required String questName,
+                required int clearRewardGroup,
+                required int waveGroupId1,
+              }) => TalentQuestDataCompanion.insert(
+                questId: questId,
+                areaId: areaId,
+                questName: questName,
+                clearRewardGroup: clearRewardGroup,
+                waveGroupId1: waveGroupId1,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$TalentQuestDataTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $TalentQuestDataTable,
+      TalentQuestDataData,
+      $$TalentQuestDataTableFilterComposer,
+      $$TalentQuestDataTableOrderingComposer,
+      $$TalentQuestDataTableAnnotationComposer,
+      $$TalentQuestDataTableCreateCompanionBuilder,
+      $$TalentQuestDataTableUpdateCompanionBuilder,
+      (
+        TalentQuestDataData,
+        BaseReferences<_$AppDb, $TalentQuestDataTable, TalentQuestDataData>,
+      ),
+      TalentQuestDataData,
+      PrefetchHooks Function()
+    >;
+typedef $$TalentQuestClearReward01TableCreateCompanionBuilder =
+    TalentQuestClearReward01Companion Function({
+      Value<int> id,
+      required int rewardGroupId,
+      required int rewardNum2,
+      required int rewardNum3,
+    });
+typedef $$TalentQuestClearReward01TableUpdateCompanionBuilder =
+    TalentQuestClearReward01Companion Function({
+      Value<int> id,
+      Value<int> rewardGroupId,
+      Value<int> rewardNum2,
+      Value<int> rewardNum3,
+    });
+
+class $$TalentQuestClearReward01TableFilterComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward01Table> {
+  $$TalentQuestClearReward01TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$TalentQuestClearReward01TableOrderingComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward01Table> {
+  $$TalentQuestClearReward01TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$TalentQuestClearReward01TableAnnotationComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward01Table> {
+  $$TalentQuestClearReward01TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => column,
+  );
+}
+
+class $$TalentQuestClearReward01TableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $TalentQuestClearReward01Table,
+          TalentQuestClearReward01Data,
+          $$TalentQuestClearReward01TableFilterComposer,
+          $$TalentQuestClearReward01TableOrderingComposer,
+          $$TalentQuestClearReward01TableAnnotationComposer,
+          $$TalentQuestClearReward01TableCreateCompanionBuilder,
+          $$TalentQuestClearReward01TableUpdateCompanionBuilder,
+          (
+            TalentQuestClearReward01Data,
+            BaseReferences<
+              _$AppDb,
+              $TalentQuestClearReward01Table,
+              TalentQuestClearReward01Data
+            >,
+          ),
+          TalentQuestClearReward01Data,
+          PrefetchHooks Function()
+        > {
+  $$TalentQuestClearReward01TableTableManager(
+    _$AppDb db,
+    $TalentQuestClearReward01Table table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TalentQuestClearReward01TableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $$TalentQuestClearReward01TableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$TalentQuestClearReward01TableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> rewardGroupId = const Value.absent(),
+                Value<int> rewardNum2 = const Value.absent(),
+                Value<int> rewardNum3 = const Value.absent(),
+              }) => TalentQuestClearReward01Companion(
+                id: id,
+                rewardGroupId: rewardGroupId,
+                rewardNum2: rewardNum2,
+                rewardNum3: rewardNum3,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int rewardGroupId,
+                required int rewardNum2,
+                required int rewardNum3,
+              }) => TalentQuestClearReward01Companion.insert(
+                id: id,
+                rewardGroupId: rewardGroupId,
+                rewardNum2: rewardNum2,
+                rewardNum3: rewardNum3,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$TalentQuestClearReward01TableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $TalentQuestClearReward01Table,
+      TalentQuestClearReward01Data,
+      $$TalentQuestClearReward01TableFilterComposer,
+      $$TalentQuestClearReward01TableOrderingComposer,
+      $$TalentQuestClearReward01TableAnnotationComposer,
+      $$TalentQuestClearReward01TableCreateCompanionBuilder,
+      $$TalentQuestClearReward01TableUpdateCompanionBuilder,
+      (
+        TalentQuestClearReward01Data,
+        BaseReferences<
+          _$AppDb,
+          $TalentQuestClearReward01Table,
+          TalentQuestClearReward01Data
+        >,
+      ),
+      TalentQuestClearReward01Data,
+      PrefetchHooks Function()
+    >;
+typedef $$TalentQuestClearReward02TableCreateCompanionBuilder =
+    TalentQuestClearReward02Companion Function({
+      Value<int> id,
+      required int rewardGroupId,
+      required int rewardNum2,
+      required int rewardNum3,
+    });
+typedef $$TalentQuestClearReward02TableUpdateCompanionBuilder =
+    TalentQuestClearReward02Companion Function({
+      Value<int> id,
+      Value<int> rewardGroupId,
+      Value<int> rewardNum2,
+      Value<int> rewardNum3,
+    });
+
+class $$TalentQuestClearReward02TableFilterComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward02Table> {
+  $$TalentQuestClearReward02TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$TalentQuestClearReward02TableOrderingComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward02Table> {
+  $$TalentQuestClearReward02TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$TalentQuestClearReward02TableAnnotationComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward02Table> {
+  $$TalentQuestClearReward02TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => column,
+  );
+}
+
+class $$TalentQuestClearReward02TableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $TalentQuestClearReward02Table,
+          TalentQuestClearReward02Data,
+          $$TalentQuestClearReward02TableFilterComposer,
+          $$TalentQuestClearReward02TableOrderingComposer,
+          $$TalentQuestClearReward02TableAnnotationComposer,
+          $$TalentQuestClearReward02TableCreateCompanionBuilder,
+          $$TalentQuestClearReward02TableUpdateCompanionBuilder,
+          (
+            TalentQuestClearReward02Data,
+            BaseReferences<
+              _$AppDb,
+              $TalentQuestClearReward02Table,
+              TalentQuestClearReward02Data
+            >,
+          ),
+          TalentQuestClearReward02Data,
+          PrefetchHooks Function()
+        > {
+  $$TalentQuestClearReward02TableTableManager(
+    _$AppDb db,
+    $TalentQuestClearReward02Table table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TalentQuestClearReward02TableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $$TalentQuestClearReward02TableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$TalentQuestClearReward02TableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> rewardGroupId = const Value.absent(),
+                Value<int> rewardNum2 = const Value.absent(),
+                Value<int> rewardNum3 = const Value.absent(),
+              }) => TalentQuestClearReward02Companion(
+                id: id,
+                rewardGroupId: rewardGroupId,
+                rewardNum2: rewardNum2,
+                rewardNum3: rewardNum3,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int rewardGroupId,
+                required int rewardNum2,
+                required int rewardNum3,
+              }) => TalentQuestClearReward02Companion.insert(
+                id: id,
+                rewardGroupId: rewardGroupId,
+                rewardNum2: rewardNum2,
+                rewardNum3: rewardNum3,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$TalentQuestClearReward02TableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $TalentQuestClearReward02Table,
+      TalentQuestClearReward02Data,
+      $$TalentQuestClearReward02TableFilterComposer,
+      $$TalentQuestClearReward02TableOrderingComposer,
+      $$TalentQuestClearReward02TableAnnotationComposer,
+      $$TalentQuestClearReward02TableCreateCompanionBuilder,
+      $$TalentQuestClearReward02TableUpdateCompanionBuilder,
+      (
+        TalentQuestClearReward02Data,
+        BaseReferences<
+          _$AppDb,
+          $TalentQuestClearReward02Table,
+          TalentQuestClearReward02Data
+        >,
+      ),
+      TalentQuestClearReward02Data,
+      PrefetchHooks Function()
+    >;
+typedef $$TalentQuestClearReward03TableCreateCompanionBuilder =
+    TalentQuestClearReward03Companion Function({
+      Value<int> id,
+      required int rewardGroupId,
+      required int rewardNum2,
+      required int rewardNum3,
+    });
+typedef $$TalentQuestClearReward03TableUpdateCompanionBuilder =
+    TalentQuestClearReward03Companion Function({
+      Value<int> id,
+      Value<int> rewardGroupId,
+      Value<int> rewardNum2,
+      Value<int> rewardNum3,
+    });
+
+class $$TalentQuestClearReward03TableFilterComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward03Table> {
+  $$TalentQuestClearReward03TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$TalentQuestClearReward03TableOrderingComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward03Table> {
+  $$TalentQuestClearReward03TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$TalentQuestClearReward03TableAnnotationComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward03Table> {
+  $$TalentQuestClearReward03TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => column,
+  );
+}
+
+class $$TalentQuestClearReward03TableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $TalentQuestClearReward03Table,
+          TalentQuestClearReward03Data,
+          $$TalentQuestClearReward03TableFilterComposer,
+          $$TalentQuestClearReward03TableOrderingComposer,
+          $$TalentQuestClearReward03TableAnnotationComposer,
+          $$TalentQuestClearReward03TableCreateCompanionBuilder,
+          $$TalentQuestClearReward03TableUpdateCompanionBuilder,
+          (
+            TalentQuestClearReward03Data,
+            BaseReferences<
+              _$AppDb,
+              $TalentQuestClearReward03Table,
+              TalentQuestClearReward03Data
+            >,
+          ),
+          TalentQuestClearReward03Data,
+          PrefetchHooks Function()
+        > {
+  $$TalentQuestClearReward03TableTableManager(
+    _$AppDb db,
+    $TalentQuestClearReward03Table table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TalentQuestClearReward03TableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $$TalentQuestClearReward03TableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$TalentQuestClearReward03TableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> rewardGroupId = const Value.absent(),
+                Value<int> rewardNum2 = const Value.absent(),
+                Value<int> rewardNum3 = const Value.absent(),
+              }) => TalentQuestClearReward03Companion(
+                id: id,
+                rewardGroupId: rewardGroupId,
+                rewardNum2: rewardNum2,
+                rewardNum3: rewardNum3,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int rewardGroupId,
+                required int rewardNum2,
+                required int rewardNum3,
+              }) => TalentQuestClearReward03Companion.insert(
+                id: id,
+                rewardGroupId: rewardGroupId,
+                rewardNum2: rewardNum2,
+                rewardNum3: rewardNum3,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$TalentQuestClearReward03TableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $TalentQuestClearReward03Table,
+      TalentQuestClearReward03Data,
+      $$TalentQuestClearReward03TableFilterComposer,
+      $$TalentQuestClearReward03TableOrderingComposer,
+      $$TalentQuestClearReward03TableAnnotationComposer,
+      $$TalentQuestClearReward03TableCreateCompanionBuilder,
+      $$TalentQuestClearReward03TableUpdateCompanionBuilder,
+      (
+        TalentQuestClearReward03Data,
+        BaseReferences<
+          _$AppDb,
+          $TalentQuestClearReward03Table,
+          TalentQuestClearReward03Data
+        >,
+      ),
+      TalentQuestClearReward03Data,
+      PrefetchHooks Function()
+    >;
+typedef $$TalentQuestClearReward04TableCreateCompanionBuilder =
+    TalentQuestClearReward04Companion Function({
+      Value<int> id,
+      required int rewardGroupId,
+      required int rewardNum2,
+      required int rewardNum3,
+    });
+typedef $$TalentQuestClearReward04TableUpdateCompanionBuilder =
+    TalentQuestClearReward04Companion Function({
+      Value<int> id,
+      Value<int> rewardGroupId,
+      Value<int> rewardNum2,
+      Value<int> rewardNum3,
+    });
+
+class $$TalentQuestClearReward04TableFilterComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward04Table> {
+  $$TalentQuestClearReward04TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$TalentQuestClearReward04TableOrderingComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward04Table> {
+  $$TalentQuestClearReward04TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$TalentQuestClearReward04TableAnnotationComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward04Table> {
+  $$TalentQuestClearReward04TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => column,
+  );
+}
+
+class $$TalentQuestClearReward04TableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $TalentQuestClearReward04Table,
+          TalentQuestClearReward04Data,
+          $$TalentQuestClearReward04TableFilterComposer,
+          $$TalentQuestClearReward04TableOrderingComposer,
+          $$TalentQuestClearReward04TableAnnotationComposer,
+          $$TalentQuestClearReward04TableCreateCompanionBuilder,
+          $$TalentQuestClearReward04TableUpdateCompanionBuilder,
+          (
+            TalentQuestClearReward04Data,
+            BaseReferences<
+              _$AppDb,
+              $TalentQuestClearReward04Table,
+              TalentQuestClearReward04Data
+            >,
+          ),
+          TalentQuestClearReward04Data,
+          PrefetchHooks Function()
+        > {
+  $$TalentQuestClearReward04TableTableManager(
+    _$AppDb db,
+    $TalentQuestClearReward04Table table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TalentQuestClearReward04TableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $$TalentQuestClearReward04TableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$TalentQuestClearReward04TableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> rewardGroupId = const Value.absent(),
+                Value<int> rewardNum2 = const Value.absent(),
+                Value<int> rewardNum3 = const Value.absent(),
+              }) => TalentQuestClearReward04Companion(
+                id: id,
+                rewardGroupId: rewardGroupId,
+                rewardNum2: rewardNum2,
+                rewardNum3: rewardNum3,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int rewardGroupId,
+                required int rewardNum2,
+                required int rewardNum3,
+              }) => TalentQuestClearReward04Companion.insert(
+                id: id,
+                rewardGroupId: rewardGroupId,
+                rewardNum2: rewardNum2,
+                rewardNum3: rewardNum3,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$TalentQuestClearReward04TableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $TalentQuestClearReward04Table,
+      TalentQuestClearReward04Data,
+      $$TalentQuestClearReward04TableFilterComposer,
+      $$TalentQuestClearReward04TableOrderingComposer,
+      $$TalentQuestClearReward04TableAnnotationComposer,
+      $$TalentQuestClearReward04TableCreateCompanionBuilder,
+      $$TalentQuestClearReward04TableUpdateCompanionBuilder,
+      (
+        TalentQuestClearReward04Data,
+        BaseReferences<
+          _$AppDb,
+          $TalentQuestClearReward04Table,
+          TalentQuestClearReward04Data
+        >,
+      ),
+      TalentQuestClearReward04Data,
+      PrefetchHooks Function()
+    >;
+typedef $$TalentQuestClearReward05TableCreateCompanionBuilder =
+    TalentQuestClearReward05Companion Function({
+      Value<int> id,
+      required int rewardGroupId,
+      required int rewardNum2,
+      required int rewardNum3,
+    });
+typedef $$TalentQuestClearReward05TableUpdateCompanionBuilder =
+    TalentQuestClearReward05Companion Function({
+      Value<int> id,
+      Value<int> rewardGroupId,
+      Value<int> rewardNum2,
+      Value<int> rewardNum3,
+    });
+
+class $$TalentQuestClearReward05TableFilterComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward05Table> {
+  $$TalentQuestClearReward05TableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$TalentQuestClearReward05TableOrderingComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward05Table> {
+  $$TalentQuestClearReward05TableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$TalentQuestClearReward05TableAnnotationComposer
+    extends Composer<_$AppDb, $TalentQuestClearReward05Table> {
+  $$TalentQuestClearReward05TableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get rewardGroupId => $composableBuilder(
+    column: $table.rewardGroupId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rewardNum2 => $composableBuilder(
+    column: $table.rewardNum2,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rewardNum3 => $composableBuilder(
+    column: $table.rewardNum3,
+    builder: (column) => column,
+  );
+}
+
+class $$TalentQuestClearReward05TableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $TalentQuestClearReward05Table,
+          TalentQuestClearReward05Data,
+          $$TalentQuestClearReward05TableFilterComposer,
+          $$TalentQuestClearReward05TableOrderingComposer,
+          $$TalentQuestClearReward05TableAnnotationComposer,
+          $$TalentQuestClearReward05TableCreateCompanionBuilder,
+          $$TalentQuestClearReward05TableUpdateCompanionBuilder,
+          (
+            TalentQuestClearReward05Data,
+            BaseReferences<
+              _$AppDb,
+              $TalentQuestClearReward05Table,
+              TalentQuestClearReward05Data
+            >,
+          ),
+          TalentQuestClearReward05Data,
+          PrefetchHooks Function()
+        > {
+  $$TalentQuestClearReward05TableTableManager(
+    _$AppDb db,
+    $TalentQuestClearReward05Table table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TalentQuestClearReward05TableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $$TalentQuestClearReward05TableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$TalentQuestClearReward05TableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> rewardGroupId = const Value.absent(),
+                Value<int> rewardNum2 = const Value.absent(),
+                Value<int> rewardNum3 = const Value.absent(),
+              }) => TalentQuestClearReward05Companion(
+                id: id,
+                rewardGroupId: rewardGroupId,
+                rewardNum2: rewardNum2,
+                rewardNum3: rewardNum3,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int rewardGroupId,
+                required int rewardNum2,
+                required int rewardNum3,
+              }) => TalentQuestClearReward05Companion.insert(
+                id: id,
+                rewardGroupId: rewardGroupId,
+                rewardNum2: rewardNum2,
+                rewardNum3: rewardNum3,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$TalentQuestClearReward05TableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $TalentQuestClearReward05Table,
+      TalentQuestClearReward05Data,
+      $$TalentQuestClearReward05TableFilterComposer,
+      $$TalentQuestClearReward05TableOrderingComposer,
+      $$TalentQuestClearReward05TableAnnotationComposer,
+      $$TalentQuestClearReward05TableCreateCompanionBuilder,
+      $$TalentQuestClearReward05TableUpdateCompanionBuilder,
+      (
+        TalentQuestClearReward05Data,
+        BaseReferences<
+          _$AppDb,
+          $TalentQuestClearReward05Table,
+          TalentQuestClearReward05Data
+        >,
+      ),
+      TalentQuestClearReward05Data,
+      PrefetchHooks Function()
+    >;
+typedef $$TalentQuestWaveGroupDataTableCreateCompanionBuilder =
+    TalentQuestWaveGroupDataCompanion Function({
+      Value<int> id,
+      required int waveGroupId,
+      required int enemyId1,
+      required int enemyId2,
+      required int enemyId3,
+      required int enemyId4,
+      required int enemyId5,
+    });
+typedef $$TalentQuestWaveGroupDataTableUpdateCompanionBuilder =
+    TalentQuestWaveGroupDataCompanion Function({
+      Value<int> id,
+      Value<int> waveGroupId,
+      Value<int> enemyId1,
+      Value<int> enemyId2,
+      Value<int> enemyId3,
+      Value<int> enemyId4,
+      Value<int> enemyId5,
+    });
+
+class $$TalentQuestWaveGroupDataTableFilterComposer
+    extends Composer<_$AppDb, $TalentQuestWaveGroupDataTable> {
+  $$TalentQuestWaveGroupDataTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get waveGroupId => $composableBuilder(
+    column: $table.waveGroupId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get enemyId1 => $composableBuilder(
+    column: $table.enemyId1,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get enemyId2 => $composableBuilder(
+    column: $table.enemyId2,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get enemyId3 => $composableBuilder(
+    column: $table.enemyId3,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get enemyId4 => $composableBuilder(
+    column: $table.enemyId4,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get enemyId5 => $composableBuilder(
+    column: $table.enemyId5,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$TalentQuestWaveGroupDataTableOrderingComposer
+    extends Composer<_$AppDb, $TalentQuestWaveGroupDataTable> {
+  $$TalentQuestWaveGroupDataTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get waveGroupId => $composableBuilder(
+    column: $table.waveGroupId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get enemyId1 => $composableBuilder(
+    column: $table.enemyId1,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get enemyId2 => $composableBuilder(
+    column: $table.enemyId2,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get enemyId3 => $composableBuilder(
+    column: $table.enemyId3,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get enemyId4 => $composableBuilder(
+    column: $table.enemyId4,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get enemyId5 => $composableBuilder(
+    column: $table.enemyId5,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$TalentQuestWaveGroupDataTableAnnotationComposer
+    extends Composer<_$AppDb, $TalentQuestWaveGroupDataTable> {
+  $$TalentQuestWaveGroupDataTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get waveGroupId => $composableBuilder(
+    column: $table.waveGroupId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get enemyId1 =>
+      $composableBuilder(column: $table.enemyId1, builder: (column) => column);
+
+  GeneratedColumn<int> get enemyId2 =>
+      $composableBuilder(column: $table.enemyId2, builder: (column) => column);
+
+  GeneratedColumn<int> get enemyId3 =>
+      $composableBuilder(column: $table.enemyId3, builder: (column) => column);
+
+  GeneratedColumn<int> get enemyId4 =>
+      $composableBuilder(column: $table.enemyId4, builder: (column) => column);
+
+  GeneratedColumn<int> get enemyId5 =>
+      $composableBuilder(column: $table.enemyId5, builder: (column) => column);
+}
+
+class $$TalentQuestWaveGroupDataTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $TalentQuestWaveGroupDataTable,
+          TalentQuestWaveGroupDataData,
+          $$TalentQuestWaveGroupDataTableFilterComposer,
+          $$TalentQuestWaveGroupDataTableOrderingComposer,
+          $$TalentQuestWaveGroupDataTableAnnotationComposer,
+          $$TalentQuestWaveGroupDataTableCreateCompanionBuilder,
+          $$TalentQuestWaveGroupDataTableUpdateCompanionBuilder,
+          (
+            TalentQuestWaveGroupDataData,
+            BaseReferences<
+              _$AppDb,
+              $TalentQuestWaveGroupDataTable,
+              TalentQuestWaveGroupDataData
+            >,
+          ),
+          TalentQuestWaveGroupDataData,
+          PrefetchHooks Function()
+        > {
+  $$TalentQuestWaveGroupDataTableTableManager(
+    _$AppDb db,
+    $TalentQuestWaveGroupDataTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TalentQuestWaveGroupDataTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $$TalentQuestWaveGroupDataTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$TalentQuestWaveGroupDataTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> waveGroupId = const Value.absent(),
+                Value<int> enemyId1 = const Value.absent(),
+                Value<int> enemyId2 = const Value.absent(),
+                Value<int> enemyId3 = const Value.absent(),
+                Value<int> enemyId4 = const Value.absent(),
+                Value<int> enemyId5 = const Value.absent(),
+              }) => TalentQuestWaveGroupDataCompanion(
+                id: id,
+                waveGroupId: waveGroupId,
+                enemyId1: enemyId1,
+                enemyId2: enemyId2,
+                enemyId3: enemyId3,
+                enemyId4: enemyId4,
+                enemyId5: enemyId5,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int waveGroupId,
+                required int enemyId1,
+                required int enemyId2,
+                required int enemyId3,
+                required int enemyId4,
+                required int enemyId5,
+              }) => TalentQuestWaveGroupDataCompanion.insert(
+                id: id,
+                waveGroupId: waveGroupId,
+                enemyId1: enemyId1,
+                enemyId2: enemyId2,
+                enemyId3: enemyId3,
+                enemyId4: enemyId4,
+                enemyId5: enemyId5,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$TalentQuestWaveGroupDataTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $TalentQuestWaveGroupDataTable,
+      TalentQuestWaveGroupDataData,
+      $$TalentQuestWaveGroupDataTableFilterComposer,
+      $$TalentQuestWaveGroupDataTableOrderingComposer,
+      $$TalentQuestWaveGroupDataTableAnnotationComposer,
+      $$TalentQuestWaveGroupDataTableCreateCompanionBuilder,
+      $$TalentQuestWaveGroupDataTableUpdateCompanionBuilder,
+      (
+        TalentQuestWaveGroupDataData,
+        BaseReferences<
+          _$AppDb,
+          $TalentQuestWaveGroupDataTable,
+          TalentQuestWaveGroupDataData
+        >,
+      ),
+      TalentQuestWaveGroupDataData,
+      PrefetchHooks Function()
+    >;
+typedef $$GachaDataTableCreateCompanionBuilder =
+    GachaDataCompanion Function({
+      Value<int> gachaId,
+      required String gachaName,
+      required String description,
+      required int exchangeId,
+      required String startTime,
+      required String endTime,
+    });
+typedef $$GachaDataTableUpdateCompanionBuilder =
+    GachaDataCompanion Function({
+      Value<int> gachaId,
+      Value<String> gachaName,
+      Value<String> description,
+      Value<int> exchangeId,
+      Value<String> startTime,
+      Value<String> endTime,
+    });
+
+class $$GachaDataTableFilterComposer
+    extends Composer<_$AppDb, $GachaDataTable> {
+  $$GachaDataTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get gachaId => $composableBuilder(
+    column: $table.gachaId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get gachaName => $composableBuilder(
+    column: $table.gachaName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exchangeId => $composableBuilder(
+    column: $table.exchangeId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get startTime => $composableBuilder(
+    column: $table.startTime,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get endTime => $composableBuilder(
+    column: $table.endTime,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$GachaDataTableOrderingComposer
+    extends Composer<_$AppDb, $GachaDataTable> {
+  $$GachaDataTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get gachaId => $composableBuilder(
+    column: $table.gachaId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get gachaName => $composableBuilder(
+    column: $table.gachaName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exchangeId => $composableBuilder(
+    column: $table.exchangeId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get startTime => $composableBuilder(
+    column: $table.startTime,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get endTime => $composableBuilder(
+    column: $table.endTime,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$GachaDataTableAnnotationComposer
+    extends Composer<_$AppDb, $GachaDataTable> {
+  $$GachaDataTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get gachaId =>
+      $composableBuilder(column: $table.gachaId, builder: (column) => column);
+
+  GeneratedColumn<String> get gachaName =>
+      $composableBuilder(column: $table.gachaName, builder: (column) => column);
+
+  GeneratedColumn<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get exchangeId => $composableBuilder(
+    column: $table.exchangeId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get startTime =>
+      $composableBuilder(column: $table.startTime, builder: (column) => column);
+
+  GeneratedColumn<String> get endTime =>
+      $composableBuilder(column: $table.endTime, builder: (column) => column);
+}
+
+class $$GachaDataTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $GachaDataTable,
+          GachaDataData,
+          $$GachaDataTableFilterComposer,
+          $$GachaDataTableOrderingComposer,
+          $$GachaDataTableAnnotationComposer,
+          $$GachaDataTableCreateCompanionBuilder,
+          $$GachaDataTableUpdateCompanionBuilder,
+          (
+            GachaDataData,
+            BaseReferences<_$AppDb, $GachaDataTable, GachaDataData>,
+          ),
+          GachaDataData,
+          PrefetchHooks Function()
+        > {
+  $$GachaDataTableTableManager(_$AppDb db, $GachaDataTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$GachaDataTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$GachaDataTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$GachaDataTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> gachaId = const Value.absent(),
+                Value<String> gachaName = const Value.absent(),
+                Value<String> description = const Value.absent(),
+                Value<int> exchangeId = const Value.absent(),
+                Value<String> startTime = const Value.absent(),
+                Value<String> endTime = const Value.absent(),
+              }) => GachaDataCompanion(
+                gachaId: gachaId,
+                gachaName: gachaName,
+                description: description,
+                exchangeId: exchangeId,
+                startTime: startTime,
+                endTime: endTime,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> gachaId = const Value.absent(),
+                required String gachaName,
+                required String description,
+                required int exchangeId,
+                required String startTime,
+                required String endTime,
+              }) => GachaDataCompanion.insert(
+                gachaId: gachaId,
+                gachaName: gachaName,
+                description: description,
+                exchangeId: exchangeId,
+                startTime: startTime,
+                endTime: endTime,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$GachaDataTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $GachaDataTable,
+      GachaDataData,
+      $$GachaDataTableFilterComposer,
+      $$GachaDataTableOrderingComposer,
+      $$GachaDataTableAnnotationComposer,
+      $$GachaDataTableCreateCompanionBuilder,
+      $$GachaDataTableUpdateCompanionBuilder,
+      (GachaDataData, BaseReferences<_$AppDb, $GachaDataTable, GachaDataData>),
+      GachaDataData,
+      PrefetchHooks Function()
+    >;
+typedef $$GachaExchangeLineupTableCreateCompanionBuilder =
+    GachaExchangeLineupCompanion Function({
+      Value<int> id,
+      required int exchangeId,
+      required int unitId,
+      required int pickupGachaId,
+    });
+typedef $$GachaExchangeLineupTableUpdateCompanionBuilder =
+    GachaExchangeLineupCompanion Function({
+      Value<int> id,
+      Value<int> exchangeId,
+      Value<int> unitId,
+      Value<int> pickupGachaId,
+    });
+
+class $$GachaExchangeLineupTableFilterComposer
+    extends Composer<_$AppDb, $GachaExchangeLineupTable> {
+  $$GachaExchangeLineupTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get exchangeId => $composableBuilder(
+    column: $table.exchangeId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get pickupGachaId => $composableBuilder(
+    column: $table.pickupGachaId,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$GachaExchangeLineupTableOrderingComposer
+    extends Composer<_$AppDb, $GachaExchangeLineupTable> {
+  $$GachaExchangeLineupTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get exchangeId => $composableBuilder(
+    column: $table.exchangeId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get unitId => $composableBuilder(
+    column: $table.unitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get pickupGachaId => $composableBuilder(
+    column: $table.pickupGachaId,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$GachaExchangeLineupTableAnnotationComposer
+    extends Composer<_$AppDb, $GachaExchangeLineupTable> {
+  $$GachaExchangeLineupTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get exchangeId => $composableBuilder(
+    column: $table.exchangeId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get unitId =>
+      $composableBuilder(column: $table.unitId, builder: (column) => column);
+
+  GeneratedColumn<int> get pickupGachaId => $composableBuilder(
+    column: $table.pickupGachaId,
+    builder: (column) => column,
+  );
+}
+
+class $$GachaExchangeLineupTableTableManager
+    extends
+        RootTableManager<
+          _$AppDb,
+          $GachaExchangeLineupTable,
+          GachaExchangeLineupData,
+          $$GachaExchangeLineupTableFilterComposer,
+          $$GachaExchangeLineupTableOrderingComposer,
+          $$GachaExchangeLineupTableAnnotationComposer,
+          $$GachaExchangeLineupTableCreateCompanionBuilder,
+          $$GachaExchangeLineupTableUpdateCompanionBuilder,
+          (
+            GachaExchangeLineupData,
+            BaseReferences<
+              _$AppDb,
+              $GachaExchangeLineupTable,
+              GachaExchangeLineupData
+            >,
+          ),
+          GachaExchangeLineupData,
+          PrefetchHooks Function()
+        > {
+  $$GachaExchangeLineupTableTableManager(
+    _$AppDb db,
+    $GachaExchangeLineupTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$GachaExchangeLineupTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$GachaExchangeLineupTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$GachaExchangeLineupTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<int> exchangeId = const Value.absent(),
+                Value<int> unitId = const Value.absent(),
+                Value<int> pickupGachaId = const Value.absent(),
+              }) => GachaExchangeLineupCompanion(
+                id: id,
+                exchangeId: exchangeId,
+                unitId: unitId,
+                pickupGachaId: pickupGachaId,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required int exchangeId,
+                required int unitId,
+                required int pickupGachaId,
+              }) => GachaExchangeLineupCompanion.insert(
+                id: id,
+                exchangeId: exchangeId,
+                unitId: unitId,
+                pickupGachaId: pickupGachaId,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$GachaExchangeLineupTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDb,
+      $GachaExchangeLineupTable,
+      GachaExchangeLineupData,
+      $$GachaExchangeLineupTableFilterComposer,
+      $$GachaExchangeLineupTableOrderingComposer,
+      $$GachaExchangeLineupTableAnnotationComposer,
+      $$GachaExchangeLineupTableCreateCompanionBuilder,
+      $$GachaExchangeLineupTableUpdateCompanionBuilder,
+      (
+        GachaExchangeLineupData,
+        BaseReferences<
+          _$AppDb,
+          $GachaExchangeLineupTable,
+          GachaExchangeLineupData
+        >,
+      ),
+      GachaExchangeLineupData,
+      PrefetchHooks Function()
+    >;
 
 class $AppDbManager {
   final _$AppDb _db;
@@ -58838,4 +67261,46 @@ class $AppDbManager {
       $$ClanBattleScheduleTableTableManager(_db, _db.clanBattleSchedule);
   $$WaveGroupDataTableTableManager get waveGroupData =>
       $$WaveGroupDataTableTableManager(_db, _db.waveGroupData);
+  $$CharaIdentityTableTableManager get charaIdentity =>
+      $$CharaIdentityTableTableManager(_db, _db.charaIdentity);
+  $$CharaStoryStatusTableTableManager get charaStoryStatus =>
+      $$CharaStoryStatusTableTableManager(_db, _db.charaStoryStatus);
+  $$StoryDetailTableTableManager get storyDetail =>
+      $$StoryDetailTableTableManager(_db, _db.storyDetail);
+  $$TalentQuestDataTableTableManager get talentQuestData =>
+      $$TalentQuestDataTableTableManager(_db, _db.talentQuestData);
+  $$TalentQuestClearReward01TableTableManager get talentQuestClearReward01 =>
+      $$TalentQuestClearReward01TableTableManager(
+        _db,
+        _db.talentQuestClearReward01,
+      );
+  $$TalentQuestClearReward02TableTableManager get talentQuestClearReward02 =>
+      $$TalentQuestClearReward02TableTableManager(
+        _db,
+        _db.talentQuestClearReward02,
+      );
+  $$TalentQuestClearReward03TableTableManager get talentQuestClearReward03 =>
+      $$TalentQuestClearReward03TableTableManager(
+        _db,
+        _db.talentQuestClearReward03,
+      );
+  $$TalentQuestClearReward04TableTableManager get talentQuestClearReward04 =>
+      $$TalentQuestClearReward04TableTableManager(
+        _db,
+        _db.talentQuestClearReward04,
+      );
+  $$TalentQuestClearReward05TableTableManager get talentQuestClearReward05 =>
+      $$TalentQuestClearReward05TableTableManager(
+        _db,
+        _db.talentQuestClearReward05,
+      );
+  $$TalentQuestWaveGroupDataTableTableManager get talentQuestWaveGroupData =>
+      $$TalentQuestWaveGroupDataTableTableManager(
+        _db,
+        _db.talentQuestWaveGroupData,
+      );
+  $$GachaDataTableTableManager get gachaData =>
+      $$GachaDataTableTableManager(_db, _db.gachaData);
+  $$GachaExchangeLineupTableTableManager get gachaExchangeLineup =>
+      $$GachaExchangeLineupTableTableManager(_db, _db.gachaExchangeLineup);
 }

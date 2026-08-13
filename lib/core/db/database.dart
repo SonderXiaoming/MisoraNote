@@ -65,6 +65,18 @@ const enemyParameterTables = <EnemyType, ({String tableName, String idColumn})>{
     ClanBattle2MapData,
     ClanBattleSchedule,
     WaveGroupData,
+    CharaIdentity,
+    CharaStoryStatus,
+    StoryDetail,
+    TalentQuestData,
+    TalentQuestClearReward01,
+    TalentQuestClearReward02,
+    TalentQuestClearReward03,
+    TalentQuestClearReward04,
+    TalentQuestClearReward05,
+    TalentQuestWaveGroupData,
+    GachaData,
+    GachaExchangeLineup,
   ],
 )
 class AppDb extends _$AppDb {
@@ -1180,163 +1192,211 @@ class AppDb extends _$AppDb {
   }
 
   Future<List<DeepZoneQuest>> getDeepZoneQuests(int talentId) async {
-    final rows = await customSelect(
-      '''
-      WITH rewards AS (
-        SELECT
-          q.quest_id % 1000 AS stage_no,
-          MAX(reward.reward_num_2) AS stellar_shard_count,
-          MAX(reward.reward_num_3) AS crystal_ball_count
-        FROM talent_quest_data AS q
-        INNER JOIN talent_quest_clear_reward_01 AS reward
-          ON reward.reward_group_id = q.clear_reward_group
-        GROUP BY q.quest_id % 1000
-      )
-      SELECT
-        quest.quest_id,
-        quest.area_id / 1000 % 10 AS talent_id,
-        COALESCE(quest.quest_name, '') AS quest_name,
-        COALESCE(rewards.stellar_shard_count, 0) AS stellar_shard_count,
-        COALESCE(rewards.crystal_ball_count, 0) AS crystal_ball_count,
-        COALESCE(wave.enemy_id_1, 0) AS enemy_id_1,
-        COALESCE(enemy_1.unit_id, 0) AS unit_id_1,
-        COALESCE(wave.enemy_id_2, 0) AS enemy_id_2,
-        COALESCE(enemy_2.unit_id, 0) AS unit_id_2,
-        COALESCE(wave.enemy_id_3, 0) AS enemy_id_3,
-        COALESCE(enemy_3.unit_id, 0) AS unit_id_3,
-        COALESCE(wave.enemy_id_4, 0) AS enemy_id_4,
-        COALESCE(enemy_4.unit_id, 0) AS unit_id_4,
-        COALESCE(wave.enemy_id_5, 0) AS enemy_id_5,
-        COALESCE(enemy_5.unit_id, 0) AS unit_id_5
-      FROM talent_quest_data AS quest
-      LEFT JOIN rewards ON rewards.stage_no = quest.quest_id % 1000
-      LEFT JOIN talent_quest_wave_group_data AS wave
-        ON wave.wave_group_id = quest.wave_group_id_1
-      LEFT JOIN talent_quest_enemy_parameter AS enemy_1
-        ON enemy_1.enemy_id = wave.enemy_id_1
-      LEFT JOIN talent_quest_enemy_parameter AS enemy_2
-        ON enemy_2.enemy_id = wave.enemy_id_2
-      LEFT JOIN talent_quest_enemy_parameter AS enemy_3
-        ON enemy_3.enemy_id = wave.enemy_id_3
-      LEFT JOIN talent_quest_enemy_parameter AS enemy_4
-        ON enemy_4.enemy_id = wave.enemy_id_4
-      LEFT JOIN talent_quest_enemy_parameter AS enemy_5
-        ON enemy_5.enemy_id = wave.enemy_id_5
-      WHERE quest.area_id / 1000 % 10 = ?
-      ORDER BY quest.quest_id DESC
-      ''',
-      variables: [Variable<int>(talentId)],
-    ).get();
+    final talentExpression = CustomExpression<int>(
+      '${talentQuestData.tableName}.${talentQuestData.areaId.name} / 1000 % 10',
+    );
+    final quests = await (select(talentQuestData)
+          ..where((_) => talentExpression.equals(talentId))
+          ..orderBy([(row) => OrderingTerm.desc(row.questId)]))
+        .get();
+    if (quests.isEmpty) return const [];
 
-    return rows
-        .map((row) {
-          final enemies = <DeepZoneEnemy>[];
-          for (var index = 1; index <= 5; index++) {
-            final enemyId = row.read<int>('enemy_id_$index');
-            final unitId = row.read<int>('unit_id_$index');
-            if (enemyId != 0 && unitId != 0) {
-              enemies.add(DeepZoneEnemy(enemyId: enemyId, unitId: unitId));
-            }
-          }
-          return DeepZoneQuest(
-            questId: row.read<int>('quest_id'),
-            talentId: row.read<int>('talent_id'),
-            questName: row.read<String>('quest_name'),
-            stellarShardCount: row.read<int>('stellar_shard_count'),
-            crystalBallCount: row.read<int>('crystal_ball_count'),
-            enemies: enemies,
-          );
-        })
-        .toList(growable: false);
+    final stageByRewardGroup = {
+      for (final quest in quests)
+        quest.clearRewardGroup: quest.questId % 1000,
+    };
+    final rewardGroupIds = stageByRewardGroup.keys.toList(growable: false);
+    final rewardRows01 = await (select(talentQuestClearReward01)
+          ..where((row) => row.rewardGroupId.isIn(rewardGroupIds)))
+        .get();
+    final rewardRows02 = await (select(talentQuestClearReward02)
+          ..where((row) => row.rewardGroupId.isIn(rewardGroupIds)))
+        .get();
+    final rewardRows03 = await (select(talentQuestClearReward03)
+          ..where((row) => row.rewardGroupId.isIn(rewardGroupIds)))
+        .get();
+    final rewardRows04 = await (select(talentQuestClearReward04)
+          ..where((row) => row.rewardGroupId.isIn(rewardGroupIds)))
+        .get();
+    final rewardRows05 = await (select(talentQuestClearReward05)
+          ..where((row) => row.rewardGroupId.isIn(rewardGroupIds)))
+        .get();
+    final rewardsByStage = <int, (int, int)>{};
+
+    void mergeReward(int rewardGroupId, int rewardNum2, int rewardNum3) {
+      final stage = stageByRewardGroup[rewardGroupId];
+      if (stage == null) return;
+      final previous = rewardsByStage[stage] ?? (0, 0);
+      rewardsByStage[stage] = (
+        previous.$1 > rewardNum2 ? previous.$1 : rewardNum2,
+        previous.$2 > rewardNum3 ? previous.$2 : rewardNum3,
+      );
+    }
+
+    for (final reward in rewardRows01) {
+      mergeReward(reward.rewardGroupId, reward.rewardNum2, reward.rewardNum3);
+    }
+    for (final reward in rewardRows02) {
+      mergeReward(reward.rewardGroupId, reward.rewardNum2, reward.rewardNum3);
+    }
+    for (final reward in rewardRows03) {
+      mergeReward(reward.rewardGroupId, reward.rewardNum2, reward.rewardNum3);
+    }
+    for (final reward in rewardRows04) {
+      mergeReward(reward.rewardGroupId, reward.rewardNum2, reward.rewardNum3);
+    }
+    for (final reward in rewardRows05) {
+      mergeReward(reward.rewardGroupId, reward.rewardNum2, reward.rewardNum3);
+    }
+
+    final waveIds = quests.map((quest) => quest.waveGroupId1).toSet();
+    final waves = await (select(talentQuestWaveGroupData)
+          ..where((row) => row.waveGroupId.isIn(waveIds)))
+        .get();
+    final waveById = {for (final wave in waves) wave.waveGroupId: wave};
+    final enemyIds = waves
+        .expand(
+          (wave) => [
+            wave.enemyId1,
+            wave.enemyId2,
+            wave.enemyId3,
+            wave.enemyId4,
+            wave.enemyId5,
+          ],
+        )
+        .where((enemyId) => enemyId != 0)
+        .toSet();
+    final enemyRows = enemyIds.isEmpty
+        ? const <TalentQuestEnemyParameterData>[]
+        : await (select(talentQuestEnemyParameter)
+              ..where((row) => row.enemyId.isIn(enemyIds)))
+            .get();
+    final unitIdByEnemyId = {
+      for (final enemy in enemyRows) enemy.enemyId: enemy.unitId,
+    };
+
+    return [
+      for (final quest in quests)
+        DeepZoneQuest(
+          questId: quest.questId,
+          talentId: talentId,
+          questName: quest.questName,
+          stellarShardCount: rewardsByStage[quest.questId % 1000]?.$1 ?? 0,
+          crystalBallCount: rewardsByStage[quest.questId % 1000]?.$2 ?? 0,
+          enemies: [
+            if (waveById[quest.waveGroupId1] case final wave?)
+              for (final enemyId in [
+                wave.enemyId1,
+                wave.enemyId2,
+                wave.enemyId3,
+                wave.enemyId4,
+                wave.enemyId5,
+              ])
+                if (unitIdByEnemyId[enemyId] case final unitId?)
+                  DeepZoneEnemy(enemyId: enemyId, unitId: unitId),
+          ],
+        ),
+    ];
   }
 
   Future<List<UnitSummary>> searchBondUnits(String search) async {
     final query = search.trim();
     final keyword = '%$query%';
     final idPrefix = '$query%';
-    final rows = await customSelect(
-      '''
-      SELECT ud.unit_id, ud.unit_name
-      FROM unit_data AS ud
-      WHERE ud.search_area_width > 0
-        AND ud.unit_id < $maxUnitId
-        AND EXISTS (
-          SELECT 1 FROM chara_identity AS ci WHERE ci.unit_id = ud.unit_id
-        )
-        AND (
-          ? = ''
-          OR ud.unit_name LIKE ?
-          OR CAST(ud.unit_id AS TEXT) LIKE ?
-        )
-      ORDER BY ud.start_time DESC, ud.unit_id DESC
-      LIMIT 80
-      ''',
-      variables: [
-        Variable<String>(query),
-        Variable<String>(keyword),
-        Variable<String>(idPrefix),
-      ],
-    ).get();
+    final rows = await (selectOnly(unitData, distinct: true)
+          ..addColumns([unitData.unitId, unitData.unitName])
+          ..join([
+            innerJoin(
+              charaIdentity,
+              charaIdentity.unitId.equalsExp(unitData.unitId),
+            ),
+          ])
+          ..where(unitData.searchAreaWidth.isBiggerThanValue(0))
+          ..where(unitData.unitId.isSmallerThanValue(maxUnitId))
+          ..where(
+            query.isEmpty
+                ? const Constant(true)
+                : unitData.unitName.like(keyword) |
+                      unitData.unitId.cast<String>().like(idPrefix),
+          )
+          ..orderBy([
+            OrderingTerm.desc(unitData.startTime),
+            OrderingTerm.desc(unitData.unitId),
+          ])
+          ..limit(80))
+        .get();
 
     return rows
         .map(
           (row) => UnitSummary(
-            unitId: row.read<int>('unit_id'),
-            unitName: row.read<String>('unit_name'),
+            unitId: row.read(unitData.unitId)!,
+            unitName: row.read(unitData.unitName)!,
           ),
         )
         .toList(growable: false);
   }
 
   Future<List<CharacterBondStory>> getCharacterBondStories(int unitId) async {
-    final rows = await customSelect(
-      '''
-      SELECT DISTINCT
-        css.story_id,
-        COALESCE(NULLIF(sd.title, ''), css.unlock_story_name, '') AS title,
-        COALESCE(sd.sub_title, '') AS sub_title,
-        css.status_type_1,
-        css.status_rate_1,
-        css.status_type_2,
-        css.status_rate_2,
-        css.status_type_3,
-        css.status_rate_3,
-        css.status_type_4,
-        css.status_rate_4,
-        css.status_type_5,
-        css.status_rate_5
-      FROM chara_story_status AS css
-      INNER JOIN chara_identity AS ci
-        ON CAST(ci.unit_id / 100 AS INTEGER) IN (
-          css.chara_id_1, css.chara_id_2, css.chara_id_3,
-          css.chara_id_4, css.chara_id_5, css.chara_id_6,
-          css.chara_id_7, css.chara_id_8, css.chara_id_9,
-          css.chara_id_10, css.chara_id_11, css.chara_id_12,
-          css.chara_id_13, css.chara_id_14, css.chara_id_15,
-          css.chara_id_16, css.chara_id_17, css.chara_id_18,
-          css.chara_id_19, css.chara_id_20
-        )
-      LEFT JOIN story_detail AS sd ON sd.story_id = css.story_id
-      WHERE ci.unit_id = ?
-      ORDER BY css.story_id
-      ''',
-      variables: [Variable<int>(unitId)],
-    ).get();
+    final charaId = unitId ~/ 100;
+    final charaColumns = [
+      charaStoryStatus.charaId1,
+      charaStoryStatus.charaId2,
+      charaStoryStatus.charaId3,
+      charaStoryStatus.charaId4,
+      charaStoryStatus.charaId5,
+      charaStoryStatus.charaId6,
+      charaStoryStatus.charaId7,
+      charaStoryStatus.charaId8,
+      charaStoryStatus.charaId9,
+      charaStoryStatus.charaId10,
+      charaStoryStatus.charaId11,
+      charaStoryStatus.charaId12,
+      charaStoryStatus.charaId13,
+      charaStoryStatus.charaId14,
+      charaStoryStatus.charaId15,
+      charaStoryStatus.charaId16,
+      charaStoryStatus.charaId17,
+      charaStoryStatus.charaId18,
+      charaStoryStatus.charaId19,
+      charaStoryStatus.charaId20,
+    ];
+    final matchesCharacter = charaColumns
+        .map((column) => column.equals(charaId))
+        .reduce((left, right) => left | right);
+    final rows = await (select(charaStoryStatus, distinct: true).join([
+      leftOuterJoin(
+        storyDetail,
+        storyDetail.storyId.equalsExp(charaStoryStatus.storyId),
+      ),
+    ])..where(matchesCharacter)
+      ..orderBy([OrderingTerm.asc(charaStoryStatus.storyId)])).get();
 
     return rows
         .map((row) {
+          final status = row.readTable(charaStoryStatus);
+          final detail = row.readTableOrNull(storyDetail);
           final bonuses = <CharacterBondBonus>[];
-          for (var index = 1; index <= 5; index++) {
-            final type = row.read<int>('status_type_$index');
-            final value = row.read<int>('status_rate_$index');
+          final statusBonuses = [
+            (type: status.statusType1, value: status.statusRate1),
+            (type: status.statusType2, value: status.statusRate2),
+            (type: status.statusType3, value: status.statusRate3),
+            (type: status.statusType4, value: status.statusRate4),
+            (type: status.statusType5, value: status.statusRate5),
+          ];
+          for (final bonus in statusBonuses) {
+            final type = bonus.type;
+            final value = bonus.value;
             if (type > 0 && value != 0) {
               bonuses.add(CharacterBondBonus(type: type, value: value));
             }
           }
+          final detailTitle = detail?.title ?? '';
           return CharacterBondStory(
-            storyId: row.read<int>('story_id'),
-            title: row.read<String>('title'),
-            subTitle: row.read<String>('sub_title'),
+            storyId: status.storyId,
+            title: detailTitle.isNotEmpty
+                ? detailTitle
+                : status.unlockStoryName,
+            subTitle: detail?.subTitle ?? '',
             bonuses: bonuses,
           );
         })
@@ -1355,20 +1415,15 @@ class AppDb extends _$AppDb {
     final a = uniqueEquipmentData; // unique_equipment_data
     final b = uniqueEquipEnhanceRate; // unique_equip_enhance_rate
     final uu = unitUniqueEquipment; // unit_unique_equipment
-    final ue = unitUniqueEquip; // unit_unique_equip
 
-    // 构建 SELECT（只从 a 出发，左连 b/uu/ue）
+    // 当前拥有关系只使用 unit_unique_equipment；旧表仅保留兼容模型。
     final query = selectOnly(a, distinct: true)
       ..join([
         leftOuterJoin(b, b.equipmentId.equalsExp(a.equipmentId)),
-        // 两个“拥有关系”的表都左连到 a.equipment_id 上，
-        // 下面 where 用 (uu.unit_id = unitId OR ue.unit_id = unitId) 来覆盖原 SQL 的 UNION 逻辑
         leftOuterJoin(uu, uu.equipId.equalsExp(a.equipmentId)),
-        leftOuterJoin(ue, ue.equipId.equalsExp(a.equipmentId)),
       ])
       ..where(
-        // (uu.unit_id == unitId) OR (ue.unit_id == unitId)
-        uu.unitId.equals(unitId) | ue.unitId.equals(unitId),
+        uu.unitId.equals(unitId),
       )
       ..where(
         // b.min_lv <= 2
@@ -1380,7 +1435,7 @@ class AppDb extends _$AppDb {
         ).equals(slot),
       );
 
-    query.addColumns([uu.unitId, ue.unitId]);
+    query.addColumns([uu.unitId]);
 
     // 基本信息
     query.addColumns([a.equipmentId, a.equipmentName, a.description]);
@@ -1438,13 +1493,10 @@ class AppDb extends _$AppDb {
     final row = await query.getSingleOrNull();
     if (row == null) return null;
 
-    // 组装 unit_id：优先 uu.unit_id，否则 ue.unit_id
     final unitIdFromUu = row.read(uu.unitId);
-    final unitIdFromUe = row.read(ue.unitId);
-    final pickedUnitId = unitIdFromUu ?? unitIdFromUe;
 
     return UniqueEquipInfo(
-      unitId: pickedUnitId ?? unitId, // 冗余兜底
+      unitId: unitIdFromUu ?? unitId,
       equipmentId: row.read(a.equipmentId) ?? 0,
       equipmentName: row.read(a.equipmentName) ?? '',
       description: row.read(a.description) ?? '',
