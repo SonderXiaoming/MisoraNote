@@ -93,13 +93,16 @@ class _UnitPage extends ConsumerState<UnitPage> {
     final atkPatternAsync = ref.watch(
       unitAttackPatternProvider(unitInfo.unitId),
     );
+    final isEnemy = widget.card.unitType == UnitType.enemy ||
+        widget.card.unitType == UnitType.enemySummon;
+    final skillUnitId = !isEnemy && unitInfo.cutin1Star6 != 0
+        ? unitInfo.cutin1Star6
+        : unitInfo.unitId;
 
     final unitSkillListAsync = ref.watch(
       unitSkillListProvider(
         UnitSkillListParameter(
-          unitId: unitInfo.cutin1Star6 != 0
-              ? unitInfo.cutin1Star6
-              : unitInfo.unitId,
+          unitId: skillUnitId,
           enemyParameter: parameter,
           atkType: unitInfo.atkType ?? 0,
           normalAttackCastTime: unitInfo.normalAtkCastTime ?? 0,

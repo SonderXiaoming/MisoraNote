@@ -69,11 +69,13 @@ class SinglePattern extends StatelessWidget {
       return null; // 普攻不显示技能信息
     }
     if (patternId ~/ 1000 == 1) {
-      final index = patternId % 100;
-      return pureSkill.normal[index - 1];
+      final index = patternId % 100 - 1;
+      if (index < 0 || index >= pureSkill.normal.length) return null;
+      return pureSkill.normal[index];
     } else if (patternId ~/ 1000 == 2) {
-      final index = patternId % 100;
-      return pureSkill.sp[index - 1];
+      final index = patternId % 100 - 1;
+      if (index < 0 || index >= pureSkill.sp.length) return null;
+      return pureSkill.sp[index];
     }
     return null;
   }

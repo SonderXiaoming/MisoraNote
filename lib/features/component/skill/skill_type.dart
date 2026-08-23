@@ -707,6 +707,7 @@ enum SkillTextType {
   skill1PlusPlus,
   skill2,
   skill2Plus,
+  skill2PlusPlus,
   skill3,
   skill4,
   skill5,
@@ -731,6 +732,7 @@ enum SkillTextType {
   spSkill1PlusPlus,
   spSkill2,
   spSkill2Plus,
+  spSkill2PlusPlus,
   spSkill3,
   spSkill4,
   spSkill5;
@@ -750,8 +752,10 @@ enum SkillTextType {
         return CustomColors.colorPurple;
       case SkillTextType.skill2:
       case SkillTextType.skill2Plus:
+      case SkillTextType.skill2PlusPlus:
       case SkillTextType.spSkill2:
       case SkillTextType.spSkill2Plus:
+      case SkillTextType.spSkill2PlusPlus:
         return CustomColors.colorRed;
       case SkillTextType.exSkill:
       case SkillTextType.exSkillPlus:
@@ -780,6 +784,8 @@ enum SkillTextType {
         return t.skill_index(2);
       case SkillTextType.skill2Plus:
         return "${t.skill_index(2)}+";
+      case SkillTextType.skill2PlusPlus:
+        return "${t.skill_index(2)}++";
       case SkillTextType.skill3:
         return t.skill_index(3);
       case SkillTextType.skill4:
@@ -828,6 +834,8 @@ enum SkillTextType {
         return "SP${t.skill_index(2)}";
       case SkillTextType.spSkill2Plus:
         return "SP${t.skill_index(2)}+";
+      case SkillTextType.spSkill2PlusPlus:
+        return "SP${t.skill_index(2)}++";
       case SkillTextType.spSkill3:
         return "SP${t.skill_index(3)}";
       case SkillTextType.spSkill4:

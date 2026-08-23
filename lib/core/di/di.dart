@@ -119,6 +119,83 @@ final deepZoneQuestProvider = FutureProvider.family<List<DeepZoneQuest>, int>((
   return db.getDeepZoneQuests(talentId);
 });
 
+final battleQueryProvider =
+    FutureProvider.family<List<BattleQueryGroup>, BattleQueryType>((ref, type) {
+      final db = ref.watch(dbProvider);
+      if (!db.dbFile.existsSync()) {
+        throw StateError('数据库文件不存在，请先在首页下载数据库');
+      }
+      return db.getBattleQueryGroups(type);
+    });
+
+class BattleEffectControllerDetails {
+  final int enemyId;
+  final String name;
+  final int atk;
+  final UnitSkillList skills;
+
+  const BattleEffectControllerDetails({
+    required this.enemyId,
+    required this.name,
+    required this.atk,
+    required this.skills,
+  });
+}
+
+class BattleEffectDetails {
+  final List<BattleEffectControllerDetails> controllers;
+
+  const BattleEffectDetails({required this.controllers});
+}
+
+final battleEffectProvider =
+    FutureProvider.family<
+      BattleEffectDetails,
+      ({BattleEffectType type, int questId})
+    >((ref, query) async {
+      final db = ref.watch(dbProvider);
+      if (!db.dbFile.existsSync()) {
+        throw StateError('数据库文件不存在，请先在首页下载数据库');
+      }
+      final enemyIds = await db.getBattleEffectEnemyIds(
+        query.type,
+        query.questId,
+      );
+      final controllers = <BattleEffectControllerDetails>[];
+      for (final enemyId in enemyIds) {
+        final parameter = switch (query.type) {
+          BattleEffectType.talentQuest =>
+            AllUnitParameter.fromTalentQuestEnemyParameter(
+              await db.getTalentQuestEnemyParameter(enemyId),
+            ),
+          BattleEffectType.abyss => AllUnitParameter.fromAbyssEnemyParameter(
+            await db.getAbyssEnemyParameter(enemyId),
+          ),
+          BattleEffectType.mirage => _allUnitParameterFromRow(
+            await db.getMirageEnemyParameter(enemyId),
+          ),
+        };
+        if (parameter == null) continue;
+        final skills = (await getUnitSkillList(
+          db,
+          parameter.unitId,
+          enemyParameter: parameter,
+        )).pureSkill;
+        if (skills.normal.isEmpty && skills.sp.isEmpty) continue;
+        controllers.add(
+          BattleEffectControllerDetails(
+            enemyId: enemyId,
+            name: parameter.name,
+            atk: parameter.atk > parameter.magicStr
+                ? parameter.atk
+                : parameter.magicStr,
+            skills: skills,
+          ),
+        );
+      }
+      return BattleEffectDetails(controllers: controllers);
+    });
+
 final bondUnitSearchProvider = FutureProvider.family<List<UnitSummary>, String>(
   (ref, search) {
     final db = ref.watch(dbProvider);
@@ -211,13 +288,16 @@ final packageInfoProvider = FutureProvider<PackageInfo>((ref) async {
 typedef _EnemyParameterFetcher =
     Future<AllUnitParameter?> Function(AppDb db, int enemyId);
 
-AllUnitParameter? _allUnitParameterFromSekaiRow(Map<String, Object?>? row) {
+AllUnitParameter? _allUnitParameterFromRow(
+  Map<String, Object?>? row, {
+  String idColumn = 'enemy_id',
+}) {
   if (row == null) return null;
   int intValue(String key) => (row[key] as num?)?.toInt() ?? 0;
   double doubleValue(String key) => (row[key] as num?)?.toDouble() ?? 0;
 
   return AllUnitParameter(
-    enemyId: intValue('sekai_enemy_id'),
+    enemyId: intValue(idColumn),
     unitId: intValue('unit_id'),
     name: row['name'] as String? ?? '',
     level: intValue('level'),
@@ -272,6 +352,11 @@ final Map<EnemyType, _EnemyParameterFetcher> _enemyParameterStrategies = {
   EnemyType.event: (db, id) async => AllUnitParameter.fromEventEnemyParameter(
     await db.getEventEnemyParameter(id),
   ),
+  EnemyType.abyss: (db, id) async => AllUnitParameter.fromAbyssEnemyParameter(
+    await db.getAbyssEnemyParameter(id),
+  ),
+  EnemyType.mirage: (db, id) async =>
+      _allUnitParameterFromRow(await db.getMirageEnemyParameter(id)),
   EnemyType.talentQuest: (db, id) async =>
       AllUnitParameter.fromTalentQuestEnemyParameter(
         await db.getTalentQuestEnemyParameter(id),
@@ -287,8 +372,10 @@ final Map<EnemyType, _EnemyParameterFetcher> _enemyParameterStrategies = {
   EnemyType.seven: (db, id) async => AllUnitParameter.fromSevenEnemyParameter(
     await db.getSevenEnemyParameter(id),
   ),
-  EnemyType.sekai: (db, id) async =>
-      _allUnitParameterFromSekaiRow(await db.getSekaiEnemyParameter(id)),
+  EnemyType.sekai: (db, id) async => _allUnitParameterFromRow(
+    await db.getSekaiEnemyParameter(id),
+    idColumn: 'sekai_enemy_id',
+  ),
   EnemyType.clan: (db, id) async =>
       _enemyParameterStrategies[EnemyType.normal]!(db, id),
 };

@@ -2262,7 +2262,7 @@ class ActionHandler {
     String effectName = effectTypeList
         .map((value) {
           if (value == -1) return null;
-          return DotType.get(value).getName(t);
+          return DotType.get(value.toInt()).getName(t);
         })
         .whereType<String>()
         .join("、");

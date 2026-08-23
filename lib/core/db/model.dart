@@ -295,6 +295,100 @@ class DeepZoneQuest {
   }
 }
 
+enum BattleQueryType { dungeon, remembrance, abyss }
+
+enum BattleEffectType { talentQuest, abyss, mirage }
+
+class BattleEffectData {
+  final int id;
+  final String name;
+  final String description;
+  final String iconName;
+
+  const BattleEffectData({
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.iconName,
+  });
+}
+
+class BattleQueryEnemy {
+  final int enemyId;
+  final int unitId;
+  final String name;
+  final int level;
+  final int hp;
+  final EnemyType enemyType;
+  final List<int> weaknessTalentIds;
+
+  const BattleQueryEnemy({
+    required this.enemyId,
+    required this.unitId,
+    required this.name,
+    required this.level,
+    required this.hp,
+    required this.enemyType,
+    this.weaknessTalentIds = const [],
+  });
+
+  int get iconUnitId {
+    if (unitId ~/ 100000 == 6) {
+      return ((unitId - 500000 + 30) ~/ 10) * 10 + 1;
+    }
+    return unitId;
+  }
+}
+
+class BattleQueryStage {
+  final int id;
+  final int bossKey;
+  final String bossName;
+  final String label;
+  final int difficulty;
+  final List<BattleQueryEnemy> enemies;
+  final int? effectQuestId;
+
+  const BattleQueryStage({
+    required this.id,
+    required this.bossKey,
+    required this.bossName,
+    required this.label,
+    required this.difficulty,
+    required this.enemies,
+    this.effectQuestId,
+  });
+}
+
+class BattleQueryGroup {
+  final int id;
+  final String name;
+  final String subtitle;
+  final List<String> aliases;
+  final List<int> talentIds;
+  final List<BattleQueryStage> stages;
+
+  const BattleQueryGroup({
+    required this.id,
+    required this.name,
+    required this.subtitle,
+    this.aliases = const [],
+    this.talentIds = const [],
+    required this.stages,
+  });
+
+  bool matches(String search) {
+    final query = search.trim().toLowerCase().replaceAll(' ', '');
+    if (query.isEmpty) return true;
+    return <String>[
+      name,
+      subtitle,
+      ...aliases,
+      for (final stage in stages) ...[stage.bossName, stage.label],
+    ].any((value) => value.toLowerCase().replaceAll(' ', '').contains(query));
+  }
+}
+
 enum DeepZoneSort { stage, stellarShard, crystalBall }
 
 List<DeepZoneQuest> filterAndSortDeepZoneQuests(

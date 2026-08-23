@@ -10,6 +10,8 @@ import 'package:misora_note/features/unit_search.dart';
 import 'package:misora_note/features/enemy_search/enemy_search.dart';
 import 'package:misora_note/features/tool_pages/character_bond_page.dart';
 import 'package:misora_note/features/tool_pages/deep_zone_page.dart';
+import 'package:misora_note/features/tool_pages/battle_query_page.dart';
+import 'package:misora_note/core/db/model.dart';
 import 'package:misora_note/features/tool_pages/unique_equip_page.dart';
 import 'package:misora_note/core/router/responsive_navigation.dart';
 import '../../features/home_page.dart';
@@ -91,6 +93,24 @@ final appRouter = GoRouter(
       path: AppRoutes.deepZone,
       pageBuilder: (ctx, state) =>
           FadeSlideScaleTransitionPage(child: const DeepZonePage()),
+    ),
+    GoRoute(
+      path: AppRoutes.dungeonBoss,
+      pageBuilder: (ctx, state) => FadeSlideScaleTransitionPage(
+        child: const BattleQueryPage(type: BattleQueryType.dungeon),
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.remembranceBattlefield,
+      pageBuilder: (ctx, state) => FadeSlideScaleTransitionPage(
+        child: const BattleQueryPage(type: BattleQueryType.remembrance),
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.abyssRaid,
+      pageBuilder: (ctx, state) => FadeSlideScaleTransitionPage(
+        child: const BattleQueryPage(type: BattleQueryType.abyss),
+      ),
     ),
   ],
   errorPageBuilder: (ctx, state) => FadeSlideScaleTransitionPage(

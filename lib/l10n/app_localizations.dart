@@ -202,6 +202,66 @@ abstract class AppLocalizations {
   /// **'按属性查看关卡奖励与敌方阵容'**
   String get deep_zone_desc;
 
+  /// No description provided for @dungeon_boss.
+  ///
+  /// In zh, this message translates to:
+  /// **'地下城 Boss'**
+  String get dungeon_boss;
+
+  /// No description provided for @dungeon_boss_desc.
+  ///
+  /// In zh, this message translates to:
+  /// **'查看各地下城最终 Boss 的属性与技能'**
+  String get dungeon_boss_desc;
+
+  /// No description provided for @remembrance_battlefield.
+  ///
+  /// In zh, this message translates to:
+  /// **'追忆战域'**
+  String get remembrance_battlefield;
+
+  /// No description provided for @remembrance_battlefield_desc.
+  ///
+  /// In zh, this message translates to:
+  /// **'查看追忆战 Boss、难度与敌方阵容'**
+  String get remembrance_battlefield_desc;
+
+  /// No description provided for @abyss_raid.
+  ///
+  /// In zh, this message translates to:
+  /// **'深渊讨伐战'**
+  String get abyss_raid;
+
+  /// No description provided for @abyss_raid_desc.
+  ///
+  /// In zh, this message translates to:
+  /// **'按期次查看 Boss、难度与额外效果'**
+  String get abyss_raid_desc;
+
+  /// No description provided for @extra_effect.
+  ///
+  /// In zh, this message translates to:
+  /// **'额外效果'**
+  String get extra_effect;
+
+  /// No description provided for @no_extra_effect.
+  ///
+  /// In zh, this message translates to:
+  /// **'该关卡没有额外效果数据'**
+  String get no_extra_effect;
+
+  /// No description provided for @no_battle_query_data.
+  ///
+  /// In zh, this message translates to:
+  /// **'数据库中没有该玩法的查询数据'**
+  String get no_battle_query_data;
+
+  /// No description provided for @no_enemy_data.
+  ///
+  /// In zh, this message translates to:
+  /// **'没有敌人数据'**
+  String get no_enemy_data;
+
   /// No description provided for @stellar_shard_count.
   ///
   /// In zh, this message translates to:

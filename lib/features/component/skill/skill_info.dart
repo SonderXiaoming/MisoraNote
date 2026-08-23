@@ -619,9 +619,9 @@ Future<UnitSkillList> getUnitSkillList(
     skillTypeDict[skill.mainSkillEvolution1!] = SkillTextType.skill1Plus;
     normal.add(skill.mainSkillEvolution1!);
   }
-  if ((skill.mainSkillEvolution1Pro ?? 0) != 0) {
-    skillTypeDict[skill.mainSkillEvolution1Pro!] = SkillTextType.skill1PlusPlus;
-    normal.add(skill.mainSkillEvolution1Pro!);
+  if ((skill.mainSkillRevolution1 ?? 0) != 0) {
+    skillTypeDict[skill.mainSkillRevolution1!] = SkillTextType.skill1PlusPlus;
+    normal.add(skill.mainSkillRevolution1!);
   }
   if (skill.mainSkill2 != 0) {
     skillTypeDict[skill.mainSkill2] = SkillTextType.skill2;
@@ -630,6 +630,10 @@ Future<UnitSkillList> getUnitSkillList(
   if (skill.mainSkillEvolution2 != 0) {
     skillTypeDict[skill.mainSkillEvolution2!] = SkillTextType.skill2Plus;
     normal.add(skill.mainSkillEvolution2!);
+  }
+  if ((skill.mainSkillRevolution2 ?? 0) != 0) {
+    skillTypeDict[skill.mainSkillRevolution2!] = SkillTextType.skill2PlusPlus;
+    normal.add(skill.mainSkillRevolution2!);
   }
   if (skill.mainSkill3 != 0) {
     skillTypeDict[skill.mainSkill3] = SkillTextType.skill3;
@@ -716,9 +720,9 @@ Future<UnitSkillList> getUnitSkillList(
     skillTypeDict[skill.spSkillEvolution1!] = SkillTextType.spSkill1Plus;
     sp.add(skill.spSkillEvolution1!);
   }
-  if ((skill.spSkillEvolution1Pro ?? 0) != 0) {
-    skillTypeDict[skill.spSkillEvolution1Pro!] = SkillTextType.spSkill1PlusPlus;
-    sp.add(skill.spSkillEvolution1Pro!);
+  if ((skill.spSkillRevolution1 ?? 0) != 0) {
+    skillTypeDict[skill.spSkillRevolution1!] = SkillTextType.spSkill1PlusPlus;
+    sp.add(skill.spSkillRevolution1!);
   }
   if (skill.spSkill2 != 0) {
     skillTypeDict[skill.spSkill2] = SkillTextType.spSkill2;
@@ -727,6 +731,10 @@ Future<UnitSkillList> getUnitSkillList(
   if (skill.spSkillEvolution2 != 0) {
     skillTypeDict[skill.spSkillEvolution2!] = SkillTextType.spSkill2Plus;
     sp.add(skill.spSkillEvolution2!);
+  }
+  if ((skill.spSkillRevolution2 ?? 0) != 0) {
+    skillTypeDict[skill.spSkillRevolution2!] = SkillTextType.spSkill2PlusPlus;
+    sp.add(skill.spSkillRevolution2!);
   }
   if (skill.spSkill3 != 0) {
     skillTypeDict[skill.spSkill3] = SkillTextType.spSkill3;
@@ -840,9 +848,10 @@ Map<int, int> _buildSkillLevelMap(
   add(skill.unionBurstEvolution, parameter.unionBurstLevel);
   add(skill.mainSkill1, parameter.mainSkillLv1);
   add(skill.mainSkillEvolution1, parameter.mainSkillLv1);
-  add(skill.mainSkillEvolution1Pro, parameter.mainSkillLv1);
+  add(skill.mainSkillRevolution1, parameter.mainSkillLv1);
   add(skill.mainSkill2, parameter.mainSkillLv2);
   add(skill.mainSkillEvolution2, parameter.mainSkillLv2);
+  add(skill.mainSkillRevolution2, parameter.mainSkillLv2);
   add(skill.mainSkill3, parameter.mainSkillLv3);
   add(skill.mainSkill4, parameter.mainSkillLv4);
   add(skill.mainSkill5, parameter.mainSkillLv5);

@@ -38,6 +38,27 @@ class FunctionPage extends StatelessWidget {
     ];
     final battleTools = [
       ToolEntry(
+        icon: Icons.landscape_rounded,
+        title: t.dungeon_boss,
+        description: t.dungeon_boss_desc,
+        color: const Color(CustomColors.colorGold),
+        onTap: () => context.push(AppRoutes.dungeonBoss),
+      ),
+      ToolEntry(
+        icon: Icons.history_edu_rounded,
+        title: t.remembrance_battlefield,
+        description: t.remembrance_battlefield_desc,
+        color: const Color(CustomColors.colorPurple),
+        onTap: () => context.push(AppRoutes.remembranceBattlefield),
+      ),
+      ToolEntry(
+        icon: Icons.whatshot_rounded,
+        title: t.abyss_raid,
+        description: t.abyss_raid_desc,
+        color: const Color(CustomColors.colorRed),
+        onTap: () => context.push(AppRoutes.abyssRaid),
+      ),
+      ToolEntry(
         icon: Icons.travel_explore_rounded,
         title: t.deep_zone,
         description: t.deep_zone_desc,

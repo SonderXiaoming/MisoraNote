@@ -7,6 +7,7 @@ import 'package:misora_note/constants.dart';
 import 'package:misora_note/core/db/model.dart';
 import 'package:misora_note/core/di/di.dart';
 import 'package:misora_note/features/component/base.dart';
+import 'package:misora_note/features/component/battle_effect_dialog.dart';
 import 'package:misora_note/features/component/card/unit_card.dart';
 import 'package:misora_note/features/component/image.dart';
 import 'package:misora_note/l10n/app_localizations.dart';
@@ -307,6 +308,23 @@ class _DeepZoneQuestCard extends StatelessWidget {
               _QuestTag(
                 text: t.crystal_ball_count(quest.crystalBallCount),
                 color: accent,
+              ),
+              OutlinedButton.icon(
+                style: OutlinedButton.styleFrom(
+                  visualDensity: VisualDensity.compact,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 5,
+                  ),
+                ),
+                onPressed: () => showBattleEffectDialog(
+                  context,
+                  type: BattleEffectType.talentQuest,
+                  questId: quest.questId,
+                  levelLabel: quest.displayName,
+                ),
+                icon: const Icon(Icons.auto_awesome_rounded, size: 17),
+                label: Text(t.extra_effect),
               ),
             ],
           ),

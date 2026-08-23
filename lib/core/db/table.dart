@@ -249,10 +249,12 @@ class UnitSkillData extends Table {
   // 主技能进化 (Main Skill Evolutions)
   IntColumn get mainSkillEvolution1 =>
       integer().named("main_skill_evolution_1").nullable()();
-  IntColumn get mainSkillEvolution1Pro =>
-      integer().named("main_skill_evolution_1_pro").nullable()();
+  IntColumn get mainSkillRevolution1 =>
+      integer().named("main_skill_revolution_1").nullable()();
   IntColumn get mainSkillEvolution2 =>
       integer().named("main_skill_evolution_2").nullable()();
+  IntColumn get mainSkillRevolution2 =>
+      integer().named("main_skill_revolution_2").nullable()();
   // EX 技能 (EX Skills)
   IntColumn get exSkill1 => integer().named("ex_skill_1")();
   IntColumn get exSkill2 => integer().named("ex_skill_2")();
@@ -279,10 +281,12 @@ class UnitSkillData extends Table {
   // SP 技能进化 (Special Skill Evolutions)
   IntColumn get spSkillEvolution1 =>
       integer().named("sp_skill_evolution_1").nullable()();
+  IntColumn get spSkillRevolution1 =>
+      integer().named("sp_skill_revolution_1").nullable()();
   IntColumn get spSkillEvolution2 =>
       integer().named("sp_skill_evolution_2").nullable()();
-  IntColumn get spSkillEvolution1Pro =>
-      integer().named("sp_skill_evolution_1_pro").nullable()();
+  IntColumn get spSkillRevolution2 =>
+      integer().named("sp_skill_revolution_2").nullable()();
 }
 
 class SkillAction extends Table {
@@ -1330,4 +1334,206 @@ class WaveGroupData extends Table {
 
   IntColumn get guestEnemyId => integer().named("guest_enemy_id")();
   IntColumn get guestLane => integer().named("guest_lane")();
+}
+
+class DungeonArea extends Table {
+  @override
+  String get tableName => 'dungeon_area';
+  @override
+  Set<Column> get primaryKey => {dungeonAreaId};
+
+  IntColumn get dungeonAreaId => integer().named('dungeon_area_id')();
+  TextColumn get dungeonName => text().named('dungeon_name')();
+}
+
+class DungeonQuestData extends Table {
+  @override
+  String get tableName => 'dungeon_quest_data';
+  @override
+  Set<Column> get primaryKey => {questId};
+
+  IntColumn get questId => integer().named('quest_id')();
+  IntColumn get dungeonAreaId => integer().named('dungeon_area_id')();
+  IntColumn get floorNum => integer().named('floor_num')();
+  IntColumn get waveGroupId => integer().named('wave_group_id')();
+}
+
+class DungeonSpecialBattle extends Table {
+  @override
+  String get tableName => 'dungeon_special_battle';
+  @override
+  Set<Column> get primaryKey => {specialBattleId};
+
+  IntColumn get specialBattleId => integer().named('special_battle_id')();
+  IntColumn get questId => integer().named('quest_id')();
+  IntColumn get waveGroupId => integer().named('wave_group_id')();
+}
+
+class DungeonPatternBattle extends Table {
+  @override
+  String get tableName => 'dungeon_pattern_battle';
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named('id')();
+  IntColumn get questId => integer().named('quest_id')();
+  IntColumn get waveGroupId => integer().named('wave_group_id')();
+}
+
+class SreBossData extends Table {
+  @override
+  String get tableName => 'sre_boss_data';
+  @override
+  Set<Column> get primaryKey => {sreBossId};
+
+  IntColumn get sreBossId => integer().named('sre_boss_id')();
+  IntColumn get sreId => integer().named('sre_id')();
+  TextColumn get name => text().named('name')();
+  IntColumn get phase => integer().named('phase')();
+}
+
+class SreQuestDifficultyData extends Table {
+  @override
+  String get tableName => 'sre_quest_difficulty_data';
+
+  IntColumn get sreId => integer().named('sre_id')();
+  IntColumn get sreBossId => integer().named('sre_boss_id')();
+  IntColumn get difficulty => integer().named('difficulty')();
+  IntColumn get waveGroupId => integer().named('wave_group_id')();
+  IntColumn get iconId => integer().named('icon_id')();
+}
+
+class SreWaveGroupData extends Table {
+  @override
+  String get tableName => 'sre_wave_group_data';
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named('id')();
+  IntColumn get waveGroupId => integer().named('wave_group_id')();
+  IntColumn get enemyId1 => integer().named('enemy_id_1')();
+  IntColumn get enemyId2 => integer().named('enemy_id_2')();
+  IntColumn get enemyId3 => integer().named('enemy_id_3')();
+  IntColumn get enemyId4 => integer().named('enemy_id_4')();
+  IntColumn get enemyId5 => integer().named('enemy_id_5')();
+}
+
+class AbyssSchedule extends Table {
+  @override
+  String get tableName => 'abyss_schedule';
+  @override
+  Set<Column> get primaryKey => {abyssId};
+
+  IntColumn get abyssId => integer().named('abyss_id')();
+  TextColumn get title => text().named('title')();
+  IntColumn get talentId => integer().named('talent_id')();
+  TextColumn get startTime => text().named('start_time')();
+  TextColumn get endTime => text().named('end_time')();
+  IntColumn get bossTicketId => integer().named('boss_ticket_id')();
+}
+
+class AbyssBossData extends Table {
+  @override
+  String get tableName => 'abyss_boss_data';
+  @override
+  Set<Column> get primaryKey => {bossId};
+
+  IntColumn get abyssId => integer().named('abyss_id')();
+  IntColumn get bossId => integer().named('boss_id')();
+  IntColumn get difficulty => integer().named('difficulty')();
+  IntColumn get waveGroupId => integer().named('wave_group_id')();
+}
+
+class AbyssWaveGroupData extends Table {
+  @override
+  String get tableName => 'abyss_wave_group_data';
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named('id')();
+  IntColumn get waveGroupId => integer().named('wave_group_id')();
+  IntColumn get enemyId1 => integer().named('enemy_id_1')();
+  IntColumn get enemyId2 => integer().named('enemy_id_2')();
+  IntColumn get enemyId3 => integer().named('enemy_id_3')();
+  IntColumn get enemyId4 => integer().named('enemy_id_4')();
+  IntColumn get enemyId5 => integer().named('enemy_id_5')();
+}
+
+class TalentQuestBattleEffect extends Table {
+  @override
+  String get tableName => 'talent_quest_battle_effect';
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named('id')();
+  IntColumn get questId => integer().named('quest_id')();
+  TextColumn get effectName => text().named('effect_name')();
+  TextColumn get description => text().named('description')();
+  TextColumn get iconName => text().named('icon_name')();
+}
+
+class AbyssBattleEffect extends Table {
+  @override
+  String get tableName => 'abyss_battle_effect';
+  @override
+  Set<Column> get primaryKey => {id};
+
+  IntColumn get id => integer().named('id')();
+  IntColumn get questId => integer().named('quest_id')();
+  TextColumn get effectName => text().named('effect_name')();
+  TextColumn get description => text().named('description')();
+  TextColumn get iconName => text().named('icon_name')();
+}
+
+class AbyssEnemyParameter extends Table {
+  @override
+  String get tableName => 'abyss_enemy_parameter';
+  @override
+  Set<Column> get primaryKey => {enemyId};
+
+  IntColumn get enemyId => integer().named('enemy_id')();
+  IntColumn get unitId => integer().named('unit_id')();
+  TextColumn get name => text().named('name')();
+  IntColumn get level => integer().named('level')();
+  IntColumn get rarity => integer().named('rarity')();
+  IntColumn get promotionLevel => integer().named('promotion_level')();
+  IntColumn get hp => integer().named('hp')();
+  IntColumn get atk => integer().named('atk')();
+  IntColumn get magicStr => integer().named('magic_str')();
+  RealColumn get def_ => real().named('def')();
+  IntColumn get magicDef => integer().named('magic_def')();
+  IntColumn get physicalCritical => integer().named('physical_critical')();
+  IntColumn get magicCritical => integer().named('magic_critical')();
+  IntColumn get waveHpRecovery => integer().named('wave_hp_recovery')();
+  IntColumn get waveEnergyRecovery => integer().named('wave_energy_recovery')();
+  IntColumn get dodge => integer().named('dodge')();
+  IntColumn get physicalPenetrate => integer().named('physical_penetrate')();
+  IntColumn get magicPenetrate => integer().named('magic_penetrate')();
+  IntColumn get lifeSteal => integer().named('life_steal')();
+  IntColumn get hpRecoveryRate => integer().named('hp_recovery_rate')();
+  IntColumn get energyRecoveryRate => integer().named('energy_recovery_rate')();
+  IntColumn get energyReduceRate => integer().named('energy_reduce_rate')();
+  IntColumn get unionBurstLevel => integer().named('union_burst_level')();
+  IntColumn get mainSkillLv1 => integer().named('main_skill_lv_1')();
+  IntColumn get mainSkillLv2 => integer().named('main_skill_lv_2')();
+  IntColumn get mainSkillLv3 => integer().named('main_skill_lv_3')();
+  IntColumn get mainSkillLv4 => integer().named('main_skill_lv_4')();
+  IntColumn get mainSkillLv5 => integer().named('main_skill_lv_5')();
+  IntColumn get mainSkillLv6 => integer().named('main_skill_lv_6')();
+  IntColumn get mainSkillLv7 => integer().named('main_skill_lv_7')();
+  IntColumn get mainSkillLv8 => integer().named('main_skill_lv_8')();
+  IntColumn get mainSkillLv9 => integer().named('main_skill_lv_9')();
+  IntColumn get mainSkillLv10 => integer().named('main_skill_lv_10')();
+  IntColumn get exSkillLv1 => integer().named('ex_skill_lv_1')();
+  IntColumn get exSkillLv2 => integer().named('ex_skill_lv_2')();
+  IntColumn get exSkillLv3 => integer().named('ex_skill_lv_3')();
+  IntColumn get exSkillLv4 => integer().named('ex_skill_lv_4')();
+  IntColumn get exSkillLv5 => integer().named('ex_skill_lv_5')();
+  IntColumn get resistStatusId => integer().named('resist_status_id')();
+  IntColumn get resistVariationId => integer().named('resist_variation_id')();
+  IntColumn get accuracy => integer().named('accuracy')();
+  IntColumn get breakDurability => integer().named('break_durability')();
+  IntColumn get uniqueEquipmentFlag1 =>
+      integer().named('unique_equipment_flag_1')();
+  IntColumn get virtualHp => integer().named('virtual_hp')();
 }

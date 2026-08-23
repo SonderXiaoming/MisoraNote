@@ -60,8 +60,7 @@ class FetchUrl {
   static String dbInfo(Area area) =>
       "$priconneDatabaseBase/api/databases?region=${area.name}";
 
-  static String db(Area area) =>
-      "${dbInfo(area)}&download=1";
+  static String db(Area area) => "${dbInfo(area)}&download=1";
 
   static String teaser(Area area, int teaserId) =>
       "${FetchUrl.wtheeBase}/redive/${area.name}/resource/event/teaser/$teaserId.webp";
@@ -122,6 +121,9 @@ class AppRoutes {
   static const uniqueEquipList = '/uniqueEquipList';
   static const characterBond = '/characterBond';
   static const deepZone = '/deepZone';
+  static const dungeonBoss = '/dungeonBoss';
+  static const remembranceBattlefield = '/remembranceBattlefield';
+  static const abyssRaid = '/abyssRaid';
 }
 
 class UniqueEquipRouteArguments {

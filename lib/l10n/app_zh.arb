@@ -28,6 +28,16 @@
   "unique_equip_desc": "查看专武说明与满级属性",
   "deep_zone": "深域关卡",
   "deep_zone_desc": "按属性查看关卡奖励与敌方阵容",
+  "dungeon_boss": "地下城 Boss",
+  "dungeon_boss_desc": "查看各地下城最终 Boss 的属性与技能",
+  "remembrance_battlefield": "追忆战域",
+  "remembrance_battlefield_desc": "查看追忆战 Boss、难度与敌方阵容",
+  "abyss_raid": "深渊讨伐战",
+  "abyss_raid_desc": "按期次查看 Boss、难度与额外效果",
+  "extra_effect": "额外效果",
+  "no_extra_effect": "该关卡没有额外效果数据",
+  "no_battle_query_data": "数据库中没有该玩法的查询数据",
+  "no_enemy_data": "没有敌人数据",
   "stellar_shard_count": "星素碎片*{arg1}",
   "@stellar_shard_count": {
     "placeholders": {

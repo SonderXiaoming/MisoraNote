@@ -482,6 +482,59 @@ class AllUnitParameter {
     );
   }
 
+  static AllUnitParameter? fromAbyssEnemyParameter(
+    AbyssEnemyParameterData? data,
+  ) {
+    if (data == null) return null;
+    return AllUnitParameter(
+      enemyId: data.enemyId,
+      unitId: data.unitId,
+      name: data.name,
+      level: data.level,
+      rarity: data.rarity,
+      promotionLevel: data.promotionLevel,
+      hp: data.hp,
+      atk: data.atk,
+      magicStr: data.magicStr,
+      def_: data.def_,
+      magicDef: data.magicDef,
+      physicalCritical: data.physicalCritical,
+      magicCritical: data.magicCritical,
+      waveHpRecovery: data.waveHpRecovery,
+      waveEnergyRecovery: data.waveEnergyRecovery,
+      dodge: data.dodge,
+      physicalPenetrate: data.physicalPenetrate,
+      magicPenetrate: data.magicPenetrate,
+      lifeSteal: data.lifeSteal,
+      hpRecoveryRate: data.hpRecoveryRate,
+      energyRecoveryRate: data.energyRecoveryRate,
+      energyReduceRate: data.energyReduceRate,
+      unionBurstLevel: data.unionBurstLevel,
+      mainSkillLv1: data.mainSkillLv1,
+      mainSkillLv2: data.mainSkillLv2,
+      mainSkillLv3: data.mainSkillLv3,
+      mainSkillLv4: data.mainSkillLv4,
+      mainSkillLv5: data.mainSkillLv5,
+      mainSkillLv6: data.mainSkillLv6,
+      mainSkillLv7: data.mainSkillLv7,
+      mainSkillLv8: data.mainSkillLv8,
+      mainSkillLv9: data.mainSkillLv9,
+      mainSkillLv10: data.mainSkillLv10,
+      exSkillLv1: data.exSkillLv1,
+      exSkillLv2: data.exSkillLv2,
+      exSkillLv3: data.exSkillLv3,
+      exSkillLv4: data.exSkillLv4,
+      exSkillLv5: data.exSkillLv5,
+      resistStatusId: data.resistStatusId,
+      resistVariationId: data.resistVariationId,
+      accuracy: data.accuracy,
+      breakDurability: data.breakDurability,
+      uniqueEquipmentFlag1: data.uniqueEquipmentFlag1,
+      virtualHp: data.virtualHp,
+      enemyColor: 0,
+    );
+  }
+
   static AllUnitParameter? fromTowerEnemyParameter(
     TowerEnemyParameterData? data,
   ) {

@@ -46,3 +46,6 @@ app.*.map.json
 
 *.db
 dist/*
+
+# Tests are kept locally but are not committed.
+/test/

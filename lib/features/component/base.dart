@@ -220,6 +220,8 @@ enum EnemyType {
   all,
   normal,
   event,
+  abyss,
+  mirage,
   tower,
   shiori,
   sre,
@@ -236,12 +238,16 @@ enum EnemyType {
         return '普通敌人';
       case EnemyType.event:
         return '活动敌人';
+      case EnemyType.abyss:
+        return '深渊讨伐战敌人';
+      case EnemyType.mirage:
+        return '追忆战敌人';
       case EnemyType.tower:
         return '塔敌人';
       case EnemyType.shiori:
         return '诗穗敌人';
       case EnemyType.sre:
-        return 'SRE敌人';
+        return '追忆战域敌人';
       case EnemyType.sekai:
         return '次元断层敌人';
       case EnemyType.seven:

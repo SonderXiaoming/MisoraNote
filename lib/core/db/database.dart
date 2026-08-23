@@ -14,6 +14,11 @@ final kannaIds = [170101, 170201];
 const enemyParameterTables = <EnemyType, ({String tableName, String idColumn})>{
   EnemyType.normal: (tableName: 'enemy_parameter', idColumn: 'enemy_id'),
   EnemyType.event: (tableName: 'event_enemy_parameter', idColumn: 'enemy_id'),
+  EnemyType.abyss: (tableName: 'abyss_enemy_parameter', idColumn: 'enemy_id'),
+  EnemyType.mirage: (
+    tableName: 'mirage_enemy_parameter',
+    idColumn: 'enemy_id',
+  ),
   EnemyType.talentQuest: (
     tableName: 'talent_quest_enemy_parameter',
     idColumn: 'enemy_id',
@@ -75,6 +80,19 @@ const enemyParameterTables = <EnemyType, ({String tableName, String idColumn})>{
     TalentQuestClearReward04,
     TalentQuestClearReward05,
     TalentQuestWaveGroupData,
+    TalentQuestBattleEffect,
+    DungeonArea,
+    DungeonQuestData,
+    DungeonSpecialBattle,
+    DungeonPatternBattle,
+    SreBossData,
+    SreQuestDifficultyData,
+    SreWaveGroupData,
+    AbyssSchedule,
+    AbyssBossData,
+    AbyssWaveGroupData,
+    AbyssEnemyParameter,
+    AbyssBattleEffect,
     GachaData,
     GachaExchangeLineup,
   ],
@@ -94,7 +112,6 @@ class AppDb extends _$AppDb {
       super(NativeDatabase(File(sqliteFile)));
 
   Future<void> init() async {
-    await ensureSkillColumns();
     unitNum = (await getUnitsData()).length;
     exCharacter = await getExUnitsList();
     maxUniqueEquipLv = (
@@ -108,38 +125,6 @@ class AppDb extends _$AppDb {
     unique2Units = (await getallUniqueEquip(
       slot: 2,
     )).map((e) => e.unitId).toSet().toList();
-  }
-
-  /// New skill columns reach the three regional databases at different times.
-  /// Keep downloaded older databases queryable while exposing the newest data.
-  Future<void> ensureSkillColumns() async {
-    final unitSkillColumns = await _tableColumns('unit_skill_data');
-    if (!unitSkillColumns.contains('main_skill_evolution_1_pro')) {
-      await customStatement(
-        'ALTER TABLE unit_skill_data '
-        'ADD COLUMN main_skill_evolution_1_pro INTEGER DEFAULT 0',
-      );
-    }
-    if (!unitSkillColumns.contains('sp_skill_evolution_1_pro')) {
-      await customStatement(
-        'ALTER TABLE unit_skill_data '
-        'ADD COLUMN sp_skill_evolution_1_pro INTEGER DEFAULT 0',
-      );
-    }
-
-    final skillColumns = await _tableColumns('skill_data');
-    for (var index = 11; index <= 20; index++) {
-      if (!skillColumns.contains('action_$index')) {
-        await customStatement(
-          'ALTER TABLE skill_data ADD COLUMN action_$index INTEGER',
-        );
-      }
-      if (!skillColumns.contains('depend_action_$index')) {
-        await customStatement(
-          'ALTER TABLE skill_data ADD COLUMN depend_action_$index INTEGER',
-        );
-      }
-    }
   }
 
   Future<Set<String>> _tableColumns(String tableName) async {
@@ -655,9 +640,7 @@ class AppDb extends _$AppDb {
               ])
               ..where(unitData.unitId.isSmallerThanValue(maxUnitId))
               ..where(unitData.searchAreaWidth.isBiggerThanValue(0))
-              ..orderBy([
-                OrderingTerm.asc(unitData.unitId),
-              ]))
+              ..orderBy([OrderingTerm.asc(unitData.unitId)]))
             .get();
 
     final byDate = <String, List<int>>{};
@@ -974,10 +957,11 @@ class AppDb extends _$AppDb {
 
   Future<int> getUnitRoleId(int unitId) async {
     if (!(await _databaseTables()).contains('unit_role_data')) return 0;
-    final row = await (select(unitRoleData)
-          ..where((table) => table.unitId.equals(unitId))
-          ..limit(1))
-        .getSingleOrNull();
+    final row =
+        await (select(unitRoleData)
+              ..where((table) => table.unitId.equals(unitId))
+              ..limit(1))
+            .getSingleOrNull();
     return row?.unitRoleId ?? 0;
   }
 
@@ -1064,10 +1048,7 @@ class AppDb extends _$AppDb {
 
     // SQLite does not preserve the order of values in an IN expression. Skill
     // action dependencies refer to their declared order, so restore it here.
-    return [
-      for (final actionId in validActionIds)
-        if (actionById[actionId] case final action?) action,
-    ];
+    return [for (final actionId in validActionIds) ?actionById[actionId]];
   }
 
   Future<List<UnitAttackPatternData>> getAttackPattern(int unitId) async {
@@ -1078,7 +1059,7 @@ class AppDb extends _$AppDb {
 
   Future<SpSkillLabelDataData?> getSpSkillLabel(int unitId) => (select(
     spSkillLabelData,
-  )..where((t) => t.unitId.equals(unitId))).getSingleOrNull();
+  )..where((table) => table.unitId.equals(unitId))).getSingleOrNull();
 
   Future<UnitSkillDataRFData?> getRfSkillId(int skillId) async {
     final query = select(unitSkillDataRF)
@@ -1145,10 +1126,7 @@ class AppDb extends _$AppDb {
             unitUniqueEquipment.equipId,
           ),
         ),
-        leftOuterJoin(
-          unitTalent,
-          unitTalent.unitId.equalsExp(unitData.unitId),
-        ),
+        leftOuterJoin(unitTalent, unitTalent.unitId.equalsExp(unitData.unitId)),
         leftOuterJoin(
           unitRoleData,
           unitRoleData.unitId.equalsExp(unitData.unitId),
@@ -1195,32 +1173,32 @@ class AppDb extends _$AppDb {
     final talentExpression = CustomExpression<int>(
       '${talentQuestData.tableName}.${talentQuestData.areaId.name} / 1000 % 10',
     );
-    final quests = await (select(talentQuestData)
-          ..where((_) => talentExpression.equals(talentId))
-          ..orderBy([(row) => OrderingTerm.desc(row.questId)]))
-        .get();
+    final quests =
+        await (select(talentQuestData)
+              ..where((_) => talentExpression.equals(talentId))
+              ..orderBy([(row) => OrderingTerm.desc(row.questId)]))
+            .get();
     if (quests.isEmpty) return const [];
 
     final stageByRewardGroup = {
-      for (final quest in quests)
-        quest.clearRewardGroup: quest.questId % 1000,
+      for (final quest in quests) quest.clearRewardGroup: quest.questId % 1000,
     };
     final rewardGroupIds = stageByRewardGroup.keys.toList(growable: false);
-    final rewardRows01 = await (select(talentQuestClearReward01)
-          ..where((row) => row.rewardGroupId.isIn(rewardGroupIds)))
-        .get();
-    final rewardRows02 = await (select(talentQuestClearReward02)
-          ..where((row) => row.rewardGroupId.isIn(rewardGroupIds)))
-        .get();
-    final rewardRows03 = await (select(talentQuestClearReward03)
-          ..where((row) => row.rewardGroupId.isIn(rewardGroupIds)))
-        .get();
-    final rewardRows04 = await (select(talentQuestClearReward04)
-          ..where((row) => row.rewardGroupId.isIn(rewardGroupIds)))
-        .get();
-    final rewardRows05 = await (select(talentQuestClearReward05)
-          ..where((row) => row.rewardGroupId.isIn(rewardGroupIds)))
-        .get();
+    final rewardRows01 = await (select(
+      talentQuestClearReward01,
+    )..where((row) => row.rewardGroupId.isIn(rewardGroupIds))).get();
+    final rewardRows02 = await (select(
+      talentQuestClearReward02,
+    )..where((row) => row.rewardGroupId.isIn(rewardGroupIds))).get();
+    final rewardRows03 = await (select(
+      talentQuestClearReward03,
+    )..where((row) => row.rewardGroupId.isIn(rewardGroupIds))).get();
+    final rewardRows04 = await (select(
+      talentQuestClearReward04,
+    )..where((row) => row.rewardGroupId.isIn(rewardGroupIds))).get();
+    final rewardRows05 = await (select(
+      talentQuestClearReward05,
+    )..where((row) => row.rewardGroupId.isIn(rewardGroupIds))).get();
     final rewardsByStage = <int, (int, int)>{};
 
     void mergeReward(int rewardGroupId, int rewardNum2, int rewardNum3) {
@@ -1250,9 +1228,9 @@ class AppDb extends _$AppDb {
     }
 
     final waveIds = quests.map((quest) => quest.waveGroupId1).toSet();
-    final waves = await (select(talentQuestWaveGroupData)
-          ..where((row) => row.waveGroupId.isIn(waveIds)))
-        .get();
+    final waves = await (select(
+      talentQuestWaveGroupData,
+    )..where((row) => row.waveGroupId.isIn(waveIds))).get();
     final waveById = {for (final wave in waves) wave.waveGroupId: wave};
     final enemyIds = waves
         .expand(
@@ -1268,9 +1246,9 @@ class AppDb extends _$AppDb {
         .toSet();
     final enemyRows = enemyIds.isEmpty
         ? const <TalentQuestEnemyParameterData>[]
-        : await (select(talentQuestEnemyParameter)
-              ..where((row) => row.enemyId.isIn(enemyIds)))
-            .get();
+        : await (select(
+            talentQuestEnemyParameter,
+          )..where((row) => row.enemyId.isIn(enemyIds))).get();
     final unitIdByEnemyId = {
       for (final enemy in enemyRows) enemy.enemyId: enemy.unitId,
     };
@@ -1299,32 +1277,643 @@ class AppDb extends _$AppDb {
     ];
   }
 
+  Future<List<BattleEffectData>> getBattleEffects(
+    BattleEffectType type,
+    int questId,
+  ) async {
+    if (type == BattleEffectType.mirage) return const [];
+    final tableName = switch (type) {
+      BattleEffectType.talentQuest => talentQuestBattleEffect.tableName,
+      BattleEffectType.abyss => abyssBattleEffect.tableName,
+      BattleEffectType.mirage => '',
+    };
+    if (!(await _databaseTables()).contains(tableName)) return const [];
+    return switch (type) {
+      BattleEffectType.talentQuest => [
+        for (final effect
+            in await (select(talentQuestBattleEffect)
+                  ..where((row) => row.questId.equals(questId))
+                  ..orderBy([(row) => OrderingTerm.asc(row.id)]))
+                .get())
+          BattleEffectData(
+            id: effect.id,
+            name: effect.effectName,
+            description: effect.description,
+            iconName: effect.iconName,
+          ),
+      ],
+      BattleEffectType.abyss => [
+        for (final effect
+            in await (select(abyssBattleEffect)
+                  ..where((row) => row.questId.equals(questId))
+                  ..orderBy([(row) => OrderingTerm.asc(row.id)]))
+                .get())
+          BattleEffectData(
+            id: effect.id,
+            name: effect.effectName,
+            description: effect.description,
+            iconName: effect.iconName,
+          ),
+      ],
+      BattleEffectType.mirage => const [],
+    };
+  }
+
+  /// Returns the enemies injected into a battle to execute its extra effects.
+  ///
+  /// The localized `*_battle_effect` tables are display summaries only. The
+  /// actual battle setup is stored in `extra_effect_data`, keyed by the wave
+  /// group and pointing at otherwise invisible enemy parameters.
+  Future<List<int>> getBattleEffectEnemyIds(
+    BattleEffectType type,
+    int questId,
+  ) async {
+    final tables = await _databaseTables();
+    if (!tables.contains('extra_effect_data')) return const [];
+
+    final waveGroupIds = <int>[];
+    late final int contentType;
+    switch (type) {
+      case BattleEffectType.talentQuest:
+        contentType = 43;
+        if (!tables.contains('talent_quest_data')) return const [];
+        final quest = await (select(
+          talentQuestData,
+        )..where((row) => row.questId.equals(questId))).getSingleOrNull();
+        if (quest != null && quest.waveGroupId1 != 0) {
+          waveGroupIds.add(quest.waveGroupId1);
+        }
+      case BattleEffectType.abyss:
+        contentType = 47;
+        if (!tables.contains('abyss_boss_data')) return const [];
+        final boss = await (select(
+          abyssBossData,
+        )..where((row) => row.bossId.equals(questId))).getSingleOrNull();
+        if (boss != null && boss.waveGroupId != 0) {
+          waveGroupIds.add(boss.waveGroupId);
+        }
+      case BattleEffectType.mirage:
+        if (!tables.containsAll({
+          'mirage_floor_quest',
+          'mirage_nemesis_quest',
+        })) {
+          return const [];
+        }
+        final quest = await customSelect(
+          'SELECT wave_group_id, 54 AS content_type '
+          'FROM mirage_floor_quest WHERE quest_id = ? '
+          'UNION ALL '
+          'SELECT wave_group_id, 55 AS content_type '
+          'FROM mirage_nemesis_quest WHERE quest_id = ? '
+          'LIMIT 1',
+          variables: [Variable<int>(questId), Variable<int>(questId)],
+        ).getSingleOrNull();
+        if (quest == null) return const [];
+        final waveGroupId = quest.read<int>('wave_group_id');
+        if (waveGroupId != 0) waveGroupIds.add(waveGroupId);
+        contentType = quest.read<int>('content_type');
+    }
+    if (waveGroupIds.isEmpty) return const [];
+
+    final placeholders = List.filled(waveGroupIds.length, '?').join(', ');
+    final rows = await customSelect(
+      'SELECT enemy_id_1, enemy_id_2, enemy_id_3, enemy_id_4, enemy_id_5 '
+      'FROM extra_effect_data '
+      'WHERE target_value_1 IN ($placeholders) AND content_type = ?',
+      variables: [
+        ...waveGroupIds.map(Variable<int>.new),
+        Variable<int>(contentType),
+      ],
+    ).get();
+    final result = <int>{};
+    for (final row in rows) {
+      for (var index = 1; index <= 5; index++) {
+        final enemyId = (row.data['enemy_id_$index'] as num?)?.toInt() ?? 0;
+        if (enemyId != 0) result.add(enemyId);
+      }
+    }
+    return result.toList(growable: false);
+  }
+
+  Future<List<BattleQueryGroup>> getBattleQueryGroups(BattleQueryType type) =>
+      switch (type) {
+        BattleQueryType.dungeon => _getDungeonBossGroups(),
+        BattleQueryType.remembrance => _getRemembranceGroups(),
+        BattleQueryType.abyss => _getAbyssGroups(),
+      };
+
+  Future<List<BattleQueryGroup>> _getDungeonBossGroups() async {
+    final tables = await _databaseTables();
+    if (!tables.containsAll({
+      'dungeon_area',
+      'dungeon_quest_data',
+      'wave_group_data',
+      'enemy_parameter',
+    })) {
+      return const [];
+    }
+    final quests = await select(dungeonQuestData).get();
+    final finalQuests = <int, DungeonQuestDataData>{};
+    for (final quest in quests) {
+      final previous = finalQuests[quest.dungeonAreaId];
+      if (previous == null || quest.floorNum > previous.floorNum) {
+        finalQuests[quest.dungeonAreaId] = quest;
+      }
+    }
+    if (finalQuests.isEmpty) return const [];
+    final finalQuestIds = finalQuests.values
+        .map((quest) => quest.questId)
+        .toSet();
+    final waveIdsByQuest = <int, List<int>>{
+      for (final quest in finalQuests.values)
+        quest.questId: [if (quest.waveGroupId != 0) quest.waveGroupId],
+    };
+    if (tables.contains('dungeon_special_battle')) {
+      final battles =
+          await (select(dungeonSpecialBattle)
+                ..where((row) => row.questId.isIn(finalQuestIds))
+                ..orderBy([(row) => OrderingTerm.asc(row.specialBattleId)]))
+              .get();
+      for (final battle in battles) {
+        final waveIds = waveIdsByQuest[battle.questId];
+        if (waveIds != null && !waveIds.contains(battle.waveGroupId)) {
+          waveIds.add(battle.waveGroupId);
+        }
+      }
+    }
+    if (tables.contains('dungeon_pattern_battle')) {
+      final battles =
+          await (select(dungeonPatternBattle)
+                ..where((row) => row.questId.isIn(finalQuestIds))
+                ..orderBy([(row) => OrderingTerm.asc(row.id)]))
+              .get();
+      for (final battle in battles) {
+        final waveIds = waveIdsByQuest[battle.questId];
+        if (waveIds != null && !waveIds.contains(battle.waveGroupId)) {
+          waveIds.add(battle.waveGroupId);
+        }
+      }
+    }
+    final allWaveIds = waveIdsByQuest.values.expand((ids) => ids).toSet();
+    final waves = await (select(
+      waveGroupData,
+    )..where((row) => row.waveGroupId.isIn(allWaveIds))).get();
+    final wavesById = {for (final wave in waves) wave.waveGroupId: wave};
+    final enemyIds = waves.expand(_waveEnemyIds).toSet();
+    final enemyRows = await (select(
+      enemyParameter,
+    )..where((row) => row.enemyId.isIn(enemyIds))).get();
+    final enemiesById = {for (final enemy in enemyRows) enemy.enemyId: enemy};
+    final weaknessByEnemyId = await _battleWeaknesses(enemyIds, tables);
+    final areaRows = await (select(
+      dungeonArea,
+    )..where((row) => row.dungeonAreaId.isIn(finalQuests.keys))).get();
+    final areasById = {for (final area in areaRows) area.dungeonAreaId: area};
+    final difficultyQuests = finalQuests.values.toList()
+      ..sort((a, b) => a.dungeonAreaId.compareTo(b.dungeonAreaId));
+    final difficultyByArea = <int, ({String label, List<String> aliases})>{
+      for (var index = 0; index < difficultyQuests.length; index++)
+        difficultyQuests[index].dungeonAreaId: _dungeonDifficulty(index),
+    };
+    final sortedQuests = difficultyQuests.toList()
+      ..sort((a, b) => b.dungeonAreaId.compareTo(a.dungeonAreaId));
+    return [
+      for (final quest in sortedQuests)
+        if (areasById[quest.dungeonAreaId] case final area?)
+          BattleQueryGroup(
+            id: quest.dungeonAreaId,
+            name: area.dungeonName,
+            subtitle: difficultyByArea[quest.dungeonAreaId]!.label,
+            aliases: difficultyByArea[quest.dungeonAreaId]!.aliases,
+            stages: _dungeonFormStages(
+              quest: quest,
+              difficulty: difficultyByArea[quest.dungeonAreaId]!,
+              waveIds: waveIdsByQuest[quest.questId] ?? const [],
+              wavesById: wavesById,
+              enemiesById: enemiesById,
+              weaknessByEnemyId: weaknessByEnemyId,
+            ),
+          ),
+    ];
+  }
+
+  Future<List<BattleQueryGroup>> _getRemembranceGroups() async {
+    final tables = await _databaseTables();
+    if (!tables.containsAll({
+      'mirage_floor_quest',
+      'mirage_floor_quest_display',
+      'mirage_floor_setting',
+      'mirage_nemesis_area',
+      'mirage_nemesis_quest',
+      'mirage_nemesis_quest_display',
+      'mirage_wave_group_data',
+      'mirage_enemy_parameter',
+    })) {
+      return const [];
+    }
+    final floorRows = [
+      for (final row
+          in await customSelect('''
+            SELECT q.quest_id, q.wave_group_id, d.quest_name, s.floor_num,
+                   e.enemy_id, e.unit_id, e.name AS enemy_name, e.level, e.hp
+            FROM mirage_floor_quest AS q
+            JOIN mirage_floor_quest_display AS d USING (quest_id)
+            JOIN mirage_floor_setting AS s USING (quest_id)
+            JOIN mirage_wave_group_data AS w
+              ON w.wave_group_id = q.wave_group_id
+            JOIN mirage_enemy_parameter AS e ON e.enemy_id = w.enemy_id_1
+            ORDER BY s.floor_num DESC
+          ''').get())
+        row.data,
+    ];
+    final nemesisRows = [
+      for (final row
+          in await customSelect('''
+            SELECT q.quest_id, q.nemesis_id, q.area_level,
+                   q.wave_group_id, q.release_time, d.quest_name,
+                   a.nemesis_area_name,
+                   e.enemy_id, e.unit_id, e.name AS enemy_name, e.level, e.hp
+            FROM mirage_nemesis_quest AS q
+            JOIN mirage_nemesis_quest_display AS d USING (quest_id)
+            JOIN mirage_nemesis_area AS a USING (nemesis_id)
+            JOIN mirage_wave_group_data AS w
+              ON w.wave_group_id = q.wave_group_id
+            JOIN mirage_enemy_parameter AS e ON e.enemy_id = w.enemy_id_1
+            ORDER BY a.release_time DESC, q.area_level DESC
+          ''').get())
+        row.data,
+    ];
+    final enemyIds = {
+      for (final row in [...floorRows, ...nemesisRows]) _rowInt(row, 'enemy_id'),
+    }..remove(0);
+    final weaknessByEnemyId = await _battleWeaknesses(enemyIds, tables);
+
+    BattleQueryStage stageFromRow(
+      Map<String, Object?> row, {
+      required int floor,
+    }) {
+      final questId = _rowInt(row, 'quest_id');
+      final enemyId = _rowInt(row, 'enemy_id');
+      return BattleQueryStage(
+        id: questId,
+        bossKey: questId,
+        bossName: row['quest_name'] as String? ?? '第$floor层',
+        label: '第$floor层',
+        difficulty: floor,
+        effectQuestId: questId,
+        enemies: [
+          _battleEnemy(
+            enemyId: enemyId,
+            unitId: _rowInt(row, 'unit_id'),
+            name: row['enemy_name'] as String? ?? '',
+            level: _rowInt(row, 'level'),
+            hp: _rowInt(row, 'hp'),
+            type: EnemyType.mirage,
+            weaknessTalentIds: weaknessByEnemyId[enemyId] ?? const [],
+          ),
+        ],
+      );
+    }
+
+    final groups = <BattleQueryGroup>[];
+    if (floorRows.isNotEmpty) {
+      final stages = [
+        for (final row in floorRows)
+          stageFromRow(row, floor: _rowInt(row, 'floor_num')),
+      ];
+      groups.add(
+        BattleQueryGroup(
+          id: 75000000,
+          name: _mirageAreaName(stages.first.bossName),
+          subtitle: '追忆战 · 极 · ${stages.length}层',
+          aliases: [
+            '极',
+            '追忆战',
+            for (final row in floorRows) row['enemy_name'] as String? ?? '',
+          ],
+          stages: stages,
+        ),
+      );
+    }
+
+    final rowsByNemesis = <int, List<Map<String, Object?>>>{};
+    for (final row in nemesisRows) {
+      rowsByNemesis
+          .putIfAbsent(_rowInt(row, 'nemesis_id'), () => [])
+          .add(row);
+    }
+    for (final entry in rowsByNemesis.entries) {
+      final stages = [
+        for (final row in entry.value)
+          stageFromRow(row, floor: _rowInt(row, 'area_level')),
+      ];
+      groups.add(
+        BattleQueryGroup(
+          id: 76000000 + entry.key,
+          name:
+              entry.value.first['nemesis_area_name'] as String? ??
+              _mirageAreaName(stages.first.bossName),
+          subtitle: '追忆战 · 霸 · ${stages.length}层',
+          aliases: [
+            '霸',
+            '追忆战霸',
+            for (final row in entry.value) row['enemy_name'] as String? ?? '',
+          ],
+          stages: stages,
+        ),
+      );
+    }
+    return groups;
+  }
+
+  Future<List<BattleQueryGroup>> _getAbyssGroups() async {
+    final tables = await _databaseTables();
+    if (!tables.containsAll({
+      'abyss_schedule',
+      'abyss_boss_data',
+      'abyss_wave_group_data',
+      'abyss_enemy_parameter',
+    })) {
+      return const [];
+    }
+    final scheduleRows = await (select(
+      abyssSchedule,
+    )..orderBy([(row) => OrderingTerm.desc(row.startTime)])).get();
+    final bossRows =
+        await (select(abyssBossData)..orderBy([
+              (row) => OrderingTerm.desc(row.abyssId),
+              (row) => OrderingTerm.asc(row.bossId),
+            ]))
+            .get();
+    final waveIds = bossRows.map((row) => row.waveGroupId).toSet();
+    final waveRows = await (select(
+      abyssWaveGroupData,
+    )..where((row) => row.waveGroupId.isIn(waveIds))).get();
+    final enemyIds = waveRows.expand(_abyssWaveEnemyIds).toSet();
+    final enemyRows = await (select(
+      abyssEnemyParameter,
+    )..where((row) => row.enemyId.isIn(enemyIds))).get();
+    final enemies = {for (final row in enemyRows) row.enemyId: row};
+    final weaknessByEnemyId = await _battleWeaknesses(enemyIds, tables);
+    final waves = {for (final row in waveRows) row.waveGroupId: row};
+    final bossesByAbyss = <int, List<AbyssBossDataData>>{};
+    for (final boss in bossRows) {
+      bossesByAbyss.putIfAbsent(boss.abyssId, () => []).add(boss);
+    }
+    return [
+      for (final schedule in scheduleRows)
+        if (bossesByAbyss[schedule.abyssId] case final bosses?)
+          BattleQueryGroup(
+            id: schedule.abyssId,
+            name: schedule.title,
+            subtitle: _battleDateRange(schedule.startTime, schedule.endTime),
+            aliases: [
+              schedule.startTime,
+              schedule.endTime,
+              schedule.abyssId.toString(),
+            ],
+            talentIds: [if (schedule.talentId != 0) schedule.talentId],
+            stages: [
+              for (final boss in bosses)
+                BattleQueryStage(
+                  id: boss.bossId,
+                  bossKey: (boss.bossId ~/ 100) % 10,
+                  bossName:
+                      _abyssBossName(boss, waves, enemies) ??
+                      'Boss ${(boss.bossId ~/ 100) % 10}',
+                  label: _standardDifficulty(boss.difficulty),
+                  difficulty: boss.difficulty,
+                  effectQuestId: boss.bossId,
+                  enemies: [
+                    if (waves[boss.waveGroupId] case final wave?)
+                      for (final enemyId in _abyssWaveEnemyIds(wave))
+                        if (enemies[enemyId] case final enemyRow?)
+                          _battleEnemy(
+                            enemyId: enemyRow.enemyId,
+                            unitId: enemyRow.unitId,
+                            name: enemyRow.name,
+                            level: enemyRow.level,
+                            hp: enemyRow.hp,
+                            type: EnemyType.abyss,
+                            weaknessTalentIds:
+                                weaknessByEnemyId[enemyRow.enemyId] ?? const [],
+                          ),
+                  ],
+                ),
+            ],
+          ),
+    ];
+  }
+
+  List<BattleQueryStage> _dungeonFormStages({
+    required DungeonQuestDataData quest,
+    required ({String label, List<String> aliases}) difficulty,
+    required List<int> waveIds,
+    required Map<int, WaveGroupDataData> wavesById,
+    required Map<int, EnemyParameterData> enemiesById,
+    required Map<int, List<int>> weaknessByEnemyId,
+  }) {
+    final forms = <({int waveId, List<BattleQueryEnemy> enemies})>[];
+    final signatures = <String>{};
+    for (final waveId in waveIds) {
+      final wave = wavesById[waveId];
+      if (wave == null) continue;
+      final enemies = _uniqueBattleEnemies([
+        for (final enemyId in _waveEnemyIds(wave))
+          if (enemiesById[enemyId] case final enemy?)
+            _battleEnemy(
+              enemyId: enemy.enemyId,
+              unitId: enemy.unitId,
+              name: enemy.name,
+              level: enemy.level,
+              hp: enemy.hp,
+              type: EnemyType.normal,
+              weaknessTalentIds:
+                  weaknessByEnemyId[enemy.enemyId] ?? const [],
+            ),
+      ]);
+      if (enemies.isEmpty) continue;
+      final signature = enemies.map((enemy) => enemy.enemyId).join(',');
+      if (signatures.add(signature)) {
+        forms.add((waveId: waveId, enemies: enemies));
+      }
+    }
+    final nameCounts = <String, int>{};
+    for (final form in forms) {
+      final name = form.enemies.first.name;
+      nameCounts[name] = (nameCounts[name] ?? 0) + 1;
+    }
+    final nameIndexes = <String, int>{};
+    return [
+      for (var index = 0; index < forms.length; index++)
+        BattleQueryStage(
+          id: index == 0 ? quest.questId : quest.questId * 100 + index,
+          bossKey: forms[index].waveId,
+          bossName: _dungeonFormName(
+            forms[index].enemies.first.name,
+            nameCounts,
+            nameIndexes,
+          ),
+          label: difficulty.label,
+          difficulty: 0,
+          enemies: forms[index].enemies,
+        ),
+    ];
+  }
+
+  String _dungeonFormName(
+    String name,
+    Map<String, int> counts,
+    Map<String, int> indexes,
+  ) {
+    if ((counts[name] ?? 0) <= 1) return name;
+    final index = (indexes[name] ?? 0) + 1;
+    indexes[name] = index;
+    return '$name · 形态 $index';
+  }
+
+  ({String label, List<String> aliases}) _dungeonDifficulty(int index) {
+    if (index == 0) {
+      return (label: 'HARD', aliases: const ['hard', 'h', 'hrad']);
+    }
+    if (index == 1) {
+      return (
+        label: 'VERY HARD',
+        aliases: const ['very hard', 'veryhard', 'vh'],
+      );
+    }
+    final ex = index - 1;
+    return (label: 'EX$ex', aliases: ['ex$ex', 'extreme$ex', 'extreme $ex']);
+  }
+
+  String _standardDifficulty(int difficulty) => switch (difficulty) {
+    1 => 'NORMAL',
+    2 => 'HARD',
+    3 => 'VERY HARD',
+    _ => 'EX${difficulty - 3}',
+  };
+
+  int _rowInt(Map<String, Object?> row, String key) =>
+      (row[key] as num?)?.toInt() ?? 0;
+
+  String _mirageAreaName(String questName) => questName.replaceFirst(
+    RegExp(r'(?:第)?\d+[层層]$'),
+    '',
+  );
+
+  String _battleDateRange(String startTime, String endTime) {
+    String date(String value) => value.split(' ').first.replaceAll('-', '/');
+    return '${date(startTime)} — ${date(endTime)}';
+  }
+
+  String? _abyssBossName(
+    AbyssBossDataData boss,
+    Map<int, AbyssWaveGroupDataData> waves,
+    Map<int, AbyssEnemyParameterData> enemies,
+  ) {
+    final wave = waves[boss.waveGroupId];
+    if (wave == null) return null;
+    for (final enemyId in _abyssWaveEnemyIds(wave)) {
+      final name = enemies[enemyId]?.name;
+      if (name != null && name.isNotEmpty) return name;
+    }
+    return null;
+  }
+
+  BattleQueryEnemy _battleEnemy({
+    required int enemyId,
+    required int unitId,
+    required String name,
+    required int level,
+    required int hp,
+    required EnemyType type,
+    List<int> weaknessTalentIds = const [],
+  }) => BattleQueryEnemy(
+    enemyId: enemyId,
+    unitId: unitId,
+    name: name,
+    level: level,
+    hp: hp,
+    enemyType: type,
+    weaknessTalentIds: weaknessTalentIds,
+  );
+
+  Future<Map<int, List<int>>> _battleWeaknesses(
+    Set<int> enemyIds,
+    Set<String> tables,
+  ) async {
+    if (enemyIds.isEmpty ||
+        !tables.containsAll({'enemy_talent_weakness', 'talent_weakness'})) {
+      return const {};
+    }
+    final rows =
+        await (select(enemyTalentWeakness).join([
+          innerJoin(
+            talentWeakness,
+            talentWeakness.resistId.equalsExp(enemyTalentWeakness.resistId),
+          ),
+        ])..where(enemyTalentWeakness.enemyId.isIn(enemyIds))).get();
+    return {
+      for (final row in rows)
+        row.readTable(enemyTalentWeakness).enemyId: [
+          if (row.readTable(talentWeakness).talent1 != 100) 1,
+          if (row.readTable(talentWeakness).talent2 != 100) 2,
+          if (row.readTable(talentWeakness).talent3 != 100) 3,
+          if (row.readTable(talentWeakness).talent4 != 100) 4,
+          if (row.readTable(talentWeakness).talent5 != 100) 5,
+        ],
+    };
+  }
+
+  Iterable<int> _waveEnemyIds(WaveGroupDataData wave) => [
+    wave.enemyId1,
+    wave.enemyId2,
+    wave.enemyId3,
+    wave.enemyId4,
+    wave.enemyId5,
+  ].where((id) => id != 0);
+
+  Iterable<int> _abyssWaveEnemyIds(AbyssWaveGroupDataData wave) => [
+    wave.enemyId1,
+    wave.enemyId2,
+    wave.enemyId3,
+    wave.enemyId4,
+    wave.enemyId5,
+  ].where((id) => id != 0);
+
+  List<BattleQueryEnemy> _uniqueBattleEnemies(
+    Iterable<BattleQueryEnemy> enemies,
+  ) => {
+    for (final enemy in enemies) enemy.enemyId: enemy,
+  }.values.toList(growable: false);
+
   Future<List<UnitSummary>> searchBondUnits(String search) async {
     final query = search.trim();
     final keyword = '%$query%';
     final idPrefix = '$query%';
-    final rows = await (selectOnly(unitData, distinct: true)
-          ..addColumns([unitData.unitId, unitData.unitName])
-          ..join([
-            innerJoin(
-              charaIdentity,
-              charaIdentity.unitId.equalsExp(unitData.unitId),
-            ),
-          ])
-          ..where(unitData.searchAreaWidth.isBiggerThanValue(0))
-          ..where(unitData.unitId.isSmallerThanValue(maxUnitId))
-          ..where(
-            query.isEmpty
-                ? const Constant(true)
-                : unitData.unitName.like(keyword) |
-                      unitData.unitId.cast<String>().like(idPrefix),
-          )
-          ..orderBy([
-            OrderingTerm.desc(unitData.startTime),
-            OrderingTerm.desc(unitData.unitId),
-          ])
-          ..limit(80))
-        .get();
+    final rows =
+        await (selectOnly(unitData, distinct: true)
+              ..addColumns([unitData.unitId, unitData.unitName])
+              ..join([
+                innerJoin(
+                  charaIdentity,
+                  charaIdentity.unitId.equalsExp(unitData.unitId),
+                ),
+              ])
+              ..where(unitData.searchAreaWidth.isBiggerThanValue(0))
+              ..where(unitData.unitId.isSmallerThanValue(maxUnitId))
+              ..where(
+                query.isEmpty
+                    ? const Constant(true)
+                    : unitData.unitName.like(keyword) |
+                          unitData.unitId.cast<String>().like(idPrefix),
+              )
+              ..orderBy([
+                OrderingTerm.desc(unitData.startTime),
+                OrderingTerm.desc(unitData.unitId),
+              ])
+              ..limit(80))
+            .get();
 
     return rows
         .map(
@@ -1363,13 +1952,16 @@ class AppDb extends _$AppDb {
     final matchesCharacter = charaColumns
         .map((column) => column.equals(charaId))
         .reduce((left, right) => left | right);
-    final rows = await (select(charaStoryStatus, distinct: true).join([
-      leftOuterJoin(
-        storyDetail,
-        storyDetail.storyId.equalsExp(charaStoryStatus.storyId),
-      ),
-    ])..where(matchesCharacter)
-      ..orderBy([OrderingTerm.asc(charaStoryStatus.storyId)])).get();
+    final rows =
+        await (select(charaStoryStatus, distinct: true).join([
+                leftOuterJoin(
+                  storyDetail,
+                  storyDetail.storyId.equalsExp(charaStoryStatus.storyId),
+                ),
+              ])
+              ..where(matchesCharacter)
+              ..orderBy([OrderingTerm.asc(charaStoryStatus.storyId)]))
+            .get();
 
     return rows
         .map((row) {
@@ -1422,9 +2014,7 @@ class AppDb extends _$AppDb {
         leftOuterJoin(b, b.equipmentId.equalsExp(a.equipmentId)),
         leftOuterJoin(uu, uu.equipId.equalsExp(a.equipmentId)),
       ])
-      ..where(
-        uu.unitId.equals(unitId),
-      )
+      ..where(uu.unitId.equals(unitId))
       ..where(
         // b.min_lv <= 2
         b.minLv.isSmallerOrEqualValue(2),
@@ -1608,6 +2198,26 @@ class AppDb extends _$AppDb {
     }
     final row = await customSelect(
       'SELECT * FROM sekai_enemy_parameter WHERE sekai_enemy_id = ?',
+      variables: [Variable<int>(enemyId)],
+    ).getSingleOrNull();
+    return row?.data;
+  }
+
+  Future<AbyssEnemyParameterData?> getAbyssEnemyParameter(int enemyId) async {
+    if (!(await _databaseTables()).contains('abyss_enemy_parameter')) {
+      return null;
+    }
+    return (select(
+      abyssEnemyParameter,
+    )..where((row) => row.enemyId.equals(enemyId))).getSingleOrNull();
+  }
+
+  Future<Map<String, Object?>?> getMirageEnemyParameter(int enemyId) async {
+    if (!(await _databaseTables()).contains('mirage_enemy_parameter')) {
+      return null;
+    }
+    final row = await customSelect(
+      'SELECT * FROM mirage_enemy_parameter WHERE enemy_id = ?',
       variables: [Variable<int>(enemyId)],
     ).getSingleOrNull();
     return row?.data;
@@ -1802,12 +2412,9 @@ class AppDb extends _$AppDb {
         (
           phase: row.read(clanBattle2MapData.phase)!,
           lapFrom: row.read(minLapFrom) ?? 1,
-          lapTo: row.read(minLapTo) == -1
-              ? -1
-              : (row.read(maxLapTo) ?? -1),
+          lapTo: row.read(minLapTo) == -1 ? -1 : (row.read(maxLapTo) ?? -1),
           waveIds: [
-            for (final expression in waveExpressions)
-              if (row.read(expression) case final waveId?) waveId,
+            for (final expression in waveExpressions) ?row.read(expression),
           ],
         ),
     ];
@@ -1817,25 +2424,20 @@ class AppDb extends _$AppDb {
         .toList(growable: false);
     if (waveIds.isEmpty) return const [];
 
-    final bossRows =
-        await (select(waveGroupData).join([
-              innerJoin(
-                enemyParameter,
-                enemyParameter.enemyId.equalsExp(waveGroupData.enemyId1),
-              ),
-              leftOuterJoin(
-                enemyTalentWeakness,
-                enemyTalentWeakness.enemyId.equalsExp(enemyParameter.enemyId),
-              ),
-              leftOuterJoin(
-                talentWeakness,
-                talentWeakness.resistId.equalsExp(
-                  enemyTalentWeakness.resistId,
-                ),
-              ),
-            ])
-            ..where(waveGroupData.waveGroupId.isIn(waveIds)))
-            .get();
+    final bossRows = await (select(waveGroupData).join([
+      innerJoin(
+        enemyParameter,
+        enemyParameter.enemyId.equalsExp(waveGroupData.enemyId1),
+      ),
+      leftOuterJoin(
+        enemyTalentWeakness,
+        enemyTalentWeakness.enemyId.equalsExp(enemyParameter.enemyId),
+      ),
+      leftOuterJoin(
+        talentWeakness,
+        talentWeakness.resistId.equalsExp(enemyTalentWeakness.resistId),
+      ),
+    ])..where(waveGroupData.waveGroupId.isIn(waveIds))).get();
     final bossByWaveId = <int, ClanBattleBossData>{};
     for (final row in bossRows) {
       final wave = row.readTable(waveGroupData);

@@ -65,6 +65,36 @@ class AppLocalizationsZh extends AppLocalizations {
   String get deep_zone_desc => '按属性查看关卡奖励与敌方阵容';
 
   @override
+  String get dungeon_boss => '地下城 Boss';
+
+  @override
+  String get dungeon_boss_desc => '查看各地下城最终 Boss 的属性与技能';
+
+  @override
+  String get remembrance_battlefield => '追忆战域';
+
+  @override
+  String get remembrance_battlefield_desc => '查看追忆战 Boss、难度与敌方阵容';
+
+  @override
+  String get abyss_raid => '深渊讨伐战';
+
+  @override
+  String get abyss_raid_desc => '按期次查看 Boss、难度与额外效果';
+
+  @override
+  String get extra_effect => '额外效果';
+
+  @override
+  String get no_extra_effect => '该关卡没有额外效果数据';
+
+  @override
+  String get no_battle_query_data => '数据库中没有该玩法的查询数据';
+
+  @override
+  String get no_enemy_data => '没有敌人数据';
+
+  @override
   String stellar_shard_count(int arg1) {
     return '星素碎片*$arg1';
   }
