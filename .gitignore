@@ -47,5 +47,7 @@ app.*.map.json
 *.db
 dist/*
 
-# Tests are kept locally but are not committed.
-/test/
+# Keep local exploratory tests private; retain release regression coverage.
+/test/*
+!/test/database_file_test.dart
+!/test/release_version_test.py

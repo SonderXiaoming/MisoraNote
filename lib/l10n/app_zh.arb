@@ -333,6 +333,19 @@
   "database_missing": "数据库文件缺失",
   "database_missing_hit": "检测到数据库文件不存在，需要下载数据库文件才能正常使用应用。",
   "download": "下载",
+  "download_and_update": "下载并更新",
+  "downloading_update": "正在下载更新…",
+  "download_progress": "已下载 {arg1}%",
+  "@download_progress": {
+    "placeholders": {
+      "arg1": {
+        "type": "int"
+      }
+    }
+  },
+  "opening_installer": "下载完成，正在打开安装程序",
+  "no_update_package": "没有找到适用于当前设备的更新包",
+  "ios_unsigned_update_hint": "iOS 版本为未签名 IPA，下载后需使用 SideStore、AltStore 或 Sideloadly 重新签名安装。",
   "database_broken": "数据库文件损坏",
   "database_broken_hit": "检测到数据库文件损坏，需要重新下载数据库文件才能正常使用应用。",
   "database_updating": "正在更新数据库",

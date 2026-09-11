@@ -1216,6 +1216,42 @@ abstract class AppLocalizations {
   /// **'下载'**
   String get download;
 
+  /// No description provided for @download_and_update.
+  ///
+  /// In zh, this message translates to:
+  /// **'下载并更新'**
+  String get download_and_update;
+
+  /// No description provided for @downloading_update.
+  ///
+  /// In zh, this message translates to:
+  /// **'正在下载更新…'**
+  String get downloading_update;
+
+  /// No description provided for @download_progress.
+  ///
+  /// In zh, this message translates to:
+  /// **'已下载 {arg1}%'**
+  String download_progress(int arg1);
+
+  /// No description provided for @opening_installer.
+  ///
+  /// In zh, this message translates to:
+  /// **'下载完成，正在打开安装程序'**
+  String get opening_installer;
+
+  /// No description provided for @no_update_package.
+  ///
+  /// In zh, this message translates to:
+  /// **'没有找到适用于当前设备的更新包'**
+  String get no_update_package;
+
+  /// No description provided for @ios_unsigned_update_hint.
+  ///
+  /// In zh, this message translates to:
+  /// **'iOS 版本为未签名 IPA，下载后需使用 SideStore、AltStore 或 Sideloadly 重新签名安装。'**
+  String get ios_unsigned_update_hint;
+
   /// No description provided for @database_broken.
   ///
   /// In zh, this message translates to:

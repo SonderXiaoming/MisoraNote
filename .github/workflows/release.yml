@@ -22,7 +22,14 @@ jobs:
     runs-on: ubuntu-24.04
     outputs:
       version: ${{ steps.version.outputs.version }}
+      build_number: ${{ steps.version.outputs.build_number }}
     steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+
+      - name: Test release version verification
+        run: python3 test/release_version_test.py
+
       - name: Validate semantic version
         id: version
         shell: bash
@@ -32,7 +39,7 @@ jobs:
             echo "Release tags must use the vMAJOR.MINOR.PATCH format (for example, v1.2.3)." >&2
             exit 1
           fi
-          echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+          python3 .github/scripts/verify_release.py source --tag "$GITHUB_REF_NAME" >> "$GITHUB_OUTPUT"
 
   build-windows:
     name: Build Windows x64
@@ -40,6 +47,7 @@ jobs:
     runs-on: windows-2022
     env:
       VERSION: ${{ needs.validate-tag.outputs.version }}
+      BUILD_NUMBER: ${{ needs.validate-tag.outputs.build_number }}
     steps:
       - name: Check out source
         uses: actions/checkout@v6
@@ -55,7 +63,7 @@ jobs:
         run: flutter pub get
 
       - name: Build Windows
-        run: flutter build windows --release --build-name $env:VERSION --build-number $env:GITHUB_RUN_NUMBER
+        run: flutter build windows --release --build-name $env:VERSION --build-number $env:BUILD_NUMBER
 
       - name: Package Windows
         shell: pwsh
@@ -64,6 +72,18 @@ jobs:
           Compress-Archive `
             -Path "build/windows/x64/runner/Release/*" `
             -DestinationPath "dist/misora_note_${env:GITHUB_REF_NAME}_windows_x64.zip"
+
+      - name: Install Inno Setup
+        run: choco install innosetup --no-progress -y
+
+      - name: Build Windows installer
+        shell: pwsh
+        run: |
+          $compiler = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          & $compiler ".github\windows\misora_note.iss"
+          if ($LASTEXITCODE -ne 0) {
+            exit $LASTEXITCODE
+          }
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v6
@@ -78,6 +98,7 @@ jobs:
     runs-on: macos-15-intel
     env:
       VERSION: ${{ needs.validate-tag.outputs.version }}
+      BUILD_NUMBER: ${{ needs.validate-tag.outputs.build_number }}
     steps:
       - name: Check out source
         uses: actions/checkout@v6
@@ -93,7 +114,7 @@ jobs:
         run: flutter pub get
 
       - name: Build macOS
-        run: flutter build macos --release --build-name "$VERSION" --build-number "$GITHUB_RUN_NUMBER"
+        run: flutter build macos --release --build-name "$VERSION" --build-number "$BUILD_NUMBER"
 
       - name: Package macOS DMG
         shell: bash
@@ -125,6 +146,7 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       VERSION: ${{ needs.validate-tag.outputs.version }}
+      BUILD_NUMBER: ${{ needs.validate-tag.outputs.build_number }}
     steps:
       - name: Check out source
         uses: actions/checkout@v6
@@ -147,10 +169,13 @@ jobs:
         run: flutter pub get
 
       - name: Build Android APKs
-        run: flutter build apk --release --split-per-abi --build-name "$VERSION" --build-number "$GITHUB_RUN_NUMBER"
+        run: flutter build apk --release --split-per-abi --build-name "$VERSION" --build-number "$BUILD_NUMBER"
+
+      - name: Build universal Android APK
+        run: flutter build apk --release --build-name "$VERSION" --build-number "$BUILD_NUMBER"
 
       - name: Build Android App Bundle
-        run: flutter build appbundle --release --build-name "$VERSION" --build-number "$GITHUB_RUN_NUMBER"
+        run: flutter build appbundle --release --build-name "$VERSION" --build-number "$BUILD_NUMBER"
 
       - name: Package Android
         shell: bash
@@ -160,6 +185,7 @@ jobs:
           cp build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk "dist/misora_note_${GITHUB_REF_NAME}_armeabi-v7a.apk"
           cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk "dist/misora_note_${GITHUB_REF_NAME}_arm64-v8a.apk"
           cp build/app/outputs/flutter-apk/app-x86_64-release.apk "dist/misora_note_${GITHUB_REF_NAME}_x86_64.apk"
+          cp build/app/outputs/flutter-apk/app-release.apk "dist/misora_note_${GITHUB_REF_NAME}_android.apk"
           cp build/app/outputs/bundle/release/app-release.aab "dist/misora_note_${GITHUB_REF_NAME}.aab"
 
       - name: Upload Android artifacts
@@ -175,6 +201,7 @@ jobs:
     runs-on: macos-15
     env:
       VERSION: ${{ needs.validate-tag.outputs.version }}
+      BUILD_NUMBER: ${{ needs.validate-tag.outputs.build_number }}
     steps:
       - name: Check out source
         uses: actions/checkout@v6
@@ -190,7 +217,7 @@ jobs:
         run: flutter pub get
 
       - name: Build iOS without code signing
-        run: flutter build ios --release --no-codesign --build-name "$VERSION" --build-number "$GITHUB_RUN_NUMBER"
+        run: flutter build ios --release --no-codesign --build-name "$VERSION" --build-number "$BUILD_NUMBER"
 
       - name: Package unsigned IPA
         shell: bash
@@ -203,6 +230,9 @@ jobs:
             zip -qry "misora_note_${GITHUB_REF_NAME}_ios_unsigned.ipa" Payload
           )
           rm -rf dist/Payload
+
+      - name: Verify version inside the packaged IPA
+        run: python3 .github/scripts/verify_release.py ipa "dist/misora_note_${GITHUB_REF_NAME}_ios_unsigned.ipa" --version "$VERSION" --build-number "$BUILD_NUMBER"
 
       - name: Upload iOS artifact
         uses: actions/upload-artifact@v6
@@ -217,6 +247,7 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       VERSION: ${{ needs.validate-tag.outputs.version }}
+      BUILD_NUMBER: ${{ needs.validate-tag.outputs.build_number }}
     steps:
       - name: Check out source
         uses: actions/checkout@v6
@@ -244,7 +275,7 @@ jobs:
         run: flutter pub get
 
       - name: Build Linux
-        run: flutter build linux --release --build-name "$VERSION" --build-number "$GITHUB_RUN_NUMBER"
+        run: flutter build linux --release --build-name "$VERSION" --build-number "$BUILD_NUMBER"
 
       - name: Package Linux
         shell: bash
@@ -289,8 +320,10 @@ jobs:
         run: |
           set -euo pipefail
           expected=(
+            "misora_note_${GITHUB_REF_NAME}_windows_x64_setup.exe"
             "misora_note_${GITHUB_REF_NAME}_windows_x64.zip"
             "misora_note_${GITHUB_REF_NAME}_macos.dmg"
+            "misora_note_${GITHUB_REF_NAME}_android.apk"
             "misora_note_${GITHUB_REF_NAME}_armeabi-v7a.apk"
             "misora_note_${GITHUB_REF_NAME}_arm64-v8a.apk"
             "misora_note_${GITHUB_REF_NAME}_x86_64.apk"

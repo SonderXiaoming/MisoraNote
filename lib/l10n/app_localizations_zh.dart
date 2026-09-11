@@ -611,6 +611,27 @@ class AppLocalizationsZh extends AppLocalizations {
   String get download => '下载';
 
   @override
+  String get download_and_update => '下载并更新';
+
+  @override
+  String get downloading_update => '正在下载更新…';
+
+  @override
+  String download_progress(int arg1) {
+    return '已下载 $arg1%';
+  }
+
+  @override
+  String get opening_installer => '下载完成，正在打开安装程序';
+
+  @override
+  String get no_update_package => '没有找到适用于当前设备的更新包';
+
+  @override
+  String get ios_unsigned_update_hint =>
+      'iOS 版本为未签名 IPA，下载后需使用 SideStore、AltStore 或 Sideloadly 重新签名安装。';
+
+  @override
   String get database_broken => '数据库文件损坏';
 
   @override

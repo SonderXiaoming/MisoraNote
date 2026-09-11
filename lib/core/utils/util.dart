@@ -1,10 +1,9 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:isolate';
-
-import 'package:brotli/brotli.dart';
 import 'package:dio/dio.dart';
 import 'package:misora_note/constants.dart';
+import 'package:misora_note/core/db/database.dart';
+import 'package:misora_note/core/db/database_file.dart';
 import 'package:misora_note/core/network/base.dart';
 
 int longUnitId2Short(int longId) {
@@ -34,11 +33,7 @@ class DatabaseDownloadInfo {
   final String? url;
   final String? brotliUrl;
 
-  const DatabaseDownloadInfo({
-    required this.version,
-    this.url,
-    this.brotliUrl,
-  });
+  const DatabaseDownloadInfo({required this.version, this.url, this.brotliUrl});
 }
 
 DatabaseDownloadInfo? databaseDownloadInfoFromResponse(
@@ -80,9 +75,11 @@ Future<String?> checkDatabaseUpdate(Area area) async {
   }
 }
 
-Future<void> updatePcrDatabase(
+Future<String> updatePcrDatabase(
   Area area, {
   void Function(int rec, int total)? onProgress,
+  Future<void> Function()? beforeReplace,
+  Future<void> Function()? afterReplace,
 }) async {
   final path = FilePath.db(area);
   final response = await dio.get(FetchUrl.dbInfo(area));
@@ -90,90 +87,49 @@ Future<void> updatePcrDatabase(
     throw Exception('获取数据库下载信息失败: ${response.statusCode}');
   }
   final info = databaseDownloadInfoFromResponse(response.data, area);
-  final brotliUrl = info?.brotliUrl;
-  if (brotliUrl == null) {
-    await apiClient.download(
-      url: info?.url ?? FetchUrl.db(area),
-      path: path,
-      allowCache: false,
-      onProgress: onProgress,
-    );
-    return;
+  if (info == null) {
+    throw const FormatException('数据库下载信息缺少版本号');
   }
-
-  final compressedPath = '$path.download.br';
-  final stagedPath = '$path.download';
-  final compressedFile = File(compressedPath);
+  final brotliUrl = info.brotliUrl;
+  final target = File(path);
+  await target.parent.create(recursive: true);
+  // A unique staging directory cannot resume a partial file from an older
+  // server version. All downloaded data is checked before touching the old DB.
+  final staging = await target.parent.createTemp('.database-update-');
+  final compressedPath = '${staging.path}/database.br';
+  final stagedPath = '${staging.path}/database.db';
   final stagedFile = File(stagedPath);
   try {
     await apiClient.download(
-      url: brotliUrl,
-      path: compressedPath,
+      url: brotliUrl ?? info.url ?? FetchUrl.db(area),
+      path: brotliUrl == null ? stagedPath : compressedPath,
       allowCache: false,
       onProgress: onProgress,
     );
-    if (stagedFile.existsSync()) stagedFile.deleteSync();
-    await _decompressBrotliFile(compressedPath, stagedPath);
-    if (!await _hasSqliteHeader(stagedFile)) {
-      throw const FormatException('Brotli 数据解压后不是有效的 SQLite 数据库');
+    if (brotliUrl != null) {
+      await decompressDatabaseBrotli(compressedPath, stagedPath);
     }
-    await _replaceDatabase(stagedFile, File(path));
+    await installDatabaseFile(
+      stagedFile,
+      target,
+      beforeReplace: () async {
+        // Exercise the same queries/migrations as application startup while
+        // the previous database is still available.
+        final candidate = AppDb(stagedPath);
+        try {
+          await candidate.init();
+        } finally {
+          await candidate.close();
+        }
+        await beforeReplace?.call();
+      },
+      afterReplace: afterReplace,
+    );
+    return info.version;
   } finally {
-    if (compressedFile.existsSync()) compressedFile.deleteSync();
-    if (stagedFile.existsSync()) stagedFile.deleteSync();
-  }
-}
-
-Future<void> _decompressBrotliFile(String source, String destination) =>
-    Isolate.run(() async {
-      await brotli.decoder
-          .bind(File(source).openRead())
-          .pipe(File(destination).openWrite());
-    });
-
-Future<bool> _hasSqliteHeader(File file) async {
-  if (!file.existsSync() || file.lengthSync() < 16) return false;
-  final input = await file.open();
-  try {
-    final header = await input.read(16);
-    const sqliteHeader = <int>[
-      83,
-      81,
-      76,
-      105,
-      116,
-      101,
-      32,
-      102,
-      111,
-      114,
-      109,
-      97,
-      116,
-      32,
-      51,
-      0,
-    ];
-    if (header.length != sqliteHeader.length) return false;
-    for (var index = 0; index < sqliteHeader.length; index++) {
-      if (header[index] != sqliteHeader[index]) return false;
+    // Preserve the backup if an OS error prevented rollback.
+    if (!File('$stagedPath.backup').existsSync()) {
+      await staging.delete(recursive: true);
     }
-    return true;
-  } finally {
-    await input.close();
-  }
-}
-
-Future<void> _replaceDatabase(File staged, File target) async {
-  final backup = File('${target.path}.backup');
-  if (backup.existsSync()) backup.deleteSync();
-  if (target.existsSync()) target.renameSync(backup.path);
-  try {
-    staged.renameSync(target.path);
-    if (backup.existsSync()) backup.deleteSync();
-  } catch (_) {
-    if (target.existsSync()) target.deleteSync();
-    if (backup.existsSync()) backup.renameSync(target.path);
-    rethrow;
   }
 }

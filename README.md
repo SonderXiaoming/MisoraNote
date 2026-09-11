@@ -26,9 +26,12 @@
 
 前往 [Releases](https://github.com/SonderXiaoming/MisoraNote/releases) 页面下载最新版本：
 
-- **Windows**: `misora_note_vX.X.X_windows_x64.zip` - 解压后运行 `misora_note.exe`
+- **Windows**:
+  - 安装版：`misora_note_vX.X.X_windows_x64_setup.exe`（推荐，一键安装）
+  - 便携版：`misora_note_vX.X.X_windows_x64.zip` - 解压后运行 `misora_note.exe`
 - **macOS**: `misora_note_vX.X.X_macos.dmg` - 双击安装
 - **Android**:
+  - 通用版：`misora_note_vX.X.X_android.apk`（推荐，可用于应用内更新）
   - ARM64: `misora_note_vX.X.X_arm64-v8a.apk` (推荐，适用于大多数现代设备)
   - ARMv7: `misora_note_vX.X.X_armeabi-v7a.apk` (适用于较老的设备)
 - **iOS**: `misora_note_vX.X.X_ios_unsigned.ipa` (未签名，需通过 SideStore、Sideloadly 等工具使用 Apple ID 重新签名)
@@ -40,7 +43,7 @@
 
 1. 从 [Releases](https://github.com/SonderXiaoming/MisoraNote/releases) 下载适合您系统的版本
 2. 根据您的平台进行安装：
-   - **Windows**: 解压 ZIP 文件，双击 `misora_note.exe`
+   - **Windows**: 双击 Setup EXE 一键安装；便携版可解压 ZIP 后运行
    - **macOS**: 打开 DMG 文件，将应用拖入 Applications 文件夹
    - **Linux**: 解压 tar.gz 文件，在终端中运行 `./misora_note`
    - **Android**: 安装 APK 文件（可能需要允许"未知来源"）

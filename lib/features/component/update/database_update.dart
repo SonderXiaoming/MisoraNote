@@ -16,12 +16,17 @@ bool hasDatabaseUpdate(String? currentVersion, String? latestVersion) {
   return normalizeDatabaseVersion(currentVersion) != latest;
 }
 
+bool _databaseUpdateInProgress = false;
+
 Future<void> updateDatabase(
   WidgetRef ref,
   BuildContext context,
   String? newVersion,
 ) async {
+  if (_databaseUpdateInProgress) return;
+  _databaseUpdateInProgress = true;
   final t = AppLocalizations.of(context)!;
+  var connectionClosed = false;
   try {
     await ProgressDialog.show(
       context,
@@ -29,10 +34,22 @@ Future<void> updateDatabase(
       task: (updateProgress) async {
         // 等待 area 加载完成
         final area = await ref.read(databaseAreaProvider.future);
-        final db = ref.read(dbProvider);
-        await db.close(); // 关闭现有数据库连接
-        await updatePcrDatabase(
+        final downloadedVersion = await updatePcrDatabase(
           area,
+          beforeReplace: () async {
+            await ref.read(dbProvider).close();
+            connectionClosed = true;
+          },
+          afterReplace: () async {
+            ref.invalidate(dbProvider);
+            final replacement = ref.read(dbProvider);
+            try {
+              await replacement.init();
+            } catch (_) {
+              await replacement.close();
+              rethrow;
+            }
+          },
           onProgress: (received, total) {
             if (total > 0) {
               final progress = received / total;
@@ -40,15 +57,10 @@ Future<void> updateDatabase(
             }
           },
         );
-        ref.invalidate(dbProvider); // 使 dbProvider 重新创建数据库实例
-        await ref.read(dbProvider).init();
-
-        // 更新完成，设置版本号
-        if (newVersion != null) {
-          await ref.read(currentDbVersionProvider.notifier).set(newVersion);
-        } else {
-          ref.invalidate(currentDbVersionProvider);
-        }
+        // Metadata may have changed since the update dialog was opened.
+        await ref
+            .read(currentDbVersionProvider.notifier)
+            .set(downloadedVersion);
       },
     );
 
@@ -59,6 +71,16 @@ Future<void> updateDatabase(
       ).showSnackBar(SnackBar(content: Text(t.database_update_success)));
     }
   } catch (e) {
+    // installDatabaseFile has restored the old file if activation failed.
+    if (connectionClosed) {
+      ref.invalidate(dbProvider);
+      try {
+        await ref.read(dbProvider).init();
+      } catch (_) {
+        // The original file may already have been corrupt. Keep the update
+        // error so the user can retry downloading it.
+      }
+    }
     // 显示错误信息
     if (context.mounted) {
       ScaffoldMessenger.of(
@@ -66,6 +88,8 @@ Future<void> updateDatabase(
       ).showSnackBar(SnackBar(content: Text('${t.database_update_fail} $e')));
     }
     rethrow;
+  } finally {
+    _databaseUpdateInProgress = false;
   }
 }
 

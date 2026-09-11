@@ -354,7 +354,10 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
         appAutoUpdate.isLoading) {
       return Scaffold(body: Center(child: CircularProgressIndicator()));
     }
-    final version = packageInfo.value?.version ?? t.unknown;
+    final info = packageInfo.value;
+    final version = info == null
+        ? t.unknown
+        : '${info.version}${info.buildNumber.isEmpty ? '' : ' (${info.buildNumber})'}';
 
     return Scaffold(
       body: ListView(
